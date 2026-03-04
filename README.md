@@ -97,12 +97,31 @@ New articles are detected by comparing sitemap `lastmod` timestamps against a pe
 - Fetches top-30 AI stories from Hacker News (last 24h, ranked by points); generates community sentiment report
 - Publishes GitHub Issues for each report type; commits Markdown files to `digests/YYYY-MM-DD/`
 - Runs on a daily schedule via GitHub Actions; supports manual triggering
+- All tracked repositories are configurable via `config.yml` — no code changes needed
 
 ## Setup
 
 ### 1. Fork this repository
 
-### 2. Add Secrets
+### 2. Customize `config.yml` (optional)
+
+Edit `config.yml` in the repo root to add, remove, or replace the tracked repositories. The file is fully commented. No code changes are needed — the pipeline reads it on every run and falls back to built-in defaults if the file is absent.
+
+```yaml
+# Add a new CLI tool
+cli_repos:
+  - id: my-tool
+    repo: owner/my-ai-cli
+    name: My AI Tool
+
+# Add a new peer project to the OpenClaw ecosystem comparison
+openclaw_peers:
+  - id: my-agent
+    repo: owner/my-agent
+    name: My Agent
+```
+
+### 3. Add Secrets
 
 Go to **Settings → Secrets and variables → Actions** and add:
 

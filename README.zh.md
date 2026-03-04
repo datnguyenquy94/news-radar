@@ -97,12 +97,31 @@ LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 
 - 抓取 Hacker News 过去 24 小时 AI 热门帖子（top 30，按分数排序），生成社区情绪报告
 - 以 GitHub Issues 形式发布报告，同时提交 Markdown 文件至 `digests/YYYY-MM-DD/`
 - 每日通过 GitHub Actions 定时运行，支持手动触发
+- 所有追踪仓库均可通过 `config.yml` 配置，无需修改代码
 
 ## 部署配置
 
 ### 1. Fork 本仓库
 
-### 2. 添加 Secrets
+### 2. 自定义 `config.yml`（可选）
+
+编辑仓库根目录的 `config.yml`，可增删或替换追踪的仓库。文件内有详细注释，每次工作流运行时自动读取，无需改代码。若文件不存在则使用内置默认值。
+
+```yaml
+# 添加新的 CLI 工具
+cli_repos:
+  - id: my-tool
+    repo: owner/my-ai-cli
+    name: My AI Tool
+
+# 添加新的同赛道对比项目
+openclaw_peers:
+  - id: my-agent
+    repo: owner/my-agent
+    name: My Agent
+```
+
+### 3. 添加 Secrets
 
 进入 **Settings → Secrets and variables → Actions**，添加以下密钥：
 

@@ -339,3 +339,7 @@ OpenAI 内容精选            (research / release / company / safety / ...)
 | 08:00 | `0 0 * * *`  |
 | 09:00 | `0 1 * * *`  |
 | 10:00 | `0 2 * * *`  |
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=duanyytop/agents-radar&type=Date)](https://star-history.com/#duanyytop/agents-radar&Date)

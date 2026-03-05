@@ -362,3 +362,7 @@ Historical digests are stored in [`digests/`](./digests/). Published issues are 
 | Monthly rollup | `0 2 1 * *` | 02:00 on the 1st | 10:00 on the 1st |
 
 To change the schedule, edit the cron expressions in the corresponding workflow files under `.github/workflows/`.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=duanyytop/agents-radar&type=Date)](https://star-history.com/#duanyytop/agents-radar&Date)

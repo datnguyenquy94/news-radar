@@ -428,13 +428,14 @@ async function saveWebReport(
 
       console.log(`  Saved ${saveFile(webContent, dateStr, fileName)}`);
 
-      if (digestRepo && lang === "zh") {
-        const webUrl = await createGitHubIssue(
-          `🌐 AI 官方内容追踪报告 ${dateStr}${isFirstRun ? "（首次全量）" : ""}`,
-          webContent,
-          "web",
-        );
-        console.log(`  Created web issue: ${webUrl}`);
+      if (digestRepo) {
+        const webTitle =
+          lang === "en"
+            ? `🌐 Official AI Content Report ${dateStr}${isFirstRun ? " (First Crawl)" : ""}`
+            : `🌐 AI 官方内容追踪报告 ${dateStr}${isFirstRun ? "（首次全量）" : ""}`;
+        const webLabel = lang === "en" ? "web-en" : "web";
+        const webUrl = await createGitHubIssue(webTitle, webContent, webLabel);
+        console.log(`  Created web issue (${lang}): ${webUrl}`);
       }
     } catch (err) {
       console.error(`  [web/${lang}] Report generation failed: ${err}`);
@@ -474,9 +475,14 @@ async function saveTrendingReport(
 
   console.log(`  Saved ${saveFile(trendingContent, dateStr, fileName)}`);
 
-  if (digestRepo && lang === "zh") {
-    const trendingUrl = await createGitHubIssue(`📈 AI 开源趋势日报 ${dateStr}`, trendingContent, "trending");
-    console.log(`  Created trending issue: ${trendingUrl}`);
+  if (digestRepo) {
+    const trendingTitle =
+      lang === "en"
+        ? `📈 AI Open Source Trends ${dateStr}`
+        : `📈 AI 开源趋势日报 ${dateStr}`;
+    const trendingLabel = lang === "en" ? "trending-en" : "trending";
+    const trendingUrl = await createGitHubIssue(trendingTitle, trendingContent, trendingLabel);
+    console.log(`  Created trending issue (${lang}): ${trendingUrl}`);
   }
 }
 
@@ -512,9 +518,14 @@ async function saveHnReport(
 
     console.log(`  Saved ${saveFile(hnContent, dateStr, fileName)}`);
 
-    if (digestRepo && lang === "zh") {
-      const hnUrl = await createGitHubIssue(`📰 Hacker News AI 社区动态日报 ${dateStr}`, hnContent, "hn");
-      console.log(`  Created HN issue: ${hnUrl}`);
+    if (digestRepo) {
+      const hnTitle =
+        lang === "en"
+          ? `📰 Hacker News AI Digest ${dateStr}`
+          : `📰 Hacker News AI 社区动态日报 ${dateStr}`;
+      const hnLabel = lang === "en" ? "hn-en" : "hn";
+      const hnUrl = await createGitHubIssue(hnTitle, hnContent, hnLabel);
+      console.log(`  Created HN issue (${lang}): ${hnUrl}`);
     }
   } catch (err) {
     console.error(`  [hn/${lang}] Report generation failed: ${err}`);
@@ -645,17 +656,31 @@ async function main(): Promise<void> {
     saveHnReport(hnData, utcStr, dateStr, digestRepo, enFooter, "en"),
   ]);
 
-  // 5. Create GitHub issues for CLI + OpenClaw (zh only)
+  // 5. Create GitHub issues for CLI + OpenClaw (zh + en)
   if (digestRepo) {
     const cliUrl = await createGitHubIssue(`📊 AI CLI 工具社区动态日报 ${dateStr}`, digestContent, "digest");
-    console.log(`  Created CLI issue: ${cliUrl}`);
+    console.log(`  Created CLI issue (zh): ${cliUrl}`);
+
+    const cliEnUrl = await createGitHubIssue(
+      `📊 AI CLI Tools Digest ${dateStr}`,
+      enDigestContent,
+      "digest-en",
+    );
+    console.log(`  Created CLI issue (en): ${cliEnUrl}`);
 
     const openclawUrl = await createGitHubIssue(
       `🦞 OpenClaw 生态日报 ${dateStr}`,
       openclawContent,
       "openclaw",
     );
-    console.log(`  Created OpenClaw issue: ${openclawUrl}`);
+    console.log(`  Created OpenClaw issue (zh): ${openclawUrl}`);
+
+    const openclawEnUrl = await createGitHubIssue(
+      `🦞 OpenClaw Ecosystem Digest ${dateStr}`,
+      enOpenclawContent,
+      "openclaw-en",
+    );
+    console.log(`  Created OpenClaw issue (en): ${openclawEnUrl}`);
   }
 
   console.log("Done!");

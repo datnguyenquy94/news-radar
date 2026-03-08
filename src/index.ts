@@ -477,9 +477,7 @@ async function saveTrendingReport(
 
   if (digestRepo) {
     const trendingTitle =
-      lang === "en"
-        ? `📈 AI Open Source Trends ${dateStr}`
-        : `📈 AI 开源趋势日报 ${dateStr}`;
+      lang === "en" ? `📈 AI Open Source Trends ${dateStr}` : `📈 AI 开源趋势日报 ${dateStr}`;
     const trendingLabel = lang === "en" ? "trending-en" : "trending";
     const trendingUrl = await createGitHubIssue(trendingTitle, trendingContent, trendingLabel);
     console.log(`  Created trending issue (${lang}): ${trendingUrl}`);
@@ -520,9 +518,7 @@ async function saveHnReport(
 
     if (digestRepo) {
       const hnTitle =
-        lang === "en"
-          ? `📰 Hacker News AI Digest ${dateStr}`
-          : `📰 Hacker News AI 社区动态日报 ${dateStr}`;
+        lang === "en" ? `📰 Hacker News AI Digest ${dateStr}` : `📰 Hacker News AI 社区动态日报 ${dateStr}`;
       const hnLabel = lang === "en" ? "hn-en" : "hn";
       const hnUrl = await createGitHubIssue(hnTitle, hnContent, hnLabel);
       console.log(`  Created HN issue (${lang}): ${hnUrl}`);

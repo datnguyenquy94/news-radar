@@ -39,10 +39,14 @@ export function formatItem(item: GitHubItem, lang: "zh" | "en" = "zh"): string {
           summary: "Summary",
         }
       : { author: "作者", created: "创建", updated: "更新", comments: "评论", url: "链接", summary: "摘要" };
+  // Extract "owner/repo" from html_url to avoid full GitHub URLs that trigger cross-references
+  const repoSlug = item.html_url.replace(/^https:\/\/github\.com\//, "").replace(/\/(issues|pull)\/\d+$/, "");
+  const itemKind = item.html_url.includes("/pull/") ? "PR" : "Issue";
+  const refStr = `${repoSlug} ${itemKind} #${item.number}`;
   return [
     `#${item.number} [${item.state.toUpperCase()}]${labelStr} ${item.title}`,
     `  ${t.author}: @${item.user.login} | ${t.created}: ${item.created_at.slice(0, 10)} | ${t.updated}: ${item.updated_at.slice(0, 10)} | ${t.comments}: ${item.comments} | 👍: ${item.reactions?.["+1"] ?? 0}`,
-    `  ${t.url}: ${item.html_url}`,
+    `  ${t.url}: ${refStr}`,
     `  ${t.summary}: ${body}${ellipsis}`,
   ].join("\n");
 }

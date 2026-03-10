@@ -184,8 +184,18 @@ export async function fetchSkillsData(repo: string): Promise<{ prs: GitHubItem[]
 const GITHUB_ISSUE_BODY_LIMIT = 65536;
 const TRUNCATION_NOTICE = "\n\n---\n> ⚠️ 内容超过 GitHub Issue 上限，完整报告见提交的 Markdown 文件。";
 
+/**
+ * Break GitHub URLs in issue body to prevent cross-repository references.
+ * Inserts a zero-width space in "github.com" so GitHub's auto-linker
+ * won't create "mentioned this issue" notifications on external repos.
+ */
+function neutralizeGitHubRefs(text: string): string {
+  return text.replace(/https:\/\/github\.com\//g, "https://github\u200B.com/");
+}
+
 export async function createGitHubIssue(title: string, body: string, label: string): Promise<string> {
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
+  body = neutralizeGitHubRefs(body);
   if (body.length > GITHUB_ISSUE_BODY_LIMIT) {
     body = body.slice(0, GITHUB_ISSUE_BODY_LIMIT - TRUNCATION_NOTICE.length) + TRUNCATION_NOTICE;
   }

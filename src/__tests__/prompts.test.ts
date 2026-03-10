@@ -35,7 +35,7 @@ describe("formatItem", () => {
     expect(result).toContain("作者: @alice");
     expect(result).toContain("评论: 5");
     expect(result).toContain("👍: 3");
-    expect(result).toContain("链接: https://github.com/org/repo/issues/1");
+    expect(result).toContain("链接: org/repo Issue #1");
     expect(result).toContain("摘要: Some body text");
   });
 

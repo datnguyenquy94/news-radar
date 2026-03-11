@@ -61,6 +61,7 @@ const DEFAULT_OPENCLAW_PEERS: RepoConfig[] = [
   { id: "zeroclaw", repo: "zeroclaw-labs/zeroclaw", name: "Zeroclaw" },
   { id: "picoclaw", repo: "sipeed/picoclaw", name: "PicoClaw", paginated: true },
   { id: "nanoclaw", repo: "qwibitai/nanoclaw", name: "NanoClaw" },
+  { id: "nullclaw", repo: "nullclaw/nullclaw", name: "NullClaw" },
   { id: "ironclaw", repo: "nearai/ironclaw", name: "IronClaw" },
   { id: "lobsterai", repo: "netease-youdao/LobsterAI", name: "LobsterAI" },
   { id: "tinyclaw", repo: "TinyAGI/tinyclaw", name: "TinyClaw" },

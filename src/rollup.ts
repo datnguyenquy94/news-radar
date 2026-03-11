@@ -5,9 +5,10 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { callLlm, saveFile, autoGenFooter } from "./report.ts";
+import { callLlm, saveFile, autoGenFooter, LLM_TOKENS_ROLLUP } from "./report.ts";
 import { buildWeeklyPrompt, buildMonthlyPrompt } from "./prompts.ts";
 import { createGitHubIssue } from "./github.ts";
+import { toCstDateStr, toUtcStr } from "./date.ts";
 
 const DIGESTS_DIR = "digests";
 const MAX_CHARS_PER_REPORT = 2500;
@@ -65,11 +66,9 @@ export function toWeekStr(date: Date): string {
 
 export async function runWeeklyRollup(): Promise<void> {
   const now = new Date();
-  // Use CST date (UTC+8)
-  const cstDate = new Date(now.getTime() + 8 * 60 * 60 * 1000);
-  const dateStr = cstDate.toISOString().slice(0, 10);
-  const utcStr = now.toISOString().slice(0, 16).replace("T", " ");
-  const weekStr = toWeekStr(cstDate);
+  const dateStr = toCstDateStr(now);
+  const utcStr = toUtcStr(now);
+  const weekStr = toWeekStr(new Date(now.getTime() + 8 * 60 * 60 * 1000));
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
   console.log(`[weekly] Generating rollup for ${weekStr} (date: ${dateStr})`);
@@ -96,8 +95,8 @@ export async function runWeeklyRollup(): Promise<void> {
   // Generate ZH and EN in parallel
   console.log("[weekly] Calling LLM for ZH and EN weekly reports in parallel...");
   const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "zh"), 8192),
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "en"), 8192),
+    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "zh"), LLM_TOKENS_ROLLUP),
+    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "en"), LLM_TOKENS_ROLLUP),
   ]);
 
   const footer = autoGenFooter("zh");
@@ -138,8 +137,8 @@ export async function runMonthlyRollup(): Promise<void> {
   // Monthly report covers the PREVIOUS month
   const prevMonth = new Date(Date.UTC(cstDate.getUTCFullYear(), cstDate.getUTCMonth() - 1, 1));
   const monthStr = prevMonth.toISOString().slice(0, 7); // "2026-02"
-  const dateStr = cstDate.toISOString().slice(0, 10);
-  const utcStr = now.toISOString().slice(0, 16).replace("T", " ");
+  const dateStr = toCstDateStr(now);
+  const utcStr = toUtcStr(now);
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
   console.log(`[monthly] Generating rollup for ${monthStr} (date: ${dateStr})`);
@@ -188,8 +187,8 @@ export async function runMonthlyRollup(): Promise<void> {
   // Generate ZH and EN in parallel
   console.log("[monthly] Calling LLM for ZH and EN monthly reports in parallel...");
   const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "zh"), 8192),
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "en"), 8192),
+    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "zh"), LLM_TOKENS_ROLLUP),
+    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "en"), LLM_TOKENS_ROLLUP),
   ]);
 
   const footer = autoGenFooter("zh");

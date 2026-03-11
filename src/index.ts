@@ -28,12 +28,13 @@ import {
   buildTrendingPrompt,
   buildHnPrompt,
 } from "./prompts.ts";
-import { callLlm, saveFile, autoGenFooter } from "./report.ts";
+import { callLlm, saveFile, autoGenFooter, LLM_TOKENS_WEB, LLM_TOKENS_TRENDING } from "./report.ts";
 import { buildCliReportContent, buildOpenclawReportContent } from "./report-builders.ts";
 import { loadWebState, saveWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
 import { fetchHnData, type HnData } from "./hn.ts";
 import { loadConfig } from "./config.ts";
+import { toCstDateStr, toUtcStr } from "./date.ts";
 
 // ---------------------------------------------------------------------------
 // Repo config — loaded from config.yml, falls back to built-in defaults
@@ -125,6 +126,32 @@ async function fetchAllData(
 // Phase 2: LLM summaries
 // ---------------------------------------------------------------------------
 
+/** Call LLM with logging and error fallback. */
+async function summarize(id: string, prompt: string, failMsg: string, maxTokens?: number): Promise<string> {
+  console.log(`  [${id}] Calling LLM for summary...`);
+  try {
+    return await callLlm(prompt, maxTokens);
+  } catch (err) {
+    console.error(`  [${id}] LLM call failed: ${err}`);
+    return failMsg;
+  }
+}
+
+/** Summarize a repo's activity, returning a RepoDigest. Skips LLM if no data. */
+async function summarizeRepo(
+  { cfg, issues, prs, releases }: RepoFetch,
+  prompt: string,
+  noActivityMsg: string,
+  failMsg: string,
+): Promise<RepoDigest> {
+  if (!issues.length && !prs.length && !releases.length) {
+    console.log(`  [${cfg.id}] No activity, skipping LLM call`);
+    return { config: cfg, issues, prs, releases, summary: noActivityMsg };
+  }
+  const summary = await summarize(cfg.id, prompt, failMsg);
+  return { config: cfg, issues, prs, releases, summary };
+}
+
 async function generateSummaries(
   fetchedCli: RepoFetch[],
   fetchedOpenclaw: RepoFetch,
@@ -141,90 +168,57 @@ async function generateSummaries(
   trendingSummary: string;
 }> {
   const noActivity = lang === "en" ? "No activity in the last 24 hours." : "过去24小时无活动。";
-  const summaryFailed = lang === "en" ? "⚠️ Summary generation failed." : "⚠️ 摘要生成失败。";
-  const skillsFailed = lang === "en" ? "⚠️ Skills summary generation failed." : "⚠️ Skills 摘要生成失败。";
-  const trendingNoData =
-    lang === "en"
-      ? "⚠️ Trending data unavailable, unable to generate report."
-      : "⚠️ 今日趋势数据获取失败，无法生成报告。";
-  const trendingFailed = lang === "en" ? "⚠️ Trending report generation failed." : "⚠️ 趋势报告生成失败。";
+  const fail = lang === "en" ? "⚠️ Summary generation failed." : "⚠️ 摘要生成失败。";
 
   const [cliDigests, openclawSummary, skillsSummary, peerDigests, trendingSummary] = await Promise.all([
     Promise.all(
-      fetchedCli.map(async ({ cfg, issues, prs, releases }): Promise<RepoDigest> => {
-        const hasData = issues.length || prs.length || releases.length;
-        if (!hasData) {
-          console.log(`  [${cfg.id}] No activity, skipping LLM call`);
-          return { config: cfg, issues, prs, releases, summary: noActivity };
-        }
-        console.log(`  [${cfg.id}] Calling LLM for summary...`);
-        try {
-          const summary = await callLlm(buildCliPrompt(cfg, issues, prs, releases, dateStr, lang));
-          return { config: cfg, issues, prs, releases, summary };
-        } catch (err) {
-          console.error(`  [${cfg.id}] LLM call failed: ${err}`);
-          return { config: cfg, issues, prs, releases, summary: summaryFailed };
-        }
-      }),
+      fetchedCli.map((f) =>
+        summarizeRepo(f, buildCliPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, lang), noActivity, fail),
+      ),
     ),
-    (async () => {
-      const { cfg, issues, prs, releases } = fetchedOpenclaw;
-      const hasData = issues.length || prs.length || releases.length;
-      if (!hasData) {
-        console.log(`  [openclaw] No activity, skipping LLM call`);
-        return noActivity;
-      }
-      console.log(`  [openclaw] Calling LLM for OpenClaw report...`);
-      try {
-        return await callLlm(buildPeerPrompt(cfg, issues, prs, releases, dateStr, 50, 30, lang));
-      } catch (err) {
-        console.error(`  [openclaw] LLM call failed: ${err}`);
-        return summaryFailed;
-      }
-    })(),
-    (async () => {
-      console.log("  [claude-code-skills] Calling LLM for skills report...");
-      try {
-        return await callLlm(buildSkillsPrompt(skillsData.prs, skillsData.issues, dateStr, lang));
-      } catch (err) {
-        console.error(`  [claude-code-skills] LLM call failed: ${err}`);
-        return skillsFailed;
-      }
-    })(),
+    summarizeRepo(
+      fetchedOpenclaw,
+      buildPeerPrompt(
+        fetchedOpenclaw.cfg,
+        fetchedOpenclaw.issues,
+        fetchedOpenclaw.prs,
+        fetchedOpenclaw.releases,
+        dateStr,
+        50,
+        30,
+        lang,
+      ),
+      noActivity,
+      fail,
+    ).then((d) => d.summary),
+    summarize(
+      "claude-code-skills",
+      buildSkillsPrompt(skillsData.prs, skillsData.issues, dateStr, lang),
+      lang === "en" ? "⚠️ Skills summary generation failed." : "⚠️ Skills 摘要生成失败。",
+    ),
     Promise.all(
-      fetchedPeers.map(async ({ cfg, issues, prs, releases }): Promise<RepoDigest> => {
-        const hasData = issues.length || prs.length || releases.length;
-        if (!hasData) {
-          console.log(`  [${cfg.id}] No activity, skipping LLM call`);
-          return { config: cfg, issues, prs, releases, summary: noActivity };
-        }
-        console.log(`  [${cfg.id}] Calling LLM for peer summary...`);
-        try {
-          return {
-            config: cfg,
-            issues,
-            prs,
-            releases,
-            summary: await callLlm(
-              buildPeerPrompt(cfg, issues, prs, releases, dateStr, undefined, undefined, lang),
-            ),
-          };
-        } catch (err) {
-          console.error(`  [${cfg.id}] LLM call failed: ${err}`);
-          return { config: cfg, issues, prs, releases, summary: summaryFailed };
-        }
-      }),
+      fetchedPeers.map((f) =>
+        summarizeRepo(
+          f,
+          buildPeerPrompt(f.cfg, f.issues, f.prs, f.releases, dateStr, undefined, undefined, lang),
+          noActivity,
+          fail,
+        ),
+      ),
     ),
     (async () => {
       const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
-      if (!hasData) return trendingNoData;
-      console.log("  [trending] Calling LLM for trending report...");
-      try {
-        return await callLlm(buildTrendingPrompt(trendingData, dateStr, lang), 6144);
-      } catch (err) {
-        console.error(`  [trending] LLM call failed: ${err}`);
-        return trendingFailed;
+      if (!hasData) {
+        return lang === "en"
+          ? "⚠️ Trending data unavailable, unable to generate report."
+          : "⚠️ 今日趋势数据获取失败，无法生成报告。";
       }
+      return summarize(
+        "trending",
+        buildTrendingPrompt(trendingData, dateStr, lang),
+        lang === "en" ? "⚠️ Trending report generation failed." : "⚠️ 趋势报告生成失败。",
+        LLM_TOKENS_TRENDING,
+      );
     })(),
   ]);
 
@@ -249,7 +243,7 @@ async function saveWebReport(
   if (hasNewContent) {
     console.log(`  [web/${lang}] Calling LLM for web content report...`);
     try {
-      const webSummary = await callLlm(buildWebReportPrompt(webResults, dateStr, lang), 8192);
+      const webSummary = await callLlm(buildWebReportPrompt(webResults, dateStr, lang), LLM_TOKENS_WEB);
       const isFirstRun = webResults.some((r) => r.isFirstRun);
       const totalNew = webResults.reduce((sum, r) => sum + r.newItems.length, 0);
 
@@ -394,8 +388,8 @@ async function main(): Promise<void> {
 
   const now = new Date();
   const since = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-  const dateStr = new Date(now.getTime() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const utcStr = now.toISOString().slice(0, 16).replace("T", " ");
+  const dateStr = toCstDateStr(now);
+  const utcStr = toUtcStr(now);
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
   const providerName = process.env["LLM_PROVIDER"] ?? "anthropic";

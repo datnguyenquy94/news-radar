@@ -4,6 +4,15 @@
 
 import fs from "node:fs";
 import path from "node:path";
+
+// ---------------------------------------------------------------------------
+// LLM token budget constants
+// ---------------------------------------------------------------------------
+
+export const LLM_TOKENS_DEFAULT = 4096;
+export const LLM_TOKENS_TRENDING = 6144;
+export const LLM_TOKENS_WEB = 8192;
+export const LLM_TOKENS_ROLLUP = 8192;
 import { type LlmProvider, createProvider } from "./providers/index.ts";
 
 const provider: LlmProvider = createProvider();
@@ -50,7 +59,7 @@ function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-export async function callLlm(prompt: string, maxTokens = 4096): Promise<string> {
+export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): Promise<string> {
   for (let attempt = 0; ; attempt++) {
     await acquireSlot();
     let released = false;

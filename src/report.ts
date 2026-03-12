@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { type Lang, FOOTER } from "./i18n.ts";
+import { sleep } from "./date.ts";
 
 // ---------------------------------------------------------------------------
 // LLM token budget constants
@@ -54,10 +55,6 @@ const RETRY_BASE_MS = 5_000; // 5 s, 10 s, 20 s
 
 export function is429(err: unknown): boolean {
   return (err as { status?: number })?.status === 429 || String(err).includes("429");
-}
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((r) => setTimeout(r, ms));
 }
 
 export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): Promise<string> {

@@ -112,6 +112,27 @@ export const FOOTER = {
 // Telegram notification labels (used in notify.ts)
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Report labels for manifest/RSS (used in generate-manifest.ts)
+// ---------------------------------------------------------------------------
+
+export const REPORT_LABELS: Record<string, string> = {
+  "ai-cli": "AI CLI 工具社区动态日报",
+  "ai-cli-en": "AI CLI Tools Digest",
+  "ai-agents": "AI Agents 生态日报",
+  "ai-agents-en": "AI Agents Ecosystem Digest",
+  "ai-web": "AI 官方内容追踪报告",
+  "ai-web-en": "Official AI Content Report",
+  "ai-trending": "AI 开源趋势日报",
+  "ai-trending-en": "AI Open Source Trends",
+  "ai-hn": "Hacker News AI 社区动态日报",
+  "ai-hn-en": "Hacker News AI Community Digest",
+  "ai-weekly": "AI 工具生态周报",
+  "ai-weekly-en": "AI Tools Weekly Digest",
+  "ai-monthly": "AI 工具生态月报",
+  "ai-monthly-en": "AI Tools Monthly Digest",
+};
+
 export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-cli": t("AI CLI 工具", "AI CLI Tools"),
   "ai-agents": t("AI Agents 生态", "AI Agents Ecosystem"),

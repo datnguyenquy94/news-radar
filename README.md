@@ -86,6 +86,12 @@ wrangler deploy
 
 Subscribe to get daily digest notifications pushed directly to Telegram. Each message links to all reports for that day (ZH and EN variants) plus the Web UI and RSS feed.
 
+## Feishu Group
+
+**[Join Feishu Group](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=c3cldb2f-4fb7-4fbd-b7be-523ee97f9d79)**
+
+Join the Feishu group to receive daily digest notifications. Same content as Telegram — report links, highlights, and quick access to the Web UI and RSS feed.
+
 ## Tracked sources
 
 ### AI CLI tools (GitHub)
@@ -201,6 +207,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `OPENROUTER_API_KEY` | if OpenRouter | OpenRouter API key |
 | `TELEGRAM_BOT_TOKEN` | optional | Telegram bot token from [@BotFather](https://t.me/BotFather). If set, a message is sent after each digest run |
 | `TELEGRAM_CHAT_ID` | optional | Telegram chat/channel/group ID to send notifications to |
+| `FEISHU_WEBHOOK_URL` | optional | Feishu custom bot webhook URL. If set, a card message is sent after each digest run |
 
 > `GITHUB_TOKEN` is provided automatically by GitHub Actions. When using `github-copilot` as the provider, the same `GITHUB_TOKEN` is used for LLM calls.
 

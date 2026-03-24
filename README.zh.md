@@ -86,6 +86,12 @@ wrangler deploy
 
 订阅 Telegram 频道，每日简报生成后自动推送通知，附带所有报告的直达链接（中文 / 英文）。
 
+## 飞书群
+
+**[加入飞书群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=c3cldb2f-4fb7-4fbd-b7be-523ee97f9d79)**
+
+加入飞书群，每日简报生成后自动推送通知，内容与 Telegram 一致，附带所有报告的直达链接和亮点摘要。
+
 ## 追踪来源
 
 ### AI CLI 工具（GitHub）
@@ -201,6 +207,7 @@ openclaw_peers:
 | `OPENROUTER_API_KEY` | OpenRouter 时 | OpenRouter API 密钥 |
 | `TELEGRAM_BOT_TOKEN` | 可选 | Telegram bot token，从 [@BotFather](https://t.me/BotFather) 获取。设置后每次 digest 完成自动推送通知 |
 | `TELEGRAM_CHAT_ID` | 可选 | 接收通知的 Telegram 频道 / 群组 / 用户 ID |
+| `FEISHU_WEBHOOK_URL` | 可选 | 飞书自定义机器人 Webhook URL。设置后每次 digest 完成自动推送卡片通知 |
 
 > `GITHUB_TOKEN` 由 GitHub Actions 自动提供，无需手动添加。使用 `github-copilot` 作为 Provider 时，同一 `GITHUB_TOKEN` 也用于 LLM 调用。
 

@@ -125,7 +125,6 @@ OpenClaw 作为重点追踪项目，同时横向对比多个同赛道项目，�
 |------|------|-------|
 | OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | 240.5k |
 | NanoBot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | 26.9k |
-| Zeroclaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | 21.2k |
 | PicoClaw | [sipeed/picoclaw](https://github.com/sipeed/picoclaw) | 21.1k |
 | NanoClaw | [qwibitai/nanoclaw](https://github.com/qwibitai/nanoclaw) | 16.6k |
 | NullClaw | [nullclaw/nullclaw](https://github.com/nullclaw/nullclaw) | 6.1k |

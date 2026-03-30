@@ -52,7 +52,7 @@ openclaw_peers:
     repo: HKUDS/nanobot
     name: NanoBot
     paginated: true
-- id: picoclaw
+  - id: picoclaw
     repo: sipeed/picoclaw
     name: PicoClaw
     paginated: true

@@ -31,6 +31,14 @@
       "LiteLLM和Telnyx供应链零日漏洞语义分析捕获",
       "rtk-cli代理降低LLM Token消耗60-90%成本优化",
       "LLM输出确定性控制回应生产环境可靠性需求"
+    ],
+    "ai-weekly": [
+      "Claude Code 致命 Bug 每 10 分钟自动执行 git reset --hard",
+      "Anthropic 确认下一代模型能力跃迁 Step change",
+      "OpenAI 关闭 Sora 迪士尼取消 10 亿投资",
+      "Claude Code Max 幽灵限流 117 评论声讨",
+      "OpenClaw 废弃 Qwen OAuth 引发迁移潮",
+      "Anthropic 机器人任务效率提升 2 倍"
     ]
   },
   "en": {
@@ -65,6 +73,14 @@
       "Moving Towards Determinism with LLMs resonates with engineers",
       "Circumstantial Complexity criticizes AI-driven architecture",
       "Community tension between AI enthusiasm and production fragility"
+    ],
+    "ai-weekly": [
+      "OpenAI shutters Sora video platform after 15 months",
+      "Claude Opus 4.5 completes 1-year physics research in 2 weeks",
+      "Claude Code Auto Mode hits 93% user approval rate",
+      "Claude Code bug runs git reset --hard every 10 minutes",
+      "ByteDance deer-flow peaks at 4,346 GitHub stars",
+      "OpenAI Codex burns $40 in hours, 319-comment backlash"
     ]
   }
 }

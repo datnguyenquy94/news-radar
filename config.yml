@@ -28,7 +28,7 @@ cli_repos:
     name: OpenCode
   - id: pi
     repo: badlogic/pi-mono
-    name: pi
+    name: Pi
   - id: qwen-code
     repo: QwenLM/qwen-code
     name: Qwen Code

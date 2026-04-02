@@ -1,8 +1,8 @@
 /**
  * Hugging Face trending models fetched via the HF Hub API.
  *
- * Strategy: fetch recently updated models sorted by downloads/likes,
- * filter for notable AI models.
+ * Strategy: fetch trending models sorted by weekly likes from the
+ * HF Hub API, returning a mapped subset of fields.
  */
 
 // ---------------------------------------------------------------------------

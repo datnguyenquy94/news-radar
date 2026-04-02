@@ -1,5 +1,5 @@
 /**
- * Lobste.rs AI stories fetched via RSS feed.
+ * Lobste.rs AI stories fetched via tag-based JSON endpoints (e.g., /t/ai.json).
  */
 
 // ---------------------------------------------------------------------------
@@ -89,9 +89,9 @@ export async function fetchLobstersData(): Promise<LobstersData> {
     );
 
     // Filter to last 7 days (Lobste.rs AI/ML tag volume is low)
-    const oneDayAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
     const stories = [...seen.values()]
-      .filter((s) => new Date(s.publishedAt).getTime() > oneDayAgo)
+      .filter((s) => new Date(s.publishedAt).getTime() > sevenDaysAgo)
       .sort((a, b) => b.score - a.score)
       .slice(0, LOBSTERS_TOP);
 

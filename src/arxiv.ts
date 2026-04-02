@@ -1,8 +1,8 @@
 /**
  * ArXiv AI papers fetched via the ArXiv API (Atom feed).
  *
- * Strategy: query cs.AI + cs.CL + cs.LG categories for papers
- * submitted in the last 24 hours, sorted by submission date.
+ * Strategy: query cs.AI + cs.CL + cs.LG categories for the newest papers,
+ * sorted by submission date, filtered to last 48h.
  */
 
 // ---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ export interface ArxivData {
 // ---------------------------------------------------------------------------
 
 const ARXIV_MAX_RESULTS = 50;
-const API_URL = "http://export.arxiv.org/api/query";
+const API_URL = "https://export.arxiv.org/api/query";
 
 /** ArXiv categories to search. */
 const CATEGORIES = ["cs.AI", "cs.CL", "cs.LG"];

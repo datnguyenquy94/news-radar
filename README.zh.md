@@ -10,6 +10,21 @@
 
 在线浏览所有历史简报，深色主题，无需登录。报告直接由本仓库的 Markdown 文件通过 GitHub Pages 渲染。每份报告支持中文 / 英文切换。
 
+## Telegram 频道 & 飞书群
+
+订阅你常用的平台，每日简报生成后自动推送通知，附带所有报告的直达链接（中文 / 英文）。
+
+<table>
+  <tr>
+    <td align="center"><b><a href="https://t.me/agents_radar">加入 Telegram 频道</a></b></td>
+    <td align="center"><b><a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=a00hcab4-86de-4a3f-b599-e46146a69b98">加入飞书群</a></b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/telegram.jpg" width="300" alt="Telegram 推送"></td>
+    <td><img src="assets/feishu.jpg" width="300" alt="飞书推送"></td>
+  </tr>
+</table>
+
 ## RSS 订阅
 
 **[https://duanyytop.github.io/agents-radar/feed.xml](https://duanyytop.github.io/agents-radar/feed.xml)**
@@ -79,21 +94,6 @@ cd mcp
 pnpm install
 wrangler deploy
 ```
-
-## Telegram 频道 & 飞书群
-
-订阅你常用的平台，每日简报生成后自动推送通知，附带所有报告的直达链接（中文 / 英文）。
-
-<table>
-  <tr>
-    <td align="center"><b><a href="https://t.me/agents_radar">加入 Telegram 频道</a></b></td>
-    <td align="center"><b><a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=a00hcab4-86de-4a3f-b599-e46146a69b98">加入飞书群</a></b></td>
-  </tr>
-  <tr>
-    <td><img src="assets/telegram.jpg" width="300" alt="Telegram 推送"></td>
-    <td><img src="assets/feishu.jpg" width="300" alt="飞书推送"></td>
-  </tr>
-</table>
 
 ## 追踪来源
 

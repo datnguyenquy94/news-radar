@@ -10,6 +10,21 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It tracks GitHub
 
 Browse all historical digests in a clean, dark-themed interface — no login required. Reports are rendered from the Markdown files in this repo via GitHub Pages.
 
+## Telegram Channel & Feishu Group
+
+Subscribe to get daily digest notifications pushed directly to your preferred platform. Each message links to all reports for that day (ZH and EN variants) plus the Web UI and RSS feed.
+
+<table>
+  <tr>
+    <td align="center"><b><a href="https://t.me/agents_radar">Join Telegram Channel</a></b></td>
+    <td align="center"><b><a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=a00hcab4-86de-4a3f-b599-e46146a69b98">Join Feishu Group</a></b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/telegram.jpg" width="300" alt="Telegram notification"></td>
+    <td><img src="assets/feishu.jpg" width="300" alt="Feishu notification"></td>
+  </tr>
+</table>
+
 ## RSS Feed
 
 **[https://duanyytop.github.io/agents-radar/feed.xml](https://duanyytop.github.io/agents-radar/feed.xml)**
@@ -79,21 +94,6 @@ cd mcp
 pnpm install
 wrangler deploy
 ```
-
-## Telegram Channel & Feishu Group
-
-Subscribe to get daily digest notifications pushed directly to your preferred platform. Each message links to all reports for that day (ZH and EN variants) plus the Web UI and RSS feed.
-
-<table>
-  <tr>
-    <td align="center"><b><a href="https://t.me/agents_radar">Join Telegram Channel</a></b></td>
-    <td align="center"><b><a href="https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=a00hcab4-86de-4a3f-b599-e46146a69b98">Join Feishu Group</a></b></td>
-  </tr>
-  <tr>
-    <td><img src="assets/telegram.jpg" width="300" alt="Telegram notification"></td>
-    <td><img src="assets/feishu.jpg" width="300" alt="Feishu notification"></td>
-  </tr>
-</table>
 
 ## Tracked sources
 

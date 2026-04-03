@@ -2,7 +2,22 @@
 
 [English](./README.md) | 中文
 
-每天早上 08:00 CST 自动运行的 GitHub Actions 工作流。追踪主流 AI CLI 工具的 GitHub 动态、OpenClaw 及其同赛道项目的生态活动、Anthropic 和 OpenAI 官网最新资讯，并每日监测 GitHub AI 热门仓库趋势，以中英双语每日简报的形式发布为 GitHub Issues 并提交为 Markdown 文件。每周和每月自动生成汇总报告。
+每天早上 08:00 CST 自动运行的 GitHub Actions 工作流。聚合 10 个 AI 生态数据源，以中英双语每日简报的形式发布为 GitHub Issues 并提交为 Markdown 文件。每周和每月自动生成汇总报告。
+
+### 数据源
+
+| 来源 | 类型 | 数据内容 |
+|------|------|---------|
+| [GitHub Repos](https://github.com) | API | 17+ 个 AI 工具仓库的 Issues、PR、Releases |
+| [Claude Code Skills](https://github.com/anthropics/skills) | API | 按社区活跃度排序的热门 Skills |
+| [GitHub Trending](https://github.com/trending) | HTML + API | 每日热门仓库 + AI 主题搜索（7 天窗口） |
+| [Hacker News](https://news.ycombinator.com) | [Algolia API](https://hn.algolia.com/api) | 过去 24 小时 Top 30 AI 热帖，6 组并行查询 |
+| [Product Hunt](https://www.producthunt.com) | GraphQL API | 昨日 AI 产品按投票排序 |
+| [ArXiv](https://arxiv.org) | [ArXiv API](https://export.arxiv.org/api/query) | cs.AI、cs.CL、cs.LG 最新论文（48 小时内） |
+| [Hugging Face](https://huggingface.co) | [Hub API](https://huggingface.co/api/models) | 按周点赞排序的 30 个热门模型 |
+| [Dev.to](https://dev.to) | [Forem API](https://dev.to/api) | 5 个标签下的 AI/LLM 热门文章 |
+| [Lobste.rs](https://lobste.rs) | JSON API | 7 天内 AI/ML 标签内容 |
+| [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | 通过 `lastmod` 差异检测新文章 |
 
 ## Web UI
 

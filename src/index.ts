@@ -446,8 +446,8 @@ async function main(): Promise<void> {
   const highlights: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
   try {
     const [zhRaw, enRaw] = await Promise.all([
-      callLlm(buildHighlightsPrompt(zhReports, "zh"), 1024),
-      callLlm(buildHighlightsPrompt(enReports, "en"), 1024),
+      callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
+      callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
     ]);
     highlights.zh = JSON.parse(
       zhRaw

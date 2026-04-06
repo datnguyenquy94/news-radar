@@ -55,6 +55,14 @@
       "5个Agent并行监督47任务12失败3耗尽",
       "Raspberry Pi自托管Agent完整方案",
       "语义缓存95%命中率神话被生产数据拆解"
+    ],
+    "ai-weekly": [
+      "Claude Code 计费危机爆发，Max用户1小时耗尽$200",
+      "Claude Code单日+10,749 stars登顶GitHub Trending",
+      "OpenAI完成1220亿美元融资，估值8520亿美元",
+      "OpenAI Codex改按token计费，引发176条HN评论",
+      "Anthropic代码泄露，员工因NPM包被解雇",
+      "OpenClaw v2026.4.1/4.2密集发布，Agent基础设施跃迁"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "Vibecoding debated on Lobste.rs philosophically",
       "Memory systems compared: MemLayer, Mem0, Zep",
       "Cost optimization: finding wasted LLM spend tools built"
+    ],
+    "ai-weekly": [
+      "Claude Code billing crisis hits 427 GitHub comments",
+      "Claude Code leaked source code fuels open-source demand",
+      "Claude Code gains +10,749 GitHub stars in single day",
+      "OpenAI Codex switches to unpredictable per-token pricing",
+      "OpenAI closes record $40B at $852B valuation",
+      "Anthropic publishes Model Diffing for version detection"
     ]
   }
 }

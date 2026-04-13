@@ -55,6 +55,14 @@
       "Databricks 80%新查询由Agent生成",
       "13个AI Agent平台安全审计开源扫描器发布",
       "AI编程工具真实效能测量争议持续发酵"
+    ],
+    "ai-weekly": [
+      "Claude Code信任危机爆发：713👍控诉能力退化",
+      "Anthropic年化营收达300亿美元，增长233%",
+      "Gemini CLI单日98条Issues登顶活跃度",
+      "NousResearch Hermes Agent周增2万+stars",
+      "Claude Mythos网络安全模型发布引争议",
+      "Anthropic进军医疗与托管智能体服务"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "Local LLM setups gain privacy-focused traction",
       "Developers question if AI tools accelerate shipping",
       "Lobste.rs debates what it's like to be an LLM"
+    ],
+    "ai-weekly": [
+      "Anthropic unveils Claude Mythos Preview and Project Glasswing",
+      "Anthropic announces $30B run-rate, multi-gigawatt TPU deal",
+      "Anthropic launches Managed Agents architecture",
+      "Claude for Healthcare and Financial Services released",
+      "OpenAI acquires Cirrus Labs amid talent consolidation",
+      "Hermes Agent gains 7,454 GitHub stars in one day"
     ]
   }
 }

@@ -77,7 +77,7 @@ jobs:
 
       - name: Send Feishu notification
         env:
-          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_WEBHOOK_URLS: ${{ secrets.FEISHU_WEBHOOK_URLS }}
           PAGES_URL: https://duanyytop.github.io/agents-radar
         run: pnpm notify:feishu
 

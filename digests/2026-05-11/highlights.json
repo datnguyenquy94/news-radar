@@ -55,6 +55,14 @@
       "AI Agent 91秒完成真实支付触及伦理边界",
       "系统性量化RAG引用幻觉四种失效模式",
       "Claude Code源码分析系列引Agent架构治理关注"
+    ],
+    "ai-weekly": [
+      "Anthropic发布金融Agent套件，首切垂直行业",
+      "Claude Opus 4.7发布，联合三大PE成立企业AI公司",
+      "Anthropic与SpaceX达成30万千瓦GPU算力合作",
+      "对齐研究突破：Opus 4代理性错位率从96%降至0%",
+      "DeepSeek-TUI单日+6175 stars创开源纪录",
+      "OpenClaw紧急回滚：doctor --fix误改OAuth路由"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "AGENTS.md standard emerges for coding agent context",
       "Chinese models disrupt US AI pricing dynamics",
       "Developers grapple with trusting autonomous agent transactions"
+    ],
+    "ai-weekly": [
+      "Anthropic signs 300MW SpaceX GPU deal",
+      "Claude financial agents launch with 10 templates",
+      "Teaching Claude Why shifts alignment paradigm",
+      "Natural Language Autoencoders decode model thoughts",
+      "DeepSeek-TUI gains 6,175 GitHub stars daily",
+      "9router aggregates 40+ free AI APIs"
     ]
   }
 }

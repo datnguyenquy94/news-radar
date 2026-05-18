@@ -55,6 +55,14 @@
       "Skill files 成新供应链攻击面，CI 管道尚未感知风险",
       "5 个 RAG 生产失败模式总结，附 20+ 系统存活架构",
       "桌面端 AI 工作流整合工具，终结开 7 个终端祈祷 routine"
+    ],
+    "ai-weekly": [
+      "Anthropic首次披露Claude 4实时对齐训练，回应AI自保威胁争议",
+      "Anthropic×PwC认证3万人，AI交付时间缩短70%",
+      "OpenAI成立The Deployment Company，转型企业AI基础设施运营商",
+      "OpenClaw Gateway v4强制升级，旧SDK不兼容引发生态锁定",
+      "Agent Skills标准化爆发，技能注册表成新竞争壁垒",
+      "Claude Code回归测试危机，#59033达69评论信任建设优先"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "Supply chain risks from AI skill files flagged",
       "PII leakage to OpenAI raises security alarms",
       "Coding culture losses debated on Lobste.rs"
+    ],
+    "ai-weekly": [
+      "Anthropic frames US-China AI as democratic vs. authoritarian",
+      "Claude for Small Business launches with QuickBooks integration",
+      "OpenAI creates The Deployment Company for infrastructure",
+      "Anthropic reports 0% blackmail rate on Claude 4 misalignment evals",
+      "Agent Skills standardization accelerates across four major repos",
+      "Needle 26M-parameter model tops Hacker News with 252 points"
     ]
   }
 }

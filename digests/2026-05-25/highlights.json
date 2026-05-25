@@ -55,6 +55,14 @@
       "本地 Hermes Agents + Qwen 35B 自动化流水线实战",
       "MCP 控制平面泄漏风险，上下文变命令",
       "生产级 MCP 60 秒部署，含鉴权审计限流"
+    ],
+    "ai-weekly": [
+      "Andrej Karpathy 加盟 Anthropic，HN 1100+ 分引热议",
+      "Anthropic 收购 Stainless，MCP 生态闭环成型",
+      "OpenAI 秘密提交 IPO 文件，社区反应冷淡",
+      "Project Glasswing 发现万级漏洞，AI 安全范式转变",
+      "OpenAI 证伪几何猜想，656 分登顶 HN 激辩真伪",
+      "Claude Code 200K 窗口回归，付费危机 732 评论未解"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "Lobste.rs maintains an AI Resist List",
       "Products without LLMs get dedicated categorization",
       "Cloud vs local AI tension defines both communities"
+    ],
+    "ai-weekly": [
+      "Karpathy joins Anthropic, sparks talent war debate",
+      "Anthropic launches Glasswing, finds 10K+ vulnerabilities",
+      "Anthropic acquires Stainless for SDK infrastructure",
+      "OpenAI IPO rumors face community fatigue",
+      "OpenAI model disproves geometry conjecture, contested",
+      "Claude Code Skills hit 3,500+ stars in 24 hours"
     ]
   }
 }

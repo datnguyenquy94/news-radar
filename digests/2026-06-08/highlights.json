@@ -55,6 +55,14 @@
       "多智能体工作流执行安全危机与架构解决方案",
       "AI审计日志需满足法律证据标准，金融医疗必读",
       "Hearth实现Kubernetes上scale-to-zero LLM推理，无需GPU"
+    ],
+    "ai-weekly": [
+      "Anthropic估值9650亿美元冲刺IPO，ARR 470亿验证商业化",
+      "Claude Opus 4.8推Fast Mode：2.5倍速、3倍降价",
+      "Claude Code成本投诉成年度最高票Issue，可靠性危机",
+      "OpenAI Codex按角色定制插件，PM设计师工程师分流",
+      "Jane Street工程师用Claude Code替代Figma，HN 252分",
+      "Anthropic罕见呼吁全球暂停AI开发，警示递归自我改进"
     ]
   },
   "en": {
@@ -113,6 +121,14 @@
       "LLM spend attribution and rate limiting dominate discussions.",
       "Safety and observability critical in agent systems.",
       "Recursive AI redistributes rather than eliminates engineering craft."
+    ],
+    "ai-weekly": [
+      "Anthropic files S-1 at $965B valuation",
+      "Claude Mythos reaches 200 global partners",
+      "Anthropic reveals internal blast radius framework",
+      "16 research papers published in one day",
+      "OpenAI Codex hit by gpt-5.5 outages",
+      "Jane Street engineer drops Figma for Claude"
     ]
   }
 }

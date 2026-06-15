@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "OpenAI Codex 预发布版更新，聚焦速率限制与安全误报",
-      "Claude Code 社区热议 Token 成本与子代理递归问题",
-      "OpenCode v1.17.7 发布，调整付费规则引发讨论",
-      "Pi 生态活跃，社区围绕 API 定价与扩展 API 展开激烈讨论",
-      "Qwen Code 遭遇 Nightly 构建失败，关注工具结果去重",
-      "DeepSeek TUI 计划发布 v0.8.61，修复任务卡死与子代理超时"
+      "Anthropic 发布 Fable 5 后遭美国政府禁入，全网关停",
+      "Claude Code 因 Fable 5 出现成本失控和僵尸进程",
+      "OpenAI Codex 遭 GPT-5.5 故障潮，社区投诉爆发",
+      "Gemini CLI 修复 Agent 挂起与无限重试漏洞",
+      "GitHub Copilot CLI v1.0.61 出现渲染失真回归",
+      "OpenCode 保持高活跃，聚焦 MCP 深度集成迭代"
     ],
     "ai-agents": [
       "OpenClaw v2026.6.8-beta.1 发布，增强 Telegram 和 WhatsApp 渠道",
@@ -129,6 +129,14 @@
       "Nvidia LocateAnything-3B enables visual grounding",
       "Ideogram-4 drives high-fidelity image generation",
       "North-Mini-Code-1.0 uses Mixture-of-Experts design"
+    ],
+    "ai-weekly": [
+      "Claude Fable 5 launched with novel safety mechanism",
+      "US government ordered shutdown of Fable 5 overseas",
+      "OpenAI filed confidential S-1 for IPO",
+      "Agent skills libraries exploded on GitHub",
+      "Anthropic partnered with TCS and DXC",
+      "Stability crisis hit CLI tools all week"
     ]
   }
 }

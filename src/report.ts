@@ -79,6 +79,28 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
   }
 }
 
+// Matches ASCII control characters U+0000–U+001F. Built from a string so no
+// literal control character appears in the source (keeps it readable + lint-clean).
+// eslint-disable-next-line no-control-regex
+const CONTROL_CHARS = new RegExp("[\\u0000-\\u001F]", "g");
+
+/**
+ * Parse JSON returned by an LLM. Strips markdown code fences and replaces raw
+ * control characters with spaces before parsing. The model occasionally emits
+ * an unescaped control character (e.g. a bare newline) inside a string literal,
+ * which is illegal in JSON and makes `JSON.parse` throw "Bad control character
+ * in string literal". Control chars outside strings are only insignificant
+ * whitespace, so replacing them is safe either way.
+ */
+export function parseLlmJson<T = unknown>(raw: string): T {
+  const cleaned = raw
+    .replace(/```json?\n?/g, "")
+    .replace(/```/g, "")
+    .replace(CONTROL_CHARS, " ")
+    .trim();
+  return JSON.parse(cleaned) as T;
+}
+
 // ---------------------------------------------------------------------------
 // File output
 // ---------------------------------------------------------------------------

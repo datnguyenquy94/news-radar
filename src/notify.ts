@@ -11,6 +11,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { NOTIFY_LABELS } from "./i18n.ts";
 import type { ReportHighlights } from "./prompts-data.ts";
 
@@ -136,7 +137,11 @@ async function main(): Promise<void> {
   console.log("[notify] Done!");
 }
 
-main().catch((e: unknown) => {
-  console.error("[notify]", e instanceof Error ? e.message : e);
-  process.exit(1);
-});
+// Only auto-send when run directly (`tsx src/notify.ts`). Guard prevents an
+// accidental send when another module imports `buildMessage` from here.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e: unknown) => {
+    console.error("[notify]", e instanceof Error ? e.message : e);
+    process.exit(1);
+  });
+}

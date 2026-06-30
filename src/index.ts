@@ -28,7 +28,7 @@ import {
   buildSkillsPrompt,
 } from "./prompts.ts";
 import { buildTrendingPrompt, buildHighlightsPrompt, type ReportHighlights } from "./prompts-data.ts";
-import { callLlm, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
+import { callLlm, parseLlmJson, saveFile, autoGenFooter, LLM_TOKENS_TRENDING } from "./report.ts";
 import { buildCliReportContent, buildOpenclawReportContent } from "./report-builders.ts";
 import {
   saveWebReport,
@@ -444,25 +444,25 @@ async function main(): Promise<void> {
 
   console.log("  Generating highlights for Telegram...");
   const highlights: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
-  try {
-    const [zhRaw, enRaw] = await Promise.all([
-      callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
-      callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
-    ]);
-    highlights.zh = JSON.parse(
-      zhRaw
-        .replace(/```json?\n?/g, "")
-        .replace(/```/g, "")
-        .trim(),
-    );
-    highlights.en = JSON.parse(
-      enRaw
-        .replace(/```json?\n?/g, "")
-        .replace(/```/g, "")
-        .trim(),
-    );
-  } catch (err) {
-    console.error(`  [highlights] Generation failed: ${err}`);
+  // zh and en are parsed independently so a failure in one language doesn't
+  // wipe the other (a single bad LLM response used to leave both empty).
+  const [zhRes, enRes] = await Promise.allSettled([
+    callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
+    callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
+  ]);
+  for (const [lang, res] of [
+    ["zh", zhRes],
+    ["en", enRes],
+  ] as const) {
+    if (res.status !== "fulfilled") {
+      console.error(`  [highlights] ${lang} generation failed: ${res.reason}`);
+      continue;
+    }
+    try {
+      highlights[lang] = parseLlmJson<ReportHighlights>(res.value);
+    } catch (err) {
+      console.error(`  [highlights] ${lang} parse failed: ${err}`);
+    }
   }
 
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");

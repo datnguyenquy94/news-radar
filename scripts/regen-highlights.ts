@@ -12,7 +12,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { callLlm } from "../src/report.ts";
+import { callLlm, parseLlmJson } from "../src/report.ts";
 import { buildHighlightsPrompt, type ReportHighlights } from "../src/prompts-data.ts";
 import { buildMessage } from "../src/notify.ts";
 import type { Lang } from "../src/i18n.ts";
@@ -69,18 +69,8 @@ async function main() {
     callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
   ]);
 
-  highlights.zh = JSON.parse(
-    zhRaw
-      .replace(/```json?\n?/g, "")
-      .replace(/```/g, "")
-      .trim(),
-  );
-  highlights.en = JSON.parse(
-    enRaw
-      .replace(/```json?\n?/g, "")
-      .replace(/```/g, "")
-      .trim(),
-  );
+  highlights.zh = parseLlmJson<ReportHighlights>(zhRaw);
+  highlights.en = parseLlmJson<ReportHighlights>(enRaw);
 
   const outPath = path.join(digestsDir, dateStr, "highlights.json");
   fs.writeFileSync(outPath, JSON.stringify(highlights, null, 2) + "\n");

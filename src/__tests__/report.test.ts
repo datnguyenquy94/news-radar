@@ -18,7 +18,7 @@ vi.mock("../providers/index.ts", async (importOriginal) => {
   };
 });
 
-import { is429, callLlm, saveFile, autoGenFooter } from "../report.ts";
+import { is429, callLlm, saveFile, autoGenFooter, parseLlmJson } from "../report.ts";
 
 // ---------------------------------------------------------------------------
 // is429
@@ -133,6 +133,42 @@ describe("autoGenFooter", () => {
     const result = autoGenFooter("en");
     expect(result).toContain("auto-generated");
     expect(result).toContain("agents-radar");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// parseLlmJson
+// ---------------------------------------------------------------------------
+
+describe("parseLlmJson", () => {
+  it("parses plain JSON", () => {
+    expect(parseLlmJson('{"a": 1, "b": ["x"]}')).toEqual({ a: 1, b: ["x"] });
+  });
+
+  it("strips ```json code fences", () => {
+    const raw = '```json\n{"a": 1}\n```';
+    expect(parseLlmJson(raw)).toEqual({ a: 1 });
+  });
+
+  it("strips bare ``` code fences", () => {
+    expect(parseLlmJson('```\n{"a": 1}\n```')).toEqual({ a: 1 });
+  });
+
+  it("tolerates an unescaped newline inside a string literal", () => {
+    // This is the failure that wiped highlights.json: a raw control character
+    // inside a string literal makes JSON.parse throw without sanitization.
+    const raw = '{"x": ["line one\nline two"]}';
+    expect(() => JSON.parse(raw)).toThrow();
+    expect(parseLlmJson(raw)).toEqual({ x: ["line one line two"] });
+  });
+
+  it("tolerates other raw control characters (tab) in strings", () => {
+    const raw = '{"x": ["a\tb"]}';
+    expect(parseLlmJson(raw)).toEqual({ x: ["a b"] });
+  });
+
+  it("throws on genuinely malformed JSON", () => {
+    expect(() => parseLlmJson("{not json")).toThrow();
   });
 });
 

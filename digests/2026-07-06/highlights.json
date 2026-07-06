@@ -1,0 +1,22 @@
+{
+  "zh": {
+    "ai-weekly": [
+      "Anthropic深陷信任危机，Claude Code会话缓存泄漏",
+      "Claude Sonnet 5发布，性能接近Opus 4.8但价格更低",
+      "GLM 5.2在网络安全基准测试中击败Claude",
+      "AI Agent技能生态爆发，caveman项目削减65% Token消耗",
+      "OpenAI考虑向美国政府出售5%股份引争议",
+      "“反AI”工程实践思潮兴起，LLM代码遭抵制"
+    ]
+  },
+  "en": {
+    "ai-weekly": [
+      "Anthropic Fable 5 redeployed amid trust crisis.",
+      "Claude Sonnet 5 launched as most agentic model.",
+      "ZCode challenges US dominance in cybersecurity.",
+      "AI-powered security tool Strix goes mainstream.",
+      "Agent skill economy explodes with 'caveman' skill.",
+      "Google restricts Gemini, Nvidia is the bank."
+    ]
+  }
+}

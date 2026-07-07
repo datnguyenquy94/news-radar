@@ -1,0 +1,69 @@
+{
+  "zh": {},
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.202 released today",
+      "Safety filter false positives debated",
+      "Subagent reliability across boundaries",
+      "Cross-platform parity pressures grow",
+      "Billing transparency a hot topic",
+      "MCP and hooks as key infrastructure"
+    ],
+    "ai-agents": [
+      "500 issues and 500 PRs today",
+      "195 PRs merged or closed",
+      "P0 session hangs under review",
+      "Last release v2026.6.11 regressed",
+      "403 open issues strain maintainers",
+      "ACP recording correction merged"
+    ],
+    "ai-trending": [
+      "Agent Skill Explosion underway",
+      "System prompt leaks go viral",
+      "alibaba/zvec hits 13,535 stars",
+      "firecrawl reaches 146,318 stars",
+      "Privacy-first Rust tools gain traction",
+      "Local AI tools see growing demand"
+    ],
+    "ai-web": [
+      "Global workspace paper published",
+      "Strong evidence of J-space found",
+      "LLMs may have conscious architecture",
+      "Government of Alberta case study",
+      "Anthropic Safeguards team post",
+      "1M conversations sycophancy analysis"
+    ],
+    "ai-hn": [
+      "Global workspace LLM research hot",
+      "Anthropic tracking backlash erupts",
+      "GLM 5.2 margin collapse discussed",
+      "AI bubble warnings from banks",
+      "Small efficient models gain interest",
+      "Deterministic AI as counterweight"
+    ],
+    "ai-ph": [
+      "WorkBuddy tops with 400 votes",
+      "TryCase gets 214 votes",
+      "MentionDrop MCP scores 180 votes",
+      "AI agent infrastructure dominates",
+      "Disposable test environment concept",
+      "Profit optimization tools emerge"
+    ],
+    "ai-hf": [
+      "Uncensored Qwen fine-tunes surge",
+      "NVIDIA releases LocateAnything-3B",
+      "Google TabFM-1.0 for tabular data",
+      "MoE architectures dominate releases",
+      "Leanstral-1.5-119B-A6B trending",
+      "GLM-5.2 has 231,218 downloads"
+    ],
+    "ai-community": [
+      "AI agents fabricate done statuses",
+      "36-pattern checklist for AI writing",
+      "LLM API key security deep-dive",
+      "Agent reverted a rollback mistake",
+      "Shift toward deterministic guardrails",
+      "MCP emerges as practical stack"
+    ]
+  }
+}

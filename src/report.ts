@@ -91,6 +91,11 @@ const CONTROL_CHARS = new RegExp("[\\u0000-\\u001F]", "g");
  * which is illegal in JSON and makes `JSON.parse` throw "Bad control character
  * in string literal". Control chars outside strings are only insignificant
  * whitespace, so replacing them is safe either way.
+ *
+ * If the strict parse still fails, the payload is repaired once (drop any prose
+ * wrapper around the JSON, strip trailing commas) and retried — a single stray
+ * character (e.g. a trailing comma before `}`) used to wipe an entire language's
+ * highlights.json.
  */
 export function parseLlmJson<T = unknown>(raw: string): T {
   const cleaned = raw
@@ -98,7 +103,27 @@ export function parseLlmJson<T = unknown>(raw: string): T {
     .replace(/```/g, "")
     .replace(CONTROL_CHARS, " ")
     .trim();
-  return JSON.parse(cleaned) as T;
+  try {
+    return JSON.parse(cleaned) as T;
+  } catch (err) {
+    const repaired = repairJson(cleaned);
+    if (repaired !== cleaned) return JSON.parse(repaired) as T;
+    throw err;
+  }
+}
+
+/**
+ * Best-effort repair of common LLM JSON defects: narrow to the outermost
+ * object/array (dropping surrounding prose) and remove trailing commas before a
+ * closing brace or bracket. Returns the input unchanged when nothing applies.
+ */
+function repairJson(s: string): string {
+  const first = s.search(/[{[]/);
+  const lastBrace = s.lastIndexOf("}");
+  const lastBracket = s.lastIndexOf("]");
+  const last = Math.max(lastBrace, lastBracket);
+  const narrowed = first >= 0 && last > first ? s.slice(first, last + 1) : s;
+  return narrowed.replace(/,(\s*[}\]])/g, "$1");
 }
 
 // ---------------------------------------------------------------------------

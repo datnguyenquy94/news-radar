@@ -167,6 +167,19 @@ describe("parseLlmJson", () => {
     expect(parseLlmJson(raw)).toEqual({ x: ["a b"] });
   });
 
+  it("tolerates a trailing comma before a closing brace", () => {
+    // The exact failure that wiped zh highlights on 2026-07-07:
+    // "Expected double-quoted property name in JSON" from a trailing comma.
+    const raw = '{"a": [1, 2,], "b": 3,}';
+    expect(() => JSON.parse(raw)).toThrow();
+    expect(parseLlmJson(raw)).toEqual({ a: [1, 2], b: 3 });
+  });
+
+  it("strips prose around the JSON payload", () => {
+    const raw = 'Here are the highlights:\n{"a": 1}\nHope that helps!';
+    expect(parseLlmJson(raw)).toEqual({ a: 1 });
+  });
+
   it("throws on genuinely malformed JSON", () => {
     expect(() => parseLlmJson("{not json")).toThrow();
   });

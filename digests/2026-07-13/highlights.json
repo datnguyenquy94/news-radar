@@ -1,61 +1,110 @@
 {
-  "zh": {},
-  "en": {
+  "zh": {
     "ai-cli": [
-      "Claude Code and OpenAI Codex dominate",
-      "Safety classifier false positives frustrate",
-      "Gemini CLI invests in sandboxing",
-      "Kimi Code CLI battles encoding issues",
-      "Multi-agent reliability is a pain point",
-      "Context window hygiene is universal"
+      "Claude Code 被曝单次调用前置传输 33K token，效率堪忧",
+      "OpenCode 获社区热捧，GPT-5.6 适配和 V2 版本成焦点",
+      "Gemini CLI 大量 PR 合并，聚焦安全漏洞修复与依赖升级",
+      "Pi 和 Qwen Code 活跃度飙升，Agent 会话与多工作区成新战场",
+      "Claude Code 权限系统、Fable 5 模型行为异常成社区痛点",
+      "GitHub Copilot CLI 被指 TUI 卡死，插件/MCP 生态断裂"
     ],
     "ai-agents": [
-      "OpenClaw shows high activity",
-      "500 issues and 500 PRs updated",
-      "v2026.7.1-beta.6 released today",
-      "Added Featherless and Claude Sonnet 5",
-      "Critical P0/P1 bugs remain open",
-      "Gateway memory leak grows to 15.5GB"
+      "OpenClaw v2026.7.1-beta.6 发布，新增 Claude Sonnet 5 支持",
+      "项目极度活跃：24 小时内处理超 1000 条 Issue 和 PR",
+      "大量 P0/P1 Bug（内存泄漏、数据丢失）正被集中处理",
+      "新版本默认模型变更为 GPT-5.6",
+      "侧边栏会话列表支持按 agent 筛选，提升多 agent 管理体验",
+      "项目健康状况‘非常活跃但高度紧张’，风险与机遇并存"
     ],
     "ai-trending": [
-      "AI agent security tools surge",
-      "destructive_command_guard gains traction",
-      "Vibe-Trading hits 768 stars today",
-      "hallmark fights AI slop in code",
-      "Agent memory tools reshape landscape",
-      "Claude ecosystem continues to dominate"
+      "Agent 安全工具 destructive_command_guard 日增 444 星",
+      "Vibe-Trading 成为今日增长最快项目，AI 量化交易大火",
+      "Rust 生态 LLM 框架 rig 星数达 7,905，备受关注",
+      "Claude Code 模板与 MCP 工具成为开发者新宠",
+      "AI 编码工具‘反烂设计’风格 hallmark 获 155 星",
+      "AI 对冲基金项目 virattt/ai-hedge-fund 日增 115 星"
     ],
     "ai-hn": [
-      "Claude Code wastes 33k tokens before prompt",
-      "OpenCode sends only 7k tokens",
+      "Claude Code 发送 33K Token 开销的争议引发 463 分讨论",
+      "Geohot 发文‘我爱 LLM，但我恨炒作’，获社区共鸣",
+      "苹果与 OpenAI 法律战成为社区热议产业焦点",
+      "Claude Fable 5 限时免费活动引发效率与成本辩论",
+      "Confessor 工具可回溯 Claude Code 访问的本地隐私数据",
+      "Adaptive Recall 项目为 AI 助手提供持久记忆新方案"
+    ],
+    "ai-ph": [
+      "实时 AI 特效 SDK 'Effects SDK' 以 484 票登顶今日榜首",
+      "ChatGPT Work 定位为‘最具雄心工作伙伴’，获 247 票",
+      "Agent 调试神器 agentfdr 解决编码 Agent 烧 Token 痛点",
+      "开发者工具品类涌现 AI Agent 可观测性新项目",
+      "AI 音视频特效组件需求强劲，Effects SDK 成爆款",
+      "ChatGPT 从助手升级为超级个体的深度工作伙伴"
+    ],
+    "ai-hf": [
+      "GLM-5.2 MoE 模型以 3,857 点赞登顶本周 Hugging Face 榜首",
+      "Qwen 3.5/3.6 系列模型生态空前繁荣，占据大量榜单",
+      "英伟达 LocateAnything-3B 视觉定位模型获 2,717 点赞",
+      "百度 Unlimited-OCR 通用模型下载量超 140 万",
+      "社区活跃微调 Qwen 模型，‘Uncensored’ 版受追捧",
+      "GGUF 量化格式统治地位稳固，降低本地部署门槛"
+    ],
+    "ai-community": [
+      "GPT-5.6 Sol 成本仅为 Claude Fable 5 的三分之一引热议",
+      "开发者展示 AI Agent 如何‘合理撒谎’，揭露记忆缺陷",
+      "7 个实战教训帮开发者避免 LLM API 账单无声爆炸",
+      "混合本地与云端 LLM 决策框架获社区实用好评",
+      "NVIDIA H100 vs H200 vs B200 选型指南成为热点",
+      "多智能体架构‘任务成功’可能掩盖底层故障引关注"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code dominates but faces safety classifier issues",
+      "Kimi Code CLI wrestles with encoding and rate-limit bugs",
+      "Gemini CLI invests in sandboxing and daemon support",
+      "OpenAI Codex churns through model compatibility issues",
+      "Cross-tool pain: multi-agent reliability and session persistence",
+      "Qwen Code adds evaluation infrastructure"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.7.1-beta.6 adds new model providers",
+      "Critical P0 memory leak: RSS grows to 15.5GB",
+      "Tool outputs render as unreadable placeholder text",
+      "Featherless and Claude Sonnet 5 now supported",
+      "GPT-5.6 is the new default model for setups",
+      "500 issues and 500 PRs updated in 24 hours"
+    ],
+    "ai-trending": [
+      "AI agent security tools surge on GitHub",
+      "Vibe-Trading hits 768 stars today",
+      "hallmark tool pushes back against AI slop",
+      "Claude ecosystem dominates trending list",
+      "AI financial trading is a breakout theme",
+      "RAG remains the largest category by volume"
+    ],
+    "ai-hn": [
+      "Claude Code wastes 33k tokens before prompt reads",
       "George Hotz: I love LLMs, I hate hype",
-      "Apple and OpenAI in brewing legal war",
-      "Mechanistic interpretability gets cautious hope",
-      "Anthropic found Claude's hidden thinking space"
+      "Apple-OpenAI legal war heats up",
+      "Mechanistic interpretability cracks LLM black box",
+      "Hidden space where Claude puzzles over concepts",
+      "OpenCode sends only 7k tokens overhead"
     ],
     "ai-ph": [
       "Effects SDK leads with 484 votes",
-      "ChatGPT Work gets 247 votes",
-      "agentfdr tracks coding agent loops",
+      "ChatGPT Work scores 247 votes",
+      "agentfdr debugs looping coding agents",
       "MeMex offers private Mac memory search",
-      "AI agent debugging tools emerge",
-      "Privacy-focused local AI tools gain traction"
+      "Privacy-focused local AI tools gain traction",
+      "Debugging and observability for AI agents emerge"
     ],
     "ai-hf": [
-      "Qwen3.6 family dominates trending",
-      "GLM-5.2 tops with 3,857 likes",
-      "Unlimited-OCR hits 1.43M downloads",
-      "Nemotron-Labs-3-Puzzle-75B-A9B released",
-      "Qwen3.6-35B-A3B-Uncensored has 2.6M downloads",
-      "GGUF variants appear within hours"
-    ],
-    "ai-community": [
-      "GPT-5.6 Sol vs Claude Fable 5 debate",
-      "Ollama on Jetson Nano benchmarked",
-      "Agent checkpoint-skip failures exposed",
-      "LLM bills silently exploding discussed",
-      "Environmental cost of AI top story",
-      "Emergent deception in agents analyzed"
+      "GLM-5.2 tops charts with 3,857 likes",
+      "Qwen3.6 uncensored variant hits 2.6M downloads",
+      "NVIDIA Nemotron 75B MoE model released",
+      "Unlimited-OCR from Baidu gets 1.43M downloads",
+      "Qwen3.5 family dominates trending models",
+      "GGUF quantized variants appear within hours"
     ]
   }
 }

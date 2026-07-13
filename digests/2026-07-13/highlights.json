@@ -1,20 +1,20 @@
 {
   "zh": {
     "ai-cli": [
-      "Claude Code 被曝单次调用前置传输 33K token，效率堪忧",
-      "OpenCode 获社区热捧，GPT-5.6 适配和 V2 版本成焦点",
-      "Gemini CLI 大量 PR 合并，聚焦安全漏洞修复与依赖升级",
-      "Pi 和 Qwen Code 活跃度飙升，Agent 会话与多工作区成新战场",
-      "Claude Code 权限系统、Fable 5 模型行为异常成社区痛点",
-      "GitHub Copilot CLI 被指 TUI 卡死，插件/MCP 生态断裂"
+      "GPT-5.6发布，引爆性能与争议",
+      "Anthropic发布Claude Sonnet 5，强化智能体能力",
+      "Agent Skills市场爆发，标准化趋势加速",
+      "Claude Code曝Token消耗狂飙，信任危机加剧",
+      "OpenClaw持续高速迭代，稳定性挑战突出",
+      "AI赋能垂直场景成新热点，求职、办公、金融落地"
     ],
     "ai-agents": [
-      "OpenClaw v2026.7.1-beta.6 发布，新增 Claude Sonnet 5 支持",
-      "项目极度活跃：24 小时内处理超 1000 条 Issue 和 PR",
-      "大量 P0/P1 Bug（内存泄漏、数据丢失）正被集中处理",
-      "新版本默认模型变更为 GPT-5.6",
-      "侧边栏会话列表支持按 agent 筛选，提升多 agent 管理体验",
-      "项目健康状况‘非常活跃但高度紧张’，风险与机遇并存"
+      "Agent Skills市场爆发，标准化趋势加速",
+      "AI赋能垂直场景成新热点，求职、办公、金融落地",
+      "OpenClaw持续高速迭代，稳定性挑战突出",
+      "GPT-5.6发布，引爆性能与争议",
+      "Anthropic发布Claude Sonnet 5，强化智能体能力",
+      "Claude Code曝Token消耗狂飙，信任危机加剧"
     ],
     "ai-trending": [
       "Agent 安全工具 destructive_command_guard 日增 444 星",
@@ -105,6 +105,14 @@
       "Unlimited-OCR from Baidu gets 1.43M downloads",
       "Qwen3.5 family dominates trending models",
       "GGUF quantized variants appear within hours"
+    ],
+    "ai-weekly": [
+      "GPT-5.6 launches with controversy",
+      "Apple sues OpenAI over trade secrets",
+      "Agent Skills surge on GitHub",
+      "Claude Sonnet 5 released",
+      "Anthropic's 'J-Space' research goes viral",
+      "OpenClaw beta faces memory leak issues"
     ]
   }
 }

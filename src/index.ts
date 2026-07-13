@@ -444,25 +444,38 @@ async function main(): Promise<void> {
 
   console.log("  Generating highlights for Telegram...");
   const highlights: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
-  // zh and en are parsed independently so a failure in one language doesn't
-  // wipe the other (a single bad LLM response used to leave both empty).
-  const [zhRes, enRes] = await Promise.allSettled([
-    callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
-    callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
-  ]);
-  for (const [lang, res] of [
-    ["zh", zhRes],
-    ["en", enRes],
-  ] as const) {
-    if (res.status !== "fulfilled") {
-      console.error(`  [highlights] ${lang} generation failed: ${res.reason}`);
-      continue;
+  // Generate + parse one language, retrying once. The LLM occasionally emits
+  // slightly malformed JSON that repairJson can't fix (seen 2026-07-13: zh
+  // failed with "Expected ',' or ']' after array element"); a fresh generation
+  // usually returns valid JSON. Each language runs independently so a failure
+  // in one never wipes the other.
+  const genHighlights = async (reports: Record<string, string>, lang: Lang): Promise<ReportHighlights> => {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        return parseLlmJson<ReportHighlights>(await callLlm(buildHighlightsPrompt(reports, lang), 2048));
+      } catch (err) {
+        const tag = attempt < 2 ? "retrying" : "giving up";
+        console.error(`  [highlights] ${lang} attempt ${attempt} failed (${tag}): ${err}`);
+      }
     }
-    try {
-      highlights[lang] = parseLlmJson<ReportHighlights>(res.value);
-    } catch (err) {
-      console.error(`  [highlights] ${lang} parse failed: ${err}`);
-    }
+    return {};
+  };
+  const [zhRes, enRes] = await Promise.all([genHighlights(zhReports, "zh"), genHighlights(enReports, "en")]);
+  highlights.zh = zhRes;
+  highlights.en = enRes;
+
+  // If one language failed (generation or parse) but the other succeeded,
+  // backfill the empty one from the other so notifications never render with
+  // zero highlights. Seen 2026-07-13: zh failed intermittently while en was
+  // fine, leaving Telegram/Feishu with only section headers and no bullets.
+  const zhEmpty = Object.keys(highlights.zh).length === 0;
+  const enEmpty = Object.keys(highlights.en).length === 0;
+  if (zhEmpty && !enEmpty) {
+    console.warn("  [highlights] zh empty — backfilling from en");
+    highlights.zh = highlights.en;
+  } else if (enEmpty && !zhEmpty) {
+    console.warn("  [highlights] en empty — backfilling from zh");
+    highlights.en = highlights.zh;
   }
 
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");

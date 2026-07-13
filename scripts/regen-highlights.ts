@@ -69,8 +69,20 @@ async function main() {
     callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
   ]);
 
-  highlights.zh = parseLlmJson<ReportHighlights>(zhRaw);
-  highlights.en = parseLlmJson<ReportHighlights>(enRaw);
+  try {
+    highlights.zh = parseLlmJson<ReportHighlights>(zhRaw);
+  } catch (err) {
+    console.error(`  [highlights] zh parse failed: ${err}`);
+  }
+  try {
+    highlights.en = parseLlmJson<ReportHighlights>(enRaw);
+  } catch (err) {
+    console.error(`  [highlights] en parse failed: ${err}`);
+  }
+
+  // Backfill an empty language from the other so notifications never blank out.
+  if (Object.keys(highlights.zh).length === 0) highlights.zh = highlights.en;
+  else if (Object.keys(highlights.en).length === 0) highlights.en = highlights.zh;
 
   const outPath = path.join(digestsDir, dateStr, "highlights.json");
   fs.writeFileSync(outPath, JSON.stringify(highlights, null, 2) + "\n");

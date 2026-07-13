@@ -1,0 +1,61 @@
+{
+  "zh": {},
+  "en": {
+    "ai-cli": [
+      "Claude Code and OpenAI Codex dominate",
+      "Safety classifier false positives frustrate",
+      "Gemini CLI invests in sandboxing",
+      "Kimi Code CLI battles encoding issues",
+      "Multi-agent reliability is a pain point",
+      "Context window hygiene is universal"
+    ],
+    "ai-agents": [
+      "OpenClaw shows high activity",
+      "500 issues and 500 PRs updated",
+      "v2026.7.1-beta.6 released today",
+      "Added Featherless and Claude Sonnet 5",
+      "Critical P0/P1 bugs remain open",
+      "Gateway memory leak grows to 15.5GB"
+    ],
+    "ai-trending": [
+      "AI agent security tools surge",
+      "destructive_command_guard gains traction",
+      "Vibe-Trading hits 768 stars today",
+      "hallmark fights AI slop in code",
+      "Agent memory tools reshape landscape",
+      "Claude ecosystem continues to dominate"
+    ],
+    "ai-hn": [
+      "Claude Code wastes 33k tokens before prompt",
+      "OpenCode sends only 7k tokens",
+      "George Hotz: I love LLMs, I hate hype",
+      "Apple and OpenAI in brewing legal war",
+      "Mechanistic interpretability gets cautious hope",
+      "Anthropic found Claude's hidden thinking space"
+    ],
+    "ai-ph": [
+      "Effects SDK leads with 484 votes",
+      "ChatGPT Work gets 247 votes",
+      "agentfdr tracks coding agent loops",
+      "MeMex offers private Mac memory search",
+      "AI agent debugging tools emerge",
+      "Privacy-focused local AI tools gain traction"
+    ],
+    "ai-hf": [
+      "Qwen3.6 family dominates trending",
+      "GLM-5.2 tops with 3,857 likes",
+      "Unlimited-OCR hits 1.43M downloads",
+      "Nemotron-Labs-3-Puzzle-75B-A9B released",
+      "Qwen3.6-35B-A3B-Uncensored has 2.6M downloads",
+      "GGUF variants appear within hours"
+    ],
+    "ai-community": [
+      "GPT-5.6 Sol vs Claude Fable 5 debate",
+      "Ollama on Jetson Nano benchmarked",
+      "Agent checkpoint-skip failures exposed",
+      "LLM bills silently exploding discussed",
+      "Environmental cost of AI top story",
+      "Emergent deception in agents analyzed"
+    ]
+  }
+}

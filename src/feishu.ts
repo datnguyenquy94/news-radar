@@ -78,6 +78,7 @@ export function buildFeishuMessage(
   ];
 
   const zhHighlights = highlights?.zh ?? {};
+  const enHighlights = highlights?.en ?? {};
 
   for (const r of ordered) {
     const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
@@ -93,7 +94,9 @@ export function buildFeishuMessage(
       lines.push(`• [${zhLabel}](${zhUrl})`);
     }
 
-    const items = zhHighlights[r];
+    // Fall back to en when a report's zh highlights are missing so a
+    // single-language failure never blanks the message.
+    const items = zhHighlights[r] ?? enHighlights[r];
     if (items?.length) {
       for (const h of items) {
         lines.push(`  ◦ ${h}`);

@@ -465,6 +465,20 @@ async function main(): Promise<void> {
     }
   }
 
+  // If one language failed (generation or parse) but the other succeeded,
+  // backfill the empty one from the other so notifications never render with
+  // zero highlights. Seen 2026-07-13: zh failed intermittently while en was
+  // fine, leaving Telegram/Feishu with only section headers and no bullets.
+  const zhEmpty = Object.keys(highlights.zh).length === 0;
+  const enEmpty = Object.keys(highlights.en).length === 0;
+  if (zhEmpty && !enEmpty) {
+    console.warn("  [highlights] zh empty — backfilling from en");
+    highlights.zh = highlights.en;
+  } else if (enEmpty && !zhEmpty) {
+    console.warn("  [highlights] en empty — backfilling from zh");
+    highlights.en = highlights.zh;
+  }
+
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
   console.log(`  Saved ${highlightsPath}`);
 

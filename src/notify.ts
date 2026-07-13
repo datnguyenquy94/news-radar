@@ -68,6 +68,7 @@ export function buildMessage(
   ];
 
   const zhHighlights = highlights?.zh ?? {};
+  const enHighlights = highlights?.en ?? {};
 
   for (const r of ordered) {
     const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
@@ -83,8 +84,9 @@ export function buildMessage(
       lines.push(`• <a href="${zhUrl}">${zhLabel}</a>`);
     }
 
-    // Add highlights as indented sub-items
-    const items = zhHighlights[r];
+    // Add highlights as indented sub-items. Fall back to en when a report's zh
+    // highlights are missing so a single-language failure never blanks the message.
+    const items = zhHighlights[r] ?? enHighlights[r];
     if (items?.length) {
       for (const h of items) {
         lines.push(`  ◦ ${escapeHtml(h)}`);

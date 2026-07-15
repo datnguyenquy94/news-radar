@@ -82,10 +82,16 @@ Generate a structured AI Open Source Trends Report in English:
 
 1. **Today's Highlights** — 3-5 sentences on the most noteworthy AI open-source developments today
 
-2. **Top Projects by Category** — For each category, list 3-8 representative projects, each with:
-   - Project name (with link)
-   - Stars data (total + today's new, if available)
-   - One sentence: what it is and why it's worth attention today
+2. **Top Projects by Category** — For each category, render a **Markdown table** with exactly these columns:
+
+   | Project | Lang | Stars (total / today) | Summary |
+   | :--- | :--- | ---: | :--- |
+
+   - **Project**: repo name as a Markdown link to its GitHub URL
+   - **Lang**: primary language (leave blank if unknown)
+   - **Stars**: total stars, plus today's new stars in parentheses when available (e.g. "86,392 (+1,851)"); copy the numbers from the input verbatim, do not recompute
+   - **Summary**: 2 sentences — what the project is and why it's worth attention today, including any standout data point or momentum signal
+   - List 3-8 projects per category; omit a category's table entirely if no project falls under it
 
 3. **Trend Signal Analysis** — 200-300 words, distill from today's hot list:
    - Which type of AI tool is getting explosive community attention?
@@ -131,10 +137,16 @@ ${searchSection}
 
 1. **今日速览** — 3~5 句话概括今日 AI 开源领域最值得关注的动向
 
-2. **各维度热门项目** — 每个维度列出 3~8 个代表项目，每项包含：
-   - 项目名（附链接）
-   - stars 数据（总量 + 今日新增，如有）
-   - 一句话说明：这个项目是什么，为什么今天值得关注
+2. **各维度热门项目** — 每个维度用 **Markdown 表格**呈现，列固定为：
+
+   | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+   | :--- | :--- | ---: | :--- |
+
+   - **项目**：仓库名，做成指向其 GitHub 链接的 Markdown 链接
+   - **语言**：主要语言（未知则留空）
+   - **Stars**：总 star 数，有今日新增则在括号中标注（如 "86,392（+1,851）"）；数字照抄输入，不要重算
+   - **简要说明**：2 句话——项目是什么、今天为什么值得关注，点出关键数据或增长信号
+   - 每个维度列 3~8 个项目；某维度下若无项目则整张表省略
 
 3. **趋势信号分析** — 200~300 字，从今日热榜中提炼：
    - 哪类 AI 工具正在获得社区爆发性关注？
@@ -459,10 +471,15 @@ Generate a structured Hacker News AI Community Digest in English:
 
 1. **Today's Highlights** — 3-5 sentences on the hottest AI discussion topics and community sentiment on HN today
 
-2. **Top News & Discussions** — Organized by category, select the 2-5 most representative items per category, each with:
-   - Title (with original link) + HN discussion link
-   - Score and comment count
-   - One sentence: why this matters, what the community's typical reaction is
+2. **Top News & Discussions** — Organized by category, render a **Markdown table** per category with exactly these columns:
+
+   | Title | Score | Comments | Summary |
+   | :--- | ---: | ---: | :--- |
+
+   - **Title**: title as a Markdown link to the original article, followed by a " · [HN](discussion-url)" link to the HN thread
+   - **Score / Comments**: copy the numbers from the input verbatim
+   - **Summary**: 2 sentences — why this matters and what the community's typical reaction is
+   - Select the 2-5 most representative items per category; omit a category's table if empty
 
    Categories:
    - 🔬 Models & Research (new model releases, papers, benchmarks)
@@ -493,10 +510,15 @@ ${storiesText}
 
 1. **今日速览** — 3~5 句话，概括今日 HN 社区围绕 AI 最热门的讨论方向和情绪
 
-2. **热门新闻与讨论** — 按以下分类整理，每类选取最具代表性的 2~5 条，每条包含：
-   - 标题（附原文链接）+ HN 讨论链接
-   - 分数和评论数
-   - 一句话说明：这条内容为什么值得关注，社区有何典型反应
+2. **热门新闻与讨论** — 按以下分类整理，每个分类用 **Markdown 表格**呈现，列固定为：
+
+   | 标题 | 分数 | 评论 | 简要说明 |
+   | :--- | ---: | ---: | :--- |
+
+   - **标题**：标题做成指向原文的 Markdown 链接，其后附 " · [HN](讨论链接)" 指向 HN 讨论
+   - **分数 / 评论**：数字照抄输入，不要重算
+   - **简要说明**：2 句话——这条为什么值得关注、社区有何典型反应
+   - 每类选取最具代表性的 2~5 条；某分类为空则整张表省略
 
    分类：
    - 🔬 模型与研究（新模型发布、论文、基准测试）
@@ -543,10 +565,15 @@ Generate a structured Product Hunt AI Products Digest in English:
 
 1. **Today's Highlights** — 3-5 sentences on the most notable AI product launches and trends on Product Hunt today
 
-2. **Top Products** — Organized by category, select the most representative products per category, each with:
-   - Product name + tagline (with Product Hunt link and website link)
-   - Vote count and comment count
-   - One sentence: what problem it solves, what makes it stand out
+2. **Top Products** — Organized by category, render a **Markdown table** per category with exactly these columns:
+
+   | Product | Votes | Comments | Summary |
+   | :--- | ---: | ---: | :--- |
+
+   - **Product**: product name as a Markdown link to its Product Hunt page, followed by " · [site](website-url)" when a website is available
+   - **Votes / Comments**: copy the numbers from the input verbatim
+   - **Summary**: 2 sentences — the tagline plus what problem it solves and what makes it stand out
+   - Select the most representative products per category; omit a category's table if empty
 
    Categories:
    - 🤖 AI Agents & Assistants (chatbots, copilots, autonomous agents)
@@ -578,10 +605,15 @@ ${productsText}
 
 1. **今日速览** — 3~5 句话，概括今日 Product Hunt 上 AI 产品发布的整体趋势和亮点
 
-2. **热门产品** — 按以下分类整理，每类选取最具代表性的产品，每个产品包含：
-   - 产品名 + 简介（附 Product Hunt 链接和官网链接）
-   - 投票数和评论数
-   - 一句话说明：解决什么问题，有何独特之处
+2. **热门产品** — 按以下分类整理，每个分类用 **Markdown 表格**呈现，列固定为：
+
+   | 产品 | 投票 | 评论 | 简要说明 |
+   | :--- | ---: | ---: | :--- |
+
+   - **产品**：产品名做成指向 Product Hunt 页面的 Markdown 链接，有官网则其后附 " · [官网](官网链接)"
+   - **投票 / 评论**：数字照抄输入，不要重算
+   - **简要说明**：2 句话——结合简介，说明它解决什么问题、有何独特之处
+   - 每类选取最具代表性的产品；某分类为空则整张表省略
 
    分类：
    - 🤖 AI 智能体与助手（聊天机器人、Copilot、自主 Agent）
@@ -638,16 +670,21 @@ Generate a structured ArXiv AI Research Digest in English:
 
 1. **Today's Highlights** — 3-5 sentences on the most significant research directions and breakthroughs
 
-2. **Key Papers** — Select 8-15 most important papers, organized by theme:
+2. **Key Papers** — Select 8-15 most important papers, organized by theme. Under each theme header, render a **Markdown table** with exactly these columns:
+
+   | Paper | Authors | Summary |
+   | :--- | :--- | :--- |
+
+   - **Paper**: title as a Markdown link to its ArXiv URL
+   - **Authors**: abbreviated (first 3 + et al.)
+   - **Summary**: 2 sentences — the key contribution and why it matters
+   - Omit a theme's table if no paper falls under it
+
+   Themes:
    - 🧠 Large Language Models (architecture, training, alignment, evaluation)
    - 🤖 Agents & Reasoning (planning, tool use, multi-agent, chain-of-thought)
    - 🔧 Methods & Frameworks (new techniques, benchmarks, efficiency improvements)
    - 📊 Applications (domain-specific, multimodal, code generation)
-
-   For each paper:
-   - Title (with ArXiv link)
-   - Authors (abbreviated)
-   - One sentence: key contribution and why it matters
 
 3. **Research Trend Signal** — 100-200 words on emerging research directions visible from today's submissions
 
@@ -669,16 +706,21 @@ ${papersText}
 
 1. **今日速览** — 3~5 句话，概括今日最值得关注的研究方向和突破
 
-2. **重点论文** — 选出 8~15 篇最重要的论文，按主题分类：
+2. **重点论文** — 选出 8~15 篇最重要的论文，按主题分类。在每个主题标题下用 **Markdown 表格**呈现，列固定为：
+
+   | 论文 | 作者 | 简要说明 |
+   | :--- | :--- | :--- |
+
+   - **论文**：标题做成指向其 ArXiv 链接的 Markdown 链接
+   - **作者**：缩写（前 3 位 + et al.）
+   - **简要说明**：2 句话——核心贡献及为什么值得关注
+   - 某主题下若无论文则整张表省略
+
+   主题：
    - 🧠 大语言模型（架构、训练、对齐、评估）
    - 🤖 智能体与推理（规划、工具使用、多智能体、思维链）
    - 🔧 方法与框架（新技术、基准测试、效率优化）
    - 📊 应用（垂直领域、多模态、代码生成）
-
-   每篇论文包含：
-   - 标题（附 ArXiv 链接）
-   - 作者（缩写）
-   - 一句话说明：核心贡献和为什么值得关注
 
 3. **研究趋势信号** — 100~200 字，从今日投稿中观察到的新兴研究方向
 
@@ -722,10 +764,15 @@ Generate a structured Hugging Face Trending Models Digest in English:
 
 1. **Today's Highlights** — 3-5 sentences on the most notable model releases and trends on Hugging Face
 
-2. **Trending Models** — Organized by category, each with:
-   - Model name (with HF link)
-   - Author, likes, downloads
-   - One sentence: what it is, why it's trending
+2. **Trending Models** — Organized by category. Under each category header, render a **Markdown table** with exactly these columns:
+
+   | Model | Author | Likes | Downloads | Summary |
+   | :--- | :--- | ---: | ---: | :--- |
+
+   - **Model**: model name as a Markdown link to its HF URL
+   - **Likes / Downloads**: copy the numbers from the input verbatim (keep the thousands separators; do not recompute or round)
+   - **Summary**: 2 sentences — what it is and why it's trending, including a standout capability or data point
+   - Omit a category's table entirely if no model falls under it
 
    Categories:
    - 🧠 Language Models (LLMs, chat models, instruction-tuned)
@@ -756,10 +803,15 @@ ${modelsText}
 
 1. **今日速览** — 3~5 句话，概括 Hugging Face 上最值得关注的模型发布和趋势
 
-2. **热门模型** — 按以下分类整理，每个模型包含：
-   - 模型名（附 HF 链接）
-   - 作者、点赞数、下载数
-   - 一句话说明：这个模型是什么，为什么在趋势榜上
+2. **热门模型** — 按以下分类整理。在每个分类标题下，用 **Markdown 表格**呈现，列固定为：
+
+   | 模型 | 作者 | 点赞 | 下载 | 简要说明 |
+   | :--- | :--- | ---: | ---: | :--- |
+
+   - **模型**：模型名，做成指向其 HF 链接的 Markdown 链接
+   - **点赞 / 下载**：数字直接照抄输入数据（保留千位分隔符，不要重新计算或四舍五入）
+   - **简要说明**：2 句话——模型是什么、为什么上榜，点出关键能力或数据亮点
+   - 某个分类下若没有模型，则整张表省略
 
    分类：
    - 🧠 语言模型（LLM、对话模型、指令微调）
@@ -847,15 +899,23 @@ Generate a structured Tech Community AI Digest in English:
 
 1. **Today's Highlights** — 3-5 sentences on the most discussed AI topics across these communities today
 
-2. **Dev.to Highlights** — Select 5-10 most valuable articles:
-   - Title (with link)
-   - Reactions and comments
-   - One sentence: key takeaway for developers
+2. **Dev.to Highlights** — Select 5-10 most valuable articles as a **Markdown table**:
 
-3. **Lobste.rs Highlights** — Select 3-8 most notable stories:
-   - Title (with link + discussion link)
-   - Score and comments
-   - One sentence: why it's worth reading
+   | Article | Reactions | Comments | Summary |
+   | :--- | ---: | ---: | :--- |
+
+   - **Article**: title as a Markdown link
+   - **Reactions / Comments**: copy the numbers from the input verbatim
+   - **Summary**: 2 sentences — the key takeaway for developers
+
+3. **Lobste.rs Highlights** — Select 3-8 most notable stories as a **Markdown table**:
+
+   | Story | Score | Comments | Summary |
+   | :--- | ---: | ---: | :--- |
+
+   - **Story**: title as a Markdown link, followed by " · [discuss](discussion-url)"
+   - **Score / Comments**: copy the numbers from the input verbatim
+   - **Summary**: 2 sentences — why it's worth reading
 
 4. **Community Pulse** — 100-200 words on what these communities are talking about:
    - Common themes across both platforms
@@ -886,15 +946,23 @@ ${lobstersText}
 
 1. **今日速览** — 3~5 句话，概括今日技术社区围绕 AI 最热门的讨论方向
 
-2. **Dev.to 精选** — 选出 5~10 篇最有价值的文章：
-   - 标题（附链接）
-   - 点赞数和评论数
-   - 一句话说明：对开发者的核心价值
+2. **Dev.to 精选** — 选出 5~10 篇最有价值的文章，用 **Markdown 表格**呈现：
 
-3. **Lobste.rs 精选** — 选出 3~8 条最值得关注的内容：
-   - 标题（附链接 + 讨论链接）
-   - 分数和评论数
-   - 一句话说明：为什么值得阅读
+   | 文章 | 点赞 | 评论 | 简要说明 |
+   | :--- | ---: | ---: | :--- |
+
+   - **文章**：标题做成 Markdown 链接
+   - **点赞 / 评论**：数字照抄输入，不要重算
+   - **简要说明**：2 句话——对开发者的核心价值
+
+3. **Lobste.rs 精选** — 选出 3~8 条最值得关注的内容，用 **Markdown 表格**呈现：
+
+   | 标题 | 分数 | 评论 | 简要说明 |
+   | :--- | ---: | ---: | :--- |
+
+   - **标题**：标题做成 Markdown 链接，其后附 " · [讨论](讨论链接)"
+   - **分数 / 评论**：数字照抄输入，不要重算
+   - **简要说明**：2 句话——为什么值得阅读
 
 4. **社区脉搏** — 100~200 字，分析技术社区在聊什么：
    - 两个平台共同关注的主题

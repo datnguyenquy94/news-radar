@@ -77,9 +77,6 @@ openclaw_peers:
   - id: lobsterai
     repo: netease-youdao/LobsterAI
     name: LobsterAI
-  - id: tinyclaw
-    repo: TinyAGI/tinyagi
-    name: TinyClaw
   - id: moltis
     repo: moltis-org/moltis
     name: Moltis

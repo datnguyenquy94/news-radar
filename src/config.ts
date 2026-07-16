@@ -64,7 +64,6 @@ const DEFAULT_OPENCLAW_PEERS: RepoConfig[] = [
   { id: "nullclaw", repo: "nullclaw/nullclaw", name: "NullClaw" },
   { id: "ironclaw", repo: "nearai/ironclaw", name: "IronClaw" },
   { id: "lobsterai", repo: "netease-youdao/LobsterAI", name: "LobsterAI" },
-  { id: "tinyclaw", repo: "TinyAGI/tinyclaw", name: "TinyClaw" },
   { id: "copaw", repo: "agentscope-ai/CoPaw", name: "CoPaw" },
   { id: "moltis", repo: "moltis-org/moltis", name: "Moltis" },
   { id: "zeptoclaw", repo: "qhkm/zeptoclaw", name: "ZeptoClaw" },

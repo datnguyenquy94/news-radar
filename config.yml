@@ -35,6 +35,9 @@ cli_repos:
   - id: deepseek-tui
     repo: Hmbown/DeepSeek-TUI
     name: DeepSeek TUI
+  - id: grok-cli
+    repo: superagent-ai/grok-cli
+    name: Grok CLI
 
 # ── Claude Code Skills ────────────────────────────────────────────────────────
 # Tracked separately without a date filter, sorted by community engagement.

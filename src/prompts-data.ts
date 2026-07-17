@@ -451,16 +451,16 @@ export function buildHnPrompt(data: HnData, dateStr: string, lang: Lang = "zh"):
         ? `${i + 1}. **${s.title}**\n` +
           `   Link: ${s.url}\n` +
           `   Discussion: ${s.hnUrl}\n` +
-          `   Score: ${s.points} | Comments: ${s.comments} | Author: ${s.author} | Time: ${s.createdAt.slice(0, 16)}`
+          `   HN Rank: ${s.hnRank ?? i + 1} | Score: ${s.points} | Comments: ${s.comments} | Author: ${s.author} | Time: ${s.createdAt.slice(0, 16)}`
         : `${i + 1}. **${s.title}**\n` +
           `   链接: ${s.url}\n` +
           `   讨论: ${s.hnUrl}\n` +
-          `   分数: ${s.points} | 评论: ${s.comments} | 作者: ${s.author} | 时间: ${s.createdAt.slice(0, 16)}`,
+          `   HN 排名: ${s.hnRank ?? i + 1} | 分数: ${s.points} | 评论: ${s.comments} | 作者: ${s.author} | 时间: ${s.createdAt.slice(0, 16)}`,
     )
     .join("\n\n");
 
   if (lang === "en") {
-    return `You are an AI industry news analyst. The following are AI-related top posts from Hacker News in the past 24 hours as of ${dateStr} (sorted by score, ${data.stories.length} total):
+    return `You are an AI industry news analyst. The following are AI-related posts from the current Hacker News topstories feed as of ${dateStr} (ordered by HN rank, ${data.stories.length} total):
 
 ---
 
@@ -499,7 +499,7 @@ Style: English, concise and professional, preserve all original links.
 `;
   }
 
-  return `你是 AI 行业资讯分析师。以下是 ${dateStr} 从 Hacker News 抓取的过去 24 小时内 AI 相关热门帖子（按分数降序，共 ${data.stories.length} 条）：
+  return `你是 AI 行业资讯分析师。以下是 ${dateStr} 从 Hacker News topstories 抓取的 AI 相关热门帖子（按 HN 排名顺序，共 ${data.stories.length} 条）：
 
 ---
 

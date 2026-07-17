@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import { buildCliReportContent, buildOpenclawReportContent } from "../report-builders.ts";
 import type { RepoDigest } from "../prompts.ts";
 import type { GitHubItem, GitHubRelease } from "../github.ts";
-import type { ClosedToolRelease } from "../npm.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
@@ -37,7 +36,6 @@ describe("buildCliReportContent", () => {
       "2026-03-09",
       "\n---\nfooter",
       "anthropics/skills",
-      [],
       "zh",
     );
 
@@ -61,7 +59,6 @@ describe("buildCliReportContent", () => {
       "2026-03-09",
       "",
       "anthropics/skills",
-      [],
       "en",
     );
     expect(result).toContain("# AI CLI Tools Community Digest 2026-03-09");
@@ -81,7 +78,6 @@ describe("buildCliReportContent", () => {
       "",
       "",
       "anthropics/skills",
-      [],
       "zh",
     );
 
@@ -91,57 +87,6 @@ describe("buildCliReportContent", () => {
     expect(skillsIdx).toBeGreaterThan(claudeIdx);
     // Skills should not appear after codex section
     expect(result.split("SKILLS_CONTENT")).toHaveLength(2); // appears exactly once
-  });
-
-  it("renders closed-source tools as a table with new releases sorted first", () => {
-    const closed: ClosedToolRelease[] = [
-      {
-        tool: {
-          id: "amp",
-          name: "Amp",
-          vendor: { zh: "Sourcegraph", en: "Sourcegraph" },
-          model: "Claude / GPT",
-        },
-        latestVersion: "0.1.0",
-        latestPublishedAt: "2026-03-01T00:00:00.000Z",
-        isNew: false, // latest is weeks old
-        fetchSuccess: true,
-      },
-      {
-        tool: {
-          id: "codebuddy",
-          name: "CodeBuddy",
-          vendor: { zh: "腾讯", en: "Tencent" },
-          model: "Hunyuan 混元",
-        },
-        latestVersion: "2.122.0",
-        latestPublishedAt: "2026-03-09T14:00:00.000Z",
-        isNew: true, // shipped in window
-        fetchSuccess: true,
-      },
-    ];
-    const result = buildCliReportContent(
-      [makeDigest()],
-      "Skills",
-      "Comparison",
-      "2026-03-09 00:00",
-      "2026-03-09",
-      "",
-      "anthropics/skills",
-      closed,
-      "zh",
-    );
-
-    expect(result).toContain("闭源工具追踪");
-    expect(result).toContain("| CodeBuddy | 腾讯 · Hunyuan 混元 | `2.122.0` | 2026-03-09 | 🆕 今日更新 |");
-    expect(result).toContain("| Amp | Sourcegraph · Claude / GPT | `0.1.0` | 2026-03-01 | — |");
-    // New release (CodeBuddy) sorts above the tool with no new release (Amp)
-    expect(result.indexOf("CodeBuddy |")).toBeLessThan(result.indexOf("Amp |"));
-  });
-
-  it("omits the closed-source section when no tools are tracked", () => {
-    const result = buildCliReportContent([makeDigest()], "", "", "", "", "", "anthropics/skills", [], "zh");
-    expect(result).not.toContain("闭源工具追踪");
   });
 });
 

@@ -47,8 +47,6 @@ import { fetchArxivData, type ArxivData } from "./arxiv.ts";
 import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
-import { fetchNpmData, type ClosedToolRelease } from "./npm.ts";
-import { fetchZcodeRelease } from "./zcode.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -92,7 +90,6 @@ async function fetchAllData(
   hfData: HfData;
   devtoData: DevtoData;
   lobstersData: LobstersData;
-  closedReleases: ClosedToolRelease[];
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
@@ -110,7 +107,6 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
-    closedReleases,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -169,12 +165,6 @@ async function fetchAllData(
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
-    // Closed-source tools: npm-tracked (version + date) plus ZCode's HTML
-    // changelog. Each source already falls back safely on error.
-    Promise.all([fetchNpmData(since), fetchZcodeRelease(since)]).then(([npm, zcode]) => [
-      ...npm.releases,
-      zcode,
-    ]),
   ]);
 
   return {
@@ -188,7 +178,6 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
-    closedReleases,
   };
 }
 
@@ -322,7 +311,6 @@ async function main(): Promise<void> {
     hfData,
     devtoData,
     lobstersData,
-    closedReleases,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -376,7 +364,6 @@ async function main(): Promise<void> {
       dateStr,
       ft,
       CLAUDE_SKILLS_REPO,
-      closedReleases,
       lang,
     );
     openclawContent[lang] = buildOpenclawReportContent(

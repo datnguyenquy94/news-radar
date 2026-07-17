@@ -44,7 +44,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 The pipeline runs in four sequential phases, each implemented as a named async function in `src/index.ts`:
 
-1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for 17 repos, Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News Algolia API, npm registry (closed-source tool versions).
+1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for 17 repos, Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News Algolia API.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to 5 concurrent requests by a queue in `src/report.ts`.
 3. **Comparisons** — two LLM calls: cross-tool CLI comparison and OpenClaw cross-ecosystem comparison.
 4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/report-builders.ts`) build Markdown strings; `saveWebReport` / `saveTrendingReport` / `saveHnReport` (in `src/report-savers.ts`) call LLM + write file + create GitHub Issue.
@@ -74,8 +74,6 @@ The pipeline runs in four sequential phases, each implemented as a named async f
 | `src/web.ts` | Sitemap-based web content fetching; state persisted to `digests/web-state.json` |
 | `src/trending.ts` | GitHub Trending HTML scraper + Search API topic queries |
 | `src/hn.ts` | Hacker News top AI stories via Algolia HN Search API |
-| `src/npm.ts` | Closed-source AI coding tools tracked via npm registry (`CLOSED_TOOLS`); owns shared `ClosedTool`/`ClosedToolRelease` types; version-only, no LLM |
-| `src/zcode.ts` | Zhipu ZCode tracked by scraping its HTML changelog (`parseZcodeChangelog`); produces a `ClosedToolRelease` |
 | `src/generate-manifest.ts` | Generates `manifest.json` (sidebar data for Web UI) and `feed.xml` (RSS 2.0 feed) |
 
 ## Report outputs
@@ -92,16 +90,12 @@ Files written to `digests/YYYY-MM-DD/`:
 
 ## Tracked sources
 
-- **CLI_REPOS** (10): claude-code, codex, gemini-cli, copilot-cli, kimi-cli, opencode, pi, qwen-code, deepseek-tui, grok-cli
+- **CLI_REPOS** (10): claude-code, codex, gemini-cli, copilot-cli, kimi-cli, opencode, pi, qwen-code, deepseek-tui, grok-build
 - **OPENCLAW** + **OPENCLAW_PEERS** (13): openclaw/openclaw + 12 peer projects (sorted by stars)
 - **CLAUDE_SKILLS_REPO**: anthropics/skills — no date filter, sorted by popularity
 - **Web**: anthropic.com + openai.com via sitemap, state in `digests/web-state.json`
 - **Trending**: github.com/trending (HTML) + GitHub Search API (6 AI topics, 7-day window)
 - **HN**: Algolia HN Search API — 6 parallel queries, top-30 AI stories by points, last 24h
-- **Closed-source tools** (3, no public repo; each maps to a mainstream model vendor):
-  - **npm-tracked** (`CLOSED_TOOLS` in `src/npm.ts`, 2): minimax-code (`mmx-cli`), codebuddy (`@tencent-ai/codebuddy-code`) — latest version + publish time from the npm registry. Only add tools with a clean, **verified** npm package; do NOT add open-source CLIs (e.g. `@qwen-code/qwen-code` is the open-source Qwen Code, already in CLI_REPOS) and do NOT guess package names.
-  - **changelog-scraped** (`src/zcode.ts`, 1): Zhipu ZCode (`zcode.z.ai/en/changelog`) — server-rendered HTML, latest version + release date parsed by `parseZcodeChangelog`. More fragile than npm; on a page-structure change it reports `fetchSuccess: false` (shown as "fetch failed") without affecting other rows.
-  - All merged into one `ClosedToolRelease[]` in `fetchAllData` and rendered as a version-only table (no LLM) appended to `ai-cli.md` — no separate report. Cursor/Trae are intentionally excluded: no clean public version endpoint (Cursor is version-only via `api2.cursor.sh` with no date; Trae has no npm/PyPI/GitHub release/app-update endpoint).
 
 ## Key conventions
 

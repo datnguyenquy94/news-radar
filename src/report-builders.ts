@@ -4,35 +4,7 @@
 
 import type { RepoConfig, RepoFetch } from "./github.ts";
 import type { RepoDigest } from "./prompts.ts";
-import type { ClosedToolRelease } from "./npm.ts";
 import { type Lang, CLI_REPORT, OPENCLAW_REPORT } from "./i18n.ts";
-
-// ---------------------------------------------------------------------------
-// Closed-source tools section — a version-only table (no LLM summary).
-// New releases (published within the digest window) are sorted to the top.
-// ---------------------------------------------------------------------------
-
-function buildClosedSection(releases: ClosedToolRelease[], lang: Lang): string {
-  if (releases.length === 0) return "";
-
-  const c = CLI_REPORT.closed;
-  const head =
-    `| ${c.colTool[lang]} | ${c.colVendor[lang]} | ${c.colVersion[lang]} | ${c.colPublished[lang]} | ${c.colStatus[lang]} |\n` +
-    `| --- | --- | --- | --- | --- |`;
-
-  const rows = [...releases]
-    .sort((a, b) => Number(b.isNew) - Number(a.isNew))
-    .map((r) => {
-      const vendorModel = `${r.tool.vendor[lang]} · ${r.tool.model}`;
-      const version = r.latestVersion ? `\`${r.latestVersion}\`` : "—";
-      const published = r.latestPublishedAt ? r.latestPublishedAt.slice(0, 10) : "—";
-      const status = !r.fetchSuccess ? c.statusFail[lang] : r.isNew ? c.statusNew[lang] : "—";
-      return `| ${r.tool.name} | ${vendorModel} | ${version} | ${published} | ${status} |`;
-    })
-    .join("\n");
-
-  return `\n\n---\n\n## ${c.heading[lang]}\n\n> ${c.note[lang]}\n\n${head}\n${rows}\n`;
-}
 
 // ---------------------------------------------------------------------------
 // CLI Report
@@ -46,7 +18,6 @@ export function buildCliReportContent(
   dateStr: string,
   footer: string,
   skillsRepo: string,
-  closedReleases: ClosedToolRelease[] = [],
   lang: Lang = "zh",
 ): string {
   const repoLinks =
@@ -85,7 +56,6 @@ export function buildCliReportContent(
     `\n\n---\n\n` +
     `## ${CLI_REPORT.detail[lang]}\n\n` +
     toolSections +
-    buildClosedSection(closedReleases, lang) +
     footer
   );
 }

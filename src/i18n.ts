@@ -38,20 +38,6 @@ export const CLI_REPORT = {
   skillsSource: t("数据来源", "Source"),
   comparison: t("横向对比", "Cross-Tool Comparison"),
   detail: t("各工具详细报告", "Per-Tool Reports"),
-  closed: {
-    heading: t("闭源工具追踪", "Closed-Source Tools"),
-    note: t(
-      "仅版本追踪（数据来源: npm registry / 官方 changelog）。这些工具无公开仓库，每个对应一家主流模型厂商。",
-      "Version tracking only (source: npm registry / official changelog). No public repo; each maps to a mainstream model vendor.",
-    ),
-    colTool: t("工具", "Tool"),
-    colVendor: t("厂商 / 模型", "Vendor / Model"),
-    colVersion: t("最新版本", "Latest"),
-    colPublished: t("发布时间", "Published"),
-    colStatus: t("状态", "Status"),
-    statusNew: t("🆕 今日更新", "🆕 New"),
-    statusFail: t("查询失败", "fetch failed"),
-  },
 } as const;
 
 export const OPENCLAW_REPORT = {

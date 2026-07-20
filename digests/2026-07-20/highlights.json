@@ -1,12 +1,12 @@
 {
   "zh": {
     "ai-cli": [
-      "Claude Code 发布 v2.1.215，修复复制粘贴Bug。",
-      "Gemini CLI 子代理假成功、Shell卡死问题严重。",
-      "Qwen Code 发布 v0.20.1-preview，优化守护进程。",
-      "GitHub Copilot CLI 正测试新模型兼容与Plan Mode回归。",
-      "社区聚焦Agent行为的可靠性、可观测性与可控性。",
-      "跨平台兼容性（Windows ARM64、Wayland）成新标尺。"
+      "AI CLI工具全线爆发稳定性灾难，资源泄露频发",
+      "Claude Code迁移至基于Rust的Bun，性能突破引热议",
+      "GPT-5.6单提示解决30年数学难题，获584分",
+      "Anthropic推出Claude Tag，嵌入Slack成数字同事",
+      "反AI-Slop运动爆发，Agent技能包项目暴增数千星",
+      "OpenAI发布品牌硬件键盘Codex Micro，欧盟商标败诉"
     ],
     "ai-agents": [
       "OpenClaw 项目非常活跃，24小时353条Issue、500条PR。",
@@ -113,6 +113,14 @@
       "Hono.js tutorial for social media agents",
       "Brokerless browser schedulers for web agents",
       "Shift to reliability and cost control"
+    ],
+    "ai-weekly": [
+      "Claude Code switches to Bun in Rust.",
+      "OpenAI publishes AI evaluation scorecard.",
+      "Anthropic launches @Claude in Slack.",
+      "GPT-5.6 solves 30-year math problem.",
+      "OpenAI loses EU trademark dispute.",
+      "German model Soofi S tops benchmarks."
     ]
   }
 }

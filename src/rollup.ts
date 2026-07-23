@@ -14,7 +14,7 @@ import {
 } from "./prompts-data.ts";
 import { createGitHubIssue } from "./github.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
-import { type Lang, WEEKLY_REPORT, MONTHLY_REPORT } from "./i18n.ts";
+import { type Lang, getLangs, WEEKLY_REPORT, MONTHLY_REPORT } from "./i18n.ts";
 
 const DIGESTS_DIR = "digests";
 const MAX_CHARS_PER_REPORT = 2500;
@@ -72,13 +72,13 @@ export function toWeekStr(date: Date): string {
 // ---------------------------------------------------------------------------
 
 async function generateRollupHighlights(
-  zhContent: string,
-  enContent: string,
+  contentByLang: Partial<Record<Lang, string>>,
   reportId: string,
   dateStr: string,
   itemsPerReport: number,
 ): Promise<void> {
   console.log(`  [${reportId}] Generating highlights for Telegram...`);
+  const langs = Object.keys(contentByLang) as Lang[];
 
   // Read existing highlights (e.g. from daily digest) so we merge instead of overwrite
   const existingPath = path.join(DIGESTS_DIR, dateStr, "highlights.json");
@@ -92,30 +92,28 @@ async function generateRollupHighlights(
   }
 
   const highlights: Record<Lang, ReportHighlights> = {
-    zh: { ...existing.zh },
-    en: { ...existing.en },
+    zh: { ...(existing.zh ?? {}) },
+    en: { ...(existing.en ?? {}) },
   };
 
-  // zh and en are parsed independently so a failure in one language doesn't
-  // wipe the other.
-  const [zhRes, enRes] = await Promise.allSettled([
-    callLlm(buildHighlightsPrompt({ [reportId]: zhContent }, "zh", itemsPerReport), 1024),
-    callLlm(buildHighlightsPrompt({ [reportId]: enContent }, "en", itemsPerReport), 1024),
-  ]);
-  for (const [lang, res] of [
-    ["zh", zhRes],
-    ["en", enRes],
-  ] as const) {
+  // Each language is parsed independently so a failure in one doesn't wipe the other.
+  const results = await Promise.allSettled(
+    langs.map((lang) =>
+      callLlm(buildHighlightsPrompt({ [reportId]: contentByLang[lang]! }, lang, itemsPerReport), 1024),
+    ),
+  );
+  langs.forEach((lang, i) => {
+    const res = results[i]!;
     if (res.status !== "fulfilled") {
       console.error(`  [${reportId}] ${lang} highlights generation failed: ${res.reason}`);
-      continue;
+      return;
     }
     try {
       Object.assign(highlights[lang], parseLlmJson<ReportHighlights>(res.value));
     } catch (err) {
       console.error(`  [${reportId}] ${lang} highlights parse failed: ${err}`);
     }
-  }
+  });
   const p = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
   console.log(`  Saved ${p}`);
 }
@@ -152,37 +150,36 @@ export async function runWeeklyRollup(): Promise<void> {
     `[weekly] Found ${Object.keys(dailyDigests).length} daily digests: ${Object.keys(dailyDigests).join(", ")}`,
   );
 
-  // Generate ZH and EN in parallel
-  console.log("[weekly] Calling LLM for ZH and EN weekly reports in parallel...");
-  const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "zh"), LLM_TOKENS_ROLLUP),
-    callLlm(buildWeeklyPrompt(dailyDigests, weekStr, "en"), LLM_TOKENS_ROLLUP),
-  ]);
+  // Generate all configured languages in parallel
+  const langs = getLangs();
+  console.log(`[weekly] Calling LLM for weekly reports (${langs.join(" + ")}) in parallel...`);
+  const summaries = await Promise.all(
+    langs.map((lang) => callLlm(buildWeeklyPrompt(dailyDigests, weekStr, lang), LLM_TOKENS_ROLLUP)),
+  );
 
-  const footer = autoGenFooter("zh");
-  const enFooter = autoGenFooter("en");
+  const range = `${last7[last7.length - 1]} ~ ${last7[0]}`;
+  const contentByLang = {} as Record<Lang, string>;
+  langs.forEach((lang, i) => {
+    const meta =
+      lang === "en"
+        ? `> ${WEEKLY_REPORT.coverage.en}: ${range} | Generated: ${utcStr} UTC\n\n`
+        : `> ${WEEKLY_REPORT.coverage.zh}: ${range} | 生成时间: ${utcStr} UTC\n\n`;
+    contentByLang[lang] =
+      `# ${WEEKLY_REPORT.title[lang]} ${weekStr}\n\n` +
+      meta +
+      `---\n\n` +
+      summaries[i]! +
+      autoGenFooter(lang);
+    const suffix = lang === "en" ? "-en" : "";
+    console.log(`  Saved ${saveFile(contentByLang[lang], dateStr, `ai-weekly${suffix}.md`)}`);
+  });
 
-  const zhContent =
-    `# ${WEEKLY_REPORT.title.zh} ${weekStr}\n\n` +
-    `> ${WEEKLY_REPORT.coverage.zh}: ${last7[last7.length - 1]} ~ ${last7[0]} | 生成时间: ${utcStr} UTC\n\n` +
-    `---\n\n` +
-    zhSummary +
-    footer;
-
-  const enContent =
-    `# ${WEEKLY_REPORT.title.en} ${weekStr}\n\n` +
-    `> ${WEEKLY_REPORT.coverage.en}: ${last7[last7.length - 1]} ~ ${last7[0]} | Generated: ${utcStr} UTC\n\n` +
-    `---\n\n` +
-    enSummary +
-    enFooter;
-
-  console.log(`  Saved ${saveFile(zhContent, dateStr, "ai-weekly.md")}`);
-  console.log(`  Saved ${saveFile(enContent, dateStr, "ai-weekly-en.md")}`);
-
-  await generateRollupHighlights(zhContent, enContent, "ai-weekly", dateStr, 6);
+  await generateRollupHighlights(contentByLang, "ai-weekly", dateStr, 6);
 
   if (digestRepo) {
-    const url = await createGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), zhContent, "weekly");
+    // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
+    const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
+    const url = await createGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), issueContent, "weekly");
     console.log(`  Created weekly issue: ${url}`);
   }
 
@@ -246,37 +243,35 @@ export async function runMonthlyRollup(): Promise<void> {
 
   console.log(`[monthly] Source: ${sourceLabel.zh}`);
 
-  // Generate ZH and EN in parallel
-  console.log("[monthly] Calling LLM for ZH and EN monthly reports in parallel...");
-  const [zhSummary, enSummary] = await Promise.all([
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "zh"), LLM_TOKENS_ROLLUP),
-    callLlm(buildMonthlyPrompt(sourceDigests, monthStr, "en"), LLM_TOKENS_ROLLUP),
-  ]);
+  // Generate all configured languages in parallel
+  const langs = getLangs();
+  console.log(`[monthly] Calling LLM for monthly reports (${langs.join(" + ")}) in parallel...`);
+  const summaries = await Promise.all(
+    langs.map((lang) => callLlm(buildMonthlyPrompt(sourceDigests, monthStr, lang), LLM_TOKENS_ROLLUP)),
+  );
 
-  const footer = autoGenFooter("zh");
-  const enFooter = autoGenFooter("en");
+  const contentByLang = {} as Record<Lang, string>;
+  langs.forEach((lang, i) => {
+    const meta =
+      lang === "en"
+        ? `> Sources: ${sourceLabel.en} | Generated: ${utcStr} UTC\n\n`
+        : `> 数据来源: ${sourceLabel.zh} | 生成时间: ${utcStr} UTC\n\n`;
+    contentByLang[lang] =
+      `# ${MONTHLY_REPORT.title[lang]} ${monthStr}\n\n` +
+      meta +
+      `---\n\n` +
+      summaries[i]! +
+      autoGenFooter(lang);
+    const suffix = lang === "en" ? "-en" : "";
+    console.log(`  Saved ${saveFile(contentByLang[lang], dateStr, `ai-monthly${suffix}.md`)}`);
+  });
 
-  const zhContent =
-    `# ${MONTHLY_REPORT.title.zh} ${monthStr}\n\n` +
-    `> 数据来源: ${sourceLabel.zh} | 生成时间: ${utcStr} UTC\n\n` +
-    `---\n\n` +
-    zhSummary +
-    footer;
-
-  const enContent =
-    `# ${MONTHLY_REPORT.title.en} ${monthStr}\n\n` +
-    `> Sources: ${sourceLabel.en} | Generated: ${utcStr} UTC\n\n` +
-    `---\n\n` +
-    enSummary +
-    enFooter;
-
-  console.log(`  Saved ${saveFile(zhContent, dateStr, "ai-monthly.md")}`);
-  console.log(`  Saved ${saveFile(enContent, dateStr, "ai-monthly-en.md")}`);
-
-  await generateRollupHighlights(zhContent, enContent, "ai-monthly", dateStr, 6);
+  await generateRollupHighlights(contentByLang, "ai-monthly", dateStr, 6);
 
   if (digestRepo) {
-    const url = await createGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), zhContent, "monthly");
+    // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
+    const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
+    const url = await createGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), issueContent, "monthly");
     console.log(`  Created monthly issue: ${url}`);
   }
 

@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "9 AI CLI tools in high-velocity stabilization phase",
+      "Three architectural patterns crystallizing across vendors",
+      "Background agent reliability top unmet demand",
+      "Cross-surface context continuity key demand",
+      "Elevated regressions in sandboxing and auth",
+      "Grok Build inactive while 9 tools ship updates"
+    ],
+    "ai-agents": [
+      "OpenClaw: 678 items updated in 24 hours",
+      "193 PRs merged, 16 issues closed today",
+      "Docker :latest tag regressed to 2026.6.33",
+      "P1/P0 bugs in session stability and auth",
+      "Linux/Windows native apps still missing",
+      "Release candidate forming from XL-sized PRs"
+    ],
+    "ai-trending": [
+      "OmniRoute +1,651★ MIT gateway 268+ providers",
+      "worldmonitor +4,139★ AI situational awareness",
+      "i-have-adhd +1,699★ coding agent efficiency",
+      "code-review-graph +882★ output-disciplined agents",
+      "voicebox +557★ open-source voice cloning",
+      "RuView +741★ privacy-preserving WiFi sensing"
+    ],
+    "ai-web": [
+      "Anthropic launches Claude Opus 4.5 flagship",
+      "Opus 4.5 priced $5/$25 per million tokens",
+      "New developer tools for long-running agents",
+      "$200M Economic Futures Research Fund announced",
+      "$20M to Public First Action total $40M",
+      "OpenAI publishes 3 index pages no bodies"
+    ],
+    "ai-hn": [
+      "OpenAI/Hugging Face security incident 1.5k+ points",
+      "Kimi K3 matches Fable SoTA 856 points",
+      "Gemini 3.6 Flash variants deprecate sampling",
+      "Anthropic settles $1.5B copyright lawsuit",
+      "OpenAI launches ChatGPT advertising monetization",
+      "Terence Tao ChatGPT session on Jacobian Conjecture"
+    ],
+    "ai-arxiv": [
+      "LKValues: Sri Lankan cultural values benchmark",
+      "PyroDash: token-level small-large model collaboration",
+      "Culturally grounded alignment for Persian Arabic",
+      "Test-time compute scaling via model collaboration",
+      "Physics-informed architectures KANs quantum kernels",
+      "Robotics lab-to-store gap data-efficient post-training"
+    ],
+    "ai-hf": [
+      "GLM-5.2 4,344 likes MoE with DSA",
+      "Gemma-4-31B 3,331 likes multimodal",
+      "1-2 bit quantization for 27B-35B models",
+      "Qwen3.5/3.6 family backbone for fine-tunes",
+      "MiniCPM vision-language-action robotics releases",
+      "Solar-Open2-250B 250B param enterprise model"
+    ],
+    "ai-community": [
+      "Substack AI detector repeats DEV.to blind spots",
+      "1/3 MCP servers fail agents despite spec compliance",
+      "Context window misconceptions addressed by developers",
+      "Reward-hacking agents spark security discussions",
+      "Supply-chain attack surfaces become focus area",
+      "Notion 10x vector-search scaling debated"
+    ]
+  }
+}

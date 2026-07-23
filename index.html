@@ -530,18 +530,22 @@ function buildDateGroup(date, reports, isFirst) {
   const list = document.createElement('div');
   list.className = 'rpt-list';
 
-  const baseReports = reports.filter(r => !r.endsWith('-en'));
-  baseReports.forEach(r => {
-    const enKey = r + '-en';
+  // Report IDs regardless of language variant (strip the -en suffix, de-dupe,
+  // preserve order) so a date renders even when only one language exists.
+  const reportIds = [...new Set(reports.map(r => r.replace(/-en$/, '')))];
+  reportIds.forEach(id => {
+    const enKey = id + '-en';
+    const hasZh = reports.includes(id);
     const hasEn = reports.includes(enKey);
 
-    if (hasEn) {
+    if (hasZh && hasEn) {
+      // Both languages — show the label with a ZH / EN toggle.
       const row = document.createElement('div');
       row.className = 'rpt-row';
 
       const label = document.createElement('span');
       label.className = 'rpt-label';
-      const baseLabel = LABELS[r] || r;
+      const baseLabel = LABELS[id] || id;
       label.textContent = baseLabel;
       label.title = baseLabel;
 
@@ -550,9 +554,9 @@ function buildDateGroup(date, reports, isFirst) {
 
       const zhBtn = document.createElement('button');
       zhBtn.className = 'lang-btn';
-      zhBtn.dataset.key = `${date}/${r}`;
+      zhBtn.dataset.key = `${date}/${id}`;
       zhBtn.textContent = 'ZH';
-      zhBtn.onclick = () => loadReport(date, r);
+      zhBtn.onclick = () => loadReport(date, id);
 
       const enBtn = document.createElement('button');
       enBtn.className = 'lang-btn';
@@ -564,11 +568,13 @@ function buildDateGroup(date, reports, isFirst) {
       row.append(label, btns);
       list.appendChild(row);
     } else {
+      // Single language — one button, using whichever variant exists.
+      const key = hasZh ? id : enKey;
       const btn = document.createElement('button');
       btn.className = 'rpt-btn';
-      btn.dataset.key = `${date}/${r}`;
-      btn.textContent = LABELS[r] || r;
-      btn.onclick = () => loadReport(date, r);
+      btn.dataset.key = `${date}/${key}`;
+      btn.textContent = LABELS[key] || LABELS[id] || key;
+      btn.onclick = () => loadReport(date, key);
       list.appendChild(btn);
     }
   });

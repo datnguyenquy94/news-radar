@@ -64,35 +64,39 @@ export function buildFeishuMessage(
   highlights?: Highlights | null,
 ): string {
   const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
-  const baseReports = reports.filter((r) => !r.endsWith("-en"));
-  const isWeekly = baseReports.includes("ai-weekly");
-  const isMonthly = baseReports.includes("ai-monthly");
+  // Report IDs regardless of language variant (strip the -en suffix, de-dupe),
+  // so the message renders even when only the English variants exist.
+  const reportIds = [...new Set(reports.map((r) => r.replace(/-en$/, "")))];
+  const isWeekly = reportIds.includes("ai-weekly");
+  const isMonthly = reportIds.includes("ai-monthly");
 
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
   const suffix = isMonthly ? " 月报" : isWeekly ? " 周报" : "";
   const lines: string[] = [`${icon} **agents-radar${suffix} · ${date}**`];
 
   const ordered = [
-    ...baseReports.filter((r) => !r.includes("weekly") && !r.includes("monthly")),
-    ...baseReports.filter((r) => r.includes("weekly") || r.includes("monthly")),
+    ...reportIds.filter((r) => !r.includes("weekly") && !r.includes("monthly")),
+    ...reportIds.filter((r) => r.includes("weekly") || r.includes("monthly")),
   ];
 
   const zhHighlights = highlights?.zh ?? {};
   const enHighlights = highlights?.en ?? {};
 
   for (const r of ordered) {
-    const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
-    const zhUrl = `${PAGES_URL}/#${date}/${r}`;
     const enKey = `${r}-en`;
-
-    lines.push("");
+    const links: string[] = [];
+    if (reports.includes(r)) {
+      const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
+      links.push(`[${zhLabel}](${PAGES_URL}/#${date}/${r})`);
+    }
     if (reports.includes(enKey)) {
       const enLabel = NOTIFY_LABELS[r]?.en ?? "EN";
-      const enUrl = `${PAGES_URL}/#${date}/${enKey}`;
-      lines.push(`• [${zhLabel}](${zhUrl})  ·  [${enLabel}](${enUrl})`);
-    } else {
-      lines.push(`• [${zhLabel}](${zhUrl})`);
+      links.push(`[${enLabel}](${PAGES_URL}/#${date}/${enKey})`);
     }
+    if (links.length === 0) continue;
+
+    lines.push("");
+    lines.push(`• ${links.join("  ·  ")}`);
 
     // Fall back to en when a report's zh highlights are missing so a
     // single-language failure never blanks the message.

@@ -3,3 +3,6 @@
 node_modules/
 dist/
 social/
+.agent/
+.agents/
+.agile/

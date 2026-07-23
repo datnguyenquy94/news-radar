@@ -28,7 +28,14 @@ const provider: LlmProvider = createProvider();
 // any given time; the rest queue and run as slots free up.
 // ---------------------------------------------------------------------------
 
-const LLM_CONCURRENCY = 5;
+// Max in-flight LLM requests. Configurable via LLM_CONCURRENCY (positive
+// integer); falls back to 5 when unset, non-numeric, or < 1.
+function parseConcurrency(raw: string | undefined): number {
+  const n = Number(raw);
+  return Number.isInteger(n) && n >= 1 ? n : 5;
+}
+
+const LLM_CONCURRENCY = parseConcurrency(process.env["LLM_CONCURRENCY"]);
 let llmSlots = LLM_CONCURRENCY;
 const llmQueue: Array<() => void> = [];
 

@@ -24,7 +24,7 @@ import {
 } from "./prompts-data.ts";
 import { callLlm, saveFile, LLM_TOKENS_WEB, LLM_TOKENS_LISTING } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
-import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
+import { type WebFetchResult } from "./web.ts";
 import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
 import type { TrendingData } from "./trending.ts";
@@ -39,7 +39,6 @@ import type { LobstersData } from "./lobsters.ts";
 
 export async function saveWebReport(
   webResults: WebFetchResult[],
-  webState: WebState,
   utcStr: string,
   dateStr: string,
   digestRepo: string,
@@ -89,11 +88,6 @@ export async function saveWebReport(
     }
   } else {
     console.log(`  [web/${lang}] No new content detected, skipping report.`);
-  }
-
-  if (lang === "zh") {
-    saveWebState(webState);
-    console.log("  [web] State saved.");
   }
 }
 

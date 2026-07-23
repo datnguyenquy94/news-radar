@@ -40,6 +40,8 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
+          # Languages to generate. "en" = English only; remove or set "zh,en" for bilingual.
+          DIGEST_LANGS: en
         run: pnpm start
 
       - name: Commit digest files

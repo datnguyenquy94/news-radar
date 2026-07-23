@@ -219,6 +219,7 @@ openclaw_peers:
 
 | Secret | 必填 | 说明 |
 |--------|------|------|
+| `DIGEST_LANGS` | 可选 | 生成的语言：`zh,en`（默认，中英双语）、`en`（仅英文）或 `zh`（仅中文） |
 | `LLM_PROVIDER` | 可选 | `anthropic`（默认）、`openai`、`github-copilot` 或 `openrouter` |
 | `ANTHROPIC_API_KEY` | Anthropic 时 | API 密钥，兼容 Anthropic 和 Kimi Code |
 | `ANTHROPIC_BASE_URL` | 可选 | API 地址覆盖。使用 Kimi Code 时设置为 `https://api.kimi.com/coding/`，使用 Anthropic 时留空 |
@@ -284,6 +285,9 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 # export OPENROUTER_API_KEY=sk-or-xxxxxxxx
 
 export DIGEST_REPO=your-username/agents-radar  # 可选，留空则仅写入本地文件
+
+# 生成的语言 —— 默认中英双语。仅生成英文：
+# export DIGEST_LANGS=en
 
 pnpm start
 ```

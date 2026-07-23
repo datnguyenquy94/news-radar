@@ -51,6 +51,27 @@ describe("buildMessage", () => {
     expect(msg).not.toContain("HN Community");
   });
 
+  it("renders en-only reports (DIGEST_LANGS=en) without a zh link", () => {
+    const msg = buildMessage("2026-03-09", ["ai-cli-en", "ai-agents-en", "ai-hn-en"], BASE_URL);
+    // en links present, labeled in English
+    expect(msg).toContain(`${BASE_URL}/#2026-03-09/ai-cli-en`);
+    expect(msg).toContain("AI CLI Tools");
+    expect(msg).toContain("HN Community");
+    // no zh labels — the base (zh) variant is absent
+    expect(msg).not.toContain("AI CLI 工具");
+    expect(msg).not.toContain("HN 社区动态");
+    // no bare zh anchor (href ends at the report id + closing quote)
+    expect(msg).not.toContain(`/#2026-03-09/ai-cli"`);
+    // still shows the footer links
+    expect(msg).toContain("🌐 Web UI");
+  });
+
+  it("shows weekly icon for an en-only weekly report", () => {
+    const msg = buildMessage("2026-03-09", ["ai-weekly-en"], BASE_URL);
+    expect(msg).toContain("📅");
+    expect(msg).toContain(`${BASE_URL}/#2026-03-09/ai-weekly-en`);
+  });
+
   it("includes Web UI and RSS links", () => {
     const msg = buildMessage("2026-03-09", ["ai-cli"], BASE_URL);
     expect(msg).toContain("🌐 Web UI");

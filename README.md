@@ -220,6 +220,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 
 | Secret | Required | Description |
 |--------|----------|-------------|
+| `DIGEST_LANGS` | optional | Languages to generate: `zh,en` (default, bilingual), `en` (English only), or `zh` (Chinese only) |
 | `LLM_PROVIDER` | optional | `anthropic` (default), `openai`, `github-copilot`, or `openrouter` |
 | `ANTHROPIC_API_KEY` | if Anthropic | API key — works with both Anthropic and Kimi Code |
 | `ANTHROPIC_BASE_URL` | optional | API endpoint override. Set to `https://api.kimi.com/coding/` for Kimi Code; leave unset for Anthropic |
@@ -285,6 +286,9 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 # export OPENROUTER_API_KEY=sk-or-xxxxxxxx
 
 export DIGEST_REPO=your-username/agents-radar  # optional; omit to only write files
+
+# Languages to generate — default is bilingual. Set to English only:
+# export DIGEST_LANGS=en
 
 pnpm start
 ```

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import {
   MSG,
   CLI_REPORT,
@@ -13,6 +13,7 @@ import {
   OPENCLAW_ISSUE_TITLE,
   FOOTER,
   NOTIFY_LABELS,
+  getLangs,
 } from "../i18n.ts";
 
 // ---------------------------------------------------------------------------
@@ -145,5 +146,52 @@ describe("NOTIFY_LABELS", () => {
       expect(NOTIFY_LABELS[key]!.zh).toBeTruthy();
       expect(NOTIFY_LABELS[key]!.en).toBeTruthy();
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// getLangs (DIGEST_LANGS env var)
+// ---------------------------------------------------------------------------
+
+describe("getLangs", () => {
+  const original = process.env["DIGEST_LANGS"];
+  afterEach(() => {
+    if (original === undefined) delete process.env["DIGEST_LANGS"];
+    else process.env["DIGEST_LANGS"] = original;
+  });
+
+  it("defaults to both languages when unset", () => {
+    delete process.env["DIGEST_LANGS"];
+    expect(getLangs()).toEqual(["zh", "en"]);
+  });
+
+  it("returns English only for DIGEST_LANGS=en", () => {
+    process.env["DIGEST_LANGS"] = "en";
+    expect(getLangs()).toEqual(["en"]);
+  });
+
+  it("returns Chinese only for DIGEST_LANGS=zh", () => {
+    process.env["DIGEST_LANGS"] = "zh";
+    expect(getLangs()).toEqual(["zh"]);
+  });
+
+  it("parses comma-separated values and trims/lowercases", () => {
+    process.env["DIGEST_LANGS"] = " EN , ZH ";
+    expect(getLangs()).toEqual(["en", "zh"]);
+  });
+
+  it("de-duplicates repeated entries", () => {
+    process.env["DIGEST_LANGS"] = "en,en,zh";
+    expect(getLangs()).toEqual(["en", "zh"]);
+  });
+
+  it("ignores unrecognized entries", () => {
+    process.env["DIGEST_LANGS"] = "en,fr,de";
+    expect(getLangs()).toEqual(["en"]);
+  });
+
+  it("falls back to all languages when nothing valid remains", () => {
+    process.env["DIGEST_LANGS"] = "fr,de";
+    expect(getLangs()).toEqual(["zh", "en"]);
   });
 });

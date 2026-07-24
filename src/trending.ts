@@ -142,7 +142,7 @@ interface SearchApiResponse {
 }
 
 async function searchAiRepos(sevenDaysAgo: string): Promise<SearchRepo[]> {
-  const token = process.env["GITHUB_TOKEN"] ?? "";
+  const token = process.env["GH_TOKEN"] ?? "";
   const headers: Record<string, string> = {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",

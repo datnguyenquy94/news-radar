@@ -35,9 +35,13 @@ jobs:
 
       - name: Run daily digest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LLM_PROVIDER: deepseek
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          # Max in-flight LLM requests. Tune via a repo variable; defaults to 5.
+          LLM_CONCURRENCY: ${{ secrets.LLM_CONCURRENCY || '5' }}
           PRODUCTHUNT_TOKEN: ${{ secrets.PRODUCTHUNT_TOKEN }}
           # Optional: enables the FRED JSON API for the macro dashboard. When
           # unset, fin-macro falls back to the keyless FRED CSV endpoint.
@@ -88,7 +92,7 @@ jobs:
 
       - name: Close stale issues
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           DIGEST_REPO: ${{ github.repository }}
         run: pnpm close-stale
 

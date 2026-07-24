@@ -3,7 +3,7 @@
  *
  * Env vars:
  *   LLM_PROVIDER        - "anthropic" | "openai" | "github-copilot" | "openrouter" (default: anthropic)
- *   GITHUB_TOKEN        - GitHub token for API access and issue creation
+ *   GH_TOKEN            - GitHub token for API access and issue creation
  *   DIGEST_REPO         - owner/repo where digest issues are posted (optional)
  *
  * Provider-specific env vars — see src/providers/ for full list.
@@ -306,7 +306,7 @@ async function generateSummaries(
 // ---------------------------------------------------------------------------
 
 async function main(): Promise<void> {
-  requireEnv("GITHUB_TOKEN");
+  requireEnv("GH_TOKEN");
 
   const now = new Date();
   const since = new Date(now.getTime() - 24 * 60 * 60 * 1000);

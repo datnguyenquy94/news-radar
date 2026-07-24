@@ -1,6 +1,6 @@
 /**
  * GitHub API types and fetch helpers.
- * Reads GITHUB_TOKEN and DIGEST_REPO from environment at call time.
+ * Reads GH_TOKEN and DIGEST_REPO from environment at call time.
  */
 
 // ---------------------------------------------------------------------------
@@ -71,7 +71,7 @@ const MAX_PAGES = 5;
 
 function headers(): Record<string, string> {
   return {
-    Authorization: `Bearer ${process.env["GITHUB_TOKEN"] ?? ""}`,
+    Authorization: `Bearer ${process.env["GH_TOKEN"] ?? ""}`,
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
   };

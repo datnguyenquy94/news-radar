@@ -2,7 +2,7 @@
  * GitHub Copilot provider — OpenAI-compatible endpoint via GitHub Models.
  *
  * Env vars:
- *   GITHUB_TOKEN           - GitHub token (PAT or GitHub Actions `GITHUB_TOKEN`)
+ *   GH_TOKEN               - GitHub token (PAT, or the Actions built-in token mapped to GH_TOKEN)
  *   GITHUB_COPILOT_MODEL   - model name (default: gpt-4o)
  */
 
@@ -15,7 +15,7 @@ export class GitHubCopilotProvider extends OpenAICompatibleProvider {
 
   constructor(opts?: { apiKey?: string; model?: string }) {
     super({
-      apiKey: opts?.apiKey ?? process.env["GITHUB_TOKEN"],
+      apiKey: opts?.apiKey ?? process.env["GH_TOKEN"],
       baseURL: GITHUB_COPILOT_BASE_URL,
       model: opts?.model ?? process.env["GITHUB_COPILOT_MODEL"] ?? "gpt-4o",
     });

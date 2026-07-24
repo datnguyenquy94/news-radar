@@ -211,6 +211,8 @@ const LABEL_COLORS: Record<string, string> = {
   "hf-en": "ffb84d",
   community: "2563eb",
   "community-en": "60a5fa",
+  macro: "16a34a",
+  "macro-en": "4ade80",
 };
 
 /**

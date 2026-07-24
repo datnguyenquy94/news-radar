@@ -18,6 +18,8 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 | [Dev.to](https://dev.to) | [Forem API](https://dev.to/api) | Top AI/LLM articles from 5 tags |
 | [Lobste.rs](https://lobste.rs) | JSON API | AI/ML tagged stories from last 7 days |
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | New articles detected via `lastmod` diff |
+| [FRED](https://fred.stlouisfed.org) | [API](https://fred.stlouisfed.org/docs/api/fred/) + keyless CSV | 16 macro series (rates, balance sheet, VIX, yields, credit spread, oil, jobs, inflation, sentiment) |
+| [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | HTML | Monthly margin debt (retail leverage) |
 
 ## Web UI
 
@@ -308,6 +310,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 | `ai-arxiv.md` | ArXiv AI research digest — key papers from cs.AI/cs.CL/cs.LG | `arxiv` |
 | `ai-hf.md` | Hugging Face trending models digest — sorted by weekly likes | `hf` |
 | `ai-community.md` | Tech community AI digest — Dev.to articles + Lobste.rs stories combined | `community` |
+| `fin-macro.md` | Macro market dashboard — FRED indicators + FINRA margin debt, with threshold readings (only written when FRED succeeds) | `macro` |
 
 A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
 

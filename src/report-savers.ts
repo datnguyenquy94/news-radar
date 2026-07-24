@@ -12,6 +12,7 @@ import {
   ARXIV_REPORT,
   HF_REPORT,
   COMMUNITY_REPORT,
+  MACRO_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
 import {
@@ -21,6 +22,7 @@ import {
   buildArxivPrompt,
   buildHfPrompt,
   buildCommunityPrompt,
+  buildMacroPrompt,
 } from "./prompts-data.ts";
 import { callLlm, saveFile, LLM_TOKENS_WEB, LLM_TOKENS_LISTING } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
@@ -32,6 +34,8 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
+import type { FredData } from "./fred.ts";
+import type { FinraData } from "./finra.ts";
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -364,5 +368,54 @@ export async function saveCommunityReport(
     }
   } catch (err) {
     console.error(`  [community/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Macro market dashboard (FRED + FINRA)
+// ---------------------------------------------------------------------------
+
+export async function saveMacroReport(
+  fredData: FredData,
+  finraData: FinraData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  if (!fredData.fetchSuccess) {
+    console.log(`  [macro/${lang}] No FRED data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [macro/${lang}] Calling LLM for macro dashboard...`);
+  try {
+    const summary = await callLlm(buildMacroPrompt(fredData, finraData, dateStr, lang), LLM_TOKENS_LISTING);
+    const fileName = lang === "en" ? "fin-macro-en.md" : "fin-macro.md";
+    const metricCount = fredData.metrics.filter((m) => m.latest !== null).length;
+    const header =
+      lang === "en"
+        ? `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
+          `${metricCount} indicators | Generated: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}.\n\n` +
+          `---\n\n`
+        : `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> 数据来源: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
+          `共 ${metricCount} 项指标 | 生成时间: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}。\n\n` +
+          `---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+
+    if (digestRepo) {
+      const title = MACRO_REPORT.issueTitle(dateStr, lang);
+      const label = ISSUE_LABELS.macro[lang];
+      const url = await createGitHubIssue(title, content, label);
+      console.log(`  Created macro issue (${lang}): ${url}`);
+    }
+  } catch (err) {
+    console.error(`  [macro/${lang}] Report generation failed: ${err}`);
   }
 }

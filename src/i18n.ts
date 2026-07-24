@@ -123,6 +123,14 @@ export const COMMUNITY_REPORT = {
     lang === "en" ? `💬 Tech Community AI Digest ${dateStr}` : `💬 技术社区 AI 动态日报 ${dateStr}`,
 } as const;
 
+export const MACRO_REPORT = {
+  title: t("宏观市场仪表盘", "Macro Market Dashboard"),
+  sources: t("数据来源: FRED + FINRA", "Sources: FRED + FINRA"),
+  disclaimer: t("仅供参考，非投资建议", "Informational only, not financial advice"),
+  issueTitle: (dateStr: string, lang: Lang) =>
+    lang === "en" ? `📉 Macro Market Dashboard ${dateStr}` : `📉 宏观市场仪表盘 ${dateStr}`,
+} as const;
+
 export const WEEKLY_REPORT = {
   title: t("AI 工具生态周报", "AI Tools Ecosystem Weekly Report"),
   coverage: t("覆盖日期", "Coverage"),
@@ -144,6 +152,7 @@ export const ISSUE_LABELS = {
   arxiv: t("arxiv", "arxiv-en"),
   hf: t("hf", "hf-en"),
   community: t("community", "community-en"),
+  macro: t("macro", "macro-en"),
 } as const;
 
 export const CLI_ISSUE_TITLE = (dateStr: string, lang: Lang) =>
@@ -187,6 +196,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "ai-hf-en": "Hugging Face Trending Models Digest",
   "ai-community": "技术社区 AI 动态日报",
   "ai-community-en": "Tech Community AI Digest",
+  "fin-macro": "宏观市场仪表盘",
+  "fin-macro-en": "Macro Market Dashboard",
   "ai-weekly": "AI 工具生态周报",
   "ai-weekly-en": "AI Tools Weekly Digest",
   "ai-monthly": "AI 工具生态月报",
@@ -203,6 +214,7 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-arxiv": t("ArXiv 研究", "ArXiv Research"),
   "ai-hf": t("HF 模型", "HF Models"),
   "ai-community": t("技术社区", "Tech Community"),
+  "fin-macro": t("宏观仪表盘", "Macro Dashboard"),
   "ai-weekly": t("AI 工具生态周报", "AI Tools Weekly"),
   "ai-monthly": t("AI 工具生态月报", "AI Tools Monthly"),
 };

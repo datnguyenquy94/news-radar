@@ -18,6 +18,8 @@
 | [Dev.to](https://dev.to) | [Forem API](https://dev.to/api) | 5 个标签下的 AI/LLM 热门文章 |
 | [Lobste.rs](https://lobste.rs) | JSON API | 7 天内 AI/ML 标签内容 |
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | 通过 `lastmod` 差异检测新文章 |
+| [FRED](https://fred.stlouisfed.org) | [API](https://fred.stlouisfed.org/docs/api/fred/) + 免密 CSV | 16 项宏观指标（利率、资产负债表、VIX、收益率、信用利差、原油、就业、通胀、信心） |
+| [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | HTML | 月度保证金债务（散户杠杆） |
 
 ## Web UI
 
@@ -303,6 +305,7 @@ pnpm start
 | `ai-web.md` | 官网内容报告（仅在有新内容时生成） | `web` |
 | `ai-trending.md` | GitHub AI 趋势热榜 — 按维度分类 + 趋势信号分析（仅在有数据时生成） | `trending` |
 | `ai-hn.md` | Hacker News AI 社区动态 — 热门帖子分类 + 情绪分析（仅在抓取成功时生成） | `hn` |
+| `fin-macro.md` | 宏观市场仪表盘 — FRED 指标 + FINRA 保证金债务，含阈值判读（仅在 FRED 成功时生成） | `macro` |
 
 `digests/web-state.json` 用于记录已处理的 URL，随每日简报一并提交。
 

@@ -2,7 +2,7 @@
 
 ## Project overview
 
-agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Chinese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, and dev communities). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
+agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Chinese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, and a macro-financial dashboard from FRED + FINRA). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
 
 ## Commands
 
@@ -37,6 +37,9 @@ export DIGEST_REPO=owner/repo   # omit to skip GitHub issue creation
 # Languages to generate (default: both). "en" = English only, "zh" = Chinese only.
 export DIGEST_LANGS=zh,en       # zh,en | en | zh
 
+# Max concurrent in-flight LLM requests (positive integer; default: 5)
+export LLM_CONCURRENCY=5
+
 # LLM provider (code default: anthropic; production GHA uses deepseek)
 export LLM_PROVIDER=anthropic   # anthropic | openai | github-copilot | openrouter | deepseek
 
@@ -49,6 +52,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 # DeepSeek        — DEEPSEEK_API_KEY, optional DEEPSEEK_MODEL (default: deepseek-chat)
 
 # Optional integrations
+# export FRED_API_KEY=xxxxx                # macro dashboard; free key. Unset = keyless CSV fallback (FINRA needs no key)
 # export PRODUCTHUNT_TOKEN=xxxxx           # enables the Product Hunt data source
 # export TELEGRAM_BOT_TOKEN=xxxxx          # Telegram notifications (also TELEGRAM_CHAT_ID)
 # export FEISHU_WEBHOOK_URLS=url1,url2     # Feishu notifications (comma-separated)
@@ -59,7 +63,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 The daily pipeline runs in sequential phases, each a named async function in `src/index.ts`. ZH and EN reports are generated **simultaneously** (both languages run in parallel at every phase).
 
-1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for the 23 tracked repos (10 CLI + OpenClaw + 12 peers), Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News, Product Hunt, ArXiv, Hugging Face, Dev.to, Lobste.rs. Every source has a `.catch()` fallback so one failure never aborts the run.
+1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News, Product Hunt, ArXiv, Hugging Face, Dev.to, Lobste.rs, FRED macro series, and FINRA margin statistics. Every source has a `.catch()` fallback so one failure never aborts the run.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to 5 concurrent requests by a queue in `src/report.ts`. Runs once per language.
 3. **Comparisons** — cross-tool CLI comparison and OpenClaw cross-ecosystem comparison (2 LLM calls per language).
 4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/report-builders.ts`) assemble Markdown strings; the `saveXxxReport` functions in `src/report-savers.ts` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, and community reports.
@@ -77,10 +81,10 @@ Weekly/monthly rollups (`src/rollup.ts`, entrypoints `src/weekly.ts` / `src/mont
 | `src/i18n.ts` | Centralized bilingual strings: `Lang` type, report titles, `ISSUE_LABELS`, `FOOTER`, `REPORT_LABELS`, `NOTIFY_LABELS`, `MSG` |
 | `src/github.ts` | GitHub API helpers: `fetchRecentItems`, `fetchRecentReleases`, `fetchSkillsData`, `createGitHubIssue`, `ensureLabel`, `closeStaleIssues`; `RepoConfig` / `RepoFetch` types; `LABEL_COLORS` |
 | `src/prompts.ts` | Repo-level LLM prompt builders: `buildCliPrompt`, `buildPeerPrompt`, `buildComparisonPrompt`, `buildPeersComparisonPrompt`, `buildSkillsPrompt`; helpers `formatItem`, `topN`, `sampleNote` |
-| `src/prompts-data.ts` | Data-source + rollup prompt builders: `buildTrendingPrompt`, `buildWebReportPrompt`, `buildHnPrompt`, `buildPhPrompt`, `buildArxivPrompt`, `buildHfPrompt`, `buildCommunityPrompt`, `buildWeeklyPrompt`, `buildMonthlyPrompt`, `buildHighlightsPrompt`; `ReportHighlights` type |
+| `src/prompts-data.ts` | Data-source + rollup prompt builders: `buildTrendingPrompt`, `buildWebReportPrompt`, `buildHnPrompt`, `buildPhPrompt`, `buildArxivPrompt`, `buildHfPrompt`, `buildCommunityPrompt`, `buildMacroPrompt`, `buildWeeklyPrompt`, `buildMonthlyPrompt`, `buildHighlightsPrompt`; `ReportHighlights` type |
 | `src/report.ts` | `callLlm` (concurrency limiter + 429 retry), `parseLlmJson`, `saveFile`, `autoGenFooter`, LLM token budget constants |
 | `src/report-builders.ts` | `buildCliReportContent`, `buildOpenclawReportContent` — assemble CLI and OpenClaw Markdown |
-| `src/report-savers.ts` | `saveWebReport`, `saveTrendingReport`, `saveHnReport`, `savePhReport`, `saveArxivReport`, `saveHfReport`, `saveCommunityReport` — LLM call + file save + optional GitHub issue |
+| `src/report-savers.ts` | `saveWebReport`, `saveTrendingReport`, `saveHnReport`, `savePhReport`, `saveArxivReport`, `saveHfReport`, `saveCommunityReport`, `saveMacroReport` — LLM call + file save + optional GitHub issue |
 | `src/rollup.ts` | `runWeeklyRollup`, `runMonthlyRollup`, `toWeekStr` — rollup generators (read daily digests, no API calls) |
 | `src/weekly.ts` / `src/monthly.ts` | Thin entrypoints for the rollup functions |
 | `src/date.ts` | Date/timing utilities: `toCstDateStr`, `toUtcStr`, `sleep` |
@@ -90,6 +94,8 @@ Weekly/monthly rollups (`src/rollup.ts`, entrypoints `src/weekly.ts` / `src/mont
 | `src/ph.ts` | Product Hunt AI products via the GraphQL API (requires `PRODUCTHUNT_TOKEN`) |
 | `src/arxiv.ts` | ArXiv papers via the Atom-feed API (cs.AI, cs.CL, cs.LG, last 48h) |
 | `src/hf.ts` | Hugging Face trending models via the HF Hub API (sorted by weekly likes) |
+| `src/fred.ts` | Macro indicators from FRED (Federal Reserve Economic Data): 16 series (rates, balance sheet, VIX, yields, credit spread, oil, jobs, inflation, sentiment). JSON API when `FRED_API_KEY` is set, keyless CSV fallback otherwise |
+| `src/finra.ts` | FINRA margin statistics (retail leverage) — defensive HTML scrape; `fetchSuccess:false` on any parse miss |
 | `src/devto.ts` | Dev.to AI articles via the Forem API |
 | `src/lobsters.ts` | Lobste.rs AI stories via tag-based JSON endpoints |
 | `src/notify.ts` | Telegram notification (reads `manifest.json` + `highlights.json`); exports `buildMessage`, `Highlights` |
@@ -119,6 +125,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-arxiv.md` | `arxiv` | Skipped if the ArXiv fetch fails |
 | `ai-hf.md` | `hf` | Skipped if the Hugging Face fetch fails |
 | `ai-community.md` | `community` | Dev.to + Lobste.rs; skipped if both fail |
+| `fin-macro.md` | `macro` | Macro market dashboard (FRED + FINRA); skipped if FRED fails. FINRA is supplementary. Uses the `fin-` prefix — a parallel financial section |
 | `highlights.json` | — | Bullet-point highlights per report (zh + en), consumed by notifications |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
@@ -128,7 +135,7 @@ Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-month
 Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which falls back to built-in defaults if the file/section is missing).
 
 - **cli_repos** (10): claude-code, codex, gemini-cli, copilot-cli, kimi-cli, opencode, pi, qwen-code, deepseek-tui, grok-build
-- **openclaw** + **openclaw_peers** (13 total): openclaw/openclaw + 12 peer projects
+- **openclaw** + **openclaw_peers** (12 total): openclaw/openclaw + 11 peer projects
 - **skills_repo**: anthropics/skills — no date filter, sorted by popularity
 - **Web**: anthropic.com + openai.com via sitemap, state in `digests/web-state.json`
 - **Trending**: github.com/trending (HTML) + GitHub Search API AI-topic queries
@@ -137,6 +144,8 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 - **ArXiv**: Atom-feed API — cs.AI + cs.CL + cs.LG, newest first, last 48h
 - **Hugging Face**: HF Hub API — trending models by weekly likes
 - **Community**: Dev.to (Forem API) + Lobste.rs (tag JSON endpoints)
+- **FRED** (macro): Federal Reserve Economic Data — 16 series (`DFF`, `WALCL`, `VIXCLS`, `DGS10`, `T10Y2Y`, `BAMLH0A0HYM2`, `DCOILWTICO`, `DCOILBRENTEU`, `UNRATE`, `ICSA`, `PAYEMS`, `CPIAUCSL`, `CPILFESL`, `PCEPILFE`, `PPIFIS`, `UMCSENT`). Official + free; JSON API needs `FRED_API_KEY`, else keyless CSV. Series catalog + design notes in `.agent/specs/financial_data_sources.md`
+- **FINRA** (retail leverage): monthly margin-debt statistics, scraped from finra.org (no official API)
 
 ## Key conventions
 
@@ -146,7 +155,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 - `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web uses 8192, trending uses 6144, rollups use 8192, and the table-formatted listing reports (HN, PH, ArXiv, HF, Community) use `LLM_TOKENS_LISTING` = 6144. Token constants live in `src/report.ts`.
 - Data-source listing reports (Trending, HN, PH, ArXiv, HF, Community) render item lists as **Markdown tables** (not bullet lists). Numeric columns are copied verbatim from the fetched data; the summary column is 2 sentences. Tables have CSS in `index.html` and render natively in GitHub Issues.
 - On 429 rate-limit errors `callLlm` retries up to 3 times with exponential backoff (5 s / 10 s / 20 s); the concurrency slot is released during the wait.
-- The concurrency limiter (`LLM_CONCURRENCY = 5`) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
+- The concurrency limiter (`LLM_CONCURRENCY`, default 5, overridable via the `LLM_CONCURRENCY` env var) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
 - LLM provider is selected via `LLM_PROVIDER` (code default: `anthropic`; production workflows set `deepseek`). Add providers only in the `PROVIDERS` registry in `src/providers/index.ts`; `ProviderName` and `VALID_PROVIDER_NAMES` are derived from it. The factory logs only the provider *name* — never API keys or endpoint URLs.
 - LLM JSON output (e.g. `highlights.json`) must be parsed with `parseLlmJson` from `src/report.ts` — it strips code fences, replaces raw control chars, and repairs trailing commas / prose wrappers.
 - GitHub issue label colors are defined in `LABEL_COLORS` in `src/github.ts`. Add new labels there.

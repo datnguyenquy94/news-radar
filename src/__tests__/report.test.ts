@@ -18,7 +18,16 @@ vi.mock("../providers/index.ts", async (importOriginal) => {
   };
 });
 
-import { is429, callLlm, saveFile, autoGenFooter, parseLlmJson } from "../report.ts";
+import {
+  is429,
+  isTimeout,
+  isRetryable,
+  RETRY_MIN_MS,
+  callLlm,
+  saveFile,
+  autoGenFooter,
+  parseLlmJson,
+} from "../report.ts";
 
 // ---------------------------------------------------------------------------
 // is429
@@ -62,6 +71,56 @@ describe("is429", () => {
       headers: { "retry-after": "30" },
     });
     expect(is429(anthropicError)).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// isTimeout / isRetryable
+// ---------------------------------------------------------------------------
+
+describe("isTimeout", () => {
+  it("detects the SDK timeout error classes by name", () => {
+    expect(
+      isTimeout(Object.assign(new Error("Request timed out."), { name: "APIConnectionTimeoutError" })),
+    ).toBe(true);
+    expect(isTimeout(Object.assign(new Error("aborted"), { name: "AbortError" }))).toBe(true);
+  });
+
+  it("detects Node socket timeout codes", () => {
+    expect(isTimeout(Object.assign(new Error("connect"), { code: "ETIMEDOUT" }))).toBe(true);
+    expect(isTimeout(Object.assign(new Error("socket hang up"), { code: "ECONNRESET" }))).toBe(true);
+  });
+
+  it("detects a timeout code nested under cause", () => {
+    const err = Object.assign(new Error("Connection error."), {
+      cause: Object.assign(new Error("fetch failed"), { code: "UND_ERR_HEADERS_TIMEOUT" }),
+    });
+    expect(isTimeout(err)).toBe(true);
+  });
+
+  it("detects gateway/request timeout statuses", () => {
+    expect(isTimeout({ status: 408 })).toBe(true);
+    expect(isTimeout({ status: 504 })).toBe(true);
+  });
+
+  it("falls back to a message match", () => {
+    expect(isTimeout(new Error("upstream request timeout"))).toBe(true);
+    expect(isTimeout(new Error("The operation timed out"))).toBe(true);
+  });
+
+  it("returns false for unrelated errors and nullish input", () => {
+    expect(isTimeout(new Error("server error"))).toBe(false);
+    expect(isTimeout({ status: 500 })).toBe(false);
+    expect(isTimeout(null)).toBe(false);
+    expect(isTimeout(undefined)).toBe(false);
+  });
+});
+
+describe("isRetryable", () => {
+  it("covers both rate limits and timeouts", () => {
+    expect(isRetryable({ status: 429 })).toBe(true);
+    expect(isRetryable({ status: 504 })).toBe(true);
+    expect(isRetryable({ status: 500 })).toBe(false);
   });
 });
 
@@ -217,18 +276,52 @@ describe("callLlm", () => {
     expect(mockCall).toHaveBeenCalledWith("prompt", 4096);
   });
 
-  it("retries on 429 with exponential backoff", async () => {
+  it("waits at least RETRY_MIN_MS before the first 429 retry", async () => {
     const err429 = Object.assign(new Error("rate limited"), { status: 429 });
     mockCall.mockRejectedValueOnce(err429);
     mockCall.mockResolvedValueOnce("success after retry");
 
     const promise = callLlm("prompt", 1024);
 
-    // First call rejects with 429 — advance past the 5 s backoff
-    await vi.advanceTimersByTimeAsync(5_000);
+    // Anything short of the 60 s floor must not trigger the retry yet.
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS - 1);
+    expect(mockCall).toHaveBeenCalledOnce();
 
+    await vi.advanceTimersByTimeAsync(1);
     const result = await promise;
     expect(result).toBe("success after retry");
+    expect(mockCall).toHaveBeenCalledTimes(2);
+  });
+
+  it("retries on timeout errors too", async () => {
+    const timeoutErr = Object.assign(new Error("Request timed out."), {
+      name: "APIConnectionTimeoutError",
+    });
+    mockCall.mockRejectedValueOnce(timeoutErr);
+    mockCall.mockResolvedValueOnce("recovered");
+
+    const promise = callLlm("prompt");
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS);
+
+    expect(await promise).toBe("recovered");
+    expect(mockCall).toHaveBeenCalledTimes(2);
+  });
+
+  it("honours a Retry-After longer than the floor", async () => {
+    const err429 = Object.assign(new Error("rate limited"), {
+      status: 429,
+      headers: { "retry-after": "120" },
+    });
+    mockCall.mockRejectedValueOnce(err429);
+    mockCall.mockResolvedValueOnce("ok");
+
+    const promise = callLlm("prompt");
+
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS);
+    expect(mockCall).toHaveBeenCalledOnce();
+
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(await promise).toBe("ok");
     expect(mockCall).toHaveBeenCalledTimes(2);
   });
 
@@ -245,17 +338,17 @@ describe("callLlm", () => {
     // before the expect() below gets a chance to inspect the rejection.
     promise.catch(() => {});
 
-    // Advance through all 3 retry backoffs: 5s, 10s, 20s
-    await vi.advanceTimersByTimeAsync(5_000);
-    await vi.advanceTimersByTimeAsync(10_000);
-    await vi.advanceTimersByTimeAsync(20_000);
+    // Advance through all 3 retry backoffs: 60s, 120s, 240s
+    await vi.advanceTimersByTimeAsync(60_000);
+    await vi.advanceTimersByTimeAsync(120_000);
+    await vi.advanceTimersByTimeAsync(240_000);
 
     await expect(promise).rejects.toThrow("rate limited");
     // 1 initial + 3 retries = 4 total calls
     expect(mockCall).toHaveBeenCalledTimes(4);
   });
 
-  it("throws immediately on non-429 errors", async () => {
+  it("throws immediately on non-retryable errors", async () => {
     mockCall.mockRejectedValueOnce(new Error("server error"));
 
     await expect(callLlm("prompt")).rejects.toThrow("server error");
@@ -268,7 +361,7 @@ describe("callLlm", () => {
     mockCall.mockResolvedValueOnce("ok");
 
     const promise = callLlm("prompt");
-    await vi.advanceTimersByTimeAsync(5_000);
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS);
     await promise;
 
     // If slots leaked, subsequent calls would hang. Fire LLM_CONCURRENCY (5)

@@ -224,6 +224,8 @@ Go to **Settings → Secrets and variables → Actions** and add:
 |--------|----------|-------------|
 | `DIGEST_LANGS` | optional | Languages to generate: `zh,en` (default, bilingual), `en` (English only), or `zh` (Chinese only) |
 | `LLM_PROVIDER` | optional | `anthropic` (default), `openai`, `github-copilot`, or `openrouter` |
+| `LLM_CONCURRENCY` | optional | Max in-flight LLM requests (default `5`) |
+| `LLM_TIMEOUT_MS` | optional | Per-request LLM timeout in ms (default `600000` = 10 min). Timeouts and 429s are retried up to 3 times, waiting at least 60 s between attempts |
 | `ANTHROPIC_API_KEY` | if Anthropic | API key — works with both Anthropic and Kimi Code |
 | `ANTHROPIC_BASE_URL` | optional | API endpoint override. Set to `https://api.kimi.com/coding/` for Kimi Code; leave unset for Anthropic |
 | `OPENAI_API_KEY` | if OpenAI | OpenAI API key |
@@ -233,7 +235,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `TELEGRAM_CHAT_ID` | optional | Telegram chat/channel/group ID to send notifications to |
 | `FEISHU_WEBHOOK_URLS` | optional | Comma-separated Feishu custom bot webhook URLs. If set, a card message is sent to each group after each digest run |
 
-> `GITHUB_TOKEN` is provided automatically by GitHub Actions. When using `github-copilot` as the provider, the same `GITHUB_TOKEN` is used for LLM calls.
+> The code reads the GitHub token from `GH_TOKEN` (not `GITHUB_TOKEN` — GitHub Actions reserves the `GITHUB_` prefix for secret/variable names). In the workflows it is mapped from the built-in token: `GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`, so no secret needs to be created. When using `github-copilot` as the provider, the same `GH_TOKEN` is used for LLM calls.
 
 **Setting up Telegram notifications** (optional):
 1. Message [@BotFather](https://t.me/BotFather) on Telegram, create a bot, and copy the token
@@ -259,7 +261,7 @@ Set `LLM_PROVIDER` to choose which model backend powers the digest generation. D
 |----------|---------------|-------------------|---------------|
 | Anthropic | `anthropic` | `ANTHROPIC_API_KEY` | `claude-sonnet-4-6` |
 | OpenAI | `openai` | `OPENAI_API_KEY` | `gpt-4o` |
-| GitHub Copilot | `github-copilot` | `GITHUB_TOKEN` | `gpt-4o` |
+| GitHub Copilot | `github-copilot` | `GH_TOKEN` | `gpt-4o` |
 | OpenRouter | `openrouter` | `OPENROUTER_API_KEY` | `anthropic/claude-sonnet-4` |
 
 Override the model name with `ANTHROPIC_MODEL`, `OPENAI_MODEL`, `GITHUB_COPILOT_MODEL`, or `OPENROUTER_MODEL` respectively.
@@ -271,7 +273,7 @@ The provider abstraction lives in `src/providers/` — each provider is a separa
 ```bash
 pnpm install
 
-export GITHUB_TOKEN=ghp_xxxxx
+export GH_TOKEN=ghp_xxxxx
 
 # Option A: Anthropic (default)
 export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
@@ -280,7 +282,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 # export LLM_PROVIDER=openai
 # export OPENAI_API_KEY=sk-xxxxxxxx
 
-# Option C: GitHub Copilot (uses GITHUB_TOKEN)
+# Option C: GitHub Copilot (uses GH_TOKEN)
 # export LLM_PROVIDER=github-copilot
 
 # Option D: OpenRouter

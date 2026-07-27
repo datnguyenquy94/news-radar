@@ -6,6 +6,7 @@
 
 import OpenAI from "openai";
 import type { LlmProvider } from "./types.ts";
+import { CLIENT_OPTIONS } from "./client-options.ts";
 
 export abstract class OpenAICompatibleProvider implements LlmProvider {
   abstract readonly name: string;
@@ -17,6 +18,7 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
     this.client = new OpenAI({
       apiKey: opts.apiKey,
       baseURL: opts.baseURL,
+      ...CLIENT_OPTIONS,
     });
   }
 

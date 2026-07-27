@@ -267,6 +267,39 @@ export async function closeStaleIssues(days: number): Promise<number> {
   return closed;
 }
 
+/**
+ * Create a digest issue, downgrading any GitHub-side failure to a warning.
+ *
+ * By the time this runs the reports are already written to disk, so an issue
+ * failure must never abort `main()` — a non-zero exit skips the workflow's
+ * "Commit digest files" step and throws away the whole day's digest over a
+ * problem that has nothing to do with the reports themselves.
+ *
+ * Returns the issue URL, or null when the issue could not be created.
+ */
+export async function tryCreateGitHubIssue(
+  title: string,
+  body: string,
+  label: string,
+): Promise<string | null> {
+  try {
+    return await createGitHubIssue(title, body, label);
+  } catch (err) {
+    const digestRepo = process.env["DIGEST_REPO"] ?? "";
+    console.error(`  [issue] Skipped "${title}": ${err instanceof Error ? err.message : String(err)}`);
+    // A 404 on the labels/issues endpoints is GitHub's answer for both "Issues
+    // are turned off here" and "your token cannot see this repo" — it never
+    // says which, and forks have Issues disabled by default.
+    if (String(err).includes('"status":"404"') || String(err).includes("Not Found")) {
+      console.error(
+        `  [issue] A 404 here usually means Issues are disabled on ${digestRepo} ` +
+          `(Settings → General → Features → Issues), or GH_TOKEN lacks Issues write access to it.`,
+      );
+    }
+    return null;
+  }
+}
+
 export async function createGitHubIssue(title: string, body: string, label: string): Promise<string> {
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
   body = neutralizeGitHubRefs(body);

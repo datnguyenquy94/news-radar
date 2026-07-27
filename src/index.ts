@@ -23,7 +23,7 @@ import {
   fetchRecentItems,
   fetchRecentReleases,
   fetchSkillsData,
-  createGitHubIssue,
+  tryCreateGitHubIssue,
 } from "./github.ts";
 import {
   type RepoDigest,
@@ -515,19 +515,19 @@ async function main(): Promise<void> {
   // 6. Create GitHub issues for CLI + OpenClaw (all configured languages)
   if (digestRepo) {
     for (const lang of langs) {
-      const cliUrl = await createGitHubIssue(
+      const cliUrl = await tryCreateGitHubIssue(
         CLI_ISSUE_TITLE(dateStr, lang),
         cliContent[lang],
         ISSUE_LABELS.cli[lang],
       );
-      console.log(`  Created CLI issue (${lang}): ${cliUrl}`);
+      if (cliUrl) console.log(`  Created CLI issue (${lang}): ${cliUrl}`);
 
-      const ocUrl = await createGitHubIssue(
+      const ocUrl = await tryCreateGitHubIssue(
         OPENCLAW_ISSUE_TITLE(dateStr, lang),
         openclawContent[lang],
         ISSUE_LABELS.openclaw[lang],
       );
-      console.log(`  Created OpenClaw issue (${lang}): ${ocUrl}`);
+      if (ocUrl) console.log(`  Created OpenClaw issue (${lang}): ${ocUrl}`);
     }
   }
 

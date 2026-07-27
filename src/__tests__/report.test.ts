@@ -21,6 +21,7 @@ vi.mock("../providers/index.ts", async (importOriginal) => {
 import {
   is429,
   isTimeout,
+  isOverloaded,
   isRetryable,
   RETRY_MIN_MS,
   callLlm,
@@ -116,11 +117,40 @@ describe("isTimeout", () => {
   });
 });
 
+describe("isOverloaded", () => {
+  it("detects the gateway ResourceExhausted shape seen in production", () => {
+    // Real error text from an OpenAI-compatible gateway under load.
+    const err = new Error("503 ResourceExhausted: Worker local total request limit reached (44/32)");
+    expect(isOverloaded(err)).toBe(true);
+    expect(isRetryable(err)).toBe(true);
+  });
+
+  it("detects capacity statuses", () => {
+    expect(isOverloaded({ status: 502 })).toBe(true);
+    expect(isOverloaded({ status: 503 })).toBe(true);
+    expect(isOverloaded({ status: 529 })).toBe(true); // Anthropic overloaded_error
+  });
+
+  it("detects overload wording without a status", () => {
+    expect(isOverloaded(new Error("Overloaded"))).toBe(true);
+    expect(isOverloaded(new Error("Service Unavailable, please try again later"))).toBe(true);
+  });
+
+  it("returns false for unrelated errors and nullish input", () => {
+    expect(isOverloaded(new Error("invalid api key"))).toBe(false);
+    expect(isOverloaded({ status: 400 })).toBe(false);
+    expect(isOverloaded(null)).toBe(false);
+    expect(isOverloaded(undefined)).toBe(false);
+  });
+});
+
 describe("isRetryable", () => {
-  it("covers both rate limits and timeouts", () => {
+  it("covers rate limits, timeouts, and overload", () => {
     expect(isRetryable({ status: 429 })).toBe(true);
     expect(isRetryable({ status: 504 })).toBe(true);
+    expect(isRetryable({ status: 503 })).toBe(true);
     expect(isRetryable({ status: 500 })).toBe(false);
+    expect(isRetryable(new Error("invalid api key"))).toBe(false);
   });
 });
 
@@ -298,6 +328,21 @@ describe("callLlm", () => {
       name: "APIConnectionTimeoutError",
     });
     mockCall.mockRejectedValueOnce(timeoutErr);
+    mockCall.mockResolvedValueOnce("recovered");
+
+    const promise = callLlm("prompt");
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS);
+
+    expect(await promise).toBe("recovered");
+    expect(mockCall).toHaveBeenCalledTimes(2);
+  });
+
+  it("retries a 503 ResourceExhausted from a saturated gateway", async () => {
+    const err503 = Object.assign(
+      new Error("503 ResourceExhausted: Worker local total request limit reached (44/32)"),
+      { status: 503 },
+    );
+    mockCall.mockRejectedValueOnce(err503);
     mockCall.mockResolvedValueOnce("recovered");
 
     const promise = callLlm("prompt");

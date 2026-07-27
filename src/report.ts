@@ -106,9 +106,33 @@ export function isTimeout(err: unknown): boolean {
   return /timed?\s*-?\s*out|timeout/i.test(String(e.message ?? err));
 }
 
-/** Transient failures worth another attempt: rate limits and timeouts. */
+/**
+ * Server-side capacity exhaustion. Gateways and OpenAI-compatible proxies often
+ * express "too much load right now" as a 5xx rather than a 429 — e.g. the
+ * `503 ResourceExhausted: Worker local total request limit reached (44/32)`
+ * emitted when the upstream worker pool is saturated. These are transient and
+ * clear on their own, so they get the same backoff as a rate limit.
+ */
+export function isOverloaded(err: unknown): boolean {
+  const e = err as ErrLike | null | undefined;
+  if (!e) return false;
+  // 502/503 = bad gateway / unavailable, 529 = Anthropic `overloaded_error`.
+  if (e.status === 502 || e.status === 503 || e.status === 529) return true;
+  return /resource[\s_-]*exhausted|overloaded|capacity|request limit reached|service unavailable|temporarily unavailable|try again later|\b(?:502|503|529)\b/i.test(
+    String(e.message ?? err),
+  );
+}
+
+/** Transient failures worth another attempt: rate limits, timeouts, overload. */
 export function isRetryable(err: unknown): boolean {
-  return is429(err) || isTimeout(err);
+  return is429(err) || isTimeout(err) || isOverloaded(err);
+}
+
+/** Short label for the retry log line. */
+function retryKind(err: unknown): string {
+  if (is429(err)) return "429";
+  if (isTimeout(err)) return "timeout";
+  return "overloaded";
 }
 
 /**
@@ -144,8 +168,7 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
           RETRY_MAX_MS,
           Math.max(RETRY_MIN_MS, retryAfterMs(err), RETRY_BASE_MS * 2 ** attempt),
         );
-        const kind = is429(err) ? "429" : "timeout";
-        console.error(`[llm] ${kind} — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
+        console.error(`[llm] ${retryKind(err)} — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
         await sleep(wait);
         continue;
       }

@@ -31,7 +31,7 @@ pnpm format:check   # Prettier --check src
 Env vars for local runs:
 
 ```bash
-export GITHUB_TOKEN=ghp_xxxxx
+export GH_TOKEN=ghp_xxxxx        # GitHub token (named GH_TOKEN, not GITHUB_TOKEN — GH Actions reserves the GITHUB_ prefix)
 export DIGEST_REPO=owner/repo   # omit to skip GitHub issue creation
 
 # Languages to generate (default: both). "en" = English only, "zh" = Chinese only.
@@ -40,6 +40,9 @@ export DIGEST_LANGS=zh,en       # zh,en | en | zh
 # Max concurrent in-flight LLM requests (positive integer; default: 5)
 export LLM_CONCURRENCY=5
 
+# Per-request LLM timeout in ms (positive integer; default: 600000 = 10 min)
+export LLM_TIMEOUT_MS=600000
+
 # LLM provider (code default: anthropic; production GHA uses deepseek)
 export LLM_PROVIDER=anthropic   # anthropic | openai | github-copilot | openrouter | deepseek
 
@@ -47,7 +50,7 @@ export LLM_PROVIDER=anthropic   # anthropic | openai | github-copilot | openrout
 export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 # OpenAI          — OPENAI_API_KEY,  optional OPENAI_BASE_URL / OPENAI_MODEL
-# GitHub Copilot  — uses GITHUB_TOKEN, optional GITHUB_COPILOT_MODEL
+# GitHub Copilot  — uses GH_TOKEN, optional GITHUB_COPILOT_MODEL
 # OpenRouter      — OPENROUTER_API_KEY, optional OPENROUTER_MODEL
 # DeepSeek        — DEEPSEEK_API_KEY, optional DEEPSEEK_MODEL (default: deepseek-chat)
 
@@ -105,6 +108,7 @@ Weekly/monthly rollups (`src/rollup.ts`, entrypoints `src/weekly.ts` / `src/mont
 | `src/generate-manifest.ts` | Generates `manifest.json` (Web UI sidebar) and `feed.xml` (RSS 2.0); `REPORT_FILES` lists all report IDs |
 | `src/providers/types.ts` | `LlmProvider` interface, `ProviderFactory` type |
 | `src/providers/index.ts` | `createProvider` factory + `PROVIDERS` registry + `VALID_PROVIDER_NAMES`; barrel re-exports |
+| `src/providers/client-options.ts` | `CLIENT_OPTIONS` / `LLM_TIMEOUT_MS` — shared SDK client timeout; disables the SDKs' built-in retry loops so `callLlm` owns retry policy |
 | `src/providers/openai-compatible.ts` | `OpenAICompatibleProvider` — shared base for OpenAI-compatible providers |
 | `src/providers/anthropic.ts` | `AnthropicProvider` — Anthropic SDK wrapper |
 | `src/providers/{openai,github-copilot,openrouter,deepseek}.ts` | Providers extending `OpenAICompatibleProvider` |
@@ -154,7 +158,8 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 - LLM prompt builders are split: `src/prompts.ts` (repo-level) and `src/prompts-data.ts` (data-source + rollup + highlights). Each report type has its own builder function.
 - `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web uses 8192, trending uses 6144, rollups use 8192, and the table-formatted listing reports (HN, PH, ArXiv, HF, Community) use `LLM_TOKENS_LISTING` = 6144. Token constants live in `src/report.ts`.
 - Data-source listing reports (Trending, HN, PH, ArXiv, HF, Community) render item lists as **Markdown tables** (not bullet lists). Numeric columns are copied verbatim from the fetched data; the summary column is 2 sentences. Tables have CSS in `index.html` and render natively in GitHub Issues.
-- On 429 rate-limit errors `callLlm` retries up to 3 times with exponential backoff (5 s / 10 s / 20 s); the concurrency slot is released during the wait.
+- On transient errors — 429 rate limits (`is429`) **and** request timeouts / dropped connections (`isTimeout`) — `callLlm` retries up to 3 times. Every wait is floored at `RETRY_MIN_MS` = 60 s and grows exponentially from it (60 s / 120 s / 240 s), honours a longer `Retry-After` header, and is capped at 5 min. The concurrency slot is released during the wait. Sub-minute backoffs just burn an attempt on a per-minute quota that has not refilled.
+- The SDK clients are built with `maxRetries: 0` and an explicit `timeout` (`CLIENT_OPTIONS` in `src/providers/client-options.ts`, `LLM_TIMEOUT_MS` env var, default 10 min). The SDKs' own sub-10 s retry loops are disabled on purpose so `callLlm` is the single retry policy — do not re-enable them per provider.
 - The concurrency limiter (`LLM_CONCURRENCY`, default 5, overridable via the `LLM_CONCURRENCY` env var) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
 - LLM provider is selected via `LLM_PROVIDER` (code default: `anthropic`; production workflows set `deepseek`). Add providers only in the `PROVIDERS` registry in `src/providers/index.ts`; `ProviderName` and `VALID_PROVIDER_NAMES` are derived from it. The factory logs only the provider *name* — never API keys or endpoint URLs.
 - LLM JSON output (e.g. `highlights.json`) must be parsed with `parseLlmJson` from `src/report.ts` — it strips code fences, replaces raw control chars, and repairs trailing commas / prose wrappers.

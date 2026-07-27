@@ -6,6 +6,7 @@
  */
 
 export type { LlmProvider, ProviderFactory } from "./types.ts";
+export { CLIENT_OPTIONS, LLM_TIMEOUT_MS } from "./client-options.ts";
 export { OpenAICompatibleProvider } from "./openai-compatible.ts";
 export { AnthropicProvider } from "./anthropic.ts";
 export { OpenAIProvider } from "./openai.ts";

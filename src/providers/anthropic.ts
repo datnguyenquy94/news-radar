@@ -9,6 +9,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import type { LlmProvider } from "./types.ts";
+import { CLIENT_OPTIONS } from "./client-options.ts";
 
 export class AnthropicProvider implements LlmProvider {
   readonly name = "anthropic";
@@ -17,7 +18,7 @@ export class AnthropicProvider implements LlmProvider {
 
   constructor(model?: string) {
     this.model = model ?? process.env["ANTHROPIC_MODEL"] ?? "claude-sonnet-4-6";
-    this.client = new Anthropic();
+    this.client = new Anthropic({ ...CLIENT_OPTIONS });
   }
 
   async call(prompt: string, maxTokens: number): Promise<string> {

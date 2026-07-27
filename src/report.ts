@@ -61,10 +61,73 @@ function releaseSlot(): void {
 // ---------------------------------------------------------------------------
 
 const MAX_RETRIES = 3;
-const RETRY_BASE_MS = 5_000; // 5 s, 10 s, 20 s
+/** Floor for every retry wait. Providers rate-limit on a per-minute window and
+ *  their own request timeout has already burned time, so anything shorter just
+ *  spends another attempt on a bucket that has not refilled yet. */
+export const RETRY_MIN_MS = 60_000;
+/** Backoff grows from the floor: 60 s / 120 s / 240 s. */
+const RETRY_BASE_MS = RETRY_MIN_MS;
+/** Upper bound so a `Retry-After` of hours cannot stall the whole run. */
+const RETRY_MAX_MS = 300_000; // 5 min
 
 export function is429(err: unknown): boolean {
   return (err as { status?: number })?.status === 429 || String(err).includes("429");
+}
+
+/** Error codes emitted by undici/Node when a socket or request times out. */
+const TIMEOUT_CODES = new Set([
+  "ETIMEDOUT",
+  "ESOCKETTIMEDOUT",
+  "ECONNRESET",
+  "ECONNABORTED",
+  "EAI_AGAIN",
+  "UND_ERR_CONNECT_TIMEOUT",
+  "UND_ERR_HEADERS_TIMEOUT",
+  "UND_ERR_BODY_TIMEOUT",
+]);
+
+type ErrLike = { name?: string; code?: string; status?: number; message?: string; cause?: unknown };
+
+/**
+ * Detects request timeouts / dropped connections across providers: the SDK
+ * timeout classes (`APIConnectionTimeoutError`, `AbortError`), Node socket
+ * codes (possibly nested under `cause`), gateway statuses, and a message match
+ * for providers that only surface a string.
+ */
+export function isTimeout(err: unknown): boolean {
+  const e = err as ErrLike | null | undefined;
+  if (!e) return false;
+  if (e.name === "APIConnectionTimeoutError" || e.name === "TimeoutError" || e.name === "AbortError")
+    return true;
+  if (e.status === 408 || e.status === 504) return true;
+  if (typeof e.code === "string" && TIMEOUT_CODES.has(e.code)) return true;
+  const causeCode = (e.cause as ErrLike | undefined)?.code;
+  if (typeof causeCode === "string" && TIMEOUT_CODES.has(causeCode)) return true;
+  return /timed?\s*-?\s*out|timeout/i.test(String(e.message ?? err));
+}
+
+/** Transient failures worth another attempt: rate limits and timeouts. */
+export function isRetryable(err: unknown): boolean {
+  return is429(err) || isTimeout(err);
+}
+
+/**
+ * `Retry-After` from the provider, in ms. Supports both the plain-object and
+ * `Headers` shapes the SDKs expose, and both the seconds and HTTP-date forms.
+ * Returns 0 when absent or unparseable.
+ */
+function retryAfterMs(err: unknown): number {
+  const headers = (err as { headers?: Headers | Record<string, string> })?.headers;
+  if (!headers) return 0;
+  const raw =
+    typeof (headers as Headers).get === "function"
+      ? (headers as Headers).get("retry-after")
+      : (headers as Record<string, string>)["retry-after"];
+  if (!raw) return 0;
+  const seconds = Number(raw);
+  if (Number.isFinite(seconds)) return Math.max(0, seconds * 1000);
+  const at = Date.parse(raw);
+  return Number.isNaN(at) ? 0 : Math.max(0, at - Date.now());
 }
 
 export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): Promise<string> {
@@ -74,11 +137,15 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
     try {
       return await provider.call(prompt, maxTokens);
     } catch (err) {
-      if (attempt < MAX_RETRIES && is429(err)) {
+      if (attempt < MAX_RETRIES && isRetryable(err)) {
         releaseSlot();
         released = true;
-        const wait = RETRY_BASE_MS * 2 ** attempt;
-        console.error(`[llm] 429 — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
+        const wait = Math.min(
+          RETRY_MAX_MS,
+          Math.max(RETRY_MIN_MS, retryAfterMs(err), RETRY_BASE_MS * 2 ** attempt),
+        );
+        const kind = is429(err) ? "429" : "timeout";
+        console.error(`[llm] ${kind} — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
         await sleep(wait);
         continue;
       }

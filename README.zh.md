@@ -223,6 +223,8 @@ openclaw_peers:
 |--------|------|------|
 | `DIGEST_LANGS` | 可选 | 生成的语言：`zh,en`（默认，中英双语）、`en`（仅英文）或 `zh`（仅中文） |
 | `LLM_PROVIDER` | 可选 | `anthropic`（默认）、`openai`、`github-copilot` 或 `openrouter` |
+| `LLM_CONCURRENCY` | 可选 | LLM 最大并发请求数（默认 `5`） |
+| `LLM_TIMEOUT_MS` | 可选 | 单次 LLM 请求超时时间，单位毫秒（默认 `600000`，即 10 分钟）。超时与 429 最多重试 3 次，每次重试前至少等待 60 秒 |
 | `ANTHROPIC_API_KEY` | Anthropic 时 | API 密钥，兼容 Anthropic 和 Kimi Code |
 | `ANTHROPIC_BASE_URL` | 可选 | API 地址覆盖。使用 Kimi Code 时设置为 `https://api.kimi.com/coding/`，使用 Anthropic 时留空 |
 | `OPENAI_API_KEY` | OpenAI 时 | OpenAI API 密钥 |
@@ -232,7 +234,7 @@ openclaw_peers:
 | `TELEGRAM_CHAT_ID` | 可选 | 接收通知的 Telegram 频道 / 群组 / 用户 ID |
 | `FEISHU_WEBHOOK_URLS` | 可选 | 飞书自定义机器人 Webhook URL，多个用英文逗号分隔。设置后每次 digest 完成自动推送卡片通知到所有群 |
 
-> `GITHUB_TOKEN` 由 GitHub Actions 自动提供，无需手动添加。使用 `github-copilot` 作为 Provider 时，同一 `GITHUB_TOKEN` 也用于 LLM 调用。
+> 代码从 `GH_TOKEN` 读取 GitHub token（而非 `GITHUB_TOKEN`——GitHub Actions 保留 `GITHUB_` 前缀，不允许用于 secret/变量名）。工作流中通过内置 token 映射：`GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`，因此无需手动创建 secret。使用 `github-copilot` 作为 Provider 时，同一 `GH_TOKEN` 也用于 LLM 调用。
 
 **配置 Telegram 推送**（可选）：
 1. 向 [@BotFather](https://t.me/BotFather) 创建 bot，复制 token
@@ -258,7 +260,7 @@ openclaw_peers:
 |--------|---------------|------------|----------|
 | Anthropic | `anthropic` | `ANTHROPIC_API_KEY` | `claude-sonnet-4-6` |
 | OpenAI | `openai` | `OPENAI_API_KEY` | `gpt-4o` |
-| GitHub Copilot | `github-copilot` | `GITHUB_TOKEN` | `gpt-4o` |
+| GitHub Copilot | `github-copilot` | `GH_TOKEN` | `gpt-4o` |
 | OpenRouter | `openrouter` | `OPENROUTER_API_KEY` | `anthropic/claude-sonnet-4` |
 
 可通过 `ANTHROPIC_MODEL`、`OPENAI_MODEL`、`GITHUB_COPILOT_MODEL` 或 `OPENROUTER_MODEL` 分别覆盖默认模型名称。
@@ -270,7 +272,7 @@ Provider 抽象层位于 `src/providers/`，每个供应商对应独立文件并
 ```bash
 pnpm install
 
-export GITHUB_TOKEN=ghp_xxxxx
+export GH_TOKEN=ghp_xxxxx
 
 # 方式 A: Anthropic（默认）
 export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
@@ -279,7 +281,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 # export LLM_PROVIDER=openai
 # export OPENAI_API_KEY=sk-xxxxxxxx
 
-# 方式 C: GitHub Copilot（使用 GITHUB_TOKEN）
+# 方式 C: GitHub Copilot（使用 GH_TOKEN）
 # export LLM_PROVIDER=github-copilot
 
 # 方式 D: OpenRouter

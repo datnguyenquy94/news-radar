@@ -12,7 +12,7 @@ import {
   buildHighlightsPrompt,
   type ReportHighlights,
 } from "./prompts-data.ts";
-import { createGitHubIssue } from "./github.ts";
+import { tryCreateGitHubIssue } from "./github.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, getLangs, WEEKLY_REPORT, MONTHLY_REPORT } from "./i18n.ts";
 
@@ -179,8 +179,8 @@ export async function runWeeklyRollup(): Promise<void> {
   if (digestRepo) {
     // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
     const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
-    const url = await createGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), issueContent, "weekly");
-    console.log(`  Created weekly issue: ${url}`);
+    const url = await tryCreateGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), issueContent, "weekly");
+    if (url) console.log(`  Created weekly issue: ${url}`);
   }
 
   console.log("[weekly] Done!");
@@ -271,8 +271,8 @@ export async function runMonthlyRollup(): Promise<void> {
   if (digestRepo) {
     // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
     const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
-    const url = await createGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), issueContent, "monthly");
-    console.log(`  Created monthly issue: ${url}`);
+    const url = await tryCreateGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), issueContent, "monthly");
+    if (url) console.log(`  Created monthly issue: ${url}`);
   }
 
   console.log("[monthly] Done!");

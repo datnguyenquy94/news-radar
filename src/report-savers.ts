@@ -25,7 +25,7 @@ import {
   buildMacroPrompt,
 } from "./prompts-data.ts";
 import { callLlm, saveFile, LLM_TOKENS_WEB, LLM_TOKENS_LISTING } from "./report.ts";
-import { createGitHubIssue } from "./github.ts";
+import { tryCreateGitHubIssue } from "./github.ts";
 import { type WebFetchResult } from "./web.ts";
 import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
@@ -84,8 +84,8 @@ export async function saveWebReport(
       if (digestRepo) {
         const issueTitle = WEB_REPORT.issueTitle(dateStr, isFirstRun, lang);
         const webLabel = ISSUE_LABELS.web[lang];
-        const webUrl = await createGitHubIssue(issueTitle, webContent, webLabel);
-        console.log(`  Created web issue (${lang}): ${webUrl}`);
+        const webUrl = await tryCreateGitHubIssue(issueTitle, webContent, webLabel);
+        if (webUrl) console.log(`  Created web issue (${lang}): ${webUrl}`);
       }
     } catch (err) {
       console.error(`  [web/${lang}] Report generation failed: ${err}`);
@@ -126,8 +126,8 @@ export async function saveTrendingReport(
   if (digestRepo) {
     const trendingTitle = TRENDING_REPORT.issueTitle(dateStr, lang);
     const trendingLabel = ISSUE_LABELS.trending[lang];
-    const trendingUrl = await createGitHubIssue(trendingTitle, trendingContent, trendingLabel);
-    console.log(`  Created trending issue (${lang}): ${trendingUrl}`);
+    const trendingUrl = await tryCreateGitHubIssue(trendingTitle, trendingContent, trendingLabel);
+    if (trendingUrl) console.log(`  Created trending issue (${lang}): ${trendingUrl}`);
   }
 }
 
@@ -170,8 +170,8 @@ export async function saveHnReport(
     if (digestRepo) {
       const hnTitle = HN_REPORT.issueTitle(dateStr, lang);
       const hnLabel = ISSUE_LABELS.hn[lang];
-      const hnUrl = await createGitHubIssue(hnTitle, hnContent, hnLabel);
-      console.log(`  Created HN issue (${lang}): ${hnUrl}`);
+      const hnUrl = await tryCreateGitHubIssue(hnTitle, hnContent, hnLabel);
+      if (hnUrl) console.log(`  Created HN issue (${lang}): ${hnUrl}`);
     }
   } catch (err) {
     console.error(`  [hn/${lang}] Report generation failed: ${err}`);
@@ -217,8 +217,8 @@ export async function savePhReport(
     if (digestRepo) {
       const phTitle = PH_REPORT.issueTitle(dateStr, lang);
       const phLabel = ISSUE_LABELS.ph[lang];
-      const phUrl = await createGitHubIssue(phTitle, phContent, phLabel);
-      console.log(`  Created PH issue (${lang}): ${phUrl}`);
+      const phUrl = await tryCreateGitHubIssue(phTitle, phContent, phLabel);
+      if (phUrl) console.log(`  Created PH issue (${lang}): ${phUrl}`);
     }
   } catch (err) {
     console.error(`  [ph/${lang}] Report generation failed: ${err}`);
@@ -264,8 +264,8 @@ export async function saveArxivReport(
     if (digestRepo) {
       const title = ARXIV_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.arxiv[lang];
-      const url = await createGitHubIssue(title, content, label);
-      console.log(`  Created ArXiv issue (${lang}): ${url}`);
+      const url = await tryCreateGitHubIssue(title, content, label);
+      if (url) console.log(`  Created ArXiv issue (${lang}): ${url}`);
     }
   } catch (err) {
     console.error(`  [arxiv/${lang}] Report generation failed: ${err}`);
@@ -311,8 +311,8 @@ export async function saveHfReport(
     if (digestRepo) {
       const title = HF_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.hf[lang];
-      const url = await createGitHubIssue(title, content, label);
-      console.log(`  Created HF issue (${lang}): ${url}`);
+      const url = await tryCreateGitHubIssue(title, content, label);
+      if (url) console.log(`  Created HF issue (${lang}): ${url}`);
     }
   } catch (err) {
     console.error(`  [hf/${lang}] Report generation failed: ${err}`);
@@ -363,8 +363,8 @@ export async function saveCommunityReport(
     if (digestRepo) {
       const title = COMMUNITY_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.community[lang];
-      const url = await createGitHubIssue(title, content, label);
-      console.log(`  Created community issue (${lang}): ${url}`);
+      const url = await tryCreateGitHubIssue(title, content, label);
+      if (url) console.log(`  Created community issue (${lang}): ${url}`);
     }
   } catch (err) {
     console.error(`  [community/${lang}] Report generation failed: ${err}`);
@@ -412,8 +412,8 @@ export async function saveMacroReport(
     if (digestRepo) {
       const title = MACRO_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.macro[lang];
-      const url = await createGitHubIssue(title, content, label);
-      console.log(`  Created macro issue (${lang}): ${url}`);
+      const url = await tryCreateGitHubIssue(title, content, label);
+      if (url) console.log(`  Created macro issue (${lang}): ${url}`);
     }
   } catch (err) {
     console.error(`  [macro/${lang}] Report generation failed: ${err}`);

@@ -45,6 +45,7 @@ import {
   saveHfReport,
   saveCommunityReport,
   saveMacroReport,
+  saveVnMacroReport,
 } from "./report-savers.ts";
 import { loadWebState, saveWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
@@ -56,6 +57,9 @@ import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
 import { fetchFredData, type FredData } from "./fred.ts";
 import { fetchFinraMargin, type FinraData } from "./finra.ts";
+import { fetchVnMarketData, type VnMarketData } from "./vnmarket.ts";
+import { fetchVnMacroData, type VnMacroData } from "./vnmacro.ts";
+import { fetchVnDocsData, type VnDocsData } from "./vndocs.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, getLangs, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -101,10 +105,13 @@ async function fetchAllData(
   lobstersData: LobstersData;
   fredData: FredData;
   finraData: FinraData;
+  vnMarketData: VnMarketData;
+  vnMacroData: VnMacroData;
+  vnDocsData: VnDocsData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, fred, finra`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, fred, finra, vn-market, vn-macro, vn-docs`,
   );
 
   const [
@@ -120,6 +127,9 @@ async function fetchAllData(
     lobstersData,
     fredData,
     finraData,
+    vnMarketData,
+    vnMacroData,
+    vnDocsData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -182,6 +192,19 @@ async function fetchAllData(
     fetchFinraMargin().catch(
       (): FinraData => ({ latest: null, prior: null, changePct: null, fetchSuccess: false }),
     ),
+    fetchVnMarketData().catch(
+      (): VnMarketData => ({
+        indices: [],
+        breadth: null,
+        turnoverVndBn: null,
+        foreign: null,
+        futuresBasis: null,
+        tradingDate: "",
+        fetchSuccess: false,
+      }),
+    ),
+    fetchVnMacroData().catch((): VnMacroData => ({ fx: null, global: [], annual: [], fetchSuccess: false })),
+    fetchVnDocsData().catch((): VnDocsData => ({ docs: [], fetchSuccess: false })),
   ]);
 
   return {
@@ -197,6 +220,9 @@ async function fetchAllData(
     lobstersData,
     fredData,
     finraData,
+    vnMarketData,
+    vnMacroData,
+    vnDocsData,
   };
 }
 
@@ -332,6 +358,9 @@ async function main(): Promise<void> {
     lobstersData,
     fredData,
     finraData,
+    vnMarketData,
+    vnMacroData,
+    vnDocsData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -440,6 +469,7 @@ async function main(): Promise<void> {
         saveHfReport(hfData, utcStr, dateStr, digestRepo, ft, lang),
         saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, ft, lang),
         saveMacroReport(fredData, finraData, utcStr, dateStr, digestRepo, ft, lang),
+        saveVnMacroReport(vnMarketData, vnMacroData, vnDocsData, utcStr, dateStr, digestRepo, ft, lang),
       ];
     }),
   );
@@ -459,6 +489,7 @@ async function main(): Promise<void> {
     "ai-hf",
     "ai-community",
     "fin-macro",
+    "fin-vnmacro",
   ];
   const reportsByLang = {} as Record<Lang, Record<string, string>>;
   for (const lang of langs) {

@@ -18,6 +18,9 @@ export const LLM_TOKENS_TRENDING = 6144;
 export const LLM_TOKENS_LISTING = 6144;
 export const LLM_TOKENS_WEB = 8192;
 export const LLM_TOKENS_ROLLUP = 8192;
+/** The Vietnam dashboard carries three tables plus two prose sections and a
+ *  per-condition playbook — it truncates at the listing budget. */
+export const LLM_TOKENS_VNMACRO = 8192;
 import { type LlmProvider, createProvider } from "./providers/index.ts";
 
 const provider: LlmProvider = createProvider();

@@ -2,7 +2,7 @@
 
 ## Project overview
 
-agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Chinese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, and a macro-financial dashboard from FRED + FINRA). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
+agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Chinese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, a macro-financial dashboard from FRED + FINRA, and a Vietnam macro-market dashboard). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
 
 ## Commands
 
@@ -26,9 +26,13 @@ pnpm lint           # ESLint
 pnpm lint:fix       # ESLint --fix
 pnpm format         # Prettier --write src
 pnpm format:check   # Prettier --check src
+
+npx tsx scripts/regen-highlights.ts [YYYY-MM-DD] [--notify]   # rebuild highlights.json from digests already on disk
 ```
 
-Env vars for local runs:
+A husky `pre-commit` hook (`.husky/pre-commit`) runs `pnpm lint`, `pnpm format:check`, and `pnpm typecheck` — the same checks as `ci.yml` minus the tests.
+
+Env vars for local runs. `src/index.ts` and `src/social.ts` load `dotenv/config` as their **first** import (before anything that reads `process.env` at module scope, notably the provider selection in `report.ts`), so a local `.env` — see `.env.example`, git-ignored — works for `pnpm start` and the social generators. dotenv never overrides variables already set in the environment, so GitHub Actions `env:` values always win. Other entrypoints (`weekly.ts`, `monthly.ts`, `notify.ts`, `feishu.ts`, `scripts/`) do **not** load dotenv — export the vars in the shell for those.
 
 ```bash
 export GH_TOKEN=ghp_xxxxx        # GitHub token (named GH_TOKEN, not GITHUB_TOKEN — GH Actions reserves the GITHUB_ prefix)
@@ -66,7 +70,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 The daily pipeline runs in sequential phases, each a named async function in `src/index.ts`. ZH and EN reports are generated **simultaneously** (both languages run in parallel at every phase).
 
-1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News, Product Hunt, ArXiv, Hugging Face, Dev.to, Lobste.rs, FRED macro series, and FINRA margin statistics. Every source has a `.catch()` fallback so one failure never aborts the run.
+1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News, Product Hunt, ArXiv, Hugging Face, Dev.to, Lobste.rs, FRED macro series, FINRA margin statistics, the Vietnam market board/bars, Vietnam macro series, and the Vietnam document sources. Every source has a `.catch()` fallback so one failure never aborts the run.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to 5 concurrent requests by a queue in `src/report.ts`. Runs once per language.
 3. **Comparisons** — cross-tool CLI comparison and OpenClaw cross-ecosystem comparison (2 LLM calls per language).
 4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/report-builders.ts`) assemble Markdown strings; the `saveXxxReport` functions in `src/report-savers.ts` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, and community reports.
@@ -99,6 +103,10 @@ Weekly/monthly rollups (`src/rollup.ts`, entrypoints `src/weekly.ts` / `src/mont
 | `src/hf.ts` | Hugging Face trending models via the HF Hub API (sorted by weekly likes) |
 | `src/fred.ts` | Macro indicators from FRED (Federal Reserve Economic Data): 16 series (rates, balance sheet, VIX, yields, credit spread, oil, jobs, inflation, sentiment). JSON API when `FRED_API_KEY` is set, keyless CSV fallback otherwise |
 | `src/finra.ts` | FINRA margin statistics (retail leverage) — defensive HTML scrape; `fetchSuccess:false` on any parse miss |
+| `src/doc-extract.ts` | Document extraction shared by the Vietnam doc sources: HTML → linkedom + Mozilla Readability (`extractArticle`, tag-strip fallback), PDF → per-page text (`extractPdfPages`), plus `rankPages` / `relevantExcerpt` keyword narrowing and `fetchWithTimeout` / `BROWSER_UA` |
+| `src/vnmarket.ts` | Vietnam equity-market internals: SSI iBoard HOSE+HNX board (breadth, turnover, foreign flow) + DNSE Entrade bars (VN-Index/VN30 levels, VN30F1M basis) |
+| `src/vnmacro.ts` | Vietnam macro indicators: Vietcombank USD/VND board, Yahoo Finance global drivers (DXY, US 10Y, gold, Brent, HRC, VNM ETF), World Bank annual series |
+| `src/vndocs.ts` | Vietnam document sources via `doc-extract`: NSO CPI + monthly socio-economic articles (HTML) and the VBMA weekly bond bulletin (PDF) |
 | `src/devto.ts` | Dev.to AI articles via the Forem API |
 | `src/lobsters.ts` | Lobste.rs AI stories via tag-based JSON endpoints |
 | `src/notify.ts` | Telegram notification (reads `manifest.json` + `highlights.json`); exports `buildMessage`, `Highlights` |
@@ -113,6 +121,26 @@ Weekly/monthly rollups (`src/rollup.ts`, entrypoints `src/weekly.ts` / `src/mont
 | `src/providers/anthropic.ts` | `AnthropicProvider` — Anthropic SDK wrapper |
 | `src/providers/{openai,github-copilot,openrouter,deepseek}.ts` | Providers extending `OpenAICompatibleProvider` |
 | `src/__tests__/` | Vitest unit tests |
+
+Outside `src/`:
+
+| Path | Responsibility |
+|------|---------------|
+| `mcp/` | Standalone Cloudflare Worker MCP server (own `package.json` / `pnpm-lock.yaml` / `wrangler.toml`). Not part of the daily pipeline and not built by the root package — see **MCP server** below |
+| `scripts/regen-highlights.ts` | One-off recovery script: re-runs the highlights LLM call against digests already on disk (optionally `--notify` to resend Telegram). Imports from `src/`, so it is typechecked but not linted as pipeline code |
+| `index.html` | Single-file static Web UI (no build step) |
+| `config.yml` | Tracked-repo configuration consumed by `src/config.ts` |
+| `.agent/`, `.agile/`, `social/` | **Git-ignored** local working directories (agent orchestration prompts/specs, agile docs, generated social posts). Anything referenced there — e.g. `.agent/specs/financial_data_sources.md` — exists only on the author's machine; do not assume a checkout has it |
+
+`@mozilla/readability`, `linkedom`, and `pdfjs-dist` are declared in `package.json` but not yet imported anywhere in `src/` — they were installed for planned article/PDF content extraction. Don't treat them as dead deps to prune without checking with the author.
+
+## MCP server
+
+`mcp/` is a self-contained Cloudflare Worker that serves the published digests over MCP (deployed at `agents-radar-mcp.duanyytop.workers.dev`; setup instructions live in `README.md`). It has its own dependencies and is deployed separately with `cd mcp && pnpm install && wrangler deploy` (invoke `wrangler` directly — `pnpm deploy` is a reserved pnpm builtin and will not run the script); the root `pnpm test` / `pnpm typecheck` / `ci.yml` do **not** cover it — run `pnpm typecheck` inside `mcp/`.
+
+- It reads published artifacts over HTTP from `PAGES_URL` (`manifest.json` + `digests/**.md`) with Cloudflare edge caching — it never touches the GitHub API or shares code with `src/`.
+- Tools: `list_reports`, `get_report`, `get_latest`, `search`. Transport is hand-rolled JSON-RPC (`initialize` / `tools/list` / `tools/call`) — no MCP SDK dependency.
+- It keeps its **own copy** of `REPORT_LABELS`. That copy is currently stale (missing `ai-ph`, `ai-arxiv`, `ai-hf`, `ai-community`, `fin-macro` and their `-en` variants); unknown IDs fall back to the raw report ID, so reports still resolve — only the human label is missing.
 
 ## Report outputs
 
@@ -130,6 +158,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-hf.md` | `hf` | Skipped if the Hugging Face fetch fails |
 | `ai-community.md` | `community` | Dev.to + Lobste.rs; skipped if both fail |
 | `fin-macro.md` | `macro` | Macro market dashboard (FRED + FINRA); skipped if FRED fails. FINRA is supplementary. Uses the `fin-` prefix — a parallel financial section |
+| `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
 | `highlights.json` | — | Bullet-point highlights per report (zh + en), consumed by notifications |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
@@ -148,23 +177,30 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 - **ArXiv**: Atom-feed API — cs.AI + cs.CL + cs.LG, newest first, last 48h
 - **Hugging Face**: HF Hub API — trending models by weekly likes
 - **Community**: Dev.to (Forem API) + Lobste.rs (tag JSON endpoints)
-- **FRED** (macro): Federal Reserve Economic Data — 16 series (`DFF`, `WALCL`, `VIXCLS`, `DGS10`, `T10Y2Y`, `BAMLH0A0HYM2`, `DCOILWTICO`, `DCOILBRENTEU`, `UNRATE`, `ICSA`, `PAYEMS`, `CPIAUCSL`, `CPILFESL`, `PCEPILFE`, `PPIFIS`, `UMCSENT`). Official + free; JSON API needs `FRED_API_KEY`, else keyless CSV. Series catalog + design notes in `.agent/specs/financial_data_sources.md`
+- **FRED** (macro): Federal Reserve Economic Data — 16 series (`DFF`, `WALCL`, `VIXCLS`, `DGS10`, `T10Y2Y`, `BAMLH0A0HYM2`, `DCOILWTICO`, `DCOILBRENTEU`, `UNRATE`, `ICSA`, `PAYEMS`, `CPIAUCSL`, `CPILFESL`, `PCEPILFE`, `PPIFIS`, `UMCSENT`). Official + free; JSON API needs `FRED_API_KEY`, else keyless CSV. Series catalog + design notes in `.agent/specs/financial_data_sources.md` (git-ignored, local-only)
 - **FINRA** (retail leverage): monthly margin-debt statistics, scraped from finra.org (no official API)
+- **Vietnam market** (`vnmarket.ts`): SSI iBoard `stock/exchange/{hose,hnx}` price board + DNSE Entrade `chart-api/v2/ohlcs/{index,derivative}` for VNINDEX / VN30 / VN30F1M. Both are undocumented internal endpoints and need a browser User-Agent
+- **Vietnam macro** (`vnmacro.ts`): Vietcombank `/api/exchangerates?date=` (USD/VND), Yahoo Finance chart API (`DX-Y.NYB`, `^TNX`, `GC=F`, `BZ=F`, `HRC=F`, `VNM`), World Bank (`FP.CPI.TOTL.ZG`, `NY.GDP.MKTP.KD.ZG`, `BX.KLT.DINV.CD.WD`, `FI.RES.TOTL.CD`)
+- **Vietnam documents** (`vndocs.ts`): NSO CPI + monthly socio-economic report (HTML), VBMA weekly bond bulletin (PDF). Source catalogue and endpoint survey in `.agent/specs/vn_financial_data_sources.md`
 
 ## Key conventions
 
 - All bilingual strings (titles, labels, footers, messages) are centralized in `src/i18n.ts`. Use the `Lang` type (`"zh" | "en"`) and the `t(zh, en)` / `Record<Lang, string>` maps. Do not add inline bilingual ternaries elsewhere.
 - Which languages are generated is controlled centrally by `getLangs()` in `src/i18n.ts`, driven by the `DIGEST_LANGS` env var (comma-separated; default = all). `main()` in `src/index.ts` and the rollups in `src/rollup.ts` loop over `getLangs()` — do not hard-code `["zh", "en"]`. Production workflows set `DIGEST_LANGS: en`. The weekly/monthly GitHub issue title and label are Chinese-only, so the issue body prefers zh content and falls back to the first configured language. `notify.ts`/`feishu.ts` derive report IDs by stripping the `-en` suffix, so notifications render correctly with any language subset.
 - LLM prompt builders are split: `src/prompts.ts` (repo-level) and `src/prompts-data.ts` (data-source + rollup + highlights). Each report type has its own builder function.
-- `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web uses 8192, trending uses 6144, rollups use 8192, and the table-formatted listing reports (HN, PH, ArXiv, HF, Community) use `LLM_TOKENS_LISTING` = 6144. Token constants live in `src/report.ts`.
+- `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web uses 8192, trending uses 6144, rollups use 8192, the table-formatted listing reports (HN, PH, ArXiv, HF, Community) use `LLM_TOKENS_LISTING` = 6144, and the Vietnam dashboard uses `LLM_TOKENS_VNMACRO` = 8192 (it truncates at 6144). Token constants live in `src/report.ts`.
 - Data-source listing reports (Trending, HN, PH, ArXiv, HF, Community) render item lists as **Markdown tables** (not bullet lists). Numeric columns are copied verbatim from the fetched data; the summary column is 2 sentences. Tables have CSS in `index.html` and render natively in GitHub Issues.
-- On transient errors — 429 rate limits (`is429`) **and** request timeouts / dropped connections (`isTimeout`) — `callLlm` retries up to 3 times. Every wait is floored at `RETRY_MIN_MS` = 60 s and grows exponentially from it (60 s / 120 s / 240 s), honours a longer `Retry-After` header, and is capped at 5 min. The concurrency slot is released during the wait. Sub-minute backoffs just burn an attempt on a per-minute quota that has not refilled.
+- On transient errors — 429 rate limits (`is429`), request timeouts / dropped connections (`isTimeout`), and server-side overload (`isOverloaded`: 502/503/529 plus `ResourceExhausted` / "request limit reached" / "overloaded" wording, since gateways often report saturation as a 5xx rather than a 429) — `callLlm` retries up to 3 times. Every wait is floored at `RETRY_MIN_MS` = 60 s and grows exponentially from it (60 s / 120 s / 240 s), honours a longer `Retry-After` header, and is capped at 5 min. The concurrency slot is released during the wait. Sub-minute backoffs just burn an attempt on a per-minute quota that has not refilled.
 - The SDK clients are built with `maxRetries: 0` and an explicit `timeout` (`CLIENT_OPTIONS` in `src/providers/client-options.ts`, `LLM_TIMEOUT_MS` env var, default 10 min). The SDKs' own sub-10 s retry loops are disabled on purpose so `callLlm` is the single retry policy — do not re-enable them per provider.
 - The concurrency limiter (`LLM_CONCURRENCY`, default 5, overridable via the `LLM_CONCURRENCY` env var) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
 - LLM provider is selected via `LLM_PROVIDER` (code default: `anthropic`; production workflows set `deepseek`). Add providers only in the `PROVIDERS` registry in `src/providers/index.ts`; `ProviderName` and `VALID_PROVIDER_NAMES` are derived from it. The factory logs only the provider *name* — never API keys or endpoint URLs.
 - LLM JSON output (e.g. `highlights.json`) must be parsed with `parseLlmJson` from `src/report.ts` — it strips code fences, replaces raw control chars, and repairs trailing commas / prose wrappers.
 - GitHub issue label colors are defined in `LABEL_COLORS` in `src/github.ts`. Add new labels there.
+- Issue creation always goes through `tryCreateGitHubIssue` (`src/github.ts`), which logs and returns `null` on failure. Never call `createGitHubIssue` directly from the pipeline: the reports are already on disk by then, and a throw exits non-zero, which skips the workflow's "Commit digest files" step and discards the whole day's digest. A 404 from the labels/issues endpoints means Issues are disabled on the repo (the default for forks) or the token lacks Issues write access.
 - `sampleNote(total, sampled, lang)` in `src/prompts.ts` formats the "(共 N 条，展示前 M 条)" note. Reuse it — do not inline the string format.
+- Document sources (Vietnam NSO/VBMA) go through `src/doc-extract.ts`, never a bespoke parser. HTML uses linkedom + Mozilla Readability — linkedom, not jsdom, because this is a batch job that parses a few pages per run. `extractArticle` strips nav/header/footer/aside **before** parsing (Readability otherwise scores NSO's mega-menu above the article body) and falls back to a tag-strip when the result is missing or under `MIN_ARTICLE_CHARS` (200). PDFs are extracted per page so `rankPages` can keep only the pages that score on macro keywords — a 13-page VBMA bulletin reduces to 4. Never send a whole document to the LLM; narrow it with `relevantExcerpt` / `rankPages` first.
+- Vietnam endpoints are undocumented internal APIs and need `BROWSER_UA` (a desktop Chrome User-Agent) plus a `Referer`; a bare fetch gets 403 or an empty body. TCBS (`apipubaws.tcbs.com.vn`) is behind a Cloudflare challenge and VNDirect (`finfo-api.vndirect.com.vn`) times out, so **aggregate VN-Index P/E and market-wide margin debt have no source** — `buildVnMacroPrompt` instructs the model to mark the signals that depend on them ❔ insufficient data rather than guess.
+- SSI board turnover (`nmTotalTradedValue`) is order-matched only, while `buyForeignValue` / `sellForeignValue` include put-through (block) deals. One ticker's foreign flow can therefore exceed its matched turnover. Both definitions are stated in the prompt; don't "fix" the discrepancy.
 - Web state (`digests/web-state.json`) is committed to git on every run and is the source of truth for which URLs have been seen. It is saved by the `zh` pass only in `saveWebReport`.
 
 ## Notifications & social
@@ -185,7 +221,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 - Web UI: `index.html` reads `manifest.json` to build the sidebar, then fetches `digests/YYYY-MM-DD/<report>.md` on demand.
 - RSS Feed: `feed.xml` at the repo root, generated by `src/generate-manifest.ts` in the `pnpm manifest` step. Contains the latest 30 items (newest first) across all report types. Item links use hash routing: `https://duanyytop.github.io/agents-radar/#YYYY-MM-DD/<report>`.
 - Both `manifest.json` and `feed.xml` are committed together in the "Commit manifest and feed" GHA step.
-- The `REPORT_LABELS` map in `src/i18n.ts` and `REPORT_FILES` in `src/generate-manifest.ts` must be kept in sync with the `LABELS` object in `index.html` when adding new report types.
+- The `REPORT_LABELS` map in `src/i18n.ts` and `REPORT_FILES` in `src/generate-manifest.ts` must be kept in sync with the `LABELS` object in `index.html` — and with the separate `REPORT_LABELS` copy in `mcp/src/index.ts` — when adding new report types. Four maps, four files; `REPORT_FILES` is the one that actually gates whether a report reaches `manifest.json` and `feed.xml`.
 
 ## Adding a new report type
 
@@ -197,4 +233,5 @@ Tracked repos are configured in `config.yml` (loaded by `src/config.ts`, which f
 6. Add a label color entry in `LABEL_COLORS` in `src/github.ts`.
 7. Add the report ID/label to `REPORT_LABELS` and `NOTIFY_LABELS` in `src/i18n.ts` and `LABELS` in `index.html`.
 8. Add the report file name (and `-en` variant) to `REPORT_FILES` in `src/generate-manifest.ts`.
-9. Update both README files and this file.
+9. Add the report ID to `REPORT_LABELS` in `mcp/src/index.ts` so MCP clients see a human label.
+10. Update both README files and this file.

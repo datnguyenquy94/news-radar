@@ -131,6 +131,17 @@ export const MACRO_REPORT = {
     lang === "en" ? `📉 Macro Market Dashboard ${dateStr}` : `📉 宏观市场仪表盘 ${dateStr}`,
 } as const;
 
+export const VNMACRO_REPORT = {
+  title: t("越南宏观市场仪表盘", "Vietnam Macro Market Dashboard"),
+  sources: t(
+    "数据来源: SSI + Entrade + Vietcombank + NSO + VBMA",
+    "Sources: SSI + Entrade + Vietcombank + NSO + VBMA",
+  ),
+  disclaimer: t("仅供参考，非投资建议", "Informational only, not financial advice"),
+  issueTitle: (dateStr: string, lang: Lang) =>
+    lang === "en" ? `🇻🇳 Vietnam Macro Market Dashboard ${dateStr}` : `🇻🇳 越南宏观市场仪表盘 ${dateStr}`,
+} as const;
+
 export const WEEKLY_REPORT = {
   title: t("AI 工具生态周报", "AI Tools Ecosystem Weekly Report"),
   coverage: t("覆盖日期", "Coverage"),
@@ -153,6 +164,7 @@ export const ISSUE_LABELS = {
   hf: t("hf", "hf-en"),
   community: t("community", "community-en"),
   macro: t("macro", "macro-en"),
+  vnmacro: t("vnmacro", "vnmacro-en"),
 } as const;
 
 export const CLI_ISSUE_TITLE = (dateStr: string, lang: Lang) =>
@@ -198,6 +210,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "ai-community-en": "Tech Community AI Digest",
   "fin-macro": "宏观市场仪表盘",
   "fin-macro-en": "Macro Market Dashboard",
+  "fin-vnmacro": "越南宏观市场仪表盘",
+  "fin-vnmacro-en": "Vietnam Macro Market Dashboard",
   "ai-weekly": "AI 工具生态周报",
   "ai-weekly-en": "AI Tools Weekly Digest",
   "ai-monthly": "AI 工具生态月报",
@@ -215,6 +229,7 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-hf": t("HF 模型", "HF Models"),
   "ai-community": t("技术社区", "Tech Community"),
   "fin-macro": t("宏观仪表盘", "Macro Dashboard"),
+  "fin-vnmacro": t("越南宏观仪表盘", "Vietnam Macro"),
   "ai-weekly": t("AI 工具生态周报", "AI Tools Weekly"),
   "ai-monthly": t("AI 工具生态月报", "AI Tools Monthly"),
 };

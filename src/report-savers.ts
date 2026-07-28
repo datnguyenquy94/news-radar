@@ -13,6 +13,7 @@ import {
   HF_REPORT,
   COMMUNITY_REPORT,
   MACRO_REPORT,
+  VNMACRO_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
 import {
@@ -23,8 +24,9 @@ import {
   buildHfPrompt,
   buildCommunityPrompt,
   buildMacroPrompt,
+  buildVnMacroPrompt,
 } from "./prompts-data.ts";
-import { callLlm, saveFile, LLM_TOKENS_WEB, LLM_TOKENS_LISTING } from "./report.ts";
+import { callLlm, saveFile, LLM_TOKENS_WEB, LLM_TOKENS_LISTING, LLM_TOKENS_VNMACRO } from "./report.ts";
 import { tryCreateGitHubIssue } from "./github.ts";
 import { type WebFetchResult } from "./web.ts";
 import type { HnData } from "./hn.ts";
@@ -36,6 +38,9 @@ import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
 import type { FredData } from "./fred.ts";
 import type { FinraData } from "./finra.ts";
+import type { VnMarketData } from "./vnmarket.ts";
+import type { VnMacroData } from "./vnmacro.ts";
+import type { VnDocsData } from "./vndocs.ts";
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -417,5 +422,64 @@ export async function saveMacroReport(
     }
   } catch (err) {
     console.error(`  [macro/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Vietnam macro market dashboard (SSI + Entrade + Vietcombank + NSO + VBMA)
+// ---------------------------------------------------------------------------
+
+export async function saveVnMacroReport(
+  marketData: VnMarketData,
+  macroData: VnMacroData,
+  docsData: VnDocsData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  // Market internals are the spine of this report; the document excerpts alone
+  // would produce a monthly-statistics recap with no market read in it.
+  if (!marketData.fetchSuccess) {
+    console.log(`  [vnmacro/${lang}] No Vietnam market data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [vnmacro/${lang}] Calling LLM for Vietnam macro dashboard...`);
+  try {
+    const summary = await callLlm(
+      buildVnMacroPrompt(marketData, macroData, docsData, dateStr, lang),
+      LLM_TOKENS_VNMACRO,
+    );
+    const fileName = lang === "en" ? "fin-vnmacro-en.md" : "fin-vnmacro.md";
+    const sources =
+      "[SSI iBoard](https://iboard.ssi.com.vn/) + [Entrade](https://services.entrade.com.vn/) + " +
+      "[Vietcombank](https://www.vietcombank.com.vn/) + [NSO](https://www.nso.gov.vn/en/) + " +
+      "[VBMA](https://vbma.org.vn/en)";
+    const docCount = docsData.docs.length;
+    const header =
+      lang === "en"
+        ? `# ${VNMACRO_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> Sources: ${sources} | Trading date: ${marketData.tradingDate || "n/a"} | ` +
+          `${docCount} official documents | Generated: ${utcStr} UTC\n>\n` +
+          `> ⚠️ ${VNMACRO_REPORT.disclaimer[lang]}.\n\n---\n\n`
+        : `# ${VNMACRO_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> 数据来源: ${sources} | 交易日: ${marketData.tradingDate || "无"} | ` +
+          `官方文件 ${docCount} 份 | 生成时间: ${utcStr} UTC\n>\n` +
+          `> ⚠️ ${VNMACRO_REPORT.disclaimer[lang]}。\n\n---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+
+    if (digestRepo) {
+      const title = VNMACRO_REPORT.issueTitle(dateStr, lang);
+      const label = ISSUE_LABELS.vnmacro[lang];
+      const url = await tryCreateGitHubIssue(title, content, label);
+      if (url) console.log(`  Created Vietnam macro issue (${lang}): ${url}`);
+    }
+  } catch (err) {
+    console.error(`  [vnmacro/${lang}] Report generation failed: ${err}`);
   }
 }

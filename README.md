@@ -20,6 +20,13 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | New articles detected via `lastmod` diff |
 | [FRED](https://fred.stlouisfed.org) | [API](https://fred.stlouisfed.org/docs/api/fred/) + keyless CSV | 16 macro series (rates, balance sheet, VIX, yields, credit spread, oil, jobs, inflation, sentiment) |
 | [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | HTML | Monthly margin debt (retail leverage) |
+| [SSI iBoard](https://iboard.ssi.com.vn) | JSON | Full HOSE + HNX price board — breadth, turnover, foreign net flow |
+| [DNSE Entrade](https://services.entrade.com.vn) | JSON | VN-Index / VN30 daily bars + VN30F1M futures basis |
+| [Vietcombank](https://www.vietcombank.com.vn) | JSON | USD/VND commercial board, by date |
+| [Yahoo Finance](https://finance.yahoo.com) | JSON | DXY, US 10Y, gold, Brent, HRC steel, VanEck VNM ETF |
+| [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | Vietnam annual CPI, GDP growth, FDI, FX reserves |
+| [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | Monthly CPI release + socio-economic report (FDI, trade, public investment) |
+| [VBMA](https://vbma.org.vn/en) | PDF → per-page text | Weekly bond bulletin — interbank rates, SBV central rate, G-bond yields, corporate bonds |
 
 ## Web UI
 
@@ -313,6 +320,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 | `ai-hf.md` | Hugging Face trending models digest — sorted by weekly likes | `hf` |
 | `ai-community.md` | Tech community AI digest — Dev.to articles + Lobste.rs stories combined | `community` |
 | `fin-macro.md` | Macro market dashboard — FRED indicators + FINRA margin debt, with threshold readings (only written when FRED succeeds) | `macro` |
+| `fin-vnmacro.md` | Vietnam macro market dashboard — market internals, USD/VND + global drivers, real economy, money market & bonds (only written when Vietnam market data succeeds) | `vnmacro` |
 
 A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
 

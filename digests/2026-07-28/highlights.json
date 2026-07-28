@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code settings sync gets 43👍 approval",
+      "Claude Code billing incident #81703 reported",
+      "OpenAI Codex shows high issue engagement",
+      "Tools converge on session persistence, multi-agent",
+      "Windows ARM64 stability remains universal pain point",
+      "Release cadences vary: nightly to sporadic"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs, 169 issues in 24h",
+      "212 PRs merged but 288 open signals backlog",
+      "No new releases despite 200+ merged fixes",
+      "Gateway stability: memory leaks, OOM crashes",
+      "Session-state issues: message loss, compaction bugs",
+      "Security hardening: memory trust tagging, permissions"
+    ],
+    "ai-trending": [
+      "Alibaba open-code-review leads with +979 stars",
+      "Three new agent apps debut: 400-600★ each",
+      "ollama hits 177k stars for local serving",
+      "RAG/vector DBs and agent frameworks crowded",
+      "impeccable gains +847 stars for AI design",
+      "15+ projects surpass 10k stars in key categories"
+    ],
+    "ai-web": [
+      "Anthropic launches Claude Opus 5 on 7/25",
+      "Opus 5 nears Fable 5 at half price",
+      "New SOTA on Frontier-Bench, GDPval-AA",
+      "Dario Amodei publishes open-weights position",
+      "Cognizant certifies 30k+ associates, premier partner",
+      "Project Pilot: models autonomously pilot drones"
+    ],
+    "ai-hn": [
+      "Anthropic open-weights stance tops HN: 498pts",
+      "AI employment impact debate: 291pts, 377 comments",
+      "Companies shredding rare books for training: 742pts",
+      "Bun's Rust rewrite draws 455pts discussion",
+      "Claude 5 context-engineering patterns: 458pts",
+      "Record AI lobbying spend in Washington: 256pts"
+    ],
+    "ai-arxiv": [
+      "Zing framework gives LLMs social intelligence",
+      "Intruder Threshold predicts LoRA catastrophic forgetting",
+      "Language shapes multilingual instruction compliance",
+      "Agent eval shifts to multi-step stateful benchmarks",
+      "Scientific ML advances in PDE, molecular structure",
+      "Safety research expands to multilingual compliance"
+    ],
+    "ai-hf": [
+      "Moonshot Kimi-K3 leads with 6.4k likes",
+      "Z.ai GLM-5.2 follows with 4.5k likes",
+      "Qwen3.6-35B-A3B hits 6.1M download record",
+      "Chinese labs dominate top trending positions",
+      "Quantized variants flood fine-tune category",
+      "Specialized OCR and code LLMs gain momentum"
+    ],
+    "ai-community": [
+      "AI breaks junior dev pipeline: 84 reactions",
+      "MCP vulnerability scanning and credential isolation",
+      "ChatGPT flaw lets phishing forge AI insider",
+      "Microsoft open-weight policy debated on Lobste.rs",
+      "Language design as latent spaces discussed",
+      "MLIR dialect stack reflects infra focus"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63%, stable balance sheet",
+      "VIX at 18.6 signals calm markets",
+      "10-year yield 4.69% highly restrictive",
+      "CPI 3.7%, core PCE 3.4% above target",
+      "Unemployment 4.2% but payroll growth +57k",
+      "Consumer sentiment extremely weak at 44.8"
+    ]
+  }
+}

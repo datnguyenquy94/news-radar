@@ -1,76 +1,76 @@
 {
   "en": {
     "ai-cli": [
-      "Claude Code settings sync gets 43👍 approval",
-      "Claude Code billing incident #81703 reported",
-      "OpenAI Codex shows high issue engagement",
-      "Tools converge on session persistence, multi-agent",
-      "Windows ARM64 stability remains universal pain point",
-      "Release cadences vary: nightly to sporadic"
+      "All major AI CLI tools battling Windows regressions and session bugs",
+      "Claude Code, Codex, Gemini CLI, Copilot CLI all in stabilization phase",
+      "Release cadences high but changelogs emphasize fixes over new features",
+      "MCP/OAuth integration fragility affecting token refresh across tools",
+      "Cross-device sync and enterprise auth parity are primary focus areas",
+      "Sandbox reliability and subagent trustworthiness being hardened"
     ],
     "ai-agents": [
-      "OpenClaw: 500 PRs, 169 issues in 24h",
-      "212 PRs merged but 288 open signals backlog",
-      "No new releases despite 200+ merged fixes",
-      "Gateway stability: memory leaks, OOM crashes",
-      "Session-state issues: message loss, compaction bugs",
-      "Security hardening: memory trust tagging, permissions"
+      "OpenClaw shows extreme velocity: 643 items updated in 24 hours",
+      "220 PRs merged/closed today indicating strong maintainer throughput",
+      "No new releases but patch/beta likely imminent given fix volume",
+      "Session lifecycle, memory leaks, gateway crashes being actively addressed",
+      "65 open issues and 280 open PRs signal growing backlog",
+      "Multi-channel consistency and message delivery guarantees under work"
     ],
     "ai-trending": [
-      "Alibaba open-code-review leads with +979 stars",
-      "Three new agent apps debut: 400-600★ each",
-      "ollama hits 177k stars for local serving",
-      "RAG/vector DBs and agent frameworks crowded",
-      "impeccable gains +847 stars for AI design",
-      "15+ projects surpass 10k stars in key categories"
+      "Alibaba's open-code-review explodes with +979 stars daily",
+      "pbakaus/impeccable gains +847 stars for LLM-augmented code quality",
+      "moeru-ai/airi +572 stars for self-hosted multimodal waifu agents",
+      "Financial model Kronos +441 stars as BloombergGPT alternative",
+      "Vector databases and RAG engines collectively exceed 300k stars",
+      "Ollama reaches 177k stars as de-facto local LLM standard"
     ],
     "ai-web": [
-      "Anthropic launches Claude Opus 5 on 7/25",
-      "Opus 5 nears Fable 5 at half price",
-      "New SOTA on Frontier-Bench, GDPval-AA",
-      "Dario Amodei publishes open-weights position",
-      "Cognizant certifies 30k+ associates, premier partner",
-      "Project Pilot: models autonomously pilot drones"
+      "Claude Opus 5 launched as new default on Claude Max tier",
+      "Opus 5 achieves SOTA on Frontier-Bench and GDPval-AA evaluations",
+      "Dario Amodei publishes definitive stance on open-weights models",
+      "Cognizant partnership embeds Claude across 30k+ certified associates",
+      "Project Pilot demonstrates frontier models autonomously piloting drones",
+      "Frontier Red Team remit extended from software to physical-world"
     ],
     "ai-hn": [
-      "Anthropic open-weights stance tops HN: 498pts",
-      "AI employment impact debate: 291pts, 377 comments",
-      "Companies shredding rare books for training: 742pts",
-      "Bun's Rust rewrite draws 455pts discussion",
-      "Claude 5 context-engineering patterns: 458pts",
-      "Record AI lobbying spend in Washington: 256pts"
+      "Anthropic open-weights stance sparks 539pt debate with 762 comments",
+      "Viral claim: AI firms destroying rare books for training data (744pts)",
+      "Bun's Rust rewrite attracts 457pts and 355 comments technical interest",
+      "Stanford policy brief on AI job-market impact draws 377 comments",
+      "Record-breaking AI lobbying expenditures discussed (257pts)",
+      "Claude Opus 5 reliability incidents fuel skepticism toward frontier labs"
     ],
     "ai-arxiv": [
-      "Zing framework gives LLMs social intelligence",
-      "Intruder Threshold predicts LoRA catastrophic forgetting",
-      "Language shapes multilingual instruction compliance",
-      "Agent eval shifts to multi-step stateful benchmarks",
-      "Scientific ML advances in PDE, molecular structure",
-      "Safety research expands to multilingual compliance"
+      "Kimi K3: 2.8T-parameter MoE with 1M-token context released",
+      "PIVOT enables efficient query-group indexing for sparse attention",
+      "LOCKS exploits low-rank key structure for long-context decoding",
+      "Medical multimodal advances with vision-centric architectures",
+      "Diffusion distillation and optimal transport parallelization mature",
+      "PINN convergence theory signals scientific ML maturation"
     ],
     "ai-hf": [
-      "Moonshot Kimi-K3 leads with 6.4k likes",
-      "Z.ai GLM-5.2 follows with 4.5k likes",
-      "Qwen3.6-35B-A3B hits 6.1M download record",
-      "Chinese labs dominate top trending positions",
-      "Quantized variants flood fine-tune category",
-      "Specialized OCR and code LLMs gain momentum"
+      "Kimi-K3 leads trending at 6,527 weekly likes on Hugging Face",
+      "Baidu Unlimited-OCR surpasses 2.6M downloads for OCR",
+      "Prism ML's 1-bit and 2-bit Bonsai models gain massive downloads",
+      "Qwen 3.6 ecosystem exploding with community fine-tune variants",
+      "Microsoft releases three Mage/Fara multimodal models",
+      "Owensong Inflect TTS Micro/Nano show edge AI demand"
     ],
     "ai-community": [
-      "AI breaks junior dev pipeline: 84 reactions",
-      "MCP vulnerability scanning and credential isolation",
-      "ChatGPT flaw lets phishing forge AI insider",
-      "Microsoft open-weight policy debated on Lobste.rs",
-      "Language design as latent spaces discussed",
-      "MLIR dialect stack reflects infra focus"
+      "Top Dev.to article: AI breaking junior developer pipeline (84 reactions)",
+      "MCP ecosystem vulnerabilities and agent credential isolation debated",
+      "OSINT capabilities show how AI agents expand attack surfaces",
+      "Practitioners share patterns for agent governance and local models",
+      "Lobste.rs discusses vector search scaling at Notion",
+      "MLIR dialect stacks and open-weight strategic implications debated"
     ],
     "fin-macro": [
-      "Fed holds rates at 3.63%, stable balance sheet",
-      "VIX at 18.6 signals calm markets",
-      "10-year yield 4.69% highly restrictive",
-      "CPI 3.7%, core PCE 3.4% above target",
-      "Unemployment 4.2% but payroll growth +57k",
-      "Consumer sentiment extremely weak at 44.8"
+      "Fed holds rates at 3.63% while balance sheet creeps higher",
+      "10-year yield at 4.69% remains highly restrictive",
+      "Yield curve no longer inverted (10Y-2Y +0.34%) reducing recession odds",
+      "Inflation measures (CPI 3.7%, Core PCE 3.4%) well above 2% target",
+      "Credit spreads tight at 2.79% HY OAS with no credit stress",
+      "FINRA margin debt rises 6.1% MoM to $1.5T retail leverage"
     ]
   }
 }

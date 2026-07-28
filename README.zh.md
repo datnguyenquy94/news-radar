@@ -20,6 +20,13 @@
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | 通过 `lastmod` 差异检测新文章 |
 | [FRED](https://fred.stlouisfed.org) | [API](https://fred.stlouisfed.org/docs/api/fred/) + 免密 CSV | 16 项宏观指标（利率、资产负债表、VIX、收益率、信用利差、原油、就业、通胀、信心） |
 | [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | HTML | 月度保证金债务（散户杠杆） |
+| [SSI iBoard](https://iboard.ssi.com.vn) | JSON | HOSE + HNX 全量行情板 —— 涨跌家数、成交额、外资净流向 |
+| [DNSE Entrade](https://services.entrade.com.vn) | JSON | VN-Index / VN30 日线 + VN30F1M 期货基差 |
+| [Vietcombank](https://www.vietcombank.com.vn) | JSON | USD/VND 商业牌价（按日期查询） |
+| [Yahoo Finance](https://finance.yahoo.com) | JSON | 美元指数、美国 10 年期国债、黄金、布伦特原油、热轧卷板、VanEck VNM ETF |
+| [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | 越南年度 CPI、GDP 增速、FDI、外汇储备 |
+| [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | 月度 CPI 发布 + 社会经济报告（FDI、进出口、公共投资） |
+| [VBMA](https://vbma.org.vn/en) | PDF → 逐页文本 | 债市周报 —— 银行间利率、SBV 中心汇率、国债收益率、企业债 |
 
 ## Web UI
 
@@ -308,6 +315,7 @@ pnpm start
 | `ai-trending.md` | GitHub AI 趋势热榜 — 按维度分类 + 趋势信号分析（仅在有数据时生成） | `trending` |
 | `ai-hn.md` | Hacker News AI 社区动态 — 热门帖子分类 + 情绪分析（仅在抓取成功时生成） | `hn` |
 | `fin-macro.md` | 宏观市场仪表盘 — FRED 指标 + FINRA 保证金债务，含阈值判读（仅在 FRED 成功时生成） | `macro` |
+| `fin-vnmacro.md` | 越南宏观市场仪表盘 — 市场内部指标、USD/VND 与全球驱动、实体经济、货币市场与债市（仅在越南行情数据成功时生成） | `vnmacro` |
 
 `digests/web-state.json` 用于记录已处理的 URL，随每日简报一并提交。
 

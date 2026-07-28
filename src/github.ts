@@ -213,6 +213,8 @@ const LABEL_COLORS: Record<string, string> = {
   "community-en": "60a5fa",
   macro: "16a34a",
   "macro-en": "4ade80",
+  vnmacro: "da2c38",
+  "vnmacro-en": "f0616b",
 };
 
 /**

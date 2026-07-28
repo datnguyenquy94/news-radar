@@ -29,6 +29,8 @@ const REPORT_FILES = [
   "ai-community-en",
   "fin-macro",
   "fin-macro-en",
+  "fin-vnmacro",
+  "fin-vnmacro-en",
   "ai-weekly",
   "ai-weekly-en",
   "ai-monthly",

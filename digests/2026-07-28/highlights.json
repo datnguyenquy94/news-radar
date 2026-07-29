@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "All major AI CLI tools battling Windows regressions and session bugs",
+      "Claude Code, Codex, Gemini CLI, Copilot CLI all in stabilization phase",
+      "Release cadences high but changelogs emphasize fixes over new features",
+      "MCP/OAuth integration fragility affecting token refresh across tools",
+      "Cross-device sync and enterprise auth parity are primary focus areas",
+      "Sandbox reliability and subagent trustworthiness being hardened"
+    ],
+    "ai-agents": [
+      "OpenClaw shows extreme velocity: 643 items updated in 24 hours",
+      "220 PRs merged/closed today indicating strong maintainer throughput",
+      "No new releases but patch/beta likely imminent given fix volume",
+      "Session lifecycle, memory leaks, gateway crashes being actively addressed",
+      "65 open issues and 280 open PRs signal growing backlog",
+      "Multi-channel consistency and message delivery guarantees under work"
+    ],
+    "ai-trending": [
+      "Alibaba's open-code-review explodes with +979 stars daily",
+      "pbakaus/impeccable gains +847 stars for LLM-augmented code quality",
+      "moeru-ai/airi +572 stars for self-hosted multimodal waifu agents",
+      "Financial model Kronos +441 stars as BloombergGPT alternative",
+      "Vector databases and RAG engines collectively exceed 300k stars",
+      "Ollama reaches 177k stars as de-facto local LLM standard"
+    ],
+    "ai-web": [
+      "Claude Opus 5 launched as new default on Claude Max tier",
+      "Opus 5 achieves SOTA on Frontier-Bench and GDPval-AA evaluations",
+      "Dario Amodei publishes definitive stance on open-weights models",
+      "Cognizant partnership embeds Claude across 30k+ certified associates",
+      "Project Pilot demonstrates frontier models autonomously piloting drones",
+      "Frontier Red Team remit extended from software to physical-world"
+    ],
+    "ai-hn": [
+      "Anthropic open-weights stance sparks 539pt debate with 762 comments",
+      "Viral claim: AI firms destroying rare books for training data (744pts)",
+      "Bun's Rust rewrite attracts 457pts and 355 comments technical interest",
+      "Stanford policy brief on AI job-market impact draws 377 comments",
+      "Record-breaking AI lobbying expenditures discussed (257pts)",
+      "Claude Opus 5 reliability incidents fuel skepticism toward frontier labs"
+    ],
+    "ai-arxiv": [
+      "Kimi K3: 2.8T-parameter MoE with 1M-token context released",
+      "PIVOT enables efficient query-group indexing for sparse attention",
+      "LOCKS exploits low-rank key structure for long-context decoding",
+      "Medical multimodal advances with vision-centric architectures",
+      "Diffusion distillation and optimal transport parallelization mature",
+      "PINN convergence theory signals scientific ML maturation"
+    ],
+    "ai-hf": [
+      "Kimi-K3 leads trending at 6,527 weekly likes on Hugging Face",
+      "Baidu Unlimited-OCR surpasses 2.6M downloads for OCR",
+      "Prism ML's 1-bit and 2-bit Bonsai models gain massive downloads",
+      "Qwen 3.6 ecosystem exploding with community fine-tune variants",
+      "Microsoft releases three Mage/Fara multimodal models",
+      "Owensong Inflect TTS Micro/Nano show edge AI demand"
+    ],
+    "ai-community": [
+      "Top Dev.to article: AI breaking junior developer pipeline (84 reactions)",
+      "MCP ecosystem vulnerabilities and agent credential isolation debated",
+      "OSINT capabilities show how AI agents expand attack surfaces",
+      "Practitioners share patterns for agent governance and local models",
+      "Lobste.rs discusses vector search scaling at Notion",
+      "MLIR dialect stacks and open-weight strategic implications debated"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% while balance sheet creeps higher",
+      "10-year yield at 4.69% remains highly restrictive",
+      "Yield curve no longer inverted (10Y-2Y +0.34%) reducing recession odds",
+      "Inflation measures (CPI 3.7%, Core PCE 3.4%) well above 2% target",
+      "Credit spreads tight at 2.79% HY OAS with no credit stress",
+      "FINRA margin debt rises 6.1% MoM to $1.5T retail leverage"
+    ]
+  }
+}

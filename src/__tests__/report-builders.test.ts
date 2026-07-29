@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { buildCliReportContent, buildOpenclawReportContent } from "../report-builders.ts";
-import type { RepoDigest } from "../prompts.ts";
-import type { GitHubItem, GitHubRelease } from "../github.ts";
+import { buildCliReportContent } from "../platform/reports/builders/cli.ts";
+import { buildOpenclawReportContent } from "../platform/reports/builders/openclaw.ts";
+import type { RepoDigest } from "../platform/prompts/index.ts";
+import type { GitHubItem, GitHubRelease } from "../domains/github/github.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures

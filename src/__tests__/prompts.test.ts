@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { formatItem, topN, sampleNote } from "../prompts.ts";
-import type { GitHubItem } from "../github.ts";
+import { formatItem, topN, sampleNote } from "../platform/prompts/index.ts";
+import type { GitHubItem } from "../domains/github/github.ts";
 
 // ---------------------------------------------------------------------------
 // Test helpers

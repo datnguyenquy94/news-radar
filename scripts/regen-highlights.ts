@@ -12,10 +12,10 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { callLlm, parseLlmJson } from "../src/report.ts";
-import { buildHighlightsPrompt, type ReportHighlights } from "../src/prompts-data.ts";
-import { buildMessage } from "../src/notify.ts";
-import type { Lang } from "../src/i18n.ts";
+import { callLlm, parseLlmJson } from "../src/platform/llm/client.ts";
+import { buildHighlightsPrompt, type ReportHighlights } from "../src/platform/prompts/index.ts";
+import { buildMessage } from "../src/platform/notify/telegram.ts";
+import type { Lang } from "../src/core/i18n/index.ts";
 
 const DATE = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2] : null;
 const NOTIFY = process.argv.includes("--notify");

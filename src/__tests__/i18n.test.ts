@@ -14,7 +14,7 @@ import {
   FOOTER,
   NOTIFY_LABELS,
   getLangs,
-} from "../i18n.ts";
+} from "../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------
 // Static bilingual strings

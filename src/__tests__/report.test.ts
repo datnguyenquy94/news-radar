@@ -10,8 +10,8 @@ const { mockCall } = vi.hoisted(() => ({
   mockCall: vi.fn<(prompt: string, maxTokens: number) => Promise<string>>(),
 }));
 
-vi.mock("../providers/index.ts", async (importOriginal) => {
-  const orig = await importOriginal<typeof import("../providers/index.ts")>();
+vi.mock("../platform/llm/providers/index.ts", async (importOriginal) => {
+  const orig = await importOriginal<typeof import("../platform/llm/providers/index.ts")>();
   return {
     ...orig,
     createProvider: () => ({ name: "mock", call: mockCall }),
@@ -25,10 +25,9 @@ import {
   isRetryable,
   RETRY_MIN_MS,
   callLlm,
-  saveFile,
-  autoGenFooter,
   parseLlmJson,
-} from "../report.ts";
+} from "../platform/llm/client.ts";
+import { saveFile, autoGenFooter } from "../platform/reports/files.ts";
 
 // ---------------------------------------------------------------------------
 // is429

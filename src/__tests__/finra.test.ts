@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { fetchFinraMargin, parseMarginTable } from "../finra.ts";
+import { fetchFinraMargin, parseMarginTable } from "../domains/finance/finra.ts";
 
 const SAMPLE_HTML = `
 <html><body>

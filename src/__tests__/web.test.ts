@@ -7,7 +7,7 @@ import {
   urlCategory,
   titleFromUrl,
   emptyState,
-} from "../web.ts";
+} from "../domains/ai/web.ts";
 
 // ---------------------------------------------------------------------------
 // parseSitemapUrls

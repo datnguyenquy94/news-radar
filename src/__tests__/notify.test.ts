@@ -1,5 +1,5 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { buildMessage, type Highlights } from "../notify.ts";
+import { buildMessage, type Highlights } from "../platform/notify/telegram.ts";
 
 const BASE_URL = "https://example.com/radar";
 

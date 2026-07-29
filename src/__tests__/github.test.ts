@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { tryCreateGitHubIssue } from "../github.ts";
+import { tryCreateGitHubIssue } from "../domains/github/github.ts";
 
 // ---------------------------------------------------------------------------
 // tryCreateGitHubIssue — a GitHub-side failure must never propagate. The

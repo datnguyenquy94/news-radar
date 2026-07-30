@@ -24,9 +24,15 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 | [DNSE Entrade](https://services.entrade.com.vn) | JSON | VN-Index / VN30 daily bars + VN30F1M futures basis |
 | [Vietcombank](https://www.vietcombank.com.vn) | JSON | USD/VND commercial board, by date |
 | [Yahoo Finance](https://finance.yahoo.com) | JSON | DXY, US 10Y, gold, Brent, HRC steel, VanEck VNM ETF |
+| [SJC](https://sjc.com.vn) | JSON | Domestic gold board (1L bar) — the premium over world gold is a VND-confidence read |
+| [FRED](https://fred.stlouisfed.org) `DGS10` | API | US 10Y yield for the Vietnam dashboard — preferred over Yahoo `^TNX` |
 | [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | Vietnam annual CPI, GDP growth, FDI, FX reserves |
 | [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | Monthly CPI release + socio-economic report (FDI, trade, public investment) |
 | [VBMA](https://vbma.org.vn/en) | PDF → per-page text | Weekly bond bulletin — interbank rates, SBV central rate, G-bond yields, corporate bonds |
+
+### Tests
+
+`pnpm test` runs two layers: mocked unit tests for parsing logic, and **live source-contract tests** that call every data source for real and assert the fields the reports depend on are still populated. The live layer is what tells you a source changed its format — it needs network access and takes ~60s.
 
 ## Web UI
 
@@ -302,6 +308,40 @@ export DIGEST_REPO=your-username/agents-radar  # optional; omit to only write fi
 # export DIGEST_LANGS=en
 
 pnpm start
+```
+
+## Inspecting one module at a time
+
+`pnpm start` runs every source and every LLM call. To exercise a single module
+with real input and see exactly what it returns, use the probe dispatcher:
+
+```bash
+pnpm inspect --list                       # every target, one line each
+pnpm inspect <target> --help              # that target's options
+pnpm -s inspect vnmarket --json | jq      # raw JSON (-s silences pnpm's banner)
+```
+
+Targets cover the data sources (`arxiv`, `hn`, `fred`, `vnmarket`, `github`, …),
+the parsing transforms (`doc-extract:html`, `doc-extract:pdf`,
+`doc-extract:excerpt`, `vnmarket:aggregate`), every prompt builder
+(`prompt:hn`, `prompt:vnmacro`, … — these print the prompt instead of sending
+it), a single LLM call (`llm`), and dry runs of the report savers, the
+notifiers and the manifest generator (`report:macro`, `notify:telegram`,
+`manifest`).
+
+Exit codes: `0` ran and produced output, `1` failed, `2` skipped because a
+required env var is unset.
+
+Probes never write into `digests/`, never touch `manifest.json` / `feed.xml` /
+`digests/web-state.json`, never create GitHub issues and cannot send
+notifications — report dry runs write to a temp directory and print its path.
+The prompt builders and the offline transforms accept `--fixture` / `--file`
+with the sample payloads in `src/cli/inspect/fixtures/`, so they run without
+network access or credentials:
+
+```bash
+pnpm inspect prompt:macro --fixture src/cli/inspect/fixtures/macro.json --lang en
+pnpm inspect vnmarket:aggregate --file src/cli/inspect/fixtures/ssi-board.json
 ```
 
 ## Output format

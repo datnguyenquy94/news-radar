@@ -50,6 +50,13 @@ export interface VnForeignTicker {
   symbol: string;
   name: string;
   netVndBn: number;
+  /**
+   * Remaining foreign-ownership room, valued at the matched price. "Foreign
+   * buying resumes" is only a tradable signal on names that still have room —
+   * a bank pinned at its 30% limit cannot absorb inflow however strong the
+   * appetite. Null when the board omits the field.
+   */
+  roomVndBn: number | null;
 }
 
 /**
@@ -65,6 +72,8 @@ export interface VnForeignFlow {
   netVndBn: number;
   topBuys: VnForeignTicker[];
   topSells: VnForeignTicker[];
+  /** Traded names with no foreign room left — they cannot absorb inflow. */
+  zeroRoomCount: number;
 }
 
 export interface VnFuturesBasis {
@@ -146,6 +155,7 @@ interface SsiRow {
   nmTotalTradedValue?: number;
   buyForeignValue?: number;
   sellForeignValue?: number;
+  remainForeignQtty?: number;
   tradingDate?: string; // YYYYMMDD
 }
 
@@ -178,6 +188,7 @@ export function aggregateBoard(rows: SsiRow[]): {
   const perTicker: VnForeignTicker[] = [];
   let tradingDate = "";
   let traded = 0;
+  let zeroRoomCount = 0;
 
   for (const row of rows) {
     // Skip warrants and bonds — only ordinary shares ("s") belong in breadth.
@@ -193,15 +204,21 @@ export function aggregateBoard(rows: SsiRow[]): {
     foreignSell += sell;
     const net = buy - sell;
     if (net !== 0 && row.stockSymbol) {
+      // Room is a share count; value it at the matched price so it is
+      // comparable with the flow figures beside it.
+      const roomShares = row.remainForeignQtty;
+      const matchedPrice = row.matchedPrice ?? 0;
       perTicker.push({
         symbol: row.stockSymbol,
         name: row.companyNameEn || row.companyNameVi || row.stockSymbol,
         netVndBn: toVndBn(net),
+        roomVndBn: roomShares === undefined || matchedPrice <= 0 ? null : toVndBn(roomShares * matchedPrice),
       });
     }
 
     if (value <= 0) continue;
     traded++;
+    if (row.remainForeignQtty === 0) zeroRoomCount++;
     const chg = row.priceChangePercent ?? 0;
     if (chg > 0) breadth.advancers++;
     else if (chg < 0) breadth.decliners++;
@@ -225,6 +242,7 @@ export function aggregateBoard(rows: SsiRow[]): {
         .filter((t) => t.netVndBn < 0)
         .slice(-TOP_FOREIGN)
         .reverse(),
+      zeroRoomCount,
     },
     tradingDate,
     traded,

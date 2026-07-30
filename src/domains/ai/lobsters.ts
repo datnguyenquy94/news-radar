@@ -42,13 +42,24 @@ interface LobstersApiStory {
   comments_url: string;
   score: number;
   comment_count: number;
-  submitter_user: { username: string };
+  /**
+   * A bare username string. It was an object with a `username` field in an
+   * older revision of the API, and both shapes are handled so the author line
+   * survives a revert.
+   */
+  submitter_user: string | { username?: string };
   created_at: string;
   tags: string[];
 }
 
 // ---------------------------------------------------------------------------
 // Fetch
+/** Read the submitter name from either shape the API has used. */
+function submitterName(submitter: LobstersApiStory["submitter_user"]): string {
+  if (typeof submitter === "string") return submitter;
+  return submitter?.username ?? "";
+}
+
 // ---------------------------------------------------------------------------
 
 export async function fetchLobstersData(): Promise<LobstersData> {
@@ -76,7 +87,7 @@ export async function fetchLobstersData(): Promise<LobstersData> {
                 commentsUrl: s.comments_url,
                 score: s.score,
                 commentCount: s.comment_count,
-                author: s.submitter_user.username,
+                author: submitterName(s.submitter_user),
                 publishedAt: s.created_at,
                 tags: s.tags,
               });

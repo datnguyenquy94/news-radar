@@ -1,0 +1,105 @@
+{
+  "_note": "Reconstructed from digests/2026-07-23/ai-ph.md — names, vote/comment counts and URLs are the real values from that run; taglines and topics were restored by hand because no PRODUCTHUNT_TOKEN was available to capture a live payload.",
+  "products": [
+    {
+      "id": "cartai",
+      "name": "CartAI",
+      "tagline": "An AI agent that completes checkout for you",
+      "url": "https://www.producthunt.com/products/cartai",
+      "website": "https://www.producthunt.com/r/LZD2Q2Q6VJPRPU",
+      "votesCount": 464,
+      "commentsCount": 112,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "e-commerce"]
+    },
+    {
+      "id": "routine",
+      "name": "Routine AI",
+      "tagline": "Siri for work — voice-controlled task execution",
+      "url": "https://www.producthunt.com/products/routine",
+      "website": "https://www.producthunt.com/r/5CQA6DGZBK2NA3",
+      "votesCount": 244,
+      "commentsCount": 71,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "productivity"]
+    },
+    {
+      "id": "twelvelabs",
+      "name": "Jockey by TwelveLabs",
+      "tagline": "An AI video agent that understands your whole library",
+      "url": "https://www.producthunt.com/products/twelvelabs",
+      "website": "https://www.producthunt.com/r/DTYSOPLK3L2DRF",
+      "votesCount": 210,
+      "commentsCount": 28,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "video"]
+    },
+    {
+      "id": "ditto-site",
+      "name": "ditto.site",
+      "tagline": "Clone any website into clean code, free and open source",
+      "url": "https://www.producthunt.com/products/ditto-site",
+      "website": "https://www.producthunt.com/r/HMFIHL7XJ25WLP",
+      "votesCount": 438,
+      "commentsCount": 94,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["developer-tools", "open-source"]
+    },
+    {
+      "id": "createos-sandbox",
+      "name": "CreateOS Sandbox",
+      "tagline": "Instant hardware-isolated sandboxes for AI agents",
+      "url": "https://www.producthunt.com/products/createos-sandbox",
+      "website": "https://www.producthunt.com/r/CRR2A5MOXBPBOZ",
+      "votesCount": 184,
+      "commentsCount": 69,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["developer-tools", "artificial-intelligence"]
+    },
+    {
+      "id": "manifest-363",
+      "name": "Manifest",
+      "tagline": "Turn any web page into an action list for AI agents",
+      "url": "https://www.producthunt.com/products/manifest-363",
+      "website": "https://www.producthunt.com/r/4LLV6WKBOFMLGR",
+      "votesCount": 154,
+      "commentsCount": 79,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["developer-tools", "artificial-intelligence"]
+    },
+    {
+      "id": "lev8",
+      "name": "Lev8",
+      "tagline": "AI people search to find, research and reach anyone",
+      "url": "https://www.producthunt.com/products/lev8",
+      "website": "https://www.producthunt.com/r/IITOSI26P6BQTV",
+      "votesCount": 581,
+      "commentsCount": 124,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "sales"]
+    },
+    {
+      "id": "phantomstory",
+      "name": "Phantomstory",
+      "tagline": "Launch an AEO-optimised third-party blog in two clicks",
+      "url": "https://www.producthunt.com/products/phantomstory",
+      "website": "https://www.producthunt.com/r/SXAB23Z2C5PDRE",
+      "votesCount": 257,
+      "commentsCount": 53,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "marketing"]
+    },
+    {
+      "id": "openchatcut",
+      "name": "OpenChatCut",
+      "tagline": "Open-source chat transcript editor",
+      "url": "https://www.producthunt.com/products/openchatcut",
+      "website": "https://www.producthunt.com/r/7SQ75PMSLZKT6Q",
+      "votesCount": 147,
+      "commentsCount": 68,
+      "createdAt": "2026-07-22T07:00:00Z",
+      "topics": ["artificial-intelligence", "open-source"]
+    }
+  ],
+  "fetchSuccess": true
+}

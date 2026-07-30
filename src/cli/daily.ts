@@ -220,7 +220,9 @@ async function fetchAllData(
         fetchSuccess: false,
       }),
     ),
-    fetchVnMacroData().catch((): VnMacroData => ({ fx: null, global: [], annual: [], fetchSuccess: false })),
+    fetchVnMacroData().catch(
+      (): VnMacroData => ({ fx: null, global: [], annual: [], gold: null, fetchSuccess: false }),
+    ),
     fetchVnDocsData().catch((): VnDocsData => ({ docs: [], fetchSuccess: false })),
   ]);
 

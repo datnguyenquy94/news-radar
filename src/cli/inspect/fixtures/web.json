@@ -1,0 +1,106 @@
+[
+  {
+    "site": "anthropic",
+    "siteName": "Anthropic (Claude)",
+    "isFirstRun": false,
+    "newItems": [
+      {
+        "url": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+        "title": "Discovering cryptographic weaknesses with Claude",
+        "lastmod": "2026-07-28T17:18:46.000Z",
+        "content": "Frontier Red Team Discovering cryptographic weaknesses with Claude Jul 28, 2026 Summary Using Claude Mythos Preview, researchers at Anthropic have discovered improved ways to attack cryptographic algorithms (the mathematical methods used to keep online data private). The first attack significantly weakens HAWK, a digital signature scheme that was built for a post-quantum world. The second identifies a new way to attack round-reduced AES, the most widely used symmetric cipher. These are substantial research advances, but they do not currently affect any production systems. This post describes both findings in more detail and discusses the implications for cryptography in an age of powerful AI models. Introduction When we launched Claude Mythos Preview, we showed it was able to autonomously find and exploit vulnerabilities in almost every piece of software we pointed it at. This included several major cryptographic libraries—shared collections of code that are used to encrypt data. The vulnerabilities that Claude found in these cryptographic libraries 1 were due to incorrect implementation of the algorithms—that is, errors in how programmers used the algorithms in their code that created opportunities for attackers to break the encryption. Now, we have found that Claude is able to find mathematical flaws in the algorithms themselves . Cryptographic algorithms are a fundamental building block of digital security. For example, when you visit a webpage like https://www.anthropic.c",
+        "site": "anthropic",
+        "category": "research"
+      },
+      {
+        "url": "https://www.anthropic.com/news/position-open-weights-models",
+        "title": "Our position on open-weights models",
+        "lastmod": "2026-07-28T15:25:50.000Z",
+        "content": "Announcements Our position on open-weights models Jul 27, 2026 A post by Dario Amodei, Anthropic CEO Over the last few days there has been a lot of discussion about open-weights models, especially those from China. Reports suggest that some US officials are considering banning the use of Chinese open-weights models by US companies. In response, many tech companies have signed a letter supporting open-weights models, and some people have even accused Anthropic of wanting to ban open-weights models as a means of protecting our business. Anyone who has read my past writing should know that I don’t regard such bans as a useful measure, but let me state it clearly so that there is no doubt: Anthropic has never advocated for a ban on open-weights models. Open-weights models that don’t have dangerous capabilities are a public good: they don’t cost anything besides the compute needed to run them, and they provide value to businesses, developers, and researchers. Protectionist bans would not address my most serious national security concerns. Specifically, I am worried about two nightmare scenarios. I laid these out in my essay The Adolescence of Technology six months ago 1 , and have held these positions consistently for many years: My primary concern is the risk that authoritarian governments—not solely the Chinese Communist Party (CCP), although the CCP is clearly the most capable threat—build AI models that are more powerful than those built by the US, and use them to achieve perm",
+        "site": "anthropic",
+        "category": "news"
+      },
+      {
+        "url": "https://www.anthropic.com/news/cognizant-anthropic",
+        "title": "Expanding our partnership with Cognizant | Anthropic",
+        "lastmod": "2026-07-27T15:34:00.000Z",
+        "content": "Announcements Cognizant and Anthropic expand their partnership to bring Claude to enterprise clients Jul 27, 2026 We&#x27;re expanding our partnership with Cognizant , one of the world&#x27;s largest technology services companies. Cognizant uses Claude in the systems it builds and runs for clients across manufacturing, life sciences, insurance, and other industries. With the expansion of our partnership, it’s embedding Claude across its own business and engineering platforms, scaling a Claude-certified workforce as part of its new Frontier Certified workforce model, and becoming a Global Premier Partner in the Claude Partner Network . Successfully integrating AI into a large enterprise requires knowledge of the company&#x27;s industry, the systems it already runs on, and the rules it operates under. Cognizant brings that domain context, along with the engineering depth and delivery scale to bring Claude to enterprises worldwide. Cognizant builds with Claude Cognizant&#x27;s engineers build with Claude every day, and more than 30,000 associates have completed Claude training. Cognizant is embedding Claude across several of its platforms, including Flowsource™, Neuro® AI Engineering, and Neuro® IT Ops. Flowsource, its full-stack engineering platform, now runs Claude Code alongside software engineers in its Spec-Driven Development module. Flowsource directs Claude Code using the specifications, coding standards, and architectural blueprints a project defines, then and then evalu",
+        "site": "anthropic",
+        "category": "news"
+      }
+    ],
+    "totalDiscovered": 428
+  },
+  {
+    "site": "openai",
+    "siteName": "OpenAI",
+    "isFirstRun": false,
+    "newItems": [
+      {
+        "url": "https://openai.com/index/scientific-computing-agentic-ai/",
+        "title": "Scientific Computing Agentic Ai",
+        "lastmod": "2026-07-29T04:43:00.858Z",
+        "content": "",
+        "site": "openai",
+        "category": "index"
+      },
+      {
+        "url": "https://openai.com/index/scientific-computing-agentic-ai/",
+        "title": "Scientific Computing Agentic Ai",
+        "lastmod": "2026-07-29T04:43:00.858Z",
+        "content": "",
+        "site": "openai",
+        "category": "index"
+      },
+      {
+        "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/",
+        "title": "How Ai Is Expanding What People Do At Work",
+        "lastmod": "2026-07-29T04:41:26.847Z",
+        "content": "",
+        "site": "openai",
+        "category": "index"
+      },
+      {
+        "url": "https://openai.com/business/guides-and-resources/identifying-and-scaling-ai-use-cases/",
+        "title": "Identifying And Scaling Ai Use Cases",
+        "lastmod": "2026-07-28T02:05:53.654Z",
+        "content": "",
+        "site": "openai",
+        "category": "business"
+      },
+      {
+        "url": "https://openai.com/business/guides-and-resources/inside-gpt5-our-best-model-for-work/",
+        "title": "Inside Gpt5 Our Best Model For Work",
+        "lastmod": "2026-07-28T02:05:48.773Z",
+        "content": "",
+        "site": "openai",
+        "category": "business"
+      },
+      {
+        "url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
+        "title": "A Practical Guide To Building Ai Agents",
+        "lastmod": "2026-07-28T02:04:59.850Z",
+        "content": "",
+        "site": "openai",
+        "category": "business"
+      },
+      {
+        "url": "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-with-ai/",
+        "title": "A Practical Guide To Building With Ai",
+        "lastmod": "2026-07-28T02:04:56.101Z",
+        "content": "",
+        "site": "openai",
+        "category": "business"
+      },
+      {
+        "url": "https://openai.com/business/guides-and-resources/how-openai-uses-codex/",
+        "title": "How Openai Uses Codex",
+        "lastmod": "2026-07-28T02:04:55.166Z",
+        "content": "",
+        "site": "openai",
+        "category": "business"
+      }
+    ],
+    "totalDiscovered": 883
+  }
+]

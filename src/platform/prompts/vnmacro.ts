@@ -3,7 +3,13 @@
  */
 
 import type { VnMarketData } from "../../domains/vietnam/vnmarket.ts";
-import type { VnMacroData, VnFxRate, VnGlobalMetric, VnAnnualMetric } from "../../domains/vietnam/vnmacro.ts";
+import type {
+  VnMacroData,
+  VnFxRate,
+  VnGlobalMetric,
+  VnAnnualMetric,
+  VnGold,
+} from "../../domains/vietnam/vnmacro.ts";
 import type { VnDocsData } from "../../domains/vietnam/vndocs.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { fmtPct } from "./shared.ts";
@@ -42,6 +48,27 @@ function vnGlobalLine(m: VnGlobalMetric, lang: Lang): string {
   return lang === "en"
     ? `- ${m.label.en} (${m.symbol}): latest ${latest} | 1d ${fmtPct(m.changePct1d, 2)} | 20d ${fmtPct(m.changePct20d, 2)} | as of ${m.asOf || "n/a"}`
     : `- ${m.label.zh}（${m.symbol}）: 最新 ${latest} | 日涨跌 ${fmtPct(m.changePct1d, 2)} | 20 日 ${fmtPct(m.changePct20d, 2)} | 截至 ${m.asOf || "无"}`;
+}
+
+/**
+ * The domestic gold board plus its premium over the world price. In Vietnam
+ * gold competes with bank deposits for the same retail savings, so a widening
+ * premium is both a VND-confidence signal and a claim on money that would
+ * otherwise be available to equities.
+ */
+function vnGoldLine(gold: VnGold | null, lang: Lang): string {
+  if (!gold) {
+    return lang === "en"
+      ? "- SJC domestic gold: data unavailable this run"
+      : "- SJC 国内金价: 本次未取到数据";
+  }
+  const sell = gold.sellVndPerTael.toLocaleString("en-US");
+  const buy = gold.buyVndPerTael.toLocaleString("en-US");
+  const implied = gold.sellUsdPerOz === null ? "N/A" : `$${gold.sellUsdPerOz.toLocaleString("en-US")}/oz`;
+  const premium = gold.premiumPct === null ? "N/A" : fmtPct(gold.premiumPct, 1);
+  return lang === "en"
+    ? `- SJC domestic gold (1L bar): buy ${buy} / sell ${sell} VND per tael | implied ${implied} | premium over world gold ${premium} | as of ${gold.asOf || "n/a"}`
+    : `- SJC 国内金价（1L 金条）: 买入 ${buy} / 卖出 ${sell} 越南盾/两 | 折合 ${implied} | 较国际金价溢价 ${premium} | 截至 ${gold.asOf || "无"}`;
 }
 
 function vnAnnualLine(m: VnAnnualMetric, lang: Lang): string {
@@ -94,14 +121,27 @@ function vnMarketSection(market: VnMarketData, lang: Lang): string {
 
   if (market.foreign) {
     const f = market.foreign;
+    // Room is appended per ticker: foreign appetite only matters on names that
+    // still have headroom under the foreign-ownership limit.
     const list = (items: typeof f.topBuys): string =>
-      items.length === 0 ? "N/A" : items.map((t) => `${t.symbol} ${fmtVndBn(t.netVndBn)}`).join(", ");
+      items.length === 0
+        ? "N/A"
+        : items
+            .map(
+              (t) =>
+                `${t.symbol} ${fmtVndBn(t.netVndBn)}` +
+                (t.roomVndBn === null ? "" : ` (room ${fmtVndBn(t.roomVndBn).replace("+", "")})`),
+            )
+            .join(", ");
     lines.push(
       en
         ? `- Foreign flow for this session only (includes put-through/block deals): bought ${f.buyVndBn.toLocaleString("en-US")} bn, sold ${f.sellVndBn.toLocaleString("en-US")} bn → net ${fmtVndBn(f.netVndBn)}`
         : `- 外资流向（仅当日，含大宗/协议交易）: 买入 ${f.buyVndBn.toLocaleString("en-US")} 十亿，卖出 ${f.sellVndBn.toLocaleString("en-US")} 十亿 → 净额 ${fmtVndBn(f.netVndBn)}`,
       en ? `- Top foreign net buys: ${list(f.topBuys)}` : `- 外资净买入前列: ${list(f.topBuys)}`,
       en ? `- Top foreign net sells: ${list(f.topSells)}` : `- 外资净卖出前列: ${list(f.topSells)}`,
+      en
+        ? `- Traded names with zero remaining foreign room: ${f.zeroRoomCount}`
+        : `- 外资额度已用尽的活跃个股数: ${f.zeroRoomCount}`,
     );
   }
 
@@ -135,7 +175,11 @@ export function buildVnMacroPrompt(
   lang: Lang = "zh",
 ): string {
   const marketSection = vnMarketSection(market, lang);
-  const fxSection = [vnFxLines(macro.fx, lang), ...macro.global.map((m) => vnGlobalLine(m, lang))].join("\n");
+  const fxSection = [
+    vnFxLines(macro.fx, lang),
+    ...macro.global.map((m) => vnGlobalLine(m, lang)),
+    vnGoldLine(macro.gold, lang),
+  ].join("\n");
   const annualSection =
     macro.annual.length > 0
       ? macro.annual.map((m) => vnAnnualLine(m, lang)).join("\n")
@@ -190,12 +234,14 @@ Generate a structured **Vietnam Macro Market Dashboard** in English:
    - USD/VND: annual depreciation above 3-4% triggers foreign outflows and forces SBV tightening; stability is the precondition for easing
    - DXY / US 10Y: a rising dollar and rising US yields both widen pressure on the dong
    - Foreign net flow: sustained net buying anchors retail confidence; persistent net selling is the classic Vietnam drawdown backdrop. You are given **one session only** — describe that session, and never claim a multi-day streak or trend you cannot see
+   - Foreign ownership room: a name pinned at its foreign-ownership limit cannot absorb inflow however strong the appetite, so read "foreign buying resumes" only on names that still show room
    - Turnover and foreign flow are measured differently: turnover is order-matched value, foreign flow includes put-through (block) deals. A single block can push one ticker's foreign flow above its matched turnover — do not present that as an anomaly or compare the two as like figures
    - VN30F1M basis: a deeply negative basis signals local hedging/fear and mean-reverts fast after capitulation
    - Breadth / limit-down count: a cluster of limit-down names is a forced-liquidation ("giải chấp") tell
    - Turnover: a sharp collapse alongside falling prices signals buyer withdrawal rather than distribution
    - CPI: the government's annual target is 4.0-4.5%; below it the SBV has room to stay accommodative
    - Disbursed FDI: above USD 20bn/year keeps USD inflows and industrial demand healthy
+   - SJC gold premium over world gold: a widening premium is a direct read on weakening VND confidence, and gold competes with bank deposits for the same retail savings — money leaving deposits does not automatically arrive in equities
    - Interbank overnight rate: above 5-6% signals a tight banking system
    - Government bond yields: the domestic risk-free rate; falling yields are equity-supportive
 
@@ -258,12 +304,14 @@ ${docsSection}
    - USD/VND：年贬值超过 3~4% 会触发外资流出并迫使 SBV 收紧；汇率稳定是宽松的前提
    - 美元指数 / 美国 10 年期国债：美元走强与美债收益率上行都会加大越南盾压力
    - 外资净流向：持续净买入为散户信心之锚；持续净卖出是越南典型下跌背景。输入**仅含单个交易日**，只描述当日情况，不得声称多日连续净卖出等无法证实的趋势
+   - 外资持股额度（room ngoại）：已触及外资持股上限的个股无论外资意愿多强都无法承接买盘，因此"外资回流"信号只在仍有额度的个股上成立
    - 成交额与外资流向口径不同：成交额为撮合成交，外资流向含大宗/协议交易。个股外资流向金额可能超过其撮合成交额，这属正常，不要作为异常提示，也不要将两者直接对比
    - VN30F1M 基差：深度负基差代表本地对冲/恐慌情绪，通常在恐慌见底后快速回归
    - 涨跌家数 / 跌停家数：跌停成群是强制平仓（giải chấp）的信号
    - 成交额：价跌量急剧萎缩代表买盘退场，而非派发
    - CPI：政府年度目标为 4.0%~4.5%，低于此线 SBV 才有维持宽松的空间
    - FDI 实际到位：年度超过 200 亿美元可维持美元流入与工业需求
+   - SJC 国内金价较国际金价溢价：溢价走阔直接反映对越南盾信心减弱；且黄金与银行存款争夺同一笔居民储蓄，存款流出的资金未必流入股市
    - 银行间隔夜利率：高于 5~6% 说明银行体系流动性偏紧
    - 政府债收益率：国内无风险利率，收益率下行利好权益
 

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="avada-html-layout-wide avada-html-header-position-top" lang="en-GB" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Consumer Price Index, Gold Price Index, and US Dollar Price Index in June 2026, Q2 2026, and the first six months of 2026 &#8211; National Statistics Office of Vietnam</title>
+<meta name='robots' content='max-image-preview:large' />
+	
+	
+					
+		
+		
+		
+				
+		<meta property="og:title" content="Consumer Price Index, Gold Price Index, and US Dollar Price Index in June 2026, Q2 2026, and the first six months of 2026"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content="https://www.nso.gov.vn/en/data-and-statistics/2026/07/consumer-price-index-gold-price-index-and-us-dollar-price-index-in-june-2026-q2-2026-and-the-first-six-months-of-2026/"/>
+		<meta property="og:site_name" content="National Statistics Office of Vietnam"/>
+		<meta property="og:description" content="The Consumer Price Index (CPI) in June 2026 recorded a month-on-month decrease of 0.39%, mainly attributable to a decline in gasoline and oil prices in line with global fuel price movements. Compared to December 2025, the CPI in June increased by 3.21% and rose by 4.69% year-on-year.
+a) Consumer Price Index
+The CPI"/>
+									<meta property="og:image" content="https://www.nso.gov.vn/wp-content/uploads/2026/04/130-3.png"/>
+							
+<!-- Analytics by WP Statistics - https://wp-statistics.com -->
+			
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	</head>
+<body class="wp-singular post-template-default single single-post postid-61671 single-format-standard custom-background wp-theme-Avada wp-child-theme-Avada-Child-Theme isnt_phone is_computer has-sidebar fusion-image-hovers fusion-pagination-sizing fusion-button_type-flat fusion-button_span-no fusion-button_gradient-linear avada-image-rollover-circle-yes avada-image-rollover-yes avada-image-rollover-direction-left fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-mobile-totop avada-has-rev-slider-styles fusion-disable-outline fusion-sub-menu-fade mobile-logo-pos-left layout-wide-mode avada-has-boxed-modal-shadow-none layout-scroll-offset-full avada-has-zero-margin-offset-top fusion-top-header menu-text-align-center mobile-menu-design-modern fusion-show-pagination-text fusion-header-layout-v4 avada-responsive avada-footer-fx-none avada-menu-highlight-style-bar fusion-search-form-classic fusion-main-menu-search-dropdown fusion-avatar-square avada-dropdown-styles avada-blog-layout-large avada-blog-archive-layout-large avada-header-shadow-no avada-menu-icon-position-left avada-has-megamenu-shadow avada-has-mainmenu-dropdown-divider avada-has-mobile-menu-search avada-has-breadcrumb-mobile-hidden avada-has-titlebar-hide avada-has-pagination-padding avada-flyout-menu-direction-fade avada-ec-views-v1" data-awb-post-id="61671">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+	<div id="boxed-wrapper">
+		
+		<div id="wrapper" class="fusion-wrapper">
+			<div id="home" style="position:relative;top:-1px;"></div>
+							
+					
+			<header class="fusion-header-wrapper">
+				<div class="fusion-header-v4 fusion-logo-alignment fusion-logo-left fusion-sticky-menu- fusion-sticky-logo- fusion-mobile-logo- fusion-sticky-menu-only fusion-header-menu-align-center fusion-mobile-menu-design-modern">
+					
+<div class="fusion-secondary-header" style="position: relative;">
+	<div class="fusion-row">
+		<div class="fusion-logo" data-margin-top="0px" data-margin-bottom="0px" data-margin-left="0px" data-margin-right="0px">
+			<a class="fusion-logo-link"  href="https://www.nso.gov.vn/en/homepage/" >
+						<!-- standard logo -->
+			<img src="https://www.nso.gov.vn/wp-content/uploads/2026/04/130-3.png" srcset="https://www.nso.gov.vn/wp-content/uploads/2026/04/130-3.png 1x" width="130" height="130" alt="National Statistics Office of Vietnam Logo" data-retina_logo_url="" class="fusion-standard-logo" />
+			
+					</a>
+	</div>							<div class="fusion-alignright">
+				<nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu"><ul id="menu-top-header-navigation" class="menu"><li  id="menu-item-7600"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7600"  data-item-id="7600"><a  href="https://www.nso.gov.vn/en/about-gso/" class="fusion-bar-highlight"><span class="menu-text">About NSO</span></a></li></ul></nav><nav class="fusion-mobile-nav-holder fusion-mobile-menu-text-align-left" aria-label="Secondary Mobile Menu"></nav>			</div>
+			</div>
+</div>
+<div class="fusion-header-sticky-height"></div>
+<div class="fusion-sticky-header-wrapper"> <!-- start fusion sticky header wrapper -->
+	<div class="fusion-header">
+		<div class="fusion-row">
+			
+<div class="fusion-header-content-3-wrapper" style="display:flex;">
+			<h3 class="fusion-header-tagline" style="flex: 1">
+			<span class="tagline-en">NATIONAL STATISTICS OFFICE</span>		</h3>
+		<div class="fusion-secondary-menu-search" style="display:flex;">
+			<nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu">
+			<ul id="menu-language-chooser-menu" class="menu"><li  id="menu-item-7637-vi"  class="lang-item lang-item-5 lang-item-vi lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-7637-vi"  data-classes="lang-item" data-item-id="7637-vi"><a  href="https://www.nso.gov.vn/tin-tuc-thong-ke/2026/07/chi-so-gia-tieu-dung-chi-so-gia-vang-va-chi-so-gia-do-la-my-thang-sau-quy-ii-va-6-thang-dau-nam-2026/" class="fusion-bar-highlight" lang="vi" hreflang="vi"><span class="menu-text"><img src="/wp-content/themes/Avada-Child-Theme/polylang/vi.png" alt="Tiếng Việt" /></span></a></li></ul>			</nav>
+					<form role="search" class="searchform fusion-search-form  fusion-search-form-classic" method="get" action="https://www.nso.gov.vn/en/">
+			<div class="fusion-search-form-content">
+				
+				<div class="fusion-search-field search-field">
+					<label><span class="screen-reader-text">Search for:</span>
+													<input type="search" value="" name="s" class="s" placeholder="Search..." required aria-required="true" aria-label="Search..."/>
+											</label>
+				</div>
+				<div class="fusion-search-button search-button">
+					<input type="submit" class="fusion-search-submit searchsubmit" aria-label="Search" value="&#xf002;" />
+									</div>
+				
+			</div>
+			
+		</form>
+				</div>
+	</div>
+								<div class="fusion-mobile-menu-icons">
+               <nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu">
+                        <ul id="menu-language-chooser-menu-1" class="menu"><li   class="lang-item lang-item-5 lang-item-vi lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-7637-vi"  data-classes="lang-item" data-item-id="7637-vi"><a  href="https://www.nso.gov.vn/tin-tuc-thong-ke/2026/07/chi-so-gia-tieu-dung-chi-so-gia-vang-va-chi-so-gia-do-la-my-thang-sau-quy-ii-va-6-thang-dau-nam-2026/" class="fusion-bar-highlight" lang="vi" hreflang="vi"><span class="menu-text"><img src="/wp-content/themes/Avada-Child-Theme/polylang/vi.png" alt="Tiếng Việt" /></span></a></li></ul>                 </nav>
+							<a href="#" class="fusion-icon awb-icon-bars" aria-label="Toggle mobile menu" aria-expanded="false"></a>
+		
+					<a href="#" class="fusion-icon awb-icon-search" aria-label="Toggle mobile search"></a>
+		
+		
+			</div>
+			
+					</div>
+	</div>
+	<div class="fusion-secondary-main-menu">
+		<div class="fusion-row">
+			<nav class="fusion-main-menu" aria-label="Main Menu"><ul id="menu-main-menu-en" class="fusion-menu"><li  id="menu-item-7382"  class="unclickable menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7382 fusion-dropdown-menu"  data-classes="unclickable" data-item-id="7382"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Population and employment</span></a><ul class="sub-menu"><li  id="menu-item-8079"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8079 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/population/" class="fusion-bar-highlight"><span>Population</span></a></li><li  id="menu-item-8169"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8169 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/employment/" class="fusion-bar-highlight"><span>Employment</span></a></li></ul></li><li  id="menu-item-7383"  class="unclickable menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7383 fusion-dropdown-menu"  data-classes="unclickable" data-item-id="7383"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">National accounts and Finance</span></a><ul class="sub-menu"><li  id="menu-item-8263"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8263 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/national-accounts/" class="fusion-bar-highlight"><span>National Accounts</span></a></li><li  id="menu-item-8264"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8264 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/banking-insurance-and-state-budget/" class="fusion-bar-highlight"><span>Banking, insurance and State budget</span></a></li></ul></li><li  id="menu-item-7384"  class="unclickable menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7384 fusion-dropdown-menu"  data-classes="unclickable" data-item-id="7384"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Economy</span></a><ul class="sub-menu"><li  id="menu-item-8266"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8266 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/agriculture-forestry-and-fishery/" class="fusion-bar-highlight"><span>Agriculture, Forestry and Fishery</span></a></li><li  id="menu-item-8267"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8267 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/investment-and-construction/" class="fusion-bar-highlight"><span>Investment and Construction</span></a></li><li  id="menu-item-8268"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8268 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/industry/" class="fusion-bar-highlight"><span>Industry</span></a></li><li  id="menu-item-8274"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8274 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/enterprises/" class="fusion-bar-highlight"><span>Enterprises</span></a></li><li  id="menu-item-8275"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8275 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/trade-and-services/" class="fusion-bar-highlight"><span>Trade and Tourism</span></a></li><li  id="menu-item-8278"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8278 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/prices/" class="fusion-bar-highlight"><span>Prices</span></a></li></ul></li><li  id="menu-item-7385"  class="unclickable menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7385 fusion-dropdown-menu"  data-classes="unclickable" data-item-id="7385"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Society, Environment and Territory</span></a><ul class="sub-menu"><li  id="menu-item-8281"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8281 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/education/" class="fusion-bar-highlight"><span>Science and technology, education</span></a></li><li  id="menu-item-8282"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8282 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/health-culture-sport-living-standards-social-order-safety-and-environment/" class="fusion-bar-highlight"><span>Health, Culture, Sport, Living standards, Social order, Safety and Environment</span></a></li><li  id="menu-item-25362"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25362 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/administrative-unit-land-and-climate/" class="fusion-bar-highlight"><span>Administrative unit, Land and Climate</span></a></li></ul></li><li  id="menu-item-7386"  class="unclickable menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7386 fusion-dropdown-menu"  data-classes="unclickable" data-item-id="7386"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Censuses</span></a><ul class="sub-menu"><li  id="menu-item-8286"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8286 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/population-and-houses-census/" class="fusion-bar-highlight"><span>Population and houses census</span></a></li><li  id="menu-item-8285"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8285 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/rural-agricultural-and-fishery-census/" class="fusion-bar-highlight"><span>Rural, agricultural and fishery census</span></a></li><li  id="menu-item-8287"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8287 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/economic-census/" class="fusion-bar-highlight"><span>Economic census</span></a></li></ul></li></ul></nav><div class="fusion-mobile-navigation"><ul id="menu-mobile-main-menu-en" class="fusion-mobile-menu"><li  id="menu-item-24151"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-24151 fusion-dropdown-menu"  data-item-id="24151"><a  href="https://www.nso.gov.vn/en/about-gso/" class="fusion-bar-highlight"><span class="menu-text">About NSO</span></a><ul class="sub-menu"><li  id="menu-item-24152"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24152 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/about-gso/address-2/" class="fusion-bar-highlight"><span>Address</span></a></li><li  id="menu-item-24153"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24153 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/about-gso/development-history/" class="fusion-bar-highlight"><span>Development history</span></a></li><li  id="menu-item-24154"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24154 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/about-gso/functions-and-duties/" class="fusion-bar-highlight"><span>Functions and duties</span></a></li><li  id="menu-item-24155"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24155 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/about-gso/organizational-structure/" class="fusion-bar-highlight"><span>Organizational structure</span></a></li></ul></li><li  id="menu-item-24130"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24130 fusion-dropdown-menu"  data-item-id="24130"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Population and employment</span></a><ul class="sub-menu"><li  id="menu-item-24131"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24131 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/population/" class="fusion-bar-highlight"><span>Population</span></a></li><li  id="menu-item-24132"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24132 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/employment/" class="fusion-bar-highlight"><span>Employment</span></a></li></ul></li><li  id="menu-item-24133"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24133 fusion-dropdown-menu"  data-item-id="24133"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">National accounts and Finance</span></a><ul class="sub-menu"><li  id="menu-item-24134"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24134 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/national-accounts/" class="fusion-bar-highlight"><span>National Accounts</span></a></li><li  id="menu-item-24135"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24135 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/banking-insurance-and-state-budget/" class="fusion-bar-highlight"><span>Banking, insurance and State budget</span></a></li></ul></li><li  id="menu-item-24136"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24136 fusion-dropdown-menu"  data-item-id="24136"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Economy</span></a><ul class="sub-menu"><li  id="menu-item-24137"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24137 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/agriculture-forestry-and-fishery/" class="fusion-bar-highlight"><span>Agriculture, Forestry and Fishery</span></a></li><li  id="menu-item-24138"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24138 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/investment-and-construction/" class="fusion-bar-highlight"><span>Investment and Construction</span></a></li><li  id="menu-item-24139"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24139 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/industry/" class="fusion-bar-highlight"><span>Industry</span></a></li><li  id="menu-item-24140"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24140 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/enterprises/" class="fusion-bar-highlight"><span>Enterprises</span></a></li><li  id="menu-item-24141"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24141 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/trade-and-services/" class="fusion-bar-highlight"><span>Trade and Tourism</span></a></li><li  id="menu-item-24142"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24142 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/prices/" class="fusion-bar-highlight"><span>Prices</span></a></li></ul></li><li  id="menu-item-24143"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24143 fusion-dropdown-menu"  data-item-id="24143"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Society, Environment and Territory</span></a><ul class="sub-menu"><li  id="menu-item-24144"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24144 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/education/" class="fusion-bar-highlight"><span>Science and technology, education</span></a></li><li  id="menu-item-24145"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24145 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/health-culture-sport-living-standards-social-order-safety-and-environment/" class="fusion-bar-highlight"><span>Health, Culture, Sport, Living standards, Social order, Safety and Environment</span></a></li><li  id="menu-item-25363"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25363 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/administrative-unit-land-and-climate/" class="fusion-bar-highlight"><span>Administrative unit, Land and Climate</span></a></li></ul></li><li  id="menu-item-24147"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-24147 fusion-dropdown-menu"  data-item-id="24147"><a  href="#" class="fusion-bar-highlight"><span class="menu-text">Censuses</span></a><ul class="sub-menu"><li  id="menu-item-24148"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24148 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/population-and-houses-census/" class="fusion-bar-highlight"><span>Population and houses census</span></a></li><li  id="menu-item-24149"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24149 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/rural-agricultural-and-fishery-census/" class="fusion-bar-highlight"><span>Rural, agricultural and fishery census</span></a></li><li  id="menu-item-24150"  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24150 fusion-dropdown-submenu" ><a  href="https://www.nso.gov.vn/en/economic-census/" class="fusion-bar-highlight"><span>Economic census</span></a></li></ul></li></ul></div>
+<nav class="fusion-mobile-nav-holder fusion-mobile-menu-text-align-left" aria-label="Main Menu Mobile"></nav>
+			
+<div class="fusion-clearfix"></div>
+<div class="fusion-mobile-menu-search">
+			<form role="search" class="searchform fusion-search-form  fusion-search-form-classic" method="get" action="https://www.nso.gov.vn/en/">
+			<div class="fusion-search-form-content">
+				
+				<div class="fusion-search-field search-field">
+					<label><span class="screen-reader-text">Search for:</span>
+													<input type="search" value="" name="s" class="s" placeholder="Search..." required aria-required="true" aria-label="Search..."/>
+											</label>
+				</div>
+				<div class="fusion-search-button search-button">
+					<input type="submit" class="fusion-search-submit searchsubmit" aria-label="Search" value="&#xf002;" />
+									</div>
+				
+			</div>
+			
+		</form>
+		</div>
+		</div>
+	</div>
+</div> <!-- end fusion sticky header wrapper -->
+				</div>
+				<div class="fusion-clearfix"></div>
+			</header>
+								
+							<div id="sliders-container" class="fusion-slider-visibility">
+					</div>
+				
+					
+							
+			
+						<main id="main" class="clearfix ">
+				<div class="fusion-row" style="">
+<section id="content" style="float: left;">
+	
+					<article id="post-61671" class="post post-61671 type-post status-publish format-standard hentry category-prices tag-cpi tag-press-release gso_document_type-data-and-statistics">
+						
+				
+															<h1 class="fusion-post-title">Consumer Price Index, Gold Price Index, and US Dollar Price Index in June 2026, Q2 2026, and the first six months of 2026</h1>										<div class="post-content">
+				<div class="fusion-fullwidth fullwidth-box fusion-builder-row-1 nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;" ><div class="fusion-builder-row fusion-row"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-0 fusion_builder_column_1_1 1_1 fusion-one-full fusion-column-first fusion-column-last" style="--awb-bg-size:cover;"><div class="fusion-column-wrapper fusion-flex-column-wrapper-legacy"><div class="fusion-text fusion-text-1"><p style="text-align: justify;">The Consumer Price Index (CPI) in June 2026 recorded a month-on-month decrease of 0.39%, mainly attributable to a decline in gasoline and oil prices in line with global fuel price movements. Compared to December 2025, the CPI in June increased by 3.21% and rose by 4.69% year-on-year.</p>
+<p>a) Consumer Price Index</p>
+<p style="text-align: justify;">The CPI in June fell by 0.39% compared to the previous month, with price indices declining in four groups of goods and services, while increasing in seven groups. On average, the CPI in the second quarter of 2026 rose by 5.25% year-on-year. The average CPI for the first six months of 2026 increased by 4.38% compared to the same period last year.</p>
+<p style="text-align: justify;">Core inflation in June posted a month-on-month increase of 0.14% and a year-on-year rise of 4.50%. On average, core inflation in the first six months of 2026 went up by 4.12% year-on-year, lower than the 4.38% increase of the overall average CPI.</p>
+<p>b) Gold and US dollar price indices</p>
+<p style="text-align: justify;">The gold price index in June declined by 8.46% compared to May; increased by 24.11% year-on-year; and decreased by 2.72% compared to December 2025. On average, the gold price index in the second quarter of 2026 rose by 36.84% year-on-year, while the average index for the first six months of 2026 surged by 58.12% compared to the same period last year.</p>
+<p style="text-align: justify;">The US dollar price index in June recorded a month-on-month increase of 0.11%; rose by 0.57% year-on-year; and fell by 0.17% compared to December 2025. On average, the US dollar price index in the second quarter of 2026 increased by 0.93% year-on-year, and the average index for the first six months of 2026 climbed by 1.75%.</p>
+</div><div class="fusion-clearfix"></div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-2 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;" ><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start" style="max-width:1144px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-1 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-color:#f2f2f2;--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:1.92%;--awb-margin-bottom-large:20px;--awb-spacing-left-large:1.92%;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:1.92%;--awb-spacing-left-medium:1.92%;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:1.92%;--awb-spacing-left-small:1.92%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-text fusion-text-2"><hr />
+<p><img fetchpriority="high" decoding="async" class="lazyload size-fusion-800 wp-image-41615 alignleft" src="https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-800x146.png" data-orig-src="https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-800x146.png" alt="" width="800" height="146" srcset="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27146%27%20viewBox%3D%270%200%20800%20146%27%3E%3Crect%20width%3D%27800%27%20height%3D%27146%27%20fill-opacity%3D%220%22%2F%3E%3C%2Fsvg%3E" data-srcset="https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-200x37.png 200w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-300x55.png 300w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-400x73.png 400w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-600x110.png 600w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-768x141.png 768w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-800x146.png 800w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-1024x187.png 1024w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-1200x220.png 1200w, https://www.nso.gov.vn/wp-content/uploads/2022/12/tin-khac-01-1-1536x281.png 1536w" data-sizes="auto" data-orig-sizes="(max-width: 800px) 100vw, 800px" /></p>
+</div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-3 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;" ><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start" style="max-width:1144px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-2 fusion_builder_column_1_6 1_6 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:16.666666666667%;--awb-margin-top-large:0px;--awb-spacing-right-large:11.52%;--awb-margin-bottom-large:20px;--awb-spacing-left-large:11.52%;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:1.92%;--awb-spacing-left-medium:1.92%;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:1.92%;--awb-spacing-left-small:1.92%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"></div></div><div class="fusion-layout-column fusion_builder_column fusion-builder-column-3 fusion_builder_column_5_6 5_6 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:83.333333333333%;--awb-margin-top-large:0px;--awb-spacing-right-large:2.304%;--awb-margin-bottom-large:20px;--awb-spacing-left-large:2.304%;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:1.92%;--awb-spacing-left-medium:1.92%;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:1.92%;--awb-spacing-left-small:1.92%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-text fusion-text-3"><div class="document-type-news">
+<h3><a href="https://www.nso.gov.vn/en/other-news/2025/01/the-status-of-wastewater-treatment-and-environmental-protection-in-vietnam-and-lessons-from-denmark/">The status of wastewater treatment and environmental protection in Vietnam and lessons from Denmark</a></h3>
+<p>In the context of increasing industrialization and modernization, Vietnam is committed to implementing the United Nations Sustainable Development Goals (SDGs), in which protecting water resources and the environment is a top priority, especially wastewater treatment, which has become a major challenge. <span>(14/01/2025)</span></p>
+<h3><a href="https://www.nso.gov.vn/en/events/2023/01/press-conference-to-announce-socio-economic-statistics-fourth-quarter-and-2022/">Press conference to announce socio-economic statistics fourth quarter and 2022</a></h3>
+<p>On the morning of December 29, 2022, the General Statistics Office (GSO) held a press conference to announce the socio-economic statistics of the fourth quarter and 2022. Ms. Nguyen Thi Huong, General Director of the General Statistics Office chaired conference. At the press conference, Ms. Nguyen Thi Huong announced the basic issues about the socio-economic situation of Vietnam in the fourth quarter and 2022. <span>(29/12/2022)</span></p>
+<h3><a href="https://www.nso.gov.vn/en/other-news/2022/11/2023-iaos-prize-for-young-statisticians/">2023 IAOS Prize for Young Statisticians</a></h3>
+<p>The International Association for Official Statistics (IAOS) is pleased to announce the launch of the 2023 IAOS Young Statisticians Prize. This international prize encourages young statisticians to take an active interest in official statistics and is awarded for the best paper in the field of official statistics written by a young statistician. <span>(18/11/2022)</span></p>
+<h3><a href="https://www.nso.gov.vn/en/other-news/2022/11/action-plan-on-central-highlands-development-issued/">Action plan on Central Highlands development issued</a></h3>
+<p>VGP - The Government has recently issued Resolution 152/NQ-CP (Resolution 152) approving an action plan to implement Resolution 23-NQ-TW of the Poliburo on the orientations for socio-economic development and defence-security safeguarding in the Central Highlands by 2030 with a vision towards 2045. <span>(16/11/2022)</span></p>
+<h3><a href="https://www.nso.gov.vn/en/other-news/2022/11/three-vietnamese-seaports-among-top-100-largest-container-ports-worldwide/">Three Vietnamese seaports among TOP 100 largest container ports worldwide</a></h3>
+<p>VGP - Viet Nam has three seaports in the top 50 seaports with the largest cargo throughput in the world, according to the latest update to the list of 100 seaports by Lloyd Maritime Company (UK). <span>(14/11/2022)</span></p>
+<h3><a href="https://www.nso.gov.vn/en/other-news/2019/11/vietnams-gdp-revision-poses-no-change-to-short-term-state-budgetary-strategy/">Vietnam’s GDP revision poses no change to short-term state budgetary strategy</a></h3>
+<p>The Ministry of Finance is using the current data for the 5-10 year national financial plans. <span>(29/10/2019)</span></p>
+<p class="document-type-archive"><span style="text-decoration: underline;"><em><a href="/tin-tuc-khac">Xem thêm</a></em></span></p>
+</div>
+</div></div></div></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-4 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="--awb-border-radius-top-left:0px;--awb-border-radius-top-right:0px;--awb-border-radius-bottom-right:0px;--awb-border-radius-bottom-left:0px;" ><div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start" style="max-width:1144px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );"><div class="fusion-layout-column fusion_builder_column fusion-builder-column-4 fusion_builder_column_1_1 1_1 fusion-flex-column" style="--awb-bg-size:cover;--awb-width-large:100%;--awb-margin-top-large:0px;--awb-spacing-right-large:1.92%;--awb-margin-bottom-large:20px;--awb-spacing-left-large:1.92%;--awb-width-medium:100%;--awb-order-medium:0;--awb-spacing-right-medium:1.92%;--awb-spacing-left-medium:1.92%;--awb-width-small:100%;--awb-order-small:0;--awb-spacing-right-small:1.92%;--awb-spacing-left-small:1.92%;"><div class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column"><div class="fusion-widget-area awb-widget-area-element fusion-widget-area-1 fusion-content-widget-area post-taxonomy-metadata" style="--awb-title-color:#333333;--awb-padding:0px 0px 0px 0px;"><div id="current_post_document_type_widget-2" class="widget GSO-current-post-document-type_widget"><div class="taxonomy"><span class="taxonomy-name">Document type:</span><ul class="taxonomy-list"><li><a href="https://www.nso.gov.vn/data-and-statistics">Data and statistics</a></li></ul></div></div><div id="current_post_tags_widget-2" class="widget GSO-current-post-tags-widget"><div class="taxonomy"><span class="taxonomy-name">Tags:</span><ul class="taxonomy-list"><li><a href="https://www.nso.gov.vn/cpi">Consumer price index</a></li><li><a href="https://www.nso.gov.vn/press-release">Press release</a></li></ul></div></div><div id="current_post_categories_widget-2" class="widget GSO-current-post-categories-widget"><div class="taxonomy"><span class="taxonomy-name">Category:</span><ul class="taxonomy-list"><li><a href="https://www.nso.gov.vn/prices">Prices</a></li></ul></div></div><div class="fusion-additional-widget-content"></div></div></div></div></div></div>
+							</div>
+																																				
+																	</article>
+	</section>
+<aside id="sidebar" class="sidebar fusion-widget-area fusion-content-widget-area fusion-sidebar-right fusion-blogsidebar" style="float: right;" data="">
+											
+					<div class="metadata-group-start"><section id="reference_period_widget-3" class="widget GSO-reference-period-widget"><div class="reference-period">Reference period: <span>6/2026</span></div><section id="date_of_issue_widget-2" class="widget GSO-date-of-issue-widget"><div class="date-of-issue">Date of issue: <span>03/07/2026</span></div></section></div><section id="file_attachments_widget-2" class="widget GSO-file-attachments-widget"><h3 class="related-files">Related files</h3><ul class="file-attachment">        <li><a href="https://www.nso.gov.vn/wp-content/uploads/2026/07/CPI-Gold-Price-Index-and-US-Dollar-Price-Index-in-June-and-the-first-six-months-of-2026_Eng.xlsx"><i class="fas fa-download"></i><span class="related-files-title">CPI, Gold Price Index, and US Dollar Price Index in June and the first six months of 2026 (xlsx)</span></a></li>
+ </ul></section><section id="text-2" class="widget widget_text" style="border-style: solid;border-color:transparent;border-width:0px;">			<div class="textwidget"><div class="wpcf7 no-js" id="wpcf7-f25755-o1" lang="en-US" dir="ltr" data-wpcf7-id="25755">
+<div class="screen-reader-response">
+<p role="status" aria-live="polite" aria-atomic="true">
+<ul></ul>
+</div>
+<form action="/en/data-and-statistics/2026/07/consumer-price-index-gold-price-index-and-us-dollar-price-index-in-june-2026-q2-2026-and-the-first-six-months-of-2026/#wpcf7-f25755-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="25755" /><input type="hidden" name="_wpcf7_version" value="6.1.6" /><input type="hidden" name="_wpcf7_locale" value="en_US" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f25755-o1" /><input type="hidden" name="_wpcf7_container_post" value="0" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" /><input type="hidden" name="_wpcf7_recaptcha_response" value="" /><br />
+</fieldset>
+<section id="gso_feedback_widget-4" class="widget GSO-feedback-widget">
+<div class="feedback-container">
+<div class="feedback-row">
+<div class="feedback-col-md-6">
+<h2>Feedback<br />
+				</h2>
+<p> Please provide your feedback below:
+				</p>
+<div class="feedback-row">
+<div class="feedback-col-sm-12 form-group">
+<p><label for="experience">Did you find this information useful?</label><br />
+<span class="wpcf7-form-control-wrap" data-name="experience"><span class="wpcf7-form-control wpcf7-radio" id="experience"><span class="wpcf7-list-item first"><input type="radio" name="experience" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="radio" name="experience" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+						</p>
+</p></div>
+</p></div>
+<div class="feedback-row">
+<div class="feedback-col-sm-12 form-group">
+<p><label for="comment">Please, leave a comment:</label><br />
+<span class="wpcf7-form-control-wrap" data-name="comment"><textarea cols="40" rows="10" maxlength="6000" class="wpcf7-form-control wpcf7-textarea" id="comment" aria-invalid="false" placeholder="Your comment" name="comment"></textarea></span>
+						</p>
+</p></div>
+</p></div>
+<div class="feedback-row">
+<div class="feedback-col-sm-12 form-group">
+<p><label for="experience">Your email:</label><br />
+<span class="wpcf7-form-control-wrap" data-name="sender-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-text wpcf7-validates-as-email" aria-invalid="false" placeholder="example@example.com" value="" type="email" name="sender-email" /></span>
+						</p>
+</p></div>
+</p></div>
+<p>			<input class="wpcf7-form-control wpcf7-hidden" value="" type="hidden" name="classification" /><br />
+			<input class="wpcf7-form-control wpcf7-hidden" value="https://www.nso.gov.vn/en/data-and-statistics/2026/07/consumer-price-index-gold-price-index-and-us-dollar-price-index-in-june-2026-q2-2026-and-the-first-six-months-of-2026/" type="hidden" name="referer-page" /></p>
+<div class="feedback-row send-button">
+<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Send" />
+					</p>
+</p></div>
+<div class="feedback-row">
+<div class="feedback-col-sm-12 form-group">
+<p><span><br />
+Should you need more information? Contact us at: <a href="mailto:banbientap@nso.gov.vn">banbientap@nso.gov.vn</a> </span>
+						</p>
+</p></div>
+</p></div>
+</p></div>
+</p></div>
+</p></div>
+</section>
+<div class="fusion-alert alert custom alert-custom fusion-alert-center wpcf7-response-output fusion-alert-capitalize alert-dismissable" style="--awb-border-size:1px;" role="alert">
+<div class="fusion-alert-content-wrapper"><span class="fusion-alert-content"></span></div>
+<p><button type="button" class="close toggle-alert" data-dismiss="alert" aria-label="Close">&times;</button></div>
+</form>
+</div>
+</div>
+		</section>			</aside>
+						
+					</div>  <!-- fusion-row -->
+				</main>  <!-- #main -->
+				
+				
+								
+					
+		<div class="fusion-footer">
+					
+	<footer class="fusion-footer-widget-area fusion-widget-area">
+		<div class="fusion-row">
+			<div class="fusion-columns fusion-columns-2 fusion-widget-area">
+				
+																									<div class="fusion-column col-lg-6 col-md-6 col-sm-6">
+							<section id="menu-widget-2" class="fusion-footer-widget-column widget menu"><nav id="fusion-menu-widget-2" class="fusion-widget-menu" aria-label="Secondary navigation"><ul id="menu-footer-menu-en" class="menu"><li id="menu-item-7669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7669"><a href="https://www.nso.gov.vn/en/legal-document/">Legal document</a></li><li id="menu-item-7668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7668"><a href="https://www.nso.gov.vn/en/methodology/">Methodology</a></li><li id="menu-item-7667" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7667"><a href="https://www.nso.gov.vn/en/about-surveys/">About surveys</a></li><li id="menu-item-7672" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7672"><a href="https://www.nso.gov.vn/en/release-calendar-3/">Release calendar</a></li><li id="menu-item-26193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26193"><a href="https://www.nso.gov.vn/en/statistical-data/">Statistical data</a></li></ul></nav><div style="clear:both;"></div></section>																					</div>
+																										<div class="fusion-column fusion-column-last col-lg-6 col-md-6 col-sm-6">
+													</div>
+																																													
+				<div class="fusion-clearfix"></div>
+			</div> <!-- fusion-columns -->
+		</div> <!-- fusion-row -->
+	</footer> <!-- fusion-footer-widget-area -->
+	
+	<footer id="footer" class="fusion-footer-copyright-area">
+		<div class="fusion-row">
+			<div class="fusion-copyright-content">
+				<div class="fusion-copyright-notice">
+		<div>
+		<div style="width:80%;padding:0 10pt 0 0;float:left;">
+<div class="footer-copyright-text">
+    <p>
+        NATIONAL STATISTICS OFFICE’S WEBSITE
+    </p>
+     <p>
+        Copyright belongs to the National Statistics Office
+    </p>
+     <p>
+        Address: 54 Nguyen Chi Thanh Street, Lang Ward, Ha Noi, Viet Nam
+    </p>
+     <p>
+        Tel: 024 73046666, ext 8668
+    </p>
+         <p>
+        Office: 024 73046666, ext 1006
+     <p>
+        Email: banbientap@nso.gov.vn
+    </p>
+    <p>
+        Clearly state the source of the National Statistics Office’s website (www.nso.gov.vn) when citing information from this address
+    </p>
+</div>
+
+</div>
+
+
+<div style="width:20%;padding:0 10pt 0 0;float:left;">
+ <p>Online: 142</p>
+ <p>Today’s visitors: 8072</p> 
+ <p>Today’s views: 31497</p> 
+ 
+
+
+</div>
+
+<!-- Begin EMC Tracking Code -->
+    
+<!-- End EMC Tracking Code -->
+<a href="https://tinnhiemmang.vn/danh-ba-tin-nhiem/gsogovvn-1728270073" title="Chung nhan Tin Nhiem Mang" target="_blank"><img src="https://tinnhiemmang.vn/handle_cert?id=nso.gov.vn" width="150px" height="auto" alt="Chung nhan Tin Nhiem Mang"></a>	</div>
+</div>
+<div class="fusion-social-links-footer">
+	</div>
+			</div> <!-- fusion-fusion-copyright-content -->
+		</div> <!-- fusion-row -->
+	</footer> <!-- #footer -->
+		</div> <!-- fusion-footer -->
+		
+					
+												</div> <!-- wrapper -->
+		</div> <!-- #boxed-wrapper -->
+				<a class="fusion-one-page-text-link fusion-page-load-link" tabindex="-1" href="#" aria-hidden="true">Page load link</a>
+		<div class="avada-footer-scripts">
+			
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+				
+						</div>
+			<section class="to-top-container to-top-right" aria-labelledby="awb-to-top-label">
+		<a href="#" id="toTop" class="fusion-top-top-link">
+			<span id="awb-to-top-label" class="screen-reader-text">Go to Top</span>
+		</a>
+	</section>
+		</body>
+</html>

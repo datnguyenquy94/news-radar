@@ -24,9 +24,15 @@
 | [DNSE Entrade](https://services.entrade.com.vn) | JSON | VN-Index / VN30 日线 + VN30F1M 期货基差 |
 | [Vietcombank](https://www.vietcombank.com.vn) | JSON | USD/VND 商业牌价（按日期查询） |
 | [Yahoo Finance](https://finance.yahoo.com) | JSON | 美元指数、美国 10 年期国债、黄金、布伦特原油、热轧卷板、VanEck VNM ETF |
+| [SJC](https://sjc.com.vn) | JSON | 国内金价牌价（1L 金条）—— 较国际金价的溢价可反映对越南盾的信心 |
+| [FRED](https://fred.stlouisfed.org) `DGS10` | API | 越南仪表盘所用的美国 10 年期收益率 —— 优先于 Yahoo `^TNX` |
 | [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | 越南年度 CPI、GDP 增速、FDI、外汇储备 |
 | [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | 月度 CPI 发布 + 社会经济报告（FDI、进出口、公共投资） |
 | [VBMA](https://vbma.org.vn/en) | PDF → 逐页文本 | 债市周报 —— 银行间利率、SBV 中心汇率、国债收益率、企业债 |
+
+### 测试
+
+`pnpm test` 包含两层：针对解析逻辑的 mock 单元测试，以及**实时数据源契约测试** —— 真实调用每个数据源，断言报告依赖的字段仍有数据。实时层用于发现上游格式变更，需要联网，耗时约 60 秒。
 
 ## Web UI
 
@@ -301,6 +307,35 @@ export DIGEST_REPO=your-username/agents-radar  # 可选，留空则仅写入本�
 # export DIGEST_LANGS=en
 
 pnpm start
+```
+
+## 单模块探针
+
+`pnpm start` 会跑完所有数据源和所有 LLM 调用。若只想用真实输入运行**某一个模块**
+并查看它究竟返回什么，使用探针入口：
+
+```bash
+pnpm inspect --list                       # 列出全部 target，每行一个
+pnpm inspect <target> --help              # 查看该 target 的参数
+pnpm -s inspect vnmarket --json | jq      # 输出原始 JSON（-s 用于屏蔽 pnpm 自身的横幅）
+```
+
+覆盖范围：各数据源（`arxiv`、`hn`、`fred`、`vnmarket`、`github` 等）、解析转换
+（`doc-extract:html`、`doc-extract:pdf`、`doc-extract:excerpt`、
+`vnmarket:aggregate`）、全部 prompt 构造器（`prompt:hn`、`prompt:vnmacro` …
+—— 只打印 prompt，不会发给模型）、单次 LLM 调用（`llm`），以及报告保存、通知、
+manifest 生成的 dry-run（`report:macro`、`notify:telegram`、`manifest`）。
+
+退出码：`0` 正常输出，`1` 运行失败，`2` 因缺少环境变量而跳过。
+
+探针不会写入 `digests/`，不会改动 `manifest.json` / `feed.xml` /
+`digests/web-state.json`，不会创建 GitHub Issue，也无法发送通知 —— 报告 dry-run
+写入临时目录并打印路径。prompt 构造器与离线转换支持 `--fixture` / `--file`，
+配合 `src/cli/inspect/fixtures/` 中的样例数据，可在无网络、无密钥的情况下运行：
+
+```bash
+pnpm inspect prompt:macro --fixture src/cli/inspect/fixtures/macro.json --lang en
+pnpm inspect vnmarket:aggregate --file src/cli/inspect/fixtures/ssi-board.json
 ```
 
 ## 输出格式

@@ -70,6 +70,29 @@ describe("aggregateBoard", () => {
     expect(foreign.topSells.map((t) => t.symbol)).toEqual(["VHM", "SSI"]);
   });
 
+  it("values remaining foreign room at the matched price", () => {
+    const { foreign } = aggregateBoard([
+      row({ stockSymbol: "HPG", buyForeignValue: 300e9, remainForeignQtty: 1_000_000, matchedPrice: 25_000 }),
+      // No room field on the board row -> null, not a fabricated zero.
+      row({ stockSymbol: "PNJ", buyForeignValue: 200e9, remainForeignQtty: undefined }),
+    ]);
+
+    expect(foreign.topBuys.find((t) => t.symbol === "HPG")?.roomVndBn).toBe(25);
+    expect(foreign.topBuys.find((t) => t.symbol === "PNJ")?.roomVndBn).toBeNull();
+  });
+
+  it("counts traded names that have exhausted their foreign room", () => {
+    const { foreign } = aggregateBoard([
+      row({ stockSymbol: "VCB", remainForeignQtty: 0 }),
+      row({ stockSymbol: "TCB", remainForeignQtty: 0 }),
+      row({ stockSymbol: "HPG", remainForeignQtty: 500_000 }),
+      // Untraded rows have no room pressure to report.
+      row({ stockSymbol: "XYZ", remainForeignQtty: 0, nmTotalTradedValue: 0 }),
+    ]);
+
+    expect(foreign.zeroRoomCount).toBe(2);
+  });
+
   it("normalizes the trading date from the board's YYYYMMDD form", () => {
     expect(aggregateBoard([row()]).tradingDate).toBe("2026-07-28");
     expect(aggregateBoard([row({ tradingDate: "" })]).tradingDate).toBe("");

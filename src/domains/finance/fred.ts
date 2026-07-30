@@ -213,7 +213,7 @@ const FRED_SERIES: FredSeriesSpec[] = [
 // Fetch helpers
 // ---------------------------------------------------------------------------
 
-interface Observation {
+export interface Observation {
   date: string;
   value: number;
 }
@@ -222,11 +222,18 @@ const UA = { "User-Agent": "agents-radar/1.0" };
 const FRED_API = "https://api.stlouisfed.org/fred/series/observations";
 const FRED_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv";
 
+/** Default observation window — enough for the dashboard's YoY transform. */
+const DEFAULT_LIMIT = 14;
+
 /** Descending window of observations (newest first), missing values dropped. */
-async function fetchObservations(series: string, apiKey: string | undefined): Promise<Observation[]> {
+async function fetchObservations(
+  series: string,
+  apiKey: string | undefined,
+  limit = DEFAULT_LIMIT,
+): Promise<Observation[]> {
   if (apiKey) {
     const url =
-      `${FRED_API}?series_id=${series}&api_key=${apiKey}` + `&file_type=json&sort_order=desc&limit=14`;
+      `${FRED_API}?series_id=${series}&api_key=${apiKey}` + `&file_type=json&sort_order=desc&limit=${limit}`;
     const resp = await fetch(url, { headers: UA });
     if (!resp.ok) throw new Error(`FRED ${series}: HTTP ${resp.status}`);
     const json = (await resp.json()) as { observations?: { date: string; value: string }[] };
@@ -327,6 +334,18 @@ function computeMetric(spec: FredSeriesSpec, obs: Observation[]): FredMetric {
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
+
+/**
+ * One FRED series, newest first — for callers outside the macro dashboard.
+ *
+ * FRED is a documented public product with an SLA, so it is preferred over
+ * scraping an undocumented quote endpoint wherever both carry the series (the
+ * Vietnam dashboard sources the US 10Y through here rather than from Yahoo).
+ * Uses the JSON API when `FRED_API_KEY` is set, the keyless CSV otherwise.
+ */
+export async function fetchFredSeries(series: string, limit = 30): Promise<Observation[]> {
+  return fetchObservations(series, process.env["FRED_API_KEY"], limit);
+}
 
 export async function fetchFredData(): Promise<FredData> {
   const apiKey = process.env["FRED_API_KEY"];

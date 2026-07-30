@@ -18,7 +18,11 @@ pnpm xiaohongshu    # generate a Xiaohongshu post from the latest digest (local)
 pnpm wechat         # generate a WeChat weekly article (last 7 days)
 pnpm wechat:monthly # generate a WeChat monthly article (last 30 days)
 
-pnpm test           # vitest (unit tests, src/__tests__/)
+pnpm inspect --list           # list every per-module probe target
+pnpm inspect <target> --help  # that target's options
+pnpm -s inspect <target> --json | jq   # raw JSON (-s silences pnpm's stdout banner)
+
+pnpm test           # vitest — mocked unit tests + LIVE source-contract tests (hits the network, ~60s)
 pnpm test:watch     # vitest watch mode
 pnpm test:coverage  # vitest with v8 coverage
 pnpm typecheck      # tsc --noEmit
@@ -94,6 +98,8 @@ Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/w
 | `src/cli/notify-feishu.ts` | Reads `manifest.json` + `highlights.json`, then calls `buildFeishuMessage` / `sendFeishu` |
 | `src/cli/close-stale-issues.ts` | Closes digest GitHub Issues older than `STALE_DAYS` (7) |
 | `src/cli/social.ts` | Xiaohongshu / WeChat article generator (local-only, writes to `social/`) |
+| `src/cli/inspect.ts` | Per-module probe dispatcher (`pnpm inspect`): arg parsing, target registry lookup, output routing, exit codes. See **Module probes** below |
+| `src/cli/inspect/` | Probe implementations, one module per group (`sources.ts`, `doc-extract.ts`, `vnmarket.ts`, `prompts.ts`, `llm.ts`, `reports.ts`, `notify.ts`), plus `kit.ts` (shared types/arg parser), `registry.ts` (the target list) and `fixtures/` (committed sample payloads) |
 
 ### `src/core/` — cross-cutting utilities
 
@@ -124,7 +130,7 @@ Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/w
 | `src/domains/finance/fred.ts` | Macro indicators from FRED (Federal Reserve Economic Data): 16 series (rates, balance sheet, VIX, yields, credit spread, oil, jobs, inflation, sentiment). JSON API when `FRED_API_KEY` is set, keyless CSV fallback otherwise |
 | `src/domains/finance/finra.ts` | FINRA margin statistics (retail leverage) — defensive HTML scrape; `fetchSuccess:false` on any parse miss |
 | `src/domains/vietnam/vnmarket.ts` | Vietnam equity-market internals: SSI iBoard HOSE+HNX board (breadth, turnover, foreign flow) + DNSE Entrade bars (VN-Index/VN30 levels, VN30F1M basis) |
-| `src/domains/vietnam/vnmacro.ts` | Vietnam macro indicators: Vietcombank USD/VND board, Yahoo Finance global drivers (DXY, US 10Y, gold, Brent, HRC, VNM ETF), World Bank annual series |
+| `src/domains/vietnam/vnmacro.ts` | Vietnam macro indicators: Vietcombank USD/VND board, Yahoo Finance global drivers (DXY, world gold, Brent, HRC, VNM ETF), FRED `DGS10` for the US 10Y, SJC domestic gold + world premium, World Bank annual series |
 | `src/domains/vietnam/vndocs.ts` | Vietnam document sources via `doc-extract`: NSO CPI + monthly socio-economic articles (HTML) and the VBMA weekly bond bulletin (PDF) |
 
 ### `src/platform/llm/` — LLM invocation
@@ -171,7 +177,18 @@ Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/w
 | `src/platform/notify/telegram.ts` | Telegram message building + delivery; exports `buildMessage`, `sendTelegram`, `Highlights` |
 | `src/platform/notify/feishu.ts` | Feishu (Lark) card message building + delivery; exports `buildFeishuMessage`, `sendFeishu`, `getWebhookUrls` |
 
-Vitest unit tests live in `src/__tests__/`.
+Vitest tests live in `src/__tests__/`, in two layers:
+
+- **Mocked unit tests** (`src/__tests__/*.test.ts`) — parse/transform logic against stubbed `fetch`. Fast, offline, deterministic. These catch *our* regressions.
+- **Live source contracts** (`src/__tests__/live/*.live.test.ts`) — call every `domains/` fetcher against the real endpoint and assert the fields the reports depend on are still populated. These catch *upstream* changes. Every fetcher maps a missing upstream field to `""`, `0` or `null` instead of throwing, so a renamed field never surfaces as an error — it surfaces as a well-formed object full of blanks. `expectPopulated` in `src/__tests__/live/contract.ts` is what turns that silent degradation into a red test naming the exact field.
+
+Live-test conventions:
+- Assert *shape and populatedness*, never an exact count, a specific item, or a value that moves with the market.
+- Use `LIVE_OPTS` (90 s timeout, `retry: 2`). Retries cover transient throttling — Yahoo rate-limits when several symbols are requested at once — while a real format change still fails all three attempts.
+- Sources needing a secret use `it.skipIf(!hasEnv("..."))`; `contract.ts` loads `dotenv` so local `.env` credentials are picked up.
+- A source with intentionally empty output must be asserted on what it *does* produce: `web`'s OpenAI half is `metadataOnly` (its article pages 403 from datacenter IPs), so asserting non-empty `content` there would fail permanently and train everyone to ignore the suite.
+
+**`pnpm test` therefore requires network access and takes ~60 s.** This is deliberate — the point is to learn when a source changes format. CI runs it too, so a third-party outage will turn the build red.
 
 Outside `src/`:
 
@@ -209,7 +226,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-hf.md` | `hf` | Skipped if the Hugging Face fetch fails |
 | `ai-community.md` | `community` | Dev.to + Lobste.rs; skipped if both fail |
 | `fin-macro.md` | `macro` | Macro market dashboard (FRED + FINRA); skipped if FRED fails. FINRA is supplementary. Uses the `fin-` prefix — a parallel financial section |
-| `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
+| `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + FRED + SJC + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
 | `highlights.json` | — | Bullet-point highlights per report (zh + en), consumed by notifications |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
@@ -231,7 +248,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - **FRED** (macro): Federal Reserve Economic Data — 16 series (`DFF`, `WALCL`, `VIXCLS`, `DGS10`, `T10Y2Y`, `BAMLH0A0HYM2`, `DCOILWTICO`, `DCOILBRENTEU`, `UNRATE`, `ICSA`, `PAYEMS`, `CPIAUCSL`, `CPILFESL`, `PCEPILFE`, `PPIFIS`, `UMCSENT`). Official + free; JSON API needs `FRED_API_KEY`, else keyless CSV. Series catalog + design notes in `.agent/specs/financial_data_sources.md` (git-ignored, local-only)
 - **FINRA** (retail leverage): monthly margin-debt statistics, scraped from finra.org (no official API)
 - **Vietnam market** (`domains/vietnam/vnmarket.ts`): SSI iBoard `stock/exchange/{hose,hnx}` price board + DNSE Entrade `chart-api/v2/ohlcs/{index,derivative}` for VNINDEX / VN30 / VN30F1M. Both are undocumented internal endpoints and need a browser User-Agent
-- **Vietnam macro** (`domains/vietnam/vnmacro.ts`): Vietcombank `/api/exchangerates?date=` (USD/VND), Yahoo Finance chart API (`DX-Y.NYB`, `^TNX`, `GC=F`, `BZ=F`, `HRC=F`, `VNM`), World Bank (`FP.CPI.TOTL.ZG`, `NY.GDP.MKTP.KD.ZG`, `BX.KLT.DINV.CD.WD`, `FI.RES.TOTL.CD`)
+- **Vietnam macro** (`domains/vietnam/vnmacro.ts`): Vietcombank `/api/exchangerates?date=` (USD/VND), Yahoo Finance chart API (`DX-Y.NYB`, `GC=F`, `BZ=F`, `HRC=F`, `VNM`), FRED `DGS10` for the US 10Y (Yahoo `^TNX` is the fallback only), SJC `GoldPrice/Services/PriceService.ashx` for domestic gold, World Bank (`FP.CPI.TOTL.ZG`, `NY.GDP.MKTP.KD.ZG`, `BX.KLT.DINV.CD.WD`, `FI.RES.TOTL.CD`)
 - **Vietnam documents** (`domains/vietnam/vndocs.ts`): NSO CPI + monthly socio-economic report (HTML), VBMA weekly bond bulletin (PDF). Source catalogue and endpoint survey in `.agent/specs/vn_financial_data_sources.md`
 
 ## Key conventions
@@ -251,6 +268,8 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - `sampleNote(total, sampled, lang)` in `src/platform/prompts/shared.ts` formats the "(共 N 条，展示前 M 条)" note. Reuse it — do not inline the string format.
 - Document sources (Vietnam NSO/VBMA) go through `src/core/doc-extract.ts`, never a bespoke parser. HTML uses linkedom + Mozilla Readability — linkedom, not jsdom, because this is a batch job that parses a few pages per run. `extractArticle` strips nav/header/footer/aside **before** parsing (Readability otherwise scores NSO's mega-menu above the article body) and falls back to a tag-strip when the result is missing or under `MIN_ARTICLE_CHARS` (200). PDFs are extracted per page so `rankPages` can keep only the pages that score on macro keywords — a 13-page VBMA bulletin reduces to 4. Never send a whole document to the LLM; narrow it with `relevantExcerpt` / `rankPages` first.
 - Vietnam endpoints are undocumented internal APIs and need `BROWSER_UA` (a desktop Chrome User-Agent) plus a `Referer`; a bare fetch gets 403 or an empty body. TCBS (`apipubaws.tcbs.com.vn`) is behind a Cloudflare challenge and VNDirect (`finfo-api.vndirect.com.vn`) times out, so **aggregate VN-Index P/E and market-wide margin debt have no source** — `buildVnMacroPrompt` instructs the model to mark the signals that depend on them ❔ insufficient data rather than guess.
+- Prefer a documented API over an undocumented one wherever both carry a series: the US 10Y comes from FRED `DGS10`, not Yahoo `^TNX`, and Yahoo is wired only as the fallback. `fetchFredSeries(series, limit)` in `domains/finance/fred.ts` is the shared accessor.
+- SJC's gold board is behind a WAF that fingerprints the **TLS ClientHello**, not the headers — Node's `fetch` gets 403 with any headers (or none) while curl gets 200. `getJsonBrowserTls` in `vnmacro.ts` presents Chrome's cipher list via an undici `Agent`. Its public HTML page renders the board in JavaScript, so extraction there yields an empty shell; do not conclude a source is unavailable from the rendered page alone.
 - SSI board turnover (`nmTotalTradedValue`) is order-matched only, while `buyForeignValue` / `sellForeignValue` include put-through (block) deals. One ticker's foreign flow can therefore exceed its matched turnover. Both definitions are stated in the prompt; don't "fix" the discrepancy.
 - Web state (`digests/web-state.json`) is committed to git on every run and is the source of truth for which URLs have been seen. It is saved by the `zh` pass only in `saveWebReport`.
 
@@ -259,6 +278,19 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - `cli/notify-telegram.ts` and `cli/notify-feishu.ts` both read the latest `manifest.json` entry plus that day's `highlights.json`, then hand off to `platform/notify/telegram.ts` / `platform/notify/feishu.ts`, which build a bilingual link list with highlight sub-bullets. Both entrypoints skip silently if their secrets are unset and guard against sending when imported (only send when run directly); `buildMessage`/`buildFeishuMessage` stay exported for testing.
 - Notification/report labels live in `NOTIFY_LABELS` (`src/core/i18n/labels.ts`), keyed by report ID.
 - `cli/social.ts` is a **local-only** tool that turns recent digests into platform-specific articles (Xiaohongshu / WeChat) written to `social/`; it is not part of the automated pipeline.
+
+## Module probes (`pnpm inspect`)
+
+`pnpm start` and `pnpm test` are the only other ways to run this code — one runs everything, the other runs mocks. `pnpm inspect <target>` runs **one module** against real input and prints what it returned.
+
+- Dispatcher: `src/cli/inspect.ts` (registry lookup + arg parsing + exit codes). Implementations: `src/cli/inspect/*.ts`, one module per group; the target list lives in `src/cli/inspect/registry.ts`.
+- Target groups: data sources (`arxiv`, `devto`, `hf`, `hn`, `lobsters`, `ph`, `trending`, `web`, `fred`, `finra`, `vnmarket`, `vnmacro`, `vndocs`, `github`), pure transforms (`doc-extract:html`, `doc-extract:pdf`, `doc-extract:excerpt`, `vnmarket:aggregate`), prompt builders (`prompt:hn`, `prompt:trending`, `prompt:ph`, `prompt:arxiv`, `prompt:hf`, `prompt:community`, `prompt:web`, `prompt:macro`, `prompt:vnmacro`, `prompt:highlights`), `llm`, and dry runs (`report:macro`, `report:vnmacro`, `notify:telegram`, `notify:feishu`, `manifest`).
+- **Exit codes are the contract**: `0` = ran and produced output, `1` = ran and failed (network/parse/unexpected shape, or a source reporting `fetchSuccess: false`), `2` = skipped because a required env var is unset (`SKIPPED: <target> requires <ENV_VAR>` on stderr).
+- Results go to **stdout** (`--json` for the raw result); every diagnostic — including the probed modules' own `console.log` — is routed to **stderr** by the dispatcher. pnpm prints its run banner to stdout, so pipe with `pnpm -s inspect … --json | jq`.
+- **No side effects.** Probes never write into `digests/`, never modify `manifest.json` / `feed.xml` / `digests/web-state.json`, never create GitHub issues and cannot send notifications. `report:*` and `manifest` reach the real writers by `process.chdir`-ing into a temp dir first (both write relative to cwd), and pass an empty `digestRepo` so issue creation is skipped; the notify targets import only the message builders, never `sendTelegram` / `sendFeishu`.
+- Probe modules import domain code with `await import(...)` inside `run`, not at the top level: `platform/llm/client.ts` constructs a provider at module scope and the SDK throws on a missing key, which must surface as exit 2 rather than a crash. `platform/prompts/index.ts` is pure and is imported statically.
+- Offline modes: every prompt builder takes `--fixture <path>`, and the fixture format is exactly the `--json` output of the matching source probe (`pnpm -s inspect hn --json > hn.json`). Committed samples are in `src/cli/inspect/fixtures/` — keep each under ~50 KB, and give saved HTML a `.txt` suffix so `prettier --check src` skips it (Prettier cannot parse real-world pages).
+- This is additive tooling: probes never change the modules they probe. If something cannot be probed without a signature change, leave it unprobed and say so.
 
 ## GitHub Actions workflows
 

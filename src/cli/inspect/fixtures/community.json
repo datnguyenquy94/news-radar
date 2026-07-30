@@ -1,0 +1,264 @@
+{
+  "devto": {
+    "articles": [
+      {
+        "id": 4252295,
+        "title": "Understanding Over Origin",
+        "description": "Many of developers communities are asking the wrong question.  Not because they're wrong to worry...",
+        "url": "https://dev.to/adamthedeveloper/understanding-over-origin-4685",
+        "publishedAt": "2026-07-28T09:36:21Z",
+        "positiveReactionsCount": 47,
+        "commentsCount": 23,
+        "readingTimeMinutes": 6,
+        "tags": ["ai", "programming", "productivity", "opensource"],
+        "user": "Adam - The Developer ✨"
+      },
+      {
+        "id": 4240661,
+        "title": "Slopsquatting: The Supply Chain Attack That Weaponizes AI Hallucinations",
+        "description": "Typosquatting bets on your typo. Slopsquatting bets on your AI assistant. When a model invents a...",
+        "url": "https://dev.to/nazar-boyko/slopsquatting-the-supply-chain-attack-that-weaponizes-ai-hallucinations-2m2",
+        "publishedAt": "2026-07-28T13:28:33Z",
+        "positiveReactionsCount": 46,
+        "commentsCount": 22,
+        "readingTimeMinutes": 11,
+        "tags": ["security", "ai", "webdev", "programming"],
+        "user": "Nazar Boyko"
+      },
+      {
+        "id": 4253939,
+        "title": "If Your AI Agent Has Write Access to Public Repos, Audit It Now — Here's Why",
+        "description": "One word broke into a private repository this month. Not a zero-day. Not stolen credentials. Not...",
+        "url": "https://dev.to/harsh2644/if-your-ai-agent-has-write-access-to-public-repos-audit-it-now-heres-why-29bb",
+        "publishedAt": "2026-07-28T11:56:47Z",
+        "positiveReactionsCount": 27,
+        "commentsCount": 8,
+        "readingTimeMinutes": 6,
+        "tags": ["security", "ai", "webdev", "discuss"],
+        "user": "Harsh "
+      },
+      {
+        "id": 4242749,
+        "title": "How Cursor + BrowserAct Handles Dynamic Pages Without Brittle Selectors",
+        "description": "TL;DR   Modern web applications change constantly. Components are re-rendered, generated...",
+        "url": "https://dev.to/anthonymax/how-cursor-browseract-handles-dynamic-pages-without-brittle-selectors-dh4",
+        "publishedAt": "2026-07-28T08:17:28Z",
+        "positiveReactionsCount": 22,
+        "commentsCount": 10,
+        "readingTimeMinutes": 7,
+        "tags": ["webdev", "programming", "opensource", "ai"],
+        "user": "Anthony Max"
+      },
+      {
+        "id": 4256634,
+        "title": "Vibe Coding: Endgame",
+        "description": "A few months ago, my AI coding workflow looked something like...",
+        "url": "https://dev.to/konark_13/vibe-coding-endgame-3bbn",
+        "publishedAt": "2026-07-28T19:25:24Z",
+        "positiveReactionsCount": 12,
+        "commentsCount": 7,
+        "readingTimeMinutes": 6,
+        "tags": ["ai", "vibecoding", "webdev", "discuss"],
+        "user": "Konark Sharma"
+      },
+      {
+        "id": 4256220,
+        "title": "I Built a Chat App That Rewrites Its Own UI in Real Time",
+        "description": "So I had this idea that kept nagging at me.  Every AI chat app works the same way. You type...",
+        "url": "https://dev.to/varshithvhegde/i-built-a-chat-app-that-rewrites-its-own-ui-in-real-time-21m5",
+        "publishedAt": "2026-07-28T18:35:05Z",
+        "positiveReactionsCount": 11,
+        "commentsCount": 2,
+        "readingTimeMinutes": 9,
+        "tags": ["ai", "agents", "webdev", "productivity"],
+        "user": "Varshith V Hegde"
+      },
+      {
+        "id": 4227674,
+        "title": "[Learning Notes][Golang] Authorization Challenges in the AI Agent Era: What is ID-JAG and Why I Re-implemented It in Go",
+        "description": "Preface:   In the past six months or so, connecting AI Agents directly to internal systems...",
+        "url": "https://dev.to/gde/learning-notesgolang-authorization-challenges-in-the-ai-agent-era-what-is-id-jag-and-why-i-jfb",
+        "publishedAt": "2026-07-28T05:12:52Z",
+        "positiveReactionsCount": 8,
+        "commentsCount": 4,
+        "readingTimeMinutes": 10,
+        "tags": ["agents", "ai", "go", "security"],
+        "user": "Evan Lin"
+      },
+      {
+        "id": 4189287,
+        "title": "Your Face on a World Cup Sticker: Our Nano Banana Story",
+        "description": "There is something timeless about opening a pack of football stickers. You never know which player,...",
+        "url": "https://dev.to/gde/your-face-on-a-world-cup-sticker-our-nano-banana-story-43p6",
+        "publishedAt": "2026-07-28T11:09:48Z",
+        "positiveReactionsCount": 8,
+        "commentsCount": 0,
+        "readingTimeMinutes": 8,
+        "tags": ["ai", "nanobanana", "gemini", "promptengineering"],
+        "user": "Julien Landuré"
+      },
+      {
+        "id": 4246649,
+        "title": "AgentForger: One Link Forges an AI Insider in Your Org",
+        "description": "Zenity disclosed AgentForger, a ChatGPT Workspace Agents flaw where one phishing link forged a persistent AI insider. OpenAI fixed it in four days.",
+        "url": "https://dev.to/lukeocodes/agentforger-one-link-forges-an-ai-insider-in-your-org-20p0",
+        "publishedAt": "2026-07-27T16:07:47Z",
+        "positiveReactionsCount": 6,
+        "commentsCount": 0,
+        "readingTimeMinutes": 6,
+        "tags": ["ai", "security", "openai", "agents"],
+        "user": "@lukeocodes 🕹👨‍💻"
+      },
+      {
+        "id": 4256228,
+        "title": "Building AI Agents with the Kotlin Agent Development Kit (ADK)",
+        "description": "This tutorial builds a starter \"Hello World\" style agent using Kotlin and the native Kotlin version...",
+        "url": "https://dev.to/gde/building-ai-agents-with-the-kotlin-agent-development-kit-adk-2gpa",
+        "publishedAt": "2026-07-28T18:25:43Z",
+        "positiveReactionsCount": 6,
+        "commentsCount": 1,
+        "readingTimeMinutes": 5,
+        "tags": ["kotlin", "ai", "gemini", "webdev"],
+        "user": "xbill"
+      },
+      {
+        "id": 4247090,
+        "title": "OpenAI Expands GPT-Live ChatGPT Voice to Enterprise Workspaces Worldwide",
+        "description": "OpenAI has expanded GPT-Live in ChatGPT Voice to Edu, Business, and Enterprise plans globally,...",
+        "url": "https://dev.to/alifar/openai-expands-gpt-live-chatgpt-voice-to-enterprise-workspaces-worldwide-1nme",
+        "publishedAt": "2026-07-28T13:40:43Z",
+        "positiveReactionsCount": 6,
+        "commentsCount": 0,
+        "readingTimeMinutes": 4,
+        "tags": ["ai", "automation", "tools", "openai"],
+        "user": "Ali Farhat"
+      },
+      {
+        "id": 4252036,
+        "title": "Claude Opus 5 is Here: What Developers Need to Know About the Safety \"Fine Print\"",
+        "description": "Anthropic just dropped Claude Opus 5, and if you’ve been scrolling through X or LinkedIn, you’ve...",
+        "url": "https://dev.to/alessandro_pignati/claude-opus-5-is-here-what-developers-need-to-know-about-the-safety-fine-print-27dm",
+        "publishedAt": "2026-07-28T08:37:11Z",
+        "positiveReactionsCount": 5,
+        "commentsCount": 0,
+        "readingTimeMinutes": 3,
+        "tags": ["ai", "cybersecurity", "machinelearning", "agents"],
+        "user": "Alessandro Pignati"
+      },
+      {
+        "id": 4250746,
+        "title": "Building an MCP Server with TypeScript from Scratch",
+        "description": "The Model Context Protocol (MCP) has a fragmentation problem in its documentation: most examples are...",
+        "url": "https://dev.to/kristinz/building-an-mcp-server-with-typescript-from-scratch-65f",
+        "publishedAt": "2026-07-28T06:12:03Z",
+        "positiveReactionsCount": 5,
+        "commentsCount": 5,
+        "readingTimeMinutes": 7,
+        "tags": ["ai", "llm", "typescript", "agents"],
+        "user": "KristinZ"
+      },
+      {
+        "id": 4255196,
+        "title": "We Build a Kubernetes Dashboard. AI Agents Might Make It Obsolete.",
+        "description": "The honest bear case against our own product: if agents operate the cluster, who needs the UI? What actually dies, and the job that gets bigger.",
+        "url": "https://dev.to/dovzhikova/we-build-a-kubernetes-dashboard-ai-agents-might-make-it-obsolete-4cm4",
+        "publishedAt": "2026-07-28T14:37:23Z",
+        "positiveReactionsCount": 5,
+        "commentsCount": 0,
+        "readingTimeMinutes": 8,
+        "tags": ["kubernetes", "devops", "ai", "opensource"],
+        "user": "Daria Dovzhikova"
+      },
+      {
+        "id": 4258621,
+        "title": "I Added a Second Brain to My RL Agent - Day 7 (Actor-Critic)",
+        "description": "SERIES: Learning RL and JAX in Public - from zero to DeepMind.     Day 6 ended with REINFORCE...",
+        "url": "https://dev.to/madhumithakolkar/i-added-a-second-brain-to-my-rl-agent-day-7-actor-critic-45h8",
+        "publishedAt": "2026-07-29T04:05:19Z",
+        "positiveReactionsCount": 5,
+        "commentsCount": 0,
+        "readingTimeMinutes": 3,
+        "tags": ["ai", "machinelearning", "deeplearning", "python"],
+        "user": "Madhumitha Kolkar"
+      }
+    ],
+    "fetchSuccess": true
+  },
+  "lobsters": {
+    "stories": [
+      {
+        "title": "Taking OCaml and Eio for a spin",
+        "url": "https://mattjhall.co.uk/posts/taking-ocaml-eio-for-a-spin.html",
+        "commentsUrl": "https://lobste.rs/s/mush3s/taking_ocaml_eio_for_spin",
+        "score": 22,
+        "commentCount": 9,
+        "publishedAt": "2026-07-22T16:33:17.848-05:00",
+        "tags": ["ml"]
+      },
+      {
+        "title": "Open Weights and American AI Leadership",
+        "url": "https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/",
+        "commentsUrl": "https://lobste.rs/s/gqgbrz/open_weights_american_ai_leadership",
+        "score": 14,
+        "commentCount": 14,
+        "publishedAt": "2026-07-24T09:01:24.514-05:00",
+        "tags": ["ai"]
+      },
+      {
+        "title": "What Rose Petals Teach Us about Induction",
+        "url": "https://www.oranlooney.com/post/rose-petals/",
+        "commentsUrl": "https://lobste.rs/s/wwelib/what_rose_petals_teach_us_about_induction",
+        "score": 12,
+        "commentCount": 0,
+        "publishedAt": "2026-07-22T23:02:57.635-05:00",
+        "tags": ["ai", "cogsci"]
+      },
+      {
+        "title": "Xavier Leroy on programming, languages and formal verification",
+        "url": "https://www.youtube.com/watch?v=9Cswiqrq6So",
+        "commentsUrl": "https://lobste.rs/s/oviysl/xavier_leroy_on_programming_languages",
+        "score": 11,
+        "commentCount": 0,
+        "publishedAt": "2026-07-26T09:59:29.185-05:00",
+        "tags": ["formalmethods", "ml", "video"]
+      },
+      {
+        "title": "Languages as designed latent spaces",
+        "url": "https://blog.jsbarretto.com/post/languages-as-latent-spaces",
+        "commentsUrl": "https://lobste.rs/s/ljg2qr/languages_as_designed_latent_spaces",
+        "score": 8,
+        "commentCount": 1,
+        "publishedAt": "2026-07-25T10:13:27.807-05:00",
+        "tags": ["ai", "plt"]
+      },
+      {
+        "title": "A tour of MLIR: The Dialect Stack Everyone Depends On",
+        "url": "https://hiraditya.github.io/posts/mlir-dialect-stack-for-ml/",
+        "commentsUrl": "https://lobste.rs/s/o9vjlt/tour_mlir_dialect_stack_everyone_depends",
+        "score": 5,
+        "commentCount": 0,
+        "publishedAt": "2026-07-23T23:54:16.037-05:00",
+        "tags": ["ai"]
+      },
+      {
+        "title": "Two years of vector search at Notion: 10x scale, 1/10th cost",
+        "url": "https://www.notion.com/blog/two-years-of-vector-search-at-notion",
+        "commentsUrl": "https://lobste.rs/s/1xbtlo/two_years_vector_search_at_notion_10x",
+        "score": 1,
+        "commentCount": 0,
+        "publishedAt": "2026-07-22T05:09:50.794-05:00",
+        "tags": ["ai", "scaling"]
+      },
+      {
+        "title": "Not just development, distribution of software may change as well",
+        "url": "https://antirez.com/news/170",
+        "commentsUrl": "https://lobste.rs/s/wfural/not_just_development_distribution",
+        "score": 0,
+        "commentCount": 0,
+        "publishedAt": "2026-07-23T09:16:07.097-05:00",
+        "tags": ["ai", "practices", "vibecoding"]
+      }
+    ],
+    "fetchSuccess": true
+  }
+}

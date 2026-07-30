@@ -1,0 +1,259 @@
+{
+  "fred": {
+    "metrics": [
+      {
+        "id": "fed-funds",
+        "series": "DFF",
+        "group": "liquidity",
+        "label": {
+          "zh": "联邦基金利率",
+          "en": "Fed Funds Rate"
+        },
+        "unit": "%",
+        "decimals": 2,
+        "latest": 3.63,
+        "prior": 3.63,
+        "change": 0,
+        "asOf": "2026-07-27"
+      },
+      {
+        "id": "fed-balance-sheet",
+        "series": "WALCL",
+        "group": "liquidity",
+        "label": {
+          "zh": "美联储资产负债表",
+          "en": "Fed Balance Sheet"
+        },
+        "unit": "$T",
+        "decimals": 2,
+        "latest": 6.75,
+        "prior": 6.74,
+        "change": 0.01,
+        "asOf": "2026-07-22"
+      },
+      {
+        "id": "vix",
+        "series": "VIXCLS",
+        "group": "liquidity",
+        "label": {
+          "zh": "VIX 波动率指数",
+          "en": "VIX Volatility Index"
+        },
+        "unit": "",
+        "decimals": 2,
+        "latest": 18.67,
+        "prior": 18.58,
+        "change": 0.09,
+        "asOf": "2026-07-27"
+      },
+      {
+        "id": "treasury-10y",
+        "series": "DGS10",
+        "group": "yields_credit",
+        "label": {
+          "zh": "10 年期美债收益率",
+          "en": "10Y Treasury Yield"
+        },
+        "unit": "%",
+        "decimals": 2,
+        "latest": 4.65,
+        "prior": 4.69,
+        "change": -0.04,
+        "asOf": "2026-07-27"
+      },
+      {
+        "id": "yield-spread-10y-2y",
+        "series": "T10Y2Y",
+        "group": "yields_credit",
+        "label": {
+          "zh": "10Y-2Y 利差",
+          "en": "10Y-2Y Spread"
+        },
+        "unit": "%",
+        "decimals": 2,
+        "latest": 0.35,
+        "prior": 0.34,
+        "change": 0.01,
+        "asOf": "2026-07-28"
+      },
+      {
+        "id": "hy-credit-spread",
+        "series": "BAMLH0A0HYM2",
+        "group": "yields_credit",
+        "label": {
+          "zh": "高收益债信用利差 (OAS)",
+          "en": "High-Yield Credit Spread (OAS)"
+        },
+        "unit": "%",
+        "decimals": 2,
+        "latest": 2.81,
+        "prior": 2.79,
+        "change": 0.02,
+        "asOf": "2026-07-27"
+      },
+      {
+        "id": "oil-wti",
+        "series": "DCOILWTICO",
+        "group": "yields_credit",
+        "label": {
+          "zh": "WTI 原油",
+          "en": "WTI Crude Oil"
+        },
+        "unit": "$/bbl",
+        "decimals": 2,
+        "latest": 84.38,
+        "prior": 83.43,
+        "change": 0.95,
+        "asOf": "2026-07-20"
+      },
+      {
+        "id": "oil-brent",
+        "series": "DCOILBRENTEU",
+        "group": "yields_credit",
+        "label": {
+          "zh": "布伦特原油",
+          "en": "Brent Crude Oil"
+        },
+        "unit": "$/bbl",
+        "decimals": 2,
+        "latest": 86.99,
+        "prior": 85.01,
+        "change": 1.98,
+        "asOf": "2026-07-20"
+      },
+      {
+        "id": "unemployment",
+        "series": "UNRATE",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "失业率",
+          "en": "Unemployment Rate"
+        },
+        "unit": "%",
+        "decimals": 1,
+        "latest": 4.2,
+        "prior": 4.3,
+        "change": -0.1,
+        "asOf": "2026-06-01"
+      },
+      {
+        "id": "jobless-claims",
+        "series": "ICSA",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "初请失业金人数",
+          "en": "Initial Jobless Claims"
+        },
+        "unit": "",
+        "decimals": 0,
+        "latest": 187000,
+        "prior": 209000,
+        "change": -22000,
+        "asOf": "2026-07-18"
+      },
+      {
+        "id": "nonfarm-payrolls",
+        "series": "PAYEMS",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "非农就业 (环比新增)",
+          "en": "Nonfarm Payrolls (MoM chg)"
+        },
+        "unit": "K",
+        "decimals": 0,
+        "latest": 57,
+        "prior": 129,
+        "change": -72,
+        "asOf": "2026-06-01"
+      },
+      {
+        "id": "cpi",
+        "series": "CPIAUCSL",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "CPI",
+          "en": "CPI"
+        },
+        "unit": "% YoY",
+        "decimals": 1,
+        "latest": 3.7,
+        "prior": null,
+        "change": null,
+        "asOf": "2026-06-01"
+      },
+      {
+        "id": "core-cpi",
+        "series": "CPILFESL",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "核心 CPI",
+          "en": "Core CPI"
+        },
+        "unit": "% YoY",
+        "decimals": 1,
+        "latest": 2.8,
+        "prior": null,
+        "change": null,
+        "asOf": "2026-06-01"
+      },
+      {
+        "id": "core-pce",
+        "series": "PCEPILFE",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "核心 PCE",
+          "en": "Core PCE"
+        },
+        "unit": "% YoY",
+        "decimals": 1,
+        "latest": 3.4,
+        "prior": 3.3,
+        "change": 0.1,
+        "asOf": "2026-05-01"
+      },
+      {
+        "id": "ppi",
+        "series": "PPIFIS",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "PPI (最终需求)",
+          "en": "PPI (Final Demand)"
+        },
+        "unit": "% YoY",
+        "decimals": 1,
+        "latest": 5.5,
+        "prior": 6,
+        "change": -0.5,
+        "asOf": "2026-06-01"
+      },
+      {
+        "id": "consumer-sentiment",
+        "series": "UMCSENT",
+        "group": "econ_inflation",
+        "label": {
+          "zh": "密歇根消费者信心 (代理指标)",
+          "en": "UMich Consumer Sentiment (proxy)"
+        },
+        "unit": "",
+        "decimals": 1,
+        "latest": 44.8,
+        "prior": 49.8,
+        "change": -5,
+        "asOf": "2026-05-01"
+      }
+    ],
+    "fetchSuccess": true
+  },
+  "finra": {
+    "latest": {
+      "period": "Jun-26",
+      "debitMillions": 1502072
+    },
+    "prior": {
+      "period": "May-26",
+      "debitMillions": 1415557
+    },
+    "changePct": 6.1,
+    "fetchSuccess": true
+  }
+}

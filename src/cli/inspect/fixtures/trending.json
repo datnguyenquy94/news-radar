@@ -1,0 +1,349 @@
+{
+  "trendingRepos": [
+    {
+      "fullName": "pascalorg/editor",
+      "description": "Create and share 3D architectural projects.",
+      "language": "TypeScript",
+      "todayStars": 341,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/pascalorg/editor"
+    },
+    {
+      "fullName": "jenkinsci/jenkins",
+      "description": "Jenkins automation server",
+      "language": "Java",
+      "todayStars": 180,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/jenkinsci/jenkins"
+    },
+    {
+      "fullName": "moeru-ai/airi",
+      "description": "💖🧸 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported.",
+      "language": "TypeScript",
+      "todayStars": 797,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/moeru-ai/airi"
+    },
+    {
+      "fullName": "andrewyng/aisuite",
+      "description": "Simple, unified interface to multiple Generative AI providers",
+      "language": "Python",
+      "todayStars": 62,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/andrewyng/aisuite"
+    },
+    {
+      "fullName": "affaan-m/ECC",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "language": "JavaScript",
+      "todayStars": 636,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/affaan-m/ECC"
+    },
+    {
+      "fullName": "hello245m/free-stockdb",
+      "description": "面向 A 股日K、分钟K与ETF分钟数据的本地量化引擎，集成增量同步、本地缓存、复权、批量查询、回测与指标计算。",
+      "language": "HTML",
+      "todayStars": 50,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/hello245m/free-stockdb"
+    },
+    {
+      "fullName": "huggingface/speech-to-speech",
+      "description": "Build local voice agents with open-source models",
+      "language": "Python",
+      "todayStars": 227,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/huggingface/speech-to-speech"
+    },
+    {
+      "fullName": "virgiliojr94/book-to-skill",
+      "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+      "language": "Python",
+      "todayStars": 423,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/virgiliojr94/book-to-skill"
+    },
+    {
+      "fullName": "opengeos/GeoLibre",
+      "description": "A lightweight, cloud-native GIS platform for visualizing, exploring, and analyzing geospatial data. It runs in the web browser, on the desktop, on mobile, and inside Jupyter notebooks.",
+      "language": "TypeScript",
+      "todayStars": 607,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/opengeos/GeoLibre"
+    },
+    {
+      "fullName": "paperswithbacktest/awesome-systematic-trading",
+      "description": "A curated list of awesome libraries, packages, strategies, books, blogs, tutorials for systematic trading.",
+      "language": "Python",
+      "todayStars": 309,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/paperswithbacktest/awesome-systematic-trading"
+    },
+    {
+      "fullName": "microsoft/agent-governance-toolkit",
+      "description": "AI Agent Governance Toolkit — Policy enforcement, zero-trust identity, execution sandboxing, and reliability engineering for autonomous AI agents. Covers 10/10 OWASP Agentic Top 10.",
+      "language": "Python",
+      "todayStars": 46,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/microsoft/agent-governance-toolkit"
+    },
+    {
+      "fullName": "yorukot/superfile",
+      "description": "Pretty fancy and modern terminal file manager",
+      "language": "Go",
+      "todayStars": 662,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/yorukot/superfile"
+    },
+    {
+      "fullName": "bradautomates/claude-video",
+      "description": "Give Claude the ability to watch any video. /watch downloads, extracts frames, transcribes, hands it all to Claude.",
+      "language": "Python",
+      "todayStars": 988,
+      "totalStars": 0,
+      "forks": 0,
+      "url": "https://github.com/bradautomates/claude-video"
+    }
+  ],
+  "searchRepos": [
+    {
+      "fullName": "affaan-m/ECC",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "language": "JavaScript",
+      "stargazersCount": 234978,
+      "pushedAt": "2026-07-29T01:37:41Z",
+      "url": "https://github.com/affaan-m/ECC",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "NousResearch/hermes-agent",
+      "description": "The agent that grows with you",
+      "language": "Python",
+      "stargazersCount": 221993,
+      "pushedAt": "2026-07-29T04:47:48Z",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "Significant-Gravitas/AutoGPT",
+      "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "language": "Python",
+      "stargazersCount": 185738,
+      "pushedAt": "2026-07-29T03:37:40Z",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "ollama/ollama",
+      "description": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+      "language": "Go",
+      "stargazersCount": 177149,
+      "pushedAt": "2026-07-29T02:06:29Z",
+      "url": "https://github.com/ollama/ollama",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "f/prompts.chat",
+      "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "language": "HTML",
+      "stargazersCount": 166489,
+      "pushedAt": "2026-07-29T04:05:58Z",
+      "url": "https://github.com/f/prompts.chat",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "huggingface/transformers",
+      "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+      "language": "Python",
+      "stargazersCount": 163086,
+      "pushedAt": "2026-07-29T04:41:23Z",
+      "url": "https://github.com/huggingface/transformers",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "firecrawl/firecrawl",
+      "description": "The API to search, scrape, and interact with the web at scale. 🔥",
+      "language": "TypeScript",
+      "stargazersCount": 157612,
+      "pushedAt": "2026-07-29T03:44:34Z",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "langgenius/dify",
+      "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+      "language": "TypeScript",
+      "stargazersCount": 150620,
+      "pushedAt": "2026-07-29T04:26:52Z",
+      "url": "https://github.com/langgenius/dify",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "open-webui/open-webui",
+      "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+      "language": "Python",
+      "stargazersCount": 147143,
+      "pushedAt": "2026-07-27T23:39:39Z",
+      "url": "https://github.com/open-webui/open-webui",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "langchain-ai/langchain",
+      "description": "The agent engineering platform.",
+      "language": "Python",
+      "stargazersCount": 142833,
+      "pushedAt": "2026-07-29T00:59:10Z",
+      "url": "https://github.com/langchain-ai/langchain",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "browser-use/browser-use",
+      "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "language": "Python",
+      "stargazersCount": 107154,
+      "pushedAt": "2026-07-27T17:25:46Z",
+      "url": "https://github.com/browser-use/browser-use",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "rasbt/LLMs-from-scratch",
+      "description": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "language": "Jupyter Notebook",
+      "stargazersCount": 100069,
+      "pushedAt": "2026-07-27T00:38:42Z",
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "harry0703/MoneyPrinterTurbo",
+      "description": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+      "language": "Python",
+      "stargazersCount": 99905,
+      "pushedAt": "2026-07-28T02:02:41Z",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "Graphify-Labs/graphify",
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "language": "Python",
+      "stargazersCount": 97893,
+      "pushedAt": "2026-07-28T09:52:46Z",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "JuliusBrussee/caveman",
+      "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
+      "language": "JavaScript",
+      "stargazersCount": 94015,
+      "pushedAt": "2026-07-26T16:53:51Z",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "searchQuery": "llm"
+    },
+    {
+      "fullName": "jingyaogong/minimind",
+      "description": "🧠「大模型」2小时完全从0训练64M的小参数LLM！Train a 64M-parameter LLM from scratch in just 2h!",
+      "language": "Python",
+      "stargazersCount": 53985,
+      "pushedAt": "2026-07-23T03:11:40Z",
+      "url": "https://github.com/jingyaogong/minimind",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "The-Pocket/PocketFlow",
+      "description": "Pocket Flow: 100-line LLM framework. Let Agents build Agents!",
+      "language": "Python",
+      "stargazersCount": 11057,
+      "pushedAt": "2026-07-26T16:13:20Z",
+      "url": "https://github.com/The-Pocket/PocketFlow",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "0xPlaygrounds/rig",
+      "description": "⚙️🦀 Build modular and scalable LLM Applications in Rust",
+      "language": "Rust",
+      "stargazersCount": 8084,
+      "pushedAt": "2026-07-29T04:35:09Z",
+      "url": "https://github.com/0xPlaygrounds/rig",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "open-compass/opencompass",
+      "description": "OpenCompass is an LLM evaluation platform, supporting a wide range of models (Llama3, Mistral, InternLM2,GPT-4,LLaMa2, Qwen,GLM, Claude, etc) over 100+ datasets.",
+      "language": "Python",
+      "stargazersCount": 7242,
+      "pushedAt": "2026-07-28T07:09:38Z",
+      "url": "https://github.com/open-compass/opencompass",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "Eigenwise/atomic-agents",
+      "description": "Building AI agents, atomically",
+      "language": "Python",
+      "stargazersCount": 6097,
+      "pushedAt": "2026-07-25T08:51:08Z",
+      "url": "https://github.com/Eigenwise/atomic-agents",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "skyzh/tiny-llm",
+      "description": "A course of learning LLM inference serving on Apple Silicon for systems engineers: build a tiny vLLM + Qwen.",
+      "language": "Python",
+      "stargazersCount": 4422,
+      "pushedAt": "2026-07-28T05:20:22Z",
+      "url": "https://github.com/skyzh/tiny-llm",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "genieincodebottle/generative-ai",
+      "description": "Comprehensive resources on Generative AI, including a detailed roadmap, projects, use cases, interview preparation, and coding preparation.",
+      "language": "Jupyter Notebook",
+      "stargazersCount": 2573,
+      "pushedAt": "2026-07-25T07:26:53Z",
+      "url": "https://github.com/genieincodebottle/generative-ai",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "samchon/nestia",
+      "description": "NestJS Helper + AI Chatbot Development",
+      "language": "TypeScript",
+      "stargazersCount": 2173,
+      "pushedAt": "2026-07-23T05:35:49Z",
+      "url": "https://github.com/samchon/nestia",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "thinkwee/AgentsMeetRL",
+      "description": "Awesome List for Agentic RL",
+      "language": "HTML",
+      "stargazersCount": 1733,
+      "pushedAt": "2026-07-23T17:07:03Z",
+      "url": "https://github.com/thinkwee/AgentsMeetRL",
+      "searchQuery": "llm-model"
+    },
+    {
+      "fullName": "llm-jp/awesome-japanese-llm",
+      "description": "日本語LLMまとめ - Overview of Japanese LLMs",
+      "language": "TypeScript",
+      "stargazersCount": 1422,
+      "pushedAt": "2026-07-25T06:06:04Z",
+      "url": "https://github.com/llm-jp/awesome-japanese-llm",
+      "searchQuery": "llm-model"
+    }
+  ],
+  "trendingFetchSuccess": true
+}

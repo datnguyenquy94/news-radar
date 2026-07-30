@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseVcbUsd } from "../domains/vietnam/vnmacro.ts";
+import { parseVcbUsd, parseSjcGold } from "../domains/vietnam/vnmacro.ts";
 
 describe("parseVcbUsd", () => {
   const board = {
@@ -35,5 +35,49 @@ describe("parseVcbUsd", () => {
       Data: [{ currencyCode: "usd", sell: "26,510" }],
     });
     expect(result).toEqual({ transfer: 26_510, sell: 26_510, asOf: "2026-07-28" });
+  });
+});
+
+describe("parseSjcGold", () => {
+  const board = {
+    success: true,
+    latestDate: "14:26 29/07/2026",
+    data: [
+      {
+        Id: 1,
+        TypeName: "Vàng SJC 1L, 10L, 1KG",
+        BranchName: "Hồ Chí Minh",
+        BuyValue: 137_500_000,
+        SellValue: 141_500_000,
+      },
+      {
+        Id: 17,
+        TypeName: "Vàng SJC 5 chỉ",
+        BranchName: "Hồ Chí Minh",
+        BuyValue: 137_500_000,
+        SellValue: 141_700_000,
+      },
+    ],
+  };
+
+  it("picks the benchmark 1L bar, not a smaller denomination", () => {
+    expect(parseSjcGold(board)).toEqual({
+      buy: 137_500_000,
+      sell: 141_500_000,
+      asOf: "14:26 29/07/2026",
+    });
+  });
+
+  it("falls back to any SJC row when the 1L bar is absent", () => {
+    const result = parseSjcGold({
+      latestDate: "09:00 29/07/2026",
+      data: [{ TypeName: "Vàng SJC 5 chỉ", BuyValue: 1, SellValue: 141_700_000 }],
+    });
+    expect(result?.sell).toBe(141_700_000);
+  });
+
+  it("returns null on an empty or unpriced board", () => {
+    expect(parseSjcGold({})).toBeNull();
+    expect(parseSjcGold({ data: [{ TypeName: "Vàng SJC 1L", SellValue: 0 }] })).toBeNull();
   });
 });

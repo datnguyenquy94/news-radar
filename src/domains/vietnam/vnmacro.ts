@@ -5,18 +5,32 @@
  *   1. Vietcombank exchange-rate API — the USD/VND commercial board. VND
  *      stability is the binding constraint on SBV policy, so this is the single
  *      most load-bearing number in the framework.
- *   2. Yahoo Finance chart API — DXY, US 10Y, gold, Brent and the VanEck VNM
- *      ETF. These are the *drivers* of USD/VND pressure; without them the FX
- *      reading is purely backward-looking.
- *   3. World Bank — CPI, GDP growth, FDI and reserves for Viet Nam. Annual and
+ *   2. Yahoo Finance chart API — DXY, world gold, Brent, HRC steel and the
+ *      VanEck VNM ETF. These are the *drivers* of USD/VND pressure; without
+ *      them the FX reading is purely backward-looking.
+ *   3. FRED — the US 10-year yield. Yahoo carries `^TNX` too, but FRED is a
+ *      documented product with an SLA where Yahoo is an undocumented endpoint,
+ *      so FRED is primary and Yahoo is only the fallback.
+ *   4. SJC — the domestic gold board, and the domestic-vs-world premium it
+ *      implies once converted at the VCB rate. Gold is the competing retail
+ *      asset: money leaving bank deposits in Vietnam does not automatically
+ *      arrive in equities, and a widening premium is a direct read on VND
+ *      confidence.
+ *   5. World Bank — CPI, GDP growth, FDI and reserves for Viet Nam. Annual and
  *      lagged, so it serves as the level/sanity anchor, not the live feed.
  *
  * Note the XML feed at `vietcombank.com.vn/ExchangeRates/ExrateXML.aspx` that
  * older source catalogues recommend now 302s to a 404 page; the JSON by-date
- * endpoint used here is what still answers.
+ * endpoint used here is what still answers. SJC is the mirror-image trap: its
+ * public page renders the board in JavaScript and extracts as an empty shell,
+ * so the source looks unavailable until you find the JSON endpoint behind it —
+ * which then needs a browser-like TLS handshake (see `CHROME_CIPHERS`).
  */
 
+import { Agent, request } from "undici";
+
 import { BROWSER_UA } from "../../core/doc-extract.ts";
+import { fetchFredSeries, type Observation } from "../finance/fred.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------
@@ -55,10 +69,27 @@ export interface VnAnnualMetric {
   year: string;
 }
 
+/**
+ * The domestic gold board and what it implies about the dong.
+ *
+ * SJC quotes in VND per *lượng* (tael); the premium is only meaningful once
+ * that is converted to USD per troy ounce at the same day's VCB rate and
+ * compared with the world price.
+ */
+export interface VnGold {
+  buyVndPerTael: number;
+  sellVndPerTael: number;
+  sellUsdPerOz: number | null; // converted at the VCB sell rate
+  worldUsdPerOz: number | null; // COMEX GC=F
+  premiumPct: number | null; // domestic over world
+  asOf: string; // as reported by SJC
+}
+
 export interface VnMacroData {
   fx: VnFxRate | null;
   global: VnGlobalMetric[];
   annual: VnAnnualMetric[];
+  gold: VnGold | null;
   fetchSuccess: boolean;
 }
 
@@ -78,13 +109,6 @@ const GLOBAL_SERIES: {
     symbol: "DX-Y.NYB",
     label: { zh: "美元指数 (DXY)", en: "US Dollar Index (DXY)" },
     unit: "",
-    decimals: 2,
-  },
-  {
-    id: "us-10y",
-    symbol: "^TNX",
-    label: { zh: "美国 10 年期国债收益率", en: "US 10Y Treasury Yield" },
-    unit: "%",
     decimals: 2,
   },
   {
@@ -144,7 +168,22 @@ const ANNUAL_SERIES: { id: string; indicator: string; label: Record<Lang, string
   },
 ];
 
+/**
+ * The US 10-year, sourced from FRED rather than from Yahoo's `^TNX`. Yahoo is
+ * kept as a fallback only — see the module header.
+ */
+const US_10Y: { id: string; series: string; fallbackSymbol: string; label: Record<Lang, string> } = {
+  id: "us-10y",
+  series: "DGS10",
+  fallbackSymbol: "^TNX",
+  label: { zh: "美国 10 年期国债收益率", en: "US 10Y Treasury Yield" },
+};
+
 const VCB_API = "https://www.vietcombank.com.vn/api/exchangerates";
+const SJC_API = "https://sjc.com.vn/GoldPrice/Services/PriceService.ashx";
+
+/** 1 lượng (tael) = 37.5 g; 1 troy ounce = 31.1034768 g. */
+const OZ_PER_TAEL = 37.5 / 31.1034768;
 const YAHOO_CHART = "https://query1.finance.yahoo.com/v8/finance/chart";
 const WORLD_BANK = "https://api.worldbank.org/v2/country/VNM/indicator";
 
@@ -173,6 +212,58 @@ async function getJson<T>(url: string, referer?: string): Promise<T> {
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Chrome's TLS cipher list, in Chrome's order.
+ *
+ * SJC sits behind a WAF that fingerprints the TLS ClientHello rather than the
+ * HTTP headers: curl gets 200 while Node gets 403 over both HTTP/1.1 and
+ * HTTP/2, with identical headers and even with no headers at all. Presenting
+ * Chrome's cipher suite is what gets Node through. Only SJC needs this — every
+ * other endpoint in this module answers a plain `fetch`.
+ */
+const CHROME_CIPHERS = [
+  "TLS_AES_128_GCM_SHA256",
+  "TLS_AES_256_GCM_SHA384",
+  "TLS_CHACHA20_POLY1305_SHA256",
+  "ECDHE-ECDSA-AES128-GCM-SHA256",
+  "ECDHE-RSA-AES128-GCM-SHA256",
+  "ECDHE-ECDSA-AES256-GCM-SHA384",
+  "ECDHE-RSA-AES256-GCM-SHA384",
+  "ECDHE-ECDSA-CHACHA20-POLY1305",
+  "ECDHE-RSA-CHACHA20-POLY1305",
+  "ECDHE-RSA-AES128-SHA",
+  "ECDHE-RSA-AES256-SHA",
+  "AES128-GCM-SHA256",
+  "AES256-GCM-SHA384",
+  "AES128-SHA",
+  "AES256-SHA",
+].join(":");
+
+let browserTlsAgent: Agent | undefined;
+
+/** GET JSON through a browser-like TLS handshake. See `CHROME_CIPHERS`. */
+async function getJsonBrowserTls<T>(url: string, referer?: string): Promise<T> {
+  browserTlsAgent ??= new Agent({
+    connect: { ciphers: CHROME_CIPHERS, minVersion: "TLSv1.2" },
+  });
+  const resp = await request(url, {
+    dispatcher: browserTlsAgent,
+    headersTimeout: FETCH_TIMEOUT_MS,
+    bodyTimeout: FETCH_TIMEOUT_MS,
+    headers: {
+      "user-agent": BROWSER_UA,
+      accept: "application/json, text/plain, */*",
+      ...(referer ? { referer } : {}),
+    },
+  });
+  if (resp.statusCode < 200 || resp.statusCode >= 300) {
+    // Drain so the connection is released back to the pool.
+    await resp.body.dump();
+    throw new Error(`HTTP ${resp.statusCode}`);
+  }
+  return (await resp.body.json()) as T;
 }
 
 const isoDate = (d: Date): string => d.toISOString().slice(0, 10);
@@ -318,6 +409,120 @@ async function fetchGlobalMetric(spec: (typeof GLOBAL_SERIES)[number]): Promise<
 }
 
 // ---------------------------------------------------------------------------
+// US 10-year yield — FRED primary, Yahoo fallback
+// ---------------------------------------------------------------------------
+
+/**
+ * FRED publishes `DGS10` on business days only, so N observations back is N
+ * trading sessions back — the same basis as the Yahoo-sourced series alongside
+ * it. Falls back to `^TNX` so a FRED outage degrades the reading rather than
+ * dropping the US-VN rate gap from the report entirely.
+ */
+async function fetchUs10y(): Promise<VnGlobalMetric> {
+  const base: VnGlobalMetric = {
+    id: US_10Y.id,
+    symbol: US_10Y.series,
+    label: US_10Y.label,
+    unit: "%",
+    decimals: 2,
+    latest: null,
+    changePct1d: null,
+    changePct20d: null,
+    asOf: "",
+  };
+
+  try {
+    // Descending — index 0 is the latest observation.
+    const obs = await fetchFredSeries(US_10Y.series, 30);
+    const latest = obs[0];
+    if (!latest) throw new Error("no observations");
+    const pct = (then: Observation | undefined): number | null =>
+      then === undefined || then.value === 0
+        ? null
+        : round(((latest.value - then.value) / then.value) * 100, 2);
+    return {
+      ...base,
+      latest: round(latest.value, 2),
+      changePct1d: pct(obs[1]),
+      changePct20d: pct(obs[20]),
+      asOf: latest.date,
+    };
+  } catch (err) {
+    console.error(`  [vnmacro] FRED ${US_10Y.series} failed (${err}) — falling back to Yahoo`);
+    const fallback = await fetchGlobalMetric({
+      id: US_10Y.id,
+      symbol: US_10Y.fallbackSymbol,
+      label: US_10Y.label,
+      unit: "%",
+      decimals: 2,
+    });
+    return fallback;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// SJC domestic gold + premium over the world price
+// ---------------------------------------------------------------------------
+
+interface SjcResponse {
+  success?: boolean;
+  latestDate?: string;
+  data?: { TypeName?: string; BranchName?: string; BuyValue?: number; SellValue?: number }[];
+}
+
+/**
+ * Pick the benchmark SJC bar (1L/10L/1KG) — the quote every Vietnamese press
+ * report means by "giá vàng SJC". Other rows are smaller denominations that
+ * trade at their own spreads.
+ */
+export function parseSjcGold(json: SjcResponse): { buy: number; sell: number; asOf: string } | null {
+  const rows = json.data ?? [];
+  const bar =
+    rows.find((r) => /SJC\s*1L/i.test(r.TypeName ?? "")) ?? rows.find((r) => /SJC/i.test(r.TypeName ?? ""));
+  if (!bar) return null;
+  const buy = Number(bar.BuyValue);
+  const sell = Number(bar.SellValue);
+  if (!Number.isFinite(sell) || sell <= 0) return null;
+  return {
+    buy: Number.isFinite(buy) && buy > 0 ? buy : sell,
+    sell,
+    asOf: (json.latestDate ?? "").trim(),
+  };
+}
+
+async function fetchGold(fx: VnFxRate | null, worldGold: VnGlobalMetric | undefined): Promise<VnGold | null> {
+  try {
+    const board = parseSjcGold(await getJsonBrowserTls<SjcResponse>(SJC_API, "https://sjc.com.vn/"));
+    if (!board) throw new Error("no SJC bar row in response");
+
+    // The premium is only comparable once the domestic tael price is expressed
+    // in the world market's unit and currency.
+    const sellUsdPerOz = fx && fx.sell > 0 ? round(board.sell / OZ_PER_TAEL / fx.sell, 2) : null;
+    const world = worldGold?.latest ?? null;
+    const premiumPct =
+      sellUsdPerOz !== null && world !== null && world > 0
+        ? round((sellUsdPerOz / world - 1) * 100, 1)
+        : null;
+
+    console.log(
+      `  [vnmacro] SJC gold sell ${board.sell.toLocaleString("en-US")} VND/tael` +
+        (premiumPct === null ? "" : ` → $${sellUsdPerOz}/oz, premium ${premiumPct}%`),
+    );
+    return {
+      buyVndPerTael: board.buy,
+      sellVndPerTael: board.sell,
+      sellUsdPerOz,
+      worldUsdPerOz: world,
+      premiumPct,
+      asOf: board.asOf,
+    };
+  } catch (err) {
+    console.error(`  [vnmacro] SJC gold failed: ${err}`);
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // World Bank annual series
 // ---------------------------------------------------------------------------
 
@@ -366,19 +571,35 @@ async function fetchAnnualMetric(spec: (typeof ANNUAL_SERIES)[number]): Promise<
 // ---------------------------------------------------------------------------
 
 export async function fetchVnMacroData(now = new Date()): Promise<VnMacroData> {
-  console.log("  [vnmacro] Fetching VCB FX + global drivers + World Bank...");
+  console.log("  [vnmacro] Fetching VCB FX + global drivers + FRED + SJC gold + World Bank...");
 
-  const [fx, global, annual] = await Promise.all([
+  const [fx, yahooSeries, us10y, annual] = await Promise.all([
     fetchFx(now).catch((err) => {
       console.error(`  [vnmacro] FX failed: ${err}`);
       return null;
     }),
     Promise.all(GLOBAL_SERIES.map(fetchGlobalMetric)),
+    fetchUs10y(),
     Promise.all(ANNUAL_SERIES.map(fetchAnnualMetric)),
   ]);
 
-  const withData = global.filter((m) => m.latest !== null).length;
-  console.log(`  [vnmacro] ${withData}/${GLOBAL_SERIES.length} global series, fx ${fx ? "ok" : "missing"}`);
+  // Keep the catalog's display order: DXY, then the US 10Y, then the rest.
+  const global = [yahooSeries[0], us10y, ...yahooSeries.slice(1)].filter(
+    (m): m is VnGlobalMetric => m !== undefined,
+  );
 
-  return { fx, global, annual, fetchSuccess: fx !== null || withData > 0 };
+  // The premium needs both the VCB rate and the world price, so gold resolves
+  // after them rather than alongside.
+  const gold = await fetchGold(
+    fx,
+    global.find((m) => m.id === "gold"),
+  );
+
+  const withData = global.filter((m) => m.latest !== null).length;
+  console.log(
+    `  [vnmacro] ${withData}/${global.length} global series, fx ${fx ? "ok" : "missing"}, ` +
+      `gold ${gold ? "ok" : "missing"}`,
+  );
+
+  return { fx, global, annual, gold, fetchSuccess: fx !== null || withData > 0 };
 }

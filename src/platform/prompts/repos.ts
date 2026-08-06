@@ -31,19 +31,20 @@ export function buildCliPrompt(
   prs: GitHubItem[],
   releases: GitHubRelease[],
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const sampledIssues = topN(issues, CLI_ISSUE_LIMIT);
   const sampledPrs = topN(prs, CLI_PR_LIMIT);
 
   const issuesText =
-    sampledIssues.map((i) => formatItem(i, lang)).join("\n") || (lang === "en" ? "None" : "无");
-  const prsText = sampledPrs.map((p) => formatItem(p, lang)).join("\n") || (lang === "en" ? "None" : "无");
+    sampledIssues.map((i) => formatItem(i, lang)).join("\n") || (lang === "en" ? "None" : "Không có");
+  const prsText =
+    sampledPrs.map((p) => formatItem(p, lang)).join("\n") || (lang === "en" ? "None" : "Không có");
   const releasesText = releases.length
     ? releases.map((r) => `- ${r.tag_name}: ${r.name}\n  ${(r.body ?? "").slice(0, 300)}`).join("\n")
     : lang === "en"
       ? "None"
-      : "无";
+      : "Không có";
 
   const issueNote = sampleNote(issues.length, sampledIssues.length, lang);
   const prNote = sampleNote(prs.length, sampledPrs.length, lang);
@@ -77,31 +78,31 @@ Style: concise and professional, suited for technical developers. Include GitHub
 `;
   }
 
-  return `你是一位专注于 AI 开发工具的技术分析师。请根据以下 GitHub 数据，生成 ${dateStr} 的 ${cfg.name} 社区动态日报。
+  return `Bạn là một nhà phân tích kỹ thuật chuyên về công cụ phát triển AI. Dựa trên dữ liệu GitHub sau đây, hãy tạo bản tin cộng đồng ${cfg.name} cho ngày ${dateStr}.
 
-# 数据来源: github.com/${cfg.repo}
+# Nguồn dữ liệu: github.com/${cfg.repo}
 
-## 最新 Releases（过去24小时）
+## Releases mới nhất (24 giờ qua)
 ${releasesText}
 
-## 最新 Issues（过去24小时内更新）${issueNote}
+## Issues mới nhất (cập nhật trong 24 giờ qua) ${issueNote}
 ${issuesText}
 
-## 最新 Pull Requests（过去24小时内更新）${prNote}
+## Pull Requests mới nhất (cập nhật trong 24 giờ qua) ${prNote}
 ${prsText}
 
 ---
 
-请生成一份结构清晰的中文日报，包含以下部分：
+Hãy tạo một bản tin tiếng Việt có cấu trúc rõ ràng, gồm các phần sau:
 
-1. **今日速览** - 用2-3句话概括今天最重要的动态
-2. **版本发布** - 如有新版本，总结更新内容；无则省略
-3. **社区热点 Issues** - 挑选 10 个最值得关注的 Issue，说明为什么重要、社区反应如何
-4. **重要 PR 进展** - 挑选 10 个重要的 PR，说明功能或修复内容
-5. **功能需求趋势** - 从所有 Issues 中提炼出社区最关注的功能方向（如 IDE 集成、性能、新模型支持等）
-6. **开发者关注点** - 总结开发者反馈中的痛点或高频需求
+1. **Điểm nhanh hôm nay** - Tóm tắt trong 2-3 câu những diễn biến quan trọng nhất hôm nay
+2. **Phát hành phiên bản** - Nếu có phiên bản mới, tóm tắt nội dung cập nhật; nếu không có thì bỏ qua
+3. **Issues nổi bật trong cộng đồng** - Chọn 10 Issue đáng chú ý nhất, giải thích lý do quan trọng và phản ứng của cộng đồng
+4. **Tiến độ PR quan trọng** - Chọn 10 PR quan trọng, mô tả tính năng hoặc bản sửa lỗi
+5. **Xu hướng nhu cầu tính năng** - Rút ra từ tất cả các Issues hướng tính năng được cộng đồng quan tâm nhất (ví dụ: tích hợp IDE, hiệu năng, hỗ trợ mô hình mới, v.v.)
+6. **Điểm quan tâm của nhà phát triển** - Tóm tắt các điểm khó chịu hoặc nhu cầu tần suất cao trong phản hồi của nhà phát triển
 
-语言要求：简洁专业，适合技术开发者阅读。每个条目附上 GitHub 链接。
+Yêu cầu: ngắn gọn, chuyên nghiệp, phù hợp với nhà phát triển kỹ thuật. Mỗi mục kèm theo liên kết GitHub.
 `;
 }
 
@@ -116,7 +117,7 @@ export function buildPeerPrompt(
   dateStr: string,
   issueLimit = PEER_ISSUE_LIMIT,
   prLimit = PEER_PR_LIMIT,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const totalIssues = issues.length;
   const totalPrs = prs.length;
@@ -124,7 +125,7 @@ export function buildPeerPrompt(
   const sampledIssues = topN(issues, issueLimit);
   const sampledPrs = topN(prs, prLimit);
 
-  const noneStr = lang === "en" ? "None" : "无";
+  const noneStr = lang === "en" ? "None" : "Không có";
   const issuesText = sampledIssues.map((i) => formatItem(i, lang)).join("\n") || noneStr;
   const prsText = sampledPrs.map((p) => formatItem(p, lang)).join("\n") || noneStr;
   const releasesText = releases.length
@@ -173,36 +174,36 @@ Style: objective, data-driven, highlighting project health. Include GitHub links
 `;
   }
 
-  return `你是一位 AI 智能体与个人 AI 助手领域开源项目分析师。请根据以下来自 ${cfg.name} (github.com/${cfg.repo}) 的 GitHub 数据，生成 ${dateStr} 的项目动态日报。
+  return `Bạn là một nhà phân tích dự án mã nguồn mở trong lĩnh vực AI agent và trợ lý AI cá nhân. Dựa trên dữ liệu GitHub sau đây từ ${cfg.name} (github.com/${cfg.repo}), hãy tạo bản tin dự án cho ngày ${dateStr}.
 
-# 数据概览
-- 过去24小时 Issues 更新：${totalIssues} 条（新开/活跃: ${openIssues}，已关闭: ${closedIssues}）
-- 过去24小时 PR 更新：${totalPrs} 条（待合并: ${openPrs}，已合并/关闭: ${mergedPrs}）
-- 新版本发布：${releases.length} 个
+# Tổng quan dữ liệu
+- Issues cập nhật trong 24 giờ qua: ${totalIssues} (mở/hoạt động: ${openIssues}, đã đóng: ${closedIssues})
+- PR cập nhật trong 24 giờ qua: ${totalPrs} (chờ merge: ${openPrs}, đã merge/đóng: ${mergedPrs})
+- Phiên bản mới phát hành: ${releases.length}
 
-## 最新 Releases
+## Releases mới nhất
 ${releasesText}
 
-## 最新 Issues ${issueSampleNote}
+## Issues mới nhất ${issueSampleNote}
 ${issuesText}
 
-## 最新 Pull Requests ${prSampleNote}
+## Pull Requests mới nhất ${prSampleNote}
 ${prsText}
 
 ---
 
-请生成一份结构清晰的 ${cfg.name} 项目日报，包含以下部分：
+Hãy tạo một bản tin dự án ${cfg.name} có cấu trúc rõ ràng, gồm các phần sau:
 
-1. **今日速览** - 用3-5句话概括项目今日整体状态，包括活跃度评估
-2. **版本发布** - 如有新版本，详细说明更新内容、破坏性变更、迁移注意事项；无则省略
-3. **项目进展** - 今日合并/关闭的重要 PR，说明推进了哪些功能或修复，项目整体向前迈进了多少
-4. **社区热点** - 今日讨论最活跃、评论最多、反应最多的 Issues/PRs（附链接），分析背后的诉求
-5. **Bug 与稳定性** - 今日报告的 Bug、崩溃、回归问题，按严重程度排列，标注是否已有 fix PR
-6. **功能请求与路线图信号** - 用户提出的新功能需求，结合已有 PR 判断哪些可能被纳入下一版本
-7. **用户反馈摘要** - 从 Issues 评论中提炼真实用户痛点、使用场景、满意/不满意的地方
-8. **待处理积压** - 长期未响应的重要 Issue 或 PR，提醒维护者关注
+1. **Điểm nhanh hôm nay** - Tóm tắt trong 3-5 câu tình trạng tổng thể của dự án hôm nay, bao gồm đánh giá mức độ hoạt động
+2. **Phát hành phiên bản** - Nếu có phiên bản mới, mô tả chi tiết nội dung cập nhật, thay đổi phá vỡ tương thích, lưu ý khi nâng cấp; nếu không có thì bỏ qua
+3. **Tiến độ dự án** - PR quan trọng đã merge/đóng hôm nay, mô tả các tính năng hoặc bản sửa lỗi được đẩy tới, dự án đã tiến triển đến đâu
+4. **Điểm nóng cộng đồng** - Issues/PR được thảo luận sôi nổi nhất, nhiều bình luận và phản ứng nhất hôm nay (kèm liên kết), phân tích nhu cầu đằng sau
+5. **Bug và độ ổn định** - Bug, sự cố crash, lỗi hồi quy được báo cáo hôm nay, xếp theo mức độ nghiêm trọng, ghi chú đã có PR sửa hay chưa
+6. **Yêu cầu tính năng và tín hiệu lộ trình** - Các yêu cầu tính năng mới từ người dùng, kết hợp với PR hiện có để dự đoán tính năng nào có thể được đưa vào phiên bản tiếp theo
+7. **Tóm tắt phản hồi người dùng** - Rút ra từ bình luận Issues những điểm khó chịu thực tế, tình huống sử dụng, mức độ hài lòng/không hài lòng
+8. **Tồn đọng cần xử lý** - Issue hoặc PR quan trọng lâu chưa được phản hồi, nhắc nhở người bảo trì chú ý
 
-语言要求：客观专业，数据驱动，突出项目健康度。每个条目附上 GitHub 链接。
+Yêu cầu: khách quan, chuyên nghiệp, dựa trên dữ liệu, làm nổi bật mức độ lành mạnh của dự án. Mỗi mục kèm theo liên kết GitHub.
 `;
 }
 
@@ -210,14 +211,15 @@ export function buildPeersComparisonPrompt(
   openclawDigest: RepoDigest,
   peerDigests: RepoDigest[],
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
-  const noActivityStr = lang === "en" ? "No activity in the last 24 hours." : "过去24小时无活动。";
+  const noActivityStr =
+    lang === "en" ? "No activity in the last 24 hours." : "Không có hoạt động trong 24 giờ qua.";
 
   const openclawSection =
     lang === "en"
       ? `## OpenClaw (core reference, github.com/${openclawDigest.config.repo})\n${openclawDigest.summary}`
-      : `## OpenClaw（核心参照，github.com/${openclawDigest.config.repo}）\n${openclawDigest.summary}`;
+      : `## OpenClaw (tham chiếu cốt lõi, github.com/${openclawDigest.config.repo})\n${openclawDigest.summary}`;
 
   const peerSections = peerDigests
     .map((d) => {
@@ -252,7 +254,7 @@ Style: concise and professional, data-backed, suited for technical decision-make
 `;
   }
 
-  return `你是一位专注于 AI 智能体与个人 AI 助手开源生态的资深技术分析师。以下是 ${dateStr} 各开源项目的社区动态摘要。
+  return `Bạn là một nhà phân tích kỹ thuật cấp cao chuyên về hệ sinh thái mã nguồn mở AI agent và trợ lý AI cá nhân. Dưới đây là tóm tắt bản tin cộng đồng ngày ${dateStr} của từng dự án.
 
 ${openclawSection}
 
@@ -262,17 +264,17 @@ ${peerSections}
 
 ---
 
-请基于上述各项目的动态，生成一份横向对比分析报告，包含以下部分：
+Dựa trên diễn biến của các dự án trên, hãy tạo một báo cáo so sánh chéo, gồm các phần sau:
 
-1. **生态全景** - 用3-5句话概括个人 AI 助手/自主智能体开源生态整体态势
-2. **各项目活跃度对比** - 以表格形式汇总各项目今日的 Issues 数、PR 数、Release 情况及健康度评估
-3. **OpenClaw 在生态中的定位** - 与同类相比的优势、技术路线差异、社区规模对比
-4. **共同关注的技术方向** - 多项目共同涌现的需求（注明涉及哪些项目、具体诉求）
-5. **差异化定位分析** - 功能侧重、目标用户、技术架构的关键差异
-6. **社区热度与成熟度** - 活跃度分层，哪些处于快速迭代阶段，哪些在质量巩固阶段
-7. **值得关注的趋势信号** - 从社区反馈中提炼行业趋势，对 AI 智能体开发者的参考价值
+1. **Toàn cảnh hệ sinh thái** - Tóm tắt trong 3-5 câu tình hình chung của hệ sinh thái mã nguồn mở trợ lý AI cá nhân/agent tự chủ
+2. **So sánh mức độ hoạt động các dự án** - Tổng hợp dạng bảng số Issues, số PR, tình trạng Release và đánh giá độ lành mạnh của từng dự án hôm nay
+3. **Vị thế của OpenClaw trong hệ sinh thái** - Ưu điểm so với các dự án cùng lĩnh vực, khác biệt về hướng kỹ thuật, so sánh quy mô cộng đồng
+4. **Hướng kỹ thuật được quan tâm chung** - Nhu cầu xuất hiện chung ở nhiều dự án (ghi rõ liên quan dự án nào, nhu cầu cụ thể)
+5. **Phân tích định vị khác biệt** - Khác biệt then chốt về trọng tâm tính năng, đối tượng người dùng, kiến trúc kỹ thuật
+6. **Sức hút và độ trưởng thành của cộng đồng** - Phân tầng mức độ hoạt động, dự án nào đang lặp nhanh, dự án nào đang củng cố chất lượng
+7. **Tín hiệu xu hướng đáng chú ý** - Rút ra xu hướng ngành từ phản hồi cộng đồng, giá trị tham khảo cho nhà phát triển AI agent
 
-语言要求：简洁专业，有数据支撑，适合技术决策者和开发者阅读。
+Yêu cầu: ngắn gọn, chuyên nghiệp, có dữ liệu hỗ trợ, phù hợp với người ra quyết định kỹ thuật và nhà phát triển.
 `;
 }
 
@@ -280,12 +282,12 @@ export function buildSkillsPrompt(
   prs: GitHubItem[],
   issues: GitHubItem[],
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const topPrs = topN(prs, 20);
   const topIssues = topN(issues, 15);
 
-  const noneStr = lang === "en" ? "None" : "无";
+  const noneStr = lang === "en" ? "None" : "Không có";
   const prsText = topPrs.map((p) => formatItem(p, lang)).join("\n") || noneStr;
   const issuesText = topIssues.map((i) => formatItem(i, lang)).join("\n") || noneStr;
 
@@ -314,32 +316,33 @@ Style: concise and professional, include GitHub links for each item.
 `;
   }
 
-  return `你是一位专注于 Claude Code 生态的技术分析师。以下是来自 github.com/anthropics/skills（Claude Code Skills 官方仓库）的数据，请分析社区最关注的 Skills 动态（数据截止 ${dateStr}）。
+  return `Bạn là một nhà phân tích kỹ thuật chuyên về hệ sinh thái Claude Code. Dưới đây là dữ liệu từ github.com/anthropics/skills (kho lưu trữ Claude Code Skills chính thức), hãy phân tích diễn biến Skills được cộng đồng quan tâm nhất (dữ liệu tính đến ${dateStr}).
 
-## 仓库说明
-anthropics/skills 是 Claude Code 官方 Skills 集合仓库，每个 PR 通常对应一个新增或改进的 Skill。社区通过 Issues 提出新 Skill 需求或反馈问题，PR 则代表实际提交的 Skill。
+## Bối cảnh kho lưu trữ
+anthropics/skills là kho tập hợp Skills chính thức của Claude Code, mỗi PR thường tương ứng với một Skill mới hoặc được cải tiến. Cộng đồng đề xuất Skill mới hoặc phản hồi vấn đề qua Issues; PR đại diện cho Skill thực sự được gửi lên.
 
-## 热门 Pull Requests（按评论数排序，共 ${prs.length} 条，展示前 ${topPrs.length} 条）
+## Pull Requests nổi bật (sắp xếp theo số bình luận, tổng ${prs.length}, hiển thị ${topPrs.length} mục đầu)
 ${prsText}
 
-## 社区 Issues（按评论数排序，共 ${issues.length} 条，展示前 ${topIssues.length} 条）
+## Issues cộng đồng (sắp xếp theo số bình luận, tổng ${issues.length}, hiển thị ${topIssues.length} mục đầu)
 ${issuesText}
 
 ---
 
-请生成一份 Claude Code Skills 社区热点报告，包含以下部分：
+Hãy tạo một báo cáo điểm nổi bật cộng đồng Claude Code Skills, gồm các phần sau:
 
-1. **热门 Skills 排行** - 列出评论/关注度最高的 5~8 个 Skills（PR），说明每个 Skill 的功能、社区讨论热点及当前状态（open/merged/draft）
-2. **社区需求趋势** - 从 Issues 中提炼社区最期待的新 Skill 方向（如工作流自动化、代码审查、测试生成、文档等）
-3. **高潜力待合并 Skills** - 评论活跃但尚未合并的 PR，这些 Skills 可能近期落地
-4. **Skills 生态洞察** - 一句话总结：当前社区在 Skills 层面最集中的诉求是什么
+1. **Bảng xếp hạng Skills nổi bật** - Liệt kê 5-8 Skills (PR) có bình luận/mức độ quan tâm cao nhất, mô tả chức năng của từng Skill, điểm nóng thảo luận và trạng thái hiện tại (open/merged/draft)
+2. **Xu hướng nhu cầu cộng đồng** - Rút ra từ Issues các hướng Skill mới được cộng đồng mong đợi nhất (ví dụ: tự động hóa workflow, review code, sinh test, tài liệu, v.v.)
+3. **Skills tiềm năng cao chưa merge** - PR có bình luận sôi nổi nhưng chưa được merge, các Skill này có thể sớm ra mắt
+4. **Nhận định về hệ sinh thái Skills** - Tóm tắt một câu: nhu cầu tập trung nhất của cộng đồng ở cấp độ Skills hiện nay là gì
 
-语言要求：简洁专业，每个条目附上 GitHub 链接。
+Yêu cầu: ngắn gọn, chuyên nghiệp, mỗi mục kèm theo liên kết GitHub.
 `;
 }
 
-export function buildComparisonPrompt(digests: RepoDigest[], dateStr: string, lang: Lang = "zh"): string {
-  const noActivityStr = lang === "en" ? "No activity in the last 24 hours." : "过去24小时无活动。";
+export function buildComparisonPrompt(digests: RepoDigest[], dateStr: string, lang: Lang = "vi"): string {
+  const noActivityStr =
+    lang === "en" ? "No activity in the last 24 hours." : "Không có hoạt động trong 24 giờ qua.";
 
   const sections = digests
     .map((d) => {
@@ -369,21 +372,21 @@ Style: concise and professional, data-backed, suited for technical decision-make
 `;
   }
 
-  return `你是一位专注于 AI 开发工具生态的资深技术分析师。以下是 ${dateStr} 各主流 AI CLI 工具的社区动态摘要：
+  return `Bạn là một nhà phân tích kỹ thuật cấp cao chuyên về hệ sinh thái công cụ phát triển AI. Dưới đây là tóm tắt bản tin cộng đồng ngày ${dateStr} của các công cụ AI CLI chính:
 
 ${sections}
 
 ---
 
-请基于上述各工具的动态，生成一份横向对比分析报告，包含以下部分：
+Dựa trên diễn biến của các công cụ trên, hãy tạo một báo cáo so sánh chéo, gồm các phần sau:
 
-1. **生态全景** - 用3-5句话概括当前 AI CLI 工具整体发展态势
-2. **各工具活跃度对比** - 以表格形式汇总各工具今日的 Issues 数、PR 数、Release 情况
-3. **共同关注的功能方向** - 多个工具社区都在关注的需求（说明哪些工具、具体诉求）
-4. **差异化定位分析** - 各工具在功能侧重、目标用户、技术路线上的差异
-5. **社区热度与成熟度** - 哪些工具社区更活跃，哪些处于快速迭代阶段
-6. **值得关注的趋势信号** - 从社区反馈中提炼出的行业趋势，对开发者有何参考价值
+1. **Toàn cảnh hệ sinh thái** - Tóm tắt trong 3-5 câu tình hình phát triển chung hiện nay của các công cụ AI CLI
+2. **So sánh mức độ hoạt động các công cụ** - Tổng hợp dạng bảng số Issues, số PR, tình trạng Release của từng công cụ hôm nay
+3. **Hướng tính năng được quan tâm chung** - Nhu cầu mà nhiều cộng đồng công cụ cùng quan tâm (nêu rõ công cụ nào, nhu cầu cụ thể)
+4. **Phân tích định vị khác biệt** - Khác biệt về trọng tâm tính năng, đối tượng người dùng, hướng kỹ thuật của từng công cụ
+5. **Sức hút và độ trưởng thành của cộng đồng** - Cộng đồng công cụ nào hoạt động sôi nổi hơn, công cụ nào đang lặp nhanh
+6. **Tín hiệu xu hướng đáng chú ý** - Rút ra xu hướng ngành từ phản hồi cộng đồng, giá trị tham khảo cho nhà phát triển
 
-语言要求：简洁专业，有数据支撑，适合技术决策者和开发者阅读。
+Yêu cầu: ngắn gọn, chuyên nghiệp, có dữ liệu hỗ trợ, phù hợp với người ra quyết định kỹ thuật và nhà phát triển.
 `;
 }

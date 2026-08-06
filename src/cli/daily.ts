@@ -282,7 +282,7 @@ async function generateSummaries(
   fetchedPeers: RepoFetch[],
   trendingData: TrendingData,
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<{
   cliDigests: RepoDigest[];
   openclawSummary: string;
@@ -425,7 +425,7 @@ async function main(): Promise<void> {
     }),
   );
 
-  // 4. Build + save all reports (zh + en)
+  // 4. Build + save all reports (vi + en)
   const cliContent: Record<Lang, string> = {} as Record<Lang, string>;
   const openclawContent: Record<Lang, string> = {} as Record<Lang, string>;
 
@@ -526,7 +526,7 @@ async function main(): Promise<void> {
 
   console.log("  Generating highlights for Telegram...");
   // Generate + parse one language, retrying once. The LLM occasionally emits
-  // slightly malformed JSON that repairJson can't fix (seen 2026-07-13: zh
+  // slightly malformed JSON that repairJson can't fix (seen 2026-07-13: vi
   // failed with "Expected ',' or ']' after array element"); a fresh generation
   // usually returns valid JSON. Each language runs independently so a failure
   // in one never wipes the other.
@@ -547,7 +547,7 @@ async function main(): Promise<void> {
 
   // If a language failed (generation or parse) but another succeeded, backfill
   // the empty one so notifications never render with zero highlights. Seen
-  // 2026-07-13: zh failed intermittently while en was fine, leaving
+  // 2026-07-13: vi failed intermittently while en was fine, leaving
   // Telegram/Feishu with only section headers and no bullets.
   const nonEmptyLang = langs.find((l) => Object.keys(highlights[l]).length > 0);
   if (nonEmptyLang) {

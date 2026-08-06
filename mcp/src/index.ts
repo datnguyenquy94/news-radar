@@ -14,19 +14,19 @@
 const PAGES_URL = "https://duanyytop.github.io/agents-radar";
 
 const REPORT_LABELS: Record<string, string> = {
-  "ai-cli": "AI CLI Tools Digest (ZH)",
+  "ai-cli": "AI CLI Tools Digest (VI)",
   "ai-cli-en": "AI CLI Tools Digest (EN)",
-  "ai-agents": "AI Agents Ecosystem (ZH)",
+  "ai-agents": "AI Agents Ecosystem (VI)",
   "ai-agents-en": "AI Agents Ecosystem (EN)",
-  "ai-web": "Official AI Content (ZH)",
+  "ai-web": "Official AI Content (VI)",
   "ai-web-en": "Official AI Content (EN)",
-  "ai-trending": "GitHub AI Trends (ZH)",
+  "ai-trending": "GitHub AI Trends (VI)",
   "ai-trending-en": "GitHub AI Trends (EN)",
-  "ai-hn": "Hacker News AI Community (ZH)",
+  "ai-hn": "Hacker News AI Community (VI)",
   "ai-hn-en": "Hacker News AI Community (EN)",
-  "ai-weekly": "Weekly Rollup (ZH)",
+  "ai-weekly": "Weekly Rollup (VI)",
   "ai-weekly-en": "Weekly Rollup (EN)",
-  "ai-monthly": "Monthly Rollup (ZH)",
+  "ai-monthly": "Monthly Rollup (VI)",
   "ai-monthly-en": "Monthly Rollup (EN)",
 };
 
@@ -162,7 +162,7 @@ const TOOLS = [
         type: {
           type: "string",
           description:
-            "Report type: ai-cli-en, ai-agents-en, ai-web-en, ai-trending-en, ai-hn-en, ai-weekly-en, ai-monthly-en (drop -en suffix for Chinese versions)",
+            "Report type: ai-cli-en, ai-agents-en, ai-web-en, ai-trending-en, ai-hn-en, ai-weekly-en, ai-monthly-en (drop -en suffix for Vietnamese versions)",
         },
       },
       required: ["date", "type"],

@@ -15,7 +15,7 @@ export interface ReportHighlights {
 
 export function buildHighlightsPrompt(
   reportContents: Record<string, string>,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
   itemsPerReport: number = 6,
 ): string {
   const sections = Object.entries(reportContents)
@@ -42,22 +42,22 @@ Rules:
 - Be specific: include project names, version numbers, star counts where relevant`;
   }
 
-  return `你是一位简洁的新闻编辑。以下是今日 AI 生态各报告的摘要，每个报告用 ID 标注。
+  return `Bạn là một biên tập viên tin tức súc tích. Dưới đây là các đoạn trích báo cáo hệ sinh thái AI hôm nay, mỗi báo cáo được gắn nhãn bằng một ID.
 
 ${sections}
 
 ---
 
-为每份报告提取 ${itemsPerReport} 条最值得关注的亮点——能让读者产生点击欲望的那种。每条亮点用一句简短的话（不超过 30 个字）。
+Với mỗi báo cáo, hãy rút ra ${itemsPerReport} điểm nổi bật đáng chú ý nhất — loại khiến người đọc muốn nhấp vào xem thêm. Mỗi điểm nổi bật là một câu ngắn gọn (dưới 60 ký tự).
 
-只返回合法的 JSON，不要 markdown 代码块，不要解释。格式：
-{"ai-cli":["亮点1","亮点2",...],"ai-agents":["亮点1","亮点2",...],...}
+CHỈ trả về JSON hợp lệ, không dùng code fence markdown, không giải thích. Định dạng:
+{"ai-cli":["điểm nổi bật 1","điểm nổi bật 2",...],"ai-agents":["điểm nổi bật 1","điểm nổi bật 2",...],...}
 
-规则：
-- 用上面方括号中的报告 ID 作为 key
-- 只包含有实际内容的报告（跳过失败或无活动的报告）
-- 每个报告 ${itemsPerReport} 条亮点，每条不超过 30 个字
-- 重点关注：新版本发布、重要特性、热门项目、关键讨论
-- 要具体：包含项目名、版本号、star 数等关键信息
-- 每条亮点必须用中文表述；即使原文（论文标题、模型名、讨论标题等）是英文，也要翻译成中文，仅项目名、模型名、产品名等专有名词可保留英文，不要直接照抄整句英文`;
+Quy tắc:
+- Dùng chính xác các ID báo cáo trong [ngoặc vuông] ở trên làm key
+- Chỉ bao gồm các báo cáo có nội dung ý nghĩa (bỏ qua báo cáo có thông báo lỗi hoặc không có hoạt động)
+- ${itemsPerReport} điểm nổi bật mỗi báo cáo, mỗi điểm dưới 60 ký tự
+- Tập trung vào: phiên bản mới phát hành, tính năng đáng chú ý, dự án nổi bật, thảo luận then chốt
+- Cụ thể: bao gồm tên dự án, số phiên bản, số lượng star khi có liên quan
+- Mỗi điểm nổi bật phải viết bằng tiếng Việt; ngay cả khi văn bản gốc (tiêu đề bài báo, tên mô hình, tiêu đề thảo luận, v.v.) là tiếng Anh, cũng phải dịch sang tiếng Việt, chỉ tên riêng như tên dự án, tên mô hình, tên sản phẩm mới được giữ nguyên tiếng Anh, không được chép nguyên cả câu tiếng Anh`;
 }

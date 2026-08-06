@@ -1,5 +1,5 @@
 /**
- * Centralized i18n strings for bilingual (zh/en) report generation.
+ * Centralized i18n strings for bilingual (vi/en) report generation.
  *
  * Barrel module — importing from here is equivalent to the former `src/i18n.ts`.
  */

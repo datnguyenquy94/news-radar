@@ -49,7 +49,7 @@ async function inDir<T>(dir: string, fn: () => Promise<T>): Promise<T> {
   }
 }
 
-const LANGS = ["zh", "en"] as const;
+const LANGS = ["vi", "en"] as const;
 const isLang = (s: string): s is Lang => (LANGS as readonly string[]).includes(s);
 
 function langOf(args: Args): Lang {
@@ -70,7 +70,7 @@ async function dateOf(args: Args): Promise<string> {
 
 const REPORT_OPTIONS = [
   { name: "out", arg: "dir", desc: "write into this directory (default: a fresh mkdtemp dir)" },
-  { name: "lang", arg: "zh|en", desc: "report language (default en)" },
+  { name: "lang", arg: "vi|en", desc: "report language (default en)" },
   { name: "date", arg: "YYYY-MM-DD", desc: "date used in the report (default: today, CST)" },
   { name: "head", arg: "n", desc: "lines of the generated file to print (default 20)" },
 ];

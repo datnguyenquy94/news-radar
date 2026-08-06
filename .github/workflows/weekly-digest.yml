@@ -2,7 +2,7 @@ name: Weekly Agents Radar
 
 on:
   schedule:
-    # 每周一 01:00 UTC = 09:00 CST，日报运行后1小时
+    # Weekly on Monday at 01:00 UTC = 09:00 CST, 1 hour after the daily run
     - cron: "0 1 * * 1"
   workflow_dispatch:
 
@@ -41,7 +41,7 @@ jobs:
           # Max in-flight LLM requests. Tune via a repo variable; defaults to 5.
           LLM_CONCURRENCY: ${{ secrets.LLM_CONCURRENCY || '5' }}
           DIGEST_REPO: ${{ github.repository }}
-          # Languages to generate. "en" = English only; remove or set "zh,en" for bilingual.
+          # Languages to generate. "en" = English only; remove or set "vi,en" for bilingual.
           DIGEST_LANGS: en
         run: pnpm weekly
 

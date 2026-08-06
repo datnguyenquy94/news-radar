@@ -32,6 +32,7 @@
       "buyVndBn": 787.6,
       "sellVndBn": 758,
       "netVndBn": 29.6,
+      "zeroRoomCount": 14,
       "topBuys": [
         {
           "symbol": "HPG",
@@ -110,7 +111,7 @@
         "id": "dxy",
         "symbol": "DX-Y.NYB",
         "label": {
-          "zh": "美元指数 (DXY)",
+          "vi": "Chỉ số Đô la Mỹ (DXY)",
           "en": "US Dollar Index (DXY)"
         },
         "unit": "",
@@ -124,7 +125,7 @@
         "id": "us-10y",
         "symbol": "^TNX",
         "label": {
-          "zh": "美国 10 年期国债收益率",
+          "vi": "Lợi suất trái phiếu Mỹ 10 năm",
           "en": "US 10Y Treasury Yield"
         },
         "unit": "%",
@@ -138,7 +139,7 @@
         "id": "gold",
         "symbol": "GC=F",
         "label": {
-          "zh": "国际金价",
+          "vi": "Giá vàng thế giới",
           "en": "Gold (COMEX)"
         },
         "unit": "$/oz",
@@ -152,7 +153,7 @@
         "id": "brent",
         "symbol": "BZ=F",
         "label": {
-          "zh": "布伦特原油",
+          "vi": "Dầu thô Brent",
           "en": "Brent Crude"
         },
         "unit": "$/bbl",
@@ -166,7 +167,7 @@
         "id": "vnm-etf",
         "symbol": "VNM",
         "label": {
-          "zh": "VanEck 越南 ETF (VNM)",
+          "vi": "VanEck Vietnam ETF (VNM)",
           "en": "VanEck Vietnam ETF (VNM)"
         },
         "unit": "$",
@@ -180,7 +181,7 @@
         "id": "hrc-steel",
         "symbol": "HRC=F",
         "label": {
-          "zh": "热轧卷板期货 (HRC)",
+          "vi": "Hợp đồng tương lai thép cuộn cán nóng (HRC)",
           "en": "Hot-Rolled Coil Futures"
         },
         "unit": "$/t",
@@ -196,7 +197,7 @@
         "id": "cpi-annual",
         "indicator": "FP.CPI.TOTL.ZG",
         "label": {
-          "zh": "CPI 通胀 (年度)",
+          "vi": "Lạm phát CPI (hàng năm)",
           "en": "CPI Inflation (annual)"
         },
         "unit": "%",
@@ -208,7 +209,7 @@
         "id": "gdp-growth",
         "indicator": "NY.GDP.MKTP.KD.ZG",
         "label": {
-          "zh": "GDP 增速 (年度)",
+          "vi": "Tăng trưởng GDP (hàng năm)",
           "en": "GDP Growth (annual)"
         },
         "unit": "%",
@@ -220,7 +221,7 @@
         "id": "fdi",
         "indicator": "BX.KLT.DINV.CD.WD",
         "label": {
-          "zh": "FDI 净流入 (年度)",
+          "vi": "Dòng vốn FDI ròng (hàng năm)",
           "en": "FDI Net Inflows (annual)"
         },
         "unit": "$B",
@@ -232,7 +233,7 @@
         "id": "reserves",
         "indicator": "FI.RES.TOTL.CD",
         "label": {
-          "zh": "外汇储备 (年度)",
+          "vi": "Dự trữ ngoại hối (hàng năm)",
           "en": "FX Reserves (annual)"
         },
         "unit": "$B",

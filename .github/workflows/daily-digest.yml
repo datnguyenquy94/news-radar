@@ -2,7 +2,7 @@ name: Daily Agents Radar
 
 on:
   schedule:
-    # 每天 00:00 UTC = 08:00 CST (UTC+8)
+    # Daily at 00:00 UTC = 08:00 CST (UTC+8)
     - cron: "0 0 * * *"
   workflow_dispatch:
 
@@ -47,7 +47,7 @@ jobs:
           # unset, fin-macro falls back to the keyless FRED CSV endpoint.
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           DIGEST_REPO: ${{ github.repository }}
-          # Languages to generate. "en" = English only; remove or set "zh,en" for bilingual.
+          # Languages to generate. "en" = English only; remove or set "vi,en" for bilingual.
           DIGEST_LANGS: en
         run: pnpm start
 

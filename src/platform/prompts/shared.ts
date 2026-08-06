@@ -9,7 +9,7 @@ import type { Lang } from "../../core/i18n/index.ts";
 // Formatting
 // ---------------------------------------------------------------------------
 
-export function formatItem(item: GitHubItem, lang: Lang = "zh"): string {
+export function formatItem(item: GitHubItem, lang: Lang = "vi"): string {
   const labels = item.labels.map((l) => l.name).join(", ");
   const labelStr = labels ? ` [${labels}]` : "";
   const body = (item.body ?? "").replace(/\n/g, " ").trim().slice(0, 300);
@@ -24,7 +24,14 @@ export function formatItem(item: GitHubItem, lang: Lang = "zh"): string {
           url: "URL",
           summary: "Summary",
         }
-      : { author: "作者", created: "创建", updated: "更新", comments: "评论", url: "链接", summary: "摘要" };
+      : {
+          author: "Tác giả",
+          created: "Tạo",
+          updated: "Cập nhật",
+          comments: "Bình luận",
+          url: "Liên kết",
+          summary: "Tóm tắt",
+        };
   // Extract "owner/repo" from html_url to avoid full GitHub URLs that trigger cross-references
   const repoSlug = item.html_url.replace(/^https:\/\/github\.com\//, "").replace(/\/(issues|pull)\/\d+$/, "");
   const itemKind = item.html_url.includes("/pull/") ? "PR" : "Issue";
@@ -46,13 +53,15 @@ export function topN(items: GitHubItem[], n: number): GitHubItem[] {
   return [...items].sort((a, b) => b.comments - a.comments).slice(0, n);
 }
 
-export function sampleNote(total: number, sampled: number, lang: Lang = "zh"): string {
+export function sampleNote(total: number, sampled: number, lang: Lang = "vi"): string {
   if (lang === "en") {
     return total > sampled
       ? `(Total: ${total} items; showing top ${sampled} by comment count)`
       : `(Total: ${total} items)`;
   }
-  return total > sampled ? `（共 ${total} 条，以下展示评论数最多的 ${sampled} 条）` : `（共 ${total} 条）`;
+  return total > sampled
+    ? `(Tổng cộng ${total} mục, hiển thị ${sampled} mục có nhiều bình luận nhất)`
+    : `(Tổng cộng ${total} mục)`;
 }
 
 // ---------------------------------------------------------------------------

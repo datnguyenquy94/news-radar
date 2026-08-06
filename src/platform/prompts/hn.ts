@@ -5,7 +5,7 @@
 import type { HnData } from "../../domains/ai/hn.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
-export function buildHnPrompt(data: HnData, dateStr: string, lang: Lang = "zh"): string {
+export function buildHnPrompt(data: HnData, dateStr: string, lang: Lang = "vi"): string {
   const storiesText = data.stories
     .map((s, i) =>
       lang === "en"
@@ -14,9 +14,9 @@ export function buildHnPrompt(data: HnData, dateStr: string, lang: Lang = "zh"):
           `   Discussion: ${s.hnUrl}\n` +
           `   HN Rank: ${s.hnRank ?? i + 1} | Score: ${s.points} | Comments: ${s.comments} | Author: ${s.author} | Time: ${s.createdAt.slice(0, 16)}`
         : `${i + 1}. **${s.title}**\n` +
-          `   链接: ${s.url}\n` +
-          `   讨论: ${s.hnUrl}\n` +
-          `   HN 排名: ${s.hnRank ?? i + 1} | 分数: ${s.points} | 评论: ${s.comments} | 作者: ${s.author} | 时间: ${s.createdAt.slice(0, 16)}`,
+          `   Liên kết: ${s.url}\n` +
+          `   Thảo luận: ${s.hnUrl}\n` +
+          `   Hạng HN: ${s.hnRank ?? i + 1} | Điểm: ${s.points} | Bình luận: ${s.comments} | Tác giả: ${s.author} | Thời gian: ${s.createdAt.slice(0, 16)}`,
     )
     .join("\n\n");
 
@@ -60,7 +60,7 @@ Style: English, concise and professional, preserve all original links.
 `;
   }
 
-  return `你是 AI 行业资讯分析师。以下是 ${dateStr} 从 Hacker News topstories 抓取的 AI 相关热门帖子（按 HN 排名顺序，共 ${data.stories.length} 条）：
+  return `Bạn là một nhà phân tích tin tức ngành AI. Dưới đây là các bài đăng liên quan đến AI được thu thập từ topstories của Hacker News ngày ${dateStr} (sắp xếp theo thứ hạng HN, tổng ${data.stories.length} bài):
 
 ---
 
@@ -68,33 +68,33 @@ ${storiesText}
 
 ---
 
-请生成一份结构清晰的《Hacker News AI 社区动态日报》，要求：
+Hãy tạo một "Bản tin cộng đồng Hacker News AI" có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **今日速览** — 3~5 句话，概括今日 HN 社区围绕 AI 最热门的讨论方向和情绪
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu hướng thảo luận và tâm lý sôi nổi nhất của cộng đồng HN về AI hôm nay
 
-2. **热门新闻与讨论** — 按以下分类整理，每个分类用 **Markdown 表格**呈现，列固定为：
+2. **Tin tức và thảo luận nổi bật** — Sắp xếp theo các danh mục sau, mỗi danh mục trình bày bằng **bảng Markdown** với đúng các cột sau:
 
-   | 标题 | 分数 | 评论 | 简要说明 |
+   | Tiêu đề | Điểm | Bình luận | Tóm tắt |
    | :--- | ---: | ---: | :--- |
 
-   - **标题**：标题做成指向原文的 Markdown 链接，其后附 " · [HN](讨论链接)" 指向 HN 讨论
-   - **分数 / 评论**：数字照抄输入，不要重算
-   - **简要说明**：2 句话——这条为什么值得关注、社区有何典型反应
-   - 每类选取最具代表性的 2~5 条；某分类为空则整张表省略
+   - **Tiêu đề**: tạo thành liên kết Markdown trỏ tới bài viết gốc, kèm theo " · [HN](liên-kết-thảo-luận)" trỏ tới thảo luận HN
+   - **Điểm / Bình luận**: chép nguyên số từ dữ liệu đầu vào, không tự tính lại
+   - **Tóm tắt**: 2 câu — tại sao điều này đáng chú ý, cộng đồng phản ứng điển hình ra sao
+   - Chọn 2-5 mục tiêu biểu nhất mỗi danh mục; bỏ hẳn bảng nếu danh mục rỗng
 
-   分类：
-   - 🔬 模型与研究（新模型发布、论文、基准测试）
-   - 🛠️ 工具与工程（开源项目、框架、工程实践）
-   - 🏢 产业动态（公司新闻、融资、产品发布）
-   - 💬 观点与争议（值得关注的 Ask HN、Show HN 或热议帖子）
+   Danh mục:
+   - 🔬 Mô hình và nghiên cứu (phát hành mô hình mới, bài báo, benchmark)
+   - 🛠️ Công cụ và kỹ thuật (dự án mã nguồn mở, framework, thực hành kỹ thuật)
+   - 🏢 Động thái ngành (tin công ty, gọi vốn, ra mắt sản phẩm)
+   - 💬 Quan điểm và tranh luận (Ask HN, Show HN đáng chú ý, hoặc thảo luận nóng)
 
-3. **社区情绪信号** — 100~200 字，分析今日 HN AI 讨论的整体情绪和关注重点：
-   - 社区对哪类话题最活跃（高分 + 高评论）？
-   - 有无明显的争议点或共识？
-   - 与上周期相比，关注方向有无明显变化？
+3. **Tín hiệu tâm lý cộng đồng** — 100-200 từ, phân tích tâm trạng và trọng tâm thảo luận AI trên HN hôm nay:
+   - Cộng đồng sôi nổi nhất với chủ đề nào (điểm cao + nhiều bình luận)?
+   - Có điểm tranh cãi hoặc đồng thuận rõ rệt nào không?
+   - So với chu kỳ trước, trọng tâm quan tâm có thay đổi đáng chú ý không?
 
-4. **值得深读** — 列出 2~3 条今日最值得开发者/研究者深入阅读的内容，简述理由
+4. **Đáng đọc sâu** — Liệt kê 2-3 bài đáng để nhà phát triển/nhà nghiên cứu đọc sâu nhất hôm nay, kèm lý do ngắn gọn
 
-语言要求：中文，简洁专业，保留所有原文链接。
+Yêu cầu: tiếng Việt, ngắn gọn, chuyên nghiệp, giữ nguyên tất cả liên kết gốc.
 `;
 }

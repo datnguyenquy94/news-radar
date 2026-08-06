@@ -22,7 +22,7 @@ export async function saveCommunityReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   const hasData = devtoData.fetchSuccess || lobstersData.fetchSuccess;
   if (!hasData) {
@@ -45,7 +45,7 @@ export async function saveCommunityReport(
           `> Sources: [Dev.to](https://dev.to/) (${devtoCount} articles) + [Lobste.rs](https://lobste.rs/) (${lobstersCount} stories) | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${COMMUNITY_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [Dev.to](https://dev.to/) (${devtoCount} 篇) + [Lobste.rs](https://lobste.rs/) (${lobstersCount} 条) | 生成时间: ${utcStr} UTC\n\n` +
+          `> Nguồn dữ liệu: [Dev.to](https://dev.to/) (${devtoCount} bài) + [Lobste.rs](https://lobste.rs/) (${lobstersCount} mục) | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;

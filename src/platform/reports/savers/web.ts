@@ -20,7 +20,7 @@ export async function saveWebReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   const hasNewContent = webResults.some((r) => r.newItems.length > 0);
 
@@ -47,8 +47,8 @@ export async function saveWebReport(
             `- Anthropic: [anthropic.com](https://www.anthropic.com) — ${anthropicNew} new articles (sitemap total: ${anthropicTotal})\n` +
             `- OpenAI: [openai.com](https://openai.com) — ${openaiNew} new articles (sitemap total: ${openaiTotal})\n\n`
           : `${WEB_REPORT.sourcesHeader[lang]}\n` +
-            `- Anthropic: [anthropic.com](https://www.anthropic.com) — 新增 ${anthropicNew} 篇（sitemap 共 ${anthropicTotal} 条）\n` +
-            `- OpenAI: [openai.com](https://openai.com) — 新增 ${openaiNew} 篇（sitemap 共 ${openaiTotal} 条）\n\n`;
+            `- Anthropic: [anthropic.com](https://www.anthropic.com) — ${anthropicNew} bài mới (sitemap tổng: ${anthropicTotal})\n` +
+            `- OpenAI: [openai.com](https://openai.com) — ${openaiNew} bài mới (sitemap tổng: ${openaiTotal})\n\n`;
 
       const webContent = webTitle + webMeta + webSources + `---\n\n` + webSummary + footer;
 

@@ -14,7 +14,7 @@ export function buildCommunityPrompt(
   devto: DevtoData,
   lobsters: LobstersData,
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const devtoText =
     devto.articles.length > 0
@@ -27,15 +27,15 @@ export function buildCommunityPrompt(
                 `   Tags: ${a.tags.join(", ")}\n` +
                 `   ${a.description}`
               : `${i + 1}. **${a.title}**\n` +
-                `   链接: ${a.url}\n` +
-                `   作者: ${a.user} | 点赞: ${a.positiveReactionsCount} | 评论: ${a.commentsCount} | 阅读: ${a.readingTimeMinutes} 分钟\n` +
-                `   标签: ${a.tags.join(", ")}\n` +
+                `   Liên kết: ${a.url}\n` +
+                `   Tác giả: ${a.user} | Lượt thích: ${a.positiveReactionsCount} | Bình luận: ${a.commentsCount} | Thời gian đọc: ${a.readingTimeMinutes} phút\n` +
+                `   Thẻ: ${a.tags.join(", ")}\n` +
                 `   ${a.description}`,
           )
           .join("\n\n")
       : lang === "en"
         ? "(No Dev.to articles available)"
-        : "（无 Dev.to 文章）";
+        : "(Không có bài viết Dev.to)";
 
   const lobstersText =
     lobsters.stories.length > 0
@@ -47,14 +47,14 @@ export function buildCommunityPrompt(
                 `   Discussion: ${s.commentsUrl}\n` +
                 `   Score: ${s.score} | Comments: ${s.commentCount} | Author: ${s.author} | Tags: ${s.tags.join(", ")}`
               : `${i + 1}. **${s.title}**\n` +
-                `   链接: ${s.url}\n` +
-                `   讨论: ${s.commentsUrl}\n` +
-                `   分数: ${s.score} | 评论: ${s.commentCount} | 作者: ${s.author} | 标签: ${s.tags.join(", ")}`,
+                `   Liên kết: ${s.url}\n` +
+                `   Thảo luận: ${s.commentsUrl}\n` +
+                `   Điểm: ${s.score} | Bình luận: ${s.commentCount} | Tác giả: ${s.author} | Thẻ: ${s.tags.join(", ")}`,
           )
           .join("\n\n")
       : lang === "en"
         ? "(No Lobste.rs stories available)"
-        : "（无 Lobste.rs 内容）";
+        : "(Không có nội dung Lobste.rs)";
 
   if (lang === "en") {
     return `You are a tech community analyst. The following are AI-related content from Dev.to and Lobste.rs as of ${dateStr}:
@@ -104,49 +104,49 @@ Style: English, concise and developer-friendly, preserve all original links.
 `;
   }
 
-  return `你是技术社区分析师。以下是 ${dateStr} Dev.to 和 Lobste.rs 上的 AI 相关内容：
+  return `Bạn là một nhà phân tích cộng đồng công nghệ. Dưới đây là nội dung liên quan đến AI trên Dev.to và Lobste.rs tính đến ${dateStr}:
 
-## Dev.to 文章（共 ${devto.articles.length} 篇）
+## Bài viết Dev.to (tổng ${devto.articles.length} bài)
 
 ${devtoText}
 
 ---
 
-## Lobste.rs 内容（共 ${lobsters.stories.length} 条）
+## Nội dung Lobste.rs (tổng ${lobsters.stories.length} mục)
 
 ${lobstersText}
 
 ---
 
-请生成一份结构清晰的《技术社区 AI 动态日报》，要求：
+Hãy tạo một "Bản tin AI từ cộng đồng công nghệ" có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **今日速览** — 3~5 句话，概括今日技术社区围绕 AI 最热门的讨论方向
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu hướng thảo luận AI sôi nổi nhất trong các cộng đồng công nghệ hôm nay
 
-2. **Dev.to 精选** — 选出 5~10 篇最有价值的文章，用 **Markdown 表格**呈现：
+2. **Nổi bật trên Dev.to** — Chọn 5-10 bài viết giá trị nhất, trình bày bằng **bảng Markdown**:
 
-   | 文章 | 点赞 | 评论 | 简要说明 |
+   | Bài viết | Lượt thích | Bình luận | Tóm tắt |
    | :--- | ---: | ---: | :--- |
 
-   - **文章**：标题做成 Markdown 链接
-   - **点赞 / 评论**：数字照抄输入，不要重算
-   - **简要说明**：2 句话——对开发者的核心价值
+   - **Bài viết**: tiêu đề tạo thành liên kết Markdown
+   - **Lượt thích / Bình luận**: chép nguyên số từ dữ liệu đầu vào, không tự tính lại
+   - **Tóm tắt**: 2 câu — giá trị cốt lõi đối với nhà phát triển
 
-3. **Lobste.rs 精选** — 选出 3~8 条最值得关注的内容，用 **Markdown 表格**呈现：
+3. **Nổi bật trên Lobste.rs** — Chọn 3-8 nội dung đáng chú ý nhất, trình bày bằng **bảng Markdown**:
 
-   | 标题 | 分数 | 评论 | 简要说明 |
+   | Tiêu đề | Điểm | Bình luận | Tóm tắt |
    | :--- | ---: | ---: | :--- |
 
-   - **标题**：标题做成 Markdown 链接，其后附 " · [讨论](讨论链接)"
-   - **分数 / 评论**：数字照抄输入，不要重算
-   - **简要说明**：2 句话——为什么值得阅读
+   - **Tiêu đề**: tạo thành liên kết Markdown, kèm theo " · [thảo luận](liên-kết-thảo-luận)"
+   - **Điểm / Bình luận**: chép nguyên số từ dữ liệu đầu vào, không tự tính lại
+   - **Tóm tắt**: 2 câu — tại sao đáng đọc
 
-4. **社区脉搏** — 100~200 字，分析技术社区在聊什么：
-   - 两个平台共同关注的主题
-   - 开发者对 AI 工具的实际关切
-   - 新兴的教程、模式或最佳实践
+4. **Nhịp đập cộng đồng** — 100-200 từ, phân tích cộng đồng công nghệ đang bàn luận gì:
+   - Chủ đề chung giữa hai nền tảng
+   - Mối quan tâm thực tế của nhà phát triển về công cụ AI
+   - Hướng dẫn, mô hình hoặc thực hành tốt nhất mới nổi
 
-5. **值得精读** — 2~3 篇最值得深入阅读的内容
+5. **Đáng đọc sâu** — 2-3 bài viết/nội dung đáng đọc kỹ nhất
 
-语言要求：中文，简洁专业，保留所有原文链接。
+Yêu cầu: tiếng Việt, ngắn gọn, thân thiện với nhà phát triển, giữ nguyên tất cả liên kết gốc.
 `;
 }

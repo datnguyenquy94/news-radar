@@ -24,7 +24,7 @@ function makeDigest(overrides: Partial<RepoDigest> = {}): RepoDigest {
 // ---------------------------------------------------------------------------
 
 describe("buildCliReportContent", () => {
-  it("includes title, meta, and all sections (zh)", () => {
+  it("includes title, meta, and all sections (vi)", () => {
     const digests = [
       makeDigest({ config: { id: "claude-code", repo: "anthropics/claude-code", name: "Claude Code" } }),
       makeDigest({ config: { id: "codex", repo: "openai/codex", name: "OpenAI Codex" } }),
@@ -37,14 +37,14 @@ describe("buildCliReportContent", () => {
       "2026-03-09",
       "\n---\nfooter",
       "anthropics/skills",
-      "zh",
+      "vi",
     );
 
-    expect(result).toContain("# AI CLI 工具社区动态日报 2026-03-09");
-    expect(result).toContain("覆盖工具: 2 个");
+    expect(result).toContain("# Bản tin hàng ngày Cộng đồng công cụ AI CLI 2026-03-09");
+    expect(result).toContain("Số công cụ: 2");
     expect(result).toContain("[Claude Code](https://github.com/anthropics/claude-code)");
     expect(result).toContain("[Claude Code Skills](https://github.com/anthropics/skills)");
-    expect(result).toContain("横向对比");
+    expect(result).toContain("So sánh chéo");
     expect(result).toContain("Comparison content");
     expect(result).toContain("Skills summary");
     expect(result).toContain("footer");
@@ -79,7 +79,7 @@ describe("buildCliReportContent", () => {
       "",
       "",
       "anthropics/skills",
-      "zh",
+      "vi",
     );
 
     // Skills should appear inside claude-code details
@@ -96,7 +96,7 @@ describe("buildCliReportContent", () => {
 // ---------------------------------------------------------------------------
 
 describe("buildOpenclawReportContent", () => {
-  it("includes all sections (zh)", () => {
+  it("includes all sections (vi)", () => {
     const openclaw = { id: "openclaw", repo: "openclaw/openclaw", name: "OpenClaw" };
     const peers = [{ id: "peer1", repo: "org/peer1", name: "Peer1" }];
     const peerDigests = [makeDigest({ config: peers[0] })];
@@ -117,17 +117,17 @@ describe("buildOpenclawReportContent", () => {
       "\nfooter",
       openclaw,
       peers,
-      "zh",
+      "vi",
     );
 
-    expect(result).toContain("# OpenClaw 生态日报 2026-03-09");
+    expect(result).toContain("# Bản tin hàng ngày hệ sinh thái OpenClaw 2026-03-09");
     expect(result).toContain("Issues: 1");
-    expect(result).toContain("覆盖项目: 2 个");
+    expect(result).toContain("Dự án được theo dõi: 2");
     expect(result).toContain("[OpenClaw](https://github.com/openclaw/openclaw)");
     expect(result).toContain("[Peer1](https://github.com/org/peer1)");
-    expect(result).toContain("OpenClaw 项目深度报告");
-    expect(result).toContain("横向生态对比");
-    expect(result).toContain("同赛道项目详细报告");
+    expect(result).toContain("Báo cáo chuyên sâu dự án OpenClaw");
+    expect(result).toContain("So sánh hệ sinh thái chéo");
+    expect(result).toContain("Báo cáo chi tiết các dự án cùng lĩnh vực");
     expect(result).toContain("footer");
   });
 

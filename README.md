@@ -2,7 +2,7 @@
 
 English | [中文](./README.zh.md)
 
-A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI ecosystem signals from 10 data sources, then publishes bilingual (Chinese + English) daily digests as GitHub Issues and committed Markdown files. Weekly and monthly rollup reports are also generated automatically.
+A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI ecosystem signals from 10 data sources, then publishes bilingual (Vietnamese + English) daily digests as GitHub Issues and committed Markdown files. Weekly and monthly rollup reports are also generated automatically.
 
 ### Data Sources
 
@@ -44,7 +44,7 @@ Browse all historical digests in a clean, dark-themed interface — no login req
 
 ## Telegram Channel & Feishu Group
 
-Subscribe to get daily digest notifications pushed directly to your preferred platform. Each message links to all reports for that day (ZH and EN variants) plus the Web UI and RSS feed.
+Subscribe to get daily digest notifications pushed directly to your preferred platform. Each message links to all reports for that day (VI and EN variants) plus the Web UI and RSS feed.
 
 <table>
   <tr>
@@ -235,7 +235,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 
 | Secret | Required | Description |
 |--------|----------|-------------|
-| `DIGEST_LANGS` | optional | Languages to generate: `zh,en` (default, bilingual), `en` (English only), or `zh` (Chinese only) |
+| `DIGEST_LANGS` | optional | Languages to generate: `vi,en` (default, bilingual), `en` (English only), or `vi` (Vietnamese only) |
 | `LLM_PROVIDER` | optional | `anthropic` (default), `openai`, `github-copilot`, or `openrouter` |
 | `LLM_CONCURRENCY` | optional | Max in-flight LLM requests (default `5`) |
 | `LLM_TIMEOUT_MS` | optional | Per-request LLM timeout in ms (default `600000` = 10 min). Timeouts and 429s are retried up to 3 times, waiting at least 60 s between attempts |
@@ -364,7 +364,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 
 A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
 
-Each report is generated in both Chinese (`ai-cli.md`) and English (`ai-cli-en.md`). The Web UI sidebar shows ZH / EN toggle buttons for reports that have both variants.
+Each report is generated in both Vietnamese (`ai-cli.md`) and English (`ai-cli-en.md`). The Web UI sidebar shows VI / EN toggle buttons for reports that have both variants.
 
 ---
 

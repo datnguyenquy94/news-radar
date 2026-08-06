@@ -17,7 +17,7 @@ export function buildCliReportContent(
   dateStr: string,
   footer: string,
   skillsRepo: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const repoLinks =
     cliDigests.map((d) => `- [${d.config.name}](https://github.com/${d.config.repo})`).join("\n") +

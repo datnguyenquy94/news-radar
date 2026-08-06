@@ -12,7 +12,7 @@ import { NOTIFY_LABELS } from "../../core/i18n/index.ts";
 import type { ReportHighlights } from "../prompts/index.ts";
 
 export interface Highlights {
-  zh: ReportHighlights;
+  vi: ReportHighlights;
   en: ReportHighlights;
 }
 
@@ -56,7 +56,7 @@ export function buildMessage(
   const isMonthly = reportIds.includes("ai-monthly");
 
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
-  const suffix = isMonthly ? " 月报" : isWeekly ? " 周报" : "";
+  const suffix = isMonthly ? " báo cáo tháng" : isWeekly ? " báo cáo tuần" : "";
   const lines: string[] = [`${icon} <b>agents-radar${suffix} · ${date}</b>`];
 
   // Daily reports first, then rollups
@@ -65,15 +65,15 @@ export function buildMessage(
     ...reportIds.filter((r) => r.includes("weekly") || r.includes("monthly")),
   ];
 
-  const zhHighlights = highlights?.zh ?? {};
+  const viHighlights = highlights?.vi ?? {};
   const enHighlights = highlights?.en ?? {};
 
   for (const r of ordered) {
     const enKey = `${r}-en`;
     const links: string[] = [];
     if (reports.includes(r)) {
-      const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
-      links.push(`<a href="${PAGES_URL}/#${date}/${r}">${zhLabel}</a>`);
+      const viLabel = NOTIFY_LABELS[r]?.vi ?? r;
+      links.push(`<a href="${PAGES_URL}/#${date}/${r}">${viLabel}</a>`);
     }
     if (reports.includes(enKey)) {
       const enLabel = NOTIFY_LABELS[r]?.en ?? "EN";
@@ -84,9 +84,9 @@ export function buildMessage(
     lines.push(""); // blank line before each report section
     lines.push(`• ${links.join("  ·  ")}`);
 
-    // Add highlights as indented sub-items. Fall back to en when a report's zh
+    // Add highlights as indented sub-items. Fall back to en when a report's vi
     // highlights are missing so a single-language failure never blanks the message.
-    const items = zhHighlights[r] ?? enHighlights[r];
+    const items = viHighlights[r] ?? enHighlights[r];
     if (items?.length) {
       for (const h of items) {
         lines.push(`  ◦ ${escapeHtml(h)}`);

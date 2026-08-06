@@ -9,7 +9,7 @@ import type { Lang } from "../../core/i18n/index.ts";
 // Hugging Face prompt
 // ---------------------------------------------------------------------------
 
-export function buildHfPrompt(data: HfData, dateStr: string, lang: Lang = "zh"): string {
+export function buildHfPrompt(data: HfData, dateStr: string, lang: Lang = "vi"): string {
   const modelsText = data.models
     .map((m, i) =>
       lang === "en"
@@ -19,10 +19,10 @@ export function buildHfPrompt(data: HfData, dateStr: string, lang: Lang = "zh"):
           `   Likes: ${m.likes.toLocaleString()} | Downloads: ${m.downloads.toLocaleString()}\n` +
           `   Tags: ${m.tags.slice(0, 5).join(", ")}`
         : `${i + 1}. **${m.id}**\n` +
-          `   链接: ${m.url}\n` +
-          `   作者: ${m.author} | 任务: ${m.pipelineTag || "N/A"}\n` +
-          `   点赞: ${m.likes.toLocaleString()} | 下载: ${m.downloads.toLocaleString()}\n` +
-          `   标签: ${m.tags.slice(0, 5).join(", ")}`,
+          `   Liên kết: ${m.url}\n` +
+          `   Tác giả: ${m.author} | Tác vụ: ${m.pipelineTag || "N/A"}\n` +
+          `   Lượt thích: ${m.likes.toLocaleString()} | Lượt tải: ${m.downloads.toLocaleString()}\n` +
+          `   Thẻ: ${m.tags.slice(0, 5).join(", ")}`,
     )
     .join("\n\n");
 
@@ -66,7 +66,7 @@ Style: English, concise and professional, preserve all HuggingFace links.
 `;
   }
 
-  return `你是 AI 模型生态分析师。以下是 ${dateStr} Hugging Face Hub 上的热门模型（共 ${data.models.length} 个，按周点赞数排序）：
+  return `Bạn là một nhà phân tích hệ sinh thái mô hình AI. Dưới đây là các mô hình nổi bật trên Hugging Face Hub tính đến ${dateStr} (tổng ${data.models.length} mô hình, sắp xếp theo lượt thích trong tuần):
 
 ---
 
@@ -74,33 +74,33 @@ ${modelsText}
 
 ---
 
-请生成一份结构清晰的《Hugging Face 热门模型日报》，要求：
+Hãy tạo một "Bản tin mô hình nổi bật trên Hugging Face" có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **今日速览** — 3~5 句话，概括 Hugging Face 上最值得关注的模型发布和趋势
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu các mô hình mới và xu hướng đáng chú ý nhất trên Hugging Face
 
-2. **热门模型** — 按以下分类整理。在每个分类标题下，用 **Markdown 表格**呈现，列固定为：
+2. **Mô hình nổi bật** — Sắp xếp theo các danh mục sau. Dưới mỗi tiêu đề danh mục, trình bày bằng **bảng Markdown** với đúng các cột sau:
 
-   | 模型 | 作者 | 点赞 | 下载 | 简要说明 |
+   | Mô hình | Tác giả | Lượt thích | Lượt tải | Tóm tắt |
    | :--- | :--- | ---: | ---: | :--- |
 
-   - **模型**：模型名，做成指向其 HF 链接的 Markdown 链接
-   - **点赞 / 下载**：数字直接照抄输入数据（保留千位分隔符，不要重新计算或四舍五入）
-   - **简要说明**：2 句话——模型是什么、为什么上榜，点出关键能力或数据亮点
-   - 某个分类下若没有模型，则整张表省略
+   - **Mô hình**: tên mô hình tạo thành liên kết Markdown trỏ tới URL HF
+   - **Lượt thích / Lượt tải**: chép nguyên số từ dữ liệu đầu vào (giữ dấu phân cách hàng nghìn, không tự tính lại hoặc làm tròn)
+   - **Tóm tắt**: 2 câu — mô hình là gì, tại sao đang nổi bật, nêu năng lực hoặc dữ liệu nổi bật
+   - Bỏ hẳn bảng của danh mục nào không có mô hình phù hợp
 
-   分类：
-   - 🧠 语言模型（LLM、对话模型、指令微调）
-   - 🎨 多模态与生成（图像、视频、音频、文本到X）
-   - 🔧 专用模型（代码、数学、医疗、嵌入）
-   - 📦 微调与量化（社区微调、GGUF、AWQ）
+   Danh mục:
+   - 🧠 Mô hình ngôn ngữ (LLM, mô hình hội thoại, instruction-tuned)
+   - 🎨 Đa phương thức và sinh nội dung (ảnh, video, âm thanh, text-to-X)
+   - 🔧 Mô hình chuyên biệt (mã nguồn, toán học, y tế, embedding)
+   - 📦 Fine-tune và lượng tử hóa (fine-tune từ cộng đồng, GGUF, AWQ)
 
-3. **生态信号** — 100~200 字，分析模型生态趋势：
-   - 哪些模型家族势头正旺？
-   - 开源权重 vs 闭源的趋势
-   - 值得注意的量化或微调活动
+3. **Tín hiệu hệ sinh thái** — 100-200 từ, phân tích xu hướng hệ sinh thái mô hình:
+   - Dòng mô hình nào đang có đà tăng trưởng?
+   - Xu hướng trọng số mở so với độc quyền
+   - Hoạt động lượng tử hóa hoặc fine-tune đáng chú ý
 
-4. **值得探索** — 2~3 个最值得尝试或研究的模型，简述理由
+4. **Đáng khám phá** — 2-3 mô hình đáng thử hoặc nghiên cứu nhất, kèm lý do
 
-语言要求：中文，简洁专业，保留所有 HuggingFace 链接。
+Yêu cầu: tiếng Việt, ngắn gọn, chuyên nghiệp, giữ nguyên tất cả liên kết HuggingFace.
 `;
 }

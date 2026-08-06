@@ -107,35 +107,35 @@ const GLOBAL_SERIES: {
   {
     id: "dxy",
     symbol: "DX-Y.NYB",
-    label: { zh: "美元指数 (DXY)", en: "US Dollar Index (DXY)" },
+    label: { vi: "Chỉ số Đô la Mỹ (DXY)", en: "US Dollar Index (DXY)" },
     unit: "",
     decimals: 2,
   },
   {
     id: "gold",
     symbol: "GC=F",
-    label: { zh: "国际金价", en: "Gold (COMEX)" },
+    label: { vi: "Giá vàng thế giới", en: "Gold (COMEX)" },
     unit: "$/oz",
     decimals: 1,
   },
   {
     id: "brent",
     symbol: "BZ=F",
-    label: { zh: "布伦特原油", en: "Brent Crude" },
+    label: { vi: "Dầu thô Brent", en: "Brent Crude" },
     unit: "$/bbl",
     decimals: 2,
   },
   {
     id: "vnm-etf",
     symbol: "VNM",
-    label: { zh: "VanEck 越南 ETF (VNM)", en: "VanEck Vietnam ETF (VNM)" },
+    label: { vi: "VanEck Vietnam ETF (VNM)", en: "VanEck Vietnam ETF (VNM)" },
     unit: "$",
     decimals: 2,
   },
   {
     id: "hrc-steel",
     symbol: "HRC=F",
-    label: { zh: "热轧卷板期货 (HRC)", en: "Hot-Rolled Coil Futures" },
+    label: { vi: "Hợp đồng tương lai thép cuộn cán nóng (HRC)", en: "Hot-Rolled Coil Futures" },
     unit: "$/t",
     decimals: 1,
   },
@@ -145,25 +145,25 @@ const ANNUAL_SERIES: { id: string; indicator: string; label: Record<Lang, string
   {
     id: "cpi-annual",
     indicator: "FP.CPI.TOTL.ZG",
-    label: { zh: "CPI 通胀 (年度)", en: "CPI Inflation (annual)" },
+    label: { vi: "Lạm phát CPI (hàng năm)", en: "CPI Inflation (annual)" },
     unit: "%",
   },
   {
     id: "gdp-growth",
     indicator: "NY.GDP.MKTP.KD.ZG",
-    label: { zh: "GDP 增速 (年度)", en: "GDP Growth (annual)" },
+    label: { vi: "Tăng trưởng GDP (hàng năm)", en: "GDP Growth (annual)" },
     unit: "%",
   },
   {
     id: "fdi",
     indicator: "BX.KLT.DINV.CD.WD",
-    label: { zh: "FDI 净流入 (年度)", en: "FDI Net Inflows (annual)" },
+    label: { vi: "Dòng vốn FDI ròng (hàng năm)", en: "FDI Net Inflows (annual)" },
     unit: "$B",
   },
   {
     id: "reserves",
     indicator: "FI.RES.TOTL.CD",
-    label: { zh: "外汇储备 (年度)", en: "FX Reserves (annual)" },
+    label: { vi: "Dự trữ ngoại hối (hàng năm)", en: "FX Reserves (annual)" },
     unit: "$B",
   },
 ];
@@ -176,7 +176,7 @@ const US_10Y: { id: string; series: string; fallbackSymbol: string; label: Recor
   id: "us-10y",
   series: "DGS10",
   fallbackSymbol: "^TNX",
-  label: { zh: "美国 10 年期国债收益率", en: "US 10Y Treasury Yield" },
+  label: { vi: "Lợi suất trái phiếu Mỹ 10 năm", en: "US 10Y Treasury Yield" },
 };
 
 const VCB_API = "https://www.vietcombank.com.vn/api/exchangerates";

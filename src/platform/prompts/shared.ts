@@ -4,6 +4,7 @@
 
 import type { GitHubItem } from "../../domains/github/github.ts";
 import type { Lang } from "../../core/i18n/index.ts";
+import { t } from "../../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------
 // Formatting
@@ -53,14 +54,28 @@ export function topN(items: GitHubItem[], n: number): GitHubItem[] {
   return [...items].sort((a, b) => b.comments - a.comments).slice(0, n);
 }
 
-export function sampleNote(total: number, sampled: number, lang: Lang = "vi"): string {
+/** Default sort criterion: comment count (the sort `topN` applies). */
+const DEFAULT_SAMPLE_BY: Record<Lang, string> = t("nhiều bình luận nhất", "by comment count");
+
+/**
+ * Format the "(Total: N items; showing top M ...)" note. `by` names the sort
+ * criterion actually used to pick the top M — pass it explicitly whenever a
+ * caller sorts by something other than comment count, so the prompt never
+ * misdescribes its own sampling.
+ */
+export function sampleNote(
+  total: number,
+  sampled: number,
+  lang: Lang = "vi",
+  by: Record<Lang, string> = DEFAULT_SAMPLE_BY,
+): string {
   if (lang === "en") {
     return total > sampled
-      ? `(Total: ${total} items; showing top ${sampled} by comment count)`
+      ? `(Total: ${total} items; showing top ${sampled} ${by.en})`
       : `(Total: ${total} items)`;
   }
   return total > sampled
-    ? `(Tổng cộng ${total} mục, hiển thị ${sampled} mục có nhiều bình luận nhất)`
+    ? `(Tổng cộng ${total} mục, hiển thị ${sampled} mục có ${by.vi})`
     : `(Tổng cộng ${total} mục)`;
 }
 

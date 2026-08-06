@@ -4,8 +4,22 @@
 
 import type { TrendingData } from "../../domains/ai/trending.ts";
 import type { Lang } from "../../core/i18n/index.ts";
+import { t } from "../../core/i18n/index.ts";
+import { sampleNote } from "./shared.ts";
+
+/**
+ * Cap on search-result repos fed to the prompt. Left unbounded, the ~80
+ * repos/day the search returns would blow the token budget once combined
+ * with the trending list, so only the top 40 by star count are kept.
+ */
+const SEARCH_REPO_LIMIT = 40;
+
+const SEARCH_SAMPLE_BY: Record<Lang, string> = t("nhiều lượt sao nhất", "by star count");
 
 export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "vi"): string {
+  const sampledSearchRepos = [...data.searchRepos]
+    .sort((a, b) => b.stargazersCount - a.stargazersCount)
+    .slice(0, SEARCH_REPO_LIMIT);
   const trendingSection =
     data.trendingFetchSuccess && data.trendingRepos.length > 0
       ? data.trendingRepos
@@ -24,8 +38,8 @@ export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: L
         : "(Không thể thu thập bảng xếp hạng GitHub Trending hôm nay)";
 
   const searchSection =
-    data.searchRepos.length > 0
-      ? data.searchRepos
+    sampledSearchRepos.length > 0
+      ? sampledSearchRepos
           .map(
             (r) =>
               `- [${r.fullName}](${r.url})` +
@@ -53,7 +67,7 @@ ${trendingSection}
 
 ---
 
-## AI Topic Search Results (${data.searchRepos.length} repositories, deduplicated)
+## AI Topic Search Results (deduplicated) ${sampleNote(data.searchRepos.length, sampledSearchRepos.length, lang, SEARCH_SAMPLE_BY)}
 ${searchSection}
 
 ---
@@ -108,7 +122,7 @@ ${trendingSection}
 
 ---
 
-## Kết quả tìm kiếm chủ đề AI (tổng ${data.searchRepos.length} kho, đã loại trùng)
+## Kết quả tìm kiếm chủ đề AI (đã loại trùng) ${sampleNote(data.searchRepos.length, sampledSearchRepos.length, lang, SEARCH_SAMPLE_BY)}
 ${searchSection}
 
 ---

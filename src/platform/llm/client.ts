@@ -9,7 +9,9 @@ import { sleep } from "../../core/date.ts";
 // ---------------------------------------------------------------------------
 
 export const LLM_TOKENS_DEFAULT = 4096;
-export const LLM_TOKENS_TRENDING = 6144;
+/** Trending combines a Step 1/2/3 filter-and-categorize prompt with
+ *  multi-category tables — it truncates at the listing budget without headroom. */
+export const LLM_TOKENS_TRENDING = 8192;
 /** Table-formatted listing reports (HN, PH, ArXiv, HF, Community) need extra
  *  headroom for the multi-row tables plus 2-sentence summaries. */
 export const LLM_TOKENS_LISTING = 6144;

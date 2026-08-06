@@ -67,7 +67,7 @@ export function buildFeishuMessage(
   const isMonthly = reportIds.includes("ai-monthly");
 
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
-  const suffix = isMonthly ? " 月报" : isWeekly ? " 周报" : "";
+  const suffix = isMonthly ? " báo cáo tháng" : isWeekly ? " báo cáo tuần" : "";
   const lines: string[] = [`${icon} **agents-radar${suffix} · ${date}**`];
 
   const ordered = [
@@ -75,15 +75,15 @@ export function buildFeishuMessage(
     ...reportIds.filter((r) => r.includes("weekly") || r.includes("monthly")),
   ];
 
-  const zhHighlights = highlights?.zh ?? {};
+  const viHighlights = highlights?.vi ?? {};
   const enHighlights = highlights?.en ?? {};
 
   for (const r of ordered) {
     const enKey = `${r}-en`;
     const links: string[] = [];
     if (reports.includes(r)) {
-      const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
-      links.push(`[${zhLabel}](${PAGES_URL}/#${date}/${r})`);
+      const viLabel = NOTIFY_LABELS[r]?.vi ?? r;
+      links.push(`[${viLabel}](${PAGES_URL}/#${date}/${r})`);
     }
     if (reports.includes(enKey)) {
       const enLabel = NOTIFY_LABELS[r]?.en ?? "EN";
@@ -94,9 +94,9 @@ export function buildFeishuMessage(
     lines.push("");
     lines.push(`• ${links.join("  ·  ")}`);
 
-    // Fall back to en when a report's zh highlights are missing so a
+    // Fall back to en when a report's vi highlights are missing so a
     // single-language failure never blanks the message.
-    const items = zhHighlights[r] ?? enHighlights[r];
+    const items = viHighlights[r] ?? enHighlights[r];
     if (items?.length) {
       for (const h of items) {
         lines.push(`  ◦ ${h}`);

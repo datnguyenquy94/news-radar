@@ -20,7 +20,7 @@ export async function savePhReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   if (!phData.fetchSuccess) {
     console.log(`  [ph/${lang}] No data available, skipping report.`);
@@ -38,8 +38,8 @@ export async function savePhReport(
           `${phData.products.length} products | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${PH_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [Product Hunt](https://www.producthunt.com/) | ` +
-          `共 ${phData.products.length} 个产品 | 生成时间: ${utcStr} UTC\n\n` +
+          `> Nguồn dữ liệu: [Product Hunt](https://www.producthunt.com/) | ` +
+          `${phData.products.length} sản phẩm | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const phContent = header + phSummary + footer;

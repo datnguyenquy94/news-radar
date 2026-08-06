@@ -9,7 +9,7 @@ import type { Lang } from "../../core/i18n/index.ts";
 // ArXiv prompt
 // ---------------------------------------------------------------------------
 
-export function buildArxivPrompt(data: ArxivData, dateStr: string, lang: Lang = "zh"): string {
+export function buildArxivPrompt(data: ArxivData, dateStr: string, lang: Lang = "vi"): string {
   const papersText = data.papers
     .map((p, i) => {
       const authors =
@@ -22,10 +22,10 @@ export function buildArxivPrompt(data: ArxivData, dateStr: string, lang: Lang = 
             `   Published: ${p.published.slice(0, 10)}\n` +
             `   Abstract: ${p.summary.slice(0, 300)}${p.summary.length > 300 ? "..." : ""}`
         : `${i + 1}. **${p.title}**\n` +
-            `   链接: ${p.url}\n` +
-            `   作者: ${authors} | 分类: ${cats}\n` +
-            `   发布: ${p.published.slice(0, 10)}\n` +
-            `   摘要: ${p.summary.slice(0, 300)}${p.summary.length > 300 ? "..." : ""}`;
+            `   Liên kết: ${p.url}\n` +
+            `   Tác giả: ${authors} | Danh mục: ${cats}\n` +
+            `   Ngày đăng: ${p.published.slice(0, 10)}\n` +
+            `   Tóm tắt: ${p.summary.slice(0, 300)}${p.summary.length > 300 ? "..." : ""}`;
     })
     .join("\n\n");
 
@@ -66,7 +66,7 @@ Style: English, concise and professional, preserve all ArXiv links.
 `;
   }
 
-  return `你是 AI 研究分析师。以下是 ${dateStr} ArXiv 上最新的 AI 相关论文（共 ${data.papers.length} 篇，来自 cs.AI、cs.CL、cs.LG）：
+  return `Bạn là một nhà phân tích nghiên cứu AI. Dưới đây là các bài báo liên quan đến AI mới nhất trên ArXiv tính đến ${dateStr} (tổng ${data.papers.length} bài, từ cs.AI, cs.CL, cs.LG):
 
 ---
 
@@ -74,30 +74,30 @@ ${papersText}
 
 ---
 
-请生成一份结构清晰的《ArXiv AI 研究日报》，要求：
+Hãy tạo một "Bản tin nghiên cứu AI trên ArXiv" có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **今日速览** — 3~5 句话，概括今日最值得关注的研究方向和突破
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu các hướng nghiên cứu và đột phá đáng chú ý nhất hôm nay
 
-2. **重点论文** — 选出 8~15 篇最重要的论文，按主题分类。在每个主题标题下用 **Markdown 表格**呈现，列固定为：
+2. **Bài báo trọng điểm** — Chọn 8-15 bài quan trọng nhất, phân theo chủ đề. Dưới mỗi tiêu đề chủ đề, trình bày bằng **bảng Markdown** với đúng các cột sau:
 
-   | 论文 | 作者 | 简要说明 |
+   | Bài báo | Tác giả | Tóm tắt |
    | :--- | :--- | :--- |
 
-   - **论文**：标题做成指向其 ArXiv 链接的 Markdown 链接
-   - **作者**：缩写（前 3 位 + et al.）
-   - **简要说明**：2 句话——核心贡献及为什么值得关注
-   - 某主题下若无论文则整张表省略
+   - **Bài báo**: tiêu đề tạo thành liên kết Markdown trỏ tới URL ArXiv
+   - **Tác giả**: viết tắt (3 tác giả đầu + et al.)
+   - **Tóm tắt**: 2 câu — đóng góp cốt lõi và tại sao đáng chú ý
+   - Bỏ hẳn bảng của chủ đề nào không có bài báo phù hợp
 
-   主题：
-   - 🧠 大语言模型（架构、训练、对齐、评估）
-   - 🤖 智能体与推理（规划、工具使用、多智能体、思维链）
-   - 🔧 方法与框架（新技术、基准测试、效率优化）
-   - 📊 应用（垂直领域、多模态、代码生成）
+   Chủ đề:
+   - 🧠 Mô hình ngôn ngữ lớn (kiến trúc, huấn luyện, alignment, đánh giá)
+   - 🤖 Agent và suy luận (lập kế hoạch, sử dụng công cụ, đa agent, chain-of-thought)
+   - 🔧 Phương pháp và framework (kỹ thuật mới, benchmark, tối ưu hiệu năng)
+   - 📊 Ứng dụng (theo lĩnh vực cụ thể, đa phương thức, sinh mã)
 
-3. **研究趋势信号** — 100~200 字，从今日投稿中观察到的新兴研究方向
+3. **Tín hiệu xu hướng nghiên cứu** — 100-200 từ, hướng nghiên cứu mới nổi quan sát được từ các bài đăng hôm nay
 
-4. **值得精读** — 2~3 篇最值得完整阅读的论文，简述理由
+4. **Đáng đọc sâu** — 2-3 bài báo đáng đọc đầy đủ nhất, kèm lý do
 
-语言要求：中文，简洁专业，保留所有 ArXiv 链接。
+Yêu cầu: tiếng Việt, ngắn gọn, chuyên nghiệp, giữ nguyên tất cả liên kết ArXiv.
 `;
 }

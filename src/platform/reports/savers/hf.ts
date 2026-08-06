@@ -20,7 +20,7 @@ export async function saveHfReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   if (!hfData.fetchSuccess) {
     console.log(`  [hf/${lang}] No data available, skipping report.`);
@@ -38,8 +38,8 @@ export async function saveHfReport(
           `${hfData.models.length} models | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${HF_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [Hugging Face Hub](https://huggingface.co/) | ` +
-          `共 ${hfData.models.length} 个模型 | 生成时间: ${utcStr} UTC\n\n` +
+          `> Nguồn dữ liệu: [Hugging Face Hub](https://huggingface.co/) | ` +
+          `${hfData.models.length} mô hình | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;

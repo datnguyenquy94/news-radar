@@ -2,20 +2,20 @@
  * Language type, the configured-language resolver, and the bilingual-string helper.
  */
 
-export type Lang = "zh" | "en";
+export type Lang = "vi" | "en";
 
 /** All supported languages, in canonical order. */
-export const ALL_LANGS: readonly Lang[] = ["zh", "en"];
+export const ALL_LANGS: readonly Lang[] = ["vi", "en"];
 
 /**
  * Languages to generate, read from the `DIGEST_LANGS` env var (comma-separated,
- * e.g. `"en"` or `"zh,en"`). Order and duplicates in the env var are respected /
+ * e.g. `"en"` or `"vi,en"`). Order and duplicates in the env var are respected /
  * de-duplicated. Unrecognized entries are ignored; if nothing valid remains
  * (or the var is unset), all languages are generated.
  *
- *   DIGEST_LANGS unset      → ["zh", "en"]  (default: both)
+ *   DIGEST_LANGS unset      → ["vi", "en"]  (default: both)
  *   DIGEST_LANGS="en"       → ["en"]        (English only)
- *   DIGEST_LANGS="zh"       → ["zh"]        (Chinese only)
+ *   DIGEST_LANGS="vi"       → ["vi"]        (Vietnamese only)
  */
 export function getLangs(): Lang[] {
   const raw = process.env["DIGEST_LANGS"];
@@ -29,6 +29,6 @@ export function getLangs(): Lang[] {
 }
 
 /** Get a bilingual string by language key. */
-export function t(zh: string, en: string): Record<Lang, string> {
-  return { zh, en };
+export function t(vi: string, en: string): Record<Lang, string> {
+  return { vi, en };
 }

@@ -22,7 +22,7 @@ export async function saveMacroReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   if (!fredData.fetchSuccess) {
     console.log(`  [macro/${lang}] No FRED data available, skipping report.`);
@@ -41,8 +41,8 @@ export async function saveMacroReport(
           `${metricCount} indicators | Generated: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}.\n\n` +
           `---\n\n`
         : `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
-          `共 ${metricCount} 项指标 | 生成时间: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}。\n\n` +
+          `> Nguồn dữ liệu: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
+          `${metricCount} chỉ số | Thời gian tạo: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}.\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;

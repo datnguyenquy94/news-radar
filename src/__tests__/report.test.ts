@@ -208,12 +208,12 @@ describe("autoGenFooter", () => {
     expect(autoGenFooter()).toBe("");
   });
 
-  it("returns Chinese footer when DIGEST_REPO is set", () => {
+  it("returns Vietnamese footer when DIGEST_REPO is set", () => {
     process.env["DIGEST_REPO"] = "user/repo";
-    const result = autoGenFooter("zh");
+    const result = autoGenFooter("vi");
     expect(result).toContain("agents-radar");
     expect(result).toContain("github.com/user/repo");
-    expect(result).toContain("自动生成");
+    expect(result).toContain("tự động");
   });
 
   it("returns English footer when lang is en", () => {
@@ -256,7 +256,7 @@ describe("parseLlmJson", () => {
   });
 
   it("tolerates a trailing comma before a closing brace", () => {
-    // The exact failure that wiped zh highlights on 2026-07-07:
+    // The exact failure that wiped vi highlights on 2026-07-07:
     // "Expected double-quoted property name in JSON" from a trailing comma.
     const raw = '{"a": [1, 2,], "b": 3,}';
     expect(() => JSON.parse(raw)).toThrow();

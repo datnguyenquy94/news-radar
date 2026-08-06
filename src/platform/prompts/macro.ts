@@ -12,9 +12,9 @@ import { fmtNum } from "./shared.ts";
 // ---------------------------------------------------------------------------
 
 const MACRO_GROUP_LABEL: Record<FredGroup, Record<Lang, string>> = {
-  liquidity: { zh: "央行与流动性", en: "Central Bank & Liquidity" },
-  yields_credit: { zh: "利率与信用", en: "Yields & Credit" },
-  econ_inflation: { zh: "经济与通胀", en: "Economy & Inflation" },
+  liquidity: { vi: "Ngân hàng trung ương và thanh khoản", en: "Central Bank & Liquidity" },
+  yields_credit: { vi: "Lợi suất và tín dụng", en: "Yields & Credit" },
+  econ_inflation: { vi: "Kinh tế và lạm phát", en: "Economy & Inflation" },
 };
 
 function macroMetricLine(m: FredMetric, lang: Lang): string {
@@ -23,14 +23,14 @@ function macroMetricLine(m: FredMetric, lang: Lang): string {
   const change = fmtNum(m.change, m.decimals, m.unit);
   return lang === "en"
     ? `- ${m.label.en} (${m.series}): latest ${latest} | prior ${prior} | change ${change} | as of ${m.asOf || "n/a"}`
-    : `- ${m.label.zh} (${m.series}): 最新 ${latest} | 前值 ${prior} | 变化 ${change} | 截至 ${m.asOf || "无"}`;
+    : `- ${m.label.vi} (${m.series}): mới nhất ${latest} | trước đó ${prior} | thay đổi ${change} | tính đến ${m.asOf || "chưa có"}`;
 }
 
 export function buildMacroPrompt(
   fred: FredData,
   finra: FinraData,
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const groups: FredGroup[] = ["liquidity", "yields_credit", "econ_inflation"];
   const dataSection = groups
@@ -45,7 +45,7 @@ export function buildMacroPrompt(
     if (!finra.fetchSuccess || !finra.latest) {
       return lang === "en"
         ? "- FINRA Margin Debt: data unavailable this run"
-        : "- FINRA 保证金债务: 本次未取到数据";
+        : "- Nợ ký quỹ FINRA: lần chạy này không lấy được dữ liệu";
     }
     const b = (finra.latest.debitMillions / 1000).toLocaleString("en-US", { maximumFractionDigits: 1 });
     const pb = finra.prior
@@ -54,7 +54,7 @@ export function buildMacroPrompt(
     const chg = finra.changePct === null ? "N/A" : `${finra.changePct > 0 ? "+" : ""}${finra.changePct}%`;
     return lang === "en"
       ? `- FINRA Margin Debt (retail leverage): latest ${finra.latest.period} $${b}B | prior ${pb === "N/A" ? "N/A" : "$" + pb + "B"} | MoM ${chg}`
-      : `- FINRA 保证金债务 (散户杠杆): 最新 ${finra.latest.period} $${b}B | 前值 ${pb === "N/A" ? "N/A" : "$" + pb + "B"} | 环比 ${chg}`;
+      : `- Nợ ký quỹ FINRA (đòn bẩy nhà đầu tư cá nhân): mới nhất ${finra.latest.period} $${b}B | trước đó ${pb === "N/A" ? "N/A" : "$" + pb + "B"} | so với tháng trước ${chg}`;
   })();
 
   if (lang === "en") {
@@ -99,43 +99,43 @@ Style: English, professional and concise. Do not invent numbers not present in t
 `;
   }
 
-  return `你是一位宏观策略分析师。以下是截至 ${dateStr} 的美国宏观指标最新数据，来源为 FRED（美联储经济数据库）和 FINRA。所有数字均为官方发布，请照抄，不要重新计算。
+  return `Bạn là một nhà chiến lược vĩ mô. Dưới đây là dữ liệu mới nhất về các chỉ số vĩ mô của Mỹ tính đến ${dateStr}, nguồn từ FRED (Cơ sở dữ liệu kinh tế của Cục Dự trữ Liên bang) và FINRA. Tất cả các số liệu đều là công bố chính thức — hãy chép nguyên văn, không tự tính lại.
 
 ${dataSection}
 
-### 散户杠杆
+### Đòn bẩy nhà đầu tư cá nhân
 ${finraLine}
 
 ---
 
-请生成一份结构清晰的**宏观市场仪表盘**，要求：
+Hãy tạo một **Bảng theo dõi thị trường vĩ mô** có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **宏观速览** — 3~5 句话，概括当前流动性、利率与通胀环境，及其对风险资产的含义。
+1. **Điểm nhanh vĩ mô** — Tóm tắt trong 3-5 câu bối cảnh thanh khoản, lãi suất và lạm phát hiện tại, và ý nghĩa của nó đối với tài sản rủi ro.
 
-2. **指标表格** — 每个分组（央行与流动性；利率与信用；经济与通胀）各用一张 **Markdown 表格**呈现，列固定为：
+2. **Bảng chỉ số** — Mỗi nhóm (Ngân hàng trung ương và thanh khoản; Lợi suất và tín dụng; Kinh tế và lạm phát) trình bày bằng một **bảng Markdown** với đúng các cột sau:
 
-   | 指标 | 最新 | 前值 | 变化 | 解读 |
+   | Chỉ số | Mới nhất | Trước đó | Thay đổi | Nhận định |
    | :--- | ---: | ---: | ---: | :--- |
 
-   - **最新 / 前值 / 变化**：数字（含单位）照抄输入，不要重算
-   - **解读**：3~6 个字的判读，参考以下阈值：
-     - 联邦基金利率 / 10 年美债：10Y 高于 4.0% 偏高，高于 4.5% 极度紧缩
-     - VIX：>30 极度恐慌（历史底部区），15~20 平静，<10 极度乐观
-     - 10Y-2Y 利差：<0 倒挂（12~24 个月内衰退信号）
-     - 高收益债信用利差：飙向 8~10%+ 预示信用紧张
-     - 原油（WTI/布伦特）：>$100 推升核心通胀；$80 为心理安全线
-     - 失业率：约 4% 充分就业，<4% 过热，>5.5% 疲弱
-     - 初请失业金：25 万~35 万正常，<25 万偏紧，>35 万疲弱
-     - 非农（环比）：<5 万疲弱，>25 万强劲
-     - CPI / 核心 CPI / 核心 PCE / PPI：对照美联储 2.0% 目标
-     - 消费者信心：中性 100，>120 强，<100 弱
-     - FINRA 保证金债务：持续下降＝去杠杆（清洗投机泡沫）
-   - 将 FINRA 保证金债务一行并入"央行与流动性"表。任何"最新"为 N/A 的行请省略。
+   - **Mới nhất / Trước đó / Thay đổi**: chép nguyên số (kèm đơn vị) từ dữ liệu đầu vào, không tự tính lại
+   - **Nhận định**: nhận xét ngắn 3-6 từ, tham khảo các ngưỡng sau:
+     - Lãi suất Fed / Lợi suất 10 năm: 10Y trên 4.0% là cao, trên 4.5% là rất thắt chặt
+     - VIX: >30 sợ hãi cực độ (thường là đáy lịch sử), 15-20 bình lặng, <10 lạc quan cực độ
+     - Chênh lệch 10Y-2Y: <0 đảo ngược (tín hiệu suy thoái trong 12-24 tháng)
+     - Chênh lệch tín dụng trái phiếu lợi suất cao: tăng vọt lên 8-10%+ báo hiệu căng thẳng tín dụng
+     - Dầu (WTI/Brent): >$100 gây áp lực lên lạm phát lõi; $80 là mức an toàn tâm lý
+     - Tỷ lệ thất nghiệp: khoảng 4% là toàn dụng lao động, <4% là quá nóng, >5.5% là yếu
+     - Đơn xin trợ cấp thất nghiệp lần đầu: 250-350 nghìn là bình thường, <250 nghìn là thắt chặt, >350 nghìn là yếu
+     - Bảng lương phi nông nghiệp (so với tháng trước): <50 nghìn là yếu, >250 nghìn là mạnh
+     - CPI / CPI lõi / PCE lõi / PPI: so với mục tiêu 2.0% của Fed
+     - Niềm tin người tiêu dùng: trung tính 100, >120 mạnh, <100 yếu
+     - Nợ ký quỹ FINRA: giảm liên tục = giảm đòn bẩy (dọn dẹp bong bóng đầu cơ)
+   - Đưa dòng Nợ ký quỹ FINRA vào bảng Ngân hàng trung ương và thanh khoản. Bỏ qua bất kỳ dòng nào có giá trị Mới nhất là N/A.
 
-3. **格局研判** — 150~250 字，将流动性 + 信用 + 通胀综合成一个市场格局判断（宽松 vs 紧缩，风险偏好 vs 规避）。
+3. **Nhận định chế độ thị trường** — 150-250 từ, tổng hợp bức tranh thanh khoản + tín dụng + lạm phát thành một nhận định chung về chế độ thị trường (nới lỏng vs thắt chặt, ưa rủi ro vs né rủi ro).
 
-4. **策略检查点** — 评估 5 条买入信号（VIX>30；美联储非加息路径；FINRA 保证金去杠杆；存在明确的高增长主题引擎；龙头基本面仍超预期）与 3 条卖出信号（基本面见顶；美联储鹰派转向；估值远超历史区间）。对每个条件标注 ✅ 满足 / ❌ 不满足 / ❔ 数据不足，且**仅**依据上面的数字（基本面/主题类条件标 ❔——本仪表盘无个股数据）。仅供参考，非投资建议。
+4. **Điểm kiểm tra chiến lược** — Đánh giá tín hiệu mua với 5 điều kiện (VIX>30; Fed không trong lộ trình tăng lãi suất; FINRA đang giảm đòn bẩy ký quỹ; có động cơ chủ đề tăng trưởng cao rõ ràng; các mã dẫn dắt vẫn vượt kỳ vọng về cơ bản) và tín hiệu bán với 3 điều kiện (cơ bản chững lại; Fed chuyển hướng diều hâu; định giá vượt xa vùng lịch sử). Với mỗi điều kiện, đánh dấu ✅ đạt / ❌ không đạt / ❔ không đủ dữ liệu, CHỈ dựa trên các số liệu ở trên (đánh dấu ❔ cho các điều kiện về cơ bản/chủ đề — bảng này không có dữ liệu công ty). Nội dung chỉ mang tính tham khảo, không phải lời khuyên đầu tư.
 
-语言要求：中文，专业简洁。不要编造输入中没有的数字。
+Yêu cầu: tiếng Việt, chuyên nghiệp, ngắn gọn. Không được bịa ra số liệu không có trong dữ liệu đầu vào.
 `;
 }

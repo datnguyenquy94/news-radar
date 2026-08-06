@@ -19,7 +19,7 @@ export async function saveTrendingReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
   if (!hasData) {
@@ -30,7 +30,7 @@ export async function saveTrendingReport(
   const fileName = lang === "en" ? "ai-trending-en.md" : "ai-trending.md";
   const header =
     `# ${TRENDING_REPORT.title[lang]} ${dateStr}\n\n` +
-    `> ${TRENDING_REPORT.sources[lang]} | ${lang === "en" ? "Generated" : "生成时间"}: ${utcStr} UTC\n\n---\n\n`;
+    `> ${TRENDING_REPORT.sources[lang]} | ${lang === "en" ? "Generated" : "Thời gian tạo"}: ${utcStr} UTC\n\n---\n\n`;
 
   const trendingContent = header + trendingSummary + footer;
 

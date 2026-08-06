@@ -2,7 +2,7 @@
 
 ## Project overview
 
-agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Chinese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, a macro-financial dashboard from FRED + FINRA, and a Vietnam macro-market dashboard). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
+agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 CST) and produces bilingual (Vietnamese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, a macro-financial dashboard from FRED + FINRA, and a Vietnam macro-market dashboard). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
 
 ## Commands
 
@@ -14,9 +14,6 @@ pnpm manifest       # regenerate manifest.json + feed.xml from digests/
 pnpm notify         # send Telegram notification for the latest manifest entry
 pnpm notify:feishu  # send Feishu (Lark) notification
 pnpm close-stale    # close digest GitHub Issues older than 7 days
-pnpm xiaohongshu    # generate a Xiaohongshu post from the latest digest (local)
-pnpm wechat         # generate a WeChat weekly article (last 7 days)
-pnpm wechat:monthly # generate a WeChat monthly article (last 30 days)
 
 pnpm inspect --list           # list every per-module probe target
 pnpm inspect <target> --help  # that target's options
@@ -36,14 +33,14 @@ npx tsx scripts/regen-highlights.ts [YYYY-MM-DD] [--notify]   # rebuild highligh
 
 A husky `pre-commit` hook (`.husky/pre-commit`) runs `pnpm lint`, `pnpm format:check`, and `pnpm typecheck` — the same checks as `ci.yml` minus the tests.
 
-Env vars for local runs. `src/cli/daily.ts` and `src/cli/social.ts` load `dotenv/config` as their **first** import (before anything that reads `process.env` at module scope, notably the provider selection in `platform/llm/client.ts`), so a local `.env` — see `.env.example`, git-ignored — works for `pnpm start` and the social generators. dotenv never overrides variables already set in the environment, so GitHub Actions `env:` values always win. Other entrypoints (`cli/weekly.ts`, `cli/monthly.ts`, `cli/notify-telegram.ts`, `cli/notify-feishu.ts`, `scripts/`) do **not** load dotenv — export the vars in the shell for those.
+Env vars for local runs. `src/cli/daily.ts` loads `dotenv/config` as its **first** import (before anything that reads `process.env` at module scope, notably the provider selection in `platform/llm/client.ts`), so a local `.env` — see `.env.example`, git-ignored — works for `pnpm start`. dotenv never overrides variables already set in the environment, so GitHub Actions `env:` values always win. Other entrypoints (`cli/weekly.ts`, `cli/monthly.ts`, `cli/notify-telegram.ts`, `cli/notify-feishu.ts`, `scripts/`) do **not** load dotenv — export the vars in the shell for those.
 
 ```bash
 export GH_TOKEN=ghp_xxxxx        # GitHub token (named GH_TOKEN, not GITHUB_TOKEN — GH Actions reserves the GITHUB_ prefix)
 export DIGEST_REPO=owner/repo   # omit to skip GitHub issue creation
 
-# Languages to generate (default: both). "en" = English only, "zh" = Chinese only.
-export DIGEST_LANGS=zh,en       # zh,en | en | zh
+# Languages to generate (default: both). "en" = English only, "vi" = Vietnamese only.
+export DIGEST_LANGS=vi,en       # vi,en | en | vi
 
 # Max concurrent in-flight LLM requests (positive integer; default: 5)
 export LLM_CONCURRENCY=5
@@ -72,14 +69,14 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 ## Architecture
 
-The daily pipeline runs in sequential phases, each a named async function in `src/cli/daily.ts`. ZH and EN reports are generated **simultaneously** (both languages run in parallel at every phase).
+The daily pipeline runs in sequential phases, each a named async function in `src/cli/daily.ts`. VI and EN reports are generated **simultaneously** (both languages run in parallel at every phase).
 
 1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Hacker News, Product Hunt, ArXiv, Hugging Face, Dev.to, Lobste.rs, FRED macro series, FINRA margin statistics, the Vietnam market board/bars, Vietnam macro series, and the Vietnam document sources. Every source has a `.catch()` fallback so one failure never aborts the run.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to 5 concurrent requests by a queue in `src/platform/llm/client.ts`. Runs once per language.
 3. **Comparisons** — cross-tool CLI comparison and OpenClaw cross-ecosystem comparison (2 LLM calls per language).
 4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/platform/reports/builders/`) assemble Markdown strings; the `saveXxxReport` functions in `src/platform/reports/savers/` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, and community reports.
 5. **Highlights** — one LLM call per language produces `highlights.json` (a few bullet points per report) for the Telegram/Feishu notifications. `parseLlmJson` repairs common malformed-JSON defects; each language runs independently and backfills from the other if one fails.
-6. **GitHub Issues** — CLI + OpenClaw issues are created (zh + en) when `DIGEST_REPO` is set.
+6. **GitHub Issues** — CLI + OpenClaw issues are created (vi + en) when `DIGEST_REPO` is set.
 
 Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/weekly.ts` / `src/cli/monthly.ts`) are separate: they read already-committed daily digest files — **no GitHub API fetching** — and produce `ai-weekly.md` / `ai-monthly.md`, merging into the existing `highlights.json`.
 
@@ -97,7 +94,6 @@ Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/w
 | `src/cli/notify-telegram.ts` | Reads `manifest.json` + `highlights.json`, then calls `buildMessage` / `sendTelegram` |
 | `src/cli/notify-feishu.ts` | Reads `manifest.json` + `highlights.json`, then calls `buildFeishuMessage` / `sendFeishu` |
 | `src/cli/close-stale-issues.ts` | Closes digest GitHub Issues older than `STALE_DAYS` (7) |
-| `src/cli/social.ts` | Xiaohongshu / WeChat article generator (local-only, writes to `social/`) |
 | `src/cli/inspect.ts` | Per-module probe dispatcher (`pnpm inspect`): arg parsing, target registry lookup, output routing, exit codes. See **Module probes** below |
 | `src/cli/inspect/` | Probe implementations, one module per group (`sources.ts`, `doc-extract.ts`, `vnmarket.ts`, `prompts.ts`, `llm.ts`, `reports.ts`, `notify.ts`), plus `kit.ts` (shared types/arg parser), `registry.ts` (the target list) and `fixtures/` (committed sample payloads) |
 
@@ -109,7 +105,7 @@ Weekly/monthly rollups (`src/platform/reports/rollup.ts`, entrypoints `src/cli/w
 | `src/core/date.ts` | Date/timing utilities: `toCstDateStr`, `toUtcStr`, `sleep` |
 | `src/core/doc-extract.ts` | Document extraction shared by the Vietnam doc sources: HTML → linkedom + Mozilla Readability (`extractArticle`, tag-strip fallback), PDF → per-page text (`extractPdfPages`), plus `rankPages` / `relevantExcerpt` keyword narrowing and `fetchWithTimeout` / `BROWSER_UA` |
 | `src/core/i18n/index.ts` | Barrel — import bilingual strings from here (equivalent to the former `src/i18n.ts`) |
-| `src/core/i18n/lang.ts` | `Lang` type, `ALL_LANGS`, `getLangs()`, the `t(zh, en)` helper |
+| `src/core/i18n/lang.ts` | `Lang` type, `ALL_LANGS`, `getLangs()`, the `t(vi, en)` helper |
 | `src/core/i18n/reports.ts` | Report titles/headers (`CLI_REPORT` … `MONTHLY_REPORT`), `ISSUE_LABELS`, `CLI_ISSUE_TITLE`, `OPENCLAW_ISSUE_TITLE` |
 | `src/core/i18n/labels.ts` | `REPORT_LABELS` (manifest/RSS) and `NOTIFY_LABELS` (notifications) |
 | `src/core/i18n/messages.ts` | `MSG` status/error strings and `FOOTER` |
@@ -198,7 +194,7 @@ Outside `src/`:
 | `scripts/regen-highlights.ts` | One-off recovery script: re-runs the highlights LLM call against digests already on disk (optionally `--notify` to resend Telegram). Imports from `src/`, so it is typechecked but not linted as pipeline code |
 | `index.html` | Single-file static Web UI (no build step) |
 | `config.yml` | Tracked-repo configuration consumed by `src/core/config.ts` |
-| `.agent/`, `.agile/`, `social/` | **Git-ignored** local working directories (agent orchestration prompts/specs, agile docs, generated social posts). Anything referenced there — e.g. `.agent/specs/financial_data_sources.md` — exists only on the author's machine; do not assume a checkout has it |
+| `.agent/`, `.agile/` | **Git-ignored** local working directories (agent orchestration prompts/specs, agile docs). Anything referenced there — e.g. `.agent/specs/financial_data_sources.md` — exists only on the author's machine; do not assume a checkout has it |
 
 `@mozilla/readability`, `linkedom`, and `pdfjs-dist` are declared in `package.json` but not yet imported anywhere in `src/` — they were installed for planned article/PDF content extraction. Don't treat them as dead deps to prune without checking with the author.
 
@@ -227,7 +223,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-community.md` | `community` | Dev.to + Lobste.rs; skipped if both fail |
 | `fin-macro.md` | `macro` | Macro market dashboard (FRED + FINRA); skipped if FRED fails. FINRA is supplementary. Uses the `fin-` prefix — a parallel financial section |
 | `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + FRED + SJC + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
-| `highlights.json` | — | Bullet-point highlights per report (zh + en), consumed by notifications |
+| `highlights.json` | — | Bullet-point highlights per report (vi + en), consumed by notifications |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
 
@@ -253,8 +249,8 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 
 ## Key conventions
 
-- All bilingual strings (titles, labels, footers, messages) are centralized in `src/core/i18n/` (import from the `src/core/i18n/index.ts` barrel). Use the `Lang` type (`"zh" | "en"`) and the `t(zh, en)` / `Record<Lang, string>` maps. Do not add inline bilingual ternaries elsewhere.
-- Which languages are generated is controlled centrally by `getLangs()` in `src/core/i18n/lang.ts`, driven by the `DIGEST_LANGS` env var (comma-separated; default = all). `main()` in `src/cli/daily.ts` and the rollups in `src/platform/reports/rollup.ts` loop over `getLangs()` — do not hard-code `["zh", "en"]`. Production workflows set `DIGEST_LANGS: en`. The weekly/monthly GitHub issue title and label are Chinese-only, so the issue body prefers zh content and falls back to the first configured language. `notify/telegram.ts` / `notify/feishu.ts` derive report IDs by stripping the `-en` suffix, so notifications render correctly with any language subset.
+- All bilingual strings (titles, labels, footers, messages) are centralized in `src/core/i18n/` (import from the `src/core/i18n/index.ts` barrel). Use the `Lang` type (`"vi" | "en"`) and the `t(vi, en)` / `Record<Lang, string>` maps. Do not add inline bilingual ternaries elsewhere.
+- Which languages are generated is controlled centrally by `getLangs()` in `src/core/i18n/lang.ts`, driven by the `DIGEST_LANGS` env var (comma-separated; default = all). `main()` in `src/cli/daily.ts` and the rollups in `src/platform/reports/rollup.ts` loop over `getLangs()` — do not hard-code `["vi", "en"]`. Production workflows set `DIGEST_LANGS: en`. The weekly/monthly GitHub issue title and label are Vietnamese-only, so the issue body prefers vi content and falls back to the first configured language. `notify/telegram.ts` / `notify/feishu.ts` derive report IDs by stripping the `-en` suffix, so notifications render correctly with any language subset.
 - LLM prompt builders live in `src/platform/prompts/`, one module per report type (`repos.ts` for the repo-level builders, `trending.ts` / `hn.ts` / `macro.ts` / … for the data sources, `rollup.ts` and `highlights.ts` for the rest). Import them through the `src/platform/prompts/index.ts` barrel. Each report type has its own builder function.
 - `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. Web uses 8192, trending uses 6144, rollups use 8192, the table-formatted listing reports (HN, PH, ArXiv, HF, Community) use `LLM_TOKENS_LISTING` = 6144, and the Vietnam dashboard uses `LLM_TOKENS_VNMACRO` = 8192 (it truncates at 6144). Token constants live in `src/platform/llm/client.ts`.
 - Data-source listing reports (Trending, HN, PH, ArXiv, HF, Community) render item lists as **Markdown tables** (not bullet lists). Numeric columns are copied verbatim from the fetched data; the summary column is 2 sentences. Tables have CSS in `index.html` and render natively in GitHub Issues.
@@ -265,19 +261,18 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - LLM JSON output (e.g. `highlights.json`) must be parsed with `parseLlmJson` from `src/platform/llm/client.ts` — it strips code fences, replaces raw control chars, and repairs trailing commas / prose wrappers.
 - GitHub issue label colors are defined in `LABEL_COLORS` in `src/domains/github/github.ts`. Add new labels there.
 - Issue creation always goes through `tryCreateGitHubIssue` (`src/domains/github/github.ts`), which logs and returns `null` on failure. Never call `createGitHubIssue` directly from the pipeline: the reports are already on disk by then, and a throw exits non-zero, which skips the workflow's "Commit digest files" step and discards the whole day's digest. A 404 from the labels/issues endpoints means Issues are disabled on the repo (the default for forks) or the token lacks Issues write access.
-- `sampleNote(total, sampled, lang)` in `src/platform/prompts/shared.ts` formats the "(共 N 条，展示前 M 条)" note. Reuse it — do not inline the string format.
+- `sampleNote(total, sampled, lang)` in `src/platform/prompts/shared.ts` formats the "(Tổng cộng N mục, hiển thị M mục)" note. Reuse it — do not inline the string format.
 - Document sources (Vietnam NSO/VBMA) go through `src/core/doc-extract.ts`, never a bespoke parser. HTML uses linkedom + Mozilla Readability — linkedom, not jsdom, because this is a batch job that parses a few pages per run. `extractArticle` strips nav/header/footer/aside **before** parsing (Readability otherwise scores NSO's mega-menu above the article body) and falls back to a tag-strip when the result is missing or under `MIN_ARTICLE_CHARS` (200). PDFs are extracted per page so `rankPages` can keep only the pages that score on macro keywords — a 13-page VBMA bulletin reduces to 4. Never send a whole document to the LLM; narrow it with `relevantExcerpt` / `rankPages` first.
 - Vietnam endpoints are undocumented internal APIs and need `BROWSER_UA` (a desktop Chrome User-Agent) plus a `Referer`; a bare fetch gets 403 or an empty body. TCBS (`apipubaws.tcbs.com.vn`) is behind a Cloudflare challenge and VNDirect (`finfo-api.vndirect.com.vn`) times out, so **aggregate VN-Index P/E and market-wide margin debt have no source** — `buildVnMacroPrompt` instructs the model to mark the signals that depend on them ❔ insufficient data rather than guess.
 - Prefer a documented API over an undocumented one wherever both carry a series: the US 10Y comes from FRED `DGS10`, not Yahoo `^TNX`, and Yahoo is wired only as the fallback. `fetchFredSeries(series, limit)` in `domains/finance/fred.ts` is the shared accessor.
 - SJC's gold board is behind a WAF that fingerprints the **TLS ClientHello**, not the headers — Node's `fetch` gets 403 with any headers (or none) while curl gets 200. `getJsonBrowserTls` in `vnmacro.ts` presents Chrome's cipher list via an undici `Agent`. Its public HTML page renders the board in JavaScript, so extraction there yields an empty shell; do not conclude a source is unavailable from the rendered page alone.
 - SSI board turnover (`nmTotalTradedValue`) is order-matched only, while `buyForeignValue` / `sellForeignValue` include put-through (block) deals. One ticker's foreign flow can therefore exceed its matched turnover. Both definitions are stated in the prompt; don't "fix" the discrepancy.
-- Web state (`digests/web-state.json`) is committed to git on every run and is the source of truth for which URLs have been seen. It is saved by the `zh` pass only in `saveWebReport`.
+- Web state (`digests/web-state.json`) is committed to git on every run and is the source of truth for which URLs have been seen. It is saved by the `vi` pass only in `saveWebReport`.
 
-## Notifications & social
+## Notifications
 
 - `cli/notify-telegram.ts` and `cli/notify-feishu.ts` both read the latest `manifest.json` entry plus that day's `highlights.json`, then hand off to `platform/notify/telegram.ts` / `platform/notify/feishu.ts`, which build a bilingual link list with highlight sub-bullets. Both entrypoints skip silently if their secrets are unset and guard against sending when imported (only send when run directly); `buildMessage`/`buildFeishuMessage` stay exported for testing.
 - Notification/report labels live in `NOTIFY_LABELS` (`src/core/i18n/labels.ts`), keyed by report ID.
-- `cli/social.ts` is a **local-only** tool that turns recent digests into platform-specific articles (Xiaohongshu / WeChat) written to `social/`; it is not part of the automated pipeline.
 
 ## Module probes (`pnpm inspect`)
 

@@ -44,7 +44,7 @@ function readDailyDigest(date: string): string | null {
     if (fs.existsSync(p)) {
       const content = fs.readFileSync(p, "utf-8");
       const truncated = content.slice(0, MAX_CHARS_PER_REPORT);
-      parts.push(truncated.length < content.length ? truncated + "\n...[摘要截断]" : truncated);
+      parts.push(truncated.length < content.length ? truncated + "\n...[Đã cắt bớt tóm tắt]" : truncated);
     }
   }
   return parts.length > 0 ? parts.join("\n\n") : null;
@@ -55,7 +55,7 @@ function readWeeklyDigest(date: string): string | null {
   const p = path.join(DIGESTS_DIR, date, "ai-weekly.md");
   if (!fs.existsSync(p)) return null;
   const content = fs.readFileSync(p, "utf-8");
-  return content.slice(0, 3000) + (content.length > 3000 ? "\n...[截断]" : "");
+  return content.slice(0, 3000) + (content.length > 3000 ? "\n...[Đã cắt bớt]" : "");
 }
 
 /** Format a date as ISO week string, e.g. "2026-W10". */
@@ -83,7 +83,7 @@ async function generateRollupHighlights(
 
   // Read existing highlights (e.g. from daily digest) so we merge instead of overwrite
   const existingPath = path.join(DIGESTS_DIR, dateStr, "highlights.json");
-  let existing: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
+  let existing: Record<Lang, ReportHighlights> = { vi: {}, en: {} };
   if (fs.existsSync(existingPath)) {
     try {
       existing = JSON.parse(fs.readFileSync(existingPath, "utf-8"));
@@ -93,7 +93,7 @@ async function generateRollupHighlights(
   }
 
   const highlights: Record<Lang, ReportHighlights> = {
-    zh: { ...(existing.zh ?? {}) },
+    vi: { ...(existing.vi ?? {}) },
     en: { ...(existing.en ?? {}) },
   };
 
@@ -164,7 +164,7 @@ export async function runWeeklyRollup(): Promise<void> {
     const meta =
       lang === "en"
         ? `> ${WEEKLY_REPORT.coverage.en}: ${range} | Generated: ${utcStr} UTC\n\n`
-        : `> ${WEEKLY_REPORT.coverage.zh}: ${range} | 生成时间: ${utcStr} UTC\n\n`;
+        : `> ${WEEKLY_REPORT.coverage.vi}: ${range} | Thời gian tạo: ${utcStr} UTC\n\n`;
     contentByLang[lang] =
       `# ${WEEKLY_REPORT.title[lang]} ${weekStr}\n\n` +
       meta +
@@ -178,8 +178,8 @@ export async function runWeeklyRollup(): Promise<void> {
   await generateRollupHighlights(contentByLang, "ai-weekly", dateStr, 6);
 
   if (digestRepo) {
-    // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
-    const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
+    // Issue title/label are Vietnamese-only; prefer vi content, fall back to the first language.
+    const issueContent = contentByLang["vi"] ?? contentByLang[langs[0]!]!;
     const url = await tryCreateGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), issueContent, "weekly");
     if (url) console.log(`  Created weekly issue: ${url}`);
   }
@@ -210,12 +210,12 @@ export async function runMonthlyRollup(): Promise<void> {
   const weeklyDates = monthDates.filter((d) => fs.existsSync(path.join(DIGESTS_DIR, d, "ai-weekly.md")));
 
   let sourceDigests: Record<string, string>;
-  let sourceLabel: { zh: string; en: string };
+  let sourceLabel: { vi: string; en: string };
 
   if (weeklyDates.length >= 2) {
     // Use weekly reports
     sourceLabel = {
-      zh: `${weeklyDates.length} 份周报`,
+      vi: `${weeklyDates.length} báo cáo tuần`,
       en: `${weeklyDates.length} weekly reports`,
     };
     sourceDigests = {};
@@ -227,7 +227,7 @@ export async function runMonthlyRollup(): Promise<void> {
     // Sample daily reports: every 4th day, max 10
     const sampled = monthDates.filter((_, i) => i % 4 === 0).slice(0, 10);
     sourceLabel = {
-      zh: `${sampled.length} 份日报（每4日采样）`,
+      vi: `${sampled.length} báo cáo ngày (lấy mẫu mỗi 4 ngày)`,
       en: `${sampled.length} daily reports (sampled every 4 days)`,
     };
     sourceDigests = {};
@@ -242,7 +242,7 @@ export async function runMonthlyRollup(): Promise<void> {
     return;
   }
 
-  console.log(`[monthly] Source: ${sourceLabel.zh}`);
+  console.log(`[monthly] Source: ${sourceLabel.vi}`);
 
   // Generate all configured languages in parallel
   const langs = getLangs();
@@ -256,7 +256,7 @@ export async function runMonthlyRollup(): Promise<void> {
     const meta =
       lang === "en"
         ? `> Sources: ${sourceLabel.en} | Generated: ${utcStr} UTC\n\n`
-        : `> 数据来源: ${sourceLabel.zh} | 生成时间: ${utcStr} UTC\n\n`;
+        : `> Nguồn dữ liệu: ${sourceLabel.vi} | Thời gian tạo: ${utcStr} UTC\n\n`;
     contentByLang[lang] =
       `# ${MONTHLY_REPORT.title[lang]} ${monthStr}\n\n` +
       meta +
@@ -270,8 +270,8 @@ export async function runMonthlyRollup(): Promise<void> {
   await generateRollupHighlights(contentByLang, "ai-monthly", dateStr, 6);
 
   if (digestRepo) {
-    // Issue title/label are Chinese-only; prefer zh content, fall back to the first language.
-    const issueContent = contentByLang["zh"] ?? contentByLang[langs[0]!]!;
+    // Issue title/label are Vietnamese-only; prefer vi content, fall back to the first language.
+    const issueContent = contentByLang["vi"] ?? contentByLang[langs[0]!]!;
     const url = await tryCreateGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), issueContent, "monthly");
     if (url) console.log(`  Created monthly issue: ${url}`);
   }

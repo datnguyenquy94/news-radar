@@ -20,7 +20,7 @@ export async function saveHnReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   if (!hnData.fetchSuccess) {
     console.log(`  [hn/${lang}] No data available, skipping report.`);
@@ -38,8 +38,8 @@ export async function saveHnReport(
           `${hnData.stories.length} stories | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${HN_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [Hacker News](https://news.ycombinator.com/) | ` +
-          `共 ${hnData.stories.length} 条 | 生成时间: ${utcStr} UTC\n\n` +
+          `> Nguồn dữ liệu: [Hacker News](https://news.ycombinator.com/) | ` +
+          `${hnData.stories.length} bài | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const hnContent = header + hnSummary + footer;

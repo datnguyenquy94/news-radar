@@ -20,7 +20,7 @@ export async function saveArxivReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   if (!arxivData.fetchSuccess) {
     console.log(`  [arxiv/${lang}] No data available, skipping report.`);
@@ -38,8 +38,8 @@ export async function saveArxivReport(
           `${arxivData.papers.length} papers | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${ARXIV_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | ` +
-          `共 ${arxivData.papers.length} 篇论文 | 生成时间: ${utcStr} UTC\n\n` +
+          `> Nguồn dữ liệu: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | ` +
+          `${arxivData.papers.length} bài báo | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;

@@ -58,9 +58,9 @@ function makeDigest(overrides: Partial<RepoDigest> = {}): RepoDigest {
 // ---------------------------------------------------------------------------
 
 describe("buildCliPrompt", () => {
-  it("generates Chinese prompt by default", () => {
+  it("generates Vietnamese prompt by default", () => {
     const result = buildCliPrompt(cfg, [makeItem()], [makeItem()], [release], "2026-03-09");
-    expect(result).toContain("技术分析师");
+    expect(result).toContain("nhà phân tích kỹ thuật");
     expect(result).toContain("TestTool");
     expect(result).toContain("2026-03-09");
     expect(result).toContain("org/test");
@@ -74,16 +74,16 @@ describe("buildCliPrompt", () => {
     expect(result).toContain("Hot Issues");
   });
 
-  it("shows 无 when no data", () => {
+  it("shows Không có when no data", () => {
     const result = buildCliPrompt(cfg, [], [], [], "2026-03-09");
-    expect(result).toContain("无");
+    expect(result).toContain("Không có");
   });
 
   it("includes sample notes when items exceed limit", () => {
     const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
     const result = buildCliPrompt(cfg, items, [], [], "2026-03-09");
-    expect(result).toContain("共 50 条");
-    expect(result).toContain("30 条");
+    expect(result).toContain("Tổng cộng 50 mục");
+    expect(result).toContain("30 mục");
   });
 });
 
@@ -95,9 +95,9 @@ describe("buildPeerPrompt", () => {
   it("includes data overview section", () => {
     const issues = [makeItem({ state: "open" }), makeItem({ state: "closed" })];
     const result = buildPeerPrompt(cfg, issues, [makeItem()], [release], "2026-03-09");
-    expect(result).toContain("数据概览");
-    expect(result).toContain("新开/活跃: 1");
-    expect(result).toContain("已关闭: 1");
+    expect(result).toContain("Tổng quan dữ liệu");
+    expect(result).toContain("mở/hoạt động: 1");
+    expect(result).toContain("đã đóng: 1");
   });
 
   it("generates English prompt", () => {
@@ -127,7 +127,7 @@ describe("buildComparisonPrompt", () => {
   it("shows no-activity for empty digests", () => {
     const digests = [makeDigest({ summary: "Summary" })]; // no issues/prs/releases
     const result = buildComparisonPrompt(digests, "2026-03-09");
-    expect(result).toContain("过去24小时无活动");
+    expect(result).toContain("Không có hoạt động trong 24 giờ qua");
   });
 });
 
@@ -145,7 +145,7 @@ describe("buildPeersComparisonPrompt", () => {
       makeDigest({ config: { ...cfg, name: "Peer" }, summary: "Peer summary", issues: [makeItem()] }),
     ];
     const result = buildPeersComparisonPrompt(openclawDigest, peerDigests, "2026-03-09");
-    expect(result).toContain("OpenClaw（核心参照");
+    expect(result).toContain("OpenClaw (tham chiếu cốt lõi");
     expect(result).toContain("OC summary");
     expect(result).toContain("Peer summary");
   });
@@ -200,7 +200,7 @@ describe("buildTrendingPrompt", () => {
   it("shows fetch failure message when trending fails", () => {
     const data: TrendingData = { trendingRepos: [], searchRepos: [], trendingFetchSuccess: false };
     const result = buildTrendingPrompt(data, "2026-03-09");
-    expect(result).toContain("未能抓取");
+    expect(result).toContain("Không thể thu thập");
   });
 
   it("includes search repos with topic tag", () => {
@@ -250,9 +250,9 @@ describe("buildWebReportPrompt", () => {
       },
     ];
     const result = buildWebReportPrompt(results, "2026-03-09");
-    expect(result).toContain("首次全量抓取");
+    expect(result).toContain("Lần thu thập đầy đủ đầu tiên");
     expect(result).toContain("Anthropic");
-    expect(result).toContain("内容格局总览"); // first-run-only section
+    expect(result).toContain("Tổng quan bức tranh nội dung"); // first-run-only section
   });
 
   it("shows incremental mode for non-first-run", () => {
@@ -260,8 +260,8 @@ describe("buildWebReportPrompt", () => {
       { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 100 },
     ];
     const result = buildWebReportPrompt(results, "2026-03-09");
-    expect(result).toContain("增量更新");
-    expect(result).not.toContain("内容格局总览");
+    expect(result).toContain("Cập nhật gia tăng");
+    expect(result).not.toContain("Tổng quan bức tranh nội dung");
   });
 });
 
@@ -276,7 +276,7 @@ describe("buildWeeklyPrompt", () => {
     expect(result).toContain("2026-03-03");
     expect(result).toContain("Day 1 content");
     expect(result).toContain("2026-W10");
-    expect(result).toContain("周报");
+    expect(result).toContain("báo cáo tuần");
   });
 
   it("generates English variant", () => {
@@ -294,8 +294,8 @@ describe("buildMonthlyPrompt", () => {
     const digests = { "2026-02-01": "Week 1", "2026-02-08": "Week 2" };
     const result = buildMonthlyPrompt(digests, "2026-02");
     expect(result).toContain("2026-02");
-    expect(result).toContain("2 份报告");
-    expect(result).toContain("月报");
+    expect(result).toContain("2 báo cáo");
+    expect(result).toContain("báo cáo tháng");
   });
 
   it("generates English variant", () => {
@@ -327,10 +327,10 @@ describe("buildHnPrompt", () => {
     };
     const result = buildHnPrompt(data, "2026-03-09");
     expect(result).toContain("AI News");
-    expect(result).toContain("分数: 200");
-    expect(result).toContain("评论: 50");
-    expect(result).toContain("作者: bob");
-    expect(result).toContain("共 1 条");
+    expect(result).toContain("Điểm: 200");
+    expect(result).toContain("Bình luận: 50");
+    expect(result).toContain("Tác giả: bob");
+    expect(result).toContain("tổng 1 bài");
   });
 
   it("generates English variant", () => {

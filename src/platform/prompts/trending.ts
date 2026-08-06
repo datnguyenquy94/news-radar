@@ -5,7 +5,7 @@
 import type { TrendingData } from "../../domains/ai/trending.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
-export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "zh"): string {
+export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "vi"): string {
   const trendingSection =
     data.trendingFetchSuccess && data.trendingRepos.length > 0
       ? data.trendingRepos
@@ -21,7 +21,7 @@ export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: L
           .join("\n")
       : lang === "en"
         ? "(Unable to fetch today's GitHub Trending list)"
-        : "（未能抓取今日 GitHub Trending 榜单）";
+        : "(Không thể thu thập bảng xếp hạng GitHub Trending hôm nay)";
 
   const searchSection =
     data.searchRepos.length > 0
@@ -37,7 +37,7 @@ export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: L
           .join("\n")
       : lang === "en"
         ? "(No search results)"
-        : "（无搜索结果）";
+        : "(Không có kết quả tìm kiếm)";
 
   if (lang === "en") {
     return `You are a technical analyst focused on the AI open-source ecosystem. The following is ${dateStr} GitHub AI-related trending repository data. Please filter for AI relevance, categorize, and analyze trends.
@@ -95,57 +95,57 @@ Style: English, professional and concise, must include GitHub links for every pr
 `;
   }
 
-  return `你是一位专注于 AI 开源生态的技术分析师。以下是 ${dateStr} 的 GitHub AI 相关热门仓库数据，请进行 AI 相关性筛选、分类和趋势分析。
+  return `Bạn là một nhà phân tích kỹ thuật chuyên về hệ sinh thái mã nguồn mở AI. Dưới đây là dữ liệu kho lưu trữ AI nổi bật trên GitHub ngày ${dateStr}, hãy lọc theo mức độ liên quan đến AI, phân loại và phân tích xu hướng.
 
-## 数据说明
-- **Trending 榜单**（github.com/trending，今日 stars 数最可信）：今日实时热榜，含今日新增 stars
-- **主题搜索**（GitHub Search API，topic 标签）：7天内活跃的 AI 相关项目，按主题分类
+## Giải thích dữ liệu
+- **Bảng xếp hạng Trending** (github.com/trending, số stars hôm nay đáng tin cậy nhất): bảng nóng thời gian thực, gồm số stars mới hôm nay
+- **Tìm kiếm theo chủ đề** (GitHub Search API, thẻ topic): các dự án liên quan AI hoạt động trong 7 ngày qua, phân theo chủ đề
 
 ---
 
-## GitHub 今日 Trending 榜单（共 ${data.trendingRepos.length} 个仓库）
+## Bảng Trending GitHub hôm nay (tổng ${data.trendingRepos.length} kho)
 ${trendingSection}
 
 ---
 
-## AI 主题搜索结果（共 ${data.searchRepos.length} 个仓库，已去重）
+## Kết quả tìm kiếm chủ đề AI (tổng ${data.searchRepos.length} kho, đã loại trùng)
 ${searchSection}
 
 ---
 
-请生成一份结构清晰的《AI 开源趋势日报》，要求：
+Hãy tạo một "Bản tin xu hướng mã nguồn mở AI" có cấu trúc rõ ràng, theo yêu cầu:
 
-**第一步（过滤）**：从以上数据中筛选出与 AI/ML 明确相关的项目（排除与 AI 无关的通用工具、前端框架、游戏等），对于 Trending 榜单中的非 AI 项目直接略去。
+**Bước 1 (Lọc)**: Từ dữ liệu trên, chọn các dự án liên quan rõ ràng đến AI/ML (loại bỏ công cụ chung, framework frontend, game không liên quan). Bỏ qua các kho Trending không thuộc AI.
 
-**第二步（分类）**：将筛选后的项目按以下维度分类（一个项目可归入多类，优先归入最主要类别）：
-- 🔧 AI 基础工具（框架、SDK、推理引擎、开发工具、CLI）
-- 🤖 AI 智能体/工作流（Agent 框架、自动化、多智能体）
-- 📦 AI 应用（具体应用产品、垂直场景解决方案）
-- 🧠 大模型/训练（模型权重、训练框架、微调工具）
-- 🔍 RAG/知识库（向量数据库、检索增强、知识管理）
+**Bước 2 (Phân loại)**: Nhóm các dự án đã lọc theo các danh mục sau (một dự án có thể thuộc nhiều nhóm, ưu tiên nhóm chính):
+- 🔧 Hạ tầng AI (framework, SDK, engine suy luận, công cụ phát triển, CLI)
+- 🤖 AI Agents/Workflow (framework agent, tự động hóa, hệ đa agent)
+- 📦 Ứng dụng AI (ứng dụng cụ thể, giải pháp theo ngành dọc)
+- 🧠 Mô hình lớn/Huấn luyện (trọng số mô hình, framework huấn luyện, công cụ fine-tune)
+- 🔍 RAG/Tri thức (cơ sở dữ liệu vector, truy xuất tăng cường sinh, quản lý tri thức)
 
-**第三步（输出报告）**，包含以下部分：
+**Bước 3 (Xuất báo cáo)**, gồm các phần sau:
 
-1. **今日速览** — 3~5 句话概括今日 AI 开源领域最值得关注的动向
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu những động thái mã nguồn mở AI đáng chú ý nhất hôm nay
 
-2. **各维度热门项目** — 每个维度用 **Markdown 表格**呈现，列固定为：
+2. **Dự án nổi bật theo danh mục** — Mỗi danh mục trình bày bằng **bảng Markdown** với đúng các cột sau:
 
-   | 项目 | 语言 | Stars（总量 / 今日） | 简要说明 |
+   | Dự án | Ngôn ngữ | Stars (tổng / hôm nay) | Tóm tắt |
    | :--- | :--- | ---: | :--- |
 
-   - **项目**：仓库名，做成指向其 GitHub 链接的 Markdown 链接
-   - **语言**：主要语言（未知则留空）
-   - **Stars**：总 star 数，有今日新增则在括号中标注（如 "86,392（+1,851）"）；数字照抄输入，不要重算
-   - **简要说明**：2 句话——项目是什么、今天为什么值得关注，点出关键数据或增长信号
-   - 每个维度列 3~8 个项目；某维度下若无项目则整张表省略
+   - **Dự án**: tên kho, tạo thành liên kết Markdown trỏ tới URL GitHub
+   - **Ngôn ngữ**: ngôn ngữ chính (bỏ trống nếu không rõ)
+   - **Stars**: tổng số sao, kèm số sao mới hôm nay trong ngoặc nếu có (ví dụ "86,392 (+1,851)"); chép nguyên số từ dữ liệu đầu vào, không tự tính lại
+   - **Tóm tắt**: 2 câu — dự án là gì, tại sao hôm nay đáng chú ý, nêu điểm dữ liệu nổi bật hoặc tín hiệu tăng trưởng
+   - Liệt kê 3-8 dự án mỗi danh mục; bỏ hẳn bảng của danh mục nào không có dự án phù hợp
 
-3. **趋势信号分析** — 200~300 字，从今日热榜中提炼：
-   - 哪类 AI 工具正在获得社区爆发性关注？
-   - 有无新兴技术栈或方向首次登榜？
-   - 与近期大模型发布/行业事件的关联
+3. **Phân tích tín hiệu xu hướng** — 200-300 từ, rút ra từ bảng nóng hôm nay:
+   - Loại công cụ AI nào đang nhận được sự chú ý bùng nổ từ cộng đồng?
+   - Có công nghệ hoặc hướng đi mới nào lần đầu xuất hiện không?
+   - Liên hệ với các phát hành mô hình lớn/sự kiện ngành gần đây
 
-4. **社区关注热点** — 以 bullet 形式列出 3~5 个值得开发者重点关注的具体项目或方向，给出简短理由
+4. **Điểm nóng cộng đồng** — Liệt kê dạng bullet 3-5 dự án hoặc hướng đi cụ thể đáng để nhà phát triển chú ý, kèm lý do ngắn gọn
 
-语言要求：中文，专业简洁，每个项目必须附 GitHub 链接。
+Yêu cầu: tiếng Việt, chuyên nghiệp, ngắn gọn, mỗi dự án phải kèm liên kết GitHub.
 `;
 }

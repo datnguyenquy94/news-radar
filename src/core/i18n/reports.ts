@@ -9,104 +9,123 @@ import { type Lang, t } from "./lang.ts";
 // ---------------------------------------------------------------------------
 
 export const CLI_REPORT = {
-  title: t("AI CLI 工具社区动态日报", "AI CLI Tools Community Digest"),
+  title: t("Bản tin hàng ngày Cộng đồng công cụ AI CLI", "AI CLI Tools Community Digest"),
   meta: (utcStr: string, count: number, lang: Lang) =>
     lang === "en"
       ? `> Generated: ${utcStr} UTC | Tools covered: ${count}\n\n`
-      : `> 生成时间: ${utcStr} UTC | 覆盖工具: ${count} 个\n\n`,
-  skillsHeading: t("Claude Code Skills 社区热点", "Claude Code Skills Highlights"),
-  skillsSource: t("数据来源", "Source"),
-  comparison: t("横向对比", "Cross-Tool Comparison"),
-  detail: t("各工具详细报告", "Per-Tool Reports"),
+      : `> Thời gian tạo: ${utcStr} UTC | Số công cụ: ${count}\n\n`,
+  skillsHeading: t("Điểm nổi bật cộng đồng Claude Code Skills", "Claude Code Skills Highlights"),
+  skillsSource: t("Nguồn dữ liệu", "Source"),
+  comparison: t("So sánh chéo", "Cross-Tool Comparison"),
+  detail: t("Báo cáo chi tiết từng công cụ", "Per-Tool Reports"),
 } as const;
 
 export const OPENCLAW_REPORT = {
-  title: t("OpenClaw 生态日报", "OpenClaw Ecosystem Digest"),
-  deepDive: t("OpenClaw 项目深度报告", "OpenClaw Deep Dive"),
-  comparison: t("横向生态对比", "Cross-Ecosystem Comparison"),
-  peers: t("同赛道项目详细报告", "Peer Project Reports"),
+  title: t("Bản tin hàng ngày hệ sinh thái OpenClaw", "OpenClaw Ecosystem Digest"),
+  deepDive: t("Báo cáo chuyên sâu dự án OpenClaw", "OpenClaw Deep Dive"),
+  comparison: t("So sánh hệ sinh thái chéo", "Cross-Ecosystem Comparison"),
+  peers: t("Báo cáo chi tiết các dự án cùng lĩnh vực", "Peer Project Reports"),
 } as const;
 
 export const WEB_REPORT = {
-  title: t("AI 官方内容追踪报告", "Official AI Content Report"),
-  firstCrawl: t("首次全量", "First full crawl"),
-  todayUpdate: t("今日更新", "Today's update"),
+  title: t("Báo cáo theo dõi nội dung chính thức AI", "Official AI Content Report"),
+  firstCrawl: t("Lần thu thập đầy đủ đầu tiên", "First full crawl"),
+  todayUpdate: t("Cập nhật hôm nay", "Today's update"),
   newContent: (count: number, lang: Lang) =>
-    lang === "en" ? `New content: ${count} articles` : `新增内容: ${count} 篇`,
+    lang === "en" ? `New content: ${count} articles` : `Nội dung mới: ${count} bài viết`,
   generated: (utcStr: string, lang: Lang) =>
-    lang === "en" ? `Generated: ${utcStr} UTC` : `生成时间: ${utcStr} UTC`,
-  sourcesHeader: t("数据来源:", "Sources:"),
+    lang === "en" ? `Generated: ${utcStr} UTC` : `Thời gian tạo: ${utcStr} UTC`,
+  sourcesHeader: t("Nguồn dữ liệu:", "Sources:"),
   issueTitle: (dateStr: string, isFirstRun: boolean, lang: Lang) =>
     lang === "en"
       ? `🌐 Official AI Content Report ${dateStr}${isFirstRun ? " (First Crawl)" : ""}`
-      : `🌐 AI 官方内容追踪报告 ${dateStr}${isFirstRun ? "（首次全量）" : ""}`,
+      : `🌐 Báo cáo theo dõi nội dung chính thức AI ${dateStr}${isFirstRun ? " (Thu thập lần đầu)" : ""}`,
 } as const;
 
 export const TRENDING_REPORT = {
-  title: t("AI 开源趋势日报", "AI Open Source Trends"),
-  sources: t("数据来源: GitHub Trending + GitHub Search API", "Sources: GitHub Trending + GitHub Search API"),
+  title: t("Bản tin xu hướng mã nguồn mở AI", "AI Open Source Trends"),
+  sources: t(
+    "Nguồn dữ liệu: GitHub Trending + GitHub Search API",
+    "Sources: GitHub Trending + GitHub Search API",
+  ),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `📈 AI Open Source Trends ${dateStr}` : `📈 AI 开源趋势日报 ${dateStr}`,
+    lang === "en" ? `📈 AI Open Source Trends ${dateStr}` : `📈 Bản tin xu hướng mã nguồn mở AI ${dateStr}`,
 } as const;
 
 export const HN_REPORT = {
-  title: t("Hacker News AI 社区动态日报", "Hacker News AI Community Digest"),
+  title: t("Bản tin cộng đồng Hacker News AI", "Hacker News AI Community Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `📰 Hacker News AI Digest ${dateStr}` : `📰 Hacker News AI 社区动态日报 ${dateStr}`,
+    lang === "en" ? `📰 Hacker News AI Digest ${dateStr}` : `📰 Bản tin cộng đồng Hacker News AI ${dateStr}`,
 } as const;
 
 export const PH_REPORT = {
-  title: t("Product Hunt AI 产品日报", "Product Hunt AI Products Digest"),
+  title: t("Bản tin sản phẩm AI trên Product Hunt", "Product Hunt AI Products Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `🚀 Product Hunt AI Digest ${dateStr}` : `🚀 Product Hunt AI 产品日报 ${dateStr}`,
+    lang === "en"
+      ? `🚀 Product Hunt AI Digest ${dateStr}`
+      : `🚀 Bản tin sản phẩm AI trên Product Hunt ${dateStr}`,
 } as const;
 
 export const ARXIV_REPORT = {
-  title: t("ArXiv AI 研究日报", "ArXiv AI Research Digest"),
+  title: t("Bản tin nghiên cứu AI trên ArXiv", "ArXiv AI Research Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `📚 ArXiv AI Research Digest ${dateStr}` : `📚 ArXiv AI 研究日报 ${dateStr}`,
+    lang === "en"
+      ? `📚 ArXiv AI Research Digest ${dateStr}`
+      : `📚 Bản tin nghiên cứu AI trên ArXiv ${dateStr}`,
 } as const;
 
 export const HF_REPORT = {
-  title: t("Hugging Face 热门模型日报", "Hugging Face Trending Models Digest"),
+  title: t("Bản tin mô hình nổi bật trên Hugging Face", "Hugging Face Trending Models Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `🤗 Hugging Face Trending Models ${dateStr}` : `🤗 Hugging Face 热门模型日报 ${dateStr}`,
+    lang === "en"
+      ? `🤗 Hugging Face Trending Models ${dateStr}`
+      : `🤗 Bản tin mô hình nổi bật trên Hugging Face ${dateStr}`,
 } as const;
 
 export const COMMUNITY_REPORT = {
-  title: t("技术社区 AI 动态日报", "Tech Community AI Digest"),
+  title: t("Bản tin AI từ cộng đồng công nghệ", "Tech Community AI Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `💬 Tech Community AI Digest ${dateStr}` : `💬 技术社区 AI 动态日报 ${dateStr}`,
+    lang === "en"
+      ? `💬 Tech Community AI Digest ${dateStr}`
+      : `💬 Bản tin AI từ cộng đồng công nghệ ${dateStr}`,
 } as const;
 
 export const MACRO_REPORT = {
-  title: t("宏观市场仪表盘", "Macro Market Dashboard"),
-  sources: t("数据来源: FRED + FINRA", "Sources: FRED + FINRA"),
-  disclaimer: t("仅供参考，非投资建议", "Informational only, not financial advice"),
+  title: t("Bảng theo dõi thị trường vĩ mô", "Macro Market Dashboard"),
+  sources: t("Nguồn dữ liệu: FRED + FINRA", "Sources: FRED + FINRA"),
+  disclaimer: t(
+    "Chỉ mang tính tham khảo, không phải lời khuyên đầu tư",
+    "Informational only, not financial advice",
+  ),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `📉 Macro Market Dashboard ${dateStr}` : `📉 宏观市场仪表盘 ${dateStr}`,
+    lang === "en" ? `📉 Macro Market Dashboard ${dateStr}` : `📉 Bảng theo dõi thị trường vĩ mô ${dateStr}`,
 } as const;
 
 export const VNMACRO_REPORT = {
-  title: t("越南宏观市场仪表盘", "Vietnam Macro Market Dashboard"),
+  title: t("Bảng theo dõi thị trường vĩ mô Việt Nam", "Vietnam Macro Market Dashboard"),
   sources: t(
-    "数据来源: SSI + Entrade + Vietcombank + NSO + VBMA",
+    "Nguồn dữ liệu: SSI + Entrade + Vietcombank + NSO + VBMA",
     "Sources: SSI + Entrade + Vietcombank + NSO + VBMA",
   ),
-  disclaimer: t("仅供参考，非投资建议", "Informational only, not financial advice"),
+  disclaimer: t(
+    "Chỉ mang tính tham khảo, không phải lời khuyên đầu tư",
+    "Informational only, not financial advice",
+  ),
   issueTitle: (dateStr: string, lang: Lang) =>
-    lang === "en" ? `🇻🇳 Vietnam Macro Market Dashboard ${dateStr}` : `🇻🇳 越南宏观市场仪表盘 ${dateStr}`,
+    lang === "en"
+      ? `🇻🇳 Vietnam Macro Market Dashboard ${dateStr}`
+      : `🇻🇳 Bảng theo dõi thị trường vĩ mô Việt Nam ${dateStr}`,
 } as const;
 
 export const WEEKLY_REPORT = {
-  title: t("AI 工具生态周报", "AI Tools Ecosystem Weekly Report"),
-  coverage: t("覆盖日期", "Coverage"),
-  issueTitle: (weekStr: string) => `📅 AI 工具生态周报 ${weekStr}`,
+  title: t("Báo cáo tuần hệ sinh thái công cụ AI", "AI Tools Ecosystem Weekly Report"),
+  coverage: t("Phạm vi ngày", "Coverage"),
+  issueTitle: (weekStr: string) => `📅 Báo cáo tuần hệ sinh thái công cụ AI ${weekStr}`,
 } as const;
 
 export const MONTHLY_REPORT = {
-  title: t("AI 工具生态月报", "AI Tools Ecosystem Monthly Report"),
-  issueTitle: (monthStr: string) => `📆 AI 工具生态月报 ${monthStr}`,
+  title: t("Báo cáo tháng hệ sinh thái công cụ AI", "AI Tools Ecosystem Monthly Report"),
+  issueTitle: (monthStr: string) => `📆 Báo cáo tháng hệ sinh thái công cụ AI ${monthStr}`,
 } as const;
 
 export const ISSUE_LABELS = {
@@ -124,7 +143,11 @@ export const ISSUE_LABELS = {
 } as const;
 
 export const CLI_ISSUE_TITLE = (dateStr: string, lang: Lang) =>
-  lang === "en" ? `📊 AI CLI Tools Digest ${dateStr}` : `📊 AI CLI 工具社区动态日报 ${dateStr}`;
+  lang === "en"
+    ? `📊 AI CLI Tools Digest ${dateStr}`
+    : `📊 Bản tin hàng ngày Cộng đồng công cụ AI CLI ${dateStr}`;
 
 export const OPENCLAW_ISSUE_TITLE = (dateStr: string, lang: Lang) =>
-  lang === "en" ? `🦞 OpenClaw Ecosystem Digest ${dateStr}` : `🦞 OpenClaw 生态日报 ${dateStr}`;
+  lang === "en"
+    ? `🦞 OpenClaw Ecosystem Digest ${dateStr}`
+    : `🦞 Bản tin hàng ngày hệ sinh thái OpenClaw ${dateStr}`;

@@ -40,7 +40,7 @@ import type { VnMarketData } from "../../domains/vietnam/vnmarket.ts";
 // Shared plumbing
 // ---------------------------------------------------------------------------
 
-const LANGS = ["zh", "en"] as const;
+const LANGS = ["vi", "en"] as const;
 const isLang = (s: string): s is Lang => (LANGS as readonly string[]).includes(s);
 
 function langOf(args: Args): Lang {
@@ -72,7 +72,7 @@ interface PromptSpec<P> {
 }
 
 const COMMON_OPTIONS = [
-  { name: "lang", arg: "zh|en", desc: "prompt language (default en)" },
+  { name: "lang", arg: "vi|en", desc: "prompt language (default en)" },
   { name: "date", arg: "YYYY-MM-DD", desc: "date string embedded in the prompt (default: today, CST)" },
 ];
 
@@ -266,7 +266,7 @@ export const promptHighlightsTarget: Target = {
   name: "prompt:highlights",
   summary: "buildHighlightsPrompt() — built from digests already on disk, printed not sent",
   options: [
-    { name: "lang", arg: "zh|en", desc: "prompt language (default en)" },
+    { name: "lang", arg: "vi|en", desc: "prompt language (default en)" },
     { name: "date", arg: "YYYY-MM-DD", desc: "digest day to read (default: latest day under digests/)" },
     { name: "items", arg: "n", desc: "highlights requested per report (default 6)" },
     { name: "fixture", arg: "path", desc: 'JSON map {"report-id": "markdown"}; fixtures/highlights.json' },

@@ -24,7 +24,7 @@ export async function saveVnMacroReport(
   dateStr: string,
   digestRepo: string,
   footer: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): Promise<void> {
   // Market internals are the spine of this report; the document excerpts alone
   // would produce a monthly-statistics recap with no market read in it.
@@ -52,9 +52,9 @@ export async function saveVnMacroReport(
           `${docCount} official documents | Generated: ${utcStr} UTC\n>\n` +
           `> ⚠️ ${VNMACRO_REPORT.disclaimer[lang]}.\n\n---\n\n`
         : `# ${VNMACRO_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: ${sources} | 交易日: ${marketData.tradingDate || "无"} | ` +
-          `官方文件 ${docCount} 份 | 生成时间: ${utcStr} UTC\n>\n` +
-          `> ⚠️ ${VNMACRO_REPORT.disclaimer[lang]}。\n\n---\n\n`;
+          `> Nguồn dữ liệu: ${sources} | Ngày giao dịch: ${marketData.tradingDate || "chưa có"} | ` +
+          `${docCount} văn bản chính thức | Thời gian tạo: ${utcStr} UTC\n>\n` +
+          `> ⚠️ ${VNMACRO_REPORT.disclaimer[lang]}.\n\n---\n\n`;
 
     const content = header + summary + footer;
 

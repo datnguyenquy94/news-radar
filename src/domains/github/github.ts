@@ -189,7 +189,8 @@ export async function fetchSkillsData(repo: string): Promise<{ prs: GitHubItem[]
 }
 
 const GITHUB_ISSUE_BODY_LIMIT = 65536;
-const TRUNCATION_NOTICE = "\n\n---\n> ⚠️ 内容超过 GitHub Issue 上限，完整报告见提交的 Markdown 文件。";
+const TRUNCATION_NOTICE =
+  "\n\n---\n> ⚠️ Nội dung vượt quá giới hạn của GitHub Issue, xem báo cáo đầy đủ trong file Markdown đã commit.";
 
 /** GitHub label colors by label name. Default: "0075ca". */
 const LABEL_COLORS: Record<string, string> = {

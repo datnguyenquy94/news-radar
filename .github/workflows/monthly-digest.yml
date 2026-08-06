@@ -2,7 +2,7 @@ name: Monthly Agents Radar
 
 on:
   schedule:
-    # 每月1日 02:00 UTC = 10:00 CST，日报运行后2小时
+    # Monthly on day 1 at 02:00 UTC = 10:00 CST, 2 hours after the daily run
     - cron: "0 2 1 * *"
   workflow_dispatch:
 
@@ -41,7 +41,7 @@ jobs:
           # Max in-flight LLM requests. Tune via a repo variable; defaults to 5.
           LLM_CONCURRENCY: ${{ secrets.LLM_CONCURRENCY || '5' }}
           DIGEST_REPO: ${{ github.repository }}
-          # Languages to generate. "en" = English only; remove or set "zh,en" for bilingual.
+          # Languages to generate. "en" = English only; remove or set "vi,en" for bilingual.
           DIGEST_LANGS: en
         run: pnpm monthly
 

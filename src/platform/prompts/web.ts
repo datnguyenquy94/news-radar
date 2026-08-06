@@ -5,7 +5,7 @@
 import type { WebFetchResult } from "../../domains/ai/web.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
-export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string, lang: Lang = "zh"): string {
+export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string, lang: Lang = "vi"): string {
   const isAnyFirstRun = results.some((r) => r.isFirstRun);
 
   const siteSections = results
@@ -16,23 +16,23 @@ export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string,
             ? `First full crawl (sitemap total ${totalDiscovered} URLs, showing latest ${newItems.length} articles)`
             : `Incremental update, ${newItems.length} new articles today`
           : isFirstRun
-            ? `首次全量抓取（sitemap 共 ${totalDiscovered} 条 URL，以下为最新 ${newItems.length} 篇正文内容）`
-            : `今日增量更新，共 ${newItems.length} 篇新内容`;
+            ? `Lần thu thập đầy đủ đầu tiên (sitemap tổng ${totalDiscovered} URL, hiển thị ${newItems.length} bài viết mới nhất)`
+            : `Cập nhật gia tăng hôm nay, ${newItems.length} bài viết mới`;
 
       if (newItems.length === 0) {
         const noContent =
-          lang === "en" ? `(${mode}, no content to analyze.)` : `（${mode}，暂无可供分析的内容。）`;
+          lang === "en" ? `(${mode}, no content to analyze.)` : `(${mode}, chưa có nội dung để phân tích.)`;
         return `## ${siteName}\n\n${noContent}`;
       }
 
-      const categoryLabel = lang === "en" ? "Category" : "分类";
-      const dateLabel = lang === "en" ? "Published/Updated" : "发布/更新";
-      const unknownDate = lang === "en" ? "unknown" : "未知";
-      const excerptLabel = lang === "en" ? "Excerpt" : "内容节选";
+      const categoryLabel = lang === "en" ? "Category" : "Danh mục";
+      const dateLabel = lang === "en" ? "Published/Updated" : "Đăng/Cập nhật";
+      const unknownDate = lang === "en" ? "unknown" : "chưa rõ";
+      const excerptLabel = lang === "en" ? "Excerpt" : "Trích đoạn nội dung";
       const metadataOnlyNote =
         lang === "en"
           ? "(metadata-only: title derived from URL slug, may be inaccurate; no article text available)"
-          : "（仅元数据：标题由 URL 路径推断，可能不准确；无法获取正文内容）";
+          : "(chỉ có metadata: tiêu đề suy ra từ đường dẫn URL, có thể không chính xác; không lấy được nội dung bài viết)";
       const itemsText = newItems
         .map((item) => {
           const lines = [
@@ -48,8 +48,8 @@ export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string,
         })
         .join("\n\n");
 
-      const lp = lang === "en" ? "(" : "（";
-      const rp = lang === "en" ? ")" : "）";
+      const lp = "(";
+      const rp = ")";
       return `## ${siteName}${lp}${mode}${rp}\n\n${itemsText}`;
     })
     .join("\n\n---\n\n");
@@ -60,8 +60,8 @@ export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string,
         ? "This is the first full crawl. Please focus on the overall content landscape, historical context, and core themes of each site, rather than individual articles."
         : "This is an incremental update. Please focus on today's new content and assess its strategic significance in context."
       : isAnyFirstRun
-        ? "本次为首次全量抓取，请重点梳理各站点的内容格局、历史脉络与核心主题，而非仅关注单篇文章。"
-        : "本次为增量更新，请聚焦今日新增内容，并结合上下文判断其战略意义。";
+        ? "Đây là lần thu thập đầy đủ đầu tiên, hãy tập trung hệ thống hóa bức tranh nội dung, mạch lịch sử và chủ đề cốt lõi của từng trang, thay vì chỉ chú ý từng bài viết riêng lẻ."
+        : "Đây là cập nhật gia tăng, hãy tập trung vào nội dung mới hôm nay và đánh giá ý nghĩa chiến lược của chúng dựa trên bối cảnh.";
 
   if (lang === "en") {
     return `You are a deep content analyst focused on AI, skilled at extracting strategic signals from official announcements, technical blogs, research papers, and product documentation.
@@ -98,36 +98,36 @@ ${isAnyFirstRun ? "6. **Content Landscape Overview** — First full crawl only: 
 `;
   }
 
-  return `你是一位专注于 AI 领域的深度内容分析师，擅长从官方公告、技术博客、研究论文和产品文档中提炼战略信号。
+  return `Bạn là một nhà phân tích nội dung chuyên sâu trong lĩnh vực AI, giỏi rút ra tín hiệu chiến lược từ các thông báo chính thức, blog kỹ thuật, bài nghiên cứu và tài liệu sản phẩm.
 
-以下是 ${dateStr} 从 Anthropic（claude.com / anthropic.com）和 OpenAI（openai.com）官网抓取的内容，${firstRunNote}
+Dưới đây là nội dung được thu thập ngày ${dateStr} từ trang web chính thức của Anthropic (claude.com / anthropic.com) và OpenAI (openai.com). ${firstRunNote}
 
 ${siteSections}
 
 ---
 
-请生成一份详实的《AI 官方内容追踪报告》，包含以下部分：
+Hãy tạo một "Báo cáo theo dõi nội dung chính thức AI" chi tiết, gồm các phần sau:
 
-1. **今日速览** — 3~5 句话概括最重要的新发布或动向，点出核心亮点
+1. **Điểm nhanh hôm nay** — Tóm tắt trong 3-5 câu những phát hành hoặc động thái quan trọng nhất, nêu bật các điểm nổi bật cốt lõi
 
-2. **Anthropic / Claude 内容精选** — 按分类（news / research / engineering / learn 等）逐条整理重要内容：
-   - 每篇用 2~4 句话提炼核心观点、技术细节或业务意义
-   - 标注发布日期和原文链接
-   - 如首次全量，按时间线梳理重要里程碑
+2. **Nội dung nổi bật của Anthropic / Claude** — Sắp xếp nội dung quan trọng theo danh mục (news / research / engineering / learn, v.v.):
+   - Mỗi bài dùng 2-4 câu rút ra quan điểm cốt lõi, chi tiết kỹ thuật hoặc ý nghĩa kinh doanh
+   - Ghi rõ ngày đăng và liên kết gốc
+   - Nếu là lần thu thập đầy đủ đầu tiên, hãy hệ thống hóa các cột mốc quan trọng theo dòng thời gian
 
-3. **OpenAI 内容精选** — 同上，按 research / release / company / safety 等分类整理
-   - ⚠️ 注意：OpenAI 数据为仅元数据模式（标题由 URL 路径推断，无正文）。请仅基于 URL 和分类进行客观列举，不要对标题含义进行推测性解读或编造内容摘要。如果信息不足以分析，直接说明数据受限即可。
+3. **Nội dung nổi bật của OpenAI** — Cấu trúc tương tự, sắp xếp theo danh mục research / release / company / safety
+   - ⚠️ Lưu ý: dữ liệu OpenAI chỉ ở dạng metadata (tiêu đề suy ra từ đường dẫn URL, không có nội dung bài viết). Chỉ liệt kê khách quan theo URL và danh mục, không được suy đoán ý nghĩa tiêu đề hay bịa nội dung tóm tắt. Nếu thông tin không đủ để phân tích, hãy nêu rõ hạn chế của dữ liệu.
 
-4. **战略信号解读** — 基于两家公司的发布节奏和内容重点，分析：
-   - 各自近期的技术优先级（模型能力 / 安全 / 产品化 / 生态）
-   - 竞争态势：谁在引领议题，谁在跟进
-   - 对开发者和企业用户的潜在影响
+4. **Phân tích tín hiệu chiến lược** — Dựa trên nhịp độ phát hành và trọng tâm nội dung của hai công ty, phân tích:
+   - Ưu tiên kỹ thuật gần đây của từng công ty (năng lực mô hình / an toàn / sản phẩm hóa / hệ sinh thái)
+   - Động thái cạnh tranh: ai đang dẫn dắt chủ đề, ai đang theo sau
+   - Tác động tiềm năng đến nhà phát triển và khách hàng doanh nghiệp
 
-5. **值得关注的细节** — 从标题、措辞、发布时机中提取隐含信号，例如：
-   - 新兴词汇或话题的首次出现
-   - 某类主题的密集发布（可能预示产品节点）
-   - 政策、合规、安全方面的动向
+5. **Chi tiết đáng chú ý** — Rút ra tín hiệu ẩn từ tiêu đề, cách diễn đạt và thời điểm phát hành, ví dụ:
+   - Thuật ngữ hoặc chủ đề mới xuất hiện lần đầu
+   - Phát hành dày đặc trong một danh mục (có thể báo hiệu cột mốc sản phẩm)
+   - Động thái về chính sách, tuân thủ và an toàn
 
-${isAnyFirstRun ? "6. **内容格局总览** — 首次全量独有：汇总两家公司各内容类别的数量分布，并说明各自的内容运营风格（学术导向 vs 产品导向 vs 用户故事等）\n\n" : ""}语言要求：中文，专业深入，内容详实，适合 AI 领域研究者、产品经理和技术决策者阅读。每个条目必须附上 GitHub/官网链接。
+${isAnyFirstRun ? "6. **Tổng quan bức tranh nội dung** — Chỉ dành cho lần thu thập đầy đủ đầu tiên: tổng hợp phân bổ số lượng theo từng danh mục nội dung của hai công ty, và mô tả phong cách vận hành nội dung của mỗi bên (định hướng học thuật vs định hướng sản phẩm vs câu chuyện người dùng, v.v.)\n\n" : ""}Yêu cầu: tiếng Việt, chuyên nghiệp, chi tiết, phù hợp với nhà nghiên cứu AI, quản lý sản phẩm và người ra quyết định kỹ thuật. Mỗi mục phải kèm theo liên kết chính thức.
 `;
 }

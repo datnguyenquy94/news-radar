@@ -19,8 +19,8 @@ import { fmtPct } from "./shared.ts";
 // ---------------------------------------------------------------------------
 
 /** VND billions with thousands separators — the unit VN market data is quoted in. */
-function fmtVndBn(value: number | null): string {
-  if (value === null) return "N/A";
+function fmtVndBn(value: number | null | undefined): string {
+  if (value == null) return "N/A";
   return `${value > 0 ? "+" : ""}${value.toLocaleString("en-US", { maximumFractionDigits: 0 })} bn VND`;
 }
 
@@ -28,18 +28,18 @@ function vnFxLines(fx: VnFxRate | null, lang: Lang): string {
   if (!fx) {
     return lang === "en"
       ? "- USD/VND (Vietcombank): data unavailable this run"
-      : "- USD/VND（越南外贸银行）: 本次未取到数据";
+      : "- USD/VND (bảng giá Vietcombank): lần chạy này không lấy được dữ liệu";
   }
   const sell = fx.sell.toLocaleString("en-US");
   const transfer = fx.transfer.toLocaleString("en-US");
   return lang === "en"
     ? `- USD/VND (Vietcombank board): sell ${sell} | transfer ${transfer} | 1M ${fmtPct(fx.changePct1m, 2)} | YTD ${fmtPct(fx.changePctYtd, 2)} | as of ${fx.asOf}`
-    : `- USD/VND（越南外贸银行牌价）: 卖出 ${sell} | 转账 ${transfer} | 近 1 月 ${fmtPct(fx.changePct1m, 2)} | 年初至今 ${fmtPct(fx.changePctYtd, 2)} | 截至 ${fx.asOf}`;
+    : `- USD/VND (bảng giá Vietcombank): bán ${sell} | chuyển khoản ${transfer} | 1 tháng ${fmtPct(fx.changePct1m, 2)} | từ đầu năm ${fmtPct(fx.changePctYtd, 2)} | tính đến ${fx.asOf}`;
 }
 
 function vnGlobalLine(m: VnGlobalMetric, lang: Lang): string {
   const latest =
-    m.latest === null
+    m.latest == null
       ? "N/A"
       : `${m.latest.toLocaleString("en-US", {
           minimumFractionDigits: m.decimals,
@@ -47,7 +47,7 @@ function vnGlobalLine(m: VnGlobalMetric, lang: Lang): string {
         })}${m.unit ? ` ${m.unit}` : ""}`;
   return lang === "en"
     ? `- ${m.label.en} (${m.symbol}): latest ${latest} | 1d ${fmtPct(m.changePct1d, 2)} | 20d ${fmtPct(m.changePct20d, 2)} | as of ${m.asOf || "n/a"}`
-    : `- ${m.label.zh}（${m.symbol}）: 最新 ${latest} | 日涨跌 ${fmtPct(m.changePct1d, 2)} | 20 日 ${fmtPct(m.changePct20d, 2)} | 截至 ${m.asOf || "无"}`;
+    : `- ${m.label.vi} (${m.symbol}): mới nhất ${latest} | 1 ngày ${fmtPct(m.changePct1d, 2)} | 20 ngày ${fmtPct(m.changePct20d, 2)} | tính đến ${m.asOf || "chưa có"}`;
 }
 
 /**
@@ -60,25 +60,25 @@ function vnGoldLine(gold: VnGold | null, lang: Lang): string {
   if (!gold) {
     return lang === "en"
       ? "- SJC domestic gold: data unavailable this run"
-      : "- SJC 国内金价: 本次未取到数据";
+      : "- Giá vàng trong nước SJC: lần chạy này không lấy được dữ liệu";
   }
   const sell = gold.sellVndPerTael.toLocaleString("en-US");
   const buy = gold.buyVndPerTael.toLocaleString("en-US");
-  const implied = gold.sellUsdPerOz === null ? "N/A" : `$${gold.sellUsdPerOz.toLocaleString("en-US")}/oz`;
-  const premium = gold.premiumPct === null ? "N/A" : fmtPct(gold.premiumPct, 1);
+  const implied = gold.sellUsdPerOz == null ? "N/A" : `$${gold.sellUsdPerOz.toLocaleString("en-US")}/oz`;
+  const premium = gold.premiumPct == null ? "N/A" : fmtPct(gold.premiumPct, 1);
   return lang === "en"
     ? `- SJC domestic gold (1L bar): buy ${buy} / sell ${sell} VND per tael | implied ${implied} | premium over world gold ${premium} | as of ${gold.asOf || "n/a"}`
-    : `- SJC 国内金价（1L 金条）: 买入 ${buy} / 卖出 ${sell} 越南盾/两 | 折合 ${implied} | 较国际金价溢价 ${premium} | 截至 ${gold.asOf || "无"}`;
+    : `- Giá vàng trong nước SJC (miếng 1L): mua ${buy} / bán ${sell} VND/lượng | quy đổi ${implied} | chênh lệch so với giá vàng thế giới ${premium} | tính đến ${gold.asOf || "chưa có"}`;
 }
 
 function vnAnnualLine(m: VnAnnualMetric, lang: Lang): string {
   const fmt = (v: number | null): string =>
-    v === null
+    v == null
       ? "N/A"
       : `${v.toLocaleString("en-US", { maximumFractionDigits: 2 })}${m.unit === "%" ? "%" : ` ${m.unit}`}`;
   return lang === "en"
     ? `- ${m.label.en}: ${fmt(m.latest)} (${m.year || "n/a"}) | prior year ${fmt(m.prior)}`
-    : `- ${m.label.zh}: ${fmt(m.latest)}（${m.year || "无"}）| 上一年 ${fmt(m.prior)}`;
+    : `- ${m.label.vi}: ${fmt(m.latest)} (${m.year || "chưa có"}) | năm trước ${fmt(m.prior)}`;
 }
 
 function vnMarketSection(market: VnMarketData, lang: Lang): string {
@@ -89,7 +89,7 @@ function vnMarketSection(market: VnMarketData, lang: Lang): string {
     lines.push(
       en
         ? `- ${q.label}: ${q.close.toLocaleString("en-US")} | 1d ${fmtPct(q.changePct1d, 2)} | 5d ${fmtPct(q.changePct5d, 2)} | 20d ${fmtPct(q.changePct20d, 2)} | as of ${q.asOf}`
-        : `- ${q.label}: ${q.close.toLocaleString("en-US")} | 日 ${fmtPct(q.changePct1d, 2)} | 5 日 ${fmtPct(q.changePct5d, 2)} | 20 日 ${fmtPct(q.changePct20d, 2)} | 截至 ${q.asOf}`,
+        : `- ${q.label}: ${q.close.toLocaleString("en-US")} | 1 ngày ${fmtPct(q.changePct1d, 2)} | 5 ngày ${fmtPct(q.changePct5d, 2)} | 20 ngày ${fmtPct(q.changePct20d, 2)} | tính đến ${q.asOf}`,
     );
   }
 
@@ -98,15 +98,15 @@ function vnMarketSection(market: VnMarketData, lang: Lang): string {
     lines.push(
       en
         ? `- VN30F1M basis: futures ${b.futures} vs spot ${b.spot} → ${b.basis > 0 ? "+" : ""}${b.basis} pts (${fmtPct(b.basisPct, 2)})`
-        : `- VN30F1M 基差: 期货 ${b.futures} vs 现货 ${b.spot} → ${b.basis > 0 ? "+" : ""}${b.basis} 点（${fmtPct(b.basisPct, 2)}）`,
+        : `- Chênh lệch cơ sở VN30F1M: hợp đồng tương lai ${b.futures} so với chỉ số cơ sở ${b.spot} → ${b.basis > 0 ? "+" : ""}${b.basis} điểm (${fmtPct(b.basisPct, 2)})`,
     );
   }
 
-  if (market.turnoverVndBn !== null) {
+  if (market.turnoverVndBn != null) {
     lines.push(
       en
         ? `- Order-matched turnover (HOSE + HNX, excludes put-through/block deals): ${market.turnoverVndBn.toLocaleString("en-US")} bn VND`
-        : `- 撮合成交额（HOSE + HNX，不含大宗/协议交易）: ${market.turnoverVndBn.toLocaleString("en-US")} 十亿越南盾`,
+        : `- Giá trị khớp lệnh (HOSE + HNX, không gồm giao dịch thỏa thuận/lô lớn): ${market.turnoverVndBn.toLocaleString("en-US")} tỷ VND`,
     );
   }
 
@@ -115,7 +115,7 @@ function vnMarketSection(market: VnMarketData, lang: Lang): string {
     lines.push(
       en
         ? `- Breadth: ${b.advancers} advancing / ${b.decliners} declining / ${b.unchanged} flat | ${b.ceiling} limit-up, ${b.floor} limit-down`
-        : `- 涨跌家数: 上涨 ${b.advancers} / 下跌 ${b.decliners} / 平盘 ${b.unchanged} | 涨停 ${b.ceiling} 家，跌停 ${b.floor} 家`,
+        : `- Độ rộng thị trường: tăng ${b.advancers} / giảm ${b.decliners} / đứng giá ${b.unchanged} | trần ${b.ceiling} mã, sàn ${b.floor} mã`,
     );
   }
 
@@ -130,30 +130,38 @@ function vnMarketSection(market: VnMarketData, lang: Lang): string {
             .map(
               (t) =>
                 `${t.symbol} ${fmtVndBn(t.netVndBn)}` +
-                (t.roomVndBn === null ? "" : ` (room ${fmtVndBn(t.roomVndBn).replace("+", "")})`),
+                (t.roomVndBn == null ? "" : ` (room ${fmtVndBn(t.roomVndBn).replace("+", "")})`),
             )
             .join(", ");
     lines.push(
       en
         ? `- Foreign flow for this session only (includes put-through/block deals): bought ${f.buyVndBn.toLocaleString("en-US")} bn, sold ${f.sellVndBn.toLocaleString("en-US")} bn → net ${fmtVndBn(f.netVndBn)}`
-        : `- 外资流向（仅当日，含大宗/协议交易）: 买入 ${f.buyVndBn.toLocaleString("en-US")} 十亿，卖出 ${f.sellVndBn.toLocaleString("en-US")} 十亿 → 净额 ${fmtVndBn(f.netVndBn)}`,
-      en ? `- Top foreign net buys: ${list(f.topBuys)}` : `- 外资净买入前列: ${list(f.topBuys)}`,
-      en ? `- Top foreign net sells: ${list(f.topSells)}` : `- 外资净卖出前列: ${list(f.topSells)}`,
+        : `- Dòng vốn ngoại (chỉ phiên hôm nay, gồm giao dịch thỏa thuận/lô lớn): mua ${f.buyVndBn.toLocaleString("en-US")} tỷ, bán ${f.sellVndBn.toLocaleString("en-US")} tỷ → ròng ${fmtVndBn(f.netVndBn)}`,
+      en
+        ? `- Top foreign net buys: ${list(f.topBuys)}`
+        : `- Mã ngoại mua ròng nhiều nhất: ${list(f.topBuys)}`,
+      en
+        ? `- Top foreign net sells: ${list(f.topSells)}`
+        : `- Mã ngoại bán ròng nhiều nhất: ${list(f.topSells)}`,
       en
         ? `- Traded names with zero remaining foreign room: ${f.zeroRoomCount}`
-        : `- 外资额度已用尽的活跃个股数: ${f.zeroRoomCount}`,
+        : `- Số mã đang giao dịch đã hết room ngoại: ${f.zeroRoomCount}`,
     );
   }
 
   if (lines.length === 0) {
-    return en ? "- Market internals: data unavailable this run" : "- 市场内部指标: 本次未取到数据";
+    return en
+      ? "- Market internals: data unavailable this run"
+      : "- Chỉ số nội tại thị trường: lần chạy này không lấy được dữ liệu";
   }
   return lines.join("\n");
 }
 
 function vnDocsSection(docs: VnDocsData, lang: Lang): string {
   if (docs.docs.length === 0) {
-    return lang === "en" ? "No official documents could be retrieved this run." : "本次未取到任何官方文件。";
+    return lang === "en"
+      ? "No official documents could be retrieved this run."
+      : "Lần chạy này không lấy được văn bản chính thức nào.";
   }
   return docs.docs
     .map((d) => {
@@ -161,7 +169,7 @@ function vnDocsSection(docs: VnDocsData, lang: Lang): string {
       const head =
         lang === "en"
           ? `#### ${d.source} — ${d.title}${pages}\nSource: ${d.url}`
-          : `#### ${d.source} — ${d.title}${pages}\n来源: ${d.url}`;
+          : `#### ${d.source} — ${d.title}${pages}\nNguồn: ${d.url}`;
       return `${head}\n\n${d.excerpt}`;
     })
     .join("\n\n");
@@ -172,7 +180,7 @@ export function buildVnMacroPrompt(
   macro: VnMacroData,
   docs: VnDocsData,
   dateStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const marketSection = vnMarketSection(market, lang);
   const fxSection = [
@@ -185,7 +193,7 @@ export function buildVnMacroPrompt(
       ? macro.annual.map((m) => vnAnnualLine(m, lang)).join("\n")
       : lang === "en"
         ? "- World Bank annual series: unavailable this run"
-        : "- 世界银行年度数据: 本次未取到";
+        : "- Dữ liệu năm của World Bank: lần chạy này không lấy được";
   const docsSection = vnDocsSection(docs, lang);
 
   if (lang === "en") {
@@ -259,72 +267,72 @@ Style: English, professional and concise. Do not invent numbers absent from the 
 `;
   }
 
-  return `你是一位专注越南市场的新兴市场策略分析师。以下是截至 ${dateStr} 的越南市场与宏观数据。结构化数字来自 SSI iBoard 行情板、DNSE Entrade 行情接口、越南外贸银行（Vietcombank）牌价、Yahoo Finance 与世界银行；文件摘录为官方出版物的原文抽取。所有数字请照抄，不要重算或外推。
+  return `Bạn là một nhà chiến lược thị trường mới nổi chuyên về Việt Nam. Dưới đây là dữ liệu thị trường và vĩ mô mới nhất của Việt Nam tính đến ${dateStr}. Các số liệu có cấu trúc đến từ bảng giá SSI iBoard, API biểu đồ DNSE Entrade, bảng tỷ giá Vietcombank, Yahoo Finance và World Bank; các đoạn trích tài liệu là nguyên văn được lấy từ các ấn phẩm chính thức. Hãy chép nguyên mọi số liệu — không tự tính lại hoặc suy diễn.
 
-### 市场内部指标（HOSE + HNX）
+### Chỉ số nội tại thị trường (HOSE + HNX)
 ${marketSection}
 
-### 汇率与全球驱动因素
+### Tỷ giá và các động lực toàn cầu
 ${fxSection}
 
-### 官方年度数据（世界银行，滞后）
+### Dữ liệu năm chính thức (World Bank, có độ trễ)
 ${annualSection}
 
-### 官方文件摘录
+### Trích đoạn văn bản chính thức
 ${docsSection}
 
 ---
 
-请生成一份结构清晰的**越南宏观市场仪表盘**，要求：
+Hãy tạo một **Bảng theo dõi thị trường vĩ mô Việt Nam** có cấu trúc rõ ràng, theo yêu cầu:
 
-1. **市场速览** — 3~5 句话，概括指数涨跌、流动性（成交额）、外资流向与汇率环境，及其对越南股市的含义。
+1. **Điểm nhanh thị trường** — Tóm tắt trong 3-5 câu biến động chỉ số, thanh khoản (giá trị giao dịch), dòng vốn ngoại và bối cảnh tỷ giá, cùng ý nghĩa của chúng đối với cổ phiếu Việt Nam.
 
-2. **指标表格** — 三张 **Markdown 表格**，列固定如下。任何数值为 N/A 的行请省略。
+2. **Bảng chỉ số** — Ba **bảng Markdown**, cột cố định như sau. Bỏ qua bất kỳ dòng nào có giá trị N/A.
 
-   *市场内部指标*
+   *Chỉ số nội tại thị trường*
 
-   | 指标 | 最新 | 变化 | 解读 |
+   | Chỉ số | Mới nhất | Thay đổi | Nhận định |
    | :--- | ---: | ---: | :--- |
 
-   *汇率与全球驱动*
+   *Tỷ giá và động lực toàn cầu*
 
-   | 指标 | 最新 | 短期变化 | 中期变化 | 解读 |
+   | Chỉ số | Mới nhất | Thay đổi ngắn hạn | Thay đổi dài hạn hơn | Nhận định |
    | :--- | ---: | ---: | ---: | :--- |
 
-   两列变化：全球指标为 1 日与 20 日，USD/VND 为近 1 月与年初至今。每个单元格请标明各自的时间窗口（如"+0.51%（年初至今）"），避免被误读为同一口径。
+   Hai cột thay đổi: đối với các chỉ số toàn cầu là 1 ngày và 20 ngày, đối với USD/VND là 1 tháng và từ đầu năm. Hãy ghi rõ khung thời gian ở từng ô (ví dụ "+0.51% từ đầu năm") để tránh bị hiểu nhầm là cùng một mốc thời gian.
 
-   *实体经济*
+   *Kinh tế thực*
 
-   | 指标 | 最新 | 统计期 | 解读 |
+   | Chỉ số | Mới nhất | Kỳ thống kê | Nhận định |
    | :--- | ---: | :--- | :--- |
 
-   *实体经济*表请依据文件摘录填写（CPI、核心通胀、FDI 实际到位、FDI 注册、公共投资拨付、进出口、如有则含 PMI），并补充世界银行各行，统计期以原文为准。
+   Điền bảng *Kinh tế thực* dựa trên các đoạn trích tài liệu (CPI, lạm phát lõi, FDI thực hiện, FDI đăng ký, giải ngân đầu tư công, xuất nhập khẩu, PMI nếu có) cộng với các dòng từ World Bank. Sử dụng kỳ thống kê theo nguồn gốc.
 
-   **解读**为 3~6 个字的判读，参考阈值：
-   - USD/VND：年贬值超过 3~4% 会触发外资流出并迫使 SBV 收紧；汇率稳定是宽松的前提
-   - 美元指数 / 美国 10 年期国债：美元走强与美债收益率上行都会加大越南盾压力
-   - 外资净流向：持续净买入为散户信心之锚；持续净卖出是越南典型下跌背景。输入**仅含单个交易日**，只描述当日情况，不得声称多日连续净卖出等无法证实的趋势
-   - 外资持股额度（room ngoại）：已触及外资持股上限的个股无论外资意愿多强都无法承接买盘，因此"外资回流"信号只在仍有额度的个股上成立
-   - 成交额与外资流向口径不同：成交额为撮合成交，外资流向含大宗/协议交易。个股外资流向金额可能超过其撮合成交额，这属正常，不要作为异常提示，也不要将两者直接对比
-   - VN30F1M 基差：深度负基差代表本地对冲/恐慌情绪，通常在恐慌见底后快速回归
-   - 涨跌家数 / 跌停家数：跌停成群是强制平仓（giải chấp）的信号
-   - 成交额：价跌量急剧萎缩代表买盘退场，而非派发
-   - CPI：政府年度目标为 4.0%~4.5%，低于此线 SBV 才有维持宽松的空间
-   - FDI 实际到位：年度超过 200 亿美元可维持美元流入与工业需求
-   - SJC 国内金价较国际金价溢价：溢价走阔直接反映对越南盾信心减弱；且黄金与银行存款争夺同一笔居民储蓄，存款流出的资金未必流入股市
-   - 银行间隔夜利率：高于 5~6% 说明银行体系流动性偏紧
-   - 政府债收益率：国内无风险利率，收益率下行利好权益
+   **Nhận định** là nhận xét ngắn 3-6 từ, tham khảo các ngưỡng sau:
+   - USD/VND: mất giá hàng năm trên 3-4% sẽ kích hoạt dòng vốn ngoại rút ra và buộc SBV thắt chặt; sự ổn định là điều kiện tiên quyết để nới lỏng
+   - Chỉ số Đô la Mỹ / Lợi suất trái phiếu Mỹ 10 năm: đồng đô la tăng và lợi suất trái phiếu Mỹ tăng đều gia tăng áp lực lên đồng Việt Nam
+   - Dòng vốn ngoại ròng: mua ròng bền vững củng cố niềm tin nhà đầu tư cá nhân; bán ròng kéo dài là bối cảnh sụt giảm điển hình của Việt Nam. Dữ liệu đầu vào **chỉ gồm một phiên duy nhất** — chỉ mô tả phiên đó, không được khẳng định một chuỗi hoặc xu hướng nhiều ngày mà không có căn cứ
+   - Room ngoại: một mã đã chạm giới hạn sở hữu nước ngoài không thể hấp thụ thêm dòng vốn dù nhu cầu mạnh đến đâu, do đó tín hiệu "khối ngoại quay lại mua" chỉ đúng với các mã còn room
+   - Giá trị giao dịch và dòng vốn ngoại được đo khác nhau: giá trị giao dịch là khớp lệnh, dòng vốn ngoại gồm cả giao dịch thỏa thuận (lô lớn). Một giao dịch lô lớn có thể khiến dòng vốn ngoại của một mã vượt giá trị khớp lệnh của chính mã đó — đây là điều bình thường, không nên coi là bất thường hay so sánh trực tiếp hai con số này
+   - Chênh lệch cơ sở VN30F1M: cơ sở âm sâu báo hiệu tâm lý phòng thủ/hoảng loạn trong nước và thường đảo chiều nhanh sau khi tâm lý hoảng loạn chạm đáy
+   - Độ rộng thị trường / số mã giảm sàn: số mã giảm sàn tập trung là dấu hiệu bị buộc bán giải chấp ("giải chấp")
+   - Giá trị giao dịch: sụt giảm mạnh cùng lúc giá giảm báo hiệu bên mua rút lui chứ không phải phân phối
+   - CPI: mục tiêu hàng năm của chính phủ là 4.0-4.5%; dưới ngưỡng này SBV còn dư địa duy trì nới lỏng
+   - FDI thực hiện: trên 20 tỷ USD/năm giúp duy trì dòng vốn USD và nhu cầu công nghiệp lành mạnh
+   - Chênh lệch giá vàng SJC so với giá vàng thế giới: mức chênh lệch nới rộng phản ánh trực tiếp niềm tin vào VND suy yếu; đồng thời vàng cạnh tranh với tiền gửi ngân hàng cùng một nguồn tiết kiệm dân cư — tiền rút khỏi tiền gửi không nhất thiết chảy vào cổ phiếu
+   - Lãi suất liên ngân hàng qua đêm: trên 5-6% cho thấy hệ thống ngân hàng đang eo hẹp thanh khoản
+   - Lợi suất trái phiếu chính phủ: lãi suất phi rủi ro trong nước; lợi suất giảm hỗ trợ cổ phiếu
 
-3. **货币市场与债市观察** — 120~200 字，取材于 VBMA 与 NSO 摘录：各期限银行间利率、SBV 中心汇率、政府债收益率与招标结果、企业债发行与到期。请注明每个数字取自哪份出版物；摘录中没有的数字，直接说明缺失，不要估算。
+3. **Theo dõi thị trường tiền tệ và trái phiếu** — 120-200 từ, lấy từ các đoạn trích VBMA và NSO: lãi suất liên ngân hàng theo kỳ hạn, tỷ giá trung tâm SBV, lợi suất trái phiếu chính phủ và kết quả đấu thầu, phát hành/đáo hạn trái phiếu doanh nghiệp. Ghi rõ mỗi số liệu lấy từ ấn phẩm nào; nếu đoạn trích không có số liệu, hãy nêu rõ là thiếu thay vì ước tính.
 
-4. **格局研判** — 150~250 字，将汇率 + 流动性 + 外资流向 + 信用综合成对越南股市的单一格局判断。
+4. **Nhận định chế độ thị trường** — 150-250 từ, tổng hợp tỷ giá + thanh khoản + dòng vốn ngoại + tín dụng thành một nhận định chung duy nhất cho cổ phiếu Việt Nam.
 
-5. **策略检查点** — 评估越南 5 条买入信号（VN-Index 预期市盈率接近或低于 11 倍；SBV 转向宽松或暂停紧缩且 USD/VND 稳定；券商融资余额完成洗盘；外资净卖出在 5~10 个交易日内停止或转为净买入；龙头板块守住结构性支撑）与 3 条卖出信号（SBV 鹰派转向或汇率危机；预期市盈率超过 16.5~17.5 倍且融资余额创新高；银行或地产债出现系统性信用压力）。逐条标注 ✅ 满足 / ❌ 不满足 / ❔ 数据不足。
+5. **Điểm kiểm tra chiến lược** — Đánh giá tín hiệu mua với 5 điều kiện của Việt Nam (P/E dự phóng VN-Index gần hoặc dưới 11 lần; SBV nới lỏng hoặc tạm dừng thắt chặt với USD/VND ổn định; dư nợ ký quỹ công ty chứng khoán đã được xả sạch; khối ngoại ngừng bán ròng hoặc đảo chiều trong 5-10 phiên; các nhóm ngành dẫn dắt giữ được hỗ trợ cấu trúc) và tín hiệu bán với 3 điều kiện (SBV chuyển hướng diều hâu hoặc khủng hoảng tỷ giá; P/E dự phóng trên 16.5-17.5 lần cùng dư nợ ký quỹ lập kỷ lục; căng thẳng tín dụng mang tính hệ thống ở ngân hàng hoặc trái phiếu bất động sản). Đánh dấu từng điều kiện ✅ đạt / ❌ không đạt / ❔ không đủ dữ liệu.
 
-   **重要：** 本流程没有可用的免费数据源获取 VN-Index 整体市盈率与全市场券商融资余额（常用接口被 Cloudflare 拦截）。凡依赖这两项的条件一律标注 ❔ 数据不足并明确说明，不要用猜测替代。
+   **Lưu ý quan trọng:** quy trình này không có nguồn miễn phí cho P/E tổng thể của VN-Index hoặc dư nợ ký quỹ toàn thị trường (các endpoint thường dùng bị chặn bởi Cloudflare). Đánh dấu ❔ không đủ dữ liệu cho mọi điều kiện phụ thuộc vào hai chỉ số này và nêu rõ điều đó — không thay thế bằng phỏng đoán.
 
-   仅供参考，非投资建议。
+   Nội dung chỉ mang tính tham khảo, không phải lời khuyên đầu tư.
 
-语言要求：中文，专业简洁。不要编造输入中没有的数字。
+Yêu cầu: tiếng Việt, chuyên nghiệp, ngắn gọn. Không được bịa ra số liệu không có trong dữ liệu đầu vào.
 `;
 }

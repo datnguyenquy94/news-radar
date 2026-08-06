@@ -7,7 +7,7 @@ import type { Lang } from "../../core/i18n/index.ts";
 export function buildWeeklyPrompt(
   dailyDigests: Record<string, string>,
   weekStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const digestEntries = Object.entries(dailyDigests)
     .map(([date, content]) => `## ${date}\n\n${content}`)
@@ -34,30 +34,30 @@ Style: English, concise and professional, helping technical developers quickly g
 `;
   }
 
-  return `你是一位专注于 AI 开源生态的技术分析师。以下是过去 7 天（${weekStr}）的 AI 工具社区每日动态摘要，请生成本周综合回顾报告。
+  return `Bạn là một nhà phân tích kỹ thuật chuyên về hệ sinh thái mã nguồn mở AI. Dưới đây là tóm tắt bản tin hàng ngày của 7 ngày qua (${weekStr}) về hoạt động của cộng đồng công cụ AI, hãy tạo một báo cáo tổng hợp tuần toàn diện.
 
 ${digestEntries}
 
 ---
 
-请生成《AI 工具生态周报》，包含以下部分：
+Hãy tạo "báo cáo tuần hệ sinh thái công cụ AI", gồm các phần sau:
 
-1. **本周要闻** - 5-8 条本周最重要的事件、版本发布、社区动向，每条附日期
-2. **CLI 工具进展** - 各 AI CLI 工具（Claude Code、Codex、Gemini CLI 等）本周整体动态与关键变化
-3. **AI Agent 生态** - OpenClaw 及同赛道项目的本周重要进展
-4. **开源趋势** - 本周 GitHub Trending 和 AI 社区最关注的技术方向
-5. **HN 社区热议** - 本周 Hacker News AI 讨论的核心话题与社区情绪
-6. **官方动态** - Anthropic 和 OpenAI 本周发布的重要内容（若有）
-7. **下周信号** - 基于本周数据，预判值得关注的趋势或即将到来的事件
+1. **Sự kiện nổi bật trong tuần** - 5-8 sự kiện, phiên bản phát hành, động thái cộng đồng quan trọng nhất trong tuần, mỗi mục kèm ngày tháng
+2. **Tiến độ công cụ CLI** - Diễn biến tổng thể và thay đổi then chốt trong tuần của từng công cụ AI CLI (Claude Code, Codex, Gemini CLI, v.v.)
+3. **Hệ sinh thái AI Agent** - Tiến triển quan trọng của OpenClaw và các dự án cùng lĩnh vực trong tuần
+4. **Xu hướng mã nguồn mở** - Hướng kỹ thuật được quan tâm nhất trên GitHub Trending và cộng đồng AI trong tuần
+5. **Điểm nóng cộng đồng HN** - Chủ đề thảo luận AI cốt lõi và tâm lý cộng đồng trên Hacker News trong tuần
+6. **Thông báo chính thức** - Nội dung quan trọng do Anthropic và OpenAI phát hành trong tuần (nếu có)
+7. **Tín hiệu cho tuần tới** - Dựa trên dữ liệu tuần này, dự đoán xu hướng và sự kiện sắp tới đáng theo dõi
 
-语言要求：中文，简洁专业，适合技术开发者快速掌握一周动态。
+Yêu cầu: tiếng Việt, ngắn gọn, chuyên nghiệp, giúp nhà phát triển kỹ thuật nắm nhanh diễn biến trong tuần.
 `;
 }
 
 export function buildMonthlyPrompt(
   sourceDigests: Record<string, string>,
   monthStr: string,
-  lang: Lang = "zh",
+  lang: Lang = "vi",
 ): string {
   const digestEntries = Object.entries(sourceDigests)
     .map(([key, content]) => `## ${key}\n\n${content}`)
@@ -84,22 +84,22 @@ Style: English, in-depth analysis, data-driven, suited for monthly retrospective
 `;
   }
 
-  return `你是一位专注于 AI 开源生态的技术分析师。以下是 ${monthStr} 月的 AI 工具社区动态汇总（共 ${Object.keys(sourceDigests).length} 份报告），请生成本月综合回顾报告。
+  return `Bạn là một nhà phân tích kỹ thuật chuyên về hệ sinh thái mã nguồn mở AI. Dưới đây là tổng hợp diễn biến cộng đồng công cụ AI tháng ${monthStr} (tổng cộng ${Object.keys(sourceDigests).length} báo cáo), hãy tạo một báo cáo tổng hợp tháng toàn diện.
 
 ${digestEntries}
 
 ---
 
-请生成《AI 工具生态月报》，包含以下部分：
+Hãy tạo "báo cáo tháng hệ sinh thái công cụ AI", gồm các phần sau:
 
-1. **月度要闻** - 本月最重要的 5-10 条事件和里程碑，按时间排列
-2. **CLI 工具月度进展** - 各主要 AI CLI 工具本月整体发展轨迹、重要版本、社区规模变化
-3. **AI Agent 生态月报** - 本月生态格局变化、新兴项目、值得关注的信号
-4. **技术趋势总结** - 本月 AI 开源领域最显著的技术方向与范式变化
-5. **社区生态健康度** - 各主要项目月度活跃度对比、开发者参与度评估
-6. **官方动态回顾** - Anthropic 和 OpenAI 本月发布内容的战略意义分析
-7. **下月展望** - 基于本月趋势，预判值得重点关注的方向和潜在事件
+1. **Sự kiện nổi bật trong tháng** - 5-10 sự kiện và cột mốc quan trọng nhất trong tháng, sắp xếp theo thời gian
+2. **Tiến độ hàng tháng của công cụ CLI** - Quỹ đạo phát triển tổng thể, phiên bản quan trọng, thay đổi quy mô cộng đồng của từng công cụ AI CLI chính
+3. **Tổng kết tháng hệ sinh thái AI Agent** - Thay đổi bức tranh hệ sinh thái, dự án mới nổi, tín hiệu đáng chú ý trong tháng
+4. **Tổng kết xu hướng kỹ thuật** - Hướng kỹ thuật và thay đổi mô hình nổi bật nhất trong lĩnh vực mã nguồn mở AI tháng này
+5. **Đánh giá sức khỏe cộng đồng** - So sánh mức độ hoạt động hàng tháng giữa các dự án chính, đánh giá mức độ tham gia của nhà phát triển
+6. **Tổng kết thông báo chính thức** - Phân tích ý nghĩa chiến lược của nội dung do Anthropic và OpenAI phát hành trong tháng
+7. **Triển vọng tháng tới** - Dựa trên xu hướng tháng này, dự đoán các hướng đi chính và sự kiện tiềm năng đáng theo dõi
 
-语言要求：中文，深度分析，数据驱动，适合月度复盘和战略决策参考。
+Yêu cầu: tiếng Việt, phân tích chuyên sâu, dựa trên dữ liệu, phù hợp cho tổng kết hàng tháng và tham khảo ra quyết định chiến lược.
 `;
 }

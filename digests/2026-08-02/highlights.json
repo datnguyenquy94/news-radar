@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code safety classifier crisis with 3 issues filed today",
+      "OpenAI Codex Windows/OneDrive + memory leaks dominant",
+      "Gemini CLI rapid iteration as challenger platform",
+      "All tools converging on subagent orchestration & MCP",
+      "No major releases; ecosystem in stabilization sprint",
+      "Session corruption bugs across Windows/WSL2/macOS ARM64"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.7.2-beta.6 released: state safety/recovery",
+      "226 issues & 500 PRs in 24h — exceptionally high velocity",
+      "Quarantine store & crash-recoverable SQLite snapshots added",
+      "212 open issues with P0/P1 bugs: session livelocks, message loss",
+      "108 PRs merged/closed but many carry merge-risk labels",
+      "Schema-upgrade data-loss rejection guards implemented"
+    ],
+    "ai-web": [
+      "OpenAI publishes \"Ten Advances In Mathematics\" Index post",
+      "Anthropic released zero new content on August 2nd",
+      "OpenAI emphasizes reasoning as core product differentiator",
+      "Focus on formal mathematics & scientific discovery capabilities",
+      "Asymmetric visibility: OpenAI shaping discourse alone",
+      "Monitor for implications on code gen & theorem proving"
+    ],
+    "ai-hn": [
+      "DeepSeek V4 Flash price/performance analysis tops HN (580 pts)",
+      "Google: AI fuzzing fixed more Chrome bugs in 1 month than 2 years",
+      "OpenAI's Ten Advances in Mathematics sparks 286 comments",
+      "Debate: reasoning models — genuine reasoning or pattern matching?",
+      "Agentic workflow economics scrutinized (qm, GUIs, routers)",
+      "Labor market impact debated: wage suppression vs job loss"
+    ],
+    "ai-hf": [
+      "Moonshot Kimi-K3 dominates weekly leaderboard (9,497 likes)",
+      "DeepSeek V4-Flash family surpasses 2.8M downloads",
+      "Qwen3.6-35B-A3B \"Aggressive\" uncensored: 3,227 likes, 1.8M DLs",
+      "Baidu Unlimited-OCR leads absolute downloads at 2.45M",
+      "DavidAU Kimi-K3/Qwen3.5 fusions show GGUF maturity",
+      "Novel quantization: NVFP4 & ternary formats emerging"
+    ],
+    "ai-community": [
+      "OpenAI GPT-5.6 Luna price drop 80% cheaper dominates Dev.to",
+      "Autonomous Java service deployment with AI agents tutorial",
+      "Multi-agent code review loops & secure MCP servers trending",
+      "Lobste.rs: Xavier Leroy on formal verification deep dive",
+      "Kimi's Delta Attention breakdown surfaces on Lobste.rs",
+      "Case study: writing PHP VM in Rust with heavy AI assist"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% with modest balance sheet contraction",
+      "10Y yield 4.68% highly restrictive but curve positively sloped",
+      "VIX at 17 calm zone; HY credit spreads tight at 2.84%",
+      "FINRA margin debt up 6.1% to $1.5T — retail leverage rising",
+      "Core CPI 2.8%, PCE 3.3% above 2% target",
+      "Payrolls +57k cooling but claims stay low — mixed signals"
+    ],
+    "fin-vnmacro": [
+      "VN-Index -0.50% to 1,735.78; 20-day return -6.80%",
+      "VN30F1M basis +2.93 pts mild contango, no fear premium",
+      "USD/VND stable at 26,490 (+0.10% MoM, +0.38% YTD)",
+      "DXY -1.05% 20d but US 10Y +5.80% — mixed external backdrop",
+      "VanEck VNM ETF -8.17% 20d signals offshore risk-off",
+      "Gold -1.55% 20d to $4,049; industrial prints strong domestically"
+    ]
+  }
+}

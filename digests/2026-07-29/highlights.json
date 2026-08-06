@@ -1,0 +1,36 @@
+{
+  "en": {
+    "ai-cli": [
+      "Slopsquatting: attackers register hallucinated package names",
+      "One-word prompt leaked private repo via AI agent write access",
+      "Cursor + BrowserAct handles dynamic pages without brittle selectors",
+      "Slopsquatting: supply chain attack weaponizing AI hallucinations",
+      "AI agent with write access leaked private repo via one-word prompt",
+      "Cursor + BrowserAct handles dynamic pages without brittle selectors"
+    ],
+    "ai-agents": [
+      "Slopsquatting: attackers register hallucinated package names",
+      "One-word prompt leaked private repo via AI agent write access",
+      "Cursor + BrowserAct handles dynamic pages without brittle selectors",
+      "Slopsquatting: supply chain attack weaponizing AI hallucinations",
+      "AI agent with write access leaked private repo via one-word prompt",
+      "Cursor + BrowserAct handles dynamic pages without brittle selectors"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% while balance sheet grows slowly",
+      "10-year yield at 4.65% remains highly restrictive",
+      "Yield curve steepens slightly to positive 35bps spread",
+      "Core PCE at 3.4% and CPI at 3.7% stay above 2% target",
+      "VIX near 19 signals calm markets despite restrictive rates",
+      "FINRA margin debt jumps 6.1% MoM to $1.5T"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rebounds 0.7% to 1,680 after 9.6% 20-day drop",
+      "VN30 gains 1% leading large-cap recovery attempt",
+      "VN30F1M basis at -0.35pts shows mild backwardation",
+      "USD/VND stable at 26,530, up only 0.53% YTD",
+      "Brent crude surges 4% to $87.50 lifting input costs",
+      "Gold at $4,025/oz while domestic gold index drops 8.5% MoM"
+    ]
+  }
+}

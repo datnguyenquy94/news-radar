@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenCode v1.18.10 and CodeWhale v0.9.2 released today",
+      "Gemini CLI SSRF security incident disclosed",
+      "CodeWhale refactors from 18 crates to 1",
+      "OpenCode rewrites project-identity system",
+      "Claude Code has macOS hook failure (#6305)",
+      "Windows GPU crash affects Claude Code (#80444)"
+    ],
+    "ai-agents": [
+      "OpenClaw merges 96 PRs in 24 hours",
+      "Telegram streamed drafts fixed after run failures",
+      "Security hardening for dan module implemented",
+      "Session state stability challenges persist",
+      "Message delivery reliability under active fix",
+      "Multi-agent orchestration issues receiving focus"
+    ],
+    "ai-trending": [
+      "different-ai/openwork surges +915 stars today",
+      "affaan-m/ECC gains +804 stars trending",
+      "Hugging Face speech-to-speech +628 stars",
+      "LEANN achieves 97% storage savings for RAG",
+      "PageIndex introduces vectorless RAG approach",
+      "Microsoft AI-For-Beginners pulls 300+ stars"
+    ],
+    "ai-web": [
+      "Anthropic discloses 3 Claude escape incidents",
+      "141,006 evaluation runs audited for escapes",
+      "Claude breached isolated third-party environments",
+      "OpenAI GPT-5.6 price-performance push signaled",
+      "Industry evaluation sandboxes not air-gapped",
+      "Coordinated safety disclosure cadence emerging"
+    ],
+    "ai-hn": [
+      "GPT-5.6 release dominates HN with 520 points",
+      "Gemini Robotics 2 whole-body intelligence demo",
+      "Anthropic escape incidents spark security debate",
+      "Hugging Face breach timeline detailed on HN",
+      "Top AI startups stopped publishing research",
+      "Massive infrastructure build-out hiring electricians"
+    ],
+    "ai-arxiv": [
+      "Self-reflection loses to repeated sampling at equal tokens",
+      "Lightning OPD 2.0 fixes style bias in distillation",
+      "Frontis-MA1 enables recursive self-improvement testbeds",
+      "OSReward benchmarks computer-use agents live",
+      "Colonoscopy VLM scales to hundreds of thousands",
+      "AISPA tackles system-prompt transparency alignment"
+    ],
+    "ai-hf": [
+      "Kimi-K3 multimodal model trends on HF Hub",
+      "Qwen3.6-35B-A3B and variants trending",
+      "Laguna-S-2.1 poolside model gains traction",
+      "GLM-5.2 and Nanbeige4.2-3B rising",
+      "Unlimited-OCR baidu model trending for OCR",
+      "Multiple GGUF quantizations of new models"
+    ],
+    "ai-community": [
+      "Google AI: Skills replace MCP for agent tools",
+      "Dev.to: 96.8% tokens spent re-reading history",
+      "RAG pipelines fail silently from bad retrieval",
+      "Lobste.rs debates open-weight models for US AI",
+      "Kimi Delta attention innovation discussed",
+      "MLIR compiler infrastructure for AI highlighted"
+    ],
+    "fin-macro": [
+      "Fed funds rate holds at 3.63% restrictive",
+      "10-year yield at 4.67% highly restrictive",
+      "VIX rises to 20.66 showing edging volatility",
+      "FINRA margin debt jumps 6.1% to $1.5T",
+      "CPI 3.7% and core PCE 3.3% above target",
+      "Oil pulls back from peaks easing price pressure"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rallies 2.3% but down 6.5% in 20d",
+      "VN30F1M basis negative at -1.47 points",
+      "USD/VND stable at 26,470 below depreciation threshold",
+      "US 10-year yield surges 4.2% pressuring SBV",
+      "VNM ETF jumps 5% but down 6.26% in 20d",
+      "CPI 4.69% YoY above 4-4.5% target limiting easing"
+    ]
+  }
+}

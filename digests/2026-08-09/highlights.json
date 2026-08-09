@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "Cross-tool fragmentation with convergent architectural pressures",
+      "7 of 9 tools shifting to multi-session orchestration",
+      "Release cadences vary: nightly (Gemini) to sporadic (Claude)",
+      "10 tools covered: Claude Code, Codex, Gemini CLI, more",
+      "Industry shift toward provider-neutral abstractions visible",
+      "Claude Code v2.1.226 patch with 70-comment hot issue"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs and 166 issues in 24 hours",
+      "Two security hardening patches: v2026.6.33 and v2026.6.34",
+      "Critical gateway memory leak: 350 MB to 15.5 GB",
+      "Silent model failures, OAuth wedging, message loss",
+      "PRs advance Code Mode provider accounting, session traces",
+      "12 OpenClaw ecosystem projects covered in digest"
+    ],
+    "ai-trending": [
+      "PrimeIntellect/prime-agent: +2,483 stars in 24 hours",
+      "5 of top 12 repos focus on agent infrastructure",
+      "Three skills repos collectively gain >2,600 stars",
+      "Convergence on portable, composable skill primitives",
+      "TradingAgents extends multi-agent pattern to finance",
+      "Ollama hits 178K stars as local LLM standard"
+    ],
+    "ai-hn": [
+      "AMD acquires Taalas to bake models into silicon",
+      "Oracle bans AI-generated code in OpenJDK",
+      "DeepMind leadership shift: Hassabis Chair, Dean departing",
+      "WeatherNext AI beats physics models on cyclone forecasting",
+      "Study: humans miss 1 in 3 dangerous agent actions",
+      "Debate: AI coding erodes or rewards developer expertise"
+    ],
+    "ai-hf": [
+      "MiniMax-H3 video family spawns dozen+ community ports",
+      "DeepSeek-V4-Flash leads LLM downloads at 785K",
+      "Kimi-K3 tops weekly likes at 10,343",
+      "Uncensored Qwen/Gemma GGUF fine-tunes surge",
+      "Unlimited-OCR and FLUX.1-dev stay popular",
+      "LiquidAI LFM2.5-2.6B compact model gains traction"
+    ],
+    "ai-community": [
+      "Dev.to shifts to agent architecture, evaluation, hardening",
+      "Multi-RAG + Knowledge Graphs + MCP for persistent memory",
+      "Lobste.rs: NLP categorization and LLM cognitive critique",
+      "AI assistants mirroring user context raises privacy questions",
+      "ReAct pattern naming confusion surfaces agentic terminology",
+      "Focus moves from capability demos to reliability at scale"
+    ],
+    "fin-macro": [
+      "Fed holds at 3.63%, balance sheet slightly expanding",
+      "10Y yield 4.69% restrictive, curve positively sloped",
+      "Inflation sticky: CPI 3.7%, core PCE 3.3%, PPI 5.5%",
+      "Payrolls contract -23K despite 4.1% unemployment",
+      "Margin debt hits $1.5T, monthly leverage +6.1%",
+      "VIX calm at 15.15, high-yield spreads tight 2.71%"
+    ],
+    "fin-vnmacro": [
+      "VN-Index +0.20% to 1,768, VN30 +0.40% to 1,911",
+      "Both indices down >3% on 20-day view",
+      "VN30F1M basis deeply negative -20.99 pts (-1.10%)",
+      "USD/VND stable at 26,410, dong +0.23% monthly",
+      "US 10Y yield jumps to 4.69%, EM headwind",
+      "Gold surges 2.33% daily to $4,340/oz"
+    ]
+  }
+}

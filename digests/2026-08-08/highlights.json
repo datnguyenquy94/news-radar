@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "AGENTS.md cross-tool signal hits 4.5k 👍 on Claude Code",
+      "Windows parity remains systemic weakness across tools",
+      "MCP standardization convergence accelerating ecosystem-wide",
+      "OpenCode and Pi pursuing major v2 architectural rewrites",
+      "Self-hosted enterprise execution environments gaining traction",
+      "9 active projects shipping daily patches and alpha channels"
+    ],
+    "ai-agents": [
+      "OpenClaw processes 754 items in 24 hours (254 issues, 500 PRs)",
+      "93 PRs merged today but 240 issues and 407 PRs remain open",
+      "Critical memory leaks and crash loops dominate top issues",
+      "No new release; latest version 2026.7.2-beta.5",
+      "PR #120420 fixes message ordering regression across turns",
+      "Project absorbing work faster than resolving critical bugs"
+    ],
+    "ai-trending": [
+      "PrimeIntellect prime-agent gains 2,293 stars in single day",
+      "Cloudflare computer runtime launches with 872 day-one stars",
+      "9 of top 17 trending repos build autonomous agent tooling",
+      "Google skills repo +327 stars signals standardization push",
+      "Ollama hits 178k stars as de facto local LLM standard",
+      "Agent skill frameworks dominate current GitHub trending list"
+    ],
+    "ai-hn": [
+      "AMD acquires Taalas for silicon-etched inference hardware",
+      "DeepMind leadership shift: Hassabis to Chair, Dean departing",
+      "Oracle bans AI-generated code in OpenJDK contributions",
+      "Qwen 3.8-Max tops agentic benchmark surpassing Western labs",
+      "Tokenpocalypse debate highlights runaway enterprise AI costs",
+      "Community debates strict liability regimes for AI labs"
+    ],
+    "ai-arxiv": [
+      "Selective context preference optimization teaches when to trust",
+      "RRC unlocks generative reward models for RL training",
+      "Anytime-valid stopping cuts agent evaluation cost orders of magnitude",
+      "Domain-specialized models beat generic scaling in safety-critical tasks",
+      "Trust research moves beyond static preference optimization",
+      "Targeted pretraining plus retrieval outperforms broad scaling"
+    ],
+    "ai-hf": [
+      "MiniMax-H3 video ecosystem dominates with 8 model variants",
+      "DeepSeek-V4-Flash leads LLM downloads at 702k weekly",
+      "Kimi-K3 tops multimodal likes at 10k with vision-language",
+      "Baidu Unlimited-OCR hits 2.8M downloads in production",
+      "LiquidAI LFM2.5 small models gain edge deployment traction",
+      "Uncensored fine-tuned Qwen models surge in popularity"
+    ],
+    "ai-community": [
+      "Agent observability shifts from detectors to full trace capture",
+      "Ephemeral Linux sandboxes via Kubernetes isolate agent execution",
+      "AI policy testing hits every boundary in 49 of 50 runs",
+      "Parsers silently discard valid reasoning without errors",
+      "Prompt injection detectors remain limited to English language",
+      "Developers question if agent frameworks overkill for automation"
+    ],
+    "fin-macro": [
+      "Fed Funds holds 3.63% with balance sheet marginally expanding",
+      "10-year yield at 4.69% remains highly restrictive level",
+      "VIX at 15.15 signals calm market conditions",
+      "Margin debt rises 6.1% to $1.5T showing no deleveraging",
+      "CPI 3.7% and Core PCE 3.3% stay above 2% target",
+      "Oil pulls back to low-$80s while payrolls contract -23k"
+    ],
+    "fin-vnmacro": [
+      "VN-Index at 1,768 (+0.20% 1d, -3.30% 20d)",
+      "VN30 futures trade at -20.99 pts discount to spot",
+      "USD/VND at 26,410 sell with DXY at 99.60",
+      "Gold surges to $4,401/oz (+7.24% in 20 days)",
+      "Vietnam GDP grows 8.02% with CPI at 3.31%",
+      "FX reserves reach $85.6B with $20.2B FDI inflows"
+    ]
+  }
+}

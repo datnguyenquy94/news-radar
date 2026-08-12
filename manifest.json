@@ -1,6 +1,91 @@
 {
-  "generated": "2026-08-06T03:49:19.278Z",
+  "generated": "2026-08-12T03:05:41.093Z",
   "dates": [
+    {
+      "date": "2026-08-12",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-web-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-arxiv-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-web-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-arxiv-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-arxiv-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "reports": [
+        "ai-cli-en",
+        "ai-agents-en",
+        "ai-web-en",
+        "ai-trending-en",
+        "ai-hn-en",
+        "ai-arxiv-en",
+        "ai-hf-en",
+        "ai-community-en",
+        "fin-macro-en",
+        "fin-vnmacro-en"
+      ]
+    },
     {
       "date": "2026-08-06",
       "reports": [

@@ -6,8 +6,8 @@ import {
   extractText,
   urlCategory,
   titleFromUrl,
-  emptyState,
-} from "../domains/ai/web.ts";
+} from "../providers/sitemap.ts";
+import { emptyState } from "../platform/state/web-state.ts";
 
 // ---------------------------------------------------------------------------
 // parseSitemapUrls

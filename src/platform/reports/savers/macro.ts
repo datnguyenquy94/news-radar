@@ -7,33 +7,31 @@ import { type Lang, MACRO_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.
 import { buildMacroPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { FredData } from "../../../domains/finance/fred.ts";
-import type { FinraData } from "../../../domains/finance/finra.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { MacroData } from "../../../feeds/finance/macro.ts";
 
 // ---------------------------------------------------------------------------
 // Macro market dashboard (FRED + FINRA)
 // ---------------------------------------------------------------------------
 
 export async function saveMacroReport(
-  fredData: FredData,
-  finraData: FinraData,
+  data: MacroData,
   utcStr: string,
   dateStr: string,
   digestRepo: string,
   footer: string,
   lang: Lang = "vi",
 ): Promise<void> {
-  if (!fredData.fetchSuccess) {
+  if (!data.fetchSuccess) {
     console.log(`  [macro/${lang}] No FRED data available, skipping report.`);
     return;
   }
 
   console.log(`  [macro/${lang}] Calling LLM for macro dashboard...`);
   try {
-    const summary = await callLlm(buildMacroPrompt(fredData, finraData, dateStr, lang), LLM_TOKENS_LISTING);
+    const summary = await callLlm(buildMacroPrompt(data, dateStr, lang), LLM_TOKENS_LISTING);
     const fileName = lang === "en" ? "fin-macro-en.md" : "fin-macro.md";
-    const metricCount = fredData.metrics.filter((m) => m.latest !== null).length;
+    const metricCount = data.fred.metrics.filter((m) => m.latest !== null).length;
     const header =
       lang === "en"
         ? `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +

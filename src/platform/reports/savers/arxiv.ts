@@ -7,8 +7,8 @@ import { type Lang, ARXIV_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.
 import { buildArxivPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { ArxivData } from "../../../domains/ai/arxiv.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { ArxivData } from "../../../feeds/ai/arxiv.ts";
 
 // ---------------------------------------------------------------------------
 // ArXiv report

@@ -7,38 +7,32 @@ import { type Lang, COMMUNITY_REPORT, ISSUE_LABELS } from "../../../core/i18n/in
 import { buildCommunityPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { DevtoData } from "../../../domains/ai/devto.ts";
-import type { LobstersData } from "../../../domains/ai/lobsters.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { CommunityData } from "../../../feeds/ai/community.ts";
 
 // ---------------------------------------------------------------------------
 // Community report (Dev.to + Lobste.rs)
 // ---------------------------------------------------------------------------
 
 export async function saveCommunityReport(
-  devtoData: DevtoData,
-  lobstersData: LobstersData,
+  data: CommunityData,
   utcStr: string,
   dateStr: string,
   digestRepo: string,
   footer: string,
   lang: Lang = "vi",
 ): Promise<void> {
-  const hasData = devtoData.fetchSuccess || lobstersData.fetchSuccess;
-  if (!hasData) {
+  if (!data.fetchSuccess) {
     console.log(`  [community/${lang}] No data available, skipping report.`);
     return;
   }
 
   console.log(`  [community/${lang}] Calling LLM for community report...`);
   try {
-    const summary = await callLlm(
-      buildCommunityPrompt(devtoData, lobstersData, dateStr, lang),
-      LLM_TOKENS_LISTING,
-    );
+    const summary = await callLlm(buildCommunityPrompt(data, dateStr, lang), LLM_TOKENS_LISTING);
     const fileName = lang === "en" ? "ai-community-en.md" : "ai-community.md";
-    const devtoCount = devtoData.articles.length;
-    const lobstersCount = lobstersData.stories.length;
+    const devtoCount = data.devto.articles.length;
+    const lobstersCount = data.lobsters.stories.length;
     const header =
       lang === "en"
         ? `# ${COMMUNITY_REPORT.title[lang]} ${dateStr}\n\n` +

@@ -2,7 +2,8 @@
  * Repo-level LLM prompt builders.
  */
 
-import type { RepoConfig, GitHubItem, GitHubRelease } from "../../domains/github/github.ts";
+import type { RepoConfig } from "../../core/config.ts";
+import type { GitHubItem, GitHubRelease } from "../../providers/github/repos.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { formatItem, topN, sampleNote } from "./shared.ts";
 

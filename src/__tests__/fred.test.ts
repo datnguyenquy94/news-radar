@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { fetchFredData } from "../domains/finance/fred.ts";
+import { fetchFredData } from "../feeds/finance/macro.ts";
 
 function jsonResponse(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {

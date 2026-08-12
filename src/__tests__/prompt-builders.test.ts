@@ -13,11 +13,12 @@ import {
   buildMonthlyPrompt,
   buildHnPrompt,
 } from "../platform/prompts/index.ts";
-import type { RepoConfig, GitHubItem, GitHubRelease } from "../domains/github/github.ts";
+import type { RepoConfig } from "../core/config.ts";
+import type { GitHubItem, GitHubRelease } from "../providers/github/repos.ts";
 import type { RepoDigest } from "../platform/prompts/index.ts";
-import type { TrendingData } from "../domains/ai/trending.ts";
-import type { HnData } from "../domains/ai/hn.ts";
-import type { WebFetchResult } from "../domains/ai/web.ts";
+import type { TrendingData } from "../feeds/ai/trending.ts";
+import type { HnData } from "../feeds/ai/hn.ts";
+import type { WebFetchResult } from "../feeds/ai/web.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures

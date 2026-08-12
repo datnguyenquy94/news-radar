@@ -2,7 +2,7 @@
  * LLM prompt builder for the Hugging Face report.
  */
 
-import type { HfData } from "../../domains/ai/hf.ts";
+import type { HfData } from "../../feeds/ai/hf.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------

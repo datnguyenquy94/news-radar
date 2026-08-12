@@ -2,7 +2,7 @@
  * LLM prompt builder for the Product Hunt report.
  */
 
-import type { PhData } from "../../domains/ai/ph.ts";
+import type { PhData } from "../../feeds/ai/ph.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 export function buildPhPrompt(data: PhData, dateStr: string, lang: Lang = "vi"): string {

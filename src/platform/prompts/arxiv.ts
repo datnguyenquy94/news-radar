@@ -2,7 +2,7 @@
  * LLM prompt builder for the ArXiv report.
  */
 
-import type { ArxivData } from "../../domains/ai/arxiv.ts";
+import type { ArxivData } from "../../feeds/ai/arxiv.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------

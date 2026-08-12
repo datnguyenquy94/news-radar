@@ -18,13 +18,12 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import {
-  type GitHubItem,
   type RepoFetch,
-  fetchRecentItems,
-  fetchRecentReleases,
-  fetchSkillsData,
-  tryCreateGitHubIssue,
-} from "../domains/github/github.ts";
+  type SkillsData,
+  fetchAllRepoActivity,
+  fetchSkills,
+} from "../feeds/ai/repo-activity.ts";
+import { tryCreateGitHubIssue } from "../platform/publish/github-issues.ts";
 import {
   type RepoDigest,
   buildCliPrompt,
@@ -51,25 +50,16 @@ import {
   saveMacroReport,
   saveVnMacroReport,
 } from "../platform/reports/index.ts";
-import {
-  loadWebState,
-  saveWebState,
-  fetchSiteContent,
-  type WebFetchResult,
-  type WebState,
-} from "../domains/ai/web.ts";
-import { fetchTrendingData, type TrendingData } from "../domains/ai/trending.ts";
-import { fetchHnData, type HnData } from "../domains/ai/hn.ts";
-import { fetchPhData, type PhData } from "../domains/ai/ph.ts";
-import { fetchArxivData, type ArxivData } from "../domains/ai/arxiv.ts";
-import { fetchHfData, type HfData } from "../domains/ai/hf.ts";
-import { fetchDevtoData, type DevtoData } from "../domains/ai/devto.ts";
-import { fetchLobstersData, type LobstersData } from "../domains/ai/lobsters.ts";
-import { fetchFredData, type FredData } from "../domains/finance/fred.ts";
-import { fetchFinraMargin, type FinraData } from "../domains/finance/finra.ts";
-import { fetchVnMarketData, type VnMarketData } from "../domains/vietnam/vnmarket.ts";
-import { fetchVnMacroData, type VnMacroData } from "../domains/vietnam/vnmacro.ts";
-import { fetchVnDocsData, type VnDocsData } from "../domains/vietnam/vndocs.ts";
+import { fetchSiteContent, type WebFetchResult, type WebState } from "../feeds/ai/web.ts";
+import { loadWebState, saveWebState } from "../platform/state/web-state.ts";
+import { fetchTrendingData, type TrendingData } from "../feeds/ai/trending.ts";
+import { fetchHnData, type HnData } from "../feeds/ai/hn.ts";
+import { fetchPhData, type PhData } from "../feeds/ai/ph.ts";
+import { fetchArxivData, type ArxivData } from "../feeds/ai/arxiv.ts";
+import { fetchHfData, type HfData } from "../feeds/ai/hf.ts";
+import { fetchCommunityData, type CommunityData } from "../feeds/ai/community.ts";
+import { fetchMacroData, type MacroData } from "../feeds/finance/macro.ts";
+import { fetchVnFeed, type VnFeedData } from "../feeds/finance/vn/index.ts";
 import { loadConfig } from "../core/config.ts";
 import { toCstDateStr, toUtcStr } from "../core/date.ts";
 import {
@@ -106,30 +96,38 @@ function requireEnv(name: string): string {
 // Phase 1: Fetch
 // ---------------------------------------------------------------------------
 
+/**
+ * Every network call for the run, in parallel.
+ *
+ * Each entry is one feed, and each feed owns its own degrade policy — a source
+ * that fails returns a well-formed empty payload with `fetchSuccess: false`
+ * rather than throwing, so one outage never aborts the digest.
+ */
 async function fetchAllData(
   since: Date,
   webState: WebState,
 ): Promise<{
   fetched: RepoFetch[];
-  skillsData: { prs: GitHubItem[]; issues: GitHubItem[] };
+  skillsData: SkillsData;
   webResults: WebFetchResult[];
   trendingData: TrendingData;
   hnData: HnData;
   phData: PhData;
   arxivData: ArxivData;
   hfData: HfData;
-  devtoData: DevtoData;
-  lobstersData: LobstersData;
-  fredData: FredData;
-  finraData: FinraData;
-  vnMarketData: VnMarketData;
-  vnMacroData: VnMacroData;
-  vnDocsData: VnDocsData;
+  communityData: CommunityData;
+  macroData: MacroData;
+  vnData: VnFeedData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, fred, finra, vn-market, vn-macro, vn-docs`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, trending, hn, ph, arxiv, hf, community, macro, vn`,
   );
+
+  const emptyWebResult = (site: "anthropic" | "openai", siteName: string) => (err: unknown) => {
+    console.error(`  [web/${site}] fetch failed: ${err}`);
+    return { site, siteName, isFirstRun: false, newItems: [], totalDiscovered: 0 } as WebFetchResult;
+  };
 
   const [
     fetched,
@@ -140,90 +138,24 @@ async function fetchAllData(
     phData,
     arxivData,
     hfData,
-    devtoData,
-    lobstersData,
-    fredData,
-    finraData,
-    vnMarketData,
-    vnMacroData,
-    vnDocsData,
+    communityData,
+    macroData,
+    vnData,
   ] = await Promise.all([
-    Promise.all(
-      allConfigs.map(async (cfg) => {
-        try {
-          const [issuesRaw, prs, releases] = await Promise.all([
-            fetchRecentItems(cfg, "issues", since),
-            fetchRecentItems(cfg, "pulls", since),
-            fetchRecentReleases(cfg.repo, since),
-          ]);
-          const issues = issuesRaw.filter((i) => !i.pull_request);
-          console.log(
-            `  [${cfg.id}] issues: ${issues.length}, prs: ${prs.length}, releases: ${releases.length}`,
-          );
-          return { cfg, issues, prs, releases };
-        } catch (err) {
-          console.error(`  [${cfg.id}] fetch failed: ${err}`);
-          return { cfg, issues: [], prs: [], releases: [] };
-        }
-      }),
-    ),
-    fetchSkillsData(CLAUDE_SKILLS_REPO)
-      .then((d) => {
-        console.log(`  [claude-code-skills] prs: ${d.prs.length}, issues: ${d.issues.length}`);
-        return d;
-      })
-      .catch((err) => {
-        console.error(`  [claude-code-skills] fetch failed: ${err}`);
-        return { prs: [] as GitHubItem[], issues: [] as GitHubItem[] };
-      }),
+    fetchAllRepoActivity(allConfigs, since),
+    fetchSkills(CLAUDE_SKILLS_REPO),
     Promise.all([
-      fetchSiteContent("anthropic", webState).catch((err): WebFetchResult => {
-        console.error(`  [web/anthropic] fetch failed: ${err}`);
-        return {
-          site: "anthropic",
-          siteName: "Anthropic (Claude)",
-          isFirstRun: false,
-          newItems: [],
-          totalDiscovered: 0,
-        };
-      }),
-      fetchSiteContent("openai", webState).catch((err): WebFetchResult => {
-        console.error(`  [web/openai] fetch failed: ${err}`);
-        return { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 0 };
-      }),
+      fetchSiteContent("anthropic", webState).catch(emptyWebResult("anthropic", "Anthropic (Claude)")),
+      fetchSiteContent("openai", webState).catch(emptyWebResult("openai", "OpenAI")),
     ]),
-    fetchTrendingData().catch(
-      (): TrendingData => ({
-        trendingRepos: [],
-        searchRepos: [],
-        trendingFetchSuccess: false,
-      }),
-    ),
-    fetchHnData().catch((): HnData => ({ stories: [], fetchSuccess: false })),
-    fetchPhData().catch((): PhData => ({ products: [], fetchSuccess: false })),
-    fetchArxivData().catch((): ArxivData => ({ papers: [], fetchSuccess: false })),
-    fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
-    fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
-    fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
-    fetchFredData().catch((): FredData => ({ metrics: [], fetchSuccess: false })),
-    fetchFinraMargin().catch(
-      (): FinraData => ({ latest: null, prior: null, changePct: null, fetchSuccess: false }),
-    ),
-    fetchVnMarketData().catch(
-      (): VnMarketData => ({
-        indices: [],
-        breadth: null,
-        turnoverVndBn: null,
-        foreign: null,
-        futuresBasis: null,
-        tradingDate: "",
-        fetchSuccess: false,
-      }),
-    ),
-    fetchVnMacroData().catch(
-      (): VnMacroData => ({ fx: null, global: [], annual: [], gold: null, fetchSuccess: false }),
-    ),
-    fetchVnDocsData().catch((): VnDocsData => ({ docs: [], fetchSuccess: false })),
+    fetchTrendingData(),
+    fetchHnData(),
+    fetchPhData(),
+    fetchArxivData(),
+    fetchHfData(),
+    fetchCommunityData(),
+    fetchMacroData(),
+    fetchVnFeed(),
   ]);
 
   return {
@@ -235,13 +167,9 @@ async function fetchAllData(
     phData,
     arxivData,
     hfData,
-    devtoData,
-    lobstersData,
-    fredData,
-    finraData,
-    vnMarketData,
-    vnMacroData,
-    vnDocsData,
+    communityData,
+    macroData,
+    vnData,
   };
 }
 
@@ -278,7 +206,7 @@ async function summarizeRepo(
 async function generateSummaries(
   fetchedCli: RepoFetch[],
   fetchedOpenclaw: RepoFetch,
-  skillsData: { prs: GitHubItem[]; issues: GitHubItem[] },
+  skillsData: SkillsData,
   fetchedPeers: RepoFetch[],
   trendingData: TrendingData,
   dateStr: string,
@@ -373,13 +301,9 @@ async function main(): Promise<void> {
     phData,
     arxivData,
     hfData,
-    devtoData,
-    lobstersData,
-    fredData,
-    finraData,
-    vnMarketData,
-    vnMacroData,
-    vnDocsData,
+    communityData,
+    macroData,
+    vnData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -486,9 +410,9 @@ async function main(): Promise<void> {
         savePhReport(phData, utcStr, dateStr, digestRepo, ft, lang),
         saveArxivReport(arxivData, utcStr, dateStr, digestRepo, ft, lang),
         saveHfReport(hfData, utcStr, dateStr, digestRepo, ft, lang),
-        saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, ft, lang),
-        saveMacroReport(fredData, finraData, utcStr, dateStr, digestRepo, ft, lang),
-        saveVnMacroReport(vnMarketData, vnMacroData, vnDocsData, utcStr, dateStr, digestRepo, ft, lang),
+        saveCommunityReport(communityData, utcStr, dateStr, digestRepo, ft, lang),
+        saveMacroReport(macroData, utcStr, dateStr, digestRepo, ft, lang),
+        saveVnMacroReport(vnData, utcStr, dateStr, digestRepo, ft, lang),
       ];
     }),
   );

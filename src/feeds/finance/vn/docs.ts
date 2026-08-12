@@ -1,29 +1,28 @@
 /**
- * Vietnam macro sources that publish documents rather than data.
+ * Vietnam official documents — the document half of the `fin-vnmacro` report.
  *
- * Three of the framework's load-bearing blocks have no free JSON feed at all —
+ * Three of the framework's load-bearing blocks have no free JSON feed at all:
  * SBV policy and interbank rates, government-bond yields and the corporate-bond
  * maturity wall, and monthly CPI/FDI/PMI. They are published as CMS articles
- * (NSO) and as a weekly PDF bulletin (VBMA), so this module fetches the
- * document and reduces it before it ever reaches the LLM:
+ * (NSO) and as a weekly PDF bulletin (VBMA), so each document is reduced here
+ * before it ever reaches the LLM:
  *
  *   NSO  → Readability article text → paragraphs that carry numbers
  *   VBMA → per-page PDF text        → the pages that score on macro keywords
  *
- * Each source resolves its own "latest" link from a listing page rather than
- * guessing a URL, because both publishers encode the reporting period in the
- * path. Any source that fails is dropped: the report is written from whatever
+ * Any source that fails is dropped: the report is written from whatever
  * survived, and the prompt is told which blocks are missing.
  */
 
+import { rankPages, relevantExcerpt, type PdfPage } from "../../../core/doc-extract.ts";
 import {
-  fetchArticle,
-  fetchPdfPages,
-  fetchWithTimeout,
-  rankPages,
-  relevantExcerpt,
-  type PdfPage,
-} from "../../core/doc-extract.ts";
+  NSO_CPI_LISTING,
+  NSO_MONTHLY_LISTING,
+  NSO_SOURCE_NAME,
+  fetchNsoArticle,
+  findLatestArticleUrl,
+} from "../../../providers/nso.ts";
+import { VBMA_SOURCE_NAME, fetchLatestBulletin } from "../../../providers/vbma.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -47,20 +46,8 @@ export interface VnDocsData {
 }
 
 // ---------------------------------------------------------------------------
-// Source definitions
+// Keyword sets — what makes a paragraph or page worth keeping
 // ---------------------------------------------------------------------------
-
-const NSO_CPI_LISTING = "https://www.nso.gov.vn/en/cpi/";
-const NSO_MONTHLY_LISTING = "https://www.nso.gov.vn/en/monthly-report/";
-const VBMA_WEEKLY_LISTING = "https://vbma.org.vn/en/reports/weekly";
-const VBMA_ORIGIN = "https://vbma.org.vn";
-
-/** NSO article permalinks; the listings render them newest-first. */
-const NSO_ARTICLE_RE =
-  /href="(https:\/\/www\.nso\.gov\.vn\/en\/(?:data-and-statistics|highlight)\/\d{4}\/\d{2}\/[^"]+)"/g;
-
-/** VBMA stores its bulletins under /storage/reports/<Month><Year>/<file>.pdf */
-const VBMA_PDF_RE = /href="(\/storage\/reports\/[^"]+\.pdf)"/gi;
 
 const CPI_KEYWORDS = [
   "consumer price index",
@@ -113,21 +100,8 @@ const MONTHLY_MAX_CHARS = 3500;
 const PDF_PAGE_MAX_CHARS = 1400;
 const PDF_MAX_PAGES = 4;
 
-// ---------------------------------------------------------------------------
-// Link resolution
-// ---------------------------------------------------------------------------
-
-/** First match of `re` (a /g regex with one capture group), in document order. */
-function firstLink(html: string, re: RegExp): string | null {
-  re.lastIndex = 0;
-  const match = re.exec(html);
-  return match?.[1] ?? null;
-}
-
-async function fetchListing(url: string): Promise<string> {
-  const resp = await fetchWithTimeout(url);
-  return resp.text();
-}
+/** Below this an excerpt carries no numbers worth reporting. */
+const MIN_EXCERPT_CHARS = 200;
 
 // ---------------------------------------------------------------------------
 // NSO — CPI and the monthly socio-economic report
@@ -140,20 +114,22 @@ async function fetchNsoDoc(
   maxChars: number,
 ): Promise<VnDoc | null> {
   try {
-    const articleUrl = firstLink(await fetchListing(listingUrl), NSO_ARTICLE_RE);
+    const articleUrl = await findLatestArticleUrl(listingUrl);
     if (!articleUrl) throw new Error("no article link on listing page");
 
-    const article = await fetchArticle(articleUrl);
+    const article = await fetchNsoArticle(articleUrl);
     if (article.usedFallback) {
       console.log(`  [vndocs] ${id}: Readability fell back to tag-strip`);
     }
     const excerpt = relevantExcerpt(article.text, keywords, maxChars);
-    if (excerpt.length < 200) throw new Error(`excerpt too short (${excerpt.length} chars)`);
+    if (excerpt.length < MIN_EXCERPT_CHARS) {
+      throw new Error(`excerpt too short (${excerpt.length} chars)`);
+    }
 
     console.log(`  [vndocs] ${id}: ${excerpt.length} chars from ${articleUrl}`);
     return {
       id,
-      source: "National Statistics Office of Vietnam (NSO)",
+      source: NSO_SOURCE_NAME,
       title: article.title || id,
       url: articleUrl,
       kind: "html",
@@ -180,31 +156,20 @@ export function formatPdfExcerpt(pages: PdfPage[], maxCharsPerPage: number): str
 async function fetchVbmaDoc(): Promise<VnDoc | null> {
   const id = "vbma-weekly";
   try {
-    const listing = await fetchListing(VBMA_WEEKLY_LISTING);
-    const href = firstLink(listing, VBMA_PDF_RE);
-    if (!href) throw new Error("no PDF link on weekly report page");
-    // Report filenames contain spaces; encode the path but keep the slashes.
-    const pdfUrl = new URL(href, VBMA_ORIGIN).toString();
+    const bulletin = await fetchLatestBulletin();
 
-    // Titles sit in the <h4> immediately before each download link.
-    const titleMatch = listing.match(/<h4[^>]*>\s*(Weekly Report[^<]*)<\/h4>/i);
-    const title = (titleMatch?.[1] ?? "VBMA Weekly Bond Market Report").trim();
-
-    const pages = await fetchPdfPages(pdfUrl);
-    if (pages.length === 0) throw new Error("PDF had no extractable text");
-
-    const ranked = rankPages(pages, BOND_KEYWORDS, PDF_MAX_PAGES);
-    if (ranked.length === 0) throw new Error(`no relevant pages among ${pages.length}`);
+    const ranked = rankPages(bulletin.pages, BOND_KEYWORDS, PDF_MAX_PAGES);
+    if (ranked.length === 0) throw new Error(`no relevant pages among ${bulletin.pages.length}`);
 
     const excerpt = formatPdfExcerpt(ranked, PDF_PAGE_MAX_CHARS);
     console.log(
-      `  [vndocs] ${id}: kept pages ${ranked.map((p) => p.page).join(",")} of ${pages.length} (${excerpt.length} chars)`,
+      `  [vndocs] ${id}: kept pages ${ranked.map((p) => p.page).join(",")} of ${bulletin.pages.length} (${excerpt.length} chars)`,
     );
     return {
       id,
-      source: "Vietnam Bond Market Association (VBMA)",
-      title,
-      url: pdfUrl,
+      source: VBMA_SOURCE_NAME,
+      title: bulletin.title,
+      url: bulletin.url,
       kind: "pdf",
       excerpt,
       pages: ranked.map((p) => p.page),

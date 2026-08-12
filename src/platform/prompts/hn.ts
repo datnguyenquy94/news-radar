@@ -2,7 +2,7 @@
  * LLM prompt builder for the Hacker News report.
  */
 
-import type { HnData } from "../../domains/ai/hn.ts";
+import type { HnData } from "../../feeds/ai/hn.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 export function buildHnPrompt(data: HnData, dateStr: string, lang: Lang = "vi"): string {

@@ -2,7 +2,7 @@
  * Formatting and sampling helpers shared by the prompt builders.
  */
 
-import type { GitHubItem } from "../../domains/github/github.ts";
+import type { GitHubItem } from "../../providers/github/repos.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { t } from "../../core/i18n/index.ts";
 

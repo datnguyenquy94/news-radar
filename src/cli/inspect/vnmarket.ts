@@ -1,5 +1,5 @@
 /**
- * Probe for the pure part of `src/domains/vietnam/vnmarket.ts`.
+ * Probe for the pure part of `src/feeds/finance/vn/index.ts`.
  *
  * `aggregateBoard` is where breadth, turnover and foreign flow are actually
  * computed — the SSI fetch around it is trivial by comparison. Running it
@@ -10,7 +10,7 @@
 
 import fs from "node:fs";
 import { ProbeError, kv, sample, type Target } from "./kit.ts";
-import type { aggregateBoard } from "../../domains/vietnam/vnmarket.ts";
+import type { aggregateBoard } from "../../feeds/finance/vn/index.ts";
 
 /** The row type `aggregateBoard` accepts — `SsiRow` is not exported. */
 type BoardRow = Parameters<typeof aggregateBoard>[0][number];
@@ -42,7 +42,7 @@ export const vnmarketAggregateTarget: Target = {
     const rows = rowsFromPayload(payload, file);
     if (rows.length === 0) throw new ProbeError(`${file} contains no board rows`);
 
-    const { aggregateBoard: aggregate } = await import("../../domains/vietnam/vnmarket.ts");
+    const { aggregateBoard: aggregate } = await import("../../feeds/finance/vn/index.ts");
     const agg = aggregate(rows);
     const top = args.num("top", 5);
 

@@ -4,9 +4,10 @@
 
 import { describe, expect, it } from "vitest";
 
-import { fetchFinraMargin } from "../../domains/finance/finra.ts";
-import { fetchFredData, fetchFredSeries } from "../../domains/finance/fred.ts";
-import { fetchRecentItems, fetchRecentReleases } from "../../domains/github/github.ts";
+import { fetchFinraMargin } from "../../feeds/finance/macro.ts";
+import { fetchFredData } from "../../feeds/finance/macro.ts";
+import { fetchFredSeries } from "../../providers/fred.ts";
+import { fetchRecentItems, fetchRecentReleases } from "../../providers/github/repos.ts";
 import { LIVE_OPTS, expectIsoDate, expectNonEmpty, expectPopulated, hasEnv } from "./contract.ts";
 
 describe("live: fred", () => {
@@ -66,13 +67,13 @@ describe("live: finra", () => {
 });
 
 describe("live: github api", () => {
-  const cfg = { id: "claude-code", repo: "anthropics/claude-code", name: "Claude Code" };
+  const REPO = "anthropics/claude-code";
 
   it.skipIf(!hasEnv("GH_TOKEN"))("returns recent issues and pull requests", LIVE_OPTS, async () => {
     const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
     const [issues, pulls] = await Promise.all([
-      fetchRecentItems(cfg, "issues", since),
-      fetchRecentItems(cfg, "pulls", since),
+      fetchRecentItems(REPO, "issues", since),
+      fetchRecentItems(REPO, "pulls", since),
     ]);
 
     expectNonEmpty(issues, "github issues");
@@ -90,7 +91,7 @@ describe("live: github api", () => {
 
   it.skipIf(!hasEnv("GH_TOKEN"))("returns releases in the expected shape", LIVE_OPTS, async () => {
     // A year-wide window so the assertion does not depend on release cadence.
-    const releases = await fetchRecentReleases(cfg.repo, new Date(Date.now() - 365 * 24 * 60 * 60 * 1000));
+    const releases = await fetchRecentReleases(REPO, new Date(Date.now() - 365 * 24 * 60 * 60 * 1000));
 
     expectNonEmpty(releases, "github releases");
     expectPopulated(releases, { name: "string", published_at: "string" }, "github releases");

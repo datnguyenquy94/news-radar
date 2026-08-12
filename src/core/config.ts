@@ -6,7 +6,20 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
-import type { RepoConfig } from "../domains/github/github.ts";
+/** One tracked repository, as configured in `config.yml`. */
+export interface RepoConfig {
+  /** Short identifier used for filenames */
+  id: string;
+  /** GitHub owner/repo slug */
+  repo: string;
+  /** Human-readable display name */
+  name: string;
+  /**
+   * Fetch multiple pages until items older than `since` are reached.
+   * Use for high-volume repos with many daily updates.
+   */
+  paginated?: boolean;
+}
 
 // ---------------------------------------------------------------------------
 // Schema types

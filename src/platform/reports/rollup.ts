@@ -13,7 +13,7 @@ import {
   buildHighlightsPrompt,
   type ReportHighlights,
 } from "../prompts/index.ts";
-import { tryCreateGitHubIssue } from "../../domains/github/github.ts";
+import { tryCreateGitHubIssue } from "../publish/github-issues.ts";
 import { toCstDateStr, toUtcStr } from "../../core/date.ts";
 import { type Lang, getLangs, WEEKLY_REPORT, MONTHLY_REPORT } from "../../core/i18n/index.ts";
 

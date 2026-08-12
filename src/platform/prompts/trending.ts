@@ -2,7 +2,7 @@
  * LLM prompt builder for the GitHub Trending report.
  */
 
-import type { TrendingData } from "../../domains/ai/trending.ts";
+import type { TrendingData } from "../../feeds/ai/trending.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { t } from "../../core/i18n/index.ts";
 import { sampleNote } from "./shared.ts";

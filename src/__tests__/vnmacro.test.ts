@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseVcbUsd, parseSjcGold } from "../domains/vietnam/vnmacro.ts";
+import { parseVcbUsd } from "../providers/vietcombank.ts";
+import { parseSjcGold } from "../providers/sjc.ts";
 
 describe("parseVcbUsd", () => {
   const board = {

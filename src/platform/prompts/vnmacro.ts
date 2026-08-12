@@ -2,15 +2,15 @@
  * LLM prompt builder for the Vietnam macro dashboard.
  */
 
-import type { VnMarketData } from "../../domains/vietnam/vnmarket.ts";
 import type {
-  VnMacroData,
+  VnFeedData,
+  VnMarketData,
+  VnDocsData,
   VnFxRate,
   VnGlobalMetric,
   VnAnnualMetric,
   VnGold,
-} from "../../domains/vietnam/vnmacro.ts";
-import type { VnDocsData } from "../../domains/vietnam/vndocs.ts";
+} from "../../feeds/finance/vn/index.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { fmtPct } from "./shared.ts";
 
@@ -175,13 +175,8 @@ function vnDocsSection(docs: VnDocsData, lang: Lang): string {
     .join("\n\n");
 }
 
-export function buildVnMacroPrompt(
-  market: VnMarketData,
-  macro: VnMacroData,
-  docs: VnDocsData,
-  dateStr: string,
-  lang: Lang = "vi",
-): string {
+export function buildVnMacroPrompt(data: VnFeedData, dateStr: string, lang: Lang = "vi"): string {
+  const { market, macro, docs } = data;
   const marketSection = vnMarketSection(market, lang);
   const fxSection = [
     vnFxLines(macro.fx, lang),

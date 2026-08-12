@@ -22,7 +22,7 @@ async function loadBytes(args: Args): Promise<{ bytes: Uint8Array; origin: strin
     return { bytes: new Uint8Array(fs.readFileSync(file)), origin: file };
   }
   if (url) {
-    const { fetchWithTimeout } = await import("../../core/doc-extract.ts");
+    const { fetchWithTimeout } = await import("../../core/http.ts");
     const timeoutMs = args.num("timeout-ms", 30_000);
     try {
       const resp = await fetchWithTimeout(url, { timeoutMs });

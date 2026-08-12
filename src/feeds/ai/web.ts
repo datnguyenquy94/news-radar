@@ -1,5 +1,5 @@
 /**
- * Web content fetching for AI company news/blog/research.
+ * Official AI-company content — payload for the `ai-web` report.
  *
  * Strategy:
  *   - Discover article URLs via sitemaps (no date filter needed — lastmod is reliable)
@@ -7,12 +7,21 @@
  *   - Fetch content only for new URLs; on first run, cap at MAX_CONTENT_FETCH_FIRST_RUN per site
  *   - After every run, mark ALL discovered URLs as seen so future runs stay incremental
  *
- * State is persisted in digests/web-state.json (committed to git by the Actions workflow).
+ * The state object is passed in and mutated in place; persisting it is
+ * `platform/state/web-state.ts`'s job, not this module's.
  */
 
-import fs from "node:fs";
-import path from "node:path";
 import { sleep } from "../../core/date.ts";
+import {
+  extractText,
+  extractTitle,
+  httpGet,
+  isSitemapIndex,
+  parseSitemapUrls,
+  titleFromUrl,
+  urlCategory,
+  type SitemapEntry,
+} from "../../providers/sitemap.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -96,116 +105,16 @@ const SITE_CONFIGS: Record<"anthropic" | "openai", SiteConfig> = {
 
 /** Max articles to fetch full content for on the very first run (per site). */
 const MAX_CONTENT_FETCH_FIRST_RUN = 25;
-/** Characters of page text forwarded to the LLM per article. */
-const MAX_CONTENT_LENGTH = 1_500;
 /** Polite delay between individual page GETs (ms). */
 const FETCH_DELAY_MS = 300;
-/** Per-request timeout (ms). */
-const FETCH_TIMEOUT_MS = 10_000;
-
-// ---------------------------------------------------------------------------
-// HTTP helpers
-// ---------------------------------------------------------------------------
-
-const WEB_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (compatible; agents-radar/1.0; +https://github.com/search?q=agents-radar)",
-  Accept: "text/html,application/xml,text/xml,*/*",
-  "Accept-Language": "en-US,en;q=0.9",
-};
-
-async function httpGet(url: string): Promise<string> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    const resp = await fetch(url, { headers: WEB_HEADERS, signal: controller.signal });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    return await resp.text();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Sitemap parsing (plain-text XML; no DOM needed)
-// ---------------------------------------------------------------------------
-
-export function parseSitemapUrls(xml: string): Array<{ loc: string; lastmod?: string }> {
-  const results: Array<{ loc: string; lastmod?: string }> = [];
-  for (const block of xml.match(/<url>[\s\S]*?<\/url>/g) ?? []) {
-    const loc = block.match(/<loc>\s*(.*?)\s*<\/loc>/)?.[1];
-    const lastmod = block.match(/<lastmod>\s*(.*?)\s*<\/lastmod>/)?.[1];
-    if (loc) results.push({ loc, lastmod });
-  }
-  return results;
-}
-
-export function isSitemapIndex(xml: string): boolean {
-  return /<sitemapindex[\s>]/.test(xml);
-}
-
-// ---------------------------------------------------------------------------
-// HTML content extraction
-// ---------------------------------------------------------------------------
-
-export function extractTitle(html: string): string {
-  return (
-    // Prefer OpenGraph title for cleaner strings
-    (
-      html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']{1,200})["']/i)?.[1] ??
-      html.match(/<meta[^>]+content=["']([^"']{1,200})["'][^>]+property=["']og:title["']/i)?.[1] ??
-      html.match(/<title[^>]*>([^<]{1,200})<\/title>/i)?.[1] ??
-      ""
-    ).trim()
-  );
-}
-
-export function extractText(html: string): string {
-  // Prefer <main> or <article> to avoid nav/header/footer boilerplate
-  const source =
-    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] ??
-    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)?.[1] ??
-    html;
-
-  return source
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, " ")
-    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, MAX_CONTENT_LENGTH);
-}
-
-export function urlCategory(url: string): string {
-  try {
-    return new URL(url).pathname.split("/").filter(Boolean)[0] ?? "article";
-  } catch {
-    return "article";
-  }
-}
-
-/** Derive a human-readable title from the last URL path segment. */
-export function titleFromUrl(url: string): string {
-  try {
-    const slug = new URL(url).pathname.split("/").filter(Boolean).pop() ?? "";
-    return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  } catch {
-    return url;
-  }
-}
 
 // ---------------------------------------------------------------------------
 // URL discovery
 // ---------------------------------------------------------------------------
 
-async function discoverUrls(site: "anthropic" | "openai"): Promise<Array<{ loc: string; lastmod?: string }>> {
+async function discoverUrls(site: "anthropic" | "openai"): Promise<SitemapEntry[]> {
   const cfg = SITE_CONFIGS[site];
-  const results: Array<{ loc: string; lastmod?: string }> = [];
+  const results: SitemapEntry[] = [];
 
   if (cfg.subSitemapNames && cfg.subSitemapTemplate) {
     // Sitemap index: fetch each named sub-sitemap
@@ -239,32 +148,6 @@ async function discoverUrls(site: "anthropic" | "openai"): Promise<Array<{ loc: 
   }
 
   return results;
-}
-
-// ---------------------------------------------------------------------------
-// State persistence
-// ---------------------------------------------------------------------------
-
-const STATE_FILE = path.join("digests", "web-state.json");
-
-export function emptyState(): WebState {
-  return {
-    anthropic: { lastChecked: "", seenUrls: {} },
-    openai: { lastChecked: "", seenUrls: {} },
-  };
-}
-
-export function loadWebState(): WebState {
-  try {
-    return JSON.parse(fs.readFileSync(STATE_FILE, "utf-8")) as WebState;
-  } catch {
-    return emptyState();
-  }
-}
-
-export function saveWebState(state: WebState): void {
-  fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
-  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), "utf-8");
 }
 
 // ---------------------------------------------------------------------------

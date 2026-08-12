@@ -2,8 +2,7 @@
  * LLM prompt builder for the US macro dashboard (FRED + FINRA).
  */
 
-import type { FredData, FredMetric, FredGroup } from "../../domains/finance/fred.ts";
-import type { FinraData } from "../../domains/finance/finra.ts";
+import type { MacroData, FredMetric, FredGroup } from "../../feeds/finance/macro.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 import { fmtNum } from "./shared.ts";
 
@@ -26,12 +25,8 @@ function macroMetricLine(m: FredMetric, lang: Lang): string {
     : `- ${m.label.vi} (${m.series}): mới nhất ${latest} | trước đó ${prior} | thay đổi ${change} | tính đến ${m.asOf || "chưa có"}`;
 }
 
-export function buildMacroPrompt(
-  fred: FredData,
-  finra: FinraData,
-  dateStr: string,
-  lang: Lang = "vi",
-): string {
+export function buildMacroPrompt(data: MacroData, dateStr: string, lang: Lang = "vi"): string {
+  const { fred, finra } = data;
   const groups: FredGroup[] = ["liquidity", "yields_credit", "econ_inflation"];
   const dataSection = groups
     .map((g) => {

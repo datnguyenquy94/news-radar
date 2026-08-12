@@ -6,7 +6,7 @@
         "series": "DFF",
         "group": "liquidity",
         "label": {
-          "vi": "Lãi suất Fed Funds",
+          "vi": "L\u00e3i su\u1ea5t Fed Funds",
           "en": "Fed Funds Rate"
         },
         "unit": "%",
@@ -21,7 +21,7 @@
         "series": "WALCL",
         "group": "liquidity",
         "label": {
-          "vi": "Bảng cân đối kế toán Fed",
+          "vi": "B\u1ea3ng c\u00e2n \u0111\u1ed1i k\u1ebf to\u00e1n Fed",
           "en": "Fed Balance Sheet"
         },
         "unit": "$T",
@@ -36,7 +36,7 @@
         "series": "VIXCLS",
         "group": "liquidity",
         "label": {
-          "vi": "Chỉ số biến động VIX",
+          "vi": "Ch\u1ec9 s\u1ed1 bi\u1ebfn \u0111\u1ed9ng VIX",
           "en": "VIX Volatility Index"
         },
         "unit": "",
@@ -51,7 +51,7 @@
         "series": "DGS10",
         "group": "yields_credit",
         "label": {
-          "vi": "Lợi suất trái phiếu Mỹ 10 năm",
+          "vi": "L\u1ee3i su\u1ea5t tr\u00e1i phi\u1ebfu M\u1ef9 10 n\u0103m",
           "en": "10Y Treasury Yield"
         },
         "unit": "%",
@@ -66,7 +66,7 @@
         "series": "T10Y2Y",
         "group": "yields_credit",
         "label": {
-          "vi": "Chênh lệch lợi suất 10Y-2Y",
+          "vi": "Ch\u00eanh l\u1ec7ch l\u1ee3i su\u1ea5t 10Y-2Y",
           "en": "10Y-2Y Spread"
         },
         "unit": "%",
@@ -81,7 +81,7 @@
         "series": "BAMLH0A0HYM2",
         "group": "yields_credit",
         "label": {
-          "vi": "Chênh lệch tín dụng trái phiếu lợi suất cao (OAS)",
+          "vi": "Ch\u00eanh l\u1ec7ch t\u00edn d\u1ee5ng tr\u00e1i phi\u1ebfu l\u1ee3i su\u1ea5t cao (OAS)",
           "en": "High-Yield Credit Spread (OAS)"
         },
         "unit": "%",
@@ -96,7 +96,7 @@
         "series": "DCOILWTICO",
         "group": "yields_credit",
         "label": {
-          "vi": "Dầu thô WTI",
+          "vi": "D\u1ea7u th\u00f4 WTI",
           "en": "WTI Crude Oil"
         },
         "unit": "$/bbl",
@@ -111,7 +111,7 @@
         "series": "DCOILBRENTEU",
         "group": "yields_credit",
         "label": {
-          "vi": "Dầu thô Brent",
+          "vi": "D\u1ea7u th\u00f4 Brent",
           "en": "Brent Crude Oil"
         },
         "unit": "$/bbl",
@@ -126,7 +126,7 @@
         "series": "UNRATE",
         "group": "econ_inflation",
         "label": {
-          "vi": "Tỷ lệ thất nghiệp",
+          "vi": "T\u1ef7 l\u1ec7 th\u1ea5t nghi\u1ec7p",
           "en": "Unemployment Rate"
         },
         "unit": "%",
@@ -141,7 +141,7 @@
         "series": "ICSA",
         "group": "econ_inflation",
         "label": {
-          "vi": "Đơn xin trợ cấp thất nghiệp lần đầu",
+          "vi": "\u0110\u01a1n xin tr\u1ee3 c\u1ea5p th\u1ea5t nghi\u1ec7p l\u1ea7n \u0111\u1ea7u",
           "en": "Initial Jobless Claims"
         },
         "unit": "",
@@ -156,7 +156,7 @@
         "series": "PAYEMS",
         "group": "econ_inflation",
         "label": {
-          "vi": "Bảng lương phi nông nghiệp (thay đổi so với tháng trước)",
+          "vi": "B\u1ea3ng l\u01b0\u01a1ng phi n\u00f4ng nghi\u1ec7p (thay \u0111\u1ed5i so v\u1edbi th\u00e1ng tr\u01b0\u1edbc)",
           "en": "Nonfarm Payrolls (MoM chg)"
         },
         "unit": "K",
@@ -186,7 +186,7 @@
         "series": "CPILFESL",
         "group": "econ_inflation",
         "label": {
-          "vi": "CPI lõi",
+          "vi": "CPI l\u00f5i",
           "en": "Core CPI"
         },
         "unit": "% YoY",
@@ -201,7 +201,7 @@
         "series": "PCEPILFE",
         "group": "econ_inflation",
         "label": {
-          "vi": "PCE lõi",
+          "vi": "PCE l\u00f5i",
           "en": "Core PCE"
         },
         "unit": "% YoY",
@@ -216,7 +216,7 @@
         "series": "PPIFIS",
         "group": "econ_inflation",
         "label": {
-          "vi": "PPI (nhu cầu cuối cùng)",
+          "vi": "PPI (nhu c\u1ea7u cu\u1ed1i c\u00f9ng)",
           "en": "PPI (Final Demand)"
         },
         "unit": "% YoY",
@@ -231,7 +231,7 @@
         "series": "UMCSENT",
         "group": "econ_inflation",
         "label": {
-          "vi": "Niềm tin người tiêu dùng Michigan (chỉ số đại diện)",
+          "vi": "Ni\u1ec1m tin ng\u01b0\u1eddi ti\u00eau d\u00f9ng Michigan (ch\u1ec9 s\u1ed1 \u0111\u1ea1i di\u1ec7n)",
           "en": "UMich Consumer Sentiment (proxy)"
         },
         "unit": "",
@@ -255,5 +255,6 @@
     },
     "changePct": 6.1,
     "fetchSuccess": true
-  }
+  },
+  "fetchSuccess": true
 }

@@ -2,20 +2,15 @@
  * LLM prompt builder for the dev-community report (Dev.to + Lobste.rs).
  */
 
-import type { DevtoData } from "../../domains/ai/devto.ts";
-import type { LobstersData } from "../../domains/ai/lobsters.ts";
+import type { CommunityData } from "../../feeds/ai/community.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 // ---------------------------------------------------------------------------
 // Community prompt (Dev.to + Lobste.rs combined)
 // ---------------------------------------------------------------------------
 
-export function buildCommunityPrompt(
-  devto: DevtoData,
-  lobsters: LobstersData,
-  dateStr: string,
-  lang: Lang = "vi",
-): string {
+export function buildCommunityPrompt(data: CommunityData, dateStr: string, lang: Lang = "vi"): string {
+  const { devto, lobsters } = data;
   const devtoText =
     devto.articles.length > 0
       ? devto.articles

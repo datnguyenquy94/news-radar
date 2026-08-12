@@ -1,4 +1,4 @@
-import { closeStaleIssues } from "../domains/github/github.ts";
+import { closeStaleIssues } from "../platform/publish/github-issues.ts";
 
 const STALE_DAYS = 7;
 

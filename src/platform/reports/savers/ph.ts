@@ -7,8 +7,8 @@ import { type Lang, PH_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.ts"
 import { buildPhPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { PhData } from "../../../domains/ai/ph.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { PhData } from "../../../feeds/ai/ph.ts";
 
 // ---------------------------------------------------------------------------
 // Product Hunt

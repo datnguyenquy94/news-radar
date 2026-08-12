@@ -5,8 +5,8 @@
 
 import { type Lang, TRENDING_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { TrendingData } from "../../../domains/ai/trending.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { TrendingData } from "../../../feeds/ai/trending.ts";
 
 // ---------------------------------------------------------------------------
 // Trending report

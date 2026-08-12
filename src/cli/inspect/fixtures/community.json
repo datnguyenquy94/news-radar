@@ -11,7 +11,7 @@
         "commentsCount": 23,
         "readingTimeMinutes": 6,
         "tags": ["ai", "programming", "productivity", "opensource"],
-        "user": "Adam - The Developer ✨"
+        "user": "Adam - The Developer \u2728"
       },
       {
         "id": 4240661,
@@ -27,7 +27,7 @@
       },
       {
         "id": 4253939,
-        "title": "If Your AI Agent Has Write Access to Public Repos, Audit It Now — Here's Why",
+        "title": "If Your AI Agent Has Write Access to Public Repos, Audit It Now \u2014 Here's Why",
         "description": "One word broke into a private repository this month. Not a zero-day. Not stolen credentials. Not...",
         "url": "https://dev.to/harsh2644/if-your-ai-agent-has-write-access-to-public-repos-audit-it-now-heres-why-29bb",
         "publishedAt": "2026-07-28T11:56:47Z",
@@ -95,7 +95,7 @@
         "commentsCount": 0,
         "readingTimeMinutes": 8,
         "tags": ["ai", "nanobanana", "gemini", "promptengineering"],
-        "user": "Julien Landuré"
+        "user": "Julien Landur\u00e9"
       },
       {
         "id": 4246649,
@@ -107,7 +107,7 @@
         "commentsCount": 0,
         "readingTimeMinutes": 6,
         "tags": ["ai", "security", "openai", "agents"],
-        "user": "@lukeocodes 🕹👨‍💻"
+        "user": "@lukeocodes \ud83d\udd79\ud83d\udc68\u200d\ud83d\udcbb"
       },
       {
         "id": 4256228,
@@ -136,7 +136,7 @@
       {
         "id": 4252036,
         "title": "Claude Opus 5 is Here: What Developers Need to Know About the Safety \"Fine Print\"",
-        "description": "Anthropic just dropped Claude Opus 5, and if you’ve been scrolling through X or LinkedIn, you’ve...",
+        "description": "Anthropic just dropped Claude Opus 5, and if you\u2019ve been scrolling through X or LinkedIn, you\u2019ve...",
         "url": "https://dev.to/alessandro_pignati/claude-opus-5-is-here-what-developers-need-to-know-about-the-safety-fine-print-27dm",
         "publishedAt": "2026-07-28T08:37:11Z",
         "positiveReactionsCount": 5,
@@ -260,5 +260,6 @@
       }
     ],
     "fetchSuccess": true
-  }
+  },
+  "fetchSuccess": true
 }

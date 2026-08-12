@@ -1,5 +1,5 @@
 /**
- * Probes for the data sources in `src/domains/`.
+ * Probes for the feeds in `src/feeds/` — one per report payload.
  *
  * Each one runs the real fetcher against the live endpoint and prints counts, a
  * few sample rows and `fetchSuccess`. That last flag is the pipeline's own
@@ -26,7 +26,7 @@ export const arxivTarget: Target = {
   summary: "fetchArxivData() — cs.AI / cs.CL / cs.LG papers from the last 48h via the Atom API",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchArxivData } = await import("../../domains/ai/arxiv.ts");
+    const { fetchArxivData } = await import("../../feeds/ai/arxiv.ts");
     const data = await fetchArxivData();
     return withFetchStatus(
       data.fetchSuccess,
@@ -48,11 +48,11 @@ export const arxivTarget: Target = {
 
 export const devtoTarget: Target = {
   name: "devto",
-  summary: "fetchDevtoData() — AI-tagged Dev.to articles via the Forem API",
+  summary: "fetchCommunityData().devto — AI-tagged Dev.to articles via the Forem API",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchDevtoData } = await import("../../domains/ai/devto.ts");
-    const data = await fetchDevtoData();
+    const { fetchCommunityData } = await import("../../feeds/ai/community.ts");
+    const data = (await fetchCommunityData()).devto;
     return withFetchStatus(
       data.fetchSuccess,
       data,
@@ -77,7 +77,7 @@ export const hfTarget: Target = {
   summary: "fetchHfData() — Hugging Face trending models by weekly likes",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchHfData } = await import("../../domains/ai/hf.ts");
+    const { fetchHfData } = await import("../../feeds/ai/hf.ts");
     const data = await fetchHfData();
     return withFetchStatus(
       data.fetchSuccess,
@@ -102,7 +102,7 @@ export const hnTarget: Target = {
   summary: "fetchHnData() — AI-filtered Hacker News top stories via the Firebase API",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchHnData } = await import("../../domains/ai/hn.ts");
+    const { fetchHnData } = await import("../../feeds/ai/hn.ts");
     const data = await fetchHnData();
     return withFetchStatus(
       data.fetchSuccess,
@@ -124,11 +124,11 @@ export const hnTarget: Target = {
 
 export const lobstersTarget: Target = {
   name: "lobsters",
-  summary: "fetchLobstersData() — Lobste.rs ai/ml tag stories",
+  summary: "fetchCommunityData().lobsters — Lobste.rs ai/ml tag stories",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchLobstersData } = await import("../../domains/ai/lobsters.ts");
-    const data = await fetchLobstersData();
+    const { fetchCommunityData } = await import("../../feeds/ai/community.ts");
+    const data = (await fetchCommunityData()).lobsters;
     return withFetchStatus(
       data.fetchSuccess,
       data,
@@ -154,7 +154,7 @@ export const phTarget: Target = {
   env: ["PRODUCTHUNT_TOKEN"],
   async run(args) {
     requireEnv("PRODUCTHUNT_TOKEN");
-    const { fetchPhData } = await import("../../domains/ai/ph.ts");
+    const { fetchPhData } = await import("../../feeds/ai/ph.ts");
     const data = await fetchPhData();
     return withFetchStatus(
       data.fetchSuccess,
@@ -179,7 +179,7 @@ export const trendingTarget: Target = {
   summary: "fetchTrendingData() — github.com/trending HTML scrape + Search API AI-topic queries",
   options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
   async run(args) {
-    const { fetchTrendingData } = await import("../../domains/ai/trending.ts");
+    const { fetchTrendingData } = await import("../../feeds/ai/trending.ts");
     const data = await fetchTrendingData();
     const top = args.num("top", 5);
     // The Search half has no success flag of its own; an empty array is the
@@ -218,7 +218,8 @@ export const webTarget: Target = {
     { name: "top", arg: "n", desc: "sample rows to print (default 5)" },
   ],
   async run(args) {
-    const { fetchSiteContent, loadWebState } = await import("../../domains/ai/web.ts");
+    const { fetchSiteContent } = await import("../../feeds/ai/web.ts");
+    const { loadWebState } = await import("../../platform/state/web-state.ts");
 
     let sites: Site[] = [...SITES];
     const requested = args.str("site");
@@ -264,7 +265,7 @@ export const fredTarget: Target = {
   env: ["FRED_API_KEY (optional — unset falls back to the keyless CSV endpoint)"],
   async run(args) {
     const path = process.env["FRED_API_KEY"] ? "JSON API (FRED_API_KEY set)" : "keyless CSV fallback";
-    const { fetchFredData } = await import("../../domains/finance/fred.ts");
+    const { fetchFredData } = await import("../../feeds/finance/macro.ts");
     const data = await fetchFredData();
     const withValue = data.metrics.filter((m) => m.latest !== null);
     return withFetchStatus(
@@ -291,7 +292,7 @@ export const finraTarget: Target = {
   name: "finra",
   summary: "fetchFinraMargin() — margin-debt statistics scraped from finra.org",
   async run() {
-    const { fetchFinraMargin } = await import("../../domains/finance/finra.ts");
+    const { fetchFinraMargin } = await import("../../feeds/finance/macro.ts");
     const data = await fetchFinraMargin();
     return withFetchStatus(
       data.fetchSuccess,
@@ -315,7 +316,7 @@ export const vnmarketTarget: Target = {
   name: "vnmarket",
   summary: "fetchVnMarketData() — SSI iBoard breadth/turnover/foreign flow + Entrade index bars",
   async run() {
-    const { fetchVnMarketData } = await import("../../domains/vietnam/vnmarket.ts");
+    const { fetchVnMarketData } = await import("../../feeds/finance/vn/index.ts");
     const data = await fetchVnMarketData();
     const lines = [
       kv("fetchSuccess", data.fetchSuccess),
@@ -353,7 +354,7 @@ export const vnmacroTarget: Target = {
   name: "vnmacro",
   summary: "fetchVnMacroData() — Vietcombank USD/VND + Yahoo global drivers + World Bank annuals",
   async run() {
-    const { fetchVnMacroData } = await import("../../domains/vietnam/vnmacro.ts");
+    const { fetchVnMacroData } = await import("../../feeds/finance/vn/index.ts");
     const data = await fetchVnMacroData();
     return withFetchStatus(
       data.fetchSuccess,
@@ -389,7 +390,7 @@ export const vndocsTarget: Target = {
   summary: "fetchVnDocsData() — NSO CPI + monthly articles (HTML) and the VBMA weekly bulletin (PDF)",
   options: [{ name: "chars", arg: "n", desc: "excerpt head to print per document (default 200)" }],
   async run(args) {
-    const { fetchVnDocsData } = await import("../../domains/vietnam/vndocs.ts");
+    const { fetchVnDocsData } = await import("../../feeds/finance/vn/index.ts");
     const data = await fetchVnDocsData();
     const head = args.num("chars", 200);
     const lines = [kv("fetchSuccess", data.fetchSuccess), kv("docs", `${data.docs.length}/3`)];
@@ -425,7 +426,7 @@ export const githubTarget: Target = {
     requireEnv("GH_TOKEN");
     const [{ loadConfig }, github] = await Promise.all([
       import("../../core/config.ts"),
-      import("../../domains/github/github.ts"),
+      import("../../providers/github/repos.ts"),
     ]);
 
     const cfgAll = loadConfig();
@@ -439,8 +440,8 @@ export const githubTarget: Target = {
     const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
 
     const [issues, prs, releases] = await Promise.all([
-      github.fetchRecentItems(cfg, "issues", since),
-      github.fetchRecentItems(cfg, "pulls", since),
+      github.fetchRecentItems(cfg.repo, "issues", since, cfg.paginated),
+      github.fetchRecentItems(cfg.repo, "pulls", since, cfg.paginated),
       github.fetchRecentReleases(cfg.repo, since),
     ]);
 

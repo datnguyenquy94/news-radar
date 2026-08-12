@@ -9,9 +9,9 @@
 
 import { describe, expect, it } from "vitest";
 
-import { fetchVnDocsData } from "../../domains/vietnam/vndocs.ts";
-import { fetchVnMacroData } from "../../domains/vietnam/vnmacro.ts";
-import { fetchVnMarketData } from "../../domains/vietnam/vnmarket.ts";
+import { fetchVnDocsData } from "../../feeds/finance/vn/index.ts";
+import { fetchVnMacroData } from "../../feeds/finance/vn/index.ts";
+import { fetchVnMarketData } from "../../feeds/finance/vn/index.ts";
 import {
   LIVE_OPTS,
   expectIsoDate,

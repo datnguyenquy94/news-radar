@@ -1,41 +1,24 @@
 /**
  * FINRA margin statistics — retail leverage (debit balances in customers'
- * securities margin accounts), published monthly by FINRA (the broker-dealer
- * SRO) at:
+ * securities margin accounts), published monthly at:
  *   https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics
  *
- * FINRA offers no official JSON API for this table, so we scrape the HTML
- * defensively: any parsing miss returns { fetchSuccess: false } and the macro
- * report proceeds without the margin row (it is supplementary to FRED).
+ * FINRA offers no official JSON API for this table, so the HTML is scraped
+ * defensively: any structural miss returns `null` rather than a wrong number,
+ * and the caller drops the margin row.
  *
- * Values are reported in millions of dollars; we expose both the raw millions
- * and a billions figure for display.
+ * Values are reported in millions of dollars.
  */
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+import { fetchText } from "../core/http.ts";
 
 export interface MarginObservation {
   period: string; // e.g. "March 2025" — copied verbatim from the source
   debitMillions: number; // debit balances, in $ millions (as reported)
 }
 
-export interface FinraData {
-  latest: MarginObservation | null;
-  prior: MarginObservation | null;
-  changePct: number | null; // month-over-month % change in debit balances
-  fetchSuccess: boolean;
-}
-
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
 const FINRA_MARGIN_URL =
   "https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics";
-
-const UA = { "User-Agent": "agents-radar/1.0" };
 
 // A period label such as "March 2025", "Mar-25", "2025-03", or "3/2025".
 const PERIOD_RE =
@@ -66,8 +49,8 @@ function parseMoney(cell: string): number | null {
 }
 
 /**
- * Locate the margin table, find the "Debit Balances" column, and return the two
- * most recent { period, debitMillions } rows. Returns null on any structural
+ * Locate the margin table, find the "Debit Balances" column, and return the
+ * `{ period, debitMillions }` rows newest first. Returns null on any structural
  * miss so the caller can degrade gracefully.
  */
 export function parseMarginTable(html: string): MarginObservation[] | null {
@@ -109,35 +92,7 @@ export function parseMarginTable(html: string): MarginObservation[] | null {
   return observations.length > 0 ? observations : null;
 }
 
-// ---------------------------------------------------------------------------
-// Fetch
-// ---------------------------------------------------------------------------
-
-export async function fetchFinraMargin(): Promise<FinraData> {
-  const empty: FinraData = { latest: null, prior: null, changePct: null, fetchSuccess: false };
-  try {
-    const resp = await fetch(FINRA_MARGIN_URL, { headers: UA });
-    if (!resp.ok) {
-      console.error(`  [finra] HTTP ${resp.status}`);
-      return empty;
-    }
-    const observations = parseMarginTable(await resp.text());
-    if (!observations) {
-      console.error("  [finra] could not locate margin table");
-      return empty;
-    }
-
-    const latest = observations[0] ?? null;
-    const prior = observations[1] ?? null;
-    const changePct =
-      latest && prior && prior.debitMillions !== 0
-        ? Math.round(((latest.debitMillions - prior.debitMillions) / prior.debitMillions) * 1000) / 10
-        : null;
-
-    console.log(`  [finra] latest ${latest?.period}: $${latest?.debitMillions}M`);
-    return { latest, prior, changePct, fetchSuccess: latest !== null };
-  } catch (err) {
-    console.error(`  [finra] fetch failed: ${err}`);
-    return empty;
-  }
+/** Throws `HttpError` on a fetch failure; returns null when the table moved. */
+export async function fetchMarginObservations(): Promise<MarginObservation[] | null> {
+  return parseMarginTable(await fetchText(FINRA_MARGIN_URL));
 }

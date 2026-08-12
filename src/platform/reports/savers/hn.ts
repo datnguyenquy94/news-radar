@@ -7,8 +7,8 @@ import { type Lang, HN_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.ts"
 import { buildHnPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { HnData } from "../../../domains/ai/hn.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { HnData } from "../../../feeds/ai/hn.ts";
 
 // ---------------------------------------------------------------------------
 // Hacker News report

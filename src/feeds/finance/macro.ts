@@ -1,20 +1,22 @@
 /**
- * Macro-economic indicators from FRED (Federal Reserve Economic Data,
- * Federal Reserve Bank of St. Louis) — https://fred.stlouisfed.org.
+ * Macro market dashboard — payload for the `fin-macro` report.
  *
- * A single official, free source covers almost every macro metric we track
- * (policy rate, balance sheet, VIX, yields, credit spread, oil, jobs,
- * inflation, sentiment). Two access paths:
+ * Two publishers, one report: FRED carries the 16 headline series and FINRA the
+ * monthly margin-debt figure. The two are *not* equal partners — FRED is the
+ * spine and FINRA is supplementary, so `fetchSuccess` tracks FRED alone. A FINRA
+ * outage drops one row; a FRED outage means there is no dashboard to write.
  *
- *   1. JSON API (preferred) — needs a free key in FRED_API_KEY.
- *   2. Keyless CSV fallback — https://fred.stlouisfed.org/graph/fredgraph.csv,
- *      used automatically when FRED_API_KEY is unset.
- *
- * Both paths are normalized to a descending array of { date, value } and share
- * the same per-series transform (level / YoY % / month-over-month change).
+ * The series catalog and its per-series transform live here rather than in the
+ * provider: which indicators the dashboard tracks, and whether each is shown as
+ * a level, a YoY percentage or a month-over-month change, is a property of the
+ * report. Catalog mirrors .agent/specs/financial_data_sources.md.
  */
 
+import { fetchObservations, type Observation } from "../../providers/fred.ts";
+import { fetchMarginObservations, type MarginObservation } from "../../providers/finra.ts";
 import type { Lang } from "../../core/i18n/index.ts";
+
+export type { MarginObservation, Observation };
 
 // ---------------------------------------------------------------------------
 // Types
@@ -216,57 +218,6 @@ const FRED_SERIES: FredSeriesSpec[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Fetch helpers
-// ---------------------------------------------------------------------------
-
-export interface Observation {
-  date: string;
-  value: number;
-}
-
-const UA = { "User-Agent": "agents-radar/1.0" };
-const FRED_API = "https://api.stlouisfed.org/fred/series/observations";
-const FRED_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv";
-
-/** Default observation window — enough for the dashboard's YoY transform. */
-const DEFAULT_LIMIT = 14;
-
-/** Descending window of observations (newest first), missing values dropped. */
-async function fetchObservations(
-  series: string,
-  apiKey: string | undefined,
-  limit = DEFAULT_LIMIT,
-): Promise<Observation[]> {
-  if (apiKey) {
-    const url =
-      `${FRED_API}?series_id=${series}&api_key=${apiKey}` + `&file_type=json&sort_order=desc&limit=${limit}`;
-    const resp = await fetch(url, { headers: UA });
-    if (!resp.ok) throw new Error(`FRED ${series}: HTTP ${resp.status}`);
-    const json = (await resp.json()) as { observations?: { date: string; value: string }[] };
-    return (json.observations ?? [])
-      .filter((o) => o.value !== "." && o.value !== "")
-      .map((o) => ({ date: o.date, value: Number(o.value) }))
-      .filter((o) => Number.isFinite(o.value));
-  }
-
-  // Keyless CSV fallback. Bound the window (~2.2 years back) so YoY has enough
-  // monthly points without pulling decades of daily history.
-  const cosd = new Date(Date.now() - 800 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const resp = await fetch(`${FRED_CSV}?id=${series}&cosd=${cosd}`, { headers: UA });
-  if (!resp.ok) throw new Error(`FRED CSV ${series}: HTTP ${resp.status}`);
-  const csv = await resp.text();
-  const rows = csv.trim().split("\n").slice(1); // drop header
-  const parsed: Observation[] = [];
-  for (const row of rows) {
-    const [date, raw] = row.split(",");
-    if (!date || raw === undefined || raw === "." || raw.trim() === "") continue;
-    const value = Number(raw);
-    if (Number.isFinite(value)) parsed.push({ date, value });
-  }
-  return parsed.reverse(); // CSV is ascending; normalize to descending
-}
-
-// ---------------------------------------------------------------------------
 // Transforms
 // ---------------------------------------------------------------------------
 
@@ -338,20 +289,43 @@ function computeMetric(spec: FredSeriesSpec, obs: Observation[]): FredMetric {
 }
 
 // ---------------------------------------------------------------------------
-// Public API
+// FINRA margin statistics
 // ---------------------------------------------------------------------------
 
-/**
- * One FRED series, newest first — for callers outside the macro dashboard.
- *
- * FRED is a documented public product with an SLA, so it is preferred over
- * scraping an undocumented quote endpoint wherever both carry the series (the
- * Vietnam dashboard sources the US 10Y through here rather than from Yahoo).
- * Uses the JSON API when `FRED_API_KEY` is set, the keyless CSV otherwise.
- */
-export async function fetchFredSeries(series: string, limit = 30): Promise<Observation[]> {
-  return fetchObservations(series, process.env["FRED_API_KEY"], limit);
+export interface FinraData {
+  latest: MarginObservation | null;
+  prior: MarginObservation | null;
+  changePct: number | null; // month-over-month % change in debit balances
+  fetchSuccess: boolean;
 }
+
+export async function fetchFinraMargin(): Promise<FinraData> {
+  const empty: FinraData = { latest: null, prior: null, changePct: null, fetchSuccess: false };
+  try {
+    const observations = await fetchMarginObservations();
+    if (!observations) {
+      console.error("  [finra] could not locate margin table");
+      return empty;
+    }
+
+    const latest = observations[0] ?? null;
+    const prior = observations[1] ?? null;
+    const changePct =
+      latest && prior && prior.debitMillions !== 0
+        ? Math.round(((latest.debitMillions - prior.debitMillions) / prior.debitMillions) * 1000) / 10
+        : null;
+
+    console.log(`  [finra] latest ${latest?.period}: $${latest?.debitMillions}M`);
+    return { latest, prior, changePct, fetchSuccess: latest !== null };
+  } catch (err) {
+    console.error(`  [finra] fetch failed: ${err}`);
+    return empty;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// FRED series
+// ---------------------------------------------------------------------------
 
 export async function fetchFredData(): Promise<FredData> {
   const apiKey = process.env["FRED_API_KEY"];
@@ -360,9 +334,9 @@ export async function fetchFredData(): Promise<FredData> {
   const metrics = await Promise.all(
     FRED_SERIES.map(async (spec) => {
       try {
-        const obs = await fetchObservations(spec.series, apiKey);
-        return computeMetric(spec, obs);
+        return computeMetric(spec, await fetchObservations(spec.series, apiKey));
       } catch (err) {
+        // One dead series is a blank row, not a dead dashboard.
         console.error(`  [fred] ${spec.series} failed: ${err}`);
         return computeMetric(spec, []);
       }
@@ -372,4 +346,20 @@ export async function fetchFredData(): Promise<FredData> {
   const withData = metrics.filter((m) => m.latest !== null).length;
   console.log(`  [fred] ${withData}/${FRED_SERIES.length} series returned data`);
   return { metrics, fetchSuccess: withData > 0 };
+}
+
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
+export interface MacroData {
+  fred: FredData;
+  finra: FinraData;
+  /** Mirrors FRED alone: FINRA is supplementary and never gates the report. */
+  fetchSuccess: boolean;
+}
+
+export async function fetchMacroData(): Promise<MacroData> {
+  const [fred, finra] = await Promise.all([fetchFredData(), fetchFinraMargin()]);
+  return { fred, finra, fetchSuccess: fred.fetchSuccess };
 }

@@ -7,8 +7,8 @@ import { type Lang, WEB_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.ts
 import { buildWebReportPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_WEB } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import { type WebFetchResult } from "../../../domains/ai/web.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import { type WebFetchResult } from "../../../feeds/ai/web.ts";
 
 // ---------------------------------------------------------------------------
 // Web report

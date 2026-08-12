@@ -2,7 +2,7 @@
  * LLM prompt builder for the official-web-content report.
  */
 
-import type { WebFetchResult } from "../../domains/ai/web.ts";
+import type { WebFetchResult } from "../../feeds/ai/web.ts";
 import type { Lang } from "../../core/i18n/index.ts";
 
 export function buildWebReportPrompt(results: WebFetchResult[], dateStr: string, lang: Lang = "vi"): string {

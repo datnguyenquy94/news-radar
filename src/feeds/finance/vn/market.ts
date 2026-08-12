@@ -1,28 +1,22 @@
 /**
- * Vietnam equity-market internals — the metrics the Vietnam framework puts in
- * place of the US ones: foreign net flow and index valuation stand in for VIX,
- * and the VN30 futures basis is the closest thing to a domestic fear gauge.
+ * Vietnam equity-market internals — the market half of the `fin-vnmacro` report.
  *
- * Two undocumented-but-public endpoints, both verified to answer a plain GET
- * with a browser User-Agent:
+ * These stand in for the US metrics the framework would otherwise use: foreign
+ * net flow and index valuation replace VIX, and the VN30 futures basis is the
+ * closest thing to a domestic fear gauge.
  *
- *   1. SSI iBoard  — full HOSE/HNX price board, one call per exchange. Carries
- *      per-ticker turnover, foreign buy/sell value and remaining foreign room,
- *      which is everything needed for breadth + foreign flow + FOL headroom.
- *   2. DNSE Entrade — daily OHLCV for indices and index futures. Used for the
- *      VN-Index/VN30 levels and the VN30F1M basis.
- *
- * Both are internal APIs rather than published products (see
- * `.agent/specs/vn_financial_data_sources.md`), so every call is wrapped: any
- * failure degrades that block to null and the report is written without it.
+ * Sources are SSI iBoard (the HOSE/HNX price board) and DNSE Entrade (daily
+ * bars for the indices and VN30F1M). Every call is wrapped: any failure degrades
+ * that block to null and the report is written without it.
  *
  * TCBS and VNDirect — the usual sources for per-ticker P/E and P/B — sit behind
  * a Cloudflare challenge and a connection timeout respectively, so aggregate
- * market valuation is not available to this pipeline. The prompt is told to
- * mark valuation-dependent signals as insufficient data rather than guess.
+ * market valuation is not available to this pipeline. The prompt is told to mark
+ * valuation-dependent signals as insufficient data rather than guess.
  */
 
-import { BROWSER_UA } from "../../core/doc-extract.ts";
+import { EXCHANGES, fetchExchangeBoard, type SsiRow } from "../../../providers/ssi.ts";
+import { fetchBars, type EntradeBars } from "../../../providers/entrade.ts";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -94,70 +88,16 @@ export interface VnMarketData {
   fetchSuccess: boolean;
 }
 
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
-const SSI_BOARD = "https://iboard-query.ssi.com.vn/stock/exchange";
-const SSI_REFERER = "https://iboard.ssi.com.vn/";
-const ENTRADE_CHART = "https://services.entrade.com.vn/chart-api/v2/ohlcs";
-
-const EXCHANGES = ["hose", "hnx"] as const;
+const TOP_FOREIGN = 5;
 
 const INDEX_SPECS = [
   { symbol: "VNINDEX", label: "VN-Index", kind: "index" },
   { symbol: "VN30", label: "VN30", kind: "index" },
 ] as const;
 
-const FETCH_TIMEOUT_MS = 30_000;
-const TOP_FOREIGN = 5;
-
-/** Daily bars going ~4 months back — enough for a 20-session change. */
-const BAR_WINDOW_SEC = 120 * 24 * 60 * 60;
-
-// ---------------------------------------------------------------------------
-// Fetch helpers
-// ---------------------------------------------------------------------------
-
-async function getJson<T>(url: string, referer?: string): Promise<T> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-  try {
-    const resp = await fetch(url, {
-      headers: {
-        "User-Agent": BROWSER_UA,
-        Accept: "application/json, text/plain, */*",
-        ...(referer ? { Referer: referer, Origin: new URL(referer).origin } : {}),
-      },
-      signal: controller.signal,
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    return (await resp.json()) as T;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 // ---------------------------------------------------------------------------
 // SSI price board — breadth, turnover, foreign flow
 // ---------------------------------------------------------------------------
-
-interface SsiRow {
-  stockSymbol?: string;
-  companyNameEn?: string;
-  companyNameVi?: string;
-  stockType?: string;
-  matchedPrice?: number;
-  refPrice?: number;
-  ceiling?: number;
-  floor?: number;
-  priceChangePercent?: number;
-  nmTotalTradedValue?: number;
-  buyForeignValue?: number;
-  sellForeignValue?: number;
-  remainForeignQtty?: number;
-  tradingDate?: string; // YYYYMMDD
-}
 
 const toVndBn = (v: number): number => Math.round((v / 1e9) * 10) / 10;
 
@@ -258,8 +198,7 @@ async function fetchBoard(): Promise<{
   const results = await Promise.all(
     EXCHANGES.map(async (ex) => {
       try {
-        const json = await getJson<{ data?: SsiRow[] }>(`${SSI_BOARD}/${ex}`, SSI_REFERER);
-        const rows = json.data ?? [];
+        const rows = await fetchExchangeBoard(ex);
         console.log(`  [vnmarket] ${ex} board: ${rows.length} rows`);
         return rows;
       } catch (err) {
@@ -291,23 +230,9 @@ async function fetchBoard(): Promise<{
 // Entrade bars — index levels and futures basis
 // ---------------------------------------------------------------------------
 
-interface EntradeBars {
-  t?: number[];
-  c?: number[];
-}
-
-async function fetchBars(
-  kind: "index" | "derivative" | "stock",
-  symbol: string,
-): Promise<EntradeBars | null> {
-  const to = Math.floor(Date.now() / 1000);
-  const from = to - BAR_WINDOW_SEC;
+async function barsOrNull(kind: "index" | "derivative", symbol: string): Promise<EntradeBars | null> {
   try {
-    const json = await getJson<EntradeBars>(
-      `${ENTRADE_CHART}/${kind}?from=${from}&to=${to}&symbol=${symbol}&resolution=1D`,
-    );
-    if (!json.c?.length || !json.t?.length) throw new Error("empty series");
-    return json;
+    return await fetchBars(kind, symbol);
   } catch (err) {
     console.error(`  [vnmarket] bars ${symbol} failed: ${err}`);
     return null;
@@ -350,8 +275,8 @@ export async function fetchVnMarketData(): Promise<VnMarketData> {
       console.error(`  [vnmarket] board failed: ${err}`);
       return null;
     }),
-    Promise.all(INDEX_SPECS.map((s) => fetchBars(s.kind, s.symbol))),
-    fetchBars("derivative", "VN30F1M"),
+    Promise.all(INDEX_SPECS.map((s) => barsOrNull(s.kind, s.symbol))),
+    barsOrNull("derivative", "VN30F1M"),
   ]);
 
   const indices: VnIndexQuote[] = [];

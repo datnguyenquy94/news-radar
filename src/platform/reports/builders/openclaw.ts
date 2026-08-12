@@ -2,7 +2,8 @@
  * OpenClaw report content builder — extracted from index.ts for testability.
  */
 
-import type { RepoConfig, RepoFetch } from "../../../domains/github/github.ts";
+import type { RepoConfig } from "../../../core/config.ts";
+import type { RepoFetch } from "../../../feeds/ai/repo-activity.ts";
 import type { RepoDigest } from "../../prompts/repos.ts";
 import { type Lang, OPENCLAW_REPORT } from "../../../core/i18n/index.ts";
 

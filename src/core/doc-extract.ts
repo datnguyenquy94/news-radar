@@ -21,6 +21,8 @@
 import { Readability } from "@mozilla/readability";
 import { parseHTML } from "linkedom";
 
+import { fetchWithTimeout } from "./http.ts";
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -45,13 +47,6 @@ export interface RankedPage extends PdfPage {
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-
-/**
- * Vietnamese government and broker sites reject or blank out non-browser
- * clients, so every request here presents a desktop Chrome UA.
- */
-export const BROWSER_UA =
-  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
 /** Below this, a Readability result is treated as a failure. */
 export const MIN_ARTICLE_CHARS = 200;
@@ -274,30 +269,6 @@ export function relevantExcerpt(
 // ---------------------------------------------------------------------------
 // Fetch helpers
 // ---------------------------------------------------------------------------
-
-/** Fetch with a browser UA and a hard timeout; throws on non-2xx. */
-export async function fetchWithTimeout(
-  url: string,
-  { timeoutMs = 30_000, referer }: { timeoutMs?: number; referer?: string } = {},
-): Promise<Response> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const resp = await fetch(url, {
-      headers: {
-        "User-Agent": BROWSER_UA,
-        Accept: "text/html,application/xhtml+xml,application/json,application/pdf,*/*",
-        "Accept-Language": "en-US,en;q=0.9,vi;q=0.8",
-        ...(referer ? { Referer: referer, Origin: new URL(referer).origin } : {}),
-      },
-      signal: controller.signal,
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    return resp;
-  } finally {
-    clearTimeout(timer);
-  }
-}
 
 /** Fetch an HTML page and return its extracted article. */
 export async function fetchArticle(url: string, timeoutMs?: number): Promise<HtmlExtraction> {

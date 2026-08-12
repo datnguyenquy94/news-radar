@@ -7,8 +7,8 @@ import { type Lang, HF_REPORT, ISSUE_LABELS } from "../../../core/i18n/index.ts"
 import { buildHfPrompt } from "../../prompts/index.ts";
 import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
-import { tryCreateGitHubIssue } from "../../../domains/github/github.ts";
-import type { HfData } from "../../../domains/ai/hf.ts";
+import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
+import type { HfData } from "../../../feeds/ai/hf.ts";
 
 // ---------------------------------------------------------------------------
 // Hugging Face report

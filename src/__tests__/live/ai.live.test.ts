@@ -9,14 +9,14 @@
 
 import { describe, expect, it } from "vitest";
 
-import { fetchArxivData } from "../../domains/ai/arxiv.ts";
-import { fetchDevtoData } from "../../domains/ai/devto.ts";
-import { fetchHfData } from "../../domains/ai/hf.ts";
-import { fetchHnData } from "../../domains/ai/hn.ts";
-import { fetchLobstersData } from "../../domains/ai/lobsters.ts";
-import { fetchPhData } from "../../domains/ai/ph.ts";
-import { fetchTrendingData } from "../../domains/ai/trending.ts";
-import { emptyState, fetchSiteContent } from "../../domains/ai/web.ts";
+import { fetchArxivData } from "../../feeds/ai/arxiv.ts";
+import { fetchHfData } from "../../feeds/ai/hf.ts";
+import { fetchHnData } from "../../feeds/ai/hn.ts";
+import { fetchCommunityData } from "../../feeds/ai/community.ts";
+import { fetchPhData } from "../../feeds/ai/ph.ts";
+import { fetchTrendingData } from "../../feeds/ai/trending.ts";
+import { fetchSiteContent } from "../../feeds/ai/web.ts";
+import { emptyState } from "../../platform/state/web-state.ts";
 import { LIVE_OPTS, expectDateLike, expectNonEmpty, expectPopulated, expectUrl, hasEnv } from "./contract.ts";
 
 describe("live: arxiv", () => {
@@ -51,7 +51,7 @@ describe("live: arxiv", () => {
 
 describe("live: dev.to", () => {
   it("returns articles with engagement counts", LIVE_OPTS, async () => {
-    const data = await fetchDevtoData();
+    const data = (await fetchCommunityData()).devto;
 
     expect(data.fetchSuccess, "devto reported fetchSuccess: false").toBe(true);
     expectNonEmpty(data.articles, "devto.articles");
@@ -134,7 +134,7 @@ describe("live: hacker news", () => {
 
 describe("live: lobste.rs", () => {
   it("returns AI-tagged stories with scores and an author", LIVE_OPTS, async () => {
-    const data = await fetchLobstersData();
+    const data = (await fetchCommunityData()).lobsters;
 
     expect(data.fetchSuccess, "lobsters reported fetchSuccess: false").toBe(true);
     expectNonEmpty(data.stories, "lobsters.stories");

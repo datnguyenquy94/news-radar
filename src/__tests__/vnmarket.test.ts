@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { aggregateBoard, quoteFromBars } from "../domains/vietnam/vnmarket.ts";
+import { aggregateBoard, quoteFromBars } from "../feeds/finance/vn/index.ts";
 
 /** A board row with sensible defaults; override only what a case cares about. */
 function row(over: Record<string, unknown> = {}): Record<string, unknown> {

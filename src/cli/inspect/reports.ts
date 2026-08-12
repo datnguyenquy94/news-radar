@@ -17,11 +17,8 @@ import os from "node:os";
 import path from "node:path";
 import { Args, ProbeError, kv, readJsonFile, requireProviderKey, type Target } from "./kit.ts";
 import type { Lang } from "../../core/i18n/index.ts";
-import type { FinraData } from "../../domains/finance/finra.ts";
-import type { FredData } from "../../domains/finance/fred.ts";
-import type { VnDocsData } from "../../domains/vietnam/vndocs.ts";
-import type { VnMacroData } from "../../domains/vietnam/vnmacro.ts";
-import type { VnMarketData } from "../../domains/vietnam/vnmarket.ts";
+import type { MacroData } from "../../feeds/finance/macro.ts";
+import type { VnFeedData } from "../../feeds/finance/vn/index.ts";
 
 // ---------------------------------------------------------------------------
 // Temp-dir plumbing
@@ -116,11 +113,6 @@ function reportResult(
 // report:macro
 // ---------------------------------------------------------------------------
 
-interface MacroPayload {
-  fred: FredData;
-  finra: FinraData;
-}
-
 export const reportMacroTarget: Target = {
   name: "report:macro",
   summary:
@@ -139,15 +131,9 @@ export const reportMacroTarget: Target = {
     const outDir = resolveOutDir(args, "inspect-macro-");
     const fixture = args.str("fixture");
 
-    const payload: MacroPayload = fixture
-      ? await readJsonFile<MacroPayload>(fixture)
-      : await (async () => {
-          const [fred, finra] = await Promise.all([
-            import("../../domains/finance/fred.ts").then((m) => m.fetchFredData()),
-            import("../../domains/finance/finra.ts").then((m) => m.fetchFinraMargin()),
-          ]);
-          return { fred, finra };
-        })();
+    const payload: MacroData = fixture
+      ? await readJsonFile<MacroData>(fixture)
+      : await (await import("../../feeds/finance/macro.ts")).fetchMacroData();
 
     const [{ saveMacroReport }, { autoGenFooter }, { toUtcStr }] = await Promise.all([
       import("../../platform/reports/savers/macro.ts"),
@@ -157,15 +143,7 @@ export const reportMacroTarget: Target = {
 
     await inDir(outDir, () =>
       // digestRepo "" — the saver's own guard against creating a GitHub issue.
-      saveMacroReport(
-        payload.fred,
-        payload.finra,
-        toUtcStr(new Date()),
-        dateStr,
-        "",
-        autoGenFooter(lang),
-        lang,
-      ),
+      saveMacroReport(payload, toUtcStr(new Date()), dateStr, "", autoGenFooter(lang), lang),
     );
 
     const fileName = lang === "en" ? "fin-macro-en.md" : "fin-macro.md";
@@ -176,12 +154,6 @@ export const reportMacroTarget: Target = {
 // ---------------------------------------------------------------------------
 // report:vnmacro
 // ---------------------------------------------------------------------------
-
-interface VnMacroPayload {
-  market: VnMarketData;
-  macro: VnMacroData;
-  docs: VnDocsData;
-}
 
 export const reportVnMacroTarget: Target = {
   name: "report:vnmacro",
@@ -204,16 +176,9 @@ export const reportVnMacroTarget: Target = {
     const outDir = resolveOutDir(args, "inspect-vnmacro-");
     const fixture = args.str("fixture");
 
-    const payload: VnMacroPayload = fixture
-      ? await readJsonFile<VnMacroPayload>(fixture)
-      : await (async () => {
-          const [market, macro, docs] = await Promise.all([
-            import("../../domains/vietnam/vnmarket.ts").then((m) => m.fetchVnMarketData()),
-            import("../../domains/vietnam/vnmacro.ts").then((m) => m.fetchVnMacroData()),
-            import("../../domains/vietnam/vndocs.ts").then((m) => m.fetchVnDocsData()),
-          ]);
-          return { market, macro, docs };
-        })();
+    const payload: VnFeedData = fixture
+      ? await readJsonFile<VnFeedData>(fixture)
+      : await (await import("../../feeds/finance/vn/index.ts")).fetchVnFeed();
 
     const [{ saveVnMacroReport }, { autoGenFooter }, { toUtcStr }] = await Promise.all([
       import("../../platform/reports/savers/vnmacro.ts"),
@@ -223,9 +188,7 @@ export const reportVnMacroTarget: Target = {
 
     await inDir(outDir, () =>
       saveVnMacroReport(
-        payload.market,
-        payload.macro,
-        payload.docs,
+        payload,
         toUtcStr(new Date()),
         dateStr,
         "", // digestRepo — no GitHub issue

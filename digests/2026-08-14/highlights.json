@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.232 ships with Windows cross-session bugs",
+      "OpenAI Codex merges 20+ PRs in 24 hours",
+      "Gemini CLI adds MCP server support in v0.1.18",
+      "Kimi Code CLI launches with MoonshotAI backing",
+      "Qwen Code reaches 10k stars on GitHub",
+      "Cross-session messaging breaks across all major CLI tools"
+    ],
+    "ai-agents": [
+      "OpenClaw merges 125 PRs in 24 hours, high velocity",
+      "Session state corruption bugs block stable release",
+      "Subagent message delivery failures persist in beta",
+      "P1 bugs: memory management chaos, message loss",
+      "No new release; team stabilizing before cut",
+      "12 related claw projects show ecosystem fragmentation"
+    ],
+    "ai-trending": [
+      "Anthropic open-sources Agent Skills repo (+312 stars)",
+      "Macro AI workspace surges +1,239 stars today",
+      "Needle 14MB model gains +769 stars for on-device",
+      "Agency-agents +778 stars: graph-native multi-agent",
+      "Semantica +713 stars: verifiable reasoning traces",
+      "NVIDIA Switchyard +408 stars: LLM traffic router"
+    ],
+    "ai-web": [
+      "Claude improves Riemann hypothesis bound 41.6%→67.2%",
+      "Anthropic: multi-agent risks compound past human oversight",
+      "Job retraining RCTs show only 2-3pp employment gain",
+      "OpenAI previews 'Ultrafast' tier and enterprise GTM",
+      "Dali Rajic named OpenAI Chief Revenue Officer",
+      "Anthropic publishes 3 research pieces on safety/economics"
+    ],
+    "ai-hn": [
+      "DeepSeek V4 Pro drops, claims open-weight parity",
+      "Gemini 3.7 Flash released, speed/cost focus",
+      "Grok 4.6 launches, rapid xAI iteration continues",
+      "AI eroding web memory thread hits 933 points",
+      "Mass vuln scan spoofing AI bots (300 pts)",
+      "Prompt injection embedded in legal filing emerges"
+    ],
+    "ai-arxiv": [
+      "Mimir v1: 1B param HRM on permissible data only",
+      "LittleLearner: pedagogically controlled 88B token corpus",
+      "Vero: formal verification for AI-generated code",
+      "CAPRI: correctness guarantees for AI proofs",
+      "MARC: multi-agent orchestration for science domains",
+      "Exponential adversarial robustness via bagging VC classes"
+    ],
+    "ai-hf": [
+      "MiniMax-H3 family dominates with 8 trending variants",
+      "DeepSeek-V4-Flash: 1.4M downloads, production ready",
+      "DeepSeek-V4-Pro-0813 drops, zero downloads yet",
+      "Qwen3.8-2.4T-A95B: 95B active MoE, 2.4T tokens",
+      "Meta Muse-Glimmer-30B leads image-text-to-text",
+      "Lightricks LTX-2.5 pushes video generation frontier"
+    ],
+    "ai-community": [
+      "Dev.to: 'I built a gatekeeper for AI agent tools'",
+      "'Most dangerous AI code passes all tests' warning",
+      "Companies destroying rare books for AI training data",
+      "Lobste.rs highlights physical cost of AI training",
+      "Shift from 'AI does everything' to 'AI needs guardrails'",
+      "Practitioners building evals/benchmarks over prompting"
+    ],
+    "fin-macro": [
+      "Fed holds 3.63%, balance sheet slightly expanding",
+      "10Y yield 4.68% highly restrictive, curve +48bps",
+      "HY spreads tight 2.71%, VIX 14.55 shows complacency",
+      "CPI +3.5%, Core PCE +3.3% sticky above target",
+      "Payrolls -23k, claims low: labor cracks appearing",
+      "FINRA margin debt +6.1% MoM to $1.5T retail leverage"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 1.5% to 1,765.63 sharply",
+      "VN30F1M futures at 8.13pt discount, hedging pressure",
+      "USD/VND 26,270 stable, down 0.68% monthly",
+      "Gold +9.67% 20d to $4,371 tests VND confidence",
+      "US 10Y +2.86% 20d to 4.68% mixed pressure",
+      "VanEck Vietnam ETF -1.57% 1d, foreign interest waning"
+    ]
+  }
+}

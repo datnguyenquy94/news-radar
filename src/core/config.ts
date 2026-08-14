@@ -6,6 +6,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
+import { createLogger } from "./logger.ts";
+
+const log = createLogger("config");
 /** One tracked repository, as configured in `config.yml`. */
 export interface RepoConfig {
   /** Short identifier used for filenames */
@@ -96,7 +99,7 @@ export function loadConfig(configPath = "config.yml"): RadarConfig {
   const resolved = path.resolve(configPath);
 
   if (!fs.existsSync(resolved)) {
-    console.log(`[config] ${configPath} not found — using built-in defaults.`);
+    log.info(`${configPath} not found — using built-in defaults.`);
     return {
       cliRepos: DEFAULT_CLI_REPOS,
       skillsRepo: DEFAULT_SKILLS_REPO,
@@ -124,9 +127,8 @@ export function loadConfig(configPath = "config.yml"): RadarConfig {
       ? raw.openclaw_peers.map(toRepoConfig)
       : DEFAULT_OPENCLAW_PEERS;
 
-  console.log(
-    `[config] Loaded from ${configPath}: ` +
-      `${cliRepos.length} CLI repos, ${openclawPeers.length} OpenClaw peers`,
+  log.info(
+    `Loaded from ${configPath}: ` + `${cliRepos.length} CLI repos, ${openclawPeers.length} OpenClaw peers`,
   );
 
   return { cliRepos, skillsRepo, openclaw, openclawPeers };

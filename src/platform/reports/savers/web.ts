@@ -9,6 +9,9 @@ import { callLlm, LLM_TOKENS_WEB } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
 import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
 import { type WebFetchResult } from "../../../feeds/ai/web.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("report:web");
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -25,7 +28,7 @@ export async function saveWebReport(
   const hasNewContent = webResults.some((r) => r.newItems.length > 0);
 
   if (hasNewContent) {
-    console.log(`  [web/${lang}] Calling LLM for web content report...`);
+    log.info({ lang }, "Calling LLM for web content report...");
     try {
       const webSummary = await callLlm(buildWebReportPrompt(webResults, dateStr, lang), LLM_TOKENS_WEB);
       const isFirstRun = webResults.some((r) => r.isFirstRun);
@@ -52,18 +55,18 @@ export async function saveWebReport(
 
       const webContent = webTitle + webMeta + webSources + `---\n\n` + webSummary + footer;
 
-      console.log(`  Saved ${saveFile(webContent, dateStr, fileName)}`);
+      log.info(`Saved ${saveFile(webContent, dateStr, fileName)}`);
 
       if (digestRepo) {
         const issueTitle = WEB_REPORT.issueTitle(dateStr, isFirstRun, lang);
         const webLabel = ISSUE_LABELS.web[lang];
         const webUrl = await tryCreateGitHubIssue(issueTitle, webContent, webLabel);
-        if (webUrl) console.log(`  Created web issue (${lang}): ${webUrl}`);
+        if (webUrl) log.info(`Created web issue (${lang}): ${webUrl}`);
       }
     } catch (err) {
-      console.error(`  [web/${lang}] Report generation failed: ${err}`);
+      log.error({ lang }, `Report generation failed: ${err}`);
     }
   } else {
-    console.log(`  [web/${lang}] No new content detected, skipping report.`);
+    log.info({ lang }, "No new content detected, skipping report.");
   }
 }

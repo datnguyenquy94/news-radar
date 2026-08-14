@@ -7,6 +7,9 @@
 
 import { AI_CATEGORIES, REQUEST_DELAY_MS, fetchCategory, type ArxivPaper } from "../../providers/arxiv.ts";
 import { sleep } from "../../core/date.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("arxiv");
 
 export type { ArxivPaper };
 
@@ -31,10 +34,10 @@ export async function fetchArxivData(): Promise<ArxivData> {
       for (const paper of papers) {
         if (!seen.has(paper.id)) seen.set(paper.id, paper);
       }
-      console.log(`  [arxiv] ${cat}: ${papers.length} papers`);
+      log.info(`${cat}: ${papers.length} papers`);
     } catch (err) {
       // One category failing still leaves the other two worth reporting.
-      console.error(`  [arxiv] ${cat}: ${err}`);
+      log.error(`${cat}: ${err}`);
     }
   }
 
@@ -44,6 +47,6 @@ export async function fetchArxivData(): Promise<ArxivData> {
     .sort((a, b) => new Date(b.published).getTime() - new Date(a.published).getTime())
     .slice(0, MAX_RESULTS);
 
-  console.log(`  [arxiv] ${papers.length} papers (from ${seen.size} unique)`);
+  log.info(`${papers.length} papers (from ${seen.size} unique)`);
   return { papers, fetchSuccess: papers.length > 0 };
 }

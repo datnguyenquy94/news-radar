@@ -16,6 +16,9 @@ import {
 import { tryCreateGitHubIssue } from "../publish/github-issues.ts";
 import { toCstDateStr, toUtcStr } from "../../core/date.ts";
 import { type Lang, getLangs, WEEKLY_REPORT, MONTHLY_REPORT } from "../../core/i18n/index.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("rollup");
 
 const DIGESTS_DIR = "digests";
 const MAX_CHARS_PER_REPORT = 2500;
@@ -78,7 +81,7 @@ async function generateRollupHighlights(
   dateStr: string,
   itemsPerReport: number,
 ): Promise<void> {
-  console.log(`  [${reportId}] Generating highlights for Telegram...`);
+  log.info(`[${reportId}] Generating highlights for Telegram...`);
   const langs = Object.keys(contentByLang) as Lang[];
 
   // Read existing highlights (e.g. from daily digest) so we merge instead of overwrite
@@ -106,17 +109,17 @@ async function generateRollupHighlights(
   langs.forEach((lang, i) => {
     const res = results[i]!;
     if (res.status !== "fulfilled") {
-      console.error(`  [${reportId}] ${lang} highlights generation failed: ${res.reason}`);
+      log.error(`[${reportId}] ${lang} highlights generation failed: ${res.reason}`);
       return;
     }
     try {
       Object.assign(highlights[lang], parseLlmJson<ReportHighlights>(res.value));
     } catch (err) {
-      console.error(`  [${reportId}] ${lang} highlights parse failed: ${err}`);
+      log.error(`[${reportId}] ${lang} highlights parse failed: ${err}`);
     }
   });
   const p = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
-  console.log(`  Saved ${p}`);
+  log.info(`Saved ${p}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -130,7 +133,7 @@ export async function runWeeklyRollup(): Promise<void> {
   const weekStr = toWeekStr(new Date(now.getTime() + 8 * 60 * 60 * 1000));
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
-  console.log(`[weekly] Generating rollup for ${weekStr} (date: ${dateStr})`);
+  log.info(`[weekly] Generating rollup for ${weekStr} (date: ${dateStr})`);
 
   // Collect last 7 days of daily digests
   const allDates = getDateDirs();
@@ -143,17 +146,17 @@ export async function runWeeklyRollup(): Promise<void> {
   }
 
   if (Object.keys(dailyDigests).length === 0) {
-    console.log("[weekly] No daily digests found, skipping.");
+    log.info("[weekly] No daily digests found, skipping.");
     return;
   }
 
-  console.log(
+  log.info(
     `[weekly] Found ${Object.keys(dailyDigests).length} daily digests: ${Object.keys(dailyDigests).join(", ")}`,
   );
 
   // Generate all configured languages in parallel
   const langs = getLangs();
-  console.log(`[weekly] Calling LLM for weekly reports (${langs.join(" + ")}) in parallel...`);
+  log.info(`[weekly] Calling LLM for weekly reports (${langs.join(" + ")}) in parallel...`);
   const summaries = await Promise.all(
     langs.map((lang) => callLlm(buildWeeklyPrompt(dailyDigests, weekStr, lang), LLM_TOKENS_ROLLUP)),
   );
@@ -172,7 +175,7 @@ export async function runWeeklyRollup(): Promise<void> {
       summaries[i]! +
       autoGenFooter(lang);
     const suffix = lang === "en" ? "-en" : "";
-    console.log(`  Saved ${saveFile(contentByLang[lang], dateStr, `ai-weekly${suffix}.md`)}`);
+    log.info(`Saved ${saveFile(contentByLang[lang], dateStr, `ai-weekly${suffix}.md`)}`);
   });
 
   await generateRollupHighlights(contentByLang, "ai-weekly", dateStr, 6);
@@ -181,10 +184,10 @@ export async function runWeeklyRollup(): Promise<void> {
     // Issue title/label are Vietnamese-only; prefer vi content, fall back to the first language.
     const issueContent = contentByLang["vi"] ?? contentByLang[langs[0]!]!;
     const url = await tryCreateGitHubIssue(WEEKLY_REPORT.issueTitle(weekStr), issueContent, "weekly");
-    if (url) console.log(`  Created weekly issue: ${url}`);
+    if (url) log.info(`Created weekly issue: ${url}`);
   }
 
-  console.log("[weekly] Done!");
+  log.info("[weekly] Done!");
 }
 
 // ---------------------------------------------------------------------------
@@ -201,7 +204,7 @@ export async function runMonthlyRollup(): Promise<void> {
   const utcStr = toUtcStr(now);
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
-  console.log(`[monthly] Generating rollup for ${monthStr} (date: ${dateStr})`);
+  log.info(`[monthly] Generating rollup for ${monthStr} (date: ${dateStr})`);
 
   const allDates = getDateDirs();
 
@@ -238,15 +241,15 @@ export async function runMonthlyRollup(): Promise<void> {
   }
 
   if (Object.keys(sourceDigests).length === 0) {
-    console.log(`[monthly] No source digests found for ${monthStr}, skipping.`);
+    log.info(`[monthly] No source digests found for ${monthStr}, skipping.`);
     return;
   }
 
-  console.log(`[monthly] Source: ${sourceLabel.vi}`);
+  log.info(`[monthly] Source: ${sourceLabel.vi}`);
 
   // Generate all configured languages in parallel
   const langs = getLangs();
-  console.log(`[monthly] Calling LLM for monthly reports (${langs.join(" + ")}) in parallel...`);
+  log.info(`[monthly] Calling LLM for monthly reports (${langs.join(" + ")}) in parallel...`);
   const summaries = await Promise.all(
     langs.map((lang) => callLlm(buildMonthlyPrompt(sourceDigests, monthStr, lang), LLM_TOKENS_ROLLUP)),
   );
@@ -264,7 +267,7 @@ export async function runMonthlyRollup(): Promise<void> {
       summaries[i]! +
       autoGenFooter(lang);
     const suffix = lang === "en" ? "-en" : "";
-    console.log(`  Saved ${saveFile(contentByLang[lang], dateStr, `ai-monthly${suffix}.md`)}`);
+    log.info(`Saved ${saveFile(contentByLang[lang], dateStr, `ai-monthly${suffix}.md`)}`);
   });
 
   await generateRollupHighlights(contentByLang, "ai-monthly", dateStr, 6);
@@ -273,8 +276,8 @@ export async function runMonthlyRollup(): Promise<void> {
     // Issue title/label are Vietnamese-only; prefer vi content, fall back to the first language.
     const issueContent = contentByLang["vi"] ?? contentByLang[langs[0]!]!;
     const url = await tryCreateGitHubIssue(MONTHLY_REPORT.issueTitle(monthStr), issueContent, "monthly");
-    if (url) console.log(`  Created monthly issue: ${url}`);
+    if (url) log.info(`Created monthly issue: ${url}`);
   }
 
-  console.log("[monthly] Done!");
+  log.info("[monthly] Done!");
 }

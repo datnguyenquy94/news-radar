@@ -20,6 +20,9 @@ import { OpenAIProvider } from "./openai.ts";
 import { GitHubCopilotProvider } from "./github-copilot.ts";
 import { OpenRouterProvider } from "./openrouter.ts";
 import { DeepSeekProvider } from "./deepseek.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("llm");
 
 // ---------------------------------------------------------------------------
 // Single source of truth — add new providers here only.
@@ -60,6 +63,6 @@ export function createProvider(name?: ProviderName): LlmProvider {
     );
   }
 
-  console.log(`[providers] Using LLM provider: ${providerName}`);
+  log.info(`Using LLM provider: ${providerName}`);
   return factory();
 }

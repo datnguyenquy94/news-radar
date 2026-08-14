@@ -8,6 +8,9 @@
  */
 
 import { fetchJson } from "../core/http.ts";
+import { createLogger } from "../core/logger.ts";
+
+const log = createLogger("hn");
 
 export interface HnStory {
   id: string;
@@ -52,7 +55,7 @@ export function fetchItems(ids: number[]): Promise<Array<HnFirebaseItem | null>>
       try {
         return await fetchJson<HnFirebaseItem>(ITEM_URL(id));
       } catch (err) {
-        console.error(`  [hn] item ${id}: ${err}`);
+        log.error(`item ${id}: ${err}`);
         return null;
       }
     }),

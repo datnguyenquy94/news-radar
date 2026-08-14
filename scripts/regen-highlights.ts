@@ -16,6 +16,9 @@ import { callLlm, parseLlmJson } from "../src/platform/llm/client.ts";
 import { buildHighlightsPrompt, type ReportHighlights } from "../src/platform/prompts/index.ts";
 import { buildMessage } from "../src/platform/notify/telegram.ts";
 import type { Lang } from "../src/core/i18n/index.ts";
+import { createLogger } from "../src/core/logger.ts";
+
+const log = createLogger("regen-highlights");
 
 const DATE = process.argv[2] && !process.argv[2].startsWith("-") ? process.argv[2] : null;
 const NOTIFY = process.argv.includes("--notify");
@@ -32,11 +35,11 @@ async function main() {
       .reverse()[0];
 
   if (!dateStr) {
-    console.error("No digest date found");
+    log.error("No digest date found");
     process.exit(1);
   }
 
-  console.log(`Regenerating highlights for ${dateStr}...`);
+  log.info(`Regenerating highlights for ${dateStr}...`);
 
   const reportIds = [
     "ai-cli",
@@ -60,7 +63,7 @@ async function main() {
     if (fs.existsSync(enPath)) enReports[id] = fs.readFileSync(enPath, "utf-8");
   }
 
-  console.log(`  VI reports: ${Object.keys(viReports).length}, EN reports: ${Object.keys(enReports).length}`);
+  log.info(`VI reports: ${Object.keys(viReports).length}, EN reports: ${Object.keys(enReports).length}`);
 
   // Generate highlights
   const highlights: Record<Lang, ReportHighlights> = { vi: {}, en: {} };
@@ -72,12 +75,12 @@ async function main() {
   try {
     highlights.vi = parseLlmJson<ReportHighlights>(viRaw);
   } catch (err) {
-    console.error(`  [highlights] vi parse failed: ${err}`);
+    log.error({ lang: "vi" }, `parse failed: ${err}`);
   }
   try {
     highlights.en = parseLlmJson<ReportHighlights>(enRaw);
   } catch (err) {
-    console.error(`  [highlights] en parse failed: ${err}`);
+    log.error({ lang: "en" }, `parse failed: ${err}`);
   }
 
   // Backfill an empty language from the other so notifications never blank out.
@@ -86,23 +89,23 @@ async function main() {
 
   const outPath = path.join(digestsDir, dateStr, "highlights.json");
   fs.writeFileSync(outPath, JSON.stringify(highlights, null, 2) + "\n");
-  console.log(`  Saved ${outPath}`);
-  console.log(`  VI keys: ${Object.keys(highlights.vi).join(", ")}`);
-  console.log(`  EN keys: ${Object.keys(highlights.en).join(", ")}`);
+  log.info(`Saved ${outPath}`);
+  log.info(`VI keys: ${Object.keys(highlights.vi).join(", ")}`);
+  log.info(`EN keys: ${Object.keys(highlights.en).join(", ")}`);
 
   if (NOTIFY) {
     const BOT_TOKEN = process.env["TELEGRAM_BOT_TOKEN"] ?? "";
     const CHAT_ID = process.env["TELEGRAM_CHAT_ID"] || "@agents_radar";
 
     if (!BOT_TOKEN) {
-      console.error("  TELEGRAM_BOT_TOKEN not set, cannot send notification.");
+      log.error("TELEGRAM_BOT_TOKEN not set, cannot send notification.");
       process.exit(1);
     }
 
     const allReports = [...Object.keys(viReports), ...Object.keys(enReports).map((k) => `${k}-en`)];
     const text = buildMessage(dateStr, allReports, undefined, highlights);
 
-    console.log(`  Sending Telegram notification...`);
+    log.info(`Sending Telegram notification...`);
     const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -116,16 +119,16 @@ async function main() {
 
     if (!res.ok) {
       const body = await res.text();
-      console.error(`  Telegram API ${res.status}: ${body}`);
+      log.error(`Telegram API ${res.status}: ${body}`);
       process.exit(1);
     }
-    console.log("  Telegram notification sent!");
+    log.info("Telegram notification sent!");
   }
 
-  console.log("Done!");
+  log.info("Done!");
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((err: unknown) => {
+  log.fatal({ err }, "highlights regeneration failed");
   process.exit(1);
 });

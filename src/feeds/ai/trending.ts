@@ -9,6 +9,9 @@
 
 import { fetchTrendingRepos, type TrendingRepo } from "../../providers/github/trending-html.ts";
 import { searchAiRepos, type SearchRepo } from "../../providers/github/search.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("trending");
 
 export type { TrendingRepo, SearchRepo };
 
@@ -31,14 +34,14 @@ export async function fetchTrendingData(): Promise<TrendingData> {
         // Zero parsed repos never means "nothing trended today" — it means the
         // markup moved. Report it as a failure rather than an empty day.
         if (repos.length === 0) {
-          console.error("  [trending] Parsed 0 repos — HTML structure may have changed");
+          log.error("Parsed 0 repos — HTML structure may have changed");
           return { repos, success: false };
         }
-        console.log(`  [trending] Parsed ${repos.length} trending repos from HTML`);
+        log.info(`Parsed ${repos.length} trending repos from HTML`);
         return { repos, success: true };
       })
       .catch((err) => {
-        console.error(`  [trending] Fetch failed: ${err}`);
+        log.error(`Fetch failed: ${err}`);
         return { repos: [] as TrendingRepo[], success: false };
       }),
     searchAiRepos(pushedSince),

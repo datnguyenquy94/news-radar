@@ -238,6 +238,8 @@ openclaw_peers:
 | `LLM_PROVIDER` | 可选 | `anthropic`（默认）、`openai`、`github-copilot` 或 `openrouter` |
 | `LLM_CONCURRENCY` | 可选 | LLM 最大并发请求数（默认 `5`） |
 | `LLM_TIMEOUT_MS` | 可选 | 单次 LLM 请求超时时间，单位毫秒（默认 `600000`，即 10 分钟）。超时与 429 最多重试 3 次，每次重试前至少等待 60 秒 |
+| `LOG_LEVEL` | 可选 | pino 日志级别：`trace`、`debug`、`info`（默认）、`warn`、`error`、`fatal`、`silent` |
+| `LOG_PRETTY` | 可选 | `1` 输出人类可读日志，`0` 输出 JSON。不设置时：TTY 下为可读格式，CI 下为 JSON。日志一律写入 stderr |
 | `ANTHROPIC_API_KEY` | Anthropic 时 | API 密钥，兼容 Anthropic 和 Kimi Code |
 | `ANTHROPIC_BASE_URL` | 可选 | API 地址覆盖。使用 Kimi Code 时设置为 `https://api.kimi.com/coding/`，使用 Anthropic 时留空 |
 | `OPENAI_API_KEY` | OpenAI 时 | OpenAI API 密钥 |

@@ -239,6 +239,8 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `LLM_PROVIDER` | optional | `anthropic` (default), `openai`, `github-copilot`, or `openrouter` |
 | `LLM_CONCURRENCY` | optional | Max in-flight LLM requests (default `5`) |
 | `LLM_TIMEOUT_MS` | optional | Per-request LLM timeout in ms (default `600000` = 10 min). Timeouts and 429s are retried up to 3 times, waiting at least 60 s between attempts |
+| `LOG_LEVEL` | optional | pino log level: `trace`, `debug`, `info` (default), `warn`, `error`, `fatal`, `silent` |
+| `LOG_PRETTY` | optional | `1` for human-readable logs, `0` for JSON. Unset = pretty on a TTY, JSON in CI. Logs always go to stderr |
 | `ANTHROPIC_API_KEY` | if Anthropic | API key — works with both Anthropic and Kimi Code |
 | `ANTHROPIC_BASE_URL` | optional | API endpoint override. Set to `https://api.kimi.com/coding/` for Kimi Code; leave unset for Anthropic |
 | `OPENAI_API_KEY` | if OpenAI | OpenAI API key |

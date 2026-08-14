@@ -17,6 +17,9 @@
 
 import { EXCHANGES, fetchExchangeBoard, type SsiRow } from "../../../providers/ssi.ts";
 import { fetchBars, type EntradeBars } from "../../../providers/entrade.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("vnmarket");
 
 // ---------------------------------------------------------------------------
 // Types
@@ -199,10 +202,10 @@ async function fetchBoard(): Promise<{
     EXCHANGES.map(async (ex) => {
       try {
         const rows = await fetchExchangeBoard(ex);
-        console.log(`  [vnmarket] ${ex} board: ${rows.length} rows`);
+        log.info(`${ex} board: ${rows.length} rows`);
         return rows;
       } catch (err) {
-        console.error(`  [vnmarket] ${ex} board failed: ${err}`);
+        log.error(`${ex} board failed: ${err}`);
         return [] as SsiRow[];
       }
     }),
@@ -216,11 +219,11 @@ async function fetchBoard(): Promise<{
   // showing the previous session's completed figures; if it has already reset,
   // nothing has traded and the flow numbers are meaningless rather than zero.
   if (agg.traded === 0) {
-    console.error("  [vnmarket] board has no traded rows — session not settled, dropping flow data");
+    log.error("board has no traded rows — session not settled, dropping flow data");
     return null;
   }
-  console.log(
-    `  [vnmarket] ${agg.tradingDate || "?"}: turnover ${agg.turnoverVndBn}bn, ` +
+  log.info(
+    `${agg.tradingDate || "?"}: turnover ${agg.turnoverVndBn}bn, ` +
       `foreign net ${agg.foreign.netVndBn}bn, breadth ${agg.breadth.advancers}/${agg.breadth.decliners}`,
   );
   return agg;
@@ -234,7 +237,7 @@ async function barsOrNull(kind: "index" | "derivative", symbol: string): Promise
   try {
     return await fetchBars(kind, symbol);
   } catch (err) {
-    console.error(`  [vnmarket] bars ${symbol} failed: ${err}`);
+    log.error(`bars ${symbol} failed: ${err}`);
     return null;
   }
 }
@@ -268,11 +271,11 @@ export function quoteFromBars(symbol: string, label: string, bars: EntradeBars):
 // ---------------------------------------------------------------------------
 
 export async function fetchVnMarketData(): Promise<VnMarketData> {
-  console.log("  [vnmarket] Fetching SSI board + Entrade bars...");
+  log.info("Fetching SSI board + Entrade bars...");
 
   const [board, indexBars, futuresBars] = await Promise.all([
     fetchBoard().catch((err) => {
-      console.error(`  [vnmarket] board failed: ${err}`);
+      log.error(`board failed: ${err}`);
       return null;
     }),
     Promise.all(INDEX_SPECS.map((s) => barsOrNull(s.kind, s.symbol))),
@@ -300,7 +303,7 @@ export async function fetchVnMarketData(): Promise<VnMarketData> {
       : null;
 
   const fetchSuccess = indices.length > 0 || board !== null;
-  if (!fetchSuccess) console.error("  [vnmarket] no market data available this run");
+  if (!fetchSuccess) log.error("no market data available this run");
 
   return {
     indices,

@@ -9,6 +9,9 @@ import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
 import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
 import type { MacroData } from "../../../feeds/finance/macro.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("report:macro");
 
 // ---------------------------------------------------------------------------
 // Macro market dashboard (FRED + FINRA)
@@ -23,11 +26,11 @@ export async function saveMacroReport(
   lang: Lang = "vi",
 ): Promise<void> {
   if (!data.fetchSuccess) {
-    console.log(`  [macro/${lang}] No FRED data available, skipping report.`);
+    log.info({ lang }, "No FRED data available, skipping report.");
     return;
   }
 
-  console.log(`  [macro/${lang}] Calling LLM for macro dashboard...`);
+  log.info({ lang }, "Calling LLM for macro dashboard...");
   try {
     const summary = await callLlm(buildMacroPrompt(data, dateStr, lang), LLM_TOKENS_LISTING);
     const fileName = lang === "en" ? "fin-macro-en.md" : "fin-macro.md";
@@ -35,25 +38,25 @@ export async function saveMacroReport(
     const header =
       lang === "en"
         ? `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
+          "> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | " +
           `${metricCount} indicators | Generated: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}.\n\n` +
           `---\n\n`
         : `# ${MACRO_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> Nguồn dữ liệu: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | ` +
+          "> Nguồn dữ liệu: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | " +
           `${metricCount} chỉ số | Thời gian tạo: ${utcStr} UTC\n>\n> ⚠️ ${MACRO_REPORT.disclaimer[lang]}.\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;
 
-    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+    log.info(`Saved ${saveFile(content, dateStr, fileName)}`);
 
     if (digestRepo) {
       const title = MACRO_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.macro[lang];
       const url = await tryCreateGitHubIssue(title, content, label);
-      if (url) console.log(`  Created macro issue (${lang}): ${url}`);
+      if (url) log.info(`Created macro issue (${lang}): ${url}`);
     }
   } catch (err) {
-    console.error(`  [macro/${lang}] Report generation failed: ${err}`);
+    log.error({ lang }, `Report generation failed: ${err}`);
   }
 }

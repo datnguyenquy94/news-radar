@@ -14,6 +14,9 @@
 import { fetchVnMarketData, type VnMarketData } from "./market.ts";
 import { fetchVnMacroData, type VnMacroData } from "./macro.ts";
 import { fetchVnDocsData, type VnDocsData } from "./docs.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("vnfeed");
 
 export * from "./market.ts";
 export * from "./macro.ts";
@@ -44,15 +47,15 @@ const EMPTY_DOCS: VnDocsData = { docs: [], fetchSuccess: false };
 export async function fetchVnFeed(now = new Date()): Promise<VnFeedData> {
   const [market, macro, docs] = await Promise.all([
     fetchVnMarketData().catch((err): VnMarketData => {
-      console.error(`  [vnmarket] fetch failed: ${err}`);
+      log.error(`[vnmarket] fetch failed: ${err}`);
       return EMPTY_MARKET;
     }),
     fetchVnMacroData(now).catch((err): VnMacroData => {
-      console.error(`  [vnmacro] fetch failed: ${err}`);
+      log.error(`[vnmacro] fetch failed: ${err}`);
       return EMPTY_MACRO;
     }),
     fetchVnDocsData().catch((err): VnDocsData => {
-      console.error(`  [vndocs] fetch failed: ${err}`);
+      log.error(`[vndocs] fetch failed: ${err}`);
       return EMPTY_DOCS;
     }),
   ]);

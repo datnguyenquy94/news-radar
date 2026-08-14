@@ -18,6 +18,38 @@ vi.mock("../platform/llm/providers/index.ts", async (importOriginal) => {
   };
 });
 
+// ---------------------------------------------------------------------------
+// Capture log records. The logger writes to fd 2 through sonic-boom, so a
+// `process.stderr.write` spy would never see it — mock the module instead.
+// ---------------------------------------------------------------------------
+
+const { logRecords } = vi.hoisted(() => ({
+  logRecords: [] as Array<{ level: string; obj: Record<string, unknown> | undefined; msg: string }>,
+}));
+
+vi.mock("../core/logger.ts", () => {
+  const at =
+    (level: string) =>
+    (a: unknown, b?: unknown): void => {
+      const isMsgOnly = typeof a === "string";
+      logRecords.push({
+        level,
+        obj: isMsgOnly ? undefined : (a as Record<string, unknown>),
+        msg: String(isMsgOnly ? a : (b ?? "")),
+      });
+    };
+  const fake = {
+    trace: at("trace"),
+    debug: at("debug"),
+    info: at("info"),
+    warn: at("warn"),
+    error: at("error"),
+    fatal: at("fatal"),
+    child: () => fake,
+  };
+  return { createLogger: () => fake, logger: fake };
+});
+
 import {
   is429,
   isTimeout,
@@ -281,6 +313,7 @@ describe("callLlm", () => {
   beforeEach(() => {
     vi.useFakeTimers();
     mockCall.mockReset();
+    logRecords.length = 0;
   });
 
   afterEach(() => {
@@ -303,6 +336,44 @@ describe("callLlm", () => {
     await callLlm("prompt");
 
     expect(mockCall).toHaveBeenCalledWith("prompt", 4096);
+  });
+
+  it("logs a start and a finish line, paired by call id", async () => {
+    mockCall.mockResolvedValueOnce("response text");
+
+    await callLlm("hello", 2048);
+
+    const started = logRecords.find((r) => r.msg === "LLM call started");
+    const finished = logRecords.find((r) => r.msg === "LLM call finished");
+    expect(started?.obj).toMatchObject({ maxTokens: 2048, promptChars: 5 });
+    expect(finished?.obj).toMatchObject({
+      call: started?.obj?.["call"],
+      attempts: 1,
+      responseChars: "response text".length,
+    });
+    expect(typeof finished?.obj?.["ms"]).toBe("number");
+  });
+
+  it("logs the retry and counts the attempts on the finish line", async () => {
+    const err429 = Object.assign(new Error("rate limited"), { status: 429 });
+    mockCall.mockRejectedValueOnce(err429);
+    mockCall.mockResolvedValueOnce("success after retry");
+
+    const promise = callLlm("prompt");
+    await vi.advanceTimersByTimeAsync(RETRY_MIN_MS);
+    await promise;
+
+    const retry = logRecords.find((r) => r.level === "warn");
+    expect(retry?.obj).toMatchObject({ kind: "429", attempt: 1, waitMs: RETRY_MIN_MS });
+    expect(logRecords.find((r) => r.msg === "LLM call finished")?.obj).toMatchObject({ attempts: 2 });
+  });
+
+  it("logs a failure line when the call gives up", async () => {
+    mockCall.mockRejectedValue(new Error("boom"));
+
+    await expect(callLlm("prompt")).rejects.toThrow("boom");
+
+    expect(logRecords.find((r) => r.level === "error")?.msg).toContain("LLM call failed");
   });
 
   it("waits at least RETRY_MIN_MS before the first 429 retry", async () => {

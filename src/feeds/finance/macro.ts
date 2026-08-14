@@ -15,6 +15,9 @@
 import { fetchObservations, type Observation } from "../../providers/fred.ts";
 import { fetchMarginObservations, type MarginObservation } from "../../providers/finra.ts";
 import type { Lang } from "../../core/i18n/index.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("macro");
 
 export type { MarginObservation, Observation };
 
@@ -304,7 +307,7 @@ export async function fetchFinraMargin(): Promise<FinraData> {
   try {
     const observations = await fetchMarginObservations();
     if (!observations) {
-      console.error("  [finra] could not locate margin table");
+      log.error("[finra] could not locate margin table");
       return empty;
     }
 
@@ -315,10 +318,10 @@ export async function fetchFinraMargin(): Promise<FinraData> {
         ? Math.round(((latest.debitMillions - prior.debitMillions) / prior.debitMillions) * 1000) / 10
         : null;
 
-    console.log(`  [finra] latest ${latest?.period}: $${latest?.debitMillions}M`);
+    log.info(`[finra] latest ${latest?.period}: $${latest?.debitMillions}M`);
     return { latest, prior, changePct, fetchSuccess: latest !== null };
   } catch (err) {
-    console.error(`  [finra] fetch failed: ${err}`);
+    log.error(`[finra] fetch failed: ${err}`);
     return empty;
   }
 }
@@ -329,7 +332,7 @@ export async function fetchFinraMargin(): Promise<FinraData> {
 
 export async function fetchFredData(): Promise<FredData> {
   const apiKey = process.env["FRED_API_KEY"];
-  console.log(`  [fred] Fetching ${FRED_SERIES.length} series via ${apiKey ? "JSON API" : "keyless CSV"}...`);
+  log.info(`[fred] Fetching ${FRED_SERIES.length} series via ${apiKey ? "JSON API" : "keyless CSV"}...`);
 
   const metrics = await Promise.all(
     FRED_SERIES.map(async (spec) => {
@@ -337,14 +340,14 @@ export async function fetchFredData(): Promise<FredData> {
         return computeMetric(spec, await fetchObservations(spec.series, apiKey));
       } catch (err) {
         // One dead series is a blank row, not a dead dashboard.
-        console.error(`  [fred] ${spec.series} failed: ${err}`);
+        log.error(`[fred] ${spec.series} failed: ${err}`);
         return computeMetric(spec, []);
       }
     }),
   );
 
   const withData = metrics.filter((m) => m.latest !== null).length;
-  console.log(`  [fred] ${withData}/${FRED_SERIES.length} series returned data`);
+  log.info(`[fred] ${withData}/${FRED_SERIES.length} series returned data`);
   return { metrics, fetchSuccess: withData > 0 };
 }
 

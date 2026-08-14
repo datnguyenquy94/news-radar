@@ -9,8 +9,9 @@ export default tseslint.config(
   eslintConfigPrettier,
   {
     rules: {
-      // Allow console.log/error — this is a CLI script
-      "no-console": "off",
+      // Logging goes through src/core/logger.ts (pino), never console. The one
+      // opt-out is inspect.ts, which re-points the console channels at stderr.
+      "no-console": "error",
       // Ignore intentionally unused vars prefixed with _
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
       // Don't require explicit return types everywhere — TypeScript infers them

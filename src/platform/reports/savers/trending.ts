@@ -7,6 +7,9 @@ import { type Lang, TRENDING_REPORT, ISSUE_LABELS } from "../../../core/i18n/ind
 import { saveFile } from "../files.ts";
 import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
 import type { TrendingData } from "../../../feeds/ai/trending.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("report:trending");
 
 // ---------------------------------------------------------------------------
 // Trending report
@@ -23,7 +26,7 @@ export async function saveTrendingReport(
 ): Promise<void> {
   const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
   if (!hasData) {
-    console.log(`  [trending/${lang}] No data available, skipping report.`);
+    log.info({ lang }, "No data available, skipping report.");
     return;
   }
 
@@ -34,12 +37,12 @@ export async function saveTrendingReport(
 
   const trendingContent = header + trendingSummary + footer;
 
-  console.log(`  Saved ${saveFile(trendingContent, dateStr, fileName)}`);
+  log.info(`Saved ${saveFile(trendingContent, dateStr, fileName)}`);
 
   if (digestRepo) {
     const trendingTitle = TRENDING_REPORT.issueTitle(dateStr, lang);
     const trendingLabel = ISSUE_LABELS.trending[lang];
     const trendingUrl = await tryCreateGitHubIssue(trendingTitle, trendingContent, trendingLabel);
-    if (trendingUrl) console.log(`  Created trending issue (${lang}): ${trendingUrl}`);
+    if (trendingUrl) log.info(`Created trending issue (${lang}): ${trendingUrl}`);
   }
 }

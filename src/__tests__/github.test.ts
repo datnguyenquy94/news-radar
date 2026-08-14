@@ -2,6 +2,29 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { tryCreateGitHubIssue } from "../platform/publish/github-issues.ts";
 
 // ---------------------------------------------------------------------------
+// Capture pino output. The logger writes to fd 2 through sonic-boom, so a
+// `process.stderr.write` spy would never see it — mock the module instead.
+// ---------------------------------------------------------------------------
+
+const { logLines } = vi.hoisted(() => ({ logLines: [] as string[] }));
+
+vi.mock("../core/logger.ts", () => {
+  const record = (...args: unknown[]): void => {
+    logLines.push(args.map((a) => (typeof a === "string" ? a : JSON.stringify(a))).join(" "));
+  };
+  const fake = {
+    trace: record,
+    debug: record,
+    info: record,
+    warn: record,
+    error: record,
+    fatal: record,
+    child: () => fake,
+  };
+  return { createLogger: () => fake, logger: fake };
+});
+
+// ---------------------------------------------------------------------------
 // tryCreateGitHubIssue — a GitHub-side failure must never propagate. The
 // reports are already on disk when this runs, and a thrown error exits the
 // process non-zero, which skips the workflow's commit step and discards the
@@ -19,7 +42,7 @@ describe("tryCreateGitHubIssue", () => {
 
   beforeEach(() => {
     process.env["DIGEST_REPO"] = "owner/news-radar";
-    vi.spyOn(console, "error").mockImplementation(() => {});
+    logLines.length = 0;
   });
 
   afterEach(() => {
@@ -63,7 +86,7 @@ describe("tryCreateGitHubIssue", () => {
 
     await tryCreateGitHubIssue("Title", "body", "trending-en");
 
-    const logged = vi.mocked(console.error).mock.calls.flat().join("\n");
+    const logged = logLines.join("\n");
     expect(logged).toContain("owner/news-radar");
     expect(logged).toContain("Issues are disabled");
   });

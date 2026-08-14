@@ -9,6 +9,9 @@ import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
 import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
 import type { CommunityData } from "../../../feeds/ai/community.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("report:community");
 
 // ---------------------------------------------------------------------------
 // Community report (Dev.to + Lobste.rs)
@@ -23,11 +26,11 @@ export async function saveCommunityReport(
   lang: Lang = "vi",
 ): Promise<void> {
   if (!data.fetchSuccess) {
-    console.log(`  [community/${lang}] No data available, skipping report.`);
+    log.info({ lang }, "No data available, skipping report.");
     return;
   }
 
-  console.log(`  [community/${lang}] Calling LLM for community report...`);
+  log.info({ lang }, "Calling LLM for community report...");
   try {
     const summary = await callLlm(buildCommunityPrompt(data, dateStr, lang), LLM_TOKENS_LISTING);
     const fileName = lang === "en" ? "ai-community-en.md" : "ai-community.md";
@@ -44,15 +47,15 @@ export async function saveCommunityReport(
 
     const content = header + summary + footer;
 
-    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+    log.info(`Saved ${saveFile(content, dateStr, fileName)}`);
 
     if (digestRepo) {
       const title = COMMUNITY_REPORT.issueTitle(dateStr, lang);
       const label = ISSUE_LABELS.community[lang];
       const url = await tryCreateGitHubIssue(title, content, label);
-      if (url) console.log(`  Created community issue (${lang}): ${url}`);
+      if (url) log.info(`Created community issue (${lang}): ${url}`);
     }
   } catch (err) {
-    console.error(`  [community/${lang}] Report generation failed: ${err}`);
+    log.error({ lang }, `Report generation failed: ${err}`);
   }
 }

@@ -17,6 +17,9 @@ import {
   type GitHubRelease,
 } from "../../providers/github/repos.ts";
 import type { RepoConfig } from "../../core/config.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("repos");
 
 export type { GitHubItem, GitHubRelease };
 
@@ -42,10 +45,10 @@ export async function fetchRepoActivity(cfg: RepoConfig, since: Date): Promise<R
     ]);
     // GitHub's /issues endpoint returns PRs too; drop them.
     const issues = issuesRaw.filter((i) => !i.pull_request);
-    console.log(`  [${cfg.id}] issues: ${issues.length}, prs: ${prs.length}, releases: ${releases.length}`);
+    log.info(`[${cfg.id}] issues: ${issues.length}, prs: ${prs.length}, releases: ${releases.length}`);
     return { cfg, issues, prs, releases };
   } catch (err) {
-    console.error(`  [${cfg.id}] fetch failed: ${err}`);
+    log.error(`[${cfg.id}] fetch failed: ${err}`);
     return { cfg, issues: [], prs: [], releases: [] };
   }
 }
@@ -58,10 +61,10 @@ export function fetchAllRepoActivity(configs: RepoConfig[], since: Date): Promis
 export async function fetchSkills(repo: string): Promise<SkillsData> {
   try {
     const data = await fetchSkillsData(repo);
-    console.log(`  [claude-code-skills] prs: ${data.prs.length}, issues: ${data.issues.length}`);
+    log.info(`[claude-code-skills] prs: ${data.prs.length}, issues: ${data.issues.length}`);
     return data;
   } catch (err) {
-    console.error(`  [claude-code-skills] fetch failed: ${err}`);
+    log.error(`[claude-code-skills] fetch failed: ${err}`);
     return { prs: [], issues: [] };
   }
 }

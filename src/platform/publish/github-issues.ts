@@ -12,6 +12,9 @@
  */
 
 import { GITHUB_API, githubFetch, githubGet } from "../../providers/github/client.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("github");
 
 const GITHUB_ISSUE_BODY_LIMIT = 65536;
 const TRUNCATION_NOTICE =
@@ -100,7 +103,7 @@ export async function closeStaleIssues(days: number): Promise<number> {
           method: "PATCH",
           json: { state: "closed" },
         });
-        if (!resp.ok) console.error(`[github] Failed to close #${i.number}: ${resp.status}`);
+        if (!resp.ok) log.error(`Failed to close #${i.number}: ${resp.status}`);
       }),
     );
     closed += stale.length;
@@ -126,13 +129,13 @@ export async function tryCreateGitHubIssue(
   try {
     return await createGitHubIssue(title, body, label);
   } catch (err) {
-    console.error(`  [issue] Skipped "${title}": ${err instanceof Error ? err.message : String(err)}`);
+    log.error(`[issue] Skipped "${title}": ${err instanceof Error ? err.message : String(err)}`);
     // A 404 on the labels/issues endpoints is GitHub's answer for both "Issues
     // are turned off here" and "your token cannot see this repo" — it never
     // says which, and forks have Issues disabled by default.
     if (String(err).includes('"status":"404"') || String(err).includes("Not Found")) {
-      console.error(
-        `  [issue] A 404 here usually means Issues are disabled on ${digestRepo()} ` +
+      log.error(
+        `[issue] A 404 here usually means Issues are disabled on ${digestRepo()} ` +
           `(Settings → General → Features → Issues), or GH_TOKEN lacks Issues write access to it.`,
       );
     }

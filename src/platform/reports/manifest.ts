@@ -2,6 +2,9 @@ import fs from "fs";
 import path from "path";
 import { marked } from "marked";
 import { REPORT_LABELS } from "../../core/i18n/index.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("manifest");
 
 const DIGESTS_DIR = "digests";
 const MANIFEST_PATH = "manifest.json";
@@ -118,7 +121,7 @@ export async function main(): Promise<void> {
   };
 
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
-  console.log(`manifest.json updated: ${entries.length} dates`);
+  log.info(`manifest.json updated: ${entries.length} dates`);
 
   // ── RSS Feed ──────────────────────────────────────────────────────────────────
 
@@ -170,5 +173,5 @@ export async function main(): Promise<void> {
     `</rss>\n`;
 
   fs.writeFileSync(FEED_PATH, feedXml);
-  console.log(`feed.xml updated: ${feedItems.length} items`);
+  log.info(`feed.xml updated: ${feedItems.length} items`);
 }

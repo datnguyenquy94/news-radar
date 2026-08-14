@@ -10,6 +10,29 @@ import {
 } from "../platform/llm/providers/index.ts";
 
 // ---------------------------------------------------------------------------
+// Capture pino output. The logger writes to fd 2 through sonic-boom, so a
+// `process.stderr.write` spy would never see it — mock the module instead.
+// ---------------------------------------------------------------------------
+
+const { logLines } = vi.hoisted(() => ({ logLines: [] as string[] }));
+
+vi.mock("../core/logger.ts", () => {
+  const record = (...args: unknown[]): void => {
+    logLines.push(args.map((a) => (typeof a === "string" ? a : JSON.stringify(a))).join(" "));
+  };
+  const fake = {
+    trace: record,
+    debug: record,
+    info: record,
+    warn: record,
+    error: record,
+    fatal: record,
+    child: () => fake,
+  };
+  return { createLogger: () => fake, logger: fake };
+});
+
+// ---------------------------------------------------------------------------
 // Mock the SDKs at module level
 // ---------------------------------------------------------------------------
 
@@ -374,12 +397,11 @@ describe("createProvider", () => {
   });
 
   it("log does not leak API keys", () => {
-    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    logLines.length = 0;
     createProvider("anthropic");
-    const logged = spy.mock.calls.flat().join(" ");
+    const logged = logLines.join(" ");
     // Must log provider name, must NOT log any key-like strings
     expect(logged).toContain("anthropic");
     expect(logged).not.toMatch(/sk-|ghp_|key|secret/i);
-    spy.mockRestore();
   });
 });

@@ -3,6 +3,9 @@
  */
 
 import { sleep } from "../../core/date.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("llm");
 
 // ---------------------------------------------------------------------------
 // LLM token budget constants
@@ -156,12 +159,37 @@ function retryAfterMs(err: unknown): number {
   return Number.isNaN(at) ? 0 : Math.max(0, at - Date.now());
 }
 
+/**
+ * Per-call sequence number. Up to LLM_CONCURRENCY calls are in flight at once
+ * and every one of them logs a start and a finish line, so the two are only
+ * pairable if each call carries an id.
+ */
+let callSeq = 0;
+
 export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): Promise<string> {
+  const call = ++callSeq;
+  const startedAt = Date.now();
+  log.info(
+    {
+      call,
+      maxTokens,
+      promptChars: prompt.length,
+      inFlight: LLM_CONCURRENCY - llmSlots,
+      queued: llmQueue.length,
+    },
+    "LLM call started",
+  );
+
   for (let attempt = 0; ; attempt++) {
     await acquireSlot();
     let released = false;
     try {
-      return await provider.call(prompt, maxTokens);
+      const text = await provider.call(prompt, maxTokens);
+      log.info(
+        { call, ms: Date.now() - startedAt, attempts: attempt + 1, responseChars: text.length },
+        "LLM call finished",
+      );
+      return text;
     } catch (err) {
       if (attempt < MAX_RETRIES && isRetryable(err)) {
         releaseSlot();
@@ -170,10 +198,14 @@ export async function callLlm(prompt: string, maxTokens = LLM_TOKENS_DEFAULT): P
           RETRY_MAX_MS,
           Math.max(RETRY_MIN_MS, retryAfterMs(err), RETRY_BASE_MS * 2 ** attempt),
         );
-        console.error(`[llm] ${retryKind(err)} — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`);
+        log.warn(
+          { call, kind: retryKind(err), attempt: attempt + 1, maxRetries: MAX_RETRIES, waitMs: wait },
+          `${retryKind(err)} — retry ${attempt + 1}/${MAX_RETRIES} in ${wait / 1000}s...`,
+        );
         await sleep(wait);
         continue;
       }
+      log.error({ call, ms: Date.now() - startedAt, attempts: attempt + 1 }, `LLM call failed: ${err}`);
       throw err;
     } finally {
       if (!released) releaseSlot();

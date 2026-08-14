@@ -9,6 +9,9 @@
 
 import { AI_TAGS, fetchTagArticles, type DevtoArticle } from "../../providers/devto.ts";
 import { TAG_URLS, fetchTagStories, type LobstersStory } from "../../providers/lobsters.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("community");
 
 export type { DevtoArticle, LobstersStory };
 
@@ -46,7 +49,7 @@ async function fetchDevto(): Promise<DevtoData> {
           if (!seen.has(article.id)) seen.set(article.id, article);
         }
       } catch (err) {
-        console.error(`  [devto] "${tag}": ${err}`);
+        log.error(`[devto] "${tag}": ${err}`);
       }
     }),
   );
@@ -55,7 +58,7 @@ async function fetchDevto(): Promise<DevtoData> {
     .sort((a, b) => b.positiveReactionsCount - a.positiveReactionsCount)
     .slice(0, DEVTO_TOP);
 
-  console.log(`  [devto] ${articles.length} articles (from ${seen.size} unique)`);
+  log.info(`[devto] ${articles.length} articles (from ${seen.size} unique)`);
   return { articles, fetchSuccess: articles.length > 0 };
 }
 
@@ -69,7 +72,7 @@ async function fetchLobsters(): Promise<LobstersData> {
           if (!seen.has(id)) seen.set(id, story);
         }
       } catch (err) {
-        console.error(`  [lobsters] ${tagUrl}: ${err}`);
+        log.error(`[lobsters] ${tagUrl}: ${err}`);
       }
     }),
   );
@@ -80,18 +83,18 @@ async function fetchLobsters(): Promise<LobstersData> {
     .sort((a, b) => b.score - a.score)
     .slice(0, LOBSTERS_TOP);
 
-  console.log(`  [lobsters] ${stories.length} stories (from ${seen.size} unique)`);
+  log.info(`[lobsters] ${stories.length} stories (from ${seen.size} unique)`);
   return { stories, fetchSuccess: stories.length > 0 };
 }
 
 export async function fetchCommunityData(): Promise<CommunityData> {
   const [devto, lobsters] = await Promise.all([
     fetchDevto().catch((err): DevtoData => {
-      console.error(`  [devto] fetch failed: ${err}`);
+      log.error(`[devto] fetch failed: ${err}`);
       return { articles: [], fetchSuccess: false };
     }),
     fetchLobsters().catch((err): LobstersData => {
-      console.error(`  [lobsters] fetch failed: ${err}`);
+      log.error(`[lobsters] fetch failed: ${err}`);
       return { stories: [], fetchSuccess: false };
     }),
   ]);

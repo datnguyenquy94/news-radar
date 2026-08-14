@@ -61,6 +61,7 @@ import { fetchCommunityData, type CommunityData } from "../feeds/ai/community.ts
 import { fetchMacroData, type MacroData } from "../feeds/finance/macro.ts";
 import { fetchVnFeed, type VnFeedData } from "../feeds/finance/vn/index.ts";
 import { loadConfig } from "../core/config.ts";
+import { createLogger } from "../core/logger.ts";
 import { toCstDateStr, toUtcStr } from "../core/date.ts";
 import {
   type Lang,
@@ -81,6 +82,8 @@ const {
   openclaw: OPENCLAW,
   openclawPeers: OPENCLAW_PEERS,
 } = loadConfig();
+
+const log = createLogger("daily");
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -120,12 +123,12 @@ async function fetchAllData(
   vnData: VnFeedData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
-  console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, trending, hn, ph, arxiv, hf, community, macro, vn`,
+  log.info(
+    `Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, trending, hn, ph, arxiv, hf, community, macro, vn`,
   );
 
   const emptyWebResult = (site: "anthropic" | "openai", siteName: string) => (err: unknown) => {
-    console.error(`  [web/${site}] fetch failed: ${err}`);
+    log.error({ site }, `web fetch failed: ${err}`);
     return { site, siteName, isFirstRun: false, newItems: [], totalDiscovered: 0 } as WebFetchResult;
   };
 
@@ -179,11 +182,11 @@ async function fetchAllData(
 
 /** Call LLM with logging and error fallback. */
 async function summarize(id: string, prompt: string, failMsg: string, maxTokens?: number): Promise<string> {
-  console.log(`  [${id}] Calling LLM for summary...`);
+  log.info({ report: id }, `[${id}] Calling LLM for summary...`);
   try {
     return await callLlm(prompt, maxTokens);
   } catch (err) {
-    console.error(`  [${id}] LLM call failed: ${err}`);
+    log.error({ report: id }, `[${id}] LLM call failed: ${err}`);
     return failMsg;
   }
 }
@@ -196,7 +199,7 @@ async function summarizeRepo(
   failMsg: string,
 ): Promise<RepoDigest> {
   if (!issues.length && !prs.length && !releases.length) {
-    console.log(`  [${cfg.id}] No activity, skipping LLM call`);
+    log.info({ report: cfg.id }, `[${cfg.id}] No activity, skipping LLM call`);
     return { config: cfg, issues, prs, releases, summary: noActivityMsg };
   }
   const summary = await summarize(cfg.id, prompt, failMsg);
@@ -288,7 +291,7 @@ async function main(): Promise<void> {
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
   const providerName = process.env["LLM_PROVIDER"] ?? "anthropic";
-  console.log(`[${now.toISOString()}] Starting digest | provider: ${providerName}`);
+  log.info({ provider: providerName }, `Starting digest | provider: ${providerName}`);
 
   // 1. Fetch all data in parallel
   const webState = loadWebState();
@@ -312,10 +315,10 @@ async function main(): Promise<void> {
   const fetchedPeers = fetched.filter((f) => peerIds.has(f.cfg.id));
 
   const langs = getLangs();
-  console.log(`  Languages: ${langs.join(", ")}`);
+  log.info(`Languages: ${langs.join(", ")}`);
 
   // 2. Generate per-repo LLM summaries in parallel (all configured languages)
-  console.log(`  Generating summaries (${langs.join(" + ")}) in parallel...`);
+  log.info(`Generating summaries (${langs.join(" + ")}) in parallel...`);
   type Summaries = Awaited<ReturnType<typeof generateSummaries>>;
   const summariesByLang = {} as Record<Lang, Summaries>;
   const summaryResults = await Promise.all(
@@ -326,7 +329,7 @@ async function main(): Promise<void> {
   langs.forEach((lang, i) => (summariesByLang[lang] = summaryResults[i]!));
 
   // 3. Generate cross-repo comparisons in parallel (all configured languages)
-  console.log("  Calling LLM for comparative analyses...");
+  log.info("Calling LLM for comparative analyses...");
   const makeOpenclawDigest = (lang: Lang): RepoDigest => ({
     config: OPENCLAW,
     issues: fetchedOpenclaw.issues,
@@ -381,8 +384,8 @@ async function main(): Promise<void> {
       lang,
     );
 
-    console.log(`  Saved ${saveFile(cliContent[lang], dateStr, `ai-cli${suffix}.md`)}`);
-    console.log(`  Saved ${saveFile(openclawContent[lang], dateStr, `ai-agents${suffix}.md`)}`);
+    log.info(`Saved ${saveFile(cliContent[lang], dateStr, `ai-cli${suffix}.md`)}`);
+    log.info(`Saved ${saveFile(openclawContent[lang], dateStr, `ai-agents${suffix}.md`)}`);
   }
 
   // Web report — generated per language; web-state is persisted once below,
@@ -391,7 +394,7 @@ async function main(): Promise<void> {
     await saveWebReport(webResults, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang);
   }
   saveWebState(webState);
-  console.log("  [web] State saved.");
+  log.info("[web] State saved.");
 
   await Promise.all(
     langs.flatMap((lang) => {
@@ -448,7 +451,7 @@ async function main(): Promise<void> {
     reportsByLang[lang] = reports;
   }
 
-  console.log("  Generating highlights for Telegram...");
+  log.info("Generating highlights for Telegram...");
   // Generate + parse one language, retrying once. The LLM occasionally emits
   // slightly malformed JSON that repairJson can't fix (seen 2026-07-13: vi
   // failed with "Expected ',' or ']' after array element"); a fresh generation
@@ -460,7 +463,7 @@ async function main(): Promise<void> {
         return parseLlmJson<ReportHighlights>(await callLlm(buildHighlightsPrompt(reports, lang), 2048));
       } catch (err) {
         const tag = attempt < 2 ? "retrying" : "giving up";
-        console.error(`  [highlights] ${lang} attempt ${attempt} failed (${tag}): ${err}`);
+        log.error({ lang, attempt }, `[highlights] ${lang} attempt ${attempt} failed (${tag}): ${err}`);
       }
     }
     return {};
@@ -477,14 +480,14 @@ async function main(): Promise<void> {
   if (nonEmptyLang) {
     for (const lang of langs) {
       if (Object.keys(highlights[lang]).length === 0) {
-        console.warn(`  [highlights] ${lang} empty — backfilling from ${nonEmptyLang}`);
+        log.warn({ lang }, `[highlights] ${lang} empty — backfilling from ${nonEmptyLang}`);
         highlights[lang] = highlights[nonEmptyLang];
       }
     }
   }
 
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
-  console.log(`  Saved ${highlightsPath}`);
+  log.info(`Saved ${highlightsPath}`);
 
   // 6. Create GitHub issues for CLI + OpenClaw (all configured languages)
   if (digestRepo) {
@@ -494,21 +497,21 @@ async function main(): Promise<void> {
         cliContent[lang],
         ISSUE_LABELS.cli[lang],
       );
-      if (cliUrl) console.log(`  Created CLI issue (${lang}): ${cliUrl}`);
+      if (cliUrl) log.info({ lang }, `Created CLI issue (${lang}): ${cliUrl}`);
 
       const ocUrl = await tryCreateGitHubIssue(
         OPENCLAW_ISSUE_TITLE(dateStr, lang),
         openclawContent[lang],
         ISSUE_LABELS.openclaw[lang],
       );
-      if (ocUrl) console.log(`  Created OpenClaw issue (${lang}): ${ocUrl}`);
+      if (ocUrl) log.info({ lang }, `Created OpenClaw issue (${lang}): ${ocUrl}`);
     }
   }
 
-  console.log("Done!");
+  log.info("Done!");
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((err: unknown) => {
+  log.fatal(`Digest run failed: ${err}`);
   process.exit(1);
 });

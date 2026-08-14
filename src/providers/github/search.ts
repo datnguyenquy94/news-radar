@@ -7,6 +7,9 @@
  */
 
 import { GITHUB_API, githubGet } from "./client.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("trending:search");
 
 export interface SearchRepo {
   fullName: string;
@@ -71,9 +74,9 @@ export async function searchAiRepos(pushedSince: string): Promise<SearchRepo[]> 
           });
           added++;
         }
-        console.log(`  [trending/search] "${label}": ${added} new repos`);
+        log.info(`"${label}": ${added} new repos`);
       } catch (err) {
-        console.error(`  [trending/search] "${label}": ${err}`);
+        log.error(`"${label}": ${err}`);
       }
     }),
   );

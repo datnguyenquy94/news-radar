@@ -3,6 +3,9 @@
  */
 
 import { fetchTrendingModels, type HfModel } from "../../providers/huggingface.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("hf");
 
 export type { HfModel };
 
@@ -14,10 +17,10 @@ export interface HfData {
 export async function fetchHfData(): Promise<HfData> {
   try {
     const models = await fetchTrendingModels();
-    console.log(`  [hf] ${models.length} trending models`);
+    log.info(`${models.length} trending models`);
     return { models, fetchSuccess: models.length > 0 };
   } catch (err) {
-    console.error(`  [hf] fetch failed: ${err}`);
+    log.error(`fetch failed: ${err}`);
     return { models: [], fetchSuccess: false };
   }
 }

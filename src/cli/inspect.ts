@@ -16,9 +16,10 @@
  *   2 — skipped because a required secret/env var is absent
  *
  * Output routing: results go to stdout (`--json` for raw JSON), everything else
- * — including the `console.log` diagnostics the probed modules emit — is routed
- * to stderr, so `pnpm -s inspect vnmarket --json | jq` works. (`-s` silences
- * pnpm's own run banner, which pnpm prints to stdout.)
+ * goes to stderr, so `pnpm -s inspect vnmarket --json | jq` works. (`-s`
+ * silences pnpm's own run banner, which pnpm prints to stdout.) The probed
+ * modules log through `core/logger.ts`, which is already stderr-only; the
+ * console routing below only catches a stray `console.log` from a dependency.
  *
  * Probes never write outside a temp dir, never create GitHub issues and never
  * send notifications.
@@ -26,6 +27,7 @@
 
 import "dotenv/config";
 import { pathToFileURL } from "node:url";
+import { createLogger } from "../core/logger.ts";
 import {
   ProbeError,
   SkipError,
@@ -34,6 +36,8 @@ import {
   rejectUnknownOptions,
   type Target,
 } from "./inspect/kit.ts";
+
+const log = createLogger("inspect");
 
 // ---------------------------------------------------------------------------
 // Output routing
@@ -45,10 +49,20 @@ function out(text: string): void {
 }
 
 /**
- * Route every console channel to stderr for the rest of the process. The probed
- * modules log progress with `console.log`; that must not land in the JSON a
- * caller is piping into `jq`.
+ * The CLI's own text: usage, help, and the `SKIPPED:` / `FAILED:` / `ERROR:`
+ * status lines callers grep for. Written raw rather than logged — the wording
+ * is this command's contract, not a diagnostic to be wrapped in a log record.
  */
+function err(text: string): void {
+  process.stderr.write(`${text}\n`);
+}
+
+/**
+ * Route every console channel to stderr for the rest of the process. Our own
+ * modules log through `core/logger.ts` (stderr already), but a dependency that
+ * writes to stdout would corrupt the JSON a caller is piping into `jq`.
+ */
+/* eslint-disable no-console -- this function is the console opt-out itself */
 function routeConsoleToStderr(): void {
   const toStderr = (...parts: unknown[]): void => {
     console.error(...parts);
@@ -58,6 +72,7 @@ function routeConsoleToStderr(): void {
   console.debug = toStderr;
   console.warn = toStderr;
 }
+/* eslint-enable no-console */
 
 // ---------------------------------------------------------------------------
 // Help
@@ -116,14 +131,14 @@ async function main(argv: string[]): Promise<number> {
   if (!name) {
     // Usage is a diagnostic, not a result — stderr, like every other message
     // that is not the output of a target.
-    for (const line of usage(targets)) console.error(line);
+    for (const line of usage(targets)) err(line);
     return args.has("help") ? 0 : 1;
   }
 
   const target = targets.find((t) => t.name === name);
   if (!target) {
-    console.error(`unknown target: ${name}`);
-    console.error(`Run \`pnpm inspect --list\` to see the ${targets.length} available targets.`);
+    err(`unknown target: ${name}`);
+    err(`Run \`pnpm inspect --list\` to see the ${targets.length} available targets.`);
     return 1;
   }
 
@@ -136,7 +151,8 @@ async function main(argv: string[]): Promise<number> {
     rejectUnknownOptions(target, args);
     const started = Date.now();
     const result = await target.run(args);
-    console.error(`[inspect] ${target.name} finished in ${((Date.now() - started) / 1000).toFixed(1)}s`);
+    const ms = Date.now() - started;
+    log.info({ target: target.name, ms }, `${target.name} finished in ${(ms / 1000).toFixed(1)}s`);
 
     if (args.has("json")) {
       out(JSON.stringify(result.json, null, 2));
@@ -145,20 +161,20 @@ async function main(argv: string[]): Promise<number> {
     }
 
     if (result.failure) {
-      console.error(`FAILED: ${target.name} — ${result.failure}`);
+      err(`FAILED: ${target.name} — ${result.failure}`);
       return 1;
     }
     return 0;
-  } catch (err) {
-    if (err instanceof SkipError) {
-      console.error(`SKIPPED: ${target.name} requires ${err.envVar}`);
+  } catch (e) {
+    if (e instanceof SkipError) {
+      err(`SKIPPED: ${target.name} requires ${e.envVar}`);
       return 2;
     }
-    if (err instanceof ProbeError) {
-      console.error(`ERROR: ${target.name} — ${err.message}`);
+    if (e instanceof ProbeError) {
+      err(`ERROR: ${target.name} — ${e.message}`);
       return 1;
     }
-    console.error(`ERROR: ${target.name} —`, err);
+    err(`ERROR: ${target.name} — ${e}`);
     return 1;
   }
 }
@@ -174,8 +190,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     .then((code) => {
       process.exitCode = code;
     })
-    .catch((err: unknown) => {
-      console.error("[inspect]", err);
+    .catch((e: unknown) => {
+      log.fatal({ err: e }, "inspect failed");
       process.exitCode = 1;
     });
 }

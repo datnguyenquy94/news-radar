@@ -1,5 +1,5 @@
 /**
- * Official AI-company content — payload for the `ai-web` report.
+ * Official AI-company content — payload for the "ai-web" report.
  *
  * Strategy:
  *   - Discover article URLs via sitemaps (no date filter needed — lastmod is reliable)
@@ -8,7 +8,7 @@
  *   - After every run, mark ALL discovered URLs as seen so future runs stay incremental
  *
  * The state object is passed in and mutated in place; persisting it is
- * `platform/state/web-state.ts`'s job, not this module's.
+ * "platform/state/web-state.ts"'s job, not this module's.
  */
 
 import { sleep } from "../../core/date.ts";
@@ -22,6 +22,9 @@ import {
   urlCategory,
   type SitemapEntry,
 } from "../../providers/sitemap.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("web");
 
 // ---------------------------------------------------------------------------
 // Types
@@ -125,7 +128,7 @@ async function discoverUrls(site: "anthropic" | "openai"): Promise<SitemapEntry[
         results.push(...parseSitemapUrls(xml));
         await sleep(100);
       } catch (err) {
-        console.error(`  [web/${site}] sub-sitemap "${name}" failed: ${err}`);
+        log.error({ site }, `sub-sitemap "${name}" failed: ${err}`);
       }
     }
   } else {
@@ -162,9 +165,9 @@ export async function fetchSiteContent(
   const siteState = state[site];
   const isFirstRun = Object.keys(siteState.seenUrls).length === 0;
 
-  console.log(`  [web/${site}] Discovering URLs from sitemap...`);
+  log.info({ site }, "Discovering URLs from sitemap...");
   const allDiscovered = await discoverUrls(site);
-  console.log(`  [web/${site}] Discovered ${allDiscovered.length} URLs`);
+  log.info({ site }, `Discovered ${allDiscovered.length} URLs`);
 
   // Newest first
   allDiscovered.sort((a, b) => {
@@ -188,8 +191,9 @@ export async function fetchSiteContent(
   // Cap content fetches on first run to avoid excessive runtime
   const toFetch = isFirstRun ? newUrls.slice(0, MAX_CONTENT_FETCH_FIRST_RUN) : newUrls;
 
-  console.log(
-    `  [web/${site}] ${isFirstRun ? "First run" : "Incremental"}: ` +
+  log.info(
+    { site },
+    `${isFirstRun ? "First run" : "Incremental"}: ` +
       `${newUrls.length} new URLs, fetching content for ${toFetch.length}`,
   );
 
@@ -220,7 +224,7 @@ export async function fetchSiteContent(
           category: urlCategory(loc),
         });
       } catch (err) {
-        console.error(`  [web/${site}] Failed to fetch ${loc}: ${err}`);
+        log.error({ site }, `Failed to fetch ${loc}: ${err}`);
       }
       await sleep(FETCH_DELAY_MS);
     }

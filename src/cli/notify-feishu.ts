@@ -14,16 +14,19 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildFeishuMessage, getWebhookUrls, sendFeishu } from "../platform/notify/feishu.ts";
 import type { Highlights } from "../platform/notify/telegram.ts";
+import { createLogger } from "../core/logger.ts";
+
+const log = createLogger("feishu");
 
 async function main(): Promise<void> {
   const urls = getWebhookUrls();
   if (!urls.length) {
-    console.log("[feishu] FEISHU_WEBHOOK_URLS not set — skipping.");
+    log.info("FEISHU_WEBHOOK_URLS not set — skipping.");
     return;
   }
 
   if (!fs.existsSync("manifest.json")) {
-    console.log("[feishu] manifest.json not found — skipping.");
+    log.info("manifest.json not found — skipping.");
     return;
   }
 
@@ -33,7 +36,7 @@ async function main(): Promise<void> {
 
   const latest = dates?.[0];
   if (!latest) {
-    console.log("[feishu] manifest is empty — skipping.");
+    log.info("manifest is empty — skipping.");
     return;
   }
   const { date, reports } = latest;
@@ -44,7 +47,7 @@ async function main(): Promise<void> {
     try {
       highlights = JSON.parse(fs.readFileSync(highlightsPath, "utf-8")) as Highlights;
     } catch {
-      console.log("[feishu] Failed to parse highlights.json — sending without highlights.");
+      log.info("Failed to parse highlights.json — sending without highlights.");
     }
   }
 
@@ -56,16 +59,16 @@ async function main(): Promise<void> {
 
   const content = buildFeishuMessage(date, reports, undefined, highlights);
 
-  console.log(`[feishu] Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports)…`);
+  log.info(`Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports)…`);
   await sendFeishu(title, content);
-  console.log("[feishu] Done!");
+  log.info("Done!");
 }
 
 // Only auto-send when run directly (`tsx src/cli/notify-feishu.ts`). Guard prevents an
 // accidental send when another module imports from here.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e: unknown) => {
-    console.error("[feishu]", e instanceof Error ? e.message : e);
+    log.error(`Failed: ${e instanceof Error ? e.message : e}`);
     process.exit(1);
   });
 }

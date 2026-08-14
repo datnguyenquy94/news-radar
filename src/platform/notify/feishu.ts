@@ -10,6 +10,9 @@
 
 import { NOTIFY_LABELS } from "../../core/i18n/index.ts";
 import type { Highlights } from "./telegram.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("feishu");
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
@@ -48,7 +51,7 @@ export async function sendFeishu(title: string, content: string): Promise<void> 
   const failures = results.filter((r) => r.status === "rejected");
   if (failures.length) {
     const msgs = failures.map((r) => (r as PromiseRejectedResult).reason);
-    console.error(`[feishu] ${failures.length}/${urls.length} webhook(s) failed:`, msgs);
+    log.error({ failures: msgs }, `${failures.length}/${urls.length} webhook(s) failed`);
     if (failures.length === urls.length) throw new Error("All Feishu webhooks failed");
   }
 }

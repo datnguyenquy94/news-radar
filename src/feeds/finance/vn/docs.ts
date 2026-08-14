@@ -23,6 +23,9 @@ import {
   findLatestArticleUrl,
 } from "../../../providers/nso.ts";
 import { VBMA_SOURCE_NAME, fetchLatestBulletin } from "../../../providers/vbma.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("vndocs");
 
 // ---------------------------------------------------------------------------
 // Types
@@ -119,14 +122,14 @@ async function fetchNsoDoc(
 
     const article = await fetchNsoArticle(articleUrl);
     if (article.usedFallback) {
-      console.log(`  [vndocs] ${id}: Readability fell back to tag-strip`);
+      log.info(`${id}: Readability fell back to tag-strip`);
     }
     const excerpt = relevantExcerpt(article.text, keywords, maxChars);
     if (excerpt.length < MIN_EXCERPT_CHARS) {
       throw new Error(`excerpt too short (${excerpt.length} chars)`);
     }
 
-    console.log(`  [vndocs] ${id}: ${excerpt.length} chars from ${articleUrl}`);
+    log.info(`${id}: ${excerpt.length} chars from ${articleUrl}`);
     return {
       id,
       source: NSO_SOURCE_NAME,
@@ -136,7 +139,7 @@ async function fetchNsoDoc(
       excerpt,
     };
   } catch (err) {
-    console.error(`  [vndocs] ${id} failed: ${err}`);
+    log.error(`${id} failed: ${err}`);
     return null;
   }
 }
@@ -162,8 +165,8 @@ async function fetchVbmaDoc(): Promise<VnDoc | null> {
     if (ranked.length === 0) throw new Error(`no relevant pages among ${bulletin.pages.length}`);
 
     const excerpt = formatPdfExcerpt(ranked, PDF_PAGE_MAX_CHARS);
-    console.log(
-      `  [vndocs] ${id}: kept pages ${ranked.map((p) => p.page).join(",")} of ${bulletin.pages.length} (${excerpt.length} chars)`,
+    log.info(
+      `${id}: kept pages ${ranked.map((p) => p.page).join(",")} of ${bulletin.pages.length} (${excerpt.length} chars)`,
     );
     return {
       id,
@@ -175,7 +178,7 @@ async function fetchVbmaDoc(): Promise<VnDoc | null> {
       pages: ranked.map((p) => p.page),
     };
   } catch (err) {
-    console.error(`  [vndocs] ${id} failed: ${err}`);
+    log.error(`${id} failed: ${err}`);
     return null;
   }
 }
@@ -185,7 +188,7 @@ async function fetchVbmaDoc(): Promise<VnDoc | null> {
 // ---------------------------------------------------------------------------
 
 export async function fetchVnDocsData(): Promise<VnDocsData> {
-  console.log("  [vndocs] Fetching NSO articles + VBMA weekly PDF...");
+  log.info("Fetching NSO articles + VBMA weekly PDF...");
 
   const results = await Promise.all([
     fetchNsoDoc("nso-cpi", NSO_CPI_LISTING, CPI_KEYWORDS, CPI_MAX_CHARS),
@@ -194,6 +197,6 @@ export async function fetchVnDocsData(): Promise<VnDocsData> {
   ]);
 
   const docs = results.filter((d): d is VnDoc => d !== null);
-  console.log(`  [vndocs] ${docs.length}/3 documents extracted`);
+  log.info(`${docs.length}/3 documents extracted`);
   return { docs, fetchSuccess: docs.length > 0 };
 }

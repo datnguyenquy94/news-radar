@@ -7,6 +7,9 @@
  */
 
 import { fetchItems, fetchTopStoryIds, toHnStory, type HnStory } from "../../providers/hackernews.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("hn");
 
 export type { HnStory };
 
@@ -61,10 +64,10 @@ export async function fetchHnData(): Promise<HnData> {
       }
     }
 
-    console.log(`  [hn] ${stories.length} AI stories (scanned ${topIds.length} topstories)`);
+    log.info(`${stories.length} AI stories (scanned ${topIds.length} topstories)`);
     return { stories, fetchSuccess: stories.length > 0 };
   } catch (err) {
-    console.error(`  [hn] fetch failed: ${err}`);
+    log.error(`fetch failed: ${err}`);
     return { stories: [], fetchSuccess: false };
   }
 }

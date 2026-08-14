@@ -9,6 +9,9 @@ import { callLlm, LLM_TOKENS_LISTING } from "../../llm/client.ts";
 import { saveFile } from "../files.ts";
 import { tryCreateGitHubIssue } from "../../publish/github-issues.ts";
 import type { HnData } from "../../../feeds/ai/hn.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("report:hn");
 
 // ---------------------------------------------------------------------------
 // Hacker News report
@@ -23,36 +26,36 @@ export async function saveHnReport(
   lang: Lang = "vi",
 ): Promise<void> {
   if (!hnData.fetchSuccess) {
-    console.log(`  [hn/${lang}] No data available, skipping report.`);
+    log.info({ lang }, "No data available, skipping report.");
     return;
   }
 
-  console.log(`  [hn/${lang}] Calling LLM for HN report...`);
+  log.info({ lang }, "Calling LLM for HN report...");
   try {
     const hnSummary = await callLlm(buildHnPrompt(hnData, dateStr, lang), LLM_TOKENS_LISTING);
     const fileName = lang === "en" ? "ai-hn-en.md" : "ai-hn.md";
     const header =
       lang === "en"
         ? `# ${HN_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> Source: [Hacker News](https://news.ycombinator.com/) | ` +
+          "> Source: [Hacker News](https://news.ycombinator.com/) | " +
           `${hnData.stories.length} stories | Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${HN_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> Nguồn dữ liệu: [Hacker News](https://news.ycombinator.com/) | ` +
+          "> Nguồn dữ liệu: [Hacker News](https://news.ycombinator.com/) | " +
           `${hnData.stories.length} bài | Thời gian tạo: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const hnContent = header + hnSummary + footer;
 
-    console.log(`  Saved ${saveFile(hnContent, dateStr, fileName)}`);
+    log.info(`Saved ${saveFile(hnContent, dateStr, fileName)}`);
 
     if (digestRepo) {
       const hnTitle = HN_REPORT.issueTitle(dateStr, lang);
       const hnLabel = ISSUE_LABELS.hn[lang];
       const hnUrl = await tryCreateGitHubIssue(hnTitle, hnContent, hnLabel);
-      if (hnUrl) console.log(`  Created HN issue (${lang}): ${hnUrl}`);
+      if (hnUrl) log.info(`Created HN issue (${lang}): ${hnUrl}`);
     }
   } catch (err) {
-    console.error(`  [hn/${lang}] Report generation failed: ${err}`);
+    log.error({ lang }, `Report generation failed: ${err}`);
   }
 }

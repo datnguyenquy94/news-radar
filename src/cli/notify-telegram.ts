@@ -13,16 +13,19 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { buildMessage, sendTelegram, type Highlights } from "../platform/notify/telegram.ts";
+import { createLogger } from "../core/logger.ts";
+
+const log = createLogger("notify");
 
 async function main(): Promise<void> {
   const BOT_TOKEN = process.env["TELEGRAM_BOT_TOKEN"] ?? "";
   if (!BOT_TOKEN) {
-    console.log("[notify] TELEGRAM_BOT_TOKEN not set — skipping.");
+    log.info("TELEGRAM_BOT_TOKEN not set — skipping.");
     return;
   }
 
   if (!fs.existsSync("manifest.json")) {
-    console.log("[notify] manifest.json not found — skipping.");
+    log.info("manifest.json not found — skipping.");
     return;
   }
 
@@ -32,7 +35,7 @@ async function main(): Promise<void> {
 
   const latest = dates?.[0];
   if (!latest) {
-    console.log("[notify] manifest is empty — skipping.");
+    log.info("manifest is empty — skipping.");
     return;
   }
   const { date, reports } = latest;
@@ -44,22 +47,22 @@ async function main(): Promise<void> {
     try {
       highlights = JSON.parse(fs.readFileSync(highlightsPath, "utf-8")) as Highlights;
     } catch {
-      console.log("[notify] Failed to parse highlights.json — sending without highlights.");
+      log.info("Failed to parse highlights.json — sending without highlights.");
     }
   }
 
   const text = buildMessage(date, reports, undefined, highlights);
 
-  console.log(`[notify] Sending Telegram message for ${date} (${reports.length} reports)…`);
+  log.info(`Sending Telegram message for ${date} (${reports.length} reports)…`);
   await sendTelegram(text);
-  console.log("[notify] Done!");
+  log.info("Done!");
 }
 
 // Only auto-send when run directly (`tsx src/cli/notify-telegram.ts`). Guard prevents an
 // accidental send when another module imports `buildMessage` from here.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e: unknown) => {
-    console.error("[notify]", e instanceof Error ? e.message : e);
+    log.error(`Failed: ${e instanceof Error ? e.message : e}`);
     process.exit(1);
   });
 }

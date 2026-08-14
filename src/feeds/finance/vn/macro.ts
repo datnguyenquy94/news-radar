@@ -23,6 +23,9 @@ import { fetchIndicator } from "../../../providers/worldbank.ts";
 import { VCB_MAX_LOOKBACK_DAYS, fetchUsdBoard, type VcbBoard } from "../../../providers/vietcombank.ts";
 import { OZ_PER_TAEL, fetchGoldBoard } from "../../../providers/sjc.ts";
 import type { Lang } from "../../../core/i18n/index.ts";
+import { createLogger } from "../../../core/logger.ts";
+
+const log = createLogger("vnmacro");
 
 // ---------------------------------------------------------------------------
 // Types
@@ -194,7 +197,7 @@ async function fetchVcbBoard(date: Date, lookbackDays = VCB_MAX_LOOKBACK_DAYS): 
       if (board) return { ...board, asOf: board.asOf || day };
     } catch (err) {
       // A single missing day is expected; only the exhausted loop is a failure.
-      if (back === lookbackDays) console.error(`  [vnmacro] VCB ${day} failed: ${err}`);
+      if (back === lookbackDays) log.error(`VCB ${day} failed: ${err}`);
     }
   }
   return null;
@@ -210,13 +213,13 @@ async function fetchFx(now: Date): Promise<VnFxRate | null> {
   ]);
 
   if (!latest) {
-    console.error("  [vnmacro] no VCB board available");
+    log.error("no VCB board available");
     return null;
   }
   const pct = (then: VcbBoard | null): number | null =>
     then && then.sell !== 0 ? round(((latest.sell - then.sell) / then.sell) * 100, 2) : null;
 
-  console.log(`  [vnmacro] USD/VND ${latest.sell} (as of ${latest.asOf})`);
+  log.info(`USD/VND ${latest.sell} (as of ${latest.asOf})`);
   return {
     transfer: latest.transfer,
     sell: latest.sell,
@@ -259,7 +262,7 @@ async function fetchGlobalMetric(spec: (typeof GLOBAL_SERIES)[number]): Promise<
       asOf: new Date(last.t * 1000).toISOString().slice(0, 10),
     };
   } catch (err) {
-    console.error(`  [vnmacro] ${spec.symbol} failed: ${err}`);
+    log.error(`${spec.symbol} failed: ${err}`);
     return base;
   }
 }
@@ -304,7 +307,7 @@ async function fetchUs10y(): Promise<VnGlobalMetric> {
       asOf: latest.date,
     };
   } catch (err) {
-    console.error(`  [vnmacro] FRED ${US_10Y.series} failed (${err}) — falling back to Yahoo`);
+    log.error(`FRED ${US_10Y.series} failed (${err}) — falling back to Yahoo`);
     return fetchGlobalMetric({
       id: US_10Y.id,
       symbol: US_10Y.fallbackSymbol,
@@ -333,8 +336,8 @@ async function fetchGold(fx: VnFxRate | null, worldGold: VnGlobalMetric | undefi
         ? round((sellUsdPerOz / world - 1) * 100, 1)
         : null;
 
-    console.log(
-      `  [vnmacro] SJC gold sell ${board.sell.toLocaleString("en-US")} VND/tael` +
+    log.info(
+      `SJC gold sell ${board.sell.toLocaleString("en-US")} VND/tael` +
         (premiumPct === null ? "" : ` → $${sellUsdPerOz}/oz, premium ${premiumPct}%`),
     );
     return {
@@ -346,7 +349,7 @@ async function fetchGold(fx: VnFxRate | null, worldGold: VnGlobalMetric | undefi
       asOf: board.asOf,
     };
   } catch (err) {
-    console.error(`  [vnmacro] SJC gold failed: ${err}`);
+    log.error(`SJC gold failed: ${err}`);
     return null;
   }
 }
@@ -378,7 +381,7 @@ async function fetchAnnualMetric(spec: (typeof ANNUAL_SERIES)[number]): Promise<
       year: latest.date,
     };
   } catch (err) {
-    console.error(`  [vnmacro] World Bank ${spec.indicator} failed: ${err}`);
+    log.error(`World Bank ${spec.indicator} failed: ${err}`);
     return base;
   }
 }
@@ -388,11 +391,11 @@ async function fetchAnnualMetric(spec: (typeof ANNUAL_SERIES)[number]): Promise<
 // ---------------------------------------------------------------------------
 
 export async function fetchVnMacroData(now = new Date()): Promise<VnMacroData> {
-  console.log("  [vnmacro] Fetching VCB FX + global drivers + FRED + SJC gold + World Bank...");
+  log.info("Fetching VCB FX + global drivers + FRED + SJC gold + World Bank...");
 
   const [fx, yahooSeries, us10y, annual] = await Promise.all([
     fetchFx(now).catch((err) => {
-      console.error(`  [vnmacro] FX failed: ${err}`);
+      log.error(`FX failed: ${err}`);
       return null;
     }),
     Promise.all(GLOBAL_SERIES.map(fetchGlobalMetric)),
@@ -413,8 +416,8 @@ export async function fetchVnMacroData(now = new Date()): Promise<VnMacroData> {
   );
 
   const withData = global.filter((m) => m.latest !== null).length;
-  console.log(
-    `  [vnmacro] ${withData}/${global.length} global series, fx ${fx ? "ok" : "missing"}, ` +
+  log.info(
+    `${withData}/${global.length} global series, fx ${fx ? "ok" : "missing"}, ` +
       `gold ${gold ? "ok" : "missing"}`,
   );
 

@@ -6,6 +6,9 @@
  */
 
 import { fetchPosts, type PhProduct } from "../../providers/producthunt.ts";
+import { createLogger } from "../../core/logger.ts";
+
+const log = createLogger("ph");
 
 export type { PhProduct };
 
@@ -33,7 +36,7 @@ const AI_TOPIC_SLUGS = new Set([
 export async function fetchPhData(now = new Date()): Promise<PhData> {
   const token = process.env["PRODUCTHUNT_TOKEN"] ?? "";
   if (!token) {
-    console.log("  [ph] PRODUCTHUNT_TOKEN not set — skipping.");
+    log.info("PRODUCTHUNT_TOKEN not set — skipping.");
     return { products: [], fetchSuccess: false };
   }
 
@@ -49,10 +52,10 @@ export async function fetchPhData(now = new Date()): Promise<PhData> {
       .slice(0, TOP_PRODUCTS)
       .map(({ topicSlugs: _topicSlugs, ...product }) => product);
 
-    console.log(`  [ph] ${products.length} AI products (from ${totalReturned} total)`);
+    log.info(`${products.length} AI products (from ${totalReturned} total)`);
     return { products, fetchSuccess: products.length > 0 };
   } catch (err) {
-    console.error(`  [ph] fetch failed: ${err}`);
+    log.error(`fetch failed: ${err}`);
     return { products: [], fetchSuccess: false };
   }
 }

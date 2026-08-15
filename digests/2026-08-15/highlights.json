@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "9 active AI CLI projects across 3 maturity tiers",
+      "Windows/WSL compatibility crises plague all tools",
+      "Model safeguards false-flag defensive security code",
+      "Ecosystem converging on multi-agent observability standards",
+      "Session/context durability emerges as baseline expectation",
+      "Provider fragmentation dominates every community discussion"
+    ],
+    "ai-agents": [
+      "OpenClaw: 303 issues, 500 PRs in 24 hours",
+      "101 merged/closed PRs signal steady integration",
+      "P1/P0 bugs in message delivery and session state",
+      "Provider fixes: DeepSeek, Feishu, WhatsApp, LINE, Matrix",
+      "Control UI overhaul: sidebar, chat header, sessions",
+      "Latest stable 2026.7.x with beta 2026.7.2-beta.x"
+    ],
+    "ai-trending": [
+      "Shift to local-first AI agent workspaces dominates",
+      "holaOS +769 stars: on-device agent workspace",
+      "needle +662 stars: local AI infrastructure",
+      "spec-kit +1,160 stars: GitHub spec-driven dev",
+      "semantica +1,181 stars: graph-native tooling",
+      "ragflow trending +473, 88k★ all-time RAG leader"
+    ],
+    "ai-web": [
+      "Anthropic publishes 2 articles, OpenAI publishes 0",
+      "Claude text watermarking for EU AI Act compliance",
+      "Watermark modifies token probabilities, zero overhead",
+      "Worker retraining: +2-3pp employment at ~$13K cost",
+      "Government recoups ~half cost via fiscal offsets",
+      "Anthropic leads AI governance and labor-economics discourse"
+    ],
+    "ai-hn": [
+      "GLM-5.3 claims frontier coding with cyber capabilities",
+      "Gemini 3.7 Flash emphasizes speed/cost efficiency",
+      "DeepSeek V4 Pro 0814 release sparks discussion",
+      "Cerebras/GPT-5.6: hardware-accelerated inference shift",
+      "Google homomorphic encryption for AI privacy",
+      "Open-source vs anti-LLM sentiment debate erupts"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 family dominates: 3 variants in top 15",
+      "Qwen3.8-27B: 9K+ likes, flagship multimodal",
+      "Kimi-K3: 10.7K likes, 2M downloads",
+      "MiniMax-H3 video: 11.7M downloads surging",
+      "DeepSeek-V4 Flash/Pro: sustained enterprise adoption",
+      "GGUF quantizations and LoRA fine-tunes trending"
+    ],
+    "ai-community": [
+      "Production-grade AI engineering over model-chasing",
+      "Durable memory: vector databases aren't enough",
+      "OpenAI invoice auditing reveals untagged spend",
+      "MCP server patterns and agent memory minimalism",
+      "Reasoning-trace leakage from LLM APIs concerns",
+      "Checkpointing and human-in-loop design center stage"
+    ],
+    "fin-macro": [
+      "Fed holds 3.63%, balance sheet modestly expanding",
+      "10Y yield 4.63% signals highly restrictive conditions",
+      "Inflation sticky: CPI 3.5%, core PCE 3.3%, PPI 4.7%",
+      "Yield curve steepens to +0.51%, no recession signal",
+      "Credit spreads benign 2.71%, VIX 14.6 complacency",
+      "Margin debt down 5.6% MoM, retail deleveraging"
+    ],
+    "fin-vnmacro": [
+      "VN-Index drops 2.10% to 1,729.08",
+      "VN30 falls 1.70%, futures show neutral sentiment",
+      "Dong strengthens: USD/VND 26,330 (-0.45% 1M)",
+      "DXY down 0.32%, US 10Y up 1.31% in 20 days",
+      "Gold surges 10.45% to $4,432/oz safe-haven bid",
+      "Turnover and foreign flow data unavailable"
+    ]
+  }
+}

@@ -19,7 +19,10 @@ pnpm inspect --list           # list every per-module probe target
 pnpm inspect <target> --help  # that target's options
 pnpm -s inspect <target> --json | jq   # raw JSON (-s silences pnpm's stdout banner)
 
-pnpm test           # vitest — mocked unit tests + LIVE source-contract tests (hits the network, ~60s)
+pnpm test           # vitest — LIVE tests only: feed contracts + per-provider probes (hits the network, ~60s)
+pnpm test:live      # same as `pnpm test`, spelled explicitly
+pnpm test:providers # provider probes only — one file per src/providers module
+pnpm test:feeds     # feed contracts only — one file per src/feeds module
 pnpm test:watch     # vitest watch mode
 pnpm test:coverage  # vitest with v8 coverage
 pnpm typecheck      # tsc --noEmit
@@ -225,18 +228,38 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | `src/platform/notify/telegram.ts` | Telegram message building + delivery; exports `buildMessage`, `sendTelegram`, `Highlights` |
 | `src/platform/notify/feishu.ts` | Feishu (Lark) card message building + delivery; exports `buildFeishuMessage`, `sendFeishu`, `getWebhookUrls` |
 
-### `src/__tests__/` — two test layers
+### `src/__tests__/` — two live test layers
 
-- **Mocked unit tests** (`src/__tests__/*.test.ts`) — parse/transform logic against stubbed `fetch`. Fast, offline, deterministic. These catch *our* regressions.
-- **Live source contracts** (`src/__tests__/live/{ai,finance,vietnam}.live.test.ts`) — call every feed against the real endpoint and assert the fields the reports depend on are still populated. These catch *upstream* changes. Every feed maps a missing upstream field to `""`, `0` or `null` instead of throwing, so a renamed field never surfaces as an error — it surfaces as a well-formed object full of blanks. `expectPopulated` in `src/__tests__/live/contract.ts` is what turns that silent degradation into a red test naming the exact field.
+The suite is **live only**. There is no mocked layer: the stubbed-`fetch` unit tests that used to sit in `src/__tests__/*.test.ts` were deleted deliberately, because a passing test against a recorded response says nothing about whether the source still answers that way today. Everything under `src/__tests__/` calls a real endpoint.
+
+**The test tree mirrors `src/`**: one test file per source module, at the same path. `src/providers/github/repos.ts` is tested by `src/__tests__/live/providers/github/repos.live.test.ts`, `src/feeds/ai/hn.ts` by `src/__tests__/live/feeds/ai/hn.live.test.ts`. Nothing groups several sources into one file — a red file names the module, and one host's outage cannot mask another's.
+
+```
+src/__tests__/live/
+├── contract.ts        assertions (expectPopulated, expectNonEmpty, …), LIVE_OPTS, hasEnv, daysAgo, isoDate
+├── status.ts          probe() / recordSkip() + the status table
+├── global-status.ts   vitest globalSetup: reset before the run, print after it
+├── providers/         21 files, mirroring src/providers/ (incl. providers/github/)
+└── feeds/             11 files, mirroring src/feeds/ (ai/, finance/, finance/vn/)
+```
+
+- **Live provider probes** (`live/providers/**`) — call one provider directly, so a broken host is attributed to the module that talks to it. `pnpm test:providers`.
+- **Live feed contracts** (`live/feeds/**`) — call one feed and assert the fields the reports depend on are still populated. `pnpm test:feeds`. Every feed maps a missing upstream field to `""`, `0` or `null` instead of throwing, so a renamed field never surfaces as an error — it surfaces as a well-formed object full of blanks. `expectPopulated` is what turns that silent degradation into a red test naming the exact field.
+
+Both layers are worth keeping because they fail differently: a feed applies the degrade policy and can stay green while half a composite source is dark, while a provider probe cannot. Read them together — a green `providers/yahoo.ts` row beside a red `feeds/finance/vn/macro.ts` row says the transport is fine and the feed's composition or filtering is what broke.
+
+Every test wraps its call in `probe(module, target, run)` from `live/status.ts`, where `run` asserts and returns a one-line summary of what came back. Outcomes are appended to a JSONL file (one module per file means one worker per module, so nothing in memory is shared) and printed as a single status table — ✔ OK / ✘ FAIL / – SKIP with timing and that summary — from the `teardown` of the `globalSetup` module `live/global-status.ts`, wired in `vitest.config.ts`. The table is a no-op when the selection contains no probes, and it goes to **stderr** like every other diagnostic in this repo.
 
 Live-test conventions:
 - Assert *shape and populatedness*, never an exact count, a specific item, or a value that moves with the market.
 - Use `LIVE_OPTS` (90 s timeout, `retry: 2`). Retries cover transient throttling — Yahoo rate-limits when several symbols are requested at once — while a real format change still fails all three attempts.
-- Sources needing a secret use `it.skipIf(!hasEnv("..."))`; `contract.ts` loads `dotenv` so local `.env` credentials are picked up.
+- A source needing a secret calls `recordSkip(...)` then `ctx.skip()` rather than `it.skipIf`, so the skipped source still gets a row in the status table. `contract.ts` loads `dotenv`, so local `.env` credentials are picked up.
 - A source with intentionally empty output must be asserted on what it *does* produce: `web`'s OpenAI half is `metadataOnly` (its article pages 403 from datacenter IPs), so asserting non-empty `content` there would fail permanently and train everyone to ignore the suite.
+- Some red rows are calendar, not drift: `feeds/ai/arxiv.ts` keeps a 48 h window and arXiv does not publish at weekends, so a Monday run legitimately reports `fetchSuccess: false` and the report is skipped. The provider probe's row is how you tell that apart from a real outage.
 
 **`pnpm test` therefore requires network access and takes ~60 s.** This is deliberate — the point is to learn when a source changes format. CI runs it too, so a third-party outage will turn the build red.
+
+What this trades away, so nobody rediscovers it as a surprise: nothing offline covers the prompt builders, the report/rollup Markdown assembly, `manifest.json` / `feed.xml` generation, `src/core/i18n/`, or the Telegram/Feishu message builders. A regression in those layers surfaces in a digest run, not in `pnpm test`. `pnpm inspect` is the tool for them — `prompt:*`, `report:*`, `notify:*` and `manifest` all run against real or fixture input without writing anything.
 
 ### Outside `src/`
 
@@ -375,5 +398,5 @@ All three digest workflows run on Node 22 + pnpm, have `contents: write` + `issu
 9. Add the report file name (and `-en` variant) to `REPORT_FILES` in `src/platform/reports/manifest.ts`.
 10. Add the report ID to `REPORT_LABELS` in `mcp/src/index.ts` so MCP clients see a human label.
 11. Add a feed probe to `src/cli/inspect/sources.ts` (and a `prompt:` target to `prompts.ts`) plus its entry in `registry.ts`.
-12. Add a mocked unit test and a live source-contract test.
+12. Add a live feed contract at `src/__tests__/live/feeds/<area>/<report>.live.test.ts` and — for a new host — a live provider probe at `src/__tests__/live/providers/<host>.live.test.ts`. Both mirror the source path exactly.
 13. Update both README files and this file.

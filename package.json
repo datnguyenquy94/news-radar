@@ -18,6 +18,9 @@
     "notify:feishu": "tsx src/cli/notify-feishu.ts",
     "close-stale": "tsx src/cli/close-stale-issues.ts",
     "test": "vitest run",
+    "test:live": "vitest run src/__tests__/live",
+    "test:feeds": "vitest run src/__tests__/live/feeds",
+    "test:providers": "vitest run src/__tests__/live/providers",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "prepare": "husky"

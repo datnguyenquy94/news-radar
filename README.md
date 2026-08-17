@@ -32,7 +32,7 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 
 ### Tests
 
-`pnpm test` runs two layers: mocked unit tests for parsing logic, and **live source-contract tests** that call every data source for real and assert the fields the reports depend on are still populated. The live layer is what tells you a source changed its format — it needs network access and takes ~60s.
+`pnpm test` is **live only** — there is no mocked layer. The test tree mirrors `src/`, one file per source module: provider probes under `src/__tests__/live/providers/` (`pnpm test:providers`) and feed contracts under `src/__tests__/live/feeds/` (`pnpm test:feeds`). Both call the real endpoints and assert the fields the reports depend on are still populated, which is what tells you a source changed its format, and every run ends with an OK/FAIL/SKIP status table covering every upstream host. It needs network access and takes ~60s.
 
 ## Web UI
 

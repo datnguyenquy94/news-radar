@@ -45,6 +45,14 @@ export const LIVE_OPTS = { timeout: LIVE_TIMEOUT, retry: 2 } as const;
 /** Sources that need a secret; without it the suite skips rather than fails. */
 export const hasEnv = (name: string): boolean => Boolean(process.env[name]);
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** A `Date` `days` before now — most probes ask for a recent window. */
+export const daysAgo = (days: number): Date => new Date(Date.now() - days * DAY_MS);
+
+/** `YYYY-MM-DD`, the form every date-filtered endpoint here expects. */
+export const isoDate = (d: Date): string => d.toISOString().slice(0, 10);
+
 /**
  * Assert a collection came back with something in it.
  *

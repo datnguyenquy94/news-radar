@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "9 of 10 CLI tools show active development velocity",
+      "Enterprise vs developer-first tool bifurcation emerging",
+      "No major stable releases shipped today across tools",
+      "Critical regressions: OpenCode ID overflow, Codex CPU spike",
+      "Claude Code iPadOS crash and tmux TUI garbled",
+      "Stability at scale remains primary differentiator"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs and 134 issues in 24 hours",
+      "Growing backlog: 383 open vs 117 closed PRs",
+      "Critical P1 bugs: session loss, gateway restart loops",
+      "Single profiling release pr-124528-profiles published",
+      "Maintainer queue saturated with PRs awaiting review",
+      "High technical debt pressure despite high velocity"
+    ],
+    "ai-trending": [
+      "unslothai/unsloth +572 stars for on-device training",
+      "cactus-compute/needle +443 stars for ultra-small models",
+      "ToolJet/ToolJet +452 stars for AI internal apps",
+      "ECC 240k stars, Hermes Agent 231k stars lead agents",
+      "Shift from chat wrappers to persistent agent runtimes",
+      "RAG infrastructure hot: ragflow 88k, mem0 63k stars"
+    ],
+    "ai-hn": [
+      "GLM-5.3 from Z.ai: 1,152 pts, emergent cyber skills",
+      "Gemini 3.7 Flash release: 966 pts, speed-focused",
+      "Stripe acquires OpenRouter for $7B infrastructure play",
+      "Anthropic releases Claude system prompts publicly",
+      "Viral essay: AI out-remembering not outthinking mathematicians",
+      "Nvidia pulls back on OpenAI guarantees, credit resale economy"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 10.3k likes, 267k downloads",
+      "Kimi-K3: 10.8k likes, 2.1M downloads, 2.6B multimodal",
+      "MiniMax-H3 video gen: 4k likes, 2.3M downloads",
+      "Lightricks LTX-2.5 adds diffusion image-to-video model",
+      "Qwen MoE 2.4T-A95B with FP8 quantization variant",
+      "Unsloth quantization pipeline dominates GGUF/NF4 distribution"
+    ],
+    "ai-community": [
+      "Deploying 2.8T-parameter models at scale challenges",
+      "Trust/reliability focus: securing LLM API calls",
+      "Agentic pattern matures: multi-agent TS, Rust MCP servers",
+      "AWS engineer skeptical take on AI hype resonates",
+      "AI crawlers: ChatGPT surpasses Googlebot traffic",
+      "LLMs output Vega-Lite specs instead of pixel rendering"
+    ],
+    "fin-macro": [
+      "Fed holds 3.63%, 10Y yield 4.63% highly restrictive",
+      "Inflation sticky: CPI 3.5%, core PCE 3.3%, PPI 4.7%",
+      "Oil above $80/bbl adds inflation upside risk",
+      "Mixed labor: 4.1% unemployment but -23k payrolls",
+      "FINRA margin debt -5.6% MoM, retail deleveraging",
+      "No credit stress or curve inversion, soft landing likely"
+    ],
+    "fin-vnmacro": [
+      "VN-Index -2.10% to 1,729, 20-day -3.30%",
+      "VN30 -1.70%, futures basis neutral at +1.99 pts",
+      "Dong strengthens 0.60% monthly, 0.23% YTD",
+      "DXY -1.42% to 99.55 eases EM pressure",
+      "US 10Y yields send mixed signals for EM flows",
+      "Gold surges 11.17% to $4,458/oz diverts savings"
+    ]
+  }
+}

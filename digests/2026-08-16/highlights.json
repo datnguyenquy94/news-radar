@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.210+ broke Windows/MSIX and hooks",
+      "OpenAI Codex shipped 2 alpha releases with Windows fixes",
+      "Gemini CLI nightly adds session persistence work",
+      "GitHub Copilot CLI focuses on enterprise SSO/audit",
+      "Kimi Code CLI and Qwen Code expand Chinese tooling",
+      "Cross-tool convergence on MCP/ACP protocols and sync"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.8.1-beta.2 adds secret egress binding",
+      "GPT-5.6 Ultra runtime switching now supported",
+      "286 issues and 500 PRs in 24 hours show velocity",
+      "Memory leaks and session corruption tagged P1",
+      "Automated remediation stalled on 'clawsweeper-recovery'",
+      "UI-focused PRs while core gateway bugs remain open"
+    ],
+    "ai-trending": [
+      "Unsloth, Needle, Soup gain 1,200+ stars for local fine-tuning",
+      "ToolJet, CLI-Anything, ego-lite surge 400+ stars each",
+      "HTML diagram kit for Claude Code hits 1,607 stars",
+      "Shift from chat wrappers to autonomous agent workflows",
+      "Transformers, PyTorch, Ollama, LangChain steady but not spiking",
+      "Deployment, memory, orchestration layers now center of gravity"
+    ],
+    "ai-web": [
+      "Anthropic publishes multiagent failure modes research",
+      "Claude text watermarking for EU AI Act compliance",
+      "Zero-overhead statistical watermark embedded at sampling",
+      "No user-identifying info in watermark implementation",
+      "Interoperable across major AI providers per EU Code",
+      "OpenAI publishes no new content for the day"
+    ],
+    "ai-hn": [
+      "GLM-5.3 claims frontier coding with cyber capabilities",
+      "Gemini 3.7 Flash targets lower latency and cost",
+      "DeepSeek V4 Pro 0813 release draws 1,000+ points",
+      "Mistral OCR 4.1 release sparks benchmark debates",
+      "Viral post questions if LLMs truly reason",
+      "Google homomorphic encryption push for private AI"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 9,811 likes and quantization stack",
+      "MiniMax-H3 video model hits 2.2M downloads base",
+      "Kimi-K3 surges to 10.7K likes, 2.1M downloads",
+      "DeepSeek-V4 Flash outperforms Pro 90x on downloads",
+      "GGUF, FP8, NVFP4 quantization now standard for releases",
+      "Qwen ecosystem dominates trending leaderboard this week"
+    ],
+    "ai-community": [
+      "Deploying Qwen3.8-2.4T-A95B MoE model in practice",
+      "4,200 trials testing LLM agent reliability rigorously",
+      "Voice agents for Indian languages: finance, farming, scams",
+      "MCP server vulnerabilities and API key exposure risks",
+      "EU AI Act transparency requirements for AI content",
+      "OpenAI-Hugging Face security incident discussed on Lobste.rs"
+    ],
+    "fin-macro": [
+      "Fed balance sheet stable at $6.76T, rate at 3.63%",
+      "VIX at 14.6 signals calm markets currently",
+      "10-year yield 4.63% highly restrictive but curve steepened",
+      "Credit spreads tight at 2.71% showing no stress",
+      "FINRA margin debt down 5.6% deleveraging retail",
+      "Core CPI 2.8%, PCE 3.3% above Fed 2% target"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 2.1% to 1,729, down 3.3% in 20 days",
+      "VN30 drops 1.7% to 1,876, large-cap weakness",
+      "USD/VND at 26,330, dong appreciates 0.6% monthly",
+      "DXY eases to 99.67, US 10Y yield at 4.63%",
+      "Gold surges 9.2% to $4,380/oz in 20 days",
+      "Vietnam GDP 8.0%, CPI 3.3% provide fundamental support"
+    ]
+  }
+}

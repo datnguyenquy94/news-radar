@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Three tiers emerging: production-grade, innovators, early-stage",
+      "Communities prioritize reliability over new features",
+      "Convergence on agent orchestration and MCP integration",
+      "Enterprise readiness (SSO, audit, proxy) becoming standard",
+      "Shift from chat assistants to programmable infrastructure",
+      "Activity comparison shows issues/PRs across 10 tools"
+    ],
+    "ai-agents": [
+      "OpenClaw: 255 issues, 500 PRs in 24 hours",
+      "No new releases published today",
+      "P1/P2 stability bugs backlog in session state",
+      "Database-first runtime migration architectural challenge",
+      "Tool-call parity between Codex and OpenClaw tools",
+      "137 PRs merged but review bandwidth bottleneck"
+    ],
+    "ai-trending": [
+      "Three momentum vectors: local inference, agent memory, vertical apps",
+      "Ollama 178K stars: de facto local LLM standard",
+      "Agent memory projects (mem0, headroom) hit 300K+ stars",
+      "MoneyPrinterTurbo +1,189 stars for video generation",
+      "Strix +598 stars for pentesting automation",
+      "Career-ops +218 stars for AI job search"
+    ],
+    "ai-web": [
+      "OpenAI joins Ports Pike Project partnership announced",
+      "Anthropic released zero new content today",
+      "Only metadata available, no article body crawled",
+      "Quiet communication day across both AI labs",
+      "Ports Pike implications for interoperability standards",
+      "OpenAI 909 sitemap entries vs Anthropic 435"
+    ],
+    "ai-hn": [
+      "Anthropic watermarking debated: 764 pts, 673 comments",
+      "Stripe $7B+ OpenRouter acquisition signals consolidation",
+      "Snowflake breach via GitHub Copilot auto-fix",
+      "GPT-5.6 Sol: best vision model, 50% price cut",
+      "Qwen3.8-27B scores 52 on Artificial Analysis",
+      "AI fatigue split: builders dive deeper, others reject"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 family dominates with 5 top-30 variants",
+      "Qwen3.8-27B leads: 10.7K likes, 415K downloads",
+      "MiniMax-H3 video breakthrough: 4K likes, 2.4M downloads",
+      "Kimi-K3 most-downloaded multimodal: 2.1M downloads",
+      "Quantization ecosystems thriving: unsloth, ComfyUI ports",
+      "DeepSeek V4 series pushes efficient frontier models"
+    ],
+    "ai-community": [
+      "Focus shifts to reliability, evaluation, production hardening",
+      "MCP server testing and agent CI failures dominate",
+      "Model deprecation operational risks discussed",
+      "Amazon allegedly diverting rare books to training",
+      "Shipping AI easy; keeping correct is real work",
+      "AI code risk: not understanding what shipped"
+    ],
+    "fin-macro": [
+      "Fed holds 3.63%, 10-year yield climbs to 4.68%",
+      "Balance sheet flat, VIX 14.25 shows calm markets",
+      "Credit spreads tight 2.67%, oil above $80/bbl",
+      "Core inflation remains well above 2% target",
+      "Unemployment 4.1% but payrolls contracted",
+      "FINRA margin debt down 5.6% deleveraging"
+    ],
+    "fin-vnmacro": [
+      "VN-Index slips 0.10% to 1,727, 5-day loss 2.80%",
+      "USD/VND 26,410, dong appreciates 0.30% monthly",
+      "US 10-year yields rise 2.86% to 4.68% in 20 days",
+      "Gold surges 11.73% to $4,480/oz in 20 days",
+      "VN30F1M slight contango +2.32 points +0.10%",
+      "Global yield tightening pressures dong stability"
+    ]
+  }
+}

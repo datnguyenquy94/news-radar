@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "7 of 9 CLI tools shipped updates in last 24h",
+      "Claude Code v2.1.235 stable released",
+      "Qwen Code & Pi focus on enterprise governance",
+      "Grok Build adds multi-agent orchestration",
+      "DeepSeek TUI shows sophisticated local architecture",
+      "Security hardening dominates engineering velocity"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs & 225 issues in 24h",
+      "Only 100 PRs merged - heavy WIP backlog",
+      "P1/P0 bugs: session corruption, memory leaks",
+      "No new release - latest is 2026.7.1-2",
+      "Clawsweeper automation labels critical issues",
+      "Structured triage but maintainer bandwidth limited"
+    ],
+    "ai-trending": [
+      "MoneyPrinterTurbo +2,304 stars - AI video gen",
+      "Ollama 178K stars adds Kimi-K2.6, GLM-5.2",
+      "vLLM 89K stars - production inference engine",
+      "Agent memory & context management trending",
+      "ai-memory, OpenViking lead skill standardization",
+      "Hugging Face Transformers 164K stars backbone"
+    ],
+    "ai-web": [
+      "Claude Mythos/Opus 4.8 beat protein design benchmarks",
+      "Opus 5 GA: 96.4% purity matching contract labs",
+      "OpenAI: Code.ai partnership & cyber-capability pacing",
+      "ChatGPT for teens - two new index entries",
+      "Multi-tier model cadence: Mythos, Opus 4.8, Opus 5",
+      "Anthropic research: 14/15 targets succeeded"
+    ],
+    "ai-hn": [
+      "GPT-5.6 Sol 50-70% price cuts on OpenRouter",
+      "Google acquires Spirit Airlines data for AI",
+      "Cerebras CS4 launch - high-stakes infra play",
+      "Norway should buy OpenAI - viral opinion piece",
+      "AI;DR critique of summarization culture trends",
+      "OpenAI pauses frontier training per sama tweet"
+    ],
+    "ai-arxiv": [
+      "Proteus: incremental memory for long-context LLMs",
+      "Model Hypnosis: subliminal prompt control vulnerability",
+      "CaliBench: physics-aware world model benchmark",
+      "TRACE-Bench: compositional multi-reference evaluation",
+      "AutoSR: automated scientific discovery pipeline",
+      "TDD-Agent: test-driven code agent self-improvement"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 27B multimodal tops 11.1K likes",
+      "MiniMax-H3: 4.1K likes, 2.8M downloads video",
+      "DeepSeek V4 Pro/Flash & Kimi-K3 10.8K likes",
+      "Community quantized & uncensored Qwen variants proliferate",
+      "NVIDIA Nemotron 3.5 Lightning 30B hybrid MoE",
+      "FP8/GGUF/NVFP4 variants drive massive downloads"
+    ],
+    "ai-community": [
+      "COSP: LLM grades own output reducing hallucinations",
+      "Google AI: evals as product not checklist",
+      "MCP servers cost 64% more than tiktoken estimates",
+      "Rare books shipped to Amazon AI training facility",
+      "1985 documentary on AI limits resurfaces",
+      "Latent reasoning interpretability paper discussed"
+    ],
+    "fin-macro": [
+      "Fed holds 3.63% while 10Y yield hits 4.72%",
+      "Retail margin debt drops 5.6% - deleveraging",
+      "CPI 3.5%, Core PCE 3.3% - sticky inflation",
+      "Nonfarm payrolls contracted 23k - fading jobs",
+      "Consumer sentiment deeply weak at 49.5",
+      "Soft-landing narrative narrowing per dashboard"
+    ],
+    "fin-vnmacro": [
+      "VN-Index +0.30% daily but -2.30% weekly",
+      "VN30 -0.10% daily, -2.40% 5-day",
+      "VN30F1M basis -2.14 pts mild hedging pressure",
+      "USD/VND 26,370 sell - dong appreciating 0.45% 1M",
+      "US 10Y yield surges +0.85% to 4.72%",
+      "Equity market range-bound lacking directional catalyst"
+    ]
+  }
+}

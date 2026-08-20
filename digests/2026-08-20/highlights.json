@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.237 broken: missing native binaries",
+      "OpenAI Codex Windows browser plugin broken",
+      "Windows support now cross-cutting strategic priority",
+      "Multi-agent orchestration convergent feature vector",
+      "Packaging regressions dominate all issue trackers",
+      "All major CLI tools shipped releases in 24h"
+    ],
+    "ai-agents": [
+      "OpenClaw: 244 issues, 500 PRs in 24h",
+      "Validating v2026.8.1-beta.2, no new release",
+      "Session-state corruption and message loss recurring",
+      "81 merged PRs show strong throughput",
+      "Docker :latest tag regression noted",
+      "Auth-provider regressions tagged release blockers"
+    ],
+    "ai-trending": [
+      "Agent-centric tooling dominates GitHub trending",
+      "6 of top 13 repos are agent frameworks",
+      "Agent projects gain 5,500+ stars in 24h",
+      "Local-first inference gains traction: omlx +472★",
+      "MoneyPrinterTurbo +2,221★ for AI video",
+      "Shift from model-centric to workflow-centric dev"
+    ],
+    "ai-web": [
+      "OpenAI announces Zero Data Retention for frontier models",
+      "ChatGPT Ads expands across Europe",
+      "Anthropic publishes zero new articles today",
+      "OpenAI pushes enterprise compliance (GDPR/HIPAA)",
+      "Duplicate entries noted in OpenAI crawl",
+      "Anthropic in dark period for public content"
+    ],
+    "ai-hn": [
+      "OpenRouter acquired by Stripe (632 pts)",
+      "Google buys Spirit Airlines data trove (603 pts)",
+      "Cerebras CS-4 claims 4x performance per watt",
+      "Unsloth 3.0 and local model tooling discussed",
+      "AGENTS.md and agent-centric engineering patterns",
+      "Debate: AI bubble bursting vs consolidation"
+    ],
+    "ai-arxiv": [
+      "Token-level visual evidence calibrates hallucinations",
+      "Safety alignment makes VLMs abstain from vision",
+      "Test-time compute: exploitation not exploration bottleneck",
+      "Candidate-free aggregation beats selection when wrong",
+      "Multi-source fusion for long-horizon agent memory",
+      "Domain benchmarks for environmental science, medical"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates: 11K+ likes, 1M+ downloads",
+      "Qwen3.8-27B-FP8 exceeds 1M downloads",
+      "MiniMax-H3: 4.1K likes, 3M+ downloads video",
+      "DeepSeek-V4-Flash-0731 surges to 3.5K likes",
+      "Moonshot Kimi-K3 enters at 10.8K likes",
+      "ComfyUI MiniMax-H3 wrapper hits 15.2M downloads"
+    ],
+    "ai-community": [
+      "Practical friction adopting AI coding agents",
+      "Amazon routing rare books to AI training",
+      "Prompt caching economics and agent memory issues",
+      "Opus 5 self-checking creates review bottleneck",
+      "LLM visibility checker shows indexing divergence",
+      "Gap between AI demos and reliable tooling wide"
+    ],
+    "fin-macro": [
+      "Fed balance sheet expanding, rate steady 3.63%",
+      "10-year yield 4.71% restrictive long-term",
+      "Inflation metrics well above 2% target",
+      "Consumer sentiment deeply weak at 49.5",
+      "Payrolls negative -23k hints growth slowdown",
+      "VIX 15.8 calm, margin debt down 5.6%"
+    ],
+    "fin-vnmacro": [
+      "VN-Index slips 0.30% to 1,726.69",
+      "VN30 flat, futures at +5.17 pts premium",
+      "Dong stable: USD/VND 26,370, 0.53% monthly up",
+      "DXY down 2.59% easing dollar pressure",
+      "Gold surges 9.92% safe-haven demand",
+      "Equity consolidation in intact medium-term uptrend"
+    ]
+  }
+}

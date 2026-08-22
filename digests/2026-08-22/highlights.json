@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI landscape splits: enterprise vs specialized tools",
+      "Windows reliability weak across 6 of 10 CLI tools",
+      "Claude Code Skills fixes run_eval.py recall bug",
+      "Enterprise tools ship daily releases with compliance",
+      "10 tools covered including Kimi, Grok, DeepSeek",
+      "Specialized tools iterate on agent orchestration"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs, 258 issues in 24 hours",
+      "P0 memory leak: gateway 350MB to 15.5GB",
+      "Event-loop blocking 100s every 11 minutes",
+      "State DB corruption and OAuth refresh wedging",
+      "387 open PRs vs 113 merged: review bottleneck",
+      "No new releases; beta.2 has regressions"
+    ],
+    "ai-trending": [
+      "MoneyPrinterTurbo +1,201 stars: AI video generation",
+      "Agent infra dominates: career-ops +921 stars",
+      "Ollama 179K stars: local LLM runtime",
+      "Graphify 109K stars: knowledge graphs beat RAG",
+      "Cross-session memory: claude-mem 91K stars",
+      "Ollama adds Kimi-K2.6, GLM-5.2, DeepSeek"
+    ],
+    "ai-hn": [
+      "AI learning impact thread: 289 comments",
+      "Book destruction for training data: 837 comments",
+      "OpenRouter acquired by Stripe: 495 comments",
+      "OpenAI cuts GPT-5.6 Sol pricing 20%",
+      "Anthropic expands Claude Mythos 5 access",
+      "Micron $10B hub, Nvidia $6B Poolside rumor"
+    ],
+    "ai-arxiv": [
+      "Focus shifts to rigorous agent evaluation",
+      "ConceptGuard: context-sensitive unlearning benchmark",
+      "Asymmetric harms of LLM compression studied",
+      "CPU-first architectures and sparse attention",
+      "KV-cache reuse for tool-augmented agents",
+      "Domain grounding matures: medical, legal, code"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads: 12K likes, 1.7M downloads",
+      "Kimi-K3 multimodal: 10.9K likes, 2.4M downloads",
+      "DeepSeek-V4-Flash: 2.8M downloads tops LLMs",
+      "MiniMax video models exceed 7M downloads",
+      "Qwen3.8-2.4T-A95B massive MoE trending",
+      "Speculative decoding and MoE gain traction"
+    ],
+    "ai-community": [
+      "Planning not execution is agent bottleneck",
+      "Pi vs OpenCode after 100+ hours real use",
+      "Adversarial critic blocks insufficient plans",
+      "Financial guardrails miss monetary risk signals",
+      "Wake-word detection on $15 hardware",
+      "3x speculative decoding on consumer GPUs"
+    ],
+    "fin-macro": [
+      "Fed funds steady 3.63%, balance sheet shrinking",
+      "10-year yield 4.69% highly restrictive",
+      "Inflation above target: CPI 3.5%, PCE 3.3%",
+      "Credit spreads benign 2.75%, VIX 16 calm",
+      "Oil near $95 Brent adds inflation risk",
+      "Unemployment 4.1% but payrolls -23k"
+    ],
+    "fin-vnmacro": [
+      "VN-Index surges 2% to 1,768, +4.9% monthly",
+      "VN30 up 2.2%, large-caps leading rally",
+      "Dong strengthens to 26,310, dollar index -2.6%",
+      "VNM ETF jumps 4.2% daily, +8.6% monthly",
+      "CPI 4.39% within 4-4.5% target range",
+      "FDI +11.8% YoY to $15.2B, exports +21.7%"
+    ]
+  }
+}

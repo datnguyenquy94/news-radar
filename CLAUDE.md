@@ -2,7 +2,7 @@
 
 ## Project overview
 
-agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 UTC+8) and produces bilingual (Vietnamese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, a macro-financial dashboard from FRED + FINRA, and a Vietnam macro-market dashboard). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
+agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 00:00 UTC (08:00 UTC+8) and produces bilingual (Vietnamese + English) reports across many data sources (AI CLI tools, the OpenClaw agent ecosystem, official AI company sites, GitHub Trending, Hacker News, Product Hunt, ArXiv, Hugging Face, dev communities, a macro-financial dashboard from FRED + FINRA, a Vietnam macro-market dashboard, and a Vietnam interest-rate dashboard from the State Bank of Vietnam). Reports are published as GitHub Issues, committed as Markdown files, surfaced through a static Web UI + RSS feed, and pushed to Telegram/Feishu. Two additional cron jobs generate weekly and monthly rollups.
 
 ## Commands
 
@@ -80,7 +80,7 @@ export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
 The daily pipeline runs in sequential phases, each a named async function in `src/cli/daily.ts`. VI and EN reports are generated **simultaneously** (both languages run in parallel at every phase).
 
-1. **`fetchAllData`** — all network I/O in parallel, one entry per feed: repo activity for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, the Anthropic/OpenAI sitemaps, trending, HN, Product Hunt, ArXiv, Hugging Face, community (Dev.to + Lobste.rs), macro (FRED + FINRA) and the Vietnam dashboard (8 hosts). Each feed owns its own degrade policy and returns a well-formed empty payload with `fetchSuccess: false` rather than throwing, so one outage never aborts the run.
+1. **`fetchAllData`** — all network I/O in parallel, one entry per feed: repo activity for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, the Anthropic/OpenAI sitemaps, trending, HN, Product Hunt, ArXiv, Hugging Face, community (Dev.to + Lobste.rs), macro (FRED + FINRA), the Vietnam dashboard (8 hosts) and Vietnam interest rates (SBV + FRED + Vietcombank). Each feed owns its own degrade policy and returns a well-formed empty payload with `fetchSuccess: false` rather than throwing, so one outage never aborts the run.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to `LLM_CONCURRENCY` (default 5) concurrent requests by a queue in `src/platform/llm/client.ts`. Runs once per language. Repos with zero activity skip the LLM call entirely.
 3. **Comparisons** — cross-tool CLI comparison and OpenClaw cross-ecosystem comparison (2 LLM calls per language).
 4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/platform/reports/builders/`) assemble Markdown strings; the `saveXxxReport` functions in `src/platform/reports/savers/` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, community, macro and vnmacro. `saveWebReport` runs first because `saveWebState` must follow it.
@@ -115,6 +115,7 @@ The split that matters: **a provider knows one host and no report; a feed knows 
 | `src/core/config.ts` | `loadConfig()` — loads tracked-repo config from `config.yml`, falls back to built-in defaults; `RadarConfig` type |
 | `src/core/date.ts` | Date/timing utilities: `toCstDateStr` (UTC+8 date string), `toUtcStr`, `sleep` |
 | `src/core/logger.ts` | The single logger (pino): `logger` + `createLogger(name)`. Writes to **stderr** only, synchronously, with no transport worker — stdout belongs to `pnpm inspect --json`, and the entrypoints `process.exit()` on failure. `LOG_LEVEL` sets verbosity; `LOG_PRETTY` picks human-readable vs JSON (default: pretty on a TTY, JSON in CI) |
+| `src/core/cookies.ts` | Persistent cookie jar keyed by host, stored in `session.json` (git-ignored): `loadCookies` / `saveCookies` / `mergeSetCookie` / `cookieHeader`. Used by `providers/sbv.ts` alone — the one upstream whose WAF requires a homepage handshake. It sits in `core/` rather than `platform/state/` because it is transport state that nothing downstream consumes; see the module header |
 | `src/core/http.ts` | The single outbound HTTP client: `httpRequest` / `fetchText` / `fetchJson`, `fetchWithTimeout` (browser-flavoured document GET), `fetchJsonBrowserTls` (Chrome TLS ciphers, SJC only), `HttpError`, and the `DEFAULT_UA` / `BROWSER_UA` / `JSON_ACCEPT` / `DOC_ACCEPT` constants |
 | `src/core/doc-extract.ts` | Document extraction shared by the Vietnam doc sources: HTML → linkedom + Mozilla Readability (`extractArticle` / `fetchArticle`, tag-strip fallback), PDF → per-page text (`extractPdfPages` / `fetchPdfPages`), plus `scoreText` / `rankPages` / `relevantExcerpt` keyword narrowing and `MIN_ARTICLE_CHARS`. Fetching is `core/http.ts`'s job |
 | `src/core/i18n/index.ts` | Barrel — import bilingual strings from here |
@@ -151,6 +152,7 @@ feed's call. Files are named for the host, not the topic.
 | `src/providers/vietcombank.ts` | Vietcombank USD/VND board: `fetchUsdBoard(isoDate)`, `parseVcbUsd`, `VCB_MAX_LOOKBACK_DAYS` |
 | `src/providers/sjc.ts` | SJC domestic gold: `fetchGoldBoard`, `parseSjcGold`, `OZ_PER_TAEL`. Goes through `fetchJsonBrowserTls` — its WAF fingerprints the TLS ClientHello |
 | `src/providers/nso.ts` | NSO listings and articles: `findLatestArticleUrl`, `fetchNsoArticle`, plus the `fetchListing` / `firstLink` helpers VBMA reuses |
+| `src/providers/sbv.ts` | State Bank of Vietnam via Liferay headless-delivery: `fetchPolicyBoard`, `fetchInterbankDays`, `parsePolicyBoard` / `parseInterbankDays` / `parseVnNumber` (exported for offline probing), `SBV_*_STRUCTURE_ID`. Runs the homepage cookie handshake through `core/cookies.ts` — without it the API answers **HTTP 200** with an HTML rejection page. Every read passes `sort=dateCreated:desc`; the parser re-sorts on `ngayApDung` |
 | `src/providers/vbma.ts` | VBMA weekly bond bulletin (PDF): `fetchLatestBulletin` resolves the latest link and extracts per-page text |
 
 ### `src/feeds/` — one module per report payload
@@ -169,6 +171,7 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | `src/feeds/ai/hf.ts` | `ai-hf` | Trending models by weekly likes |
 | `src/feeds/ai/community.ts` | `ai-community` | Dev.to **+** Lobste.rs in one feed. Each half keeps its own `fetchSuccess`; the feed's is true when either returned |
 | `src/feeds/finance/macro.ts` | `fin-macro` | FRED **+** FINRA, plus the 16-series catalog and the per-series transform (level / YoY % / MoM change) — which indicators the dashboard tracks is a property of the report, not of FRED. `fetchSuccess` mirrors FRED alone; FINRA is supplementary |
+| `src/feeds/finance/vnrates.ts` | `fin-vnrates` | SBV policy board **+** interbank curve, plus FRED `DFF` and the Vietcombank USD/VND board. Owns the 1 / 20 / 30-*session* lookbacks, the tenor order and the derived spreads (policy gap, curve slope, VND-USD). `fetchSuccess` mirrors the interbank board alone — the policy board is a constant unchanged since June 2023 |
 | `src/feeds/finance/vn/{market,macro,docs}.ts` | — | The three halves of the Vietnam dashboard: market internals (SSI + Entrade), macro indicators (Vietcombank + Yahoo + FRED + SJC + World Bank), official documents (NSO + VBMA) |
 | `src/feeds/finance/vn/index.ts` | `fin-vnmacro` | `fetchVnFeed()` composes the three above into `VnFeedData`. `fetchSuccess` mirrors the market half — documents alone are a statistics recap with no market read in them |
 
@@ -194,6 +197,7 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | `src/platform/prompts/{trending,web,hn,ph,arxiv,hf,community}.ts` | `buildTrendingPrompt`, `buildWebReportPrompt`, `buildHnPrompt`, `buildPhPrompt`, `buildArxivPrompt`, `buildHfPrompt`, `buildCommunityPrompt` |
 | `src/platform/prompts/macro.ts` | `buildMacroPrompt` + its `MACRO_GROUP_LABEL` / `macroMetricLine` helpers |
 | `src/platform/prompts/vnmacro.ts` | `buildVnMacroPrompt` + its `vn*` section helpers |
+| `src/platform/prompts/vnrates.ts` | `buildVnRatesPrompt` + its policy/interbank/spread section helpers |
 | `src/platform/prompts/rollup.ts` | `buildWeeklyPrompt`, `buildMonthlyPrompt` |
 | `src/platform/prompts/highlights.ts` | `buildHighlightsPrompt(reports, lang, itemsPerReport?)`; `ReportHighlights` type |
 
@@ -205,7 +209,7 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | `src/platform/reports/files.ts` | `saveFile`, `autoGenFooter` |
 | `src/platform/reports/builders/cli.ts` | `buildCliReportContent` — assembles the CLI Markdown |
 | `src/platform/reports/builders/openclaw.ts` | `buildOpenclawReportContent` — assembles the OpenClaw Markdown |
-| `src/platform/reports/savers/*.ts` | `saveWebReport`, `saveTrendingReport`, `saveHnReport`, `savePhReport`, `saveArxivReport`, `saveHfReport`, `saveCommunityReport`, `saveMacroReport`, `saveVnMacroReport` — LLM call + file save + optional GitHub issue, one file per report. Every saver swallows its own errors so a single failing report never aborts the run |
+| `src/platform/reports/savers/*.ts` | `saveWebReport`, `saveTrendingReport`, `saveHnReport`, `savePhReport`, `saveArxivReport`, `saveHfReport`, `saveCommunityReport`, `saveMacroReport`, `saveVnMacroReport`, `saveVnRatesReport` — LLM call + file save + optional GitHub issue, one file per report. Every saver swallows its own errors so a single failing report never aborts the run |
 | `src/platform/reports/rollup.ts` | `runWeeklyRollup`, `runMonthlyRollup`, `toWeekStr` — rollup generators (read daily digests, no API calls) |
 | `src/platform/reports/manifest.ts` | Generates `manifest.json` (Web UI sidebar) and `feed.xml` (RSS 2.0, latest 30 items); `REPORT_FILES` lists all report IDs; `toRfc822` / `escapeXml` helpers |
 
@@ -239,8 +243,8 @@ src/__tests__/live/
 ├── contract.ts        assertions (expectPopulated, expectNonEmpty, …), LIVE_OPTS, hasEnv, daysAgo, isoDate
 ├── status.ts          probe() / recordSkip() + the status table
 ├── global-status.ts   vitest globalSetup: reset before the run, print after it
-├── providers/         21 files, mirroring src/providers/ (incl. providers/github/)
-└── feeds/             11 files, mirroring src/feeds/ (ai/, finance/, finance/vn/)
+├── providers/         22 files, mirroring src/providers/ (incl. providers/github/)
+└── feeds/             12 files, mirroring src/feeds/ (ai/, finance/, finance/vn/)
 ```
 
 - **Live provider probes** (`live/providers/**`) — call one provider directly, so a broken host is attributed to the module that talks to it. `pnpm test:providers`.
@@ -278,7 +282,7 @@ What this trades away, so nobody rediscovers it as a surprise: nothing offline c
 
 - It reads published artifacts over HTTP from `PAGES_URL` (`manifest.json` + `digests/**.md`) with Cloudflare edge caching — it never touches the GitHub API or shares code with `src/`.
 - Tools: `list_reports`, `get_report`, `get_latest`, `search`. Transport is hand-rolled JSON-RPC (`initialize` / `tools/list` / `tools/call`) — no MCP SDK dependency.
-- It keeps its **own copy** of `REPORT_LABELS`. That copy is currently stale (it has only `ai-cli`, `ai-agents`, `ai-web`, `ai-trending`, `ai-hn`, `ai-weekly`, `ai-monthly` and their `-en` variants — missing `ai-ph`, `ai-arxiv`, `ai-hf`, `ai-community`, `fin-macro`, `fin-vnmacro`); unknown IDs fall back to the raw report ID, so reports still resolve — only the human label is missing.
+- It keeps its **own copy** of `REPORT_LABELS`, now covering every report ID. Unknown IDs fall back to the raw report ID, so a report added without updating this copy still resolves — only the human label is missing.
 
 ## Report outputs
 
@@ -297,6 +301,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-community.md` | `community` | Dev.to + Lobste.rs; skipped if both fail |
 | `fin-macro.md` | `macro` | Macro market dashboard (FRED + FINRA); skipped if FRED fails. FINRA is supplementary. Uses the `fin-` prefix — a parallel financial section |
 | `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + FRED + SJC + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
+| `fin-vnrates.md` | `vnrates` | Vietnam interest rate dashboard (SBV + FRED + Vietcombank); skipped if the SBV interbank board fails. The policy board and USD/VND are supplementary |
 | `highlights.json` | — | Bullet-point highlights per report (vi + en), consumed by notifications |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
@@ -319,6 +324,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - **FINRA** (retail leverage): monthly margin-debt statistics, scraped from finra.org (no official API)
 - **Vietnam market** (`providers/ssi.ts` + `providers/entrade.ts` → `feeds/finance/vn/market.ts`): SSI iBoard `iboard-query.ssi.com.vn/stock/exchange/{hose,hnx}` price board + DNSE Entrade `services.entrade.com.vn/chart-api/v2/ohlcs/{index,derivative}` for VNINDEX / VN30 / VN30F1M. Both are undocumented internal endpoints and need a browser User-Agent plus a `Referer`
 - **Vietnam macro** (`providers/{vietcombank,yahoo,fred,sjc,worldbank}.ts` → `feeds/finance/vn/macro.ts`): Vietcombank `/api/exchangerates?date=` (USD/VND), Yahoo Finance chart API (`DX-Y.NYB`, `GC=F`, `BZ=F`, `HRC=F`, `VNM`), FRED `DGS10` for the US 10Y (Yahoo `^TNX` is the fallback only), SJC `GoldPrice/Services/PriceService.ashx` for domestic gold, World Bank (`FP.CPI.TOTL.ZG`, `NY.GDP.MKTP.KD.ZG`, `BX.KLT.DINV.CD.WD`, `FI.RES.TOTL.CD`)
+- **Vietnam interest rates** (`providers/sbv.ts` + `providers/fred.ts` + `providers/vietcombank.ts` → `feeds/finance/vnrates.ts`): SBV Liferay headless-delivery, content structures `3450482` (policy rates — one standing record) and `3450260` (interbank market — one record per session, ~3100 published). Plus FRED `DFF` for the VND-USD overnight spread and the Vietcombank USD/VND board. Analysis framework in `fin_data/sbv_data_analyze.md` and `fin_data/sbv_data_analyze_rules_2.md` (git-ignored, local-only)
 - **Vietnam documents** (`providers/nso.ts` + `providers/vbma.ts` → `feeds/finance/vn/docs.ts`): NSO CPI + monthly socio-economic report (HTML), VBMA weekly bond bulletin (PDF). Source catalogue and endpoint survey in `.agent/specs/vn_financial_data_sources.md`
 
 ## Key conventions
@@ -343,6 +349,10 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - Vietnam endpoints are undocumented internal APIs and need `BROWSER_UA` (a desktop Chrome User-Agent) plus a `Referer`; a bare fetch gets 403 or an empty body. TCBS (`apipubaws.tcbs.com.vn`) is behind a Cloudflare challenge and VNDirect (`finfo-api.vndirect.com.vn`) times out, so **aggregate VN-Index P/E and market-wide margin debt have no source** — `buildVnMacroPrompt` instructs the model to mark the signals that depend on them ❔ insufficient data rather than guess.
 - Prefer a documented API over an undocumented one wherever both carry a series: the US 10Y comes from FRED `DGS10`, not Yahoo `^TNX`, and Yahoo is wired only as the fallback. `fetchFredSeries(series, limit)` in `providers/fred.ts` is the shared accessor.
 - SJC's gold board is behind a WAF that fingerprints the **TLS ClientHello**, not the headers — Node's `fetch` gets 403 with any headers (or none) while curl gets 200. `getJsonBrowserTls` in `vnmacro.ts` presents Chrome's cipher list via an undici `Agent`. Its public HTML page renders the board in JavaScript, so extraction there yields an empty shell; do not conclude a source is unavailable from the rendered page alone.
+- SBV's headless-delivery API rejects a cookie-less request with **HTTP 200** and an HTML "Request Rejected" body, not a 403 — `providers/sbv.ts` therefore checks the body, not the status, and retries once behind a fresh handshake. A refresh always starts from an *empty* jar: the homepage does not reissue every cookie, so merging onto the rejected jar carries the poisoned one straight back. `session.json` is git-ignored; a cold jar just costs one extra homepage GET, so CI never needs it.
+- SBV quotes Vietnamese-style: `,` is the decimal separator and `.` groups thousands. "3,000%" is three percent. Parse it with `parseVnNumber` from `providers/sbv.ts` — reading it the American way misprices every policy rate by a factor of a thousand.
+- Rate moves in `fin-vnrates` are carried as **percentage points** (`changePp*`) *and* as relative percent (`changePct*`), and the prompt says which to use where. A 3.01% overnight rate that was 4.02% is −1.01pp and −25%; only the first is comparable with the policy corridor. Lookbacks are in *published sessions*, not calendar days.
+- `fin-vnrates` has no source for OMO / T-bill (tín phiếu) operations or the credit-growth quota, so `buildVnRatesPrompt` instructs the model to mark those blocks ❔ insufficient data — the same convention `buildVnMacroPrompt` uses for VN-Index P/E and margin debt.
 - SSI board turnover (`nmTotalTradedValue`) is order-matched only, while `buyForeignValue` / `sellForeignValue` include put-through (block) deals. One ticker's foreign flow can therefore exceed its matched turnover. Both definitions are stated in the prompt; don't "fix" the discrepancy.
 - Every outbound request goes through `src/core/http.ts` — never a bare `fetch`. Providers call it; feeds never do. The helpers throw `HttpError` on a non-2xx and impose no degrade policy: whether a failure empties the result, skips one item of a batch, or aborts the fetch stays with the data source. Headers are opt-in (only `User-Agent` is sent by default) so `Accept` is never inferred — arXiv serves Atom and FRED serves CSV. The two exceptions are `platform/notify/telegram.ts` and `feishu.ts`, which stay on raw `fetch` because the request URL *is* the credential there and `HttpError` puts the URL in its message.
 - GitHub has exactly one client: `src/providers/github/client.ts`. The repo fetchers, the topic search, the trending scraper and the issue publisher all use it. Do not hand-roll `Authorization` / `X-GitHub-Api-Version` headers at a call site — that is how the trending search once swallowed rate limits that aborted every other GitHub path.
@@ -361,7 +371,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 
 - Dispatcher: `src/cli/inspect.ts` (registry lookup + arg parsing + exit codes). Implementations: `src/cli/inspect/*.ts`, one module per group; the flat target list lives in `src/cli/inspect/registry.ts`.
 - Source targets probe **feeds**, since that is what the pipeline consumes; `devto` and `lobsters` probe the two halves of the community feed, and `github` probes `providers/github/repos.ts` directly.
-- Target groups: data sources (`arxiv`, `devto`, `hf`, `hn`, `lobsters`, `ph`, `trending`, `web`, `fred`, `finra`, `vnmarket`, `vnmacro`, `vndocs`, `github`), pure transforms (`doc-extract:html`, `doc-extract:pdf`, `doc-extract:excerpt`, `vnmarket:aggregate`), prompt builders (`prompt:hn`, `prompt:trending`, `prompt:ph`, `prompt:arxiv`, `prompt:hf`, `prompt:community`, `prompt:web`, `prompt:macro`, `prompt:vnmacro`, `prompt:highlights`), `llm`, and dry runs (`report:macro`, `report:vnmacro`, `notify:telegram`, `notify:feishu`, `manifest`).
+- Target groups: data sources (`arxiv`, `devto`, `hf`, `hn`, `lobsters`, `ph`, `trending`, `web`, `fred`, `finra`, `vnmarket`, `vnmacro`, `vnrates`, `vndocs`, `github`), pure transforms (`doc-extract:html`, `doc-extract:pdf`, `doc-extract:excerpt`, `vnmarket:aggregate`), prompt builders (`prompt:hn`, `prompt:trending`, `prompt:ph`, `prompt:arxiv`, `prompt:hf`, `prompt:community`, `prompt:web`, `prompt:macro`, `prompt:vnmacro`, `prompt:vnrates`, `prompt:highlights`), `llm`, and dry runs (`report:macro`, `report:vnmacro`, `report:vnrates`, `notify:telegram`, `notify:feishu`, `manifest`).
 - **Exit codes are the contract**: `0` = ran and produced output, `1` = ran and failed (network/parse/unexpected shape, or a source reporting `fetchSuccess: false`), `2` = skipped because a required env var is unset (`SKIPPED: <target> requires <ENV_VAR>` on stderr). `SkipError` / `ProbeError` in `kit.ts` are how a probe signals which.
 - Results go to **stdout** (`--json` for the raw result); every diagnostic goes to **stderr**. The probed modules log through `core/logger.ts`, which is stderr-only already; the dispatcher's console routing is only a net for a dependency that writes to stdout. pnpm prints its run banner to stdout, so pipe with `pnpm -s inspect … --json | jq`.
 - **No side effects.** Probes never write into `digests/`, never modify `manifest.json` / `feed.xml` / `digests/web-state.json`, never create GitHub issues and cannot send notifications. `report:*` and `manifest` reach the real writers by `process.chdir`-ing into a temp dir first (both write relative to cwd), and pass an empty `digestRepo` so issue creation is skipped; the notify targets import only the message builders, never `sendTelegram` / `sendFeishu`.

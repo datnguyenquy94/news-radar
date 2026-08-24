@@ -385,6 +385,62 @@ export const vnmacroTarget: Target = {
   },
 };
 
+export const vnratesTarget: Target = {
+  name: "vnrates",
+  summary: "fetchVnRatesData() — SBV policy + interbank rates, fed funds spread and USD/VND",
+  options: [{ name: "history", arg: "n", desc: "session-history rows to print (default 5)" }],
+  async run(args) {
+    const { fetchVnRatesData } = await import("../../feeds/finance/vnrates.ts");
+    const data = await fetchVnRatesData();
+    const ib = data.interbank;
+    const sp = data.spreads;
+    return withFetchStatus(
+      data.fetchSuccess,
+      data,
+      [
+        kv("fetchSuccess", data.fetchSuccess),
+        kv(
+          "policy",
+          data.policy
+            ? `${data.policy.rates.length} rates, effective ${data.policy.effectiveDate} ` +
+                `(${data.policy.daysSinceEffective ?? "n/a"} days)`
+            : "null",
+        ),
+        ...(data.policy?.rates ?? []).map((r) => `  ${r.name}: ${r.raw} — ${r.decision}`),
+        kv("interbank", ib ? `${ib.asOf}, ${ib.tenors.length} tenors over ${ib.sessions} sessions` : "null"),
+        ...(ib?.tenors ?? []).map(
+          (t) =>
+            `  ${t.tenor.padEnd(8)} ${String(t.ratePct ?? "null").padStart(6)}%  ` +
+            `1s ${t.changePp1d ?? "n/a"}pp  20s ${t.changePp20d ?? "n/a"}pp  30s ${t.changePp30d ?? "n/a"}pp  ` +
+            `vol ${t.volumeVndBn ?? "n/a"}`,
+        ),
+        kv(
+          "turnover",
+          `${ib?.totalVolumeVndBn ?? "n/a"} bn VND, short end ${ib?.shortEndSharePct ?? "n/a"}%`,
+        ),
+        kv("policyGap(ON-refi)", `${sp?.policyGapOvernightPp ?? "n/a"}pp`),
+        kv("policyGap(1W-refi)", `${sp?.policyGapOneWeekPp ?? "n/a"}pp`),
+        kv("curveSlope(3M-ON)", `${sp?.curveSlopePp ?? "n/a"}pp`),
+        kv("vndUsdSpread", `${sp?.vndUsdSpreadPp ?? "n/a"}pp (fed funds ${sp?.fedFundsPct ?? "n/a"}%)`),
+        kv(
+          "fx",
+          data.fx
+            ? `sell ${data.fx.sell} as of ${data.fx.asOf} (1m ${data.fx.changePct1m ?? "n/a"}%)`
+            : "null",
+        ),
+        "history:",
+        ...sample(
+          data.history,
+          args.num("history", 5),
+          (h) =>
+            `${h.date} ON ${h.overnightPct ?? "n/a"}% 1W ${h.oneWeekPct ?? "n/a"}% vol ${h.totalVolumeVndBn ?? "n/a"}`,
+        ),
+      ],
+      "vnrates",
+    );
+  },
+};
+
 export const vndocsTarget: Target = {
   name: "vndocs",
   summary: "fetchVnDocsData() — NSO CPI + monthly articles (HTML) and the VBMA weekly bulletin (PDF)",

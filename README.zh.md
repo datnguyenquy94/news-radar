@@ -29,6 +29,8 @@
 | [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | 越南年度 CPI、GDP 增速、FDI、外汇储备 |
 | [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | 月度 CPI 发布 + 社会经济报告（FDI、进出口、公共投资） |
 | [VBMA](https://vbma.org.vn/en) | PDF → 逐页文本 | 债市周报 —— 银行间利率、SBV 中心汇率、国债收益率、企业债 |
+| [SBV](https://sbv.gov.vn) | JSON（Liferay headless） | 越南央行政策利率（再融资、再贴现）＋ 每日银行间各期限利率与成交量 —— 需先访问首页取得 Cookie |
+| [FRED](https://fred.stlouisfed.org) `DFF` | API | 联邦基金有效利率 —— VND 与 USD 隔夜利差，决定 SBV 的宽松空间 |
 
 ### 测试
 
@@ -353,6 +355,7 @@ pnpm inspect vnmarket:aggregate --file src/cli/inspect/fixtures/ssi-board.json
 | `ai-hn.md` | Hacker News AI 社区动态 — 热门帖子分类 + 情绪分析（仅在抓取成功时生成） | `hn` |
 | `fin-macro.md` | 宏观市场仪表盘 — FRED 指标 + FINRA 保证金债务，含阈值判读（仅在 FRED 成功时生成） | `macro` |
 | `fin-vnmacro.md` | 越南宏观市场仪表盘 — 市场内部指标、USD/VND 与全球驱动、实体经济、货币市场与债市（仅在越南行情数据成功时生成） | `vnmacro` |
+| `fin-vnrates.md` | 越南利率宏观仪表盘 — 政策利率走廊与银行间曲线的落差、VND-USD 利差、政策传导与板块影响（仅在 SBV 银行间数据成功时生成） | `vnrates` |
 
 `digests/web-state.json` 用于记录已处理的 URL，随每日简报一并提交。
 

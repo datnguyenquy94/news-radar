@@ -29,6 +29,8 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 | [World Bank](https://data.worldbank.org) | [API](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589) | Vietnam annual CPI, GDP growth, FDI, FX reserves |
 | [NSO Vietnam](https://www.nso.gov.vn/en/) | HTML → Readability | Monthly CPI release + socio-economic report (FDI, trade, public investment) |
 | [VBMA](https://vbma.org.vn/en) | PDF → per-page text | Weekly bond bulletin — interbank rates, SBV central rate, G-bond yields, corporate bonds |
+| [SBV](https://sbv.gov.vn) | JSON (Liferay headless) | Policy rates (refinancing, discount) + the daily interbank curve by tenor with turnover — needs a homepage cookie handshake |
+| [FRED](https://fred.stlouisfed.org) `DFF` | API | Effective fed funds — the VND-USD overnight spread that constrains SBV easing |
 
 ### Tests
 
@@ -363,6 +365,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 | `ai-community.md` | Tech community AI digest — Dev.to articles + Lobste.rs stories combined | `community` |
 | `fin-macro.md` | Macro market dashboard — FRED indicators + FINRA margin debt, with threshold readings (only written when FRED succeeds) | `macro` |
 | `fin-vnmacro.md` | Vietnam macro market dashboard — market internals, USD/VND + global drivers, real economy, money market & bonds (only written when Vietnam market data succeeds) | `vnmacro` |
+| `fin-vnrates.md` | Vietnam interest rate macro dashboard — SBV policy corridor vs the interbank curve, the VND-USD spread, transmission and sector impact (only written when the SBV interbank board succeeds) | `vnrates` |
 
 A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
 

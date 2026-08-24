@@ -31,6 +31,7 @@ import type { PhData } from "../../feeds/ai/ph.ts";
 import type { TrendingData } from "../../feeds/ai/trending.ts";
 import type { WebFetchResult } from "../../feeds/ai/web.ts";
 import type { VnFeedData } from "../../feeds/finance/vn/index.ts";
+import type { VnRatesData } from "../../feeds/finance/vnrates.ts";
 
 // ---------------------------------------------------------------------------
 // Shared plumbing
@@ -194,6 +195,14 @@ export const promptVnMacroTarget = promptTarget<VnFeedData>({
   build: (p, date, lang) => builders.buildVnMacroPrompt(p, date, lang),
 });
 
+export const promptVnRatesTarget = promptTarget<VnRatesData>({
+  id: "vnrates",
+  summary: "buildVnRatesPrompt() — the Vietnam interest-rate prompt, printed not sent",
+  fixture: "VnRatesData; fixtures/vnrates.json",
+  live: async () => (await import("../../feeds/finance/vnrates.ts")).fetchVnRatesData(),
+  build: (p, date, lang) => builders.buildVnRatesPrompt(p, date, lang),
+});
+
 // ---------------------------------------------------------------------------
 // Highlights — sourced from finished reports rather than a fetcher
 // ---------------------------------------------------------------------------
@@ -267,6 +276,7 @@ export const promptHighlightsTarget: Target = {
 
 export const PROMPT_TARGETS: Target[] = [
   promptVnMacroTarget,
+  promptVnRatesTarget,
   promptMacroTarget,
   promptTrendingTarget,
   promptHnTarget,

@@ -6,3 +6,4 @@ dist/
 .agents/
 .agile/
 fin_data/
+session.json

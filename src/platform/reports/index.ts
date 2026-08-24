@@ -16,3 +16,4 @@ export * from "./savers/hf.ts";
 export * from "./savers/community.ts";
 export * from "./savers/macro.ts";
 export * from "./savers/vnmacro.ts";
+export * from "./savers/vnrates.ts";

@@ -48,3 +48,23 @@ export function parseVcbUsd(json: VcbResponse): VcbBoard | null {
 export async function fetchUsdBoard(isoDate: string): Promise<VcbBoard | null> {
   return parseVcbUsd(await fetchJsonAsBrowser<VcbResponse>(`${VCB_API}?date=${isoDate}`, VCB_REFERER));
 }
+
+/**
+ * The board on or before `date`, walking back over days VCB did not publish.
+ *
+ * Which days those are is a property of the bank, not of any report, so the
+ * walk lives here rather than being re-implemented by every caller. `asOf` is
+ * backfilled with the date actually used when VCB omits it. Returns null only
+ * when the whole window came up empty; a single missing day is expected.
+ */
+export async function fetchUsdBoardNear(
+  date: Date,
+  lookbackDays = VCB_MAX_LOOKBACK_DAYS,
+): Promise<VcbBoard | null> {
+  for (let back = 0; back <= lookbackDays; back++) {
+    const day = new Date(date.getTime() - back * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const board = await fetchUsdBoard(day).catch(() => null);
+    if (board) return { ...board, asOf: board.asOf || day };
+  }
+  return null;
+}

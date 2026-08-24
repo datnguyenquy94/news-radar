@@ -19,6 +19,7 @@ import { Args, ProbeError, kv, readJsonFile, requireProviderKey, type Target } f
 import type { Lang } from "../../core/i18n/index.ts";
 import type { MacroData } from "../../feeds/finance/macro.ts";
 import type { VnFeedData } from "../../feeds/finance/vn/index.ts";
+import type { VnRatesData } from "../../feeds/finance/vnrates.ts";
 
 // ---------------------------------------------------------------------------
 // Temp-dir plumbing
@@ -198,6 +199,50 @@ export const reportVnMacroTarget: Target = {
     );
 
     const fileName = lang === "en" ? "fin-vnmacro-en.md" : "fin-vnmacro.md";
+    return reportResult(outDir, fileName, dateStr, lang, fixture ?? "live", args.num("head", 20));
+  },
+};
+
+// ---------------------------------------------------------------------------
+// report:vnrates
+// ---------------------------------------------------------------------------
+
+export const reportVnRatesTarget: Target = {
+  name: "report:vnrates",
+  summary:
+    "saveVnRatesReport() end to end (fetch -> prompt -> LLM -> file) into a temp dir; no issue, no digests/",
+  options: [...REPORT_OPTIONS, { name: "fixture", arg: "path", desc: "VnRatesData; fixtures/vnrates.json" }],
+  env: ["the LLM provider's key", "LLM_PROVIDER"],
+  async run(args) {
+    // See report:macro — key check precedes the fetch so the skip is instant.
+    requireProviderKey();
+    const lang = langOf(args);
+    const dateStr = await dateOf(args);
+    const outDir = resolveOutDir(args, "inspect-vnrates-");
+    const fixture = args.str("fixture");
+
+    const payload: VnRatesData = fixture
+      ? await readJsonFile<VnRatesData>(fixture)
+      : await (await import("../../feeds/finance/vnrates.ts")).fetchVnRatesData();
+
+    const [{ saveVnRatesReport }, { autoGenFooter }, { toUtcStr }] = await Promise.all([
+      import("../../platform/reports/savers/vnrates.ts"),
+      import("../../platform/reports/files.ts"),
+      import("../../core/date.ts"),
+    ]);
+
+    await inDir(outDir, () =>
+      saveVnRatesReport(
+        payload,
+        toUtcStr(new Date()),
+        dateStr,
+        "", // digestRepo — no GitHub issue
+        autoGenFooter(lang),
+        lang,
+      ),
+    );
+
+    const fileName = lang === "en" ? "fin-vnrates-en.md" : "fin-vnrates.md";
     return reportResult(outDir, fileName, dateStr, lang, fixture ?? "live", args.num("head", 20));
   },
 };

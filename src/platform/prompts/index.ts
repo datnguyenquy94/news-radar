@@ -16,5 +16,6 @@ export * from "./hf.ts";
 export * from "./community.ts";
 export * from "./macro.ts";
 export * from "./vnmacro.ts";
+export * from "./vnrates.ts";
 export * from "./rollup.ts";
 export * from "./highlights.ts";

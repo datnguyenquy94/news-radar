@@ -49,6 +49,7 @@ import {
   saveCommunityReport,
   saveMacroReport,
   saveVnMacroReport,
+  saveVnRatesReport,
 } from "../platform/reports/index.ts";
 import { fetchSiteContent, type WebFetchResult, type WebState } from "../feeds/ai/web.ts";
 import { loadWebState, saveWebState } from "../platform/state/web-state.ts";
@@ -60,6 +61,7 @@ import { fetchHfData, type HfData } from "../feeds/ai/hf.ts";
 import { fetchCommunityData, type CommunityData } from "../feeds/ai/community.ts";
 import { fetchMacroData, type MacroData } from "../feeds/finance/macro.ts";
 import { fetchVnFeed, type VnFeedData } from "../feeds/finance/vn/index.ts";
+import { fetchVnRatesData, type VnRatesData } from "../feeds/finance/vnrates.ts";
 import { loadConfig } from "../core/config.ts";
 import { createLogger } from "../core/logger.ts";
 import { toCstDateStr, toUtcStr } from "../core/date.ts";
@@ -121,10 +123,11 @@ async function fetchAllData(
   communityData: CommunityData;
   macroData: MacroData;
   vnData: VnFeedData;
+  vnRatesData: VnRatesData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   log.info(
-    `Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, trending, hn, ph, arxiv, hf, community, macro, vn`,
+    `Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, trending, hn, ph, arxiv, hf, community, macro, vn, vnrates`,
   );
 
   const emptyWebResult = (site: "anthropic" | "openai", siteName: string) => (err: unknown) => {
@@ -144,6 +147,7 @@ async function fetchAllData(
     communityData,
     macroData,
     vnData,
+    vnRatesData,
   ] = await Promise.all([
     fetchAllRepoActivity(allConfigs, since),
     fetchSkills(CLAUDE_SKILLS_REPO),
@@ -159,6 +163,7 @@ async function fetchAllData(
     fetchCommunityData(),
     fetchMacroData(),
     fetchVnFeed(),
+    fetchVnRatesData(),
   ]);
 
   return {
@@ -173,6 +178,7 @@ async function fetchAllData(
     communityData,
     macroData,
     vnData,
+    vnRatesData,
   };
 }
 
@@ -307,6 +313,7 @@ async function main(): Promise<void> {
     communityData,
     macroData,
     vnData,
+    vnRatesData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -416,6 +423,7 @@ async function main(): Promise<void> {
         saveCommunityReport(communityData, utcStr, dateStr, digestRepo, ft, lang),
         saveMacroReport(macroData, utcStr, dateStr, digestRepo, ft, lang),
         saveVnMacroReport(vnData, utcStr, dateStr, digestRepo, ft, lang),
+        saveVnRatesReport(vnRatesData, utcStr, dateStr, digestRepo, ft, lang),
       ];
     }),
   );
@@ -436,6 +444,7 @@ async function main(): Promise<void> {
     "ai-community",
     "fin-macro",
     "fin-vnmacro",
+    "fin-vnrates",
   ];
   const reportsByLang = {} as Record<Lang, Record<string, string>>;
   for (const lang of langs) {

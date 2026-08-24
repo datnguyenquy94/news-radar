@@ -20,7 +20,7 @@
 import { fetchFredSeries, type Observation } from "../../../providers/fred.ts";
 import { fetchDailySeries } from "../../../providers/yahoo.ts";
 import { fetchIndicator } from "../../../providers/worldbank.ts";
-import { VCB_MAX_LOOKBACK_DAYS, fetchUsdBoard, type VcbBoard } from "../../../providers/vietcombank.ts";
+import { fetchUsdBoardNear, type VcbBoard } from "../../../providers/vietcombank.ts";
 import { OZ_PER_TAEL, fetchGoldBoard } from "../../../providers/sjc.ts";
 import type { Lang } from "../../../core/i18n/index.ts";
 import { createLogger } from "../../../core/logger.ts";
@@ -177,7 +177,6 @@ const US_10Y: { id: string; series: string; fallbackSymbol: string; label: Recor
 // Helpers
 // ---------------------------------------------------------------------------
 
-const isoDate = (d: Date): string => d.toISOString().slice(0, 10);
 const daysAgo = (from: Date, n: number): Date => new Date(from.getTime() - n * 24 * 60 * 60 * 1000);
 const round = (n: number, decimals: number): number => {
   const f = 10 ** decimals;
@@ -188,28 +187,15 @@ const round = (n: number, decimals: number): number => {
 // Vietcombank USD/VND
 // ---------------------------------------------------------------------------
 
-/** Fetch the board for `date`, walking back over non-publishing days. */
-async function fetchVcbBoard(date: Date, lookbackDays = VCB_MAX_LOOKBACK_DAYS): Promise<VcbBoard | null> {
-  for (let back = 0; back <= lookbackDays; back++) {
-    const day = isoDate(daysAgo(date, back));
-    try {
-      const board = await fetchUsdBoard(day);
-      if (board) return { ...board, asOf: board.asOf || day };
-    } catch (err) {
-      // A single missing day is expected; only the exhausted loop is a failure.
-      if (back === lookbackDays) log.error(`VCB ${day} failed: ${err}`);
-    }
-  }
-  return null;
-}
-
 async function fetchFx(now: Date): Promise<VnFxRate | null> {
+  // The walk over days VCB did not publish lives in the provider — which days
+  // those are is a property of the bank, not of this report.
   const [latest, monthAgo, yearStart] = await Promise.all([
-    fetchVcbBoard(now),
-    fetchVcbBoard(daysAgo(now, 30)),
+    fetchUsdBoardNear(now),
+    fetchUsdBoardNear(daysAgo(now, 30)),
     // First business days of January are holiday-heavy; allow a wide walk-back
     // from mid-January rather than anchoring on the 1st.
-    fetchVcbBoard(new Date(Date.UTC(now.getUTCFullYear(), 0, 15)), 14),
+    fetchUsdBoardNear(new Date(Date.UTC(now.getUTCFullYear(), 0, 15)), 14),
   ]);
 
   if (!latest) {

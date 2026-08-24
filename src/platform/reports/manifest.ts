@@ -34,6 +34,8 @@ const REPORT_FILES = [
   "fin-macro-en",
   "fin-vnmacro",
   "fin-vnmacro-en",
+  "fin-vnrates",
+  "fin-vnrates-en",
   "ai-weekly",
   "ai-weekly-en",
   "ai-monthly",

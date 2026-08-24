@@ -10,7 +10,7 @@ import { docExtractExcerptTarget, docExtractHtmlTarget, docExtractPdfTarget } fr
 import { vnmarketAggregateTarget } from "./vnmarket.ts";
 import { PROMPT_TARGETS } from "./prompts.ts";
 import { llmTarget } from "./llm.ts";
-import { manifestTarget, reportMacroTarget, reportVnMacroTarget } from "./reports.ts";
+import { manifestTarget, reportMacroTarget, reportVnMacroTarget, reportVnRatesTarget } from "./reports.ts";
 import { notifyFeishuTarget, notifyTelegramTarget } from "./notify.ts";
 import {
   arxivTarget,
@@ -26,6 +26,7 @@ import {
   vndocsTarget,
   vnmacroTarget,
   vnmarketTarget,
+  vnratesTarget,
   webTarget,
 } from "./sources.ts";
 
@@ -43,6 +44,7 @@ export const TARGETS: Target[] = [
   finraTarget,
   vnmarketTarget,
   vnmacroTarget,
+  vnratesTarget,
   vndocsTarget,
   githubTarget,
 
@@ -61,6 +63,7 @@ export const TARGETS: Target[] = [
   // Reports and notifications — dry-run only, temp dir output
   reportMacroTarget,
   reportVnMacroTarget,
+  reportVnRatesTarget,
   notifyTelegramTarget,
   notifyFeishuTarget,
   manifestTarget,

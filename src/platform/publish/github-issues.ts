@@ -44,6 +44,8 @@ const LABEL_COLORS: Record<string, string> = {
   "macro-en": "4ade80",
   vnmacro: "da2c38",
   "vnmacro-en": "f0616b",
+  vnrates: "0f766e",
+  "vnrates-en": "2dd4bf",
 };
 
 function digestRepo(): string {

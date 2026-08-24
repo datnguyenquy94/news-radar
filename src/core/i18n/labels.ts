@@ -35,6 +35,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "fin-macro-en": "Macro Market Dashboard",
   "fin-vnmacro": "Bảng theo dõi thị trường vĩ mô Việt Nam",
   "fin-vnmacro-en": "Vietnam Macro Market Dashboard",
+  "fin-vnrates": "Bảng theo dõi lãi suất vĩ mô Việt Nam",
+  "fin-vnrates-en": "Vietnam Interest Rate Macro Dashboard",
   "ai-weekly": "Báo cáo tuần hệ sinh thái công cụ AI",
   "ai-weekly-en": "AI Tools Weekly Digest",
   "ai-monthly": "Báo cáo tháng hệ sinh thái công cụ AI",
@@ -53,6 +55,7 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-community": t("Cộng đồng công nghệ", "Tech Community"),
   "fin-macro": t("Bảng vĩ mô", "Macro Dashboard"),
   "fin-vnmacro": t("Bảng vĩ mô Việt Nam", "Vietnam Macro"),
+  "fin-vnrates": t("Lãi suất Việt Nam", "Vietnam Rates"),
   "ai-weekly": t("Báo cáo tuần hệ sinh thái công cụ AI", "AI Tools Weekly"),
   "ai-monthly": t("Báo cáo tháng hệ sinh thái công cụ AI", "AI Tools Monthly"),
 };

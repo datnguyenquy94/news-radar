@@ -117,6 +117,19 @@ export const VNMACRO_REPORT = {
       : `🇻🇳 Bảng theo dõi thị trường vĩ mô Việt Nam ${dateStr}`,
 } as const;
 
+export const VNRATES_REPORT = {
+  title: t("Bảng theo dõi lãi suất vĩ mô Việt Nam", "Vietnam Interest Rate Macro Dashboard"),
+  sources: t("Nguồn dữ liệu: NHNN + FRED + Vietcombank", "Sources: SBV + FRED + Vietcombank"),
+  disclaimer: t(
+    "Chỉ mang tính tham khảo, không phải lời khuyên đầu tư",
+    "Informational only, not financial advice",
+  ),
+  issueTitle: (dateStr: string, lang: Lang) =>
+    lang === "en"
+      ? `🏦 Vietnam Interest Rate Macro Dashboard ${dateStr}`
+      : `🏦 Bảng theo dõi lãi suất vĩ mô Việt Nam ${dateStr}`,
+} as const;
+
 export const WEEKLY_REPORT = {
   title: t("Báo cáo tuần hệ sinh thái công cụ AI", "AI Tools Ecosystem Weekly Report"),
   coverage: t("Phạm vi ngày", "Coverage"),
@@ -140,6 +153,7 @@ export const ISSUE_LABELS = {
   community: t("community", "community-en"),
   macro: t("macro", "macro-en"),
   vnmacro: t("vnmacro", "vnmacro-en"),
+  vnrates: t("vnrates", "vnrates-en"),
 } as const;
 
 export const CLI_ISSUE_TITLE = (dateStr: string, lang: Lang) =>

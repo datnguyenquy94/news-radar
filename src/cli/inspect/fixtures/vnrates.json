@@ -1,0 +1,335 @@
+{
+  "policy": {
+    "effectiveDate": "2023-03-18",
+    "daysSinceEffective": 1255,
+    "rates": [
+      {
+        "name": "Lãi suất tái chiết khấu",
+        "ratePct": 3,
+        "raw": "3,000%",
+        "decision": "1123/QĐ-NHNN ngày 16/06/2023",
+        "isRefinancing": false
+      },
+      {
+        "name": "Lãi suất tái cấp vốn",
+        "ratePct": 4.5,
+        "raw": "4,500%",
+        "decision": "1123/QĐ-NHNN ngày 16/06/2023",
+        "isRefinancing": true
+      }
+    ]
+  },
+  "interbank": {
+    "asOf": "2026-08-19",
+    "comparedWith": {
+      "d1": "2026-08-18",
+      "d20": "2026-07-22",
+      "d30": "2026-07-08"
+    },
+    "sessions": 50,
+    "tenors": [
+      {
+        "tenor": "Qua đêm",
+        "ratePct": 3.01,
+        "changePp1d": -1.01,
+        "changePp20d": 0.04,
+        "changePp30d": -1.67,
+        "changePct1d": -25.12,
+        "changePct20d": 1.35,
+        "changePct30d": -35.68,
+        "volumeVndBn": 913824,
+        "volumeChangePct1d": -0.36,
+        "volumeChangePct20d": 8.38,
+        "volumeChangePct30d": 7.31
+      },
+      {
+        "tenor": "1 Tuần",
+        "ratePct": 3.73,
+        "changePp1d": -0.75,
+        "changePp20d": -0.08,
+        "changePp30d": -1.5,
+        "changePct1d": -16.74,
+        "changePct20d": -2.1,
+        "changePct30d": -28.68,
+        "volumeVndBn": 17280,
+        "volumeChangePct1d": 110.73,
+        "volumeChangePct20d": 48.58,
+        "volumeChangePct30d": -4.12
+      },
+      {
+        "tenor": "2 Tuần",
+        "ratePct": 5.64,
+        "changePp1d": -0.27,
+        "changePp20d": 0.04,
+        "changePp30d": -0.4,
+        "changePct1d": -4.57,
+        "changePct20d": 0.71,
+        "changePct30d": -6.62,
+        "volumeVndBn": 36130,
+        "volumeChangePct1d": 358.5,
+        "volumeChangePct20d": 9.62,
+        "volumeChangePct30d": 197
+      },
+      {
+        "tenor": "1 Tháng",
+        "ratePct": 6.93,
+        "changePp1d": -0.04,
+        "changePp20d": 0.28,
+        "changePp30d": -0.5,
+        "changePct1d": -0.57,
+        "changePct20d": 4.21,
+        "changePct30d": -6.73,
+        "volumeVndBn": 4855,
+        "volumeChangePct1d": -19.38,
+        "volumeChangePct20d": -59.97,
+        "volumeChangePct30d": 23.63
+      },
+      {
+        "tenor": "3 Tháng",
+        "ratePct": 7.56,
+        "changePp1d": -0.33,
+        "changePp20d": -0.07,
+        "changePp30d": -0.24,
+        "changePct1d": -4.18,
+        "changePct20d": -0.92,
+        "changePct30d": -3.08,
+        "volumeVndBn": 1824,
+        "volumeChangePct1d": -69.8,
+        "volumeChangePct20d": -67.99,
+        "volumeChangePct30d": -68.88
+      },
+      {
+        "tenor": "6 Tháng",
+        "ratePct": 8.44,
+        "changePp1d": 1.39,
+        "changePp20d": 0.64,
+        "changePp30d": -0.2,
+        "changePct1d": 19.72,
+        "changePct20d": 8.21,
+        "changePct30d": -2.31,
+        "volumeVndBn": 632,
+        "volumeChangePct1d": 321.33,
+        "volumeChangePct20d": 26.4,
+        "volumeChangePct30d": -37.36
+      },
+      {
+        "tenor": "9 Tháng",
+        "ratePct": 8.8,
+        "changePp1d": -0.46,
+        "changePp20d": -0.46,
+        "changePp30d": -0.46,
+        "changePct1d": -4.97,
+        "changePct20d": -4.97,
+        "changePct30d": -4.97,
+        "volumeVndBn": 500,
+        "volumeChangePct1d": 117.39,
+        "volumeChangePct20d": 117.39,
+        "volumeChangePct30d": 117.39
+      }
+    ],
+    "totalVolumeVndBn": 975045,
+    "shortEndSharePct": 95.5
+  },
+  "spreads": {
+    "refinancingPct": 4.5,
+    "discountPct": 3,
+    "overnightPct": 3.01,
+    "oneWeekPct": 3.73,
+    "threeMonthPct": 7.56,
+    "policyGapOvernightPp": -1.49,
+    "policyGapOneWeekPp": -0.77,
+    "curveSlopePp": 4.55,
+    "fedFundsPct": 3.63,
+    "fedFundsAsOf": "2026-08-20",
+    "vndUsdSpreadPp": -0.62
+  },
+  "fx": {
+    "sell": 26330,
+    "transfer": 25950,
+    "asOf": "2026-08-24",
+    "changePct1m": -0.68
+  },
+  "history": [
+    {
+      "date": "2026-08-19",
+      "overnightPct": 3.01,
+      "oneWeekPct": 3.73,
+      "totalVolumeVndBn": 975045
+    },
+    {
+      "date": "2026-08-18",
+      "overnightPct": 4.02,
+      "oneWeekPct": 4.48,
+      "totalVolumeVndBn": 945605
+    },
+    {
+      "date": "2026-08-17",
+      "overnightPct": 4.89,
+      "oneWeekPct": 5.18,
+      "totalVolumeVndBn": 947829
+    },
+    {
+      "date": "2026-08-16",
+      "overnightPct": 5.77,
+      "oneWeekPct": 5.71,
+      "totalVolumeVndBn": 947652
+    },
+    {
+      "date": "2026-08-13",
+      "overnightPct": 4.91,
+      "oneWeekPct": 5.04,
+      "totalVolumeVndBn": 905837
+    },
+    {
+      "date": "2026-08-12",
+      "overnightPct": 4.38,
+      "oneWeekPct": 4.68,
+      "totalVolumeVndBn": 950305
+    },
+    {
+      "date": "2026-08-11",
+      "overnightPct": 4.47,
+      "oneWeekPct": 5.01,
+      "totalVolumeVndBn": 923372
+    },
+    {
+      "date": "2026-08-10",
+      "overnightPct": 5.26,
+      "oneWeekPct": 5.76,
+      "totalVolumeVndBn": 918272
+    },
+    {
+      "date": "2026-08-09",
+      "overnightPct": 6.09,
+      "oneWeekPct": 6.24,
+      "totalVolumeVndBn": 869746
+    },
+    {
+      "date": "2026-08-06",
+      "overnightPct": 5.97,
+      "oneWeekPct": 6.06,
+      "totalVolumeVndBn": 864615
+    },
+    {
+      "date": "2026-08-05",
+      "overnightPct": 4.58,
+      "oneWeekPct": 5.12,
+      "totalVolumeVndBn": 886379
+    },
+    {
+      "date": "2026-08-04",
+      "overnightPct": 4.83,
+      "oneWeekPct": 5.53,
+      "totalVolumeVndBn": 889682
+    },
+    {
+      "date": "2026-08-03",
+      "overnightPct": 6.32,
+      "oneWeekPct": 6.34,
+      "totalVolumeVndBn": 916447
+    },
+    {
+      "date": "2026-08-02",
+      "overnightPct": 6.22,
+      "oneWeekPct": 6.46,
+      "totalVolumeVndBn": 907261
+    },
+    {
+      "date": "2026-07-30",
+      "overnightPct": 5.72,
+      "oneWeekPct": 4.83,
+      "totalVolumeVndBn": 1106984
+    },
+    {
+      "date": "2026-07-29",
+      "overnightPct": 0.75,
+      "oneWeekPct": 4.49,
+      "totalVolumeVndBn": 906779
+    },
+    {
+      "date": "2026-07-28",
+      "overnightPct": 1.33,
+      "oneWeekPct": 4.55,
+      "totalVolumeVndBn": 884458
+    },
+    {
+      "date": "2026-07-27",
+      "overnightPct": 2.17,
+      "oneWeekPct": 4.53,
+      "totalVolumeVndBn": 888266
+    },
+    {
+      "date": "2026-07-26",
+      "overnightPct": 2.37,
+      "oneWeekPct": 4.49,
+      "totalVolumeVndBn": 885816
+    },
+    {
+      "date": "2026-07-23",
+      "overnightPct": 2.43,
+      "oneWeekPct": 3.51,
+      "totalVolumeVndBn": 919427
+    },
+    {
+      "date": "2026-07-22",
+      "overnightPct": 2.97,
+      "oneWeekPct": 3.81,
+      "totalVolumeVndBn": 906283
+    },
+    {
+      "date": "2026-07-21",
+      "overnightPct": 3.33,
+      "oneWeekPct": 4.1,
+      "totalVolumeVndBn": 896401
+    },
+    {
+      "date": "2026-07-20",
+      "overnightPct": 3.54,
+      "oneWeekPct": 4.33,
+      "totalVolumeVndBn": 888764
+    },
+    {
+      "date": "2026-07-19",
+      "overnightPct": 3.68,
+      "oneWeekPct": 4.41,
+      "totalVolumeVndBn": 890190
+    },
+    {
+      "date": "2026-07-16",
+      "overnightPct": 3.87,
+      "oneWeekPct": 4.62,
+      "totalVolumeVndBn": 856190
+    },
+    {
+      "date": "2026-07-15",
+      "overnightPct": 4.11,
+      "oneWeekPct": 4.69,
+      "totalVolumeVndBn": 897776
+    },
+    {
+      "date": "2026-07-14",
+      "overnightPct": 4.16,
+      "oneWeekPct": 4.74,
+      "totalVolumeVndBn": 921501
+    },
+    {
+      "date": "2026-07-13",
+      "overnightPct": 4.18,
+      "oneWeekPct": 4.78,
+      "totalVolumeVndBn": 925134
+    },
+    {
+      "date": "2026-07-12",
+      "overnightPct": 4.19,
+      "oneWeekPct": 4.39,
+      "totalVolumeVndBn": 906314
+    },
+    {
+      "date": "2026-07-09",
+      "overnightPct": 4.28,
+      "oneWeekPct": 4.92,
+      "totalVolumeVndBn": 909324
+    }
+  ],
+  "fetchSuccess": true
+}

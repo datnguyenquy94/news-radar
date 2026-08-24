@@ -10,7 +10,7 @@
 |------|------|---------|
 | [GitHub Repos](https://github.com) | API | 17+ 个 AI 工具仓库的 Issues、PR、Releases |
 | [Claude Code Skills](https://github.com/anthropics/skills) | API | 按社区活跃度排序的热门 Skills |
-| [GitHub Trending](https://github.com/trending) | HTML + API | 每日热门仓库 + AI 主题搜索（7 天窗口） |
+| [GitHub Trending](https://github.com/trending) | HTML + API | 每日热门仓库 + AI 主题搜索（7 天窗口），并与历史已报告仓库去重 |
 | [Hacker News](https://news.ycombinator.com) | [Algolia API](https://hn.algolia.com/api) | 过去 24 小时 Top 30 AI 热帖，6 组并行查询 |
 | [Product Hunt](https://www.producthunt.com) | GraphQL API | 昨日 AI 产品按投票排序 |
 | [ArXiv](https://arxiv.org) | [ArXiv API](https://export.arxiv.org/api/query) | cs.AI、cs.CL、cs.LG 最新论文（48 小时内） |
@@ -180,6 +180,15 @@ OpenClaw 作为重点追踪项目，同时横向对比多个同赛道项目，�
 | [github.com/trending](https://github.com/trending?since=daily) | 今日热榜，HTML 解析，含今日新增 Stars 数 |
 | GitHub Search API | 7 天内活跃的 AI 相关仓库，覆盖 6 个主题标签：`llm`、`ai-agent`、`rag`、`vector-database`、`large-language-model`、`machine-learning` |
 
+两个列表随后与 `digests/trending-state.json` 做差集比对 —— 该文件记录每个仓库**在上次被报告的那一次运行时**的
+Stars 数。只有全新的仓库，或自上次出现以来新增至少 **500 Stars** 或 **20%** 的仓库才会进入报告。若没有这一步，
+搜索这一半就只是一张固定的热度榜：`pushed:>7d` 按 Stars 排序，每天返回的都是同一批
+langchain / ollama / transformers 巨头。
+
+被跳过的仓库会保留旧的基准值，因此增量会累积而不会丢失：一个每天新增 400 Stars 的项目今天被跳过，
+明天就会带着完整的 `+800` 出现。每一行都会标注 `🆕 首次出现` 或 `📈 自 <日期> 以来 +N`，
+并且提示词会明确告知模型：某个仓库缺席意味着"没有变化"，而不是"热度下降"。
+
 LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 智能体 / AI 应用 / 大模型 / RAG 知识库），并提炼趋势信号。
 
 ### Hacker News
@@ -202,7 +211,7 @@ LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 
 - 为每个 CLI 仓库生成单独摘要，并输出跨工具横向对比分析
 - 生成 OpenClaw 深度项目报告，并与 11 个同赛道项目进行横向对比
 - 通过 Sitemap 抓取 Anthropic 和 OpenAI 官网内容，增量检测新文章
-- 每日监测 GitHub Trending + 搜索 6 个 AI 主题标签，按维度分类并提炼趋势信号
+- 每日监测 GitHub Trending + 搜索 6 个 AI 主题标签，仅报告全新或自上次覆盖以来 Stars 显著增长的仓库，再按维度分类并提炼趋势信号
 - 抓取 Hacker News 过去 24 小时 AI 热门帖子（top 30，按分数排序），生成社区情绪报告
 - 以 GitHub Issues 形式发布报告，同时提交 Markdown 文件至 `digests/YYYY-MM-DD/`
 - 每日通过 GitHub Actions 定时运行，支持手动触发
@@ -357,7 +366,7 @@ pnpm inspect vnmarket:aggregate --file src/cli/inspect/fixtures/ssi-board.json
 | `fin-vnmacro.md` | 越南宏观市场仪表盘 — 市场内部指标、USD/VND 与全球驱动、实体经济、货币市场与债市（仅在越南行情数据成功时生成） | `vnmacro` |
 | `fin-vnrates.md` | 越南利率宏观仪表盘 — 政策利率走廊与银行间曲线的落差、VND-USD 利差、政策传导与板块影响（仅在 SBV 银行间数据成功时生成） | `vnrates` |
 
-`digests/web-state.json` 用于记录已处理的 URL，随每日简报一并提交。
+`digests/web-state.json` 用于记录已处理的 URL，`digests/trending-state.json` 用于记录趋势报告已覆盖的仓库及其当时的 Stars 数；两者均随每日简报一并提交。
 
 ---
 
@@ -418,7 +427,7 @@ OpenAI 内容精选            (research / release / company / safety / ...)
 
 `ai-trending.md` 结构：
 ```
-数据来源: GitHub Trending + GitHub Search API
+数据来源: GitHub Trending + GitHub Search API（每行标注 🆕 首次出现 或 📈 自上次报告以来 +N Stars）
 
 今日速览
 各维度热门项目

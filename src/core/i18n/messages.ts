@@ -16,6 +16,10 @@ export const MSG = {
     "⚠️ Không lấy được dữ liệu xu hướng hôm nay, không thể tạo báo cáo.",
     "⚠️ Trending data unavailable, unable to generate report.",
   ),
+  trendingNothingNew: t(
+    "Không có kho nào mới hoặc biến động đáng kể so với các báo cáo trước.",
+    "No repositories are new or have moved significantly since earlier reports.",
+  ),
   trendingFailed: t("⚠️ Tạo báo cáo xu hướng thất bại.", "⚠️ Trending report generation failed."),
 } as const;
 

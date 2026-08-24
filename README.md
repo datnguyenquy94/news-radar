@@ -10,7 +10,7 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It aggregates AI
 |--------|------|------|
 | [GitHub Repos](https://github.com) | API | Issues, PRs, releases from 17+ tracked AI tool repos |
 | [Claude Code Skills](https://github.com/anthropics/skills) | API | Trending skills sorted by community engagement |
-| [GitHub Trending](https://github.com/trending) | HTML + API | Daily trending repos + AI topic search (7-day window) |
+| [GitHub Trending](https://github.com/trending) | HTML + API | Daily trending repos + AI topic search (7-day window), de-duplicated against previously reported repos |
 | [Hacker News](https://news.ycombinator.com) | [Algolia API](https://hn.algolia.com/api) | Top 30 AI stories from last 24h, 6 parallel queries |
 | [Product Hunt](https://www.producthunt.com) | GraphQL API | Yesterday's top AI products by votes |
 | [ArXiv](https://arxiv.org) | [ArXiv API](https://export.arxiv.org/api/query) | Latest papers from cs.AI, cs.CL, cs.LG (last 48h) |
@@ -181,6 +181,17 @@ Two data sources are fetched in parallel every day:
 | [github.com/trending](https://github.com/trending?since=daily) | Today's trending repos — parsed from HTML; includes today's new star count |
 | GitHub Search API | Repos active in the last 7 days matching 6 AI topics: `llm`, `ai-agent`, `rag`, `vector-database`, `large-language-model`, `machine-learning` |
 
+Both lists are then diffed against `digests/trending-state.json`, which records the star count each
+repo had **at the run that last reported it**. A repo reaches the report only when it is new, or when
+it has gained at least **500 stars** or **20 %** since it last appeared. Without this the Search half
+is a standing popularity ranking — `pushed:>7d` sorted by stars returns the same
+langchain / ollama / transformers giants every single day.
+
+A suppressed repo keeps its old baseline, so its gains accumulate rather than being lost: a project
+adding 400 stars a day is skipped one day and reported the next with the full `+800`. Each surviving
+row is tagged `🆕 first appearance` or `📈 +N since <date>`, and the prompt tells the model that a
+missing repo means "unchanged", never "declining".
+
 The LLM filters out non-AI repos from the trending list, classifies the rest by dimension (AI infrastructure / agents / applications / models / RAG), and extracts trend signals.
 
 ### Hacker News
@@ -203,7 +214,7 @@ New articles are detected by comparing sitemap `lastmod` timestamps against a pe
 - Generates a per-tool summary for each CLI repository and a cross-tool comparative analysis
 - Generates a deep OpenClaw project report plus a cross-ecosystem comparison against 11 peer projects
 - Scrapes official Anthropic and OpenAI web content via sitemaps; detects new articles incrementally
-- Monitors GitHub Trending daily + searches 6 AI topic tags; classifies repos by dimension and extracts trend signals
+- Monitors GitHub Trending daily + searches 6 AI topic tags; reports only repos that are new or have gained meaningful stars since last covered, then classifies them by dimension and extracts trend signals
 - Fetches top-30 AI stories from Hacker News (last 24h, ranked by points); generates community sentiment report
 - Publishes GitHub Issues for each report type; commits Markdown files to `digests/YYYY-MM-DD/`
 - Runs on a daily schedule via GitHub Actions; supports manual triggering
@@ -367,7 +378,7 @@ Files are written to `digests/YYYY-MM-DD/`:
 | `fin-vnmacro.md` | Vietnam macro market dashboard — market internals, USD/VND + global drivers, real economy, money market & bonds (only written when Vietnam market data succeeds) | `vnmacro` |
 | `fin-vnrates.md` | Vietnam interest rate macro dashboard — SBV policy corridor vs the interbank curve, the VND-USD spread, transmission and sector impact (only written when the SBV interbank board succeeds) | `vnrates` |
 
-A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
+Two shared state files are committed alongside the daily digests: `digests/web-state.json` tracks which web URLs have been seen, and `digests/trending-state.json` tracks which repos the trending report has already covered and how many stars each had at the time.
 
 Each report is generated in both Vietnamese (`ai-cli.md`) and English (`ai-cli-en.md`). The Web UI sidebar shows VI / EN toggle buttons for reports that have both variants.
 
@@ -434,7 +445,7 @@ Notable details
 Sources: GitHub Trending + GitHub Search API
 
 Today's summary
-Top repos by dimension
+Top repos by dimension (each row tagged 🆕 new or 📈 +N stars since last reported)
   🔧 AI Infrastructure  — frameworks / SDKs / inference engines / CLIs
   🤖 AI Agents          — agent frameworks / multi-agent / automation
   📦 AI Applications    — vertical products / solutions

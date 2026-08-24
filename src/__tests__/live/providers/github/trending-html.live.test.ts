@@ -26,12 +26,24 @@ describe("live provider: github trending (HTML scrape)", () => {
         /^[\w.-]+\/[\w.-]+$/,
       );
       // Zero stars everywhere means the star element moved, not a quiet day.
+      // `expectPopulated` only checks the type, and 0 is a number — so each
+      // count needs its own guard. Star and fork totals sit after a nested
+      // <svg><path>, which is exactly where a markup reshuffle silently zeroes
+      // them while `todayStars` (matched from free text) keeps working.
       expect(
         repos.some((r) => r.todayStars > 0),
         "trending: every repo has 0 stars today — the star element likely moved",
       ).toBe(true);
+      expect(
+        repos.some((r) => r.totalStars > 0),
+        "trending: every repo has 0 total stars — the stargazers count element likely moved",
+      ).toBe(true);
+      expect(
+        repos.some((r) => r.forks > 0),
+        "trending: every repo has 0 forks — the forks count element likely moved",
+      ).toBe(true);
 
-      return `${repos.length} repos · top ${repos[0]!.fullName} (+${repos[0]!.todayStars})`;
+      return `${repos.length} repos · top ${repos[0]!.fullName} ${repos[0]!.totalStars}★ (+${repos[0]!.todayStars})`;
     });
   });
 });

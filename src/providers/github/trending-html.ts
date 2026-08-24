@@ -29,8 +29,33 @@ function parseCount(raw: string | undefined): number {
   return raw ? parseInt(raw.replace(/,/g, ""), 10) : 0;
 }
 
+const ENTITIES: Record<string, string> = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  nbsp: " ",
+  "#39": "'",
+};
+
+/**
+ * Strip tags and decode the entities GitHub escapes descriptions with. Without
+ * the decode, a description reaches the prompt as `Modern &amp; Opinionated`
+ * and the model copies it into the report that way.
+ */
 function stripTags(raw: string | undefined): string {
-  return raw ? raw.replace(/<[^>]+>/g, "").trim() : "";
+  if (!raw) return "";
+  return raw
+    .replace(/<[^>]+>/g, "")
+    .replace(/&(#\d+|#x[\da-f]+|[a-z]+);/gi, (match, name: string) => {
+      const key = name.toLowerCase();
+      if (ENTITIES[key] !== undefined) return ENTITIES[key];
+      if (key.startsWith("#x")) return String.fromCodePoint(parseInt(key.slice(2), 16));
+      if (key.startsWith("#")) return String.fromCodePoint(parseInt(key.slice(1), 10));
+      return match;
+    })
+    .trim();
 }
 
 /** Parse the trending page's HTML. Exported for offline probing and tests. */
@@ -54,8 +79,11 @@ export function parseTrendingHtml(html: string): TrendingRepo[] {
           block.match(/<span[^>]+itemprop="programmingLanguage"[^>]*>([\s\S]*?)<\/span>/)?.[1],
         ),
         todayStars: parseCount(block.match(/([\d,]+)\s+stars?\s+today/i)?.[1]),
-        totalStars: parseCount(block.match(/href="\/[^"]+\/stargazers"[^>]*>\s*<[^>]+>\s*([\d,]+)/)?.[1]),
-        forks: parseCount(block.match(/href="\/[^"]+\/forks"[^>]*>\s*<[^>]+>\s*([\d,]+)/)?.[1]),
+        // The count sits after the whole octicon <svg>, which nests a <path>.
+        // Skipping to </svg> rather than over a single tag is what keeps this
+        // working — matching one tag stops at the <path> and yields 0.
+        totalStars: parseCount(block.match(/href="\/[^"]+\/stargazers"[\s\S]*?<\/svg>\s*([\d,]+)/)?.[1]),
+        forks: parseCount(block.match(/href="\/[^"]+\/forks"[\s\S]*?<\/svg>\s*([\d,]+)/)?.[1]),
         url: `https://github.com/${fullName}`,
       });
     } catch {

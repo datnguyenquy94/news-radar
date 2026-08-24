@@ -122,7 +122,12 @@ export const promptTrendingTarget = promptTarget<TrendingData>({
   id: "trending",
   summary: "buildTrendingPrompt() — the GitHub Trending prompt, printed not sent",
   fixture: "TrendingData JSON (`pnpm -s inspect trending --json`); fixtures/trending.json",
-  live: async () => (await import("../../feeds/ai/trending.ts")).fetchTrendingData(),
+  live: async () =>
+    (await import("../../feeds/ai/trending.ts")).fetchTrendingData(
+      // The committed baseline, so a live probe shows the same filtered list the
+      // pipeline would build. Read-only — the probe never writes it back.
+      (await import("../../platform/state/trending-state.ts")).loadTrendingState(),
+    ),
   build: (d, date, lang) => builders.buildTrendingPrompt(d, date, lang),
 });
 

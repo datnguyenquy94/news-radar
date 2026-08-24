@@ -83,7 +83,7 @@ The daily pipeline runs in sequential phases, each a named async function in `sr
 1. **`fetchAllData`** — all network I/O in parallel, one entry per feed: repo activity for the 22 tracked repos (10 CLI + OpenClaw + 11 peers), Claude Code Skills, the Anthropic/OpenAI sitemaps, trending, HN, Product Hunt, ArXiv, Hugging Face, community (Dev.to + Lobste.rs), macro (FRED + FINRA), the Vietnam dashboard (8 hosts) and Vietnam interest rates (SBV + FRED + Vietcombank). Each feed owns its own degrade policy and returns a well-formed empty payload with `fetchSuccess: false` rather than throwing, so one outage never aborts the run.
 2. **`generateSummaries`** — per-repo LLM calls, all in parallel, rate-limited to `LLM_CONCURRENCY` (default 5) concurrent requests by a queue in `src/platform/llm/client.ts`. Runs once per language. Repos with zero activity skip the LLM call entirely.
 3. **Comparisons** — cross-tool CLI comparison and OpenClaw cross-ecosystem comparison (2 LLM calls per language).
-4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/platform/reports/builders/`) assemble Markdown strings; the `saveXxxReport` functions in `src/platform/reports/savers/` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, community, macro and vnmacro. `saveWebReport` runs first because `saveWebState` must follow it.
+4. **Save phase** — `buildCliReportContent` / `buildOpenclawReportContent` (in `src/platform/reports/builders/`) assemble Markdown strings; the `saveXxxReport` functions in `src/platform/reports/savers/` call the LLM + write the file + create the GitHub Issue for web, trending, hn, ph, arxiv, hf, community, macro and vnmacro. `saveWebReport` runs first because `saveWebState` must follow it. `saveTrendingReport` is likewise followed by `recordTrendingReported` + `saveTrendingState`, so the trending baseline only advances for repos that actually reached a report.
 5. **Highlights** — one LLM call per language produces `highlights.json` (a few bullet points per report) for the Telegram/Feishu notifications. `parseLlmJson` repairs common malformed-JSON defects, the call is retried once on a parse failure, and each language runs independently and backfills from the other if one still ends up empty.
 6. **GitHub Issues** — CLI + OpenClaw issues are created (one per configured language) when `DIGEST_REPO` is set.
 
@@ -163,7 +163,7 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | File | Report | Responsibility |
 |------|--------|---------------|
 | `src/feeds/ai/repo-activity.ts` | `ai-cli`, `ai-agents` | `fetchAllRepoActivity(configs, since)` + `fetchSkills(repo)`; `RepoFetch` / `SkillsData`. The one feed serving two reports — same shape, different `config.yml` slice, split by id in `cli/daily.ts` |
-| `src/feeds/ai/trending.ts` | `ai-trending` | GitHub trending scrape + topic search. `trendingFetchSuccess` tracks the scrape alone: 0 parsed repos means the markup moved, never "nothing trended" |
+| `src/feeds/ai/trending.ts` | `ai-trending` | GitHub trending scrape + topic search, filtered against the already-reported baseline (`freshness`, `RESURFACE_MIN_STARS` / `RESURFACE_MIN_PCT`, `SEARCH_REPO_LIMIT`). `trendingFetchSuccess` tracks the scrape alone: 0 parsed repos means the markup moved, never "nothing trended". Owns the `TrendingState` shape; reads it, never writes it |
 | `src/feeds/ai/web.ts` | `ai-web` | Sitemap discovery, diff against the seen-URL state, first-run cap. Mutates the state in memory; persisting it is `platform/state/web-state.ts`'s job |
 | `src/feeds/ai/hn.ts` | `ai-hn` | Walks topstories in batches, AI keyword filter, stops at 30 matches |
 | `src/feeds/ai/ph.ts` | `ai-ph` | Yesterday's products filtered to AI topic slugs (needs `PRODUCTHUNT_TOKEN`) |
@@ -224,6 +224,7 @@ policy, and is the only place `fetchSuccess` is set. One feed per report ID.
 | File | Responsibility |
 |------|---------------|
 | `src/platform/state/web-state.ts` | `loadWebState` / `saveWebState` / `emptyState` for `digests/web-state.json` |
+| `src/platform/state/trending-state.ts` | `loadTrendingState` / `saveTrendingState` / `emptyTrendingState` / `recordTrendingReported` for `digests/trending-state.json` — the `ai-trending` already-reported baseline |
 
 ### `src/platform/notify/` — notification transports
 
@@ -293,7 +294,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `ai-cli.md` | `digest` | Always generated |
 | `ai-agents.md` | `openclaw` | Always generated |
 | `ai-web.md` | `web` | Skipped if no new sitemap content |
-| `ai-trending.md` | `trending` | Skipped if both trending data sources fail |
+| `ai-trending.md` | `trending` | Skipped if both trending data sources fail, or if the already-reported filter holds every repo back |
 | `ai-hn.md` | `hn` | Skipped if the HN fetch fails |
 | `ai-ph.md` | `ph` | Skipped if the Product Hunt fetch fails (needs `PRODUCTHUNT_TOKEN`) |
 | `ai-arxiv.md` | `arxiv` | Skipped if the ArXiv fetch fails |
@@ -303,6 +304,7 @@ Daily files written to `digests/YYYY-MM-DD/` (each also has a `-en` variant, e.g
 | `fin-vnmacro.md` | `vnmacro` | Vietnam macro market dashboard (SSI + Entrade + Vietcombank + Yahoo + FRED + SJC + World Bank + NSO + VBMA); skipped if Vietnam market data fails. Documents and macro series are supplementary |
 | `fin-vnrates.md` | `vnrates` | Vietnam interest rate dashboard (SBV + FRED + Vietcombank); skipped if the SBV interbank board fails. The policy board and USD/VND are supplementary |
 | `highlights.json` | — | Bullet-point highlights per report (vi + en), consumed by notifications |
+| `trending-state.json` | — | Written to `digests/` (not the dated folder): `owner/repo` → stars + date at the last report that carried it |
 
 Rollup files (separate cron jobs): `ai-weekly.md` (label `weekly`) and `ai-monthly.md` (label `monthly`), plus `-en` variants.
 
@@ -314,7 +316,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - **openclaw** + **openclaw_peers** (12 total): openclaw/openclaw + 11 peer projects
 - **skills_repo**: anthropics/skills — no date filter, sorted by popularity
 - **Web**: anthropic.com + openai.com via sitemap, state in `digests/web-state.json`
-- **Trending**: github.com/trending (HTML) + GitHub Search API AI-topic queries (`llm`, `ai-agent`, `rag`, `vector-database`, `large-language-model`, `machine-learning`)
+- **Trending**: github.com/trending (HTML) + GitHub Search API AI-topic queries (`llm`, `ai-agent`, `rag`, `vector-database`, `large-language-model`, `machine-learning`). Both halves are diffed against `digests/trending-state.json` so the report carries new and moving repos only
 - **HN**: Hacker News Firebase API — scans topstories, filters for AI keywords, keeps top 30
 - **Product Hunt**: GraphQL API — yesterday's top products, filtered to AI topics (requires `PRODUCTHUNT_TOKEN`)
 - **ArXiv**: Atom-feed API — cs.AI + cs.CL + cs.LG, newest first, last 48h
@@ -359,6 +361,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - **One feed per report ID.** A feed may serve two reports when the shape is identical (`repo-activity` serves `ai-cli` and `ai-agents`), but a report never assembles several feeds in `cli/daily.ts` — that is how `ai-community`, `fin-macro` and `fin-vnmacro` previously ended up spread across two, two and three modules with their degrade rules in the orchestrator.
 - Report-shaped configuration — which FRED series the dashboard tracks, which Product Hunt topics count as AI, which keywords narrow an NSO article — lives in the **feed**, not the provider. The provider only knows how to talk to the host.
 - Web state (`digests/web-state.json`) is committed to git on every run and is the source of truth for which URLs have been seen. It is saved once by `main()` in `daily.ts` after every language's `saveWebReport` has run — the state is language-agnostic.
+- Trending state (`digests/trending-state.json`) is committed on every run and records, per `owner/repo`, the star count **at the run that last reported it** plus that date. `feeds/ai/trending.ts` drops a repo whose gain since then clears neither `RESURFACE_MIN_STARS` (500) nor `RESURFACE_MIN_PCT` (20) — without it the Search half is a fixed leaderboard that re-lists the same giants daily. Two rules make the baseline safe: a suppressed repo keeps its old entry, so gains **accumulate** until they are worth reporting rather than being lost; and `recordTrendingReported` never overwrites a known count with a `0`, because `0` means the scrape failed to parse a number, not that the repo has no stars. `freshness()` likewise fails **open** on a `0` — a repo is never suppressed on a value we do not trust. Update it only through `recordTrendingReported`, and only after the save phase: the feed reads the state and must not mutate it.
 
 ## Notifications
 
@@ -371,10 +374,10 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 
 - Dispatcher: `src/cli/inspect.ts` (registry lookup + arg parsing + exit codes). Implementations: `src/cli/inspect/*.ts`, one module per group; the flat target list lives in `src/cli/inspect/registry.ts`.
 - Source targets probe **feeds**, since that is what the pipeline consumes; `devto` and `lobsters` probe the two halves of the community feed, and `github` probes `providers/github/repos.ts` directly.
-- Target groups: data sources (`arxiv`, `devto`, `hf`, `hn`, `lobsters`, `ph`, `trending`, `web`, `fred`, `finra`, `vnmarket`, `vnmacro`, `vnrates`, `vndocs`, `github`), pure transforms (`doc-extract:html`, `doc-extract:pdf`, `doc-extract:excerpt`, `vnmarket:aggregate`), prompt builders (`prompt:hn`, `prompt:trending`, `prompt:ph`, `prompt:arxiv`, `prompt:hf`, `prompt:community`, `prompt:web`, `prompt:macro`, `prompt:vnmacro`, `prompt:vnrates`, `prompt:highlights`), `llm`, and dry runs (`report:macro`, `report:vnmacro`, `report:vnrates`, `notify:telegram`, `notify:feishu`, `manifest`).
+- Target groups: data sources (`arxiv`, `devto`, `hf`, `hn`, `lobsters`, `ph`, `trending`, `web`, `fred`, `finra`, `vnmarket`, `vnmacro`, `vnrates`, `vndocs`, `github`), pure transforms (`doc-extract:html`, `doc-extract:pdf`, `doc-extract:excerpt`, `vnmarket:aggregate`, `trending:filter`), prompt builders (`prompt:hn`, `prompt:trending`, `prompt:ph`, `prompt:arxiv`, `prompt:hf`, `prompt:community`, `prompt:web`, `prompt:macro`, `prompt:vnmacro`, `prompt:vnrates`, `prompt:highlights`), `llm`, and dry runs (`report:macro`, `report:vnmacro`, `report:vnrates`, `notify:telegram`, `notify:feishu`, `manifest`).
 - **Exit codes are the contract**: `0` = ran and produced output, `1` = ran and failed (network/parse/unexpected shape, or a source reporting `fetchSuccess: false`), `2` = skipped because a required env var is unset (`SKIPPED: <target> requires <ENV_VAR>` on stderr). `SkipError` / `ProbeError` in `kit.ts` are how a probe signals which.
 - Results go to **stdout** (`--json` for the raw result); every diagnostic goes to **stderr**. The probed modules log through `core/logger.ts`, which is stderr-only already; the dispatcher's console routing is only a net for a dependency that writes to stdout. pnpm prints its run banner to stdout, so pipe with `pnpm -s inspect … --json | jq`.
-- **No side effects.** Probes never write into `digests/`, never modify `manifest.json` / `feed.xml` / `digests/web-state.json`, never create GitHub issues and cannot send notifications. `report:*` and `manifest` reach the real writers by `process.chdir`-ing into a temp dir first (both write relative to cwd), and pass an empty `digestRepo` so issue creation is skipped; the notify targets import only the message builders, never `sendTelegram` / `sendFeishu`.
+- **No side effects.** Probes never write into `digests/`, never modify `manifest.json` / `feed.xml` / `digests/web-state.json` / `digests/trending-state.json` (`inspect trending` reads the baseline; `--fresh` ignores it), never create GitHub issues and cannot send notifications. `report:*` and `manifest` reach the real writers by `process.chdir`-ing into a temp dir first (both write relative to cwd), and pass an empty `digestRepo` so issue creation is skipped; the notify targets import only the message builders, never `sendTelegram` / `sendFeishu`.
 - Probe modules import domain code with `await import(...)` inside `run`, not at the top level: `platform/llm/client.ts` constructs a provider at module scope and the SDK throws on a missing key, which must surface as exit 2 rather than a crash. `platform/prompts/index.ts` is pure and is imported statically.
 - Offline modes: every prompt builder takes `--fixture <path>`, and the fixture format is exactly the `--json` output of the matching source probe (`pnpm -s inspect hn --json > hn.json`). Committed samples are in `src/cli/inspect/fixtures/` — keep each under ~50 KB, and give saved HTML a `.txt` suffix so `prettier --check src` skips it (Prettier cannot parse real-world pages).
 - This is additive tooling: probes never change the modules they probe. If something cannot be probed without a signature change, leave it unprobed and say so.

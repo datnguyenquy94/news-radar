@@ -174,13 +174,30 @@ export const phTarget: Target = {
   },
 };
 
+/** `🆕` / `📈 +N since DATE` — why a row survived the already-reported filter. */
+function why(row: { isNew: boolean; starsGained: number | null; lastReported: string | null }): string {
+  if (row.isNew) return "🆕 new";
+  if (row.starsGained === null) return "📈 delta unknown";
+  return `📈 +${row.starsGained} since ${row.lastReported}`;
+}
+
 export const trendingTarget: Target = {
   name: "trending",
-  summary: "fetchTrendingData() — github.com/trending HTML scrape + Search API AI-topic queries",
-  options: [{ name: "top", arg: "n", desc: "sample rows to print (default 5)" }],
+  summary:
+    "fetchTrendingData() — github.com/trending scrape + Search API, filtered against the reported baseline",
+  options: [
+    { name: "top", arg: "n", desc: "sample rows to print (default 5)" },
+    {
+      name: "fresh",
+      desc: "ignore digests/trending-state.json and treat every repo as new (unfiltered view)",
+    },
+  ],
   async run(args) {
     const { fetchTrendingData } = await import("../../feeds/ai/trending.ts");
-    const data = await fetchTrendingData();
+    const { emptyTrendingState, loadTrendingState } = await import("../../platform/state/trending-state.ts");
+    // Read-only either way — a probe never writes the state file.
+    const state = args.has("fresh") ? emptyTrendingState() : loadTrendingState();
+    const data = await fetchTrendingData(state);
     const top = args.num("top", 5);
     // The Search half has no success flag of its own; an empty array is the
     // only signal that the query set came back with nothing.
@@ -190,16 +207,27 @@ export const trendingTarget: Target = {
       data,
       [
         kv("trendingFetchSuccess", data.trendingFetchSuccess),
-        kv("trendingRepos", data.trendingRepos.length),
-        kv("searchRepos", data.searchRepos.length),
+        kv("baseline", args.has("fresh") ? "(--fresh: ignored)" : `${Object.keys(state.repos).length} repos`),
+        kv("firstRun", data.firstRun),
+        kv("trendingRepos", `${data.trendingRepos.length} kept, ${data.suppressed.trending} suppressed`),
+        kv(
+          "searchRepos",
+          `${data.searchRepos.length} kept of ${data.searchMatched} matched, ${data.suppressed.search} suppressed`,
+        ),
+        kv("reported", `${data.reported.length} repos would be written to the state`),
         "trending sample:",
         ...sample(
           data.trendingRepos,
           top,
-          (r) => `${r.fullName} +${r.todayStars} today, ${r.totalStars} total (${r.language || "n/a"})`,
+          (r) =>
+            `${r.fullName} +${r.todayStars} today, ${r.totalStars} total (${r.language || "n/a"}) — ${why(r)}`,
         ),
         "search sample:",
-        ...sample(data.searchRepos, top, (r) => `${r.fullName} ${r.stargazersCount}★ [${r.searchQuery}]`),
+        ...sample(
+          data.searchRepos,
+          top,
+          (r) => `${r.fullName} ${r.stargazersCount}★ [${r.searchQuery}] — ${why(r)}`,
+        ),
       ],
       "trending (both HTML scrape and Search API)",
     );

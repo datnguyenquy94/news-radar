@@ -8,6 +8,7 @@
 import type { Target } from "./kit.ts";
 import { docExtractExcerptTarget, docExtractHtmlTarget, docExtractPdfTarget } from "./doc-extract.ts";
 import { vnmarketAggregateTarget } from "./vnmarket.ts";
+import { trendingFilterTarget } from "./trending-filter.ts";
 import { PROMPT_TARGETS } from "./prompts.ts";
 import { llmTarget } from "./llm.ts";
 import { manifestTarget, reportMacroTarget, reportVnMacroTarget, reportVnRatesTarget } from "./reports.ts";
@@ -56,6 +57,7 @@ export const TARGETS: Target[] = [
   docExtractPdfTarget,
   docExtractExcerptTarget,
   vnmarketAggregateTarget,
+  trendingFilterTarget,
 
   // LLM
   llmTarget,

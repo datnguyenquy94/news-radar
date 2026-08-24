@@ -53,7 +53,12 @@ import {
 } from "../platform/reports/index.ts";
 import { fetchSiteContent, type WebFetchResult, type WebState } from "../feeds/ai/web.ts";
 import { loadWebState, saveWebState } from "../platform/state/web-state.ts";
-import { fetchTrendingData, type TrendingData } from "../feeds/ai/trending.ts";
+import {
+  loadTrendingState,
+  recordTrendingReported,
+  saveTrendingState,
+} from "../platform/state/trending-state.ts";
+import { fetchTrendingData, type TrendingData, type TrendingState } from "../feeds/ai/trending.ts";
 import { fetchHnData, type HnData } from "../feeds/ai/hn.ts";
 import { fetchPhData, type PhData } from "../feeds/ai/ph.ts";
 import { fetchArxivData, type ArxivData } from "../feeds/ai/arxiv.ts";
@@ -111,6 +116,7 @@ function requireEnv(name: string): string {
 async function fetchAllData(
   since: Date,
   webState: WebState,
+  trendingState: TrendingState,
 ): Promise<{
   fetched: RepoFetch[];
   skillsData: SkillsData;
@@ -155,7 +161,7 @@ async function fetchAllData(
       fetchSiteContent("anthropic", webState).catch(emptyWebResult("anthropic", "Anthropic (Claude)")),
       fetchSiteContent("openai", webState).catch(emptyWebResult("openai", "OpenAI")),
     ]),
-    fetchTrendingData(),
+    fetchTrendingData(trendingState),
     fetchHnData(),
     fetchPhData(),
     fetchArxivData(),
@@ -269,7 +275,10 @@ async function generateSummaries(
     (async () => {
       const hasData = trendingData.trendingRepos.length > 0 || trendingData.searchRepos.length > 0;
       if (!hasData) {
-        return MSG.trendingNoData[lang];
+        // Distinguish "the fetch died" from "the already-reported filter held
+        // everything back" — the second is a quiet day, not an outage.
+        const fetched = trendingData.suppressed.trending + trendingData.suppressed.search > 0;
+        return fetched ? MSG.trendingNothingNew[lang] : MSG.trendingNoData[lang];
       }
       return summarize(
         "trending",
@@ -301,6 +310,7 @@ async function main(): Promise<void> {
 
   // 1. Fetch all data in parallel
   const webState = loadWebState();
+  const trendingState = loadTrendingState();
   const {
     fetched,
     skillsData,
@@ -314,7 +324,7 @@ async function main(): Promise<void> {
     macroData,
     vnData,
     vnRatesData,
-  } = await fetchAllData(since, webState);
+  } = await fetchAllData(since, webState, trendingState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
   const fetchedCli = fetched.filter((f) => f.cfg.id !== OPENCLAW.id && !peerIds.has(f.cfg.id));
@@ -427,6 +437,27 @@ async function main(): Promise<void> {
       ];
     }),
   );
+
+  // Trending state — persisted only after the report is on disk, because the
+  // recorded star count means "as of the run that last reported this repo".
+  // Language-agnostic: every language reports the same repos, so record once.
+  //
+  // A failed LLM call still writes a report carrying the failure message, and
+  // recording those repos would suppress them tomorrow — the content would be
+  // lost for good. So advance the baseline only if some language actually
+  // produced a summary.
+  const trendingSummarised = langs.some(
+    (lang) => summariesByLang[lang].trendingSummary !== MSG.trendingFailed[lang],
+  );
+  if (trendingData.reported.length === 0) {
+    log.info("[trending] Nothing reported — state left unchanged.");
+  } else if (!trendingSummarised) {
+    log.warn("[trending] Summary failed in every language — state left unchanged so repos resurface.");
+  } else {
+    recordTrendingReported(trendingState, trendingData.reported, dateStr);
+    saveTrendingState(trendingState);
+    log.info(`[trending] State updated for ${trendingData.reported.length} repos.`);
+  }
 
   // 5. Generate highlights for Telegram notification
   const readReport = (name: string): string | undefined => {

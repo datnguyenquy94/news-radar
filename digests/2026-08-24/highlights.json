@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI landscape in stabilization-and-hardening phase",
+      "Zero major releases, only patch/nightly builds",
+      "Regression remediation dominates: model quality collapses",
+      "Protocol standardization: ACP v2 in OpenCode",
+      "Structured review systems in Qwen Code, CodeWhale",
+      "Communities vocal on billing transparency"
+    ],
+    "ai-agents": [
+      "OpenClaw shows high velocity with 742 items updated",
+      "No new releases, latest version 2026.7.x beta",
+      "Critical defects: message loss, session corruption",
+      "96 merged PRs targeting P1/P0 bugs today",
+      "404 PRs remain open indicating backlog pressure",
+      "Gateway fix keeps conversation delivery within bindings"
+    ],
+    "ai-trending": [
+      "OpenAI codex gains 2,715 stars in single day",
+      "Agent infrastructure and skill extensibility dominate",
+      "Local-first CLI-driven agent harnesses trending",
+      "Apache maka enters incubation as agent workspace",
+      "book-to-skill turns PDFs into executable skills",
+      "ollama/ollama at 179K stars as local LLM standard"
+    ],
+    "ai-hn": [
+      "Amazon destroying rare books for AI training sparks debate",
+      "Practitioners question premium models like Opus value",
+      "Strong focus on practical agent engineering",
+      "NanoGPT Speedrun pushes minimal GPT training records",
+      "Ox Alpha on OpenRouter sparks GPT-4o comparisons",
+      "Local LLMs sentiment oscillates between frustration and enthusiasm"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B family dominates with dozen quantizations",
+      "Kimi-K3 emerges as multimodal contender with 11K likes",
+      "MiniMax-H3 leads open video generation with 4M+ downloads",
+      "DeepSeek-V4 enters in Flash and Pro flavors",
+      "Speculative decoding and MTP-enhanced GGUFs trending",
+      "Community focuses on inference speed over parameter count"
+    ],
+    "ai-community": [
+      "Developers focused on practical AI engineering over hype",
+      "Edge AI breakthrough: 100% offline TFLite crash detection",
+      "12-year-old solo dev builds AI coding mentor",
+      "9 RAG techniques that actually improve retrieval quality",
+      "AI system decides which WhatsApp messages deserve attention",
+      "Conversation shifted from model choice to orchestration"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% while balance sheet contracts",
+      "Long-term yields push to 4.69%, highly restrictive",
+      "Yield curve positively sloped at 50bp, no recession signal",
+      "Inflation metrics well above 2% target",
+      "VIX at 16.01 calm, near low end of normal",
+      "FINRA margin debt down 5.6% showing deleveraging"
+    ],
+    "fin-vnmacro": [
+      "VN-Index advanced 2.0% to 1,768.12 on Aug 21",
+      "VN30 large-cap gauge rose 2.2% leading rally",
+      "VN30F1M futures at 6.4-point premium signaling optimism",
+      "Vietnamese dong strengthened 0.75% to 26,310 over month",
+      "VanEck Vietnam ETF surged 4.2% in single session",
+      "DXY down 2.62% over 20 days, dollar weakening"
+    ]
+  }
+}

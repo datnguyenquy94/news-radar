@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.243 ships; glibc 2.44 segfault blocks Linux",
+      "OpenAI Codex auth-loop issues affect 5 of top 10 hot issues",
+      "OpenCode TUI v2 overhaul shifts to full-shell environment",
+      "Gemini CLI and Copilot CLI in mature enterprise-backed tier",
+      "DeepSeek TUI provider-neutrality audit signals architecture shift",
+      "Kimi Code CLI, Qwen Code, Grok Build round out 10-tool landscape"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.8.1-beta.3 adds GPT-5.6 model family support",
+      "205 issues and 500 PRs updated in 24 hours high velocity",
+      "72 PRs merged/closed indicates active stabilization phase",
+      "191 open issues with P1 'diamond lobster' severity bugs",
+      "Control UI first-run setup continues into Custodian channels",
+      "Puppeteer-compatible CDP relay enables paired Chrome sessions"
+    ],
+    "ai-trending": [
+      "openai/codex hits 117K stars (+1,994 today) as new leader",
+      "ollama/ollama 179K stars de facto local LLM inference standard",
+      "apache/maka and openclaw race to define persistent agent runtime",
+      "RAG infrastructure matures: ragflow, mem0, headroom production-grade",
+      "Education repos signal build-from-scratch movement among developers",
+      "Token-efficient tooling and local-first workspaces dominate paradigms"
+    ],
+    "ai-web": [
+      "Anthropic releases 4 pieces: economics, safety, watermarking, science",
+      "Fable 5 safety update reduces biology fallbacks ~85%",
+      "Text watermarking implemented for EU AI Act compliance",
+      "Claude protein binder design 22-35% success across 14/15 targets",
+      "NMR/LC-MS analysis in ~20 min matches contract lab results",
+      "OpenAI publishes single metadata-only 'Gpt 5 6 In Kiro' entry"
+    ],
+    "ai-hn": [
+      "LLMs escaping inference engines to control host machines (93 pts)",
+      "OpenAI aggressive GPT-5.6 price cut intensifies API wars",
+      "Paul Graham urges building LLMs from scratch (600 comments)",
+      "AI chip architectures survey bridges hardware and ML workloads",
+      "Ox-Alpha reverse-engineered as GLM model from Zhipu",
+      "Shift from model capabilities to deployment economics and agent architecture"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates with 12.5K likes, 2.6M downloads",
+      "DeepSeek-V4-Flash leads pure LLM downloads at 3.27M",
+      "Kimi-K3 multimodal model 11K likes, 2.78M downloads",
+      "MiniMax-H3 video generation surges to 4.4M downloads",
+      "Lightricks LTX-2.5 open-weight alternative to proprietary video",
+      "Abliteration/uncensoring remains top fine-tuning theme across models"
+    ],
+    "ai-community": [
+      "Agent memory architecture dominates: 'not reasoning but memory problem'",
+      "Tests passing but contracts wrong: spec-driven validation needed",
+      "7 signs of over-engineering AI apps: premature RAG, chaining",
+      "Claude Code real workflow documented with candid failure modes",
+      "Prompt injection and MCP limitations emerge as critical infra topics",
+      "Developers confront production realities beyond vibe coding hype"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% while balance sheet contracts to $6.75T",
+      "10Y yield climbs to 4.74% highly restrictive level",
+      "Yield curve positive but flattening at 46 bps spread",
+      "CPI 3.5%, Core PCE 3.3% well above 2% target",
+      "Consumer sentiment collapses to 49.5, payrolls negative -23K",
+      "VIX calm at 15, credit spreads tight at 2.70%"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rallies to 1,788.78 (+1.20% 1d, +7.20% 20d)",
+      "VN30F1M basis flips to +1 pt contango neutral sentiment",
+      "USD/VND stable at 26,360/25,980 no depreciation pressure",
+      "DXY slips to 98.98 (-2.37% 20d) while US 10Y yields rise",
+      "Gold surges 16% 20 sessions to $4,727/oz safe-haven demand",
+      "Equity advance lacks turnover/foreign flow confirmation"
+    ],
+    "fin-vnrates": [
+      "SBV policy accommodative: 1,256 days unchanged, refi 4.50%",
+      "Overnight 3.28% and 1-week 3.50% near corridor floor",
+      "Negative VND-USD overnight spread -0.35pp binds easing",
+      "Overnight + 1-week tenor dominates 96.8% turnover at low rates",
+      "2-week rate elevated 6.12% rising medium-term trend",
+      "1-month 7.08% thin turnover, 3-month 6.90% declining"
+    ]
+  }
+}

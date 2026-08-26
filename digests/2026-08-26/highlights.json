@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "9 AI CLI tools shipped updates in 24 hours",
+      "Windows/MSIX packaging remains universal Achilles' heel",
+      "MCP integration stability is a systemic stressor",
+      "Claude Code and OpenAI Codex at enterprise scale",
+      "Ecosystem consolidating around TUI-first UX",
+      "Context/compaction management challenges all tools"
+    ],
+    "ai-agents": [
+      "OpenClaw shows extremely high development velocity",
+      "500 PRs and 185 issues updated in 24 hours",
+      "Critical stability bugs dominate issue landscape",
+      "No new releases, latest beta v2026.8.1-beta.3",
+      "Subagent completion loss and session corruption",
+      "Memory system unbounded growth is critical"
+    ],
+    "ai-trending": [
+      "TradingAgents (100k★) and Agent-Reach (75k★) lead",
+      "OpenAI Codex (118k★) gains 1k+ stars daily",
+      "6 new vector databases debut simultaneously",
+      "Community Claude Code extensions occupy 4 top spots",
+      "CodeWhale (40k★) debuts as Rust terminal agent",
+      "DeepSeek-Reasonix (35k★) highlights DeepSeek ecosystem"
+    ],
+    "ai-web": [
+      "Anthropic published 24 research papers in one day",
+      "Economic Index ecosystem is strategic pivot",
+      "$200M Economic Futures Research Fund announced",
+      "$5M wellbeing grants program launched",
+      "Clio rebranded as Anthropic Insights",
+      "OpenAI published only 3 index entries"
+    ],
+    "ai-hn": [
+      "Apple M6 and M5 Ultra chips surprise launch",
+      "OpenAI Jalapeño chip claims beat Nvidia Blackwell",
+      "Anthropic $30T revenue vision debated",
+      "LLMs can exploit inference engines for host control",
+      "Build LLMs from scratch career post goes viral",
+      "AI saturation of HN itself is meta-discussion"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates with 12.7K likes",
+      "MiniMax-H3 (4.5K likes) leads video synthesis",
+      "DeepSeek-V4 Flash/Pro signals Chinese LLM momentum",
+      "MoE architectures gaining traction (Ornith-35B-A3B)",
+      "Quantization and uncensored fine-tunes flood top-30",
+      "MiniMax-Music3 and Audio8-TTS push audio frontiers"
+    ],
+    "ai-community": [
+      "Productionizing RAG systems dominates Dev.to discussions",
+      "Retrieval quality checklist shared for RAG",
+      "Agent memory and identity are critical concerns",
+      "Apple M5 Ultra Mac Studio benchmarks published",
+      "12-year-old solo dev AI coding mentor featured",
+      "Chat history as second RAG read path highlighted"
+    ],
+    "fin-macro": [
+      "Fed balance sheet slightly contracting at $6.75T",
+      "10Y Treasury yield highly restrictive at 4.70%",
+      "Inflation indicators well above 2% target",
+      "FINRA margin debt deleveraging -5.6% MoM",
+      "VIX calm at 15.85, risk appetite intact",
+      "Mixed labor data adds growth uncertainty"
+    ],
+    "fin-vnmacro": [
+      "VN-Index edges up 0.10% to 1,791.41",
+      "VN30F1M futures trade at +0.20% premium",
+      "USD/VND stable at 26,300 with modest appreciation",
+      "Gold surged 1.30% (16.47% in 20 days)",
+      "Brent crude plunged 7.52% recently",
+      "Turnover and foreign flow data unavailable"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy for 1,257 days",
+      "Overnight interbank rate 3.96% below refinancing",
+      "1-week rate 4.60% jumps above refinancing",
+      "VND-USD overnight spread narrow at +0.33 pp",
+      "95.2% turnover in overnight + 1-week segment",
+      "Liquidity balanced but easing room capped"
+    ]
+  }
+}

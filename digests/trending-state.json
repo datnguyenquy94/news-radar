@@ -5,8 +5,8 @@
       "lastReported": "2026-08-26"
     },
     "affaan-m/ECC": {
-      "stars": 242939,
-      "lastReported": "2026-08-25"
+      "stars": 243573,
+      "lastReported": "2026-08-27"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34467,
@@ -31,6 +31,10 @@
     "anthropics/claude-plugins-official": {
       "stars": 34105,
       "lastReported": "2026-08-26"
+    },
+    "apache/airflow": {
+      "stars": 46615,
+      "lastReported": "2026-08-27"
     },
     "apache/casbin-gateway": {
       "stars": 570,
@@ -101,8 +105,8 @@
       "lastReported": "2026-08-25"
     },
     "firecrawl/firecrawl": {
-      "stars": 171875,
-      "lastReported": "2026-08-25"
+      "stars": 172914,
+      "lastReported": "2026-08-27"
     },
     "freestylefly/awesome-gpt-image-2": {
       "stars": 21887,
@@ -113,12 +117,12 @@
       "lastReported": "2026-08-26"
     },
     "Graphify-Labs/graphify": {
-      "stars": 110144,
-      "lastReported": "2026-08-25"
+      "stars": 111151,
+      "lastReported": "2026-08-27"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 116484,
-      "lastReported": "2026-08-26"
+      "stars": 117004,
+      "lastReported": "2026-08-27"
     },
     "headroomlabs-ai/headroom": {
       "stars": 67424,
@@ -145,8 +149,8 @@
       "lastReported": "2026-08-25"
     },
     "hugohe3/ppt-master": {
-      "stars": 49046,
-      "lastReported": "2026-08-25"
+      "stars": 49683,
+      "lastReported": "2026-08-27"
     },
     "infiniflow/ragflow": {
       "stars": 89169,
@@ -165,8 +169,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 100707,
-      "lastReported": "2026-08-25"
+      "stars": 101253,
+      "lastReported": "2026-08-27"
     },
     "K-Dense-AI/scientific-agent-skills": {
       "stars": 34845,
@@ -252,9 +256,13 @@
       "stars": 12907,
       "lastReported": "2026-08-26"
     },
+    "NirDiamant/RAG_Techniques": {
+      "stars": 29236,
+      "lastReported": "2026-08-27"
+    },
     "NousResearch/hermes-agent": {
-      "stars": 236438,
-      "lastReported": "2026-08-26"
+      "stars": 237011,
+      "lastReported": "2026-08-27"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -317,8 +325,8 @@
       "lastReported": "2026-08-26"
     },
     "santifer/career-ops": {
-      "stars": 68157,
-      "lastReported": "2026-08-25"
+      "stars": 68714,
+      "lastReported": "2026-08-27"
     },
     "scikit-learn/scikit-learn": {
       "stars": 67057,
@@ -333,8 +341,8 @@
       "lastReported": "2026-08-25"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 133946,
-      "lastReported": "2026-08-25"
+      "stars": 134638,
+      "lastReported": "2026-08-27"
     },
     "Significant-Gravitas/AutoGPT": {
       "stars": 186853,
@@ -368,9 +376,21 @@
       "stars": 76164,
       "lastReported": "2026-08-25"
     },
+    "testtimescaling/testtimescaling.github.io": {
+      "stars": 113,
+      "lastReported": "2026-08-27"
+    },
     "thedotmack/claude-mem": {
       "stars": 91727,
       "lastReported": "2026-08-25"
+    },
+    "thinkwee/AgentsMeetRL": {
+      "stars": 1799,
+      "lastReported": "2026-08-27"
+    },
+    "thinkwee/AwesomeOPD": {
+      "stars": 844,
+      "lastReported": "2026-08-27"
     },
     "tinyhumansai/openhuman": {
       "stars": 38312,

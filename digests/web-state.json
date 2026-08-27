@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-08-27T05:38:26.814Z",
+    "lastChecked": "2026-08-27T06:13:46.114Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-02-25T20:58:11.000Z",
@@ -448,7 +448,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-08-27T05:38:08.815Z",
+    "lastChecked": "2026-08-27T06:13:50.079Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-08-25T20:41:45.451Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-08-25T20:41:41.003Z",
@@ -974,7 +974,7 @@
       "https://openai.com/index/chatgpt-agent-system-card/": "2026-08-26T15:25:44.891Z",
       "https://openai.com/index/gpt-oss-model-card/": "2026-08-26T15:25:43.733Z",
       "https://openai.com/index/estimating-worst-case-frontier-risks-of-open-weight-llms/": "2026-08-26T15:25:38.013Z",
-      "https://openai.com/index/gpt-5-safe-completions/": "2026-08-27T01:24:09.453Z",
+      "https://openai.com/index/gpt-5-safe-completions/": "2026-08-27T05:42:08.464Z",
       "https://openai.com/index/openai-anthropic-safety-evaluation/": "2026-07-25T07:07:42.672Z",
       "https://openai.com/index/introducing-parental-controls/": "2026-07-13T18:02:30.377Z",
       "https://openai.com/index/gpt-5-system-card-addendum-gpt-5-1/": "2026-08-26T15:25:40.874Z",
@@ -1221,9 +1221,9 @@
       "https://openai.com/index/offering-zero-data-retention-for-frontier-models/": "2026-08-25T23:55:39.476Z",
       "https://openai.com/index/chatgpt-ads-expands-across-europe/": "2026-08-26T16:46:28.946Z",
       "https://openai.com/index/gpt-5-6-in-kiro/": "2026-08-26T19:58:45.269Z",
-      "https://openai.com/index/the-full-stack-behind-abundant-intelligence/": "2026-08-27T03:13:06.484Z",
-      "https://openai.com/index/jalapeno-first-results/": "2026-08-27T03:14:04.257Z",
-      "https://openai.com/index/hugging-face-incident-and-the-road-ahead/": "2026-08-27T03:48:01.908Z",
+      "https://openai.com/index/the-full-stack-behind-abundant-intelligence/": "2026-08-27T05:41:10.261Z",
+      "https://openai.com/index/jalapeno-first-results/": "2026-08-27T05:41:10.403Z",
+      "https://openai.com/index/hugging-face-incident-and-the-road-ahead/": "2026-08-27T05:48:01.494Z",
       "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts/": "2026-08-26T20:15:52.856Z",
       "https://openai.com/index/learning-never-stops/": "2026-08-26T17:02:55.468Z"
     }

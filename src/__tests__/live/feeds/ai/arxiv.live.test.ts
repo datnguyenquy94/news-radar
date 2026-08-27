@@ -11,10 +11,9 @@ describe("live feed: arxiv", () => {
     await probe("feeds/ai/arxiv.ts", "fetchArxivData()", async () => {
       const data = await fetchArxivData();
 
-      // NOTE: the feed keeps only the last 48 h, and arXiv does not publish at
-      // weekends — on a Monday run this is legitimately empty and the report is
-      // skipped. A red test here on a weekday is real drift; check the provider
-      // probe's row in the status table to tell the two apart.
+      // NOTE: arXiv publishes every day, weekends included, so the 48 h window
+      // is never legitimately empty — a red row here is always real. Check the
+      // provider probe's row to tell a throttled runner from a parse regression.
       expect(data.fetchSuccess, "arxiv reported fetchSuccess: false").toBe(true);
       expectNonEmpty(data.papers, "arxiv.papers");
       expectPopulated(

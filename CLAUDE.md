@@ -260,7 +260,7 @@ Live-test conventions:
 - Use `LIVE_OPTS` (90 s timeout, `retry: 2`). Retries cover transient throttling — Yahoo rate-limits when several symbols are requested at once — while a real format change still fails all three attempts.
 - A source needing a secret calls `recordSkip(...)` then `ctx.skip()` rather than `it.skipIf`, so the skipped source still gets a row in the status table. `contract.ts` loads `dotenv`, so local `.env` credentials are picked up.
 - A source with intentionally empty output must be asserted on what it *does* produce: `web`'s OpenAI half is `metadataOnly` (its article pages 403 from datacenter IPs), so asserting non-empty `content` there would fail permanently and train everyone to ignore the suite.
-- Some red rows are calendar, not drift: `feeds/ai/arxiv.ts` keeps a 48 h window and arXiv does not publish at weekends, so a Monday run legitimately reports `fetchSuccess: false` and the report is skipped. The provider probe's row is how you tell that apart from a real outage.
+- A red `feeds/ai/arxiv.ts` row is real: arXiv publishes **every day, weekends included** (79–206 cs.AI papers/day), so the 48 h window is never legitimately empty. `fetchSuccess: false` there means `export.arxiv.org` refused all three categories — it throttles datacenter IPs, which is why `providers/arxiv.ts` retries. The provider probe's row separates a throttled runner from a parse regression.
 
 **`pnpm test` therefore requires network access and takes ~60 s.** This is deliberate — the point is to learn when a source changes format. CI runs it too, so a third-party outage will turn the build red.
 

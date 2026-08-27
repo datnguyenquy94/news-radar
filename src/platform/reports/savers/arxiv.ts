@@ -25,8 +25,14 @@ export async function saveArxivReport(
   footer: string,
   lang: Lang = "vi",
 ): Promise<void> {
+  // `fetchSuccess` is transport health; an empty window is a separate, benign
+  // reason to skip. Keeping them apart is what makes a throttled run loud.
   if (!arxivData.fetchSuccess) {
-    log.info({ lang }, "No data available, skipping report.");
+    log.warn({ lang }, "ArXiv fetch failed, skipping report.");
+    return;
+  }
+  if (arxivData.papers.length === 0) {
+    log.info({ lang }, "No papers in the window, skipping report.");
     return;
   }
 

@@ -1,38 +1,33 @@
 # Hugging Face Trending Models Digest 2026-08-27
 
-> Source: [Hugging Face Hub](https://huggingface.co/) | 30 models | Generated: 2026-08-27 06:13 UTC
+> Source: [Hugging Face Hub](https://huggingface.co/) | 30 models | Generated: 2026-08-27 08:50 UTC
 
 ---
 
-# 🤗 Hugging Face Trending Models Digest — 2026-08-27
-
-## Today's Highlights
-The Hugging Face trending list is overwhelmingly dominated by the **Qwen 3.8 family**, which appears in over half the entries across base models, quantizations, and uncensored fine‑tunes. **MiniMax** continues to lead open video and audio generation with MiniMax‑H3 (4.8M downloads) and MiniMax‑Music3. A new wave of **multimodal flagships** — GLM‑5.3‑Flash, Kimi‑K3, and SenseNova‑U1.5 — signals intensifying competition in vision‑language models. Meanwhile, **community‑driven GGUF quantization and abliteration** have become a massive sub‑ecosystem, with dozens of variants optimized for local inference on consumer hardware.
+# Hugging Face Trending Models Digest — 2026-08-27
 
 ---
 
-## 🧠 Language Models (LLMs, chat models, instruction‑tuned)
+## 1. Today's Highlights
+
+The Qwen 3.8 series dominates this week's trends, with the flagship **Qwen3.8-27B** amassing nearly 13K likes and over 3.2M downloads, while its ecosystem of uncensored fine-tunes and GGUF quantizations occupies half the top-30 list. **MiniMax-H3** leads the video generation space with 4.5K likes and 4.8M downloads, signaling maturation of open-weight text-to-video models. **DeepSeek-V4-Flash** and **Moonshot's Kimi-K3** both surpass 2.9M downloads, confirming strong demand for efficient, multilingual multimodal LLMs. A striking pattern is the proliferation of "abliterated" (uncensored) variants—over a dozen community fine-tunes strip refusal behaviors from Qwen3.8-27B, then quantize to GGUF, FP8, MLX, and even 2-bit formats. Meanwhile, novel architectures like Ornith's MoE models and SenseNova's Mixture-of-Transformers explore efficiency at scale.
+
+---
+
+## 2. Trending Models
+
+### 🧠 Language Models (LLMs, chat models, instruction-tuned)
 
 | Model | Author | Likes | Downloads | Summary |
 | :--- | :--- | ---: | ---: | :--- |
-| [Qwen/Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) | Qwen | 3,740 | 2,551 | A next‑generation multimodal flagship from Qwen, featuring advanced image‑text‑to‑text capabilities. Trending due to its cutting‑edge architecture and strong early adoption with 3.7k likes. |
-| [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) | Qwen | 12,934 | 3,298,569 | Qwen's 27B parameter multimodal model leading the open‑weight LLM space with massive download numbers. Its popularity stems from state‑of‑the‑art performance across vision‑language benchmarks. |
-| [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) | zai-org | 1,032 | 0 | Z.ai's latest GLM iteration with multimodal capabilities, notable for its flash attention architecture. Trending despite zero downloads, indicating high community anticipation. |
-| [ornith-ai/Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) | ornith-ai | 458 | 83,342 | A 35B MoE model with 3B active parameters, offering efficient inference for text and vision tasks. Gaining traction for its balance of performance and computational efficiency. |
-| [sensenova/SenseNova-U1.5-8B-MoT](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT) | sensenova | 173 | 3,264 | SenseNova's 8B Mixture‑of‑Transformers model supporting any‑to‑any modality interactions. Trending for its novel architecture enabling native multimodal understanding. |
-| [deepseek-ai/DeepSeek-V4-Flash-0731](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731) | deepseek-ai | 3,744 | 3,857,140 | DeepSeek's V4 Flash model optimized for fast inference and conversation. High downloads reflect strong developer adoption for production deployment. |
-| [ornith-ai/Ornith-1.5-9B](https://huggingface.co/ornith-ai/Ornith-1.5-9B) | ornith-ai | 230 | 119,053 | A compact 9B parameter model from Ornith‑AI, fine‑tuned for instruction following and multimodal chat. Popular for its accessibility on consumer hardware. |
-| [moonshotai/Kimi-K3](https://huggingface.co/moonshotai/Kimi-K3) | moonshotai | 11,024 | 2,921,257 | Moonshot AI's Kimi K3 multimodal model with compressed tensor optimization. Trending due to exceptional performance and massive community engagement. |
-
----
-
-## 🎨 Multimodal & Generation (image, video, audio, text‑to‑X)
-
-| Model | Author | Likes | Downloads | Summary |
-| :--- | :--- | ---: | ---: | :--- |
-| [Lightricks/LTX-2.5](https://huggingface.co/Lightricks/LTX-2.5) | Lightricks | 1,879 | 894,094 | Lightricks' video generation model supporting image‑to‑video, text‑to‑video, and video‑to‑video pipelines. Trending for high‑quality video synthesis and 894k downloads. |
-| [MiniMaxAI/MiniMax-H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) | MiniMaxAI | 4,506 | 4,793,098 | MiniMax's H3 model for image‑text‑to‑video generation, leading the open video generation space. Nearly 4.8M downloads underscore its dominance in video AI. |
-| [MiniMaxAI/MiniMax-Music3](https://huggingface.co/MiniMaxAI/MiniMax-Music3) | MiniMaxAI | 1,265 | 19,501 | A text‑to
+| [Qwen/Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) | Qwen | 3,786 | 2,551 | Qwen's latest Flash model optimized for efficient multimodal reasoning with image-text-to-text capabilities. Trending due to its balance of performance and speed for deployment. |
+| [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) | zai-org | 1,124 | 0 | Z.ai's GLM-5.3-Flash offers efficient text generation with multimodal support in a lightweight package. Gaining attention as a competitive open-weight alternative for Chinese and English tasks. |
+| [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) | Qwen | 12,952 | 3,298,569 | Qwen's flagship 27B parameter multimodal model excels at image-text-to-text tasks with strong conversational abilities. Dominates downloads and likes, establishing Qwen3.5 series as a leading open-weight family. |
+| [ornith-ai/Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) | ornith-ai | 459 | 83,342 | Ornith-1.5-35B-A3B is a mixture-of-experts model with 35B total parameters and 3B active, supporting multimodal inputs. Notable for its MoE architecture delivering efficiency at scale. |
+| [sensenova/SenseNova-U1.5-8B-MoT](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT) | sensenova | 174 | 3,264 | SenseNova-U1.5-8B-MoT introduces a Mixture-of-Transformers architecture for native any-to-any multimodal understanding. Early interest for its novel architecture unifying modalities. |
+| [deepseek-ai/DeepSeek-V4-Flash-0731](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731) | deepseek-ai | 3,747 | 3,857,140 | DeepSeek's V4 Flash model provides high-quality text generation with conversational tuning in an efficient package. Massive download numbers indicate strong adoption for production inference. |
+| [superwhisper/s1-mini](https://huggingface.co/superwhisper/s1-mini) | superwhisper | 255 | 3,921 | Superwhisper's s1-mini is a compact text-generation model optimized for automatic speech recognition tasks. Trending for its niche ASR-focused design in a small footprint. |
+| [ornith-ai/Ornith-1.5-9B](https://huggingface.co/ornith-ai/Ornith-1.5-9B) | ornith-ai | 232 | 119,053 | Ornith-1.5-9B is a 9B parameter multimodal model supporting image-text-to-text and text generation. Part of the Ornith series offering efficient open
 
 ---
 *This digest is auto-generated by [agents-radar](https://github.com/datnguyenquy94/news-radar).*

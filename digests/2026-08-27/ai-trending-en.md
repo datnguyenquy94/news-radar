@@ -1,78 +1,48 @@
 # AI Open Source Trends 2026-08-27
 
-> Sources: GitHub Trending + GitHub Search API | Generated: 2026-08-27 06:13 UTC
+> Sources: GitHub Trending + GitHub Search API | Generated: 2026-08-27 08:50 UTC
 
 ---
 
 # AI Open Source Trends Report — 2026-08-27
 
+---
+
 ## 1. Today's Highlights
 
-The AI open-source ecosystem shows accelerating momentum around **agent-centric tooling** and **knowledge-graph infrastructure**. Three agent frameworks — NousResearch/hermes-agent, affaan-m/ECC, and Shubhamsaboo/awesome-llm-apps — collectively gained ~1,800 stars in 24 hours, signaling strong developer appetite for autonomous, self-improving agents. Simultaneously, Graphify-Labs/graphify and firecrawl/firecrawl each added ~1,000 stars, highlighting demand for deterministic, locally-run knowledge extraction that avoids vector-store opacity. New entrants include Apache Airflow (ML workflow orchestration) and NirDiamant/RAG_Techniques (comprehensive RAG tutorials), extending the report’s coverage into production-grade MLOps and educational resources.
+Two AI-native projects dominate today's trending list. **archify** surged past 20k stars with an "agent skill" that turns architecture, workflow, and data-flow specs into self-contained, animated HTML diagrams — signaling strong demand for agent-facing visualization tooling. **marin**, a Python framework for foundation-model R&D, added ~440 stars in a day, reflecting sustained community interest in open, end-to-end training stacks. No new entries appeared in the topic search, so today's signal is entirely driven by these two high-momentum repositories.
 
 ---
 
 ## 2. Top Projects by Category
 
-### 🔧 AI Infrastructure
-
-| Project | Lang | Stars (total / today) | Since last report | Summary |
-| :--- | :--- | ---: | ---: | :--- |
-| [apache/airflow](https://github.com/apache/airflow) | Python | 46,615 | 🆕 new | Battle-tested workflow orchestrator now tagged for ML; enables reproducible, scheduled pipelines for training, evaluation, and deployment at enterprise scale. |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | TypeScript | 172,914 | 📈 +1,039 since 2026-08-25 | High-performance web scraping and search API built for LLM context ingestion; handles JS rendering, anti-bot bypass, and structured extraction at scale. |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 111,151 | 📈 +1,007 since 2026-08-25 | Converts entire codebases (docs, SQL, configs, PDFs) into queryable knowledge graphs via deterministic AST parsing — no vector store, fully local, IDE-integrated. |
-| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Go | 101,253 | 📈 +546 since 2026-08-25 | Claude Code skill that reduces token usage ~65% by compressing prompts into terse “caveman” syntax; practical cost optimization for heavy CLI users. |
-
 ### 🤖 AI Agents / Workflows
 
 | Project | Lang | Stars (total / today) | Since last report | Summary |
 | :--- | :--- | ---: | ---: | :--- |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 237,011 | 📈 +573 since 2026-08-26 | Self-evolving agent that learns from interactions, builds persistent memory, and improves its own skills over time; positions itself as a long-term digital companion. |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | JavaScript | 243,573 | 📈 +634 since 2026-08-25 | Performance optimization layer for coding agents (Claude Code, Cursor, Codex, etc.); adds skills, instincts, memory, and security hardening across multiple CLI hosts. |
-| [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) | Python | 134,638 | 📈 +692 since 2026-08-25 | Curated collection of 100+ production-ready AI agents, agent skills, and RAG applications — serves as a launchpad for developers building vertical solutions. |
-
-### 📦 AI Applications
-
-| Project | Lang | Stars (total / today) | Since last report | Summary |
-| :--- | :--- | ---: | ---: | :--- |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | Python | 49,683 | 📈 +637 since 2026-08-25 | Generates native .pptx decks from documents or topics — includes shapes, animations, data-driven charts, speaker-note narration, and custom template support. |
-| [santifer/career-ops](https://github.com/santifer/career-ops) | JavaScript | 68,714 | 📈 +557 since 2026-08-25 | Local-first AI job-search copilot: scrapes portals, scores listings A–H, tailors CVs, tracks applications — runs entirely inside your coding CLI. |
-| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Python | 117,004 | 📈 +520 since 2026-08-26 | One-click HD short-video generation from a topic/keyword using automated AI workflows (script, voice, visuals, editing); Chinese-origin, global adoption. |
+| [tt-a1i/archify](https://github.com/tt-a1i/archify) | JavaScript | 20,068 (+1,035) | 📈 +1,123 since 2026-08-27 | An "agent skill" that generates beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams as self-contained HTML with motion and crisp export. The explosive star growth (+1k today alone) shows developers are rapidly adopting agent-native diagramming tools for documentation and reasoning traces. |
 
 ### 🧠 LLMs / Training
 
 | Project | Lang | Stars (total / today) | Since last report | Summary |
 | :--- | :--- | ---: | ---: | :--- |
-| [thinkwee/AwesomeOPD](https://github.com/thinkwee/AwesomeOPD) | — | 844 | 🆕 new | Curated list for On-Policy Distillation — a training paradigm where a student model learns directly from a teacher’s on-policy rollouts, gaining traction for efficient alignment. |
-| [thinkwee/AgentsMeetRL](https://github.com/thinkwee/AgentsMeetRL) | HTML | 1,799 | 🆕 new | Awesome list mapping the intersection of LLM agents and reinforcement learning; collects papers, code, and benchmarks for agentic RL research. |
-| [testtimescaling/testtimescaling.github.io](https://github.com/testtimescaling/testtimescaling.github.io) | HTML | 113 | 🆕 new | Survey repository for “test-time scaling” — methods that allocate more compute at inference (search, verification, self-correction) to boost LLM reasoning without retraining. |
-
-### 🔍 RAG / Knowledge
-
-| Project | Lang | Stars (total / today) | Since last report | Summary |
-| :--- | :--- | ---: | ---: | :--- |
-| [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) | Jupyter Notebook | 29,236 | 🆕 new | Comprehensive tutorial suite covering advanced RAG patterns (hybrid search, rerouting, graph RAG, agentic retrieval) — each technique with runnable notebook and evaluation guidance. |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Python | 111,151 | 📈 +1,007 since 2026-08-25 | (Also in Infrastructure) Deterministic codebase-to-knowledge-graph pipeline; enables precise, hallucination-free retrieval for coding agents without embedding drift. |
+| [marin-community/marin](https://github.com/marin-community/marin) | Python | 2,558 (+441) | 📈 +434 since 2026-08-26 | Open-source framework for the research and development of foundation models. The steady daily growth (~430 stars since yesterday) indicates the community is coalescing around a unified, hackable training stack that covers data, model, and scaling concerns in one codebase. |
 
 ---
 
 ## 3. Trend Signal Analysis
 
-**Explosive attention is concentrating on agent runtime infrastructure.** The three fastest-growing agent projects (ECC, hermes-agent, awesome-llm-apps) each added 500–700 stars in a single day, and all target the *deployment* layer — making agents reliable, memory-aware, and portable across CLI hosts (Claude Code, Cursor, Codex, OpenCode). This mirrors the industry shift from “model-centric” to “agent-centric” product cycles observed after the mid-2026 releases of o3-class reasoning models and Anthropic’s Claude 4 Opus.
-
-**Knowledge representation is pivoting from vector stores to deterministic graphs.** Graphify’s +1,000-star surge and its explicit “no vector store” positioning reflect practitioner frustration with embedding opacity and retrieval hallucinations. Firecrawl’s parallel growth confirms that high-fidelity *data acquisition* (web → structured JSON) is now recognized as a first-class infrastructure problem, not an afterthought.
-
-**First appearances (🆕) reveal emerging research directions, while re-appearances (📈) show compounding adoption.** The four 🆕 entries — Airflow (MLOps standardization), RAG_Techniques (advanced retrieval education), AwesomeOPD/AgentsMeetRL (agentic RL distillation), and test-time scaling survey — point to three nascent frontiers: production-grade ML orchestration, retrieval sophistication beyond basic RAG, and inference-time compute scaling as an alternative to parameter scaling. In contrast, the 📈 projects (firecrawl, graphify, hermes-agent, ECC, ppt-master, career-ops, caveman, MoneyPrinterTurbo) have already crossed the 50k-star threshold and are now compounding via ecosystem integrations (IDE plugins, CLI skills, template marketplaces), indicating they have achieved “default choice” status in their niches.
+Today's trending list is unusually narrow — only two AI projects — but both carry high information density. **archify** represents a new sub-category: *agent skills* — reusable, composable capabilities that LLMs can invoke to produce structured, visual artifacts. Its 20k-star milestone in a single day suggests the ecosystem is moving beyond raw model serving toward **agent tooling standardization**, where diagramming, verification, and export become first-class primitives. **marin** reinforces the **open foundation-model stack** narrative: instead of fragmented scripts, teams want a single, versioned framework that handles data curation, distributed training, and evaluation reproducibly. The fact that both projects are 📈 re-appearances (not 🆕 new) is telling: they are not flash-in-the-pan launches but compounds that have been building momentum across multiple reports. No new entrants appeared in topic search, meaning the current wave is **deepening** existing bets (agent tooling, training frameworks) rather than **broadening** into new paradigms like edge inference or synthetic data generation — at least for this snapshot.
 
 ---
 
 ## 4. Community Hot Spots
 
-- **NousResearch/hermes-agent** — The only agent framing itself as a *long-term companion* with persistent memory and self-improvement; worth tracking for architecture patterns that survive context-window limits.
-- **Graphify-Labs/graphify** — Deterministic AST→knowledge-graph pipeline is being adopted as a default skill for Claude Code, Cursor, and Gemini CLI; its local-first, no-embedding approach may become the reference implementation for code-aware agents.
-- **firecrawl/firecrawl** — Emerging as the de facto “web context API” for LLM apps; its TypeScript SDK and hosted offering reduce the friction of grounding agents in live data.
-- **testtimescaling/testtimescaling.github.io** — Though tiny (113★), the test-time scaling survey aggregates the latest inference-compute techniques (self-consistency, tree search, verifier models); a leading indicator of where reasoning research is heading post-o3.
-- **Shubhamsaboo/awesome-llm-apps** — Functions as a curated “app store” for agent skills and RAG templates; its 692★/day growth suggests developers are treating it as a primary discovery channel for reusable components.
+- **archify (agent diagramming skill)** — The fastest-growing AI repo today; worth studying its plugin architecture to understand how "skills" are becoming a standard interface for agent capabilities.
+- **marin (foundation-model framework)** — Consistent daily growth signals it's becoming a reference implementation for open training; contributors should watch its data-loading and scaling modules.
+- **Agent skill ecosystem** — archify's success hints at a coming marketplace of interoperable agent skills (diagramming, code exec, browsing, verification); early adopters can shape standards.
+- **Unified training frameworks** — marin joins a trend (like Axolotl, LLaMA-Factory) toward single-repo, config-driven training; teams building custom models should evaluate migration.
+- **Visual reasoning traces** — As agents grow more complex, demand for verifiable, exportable diagrams of their reasoning will rise; archify's HTML-first approach is a model for tooling in this space.
 
 ---
 *This digest is auto-generated by [agents-radar](https://github.com/datnguyenquy94/news-radar).*

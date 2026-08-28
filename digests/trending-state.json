@@ -4,6 +4,10 @@
       "stars": 8403,
       "lastReported": "2026-08-26"
     },
+    "actions/checkout": {
+      "stars": 8772,
+      "lastReported": "2026-08-28"
+    },
     "affaan-m/ECC": {
       "stars": 243573,
       "lastReported": "2026-08-27"
@@ -13,8 +17,12 @@
       "lastReported": "2026-08-26"
     },
     "AgriciDaniel/claude-obsidian": {
-      "stars": 13555,
-      "lastReported": "2026-08-27"
+      "stars": 14257,
+      "lastReported": "2026-08-28"
+    },
+    "AIDASLab/Awesome-Diffusion-LLM": {
+      "stars": 98,
+      "lastReported": "2026-08-28"
     },
     "alibaba/zvec": {
       "stars": 15514,
@@ -29,8 +37,8 @@
       "lastReported": "2026-08-27"
     },
     "anthropics/claude-plugins-official": {
-      "stars": 34105,
-      "lastReported": "2026-08-26"
+      "stars": 34835,
+      "lastReported": "2026-08-28"
     },
     "apache/airflow": {
       "stars": 46615,
@@ -56,17 +64,29 @@
       "stars": 32159,
       "lastReported": "2026-08-27"
     },
+    "bilawalsidhu/gods-eye-view": {
+      "stars": 9842,
+      "lastReported": "2026-08-28"
+    },
     "bojieli/ai-agent-book": {
-      "stars": 42208,
-      "lastReported": "2026-08-26"
+      "stars": 42958,
+      "lastReported": "2026-08-28"
     },
     "browser-use/browser-use": {
       "stars": 111162,
       "lastReported": "2026-08-27"
     },
+    "calesthio/OpenMontage": {
+      "stars": 52861,
+      "lastReported": "2026-08-28"
+    },
     "CherryHQ/cherry-studio": {
       "stars": 51008,
       "lastReported": "2026-08-25"
+    },
+    "ComposioHQ/awesome-claude-skills": {
+      "stars": 73770,
+      "lastReported": "2026-08-28"
     },
     "ConardLi/garden-skills": {
       "stars": 11016,
@@ -89,8 +109,8 @@
       "lastReported": "2026-08-26"
     },
     "DietrichGebert/ponytail": {
-      "stars": 112931,
-      "lastReported": "2026-08-27"
+      "stars": 114734,
+      "lastReported": "2026-08-28"
     },
     "Eigenwise/atomic-agents": {
       "stars": 6198,
@@ -105,24 +125,28 @@
       "lastReported": "2026-08-25"
     },
     "firecrawl/firecrawl": {
-      "stars": 172914,
-      "lastReported": "2026-08-27"
+      "stars": 173419,
+      "lastReported": "2026-08-28"
     },
     "freestylefly/awesome-gpt-image-2": {
-      "stars": 21887,
-      "lastReported": "2026-08-27"
+      "stars": 23932,
+      "lastReported": "2026-08-28"
     },
     "genieincodebottle/generative-ai": {
       "stars": 2609,
       "lastReported": "2026-08-26"
     },
+    "google/googletest": {
+      "stars": 39108,
+      "lastReported": "2026-08-28"
+    },
     "Graphify-Labs/graphify": {
-      "stars": 111151,
-      "lastReported": "2026-08-27"
+      "stars": 111773,
+      "lastReported": "2026-08-28"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 117004,
-      "lastReported": "2026-08-27"
+      "stars": 117782,
+      "lastReported": "2026-08-28"
     },
     "headroomlabs-ai/headroom": {
       "stars": 67424,
@@ -160,6 +184,10 @@
       "stars": 47457,
       "lastReported": "2026-08-25"
     },
+    "JetBrains/go-modern-guidelines": {
+      "stars": 2410,
+      "lastReported": "2026-08-28"
+    },
     "jingyaogong/minimind": {
       "stars": 54974,
       "lastReported": "2026-08-25"
@@ -173,8 +201,8 @@
       "lastReported": "2026-08-27"
     },
     "K-Dense-AI/scientific-agent-skills": {
-      "stars": 34845,
-      "lastReported": "2026-08-27"
+      "stars": 35637,
+      "lastReported": "2026-08-28"
     },
     "kennethleungty/Finance-LLMs": {
       "stars": 138,
@@ -261,8 +289,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 237011,
-      "lastReported": "2026-08-27"
+      "stars": 237538,
+      "lastReported": "2026-08-28"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -288,9 +316,13 @@
       "stars": 387440,
       "lastReported": "2026-08-25"
     },
+    "OpenCut-app/OpenCut": {
+      "stars": 87674,
+      "lastReported": "2026-08-28"
+    },
     "Panniantong/Agent-Reach": {
-      "stars": 75296,
-      "lastReported": "2026-08-26"
+      "stars": 76219,
+      "lastReported": "2026-08-28"
     },
     "PostHog/posthog": {
       "stars": 39007,
@@ -313,8 +345,8 @@
       "lastReported": "2026-08-25"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 49705,
-      "lastReported": "2026-08-27"
+      "stars": 50432,
+      "lastReported": "2026-08-28"
     },
     "run-llama/llama_index": {
       "stars": 51852,
@@ -365,8 +397,8 @@
       "lastReported": "2026-08-25"
     },
     "TauricResearch/TradingAgents": {
-      "stars": 100288,
-      "lastReported": "2026-08-26"
+      "stars": 101520,
+      "lastReported": "2026-08-28"
     },
     "tensorflow/tensorflow": {
       "stars": 197561,
@@ -381,8 +413,8 @@
       "lastReported": "2026-08-27"
     },
     "thedotmack/claude-mem": {
-      "stars": 91727,
-      "lastReported": "2026-08-25"
+      "stars": 92451,
+      "lastReported": "2026-08-28"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -401,8 +433,8 @@
       "lastReported": "2026-08-26"
     },
     "tt-a1i/archify": {
-      "stars": 20068,
-      "lastReported": "2026-08-27"
+      "stars": 25242,
+      "lastReported": "2026-08-28"
     },
     "ultralytics/ultralytics": {
       "stars": 60928,
@@ -419,6 +451,10 @@
     "weaviate/weaviate": {
       "stars": 16754,
       "lastReported": "2026-08-26"
+    },
+    "zedeus/nitter": {
+      "stars": 14041,
+      "lastReported": "2026-08-28"
     },
     "zhayujie/CowAgent": {
       "stars": 46674,

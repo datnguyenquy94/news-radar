@@ -1,0 +1,76 @@
+# Macro Market Dashboard 2026-08-28
+
+> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | 16 indicators | Generated: 2026-08-28 11:03 UTC
+>
+> ⚠️ Informational only, not financial advice.
+
+---
+
+**Macro Snapshot**  
+The Fed holds rates steady at 3.63% while the balance sheet contracts gradually, keeping liquidity tight but not collapsing. Ten‑year yields at 4.66% remain in highly restrictive territory, yet the yield curve is no longer inverted (10Y‑2Y +0.47%), and credit spreads are narrow (HY OAS 2.67%), signaling no acute funding stress. Inflation runs well above the 2% target (CPI 3.5%, Core PCE 3.3%), but goods‑side pressures are easing (PPI down to 4.7%). Labor markets show mixed signals: unemployment at 4.1% and claims at 203k indicate tightness, yet payrolls contracted -23k. Retail leverage is falling sharply (‑5.6% MoM), removing speculative froth. Overall, the backdrop is **restrictive but stable** — risk assets face a ceiling from high rates and sticky inflation, but no imminent credit or liquidity shock.
+
+---
+
+### Central Bank & Liquidity
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Fed Funds Rate (DFF) | 3.63 % | 3.63 % | 0.00 % | Moderately restrictive |
+| Fed Balance Sheet (WALCL) | 6.73 $T | 6.75 $T | -0.02 $T | Gradual QT continues |
+| VIX Volatility Index (VIXCLS) | 15.21 | 15.45 | -0.24 | Calm / low fear |
+| FINRA Margin Debt (retail leverage) | Jul-26 $1,417.2B | $1,502.1B | -5.6% | Deleveraging underway |
+
+---
+
+### Yields & Credit
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| 10Y Treasury Yield (DGS10) | 4.66 % | 4.64 % | 0.02 % | Highly restrictive |
+| 10Y-2Y Spread (T10Y2Y) | 0.47 % | 0.47 % | 0.00 % | Positive, no recession signal |
+| High-Yield Credit Spread (OAS) (BAMLH0A0HYM2) | 2.67 % | 2.70 % | -0.03 % | Low credit stress |
+| WTI Crude Oil (DCOILWTICO) | 83.90 $/bbl | 86.34 $/bbl | -2.44 $/bbl | Above $80, inflation watch |
+| Brent Crude Oil (DCOILBRENTEU) | 88.24 $/bbl | 92.71 $/bbl | -4.47 $/bbl | Above $80, inflation watch |
+
+---
+
+### Economy & Inflation
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Unemployment Rate (UNRATE) | 4.1 % | 4.2 % | -0.1 % | Full employment |
+| Initial Jobless Claims (ICSA) | 203,000 | 207,000 | -4,000 | Tight labor market |
+| Nonfarm Payrolls (MoM chg) (PAYEMS) | -23 K | +20 K | -43 K | Weak job growth |
+| CPI (CPIAUCSL) | +3.5 % YoY | N/A | N/A | Above target |
+| Core CPI (CPILFESL) | +2.8 % YoY | N/A | N/A | Above target |
+| Core PCE (PCEPILFE) | +3.3 % YoY | +3.3 % YoY | 0.0 % YoY | Above target |
+| PPI (Final Demand) (PPIFIS) | +4.7 % YoY | +5.5 % YoY | -0.8 % YoY | Above target, moderating |
+| UMich Consumer Sentiment (UMCSENT) | 49.5 | 44.8 | 4.7 | Very weak sentiment |
+
+---
+
+**Regime Read**  
+The macro regime is **restrictive‑but‑stable / risk‑neutral**. Liquidity is being withdrawn slowly (Fed balance sheet ‑$0.02T, margin debt ‑5.6% MoM) without triggering a credit event — HY spreads at 2.67% and a positively sloped curve (10Y‑2Y +0.47%) confirm funding markets are functioning. However, the policy rate (3.63%) and long‑term yields (4.66%) sit in restrictive territory, capping valuation multiples. Inflation remains entrenched above target (Core PCE 3.3%, CPI 3.5%), though pipeline pressures are easing (PPI ‑0.8pp YoY). The labor market sends divergent signals: unemployment at 4.1% and claims at 203k reflect tightness, yet the -23k payroll print hints at emerging demand softness. Consumer sentiment at 49.5 is historically weak, suggesting households feel the pinch of high prices and rates. Oil above $80/bbl keeps goods‑inflation risk alive. In sum, the environment favors **quality, cash‑flow‑generative assets** over speculative growth; the Fed is likely on hold until inflation convincingly trends toward 2%, but the absence of financial stress means a sharp risk‑off episode is not the base case.
+
+---
+
+**Playbook Checkpoint**  
+
+| Buy‑Signal Condition | Status | Assessment |
+| :--- | :---: | :--- |
+| VIX > 30 (extreme fear) | ❌ | VIX at 15.21 — calm regime |
+| Fed not on a hiking path | ✅ | Fed Funds unchanged at 3.63%; no hike signaled |
+| FINRA margin deleveraging | ✅ | Margin debt fell 5.6% MoM, sustained decline |
+| Clear high‑growth thematic engine | ❔ | No thematic/sector data in this dashboard |
+| Leaders beating on fundamentals | ❔ | No company‑level fundamentals provided |
+
+| Sell‑Signal Condition | Status | Assessment |
+| :--- | :---: | :--- |
+| Fundamentals plateauing | ❔ | No company‑level fundamentals provided |
+| Hawkish Fed pivot | ❌ | Rates on hold; curve steepening, not flattening |
+| Valuations far above historical bands | ❔ | No valuation data in this dashboard |
+
+*Informational only — not financial advice.*
+
+---
+*This digest is auto-generated by [agents-radar](https://github.com/datnguyenquy94/news-radar).*

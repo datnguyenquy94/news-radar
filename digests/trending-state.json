@@ -16,9 +16,13 @@
       "stars": 8772,
       "lastReported": "2026-08-28"
     },
+    "addyosmani/agent-skills": {
+      "stars": 90781,
+      "lastReported": "2026-08-30"
+    },
     "affaan-m/ECC": {
-      "stars": 243573,
-      "lastReported": "2026-08-27"
+      "stars": 244332,
+      "lastReported": "2026-08-30"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34467,
@@ -45,8 +49,8 @@
       "lastReported": "2026-08-27"
     },
     "anthropics/claude-plugins-official": {
-      "stars": 34835,
-      "lastReported": "2026-08-28"
+      "stars": 35475,
+      "lastReported": "2026-08-30"
     },
     "apache/airflow": {
       "stars": 46615,
@@ -72,21 +76,25 @@
       "stars": 32159,
       "lastReported": "2026-08-27"
     },
+    "bigskysoftware/htmx": {
+      "stars": 49155,
+      "lastReported": "2026-08-30"
+    },
     "bilawalsidhu/gods-eye-view": {
-      "stars": 11438,
-      "lastReported": "2026-08-29"
+      "stars": 12827,
+      "lastReported": "2026-08-30"
     },
     "bojieli/ai-agent-book": {
       "stars": 42958,
       "lastReported": "2026-08-28"
     },
     "browser-use/browser-use": {
-      "stars": 111162,
-      "lastReported": "2026-08-27"
+      "stars": 111682,
+      "lastReported": "2026-08-30"
     },
     "calesthio/OpenMontage": {
-      "stars": 53481,
-      "lastReported": "2026-08-29"
+      "stars": 54197,
+      "lastReported": "2026-08-30"
     },
     "CherryHQ/cherry-studio": {
       "stars": 51008,
@@ -136,13 +144,17 @@
       "stars": 35164,
       "lastReported": "2026-08-26"
     },
+    "every-app/open-seo": {
+      "stars": 14724,
+      "lastReported": "2026-08-30"
+    },
     "f/prompts.chat": {
       "stars": 167861,
       "lastReported": "2026-08-25"
     },
     "firecrawl/firecrawl": {
-      "stars": 173419,
-      "lastReported": "2026-08-28"
+      "stars": 174140,
+      "lastReported": "2026-08-30"
     },
     "freestylefly/awesome-gpt-image-2": {
       "stars": 24473,
@@ -157,12 +169,12 @@
       "lastReported": "2026-08-28"
     },
     "Graphify-Labs/graphify": {
-      "stars": 111773,
-      "lastReported": "2026-08-28"
+      "stars": 112359,
+      "lastReported": "2026-08-30"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 117782,
-      "lastReported": "2026-08-28"
+      "stars": 118564,
+      "lastReported": "2026-08-30"
     },
     "headroomlabs-ai/headroom": {
       "stars": 67948,
@@ -193,8 +205,8 @@
       "lastReported": "2026-08-25"
     },
     "hugohe3/ppt-master": {
-      "stars": 49683,
-      "lastReported": "2026-08-27"
+      "stars": 50239,
+      "lastReported": "2026-08-30"
     },
     "infiniflow/ragflow": {
       "stars": 89169,
@@ -205,8 +217,8 @@
       "lastReported": "2026-08-25"
     },
     "JetBrains/go-modern-guidelines": {
-      "stars": 2410,
-      "lastReported": "2026-08-28"
+      "stars": 2907,
+      "lastReported": "2026-08-30"
     },
     "jingyaogong/minimind": {
       "stars": 54974,
@@ -217,12 +229,16 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 101253,
-      "lastReported": "2026-08-27"
+      "stars": 101780,
+      "lastReported": "2026-08-30"
     },
     "K-Dense-AI/scientific-agent-skills": {
-      "stars": 36949,
-      "lastReported": "2026-08-29"
+      "stars": 38071,
+      "lastReported": "2026-08-30"
+    },
+    "kaifcodec/user-scanner": {
+      "stars": 3703,
+      "lastReported": "2026-08-30"
     },
     "kennethleungty/Finance-LLMs": {
       "stars": 138,
@@ -317,8 +333,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 237538,
-      "lastReported": "2026-08-28"
+      "stars": 238204,
+      "lastReported": "2026-08-30"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -333,8 +349,8 @@
       "lastReported": "2026-08-26"
     },
     "open-webui/open-webui": {
-      "stars": 149809,
-      "lastReported": "2026-08-25"
+      "stars": 150365,
+      "lastReported": "2026-08-30"
     },
     "openai/codex": {
       "stars": 118150,
@@ -347,6 +363,14 @@
     "OpenCut-app/OpenCut": {
       "stars": 87674,
       "lastReported": "2026-08-28"
+    },
+    "Osmantic/ODS": {
+      "stars": 5020,
+      "lastReported": "2026-08-30"
+    },
+    "p-e-w/heretic": {
+      "stars": 28768,
+      "lastReported": "2026-08-30"
     },
     "Panniantong/Agent-Reach": {
       "stars": 76219,
@@ -373,8 +397,8 @@
       "lastReported": "2026-08-25"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 50432,
-      "lastReported": "2026-08-28"
+      "stars": 51012,
+      "lastReported": "2026-08-30"
     },
     "run-llama/llama_index": {
       "stars": 51852,
@@ -385,8 +409,8 @@
       "lastReported": "2026-08-26"
     },
     "santifer/career-ops": {
-      "stars": 68714,
-      "lastReported": "2026-08-27"
+      "stars": 69303,
+      "lastReported": "2026-08-30"
     },
     "scikit-learn/scikit-learn": {
       "stars": 67057,
@@ -425,8 +449,8 @@
       "lastReported": "2026-08-29"
     },
     "tailscale/tailcat": {
-      "stars": 2950,
-      "lastReported": "2026-08-29"
+      "stars": 3656,
+      "lastReported": "2026-08-30"
     },
     "tashfeenahmed/freellmapi": {
       "stars": 21747,
@@ -460,6 +484,10 @@
       "stars": 844,
       "lastReported": "2026-08-27"
     },
+    "THU-MAIC/OpenMAIC": {
+      "stars": 22502,
+      "lastReported": "2026-08-30"
+    },
     "tinyhumansai/openhuman": {
       "stars": 38312,
       "lastReported": "2026-08-27"
@@ -469,8 +497,8 @@
       "lastReported": "2026-08-26"
     },
     "tt-a1i/archify": {
-      "stars": 28409,
-      "lastReported": "2026-08-29"
+      "stars": 31604,
+      "lastReported": "2026-08-30"
     },
     "ultralytics/ultralytics": {
       "stars": 60928,
@@ -488,6 +516,10 @@
       "stars": 16754,
       "lastReported": "2026-08-26"
     },
+    "workweave/router": {
+      "stars": 2835,
+      "lastReported": "2026-08-30"
+    },
     "zedeus/nitter": {
       "stars": 14041,
       "lastReported": "2026-08-28"
@@ -497,8 +529,8 @@
       "lastReported": "2026-08-26"
     },
     "ZhuLinsen/daily_stock_analysis": {
-      "stars": 63780,
-      "lastReported": "2026-08-25"
+      "stars": 64280,
+      "lastReported": "2026-08-30"
     }
   }
 }

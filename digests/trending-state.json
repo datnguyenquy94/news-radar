@@ -4,6 +4,10 @@
       "stars": 8403,
       "lastReported": "2026-08-26"
     },
+    "3b1b/manim": {
+      "stars": 92638,
+      "lastReported": "2026-09-02"
+    },
     "abhigyanpatwari/GitNexus": {
       "stars": 46222,
       "lastReported": "2026-08-29"
@@ -76,6 +80,10 @@
       "stars": 2795,
       "lastReported": "2026-08-26"
     },
+    "averygan/reclip": {
+      "stars": 7797,
+      "lastReported": "2026-09-02"
+    },
     "basecamp/omarchy": {
       "stars": 32159,
       "lastReported": "2026-08-27"
@@ -96,9 +104,17 @@
       "stars": 111682,
       "lastReported": "2026-08-30"
     },
+    "browser-use/video-use": {
+      "stars": 23083,
+      "lastReported": "2026-09-02"
+    },
     "calesthio/OpenMontage": {
       "stars": 54197,
       "lastReported": "2026-08-30"
+    },
+    "career-ops-hq/career-ops": {
+      "stars": 69783,
+      "lastReported": "2026-09-02"
     },
     "checkstyle/checkstyle": {
       "stars": 9445,
@@ -148,6 +164,10 @@
       "stars": 115645,
       "lastReported": "2026-08-29"
     },
+    "EasyJailbreak/EasyJailbreak": {
+      "stars": 906,
+      "lastReported": "2026-09-02"
+    },
     "Eigenwise/atomic-agents": {
       "stars": 6198,
       "lastReported": "2026-08-26"
@@ -169,8 +189,8 @@
       "lastReported": "2026-09-01"
     },
     "firecrawl/pdf-inspector": {
-      "stars": 17464,
-      "lastReported": "2026-09-01"
+      "stars": 18035,
+      "lastReported": "2026-09-02"
     },
     "freestylefly/awesome-gpt-image-2": {
       "stars": 24473,
@@ -179,6 +199,10 @@
     "genieincodebottle/generative-ai": {
       "stars": 2609,
       "lastReported": "2026-08-26"
+    },
+    "Gitlawb/openclaude": {
+      "stars": 31445,
+      "lastReported": "2026-09-02"
     },
     "google/googletest": {
       "stars": 39108,
@@ -228,6 +252,10 @@
       "stars": 50816,
       "lastReported": "2026-09-01"
     },
+    "Imbad0202/academic-research-skills": {
+      "stars": 45041,
+      "lastReported": "2026-09-02"
+    },
     "infiniflow/ragflow": {
       "stars": 89776,
       "lastReported": "2026-09-01"
@@ -235,6 +263,10 @@
     "iOfficeAI/AionUi": {
       "stars": 32470,
       "lastReported": "2026-09-01"
+    },
+    "iv-org/invidious": {
+      "stars": 23819,
+      "lastReported": "2026-09-02"
     },
     "jeecgboot/JeecgBoot": {
       "stars": 47457,
@@ -245,20 +277,20 @@
       "lastReported": "2026-08-30"
     },
     "jingyaogong/minimind": {
-      "stars": 56345,
-      "lastReported": "2026-09-01"
+      "stars": 57247,
+      "lastReported": "2026-09-02"
     },
     "JuliaLang/julia": {
       "stars": 49029,
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 101780,
-      "lastReported": "2026-08-30"
+      "stars": 102294,
+      "lastReported": "2026-09-02"
     },
     "K-Dense-AI/scientific-agent-skills": {
-      "stars": 40910,
-      "lastReported": "2026-09-01"
+      "stars": 41662,
+      "lastReported": "2026-09-02"
     },
     "k1tbyte/Wand-Enhancer": {
       "stars": 23458,
@@ -289,8 +321,8 @@
       "lastReported": "2026-09-01"
     },
     "langchain-ai/langchain": {
-      "stars": 144915,
-      "lastReported": "2026-08-25"
+      "stars": 145464,
+      "lastReported": "2026-09-02"
     },
     "langchain-ai/langgraph": {
       "stars": 40448,
@@ -337,8 +369,8 @@
       "lastReported": "2026-08-26"
     },
     "mem0ai/mem0": {
-      "stars": 63970,
-      "lastReported": "2026-08-25"
+      "stars": 64545,
+      "lastReported": "2026-09-02"
     },
     "microsoft/ML-For-Beginners": {
       "stars": 89760,
@@ -385,8 +417,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 179356,
-      "lastReported": "2026-08-25"
+      "stars": 179924,
+      "lastReported": "2026-09-02"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -417,8 +449,8 @@
       "lastReported": "2026-09-01"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 76219,
-      "lastReported": "2026-08-28"
+      "stars": 77416,
+      "lastReported": "2026-09-02"
     },
     "paperless-ngx/paperless-ngx": {
       "stars": 44763,
@@ -528,6 +560,10 @@
       "stars": 113,
       "lastReported": "2026-08-27"
     },
+    "The-Vibe-Company/quivr": {
+      "stars": 39452,
+      "lastReported": "2026-09-02"
+    },
     "The-Vibe-Company/Quivr": {
       "stars": 39438,
       "lastReported": "2026-09-01"
@@ -545,8 +581,8 @@
       "lastReported": "2026-08-27"
     },
     "THU-MAIC/OpenMAIC": {
-      "stars": 27717,
-      "lastReported": "2026-09-01"
+      "stars": 29726,
+      "lastReported": "2026-09-02"
     },
     "tinyhumansai/openhuman": {
       "stars": 38312,
@@ -564,6 +600,10 @@
       "stars": 60928,
       "lastReported": "2026-08-25"
     },
+    "unclecode/crawl4ai": {
+      "stars": 80920,
+      "lastReported": "2026-09-02"
+    },
     "VectifyAI/PageIndex": {
       "stars": 35324,
       "lastReported": "2026-08-26"
@@ -571,6 +611,10 @@
     "VoltAgent/awesome-agent-skills": {
       "stars": 32740,
       "lastReported": "2026-08-27"
+    },
+    "VoltAgent/awesome-design-md": {
+      "stars": 112988,
+      "lastReported": "2026-09-02"
     },
     "weaviate/weaviate": {
       "stars": 16754,

@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "GitHub Copilot CLI shipped 3 releases in 24 hours",
+      "Windows parity issues affect 5 of 9 active tools",
+      "Claude Code v2.1.261 released with high engagement",
+      "OpenCode and Pi focus on local-model privacy defaults",
+      "Vendor tools prioritize enterprise features over community",
+      "Model-version fidelity emerges as key differentiator"
+    ],
+    "ai-agents": [
+      "OpenClaw: 213 issues and 500 PRs updated in 24h",
+      "151 PRs merged/closed targeting release-blocking regressions",
+      "No new release; latest stable remains 2026.8.1",
+      "Session-state and transport regressions across gateways",
+      "Platinum hermit and diamond lobster severity issues open",
+      "Beta-blocker issues suggest imminent patch release"
+    ],
+    "ai-trending": [
+      "DietrichGebert/ponytail gains 2,652 stars today",
+      "affaan-m/ECC adds 1,298 stars for coding agents",
+      "anomalyco/opencode hits 204k stars as new entrant",
+      "VoiceStudio surges 1,701 stars for local voice pipeline",
+      "Three new projects: miles, Plasmod, diagram-design",
+      "Graphify and Firecrawl sustain RAG infrastructure growth"
+    ],
+    "ai-web": [
+      "Claude formalized Fermat's Last Theorem in Lean 4",
+      "First complete computer-checked proof of FLT achieved",
+      "Anthropic Economic Index: India is 2nd largest Claude user base",
+      "India shows low per-capita penetration at 101st/116",
+      "Meta-analysis: US retraining yields 2-3pp employment gains",
+      "Government recovers >50% costs via tax/benefit offsets"
+    ],
+    "ai-hn": [
+      "GPT-6 Astra dominates with 2,160 points and 1,978 comments",
+      "Claude Fable/Mythos 5.1 dual release sparks specialization debate",
+      "Nvidia acquires Hugging Face for $13B per HN thread",
+      "Simultaneous outage across OpenAI, Anthropic, xAI",
+      "Spotify's Portal cuts token usage by 90%",
+      "ARC-AGI-3 benchmark scores drive frontier model discussion"
+    ],
+    "ai-arxiv": [
+      "Compile by Training turns specs into neural functions",
+      "Preregistered audit exposes LLM judge score instability",
+      "ESPO optimizes prompts via diagnose, diversify, stabilize",
+      "FP4 FlashAttention advances hardware-aware efficiency",
+      "Credit assignment without ground truth for long agents",
+      "Compositional reasoning gaps found in multimodal embeddings"
+    ],
+    "ai-hf": [
+      "DeepSeek-V4-Flash-Vision-Exp leads multimodal vision-language",
+      "Qwen3.8-27B and Flash-Next dominate image-text-to-text",
+      "GLM-5.3 and GLM-5.3-Flash from Z.ai trend high",
+      "Google TimesFM-3.0 brings time-series forecasting",
+      "Lightricks LTX-2.5 and MiniMax-H3 drive video generation",
+      "Multiple Qwen3.8 GGUF quantizations from Unsloth, ISTA-DASLab"
+    ],
+    "ai-community": [
+      "Dev.to shifts from prompting to architecting reliable AI systems",
+      "Agent coordination, observability gaps, cost control dominate",
+      "Stratagems #28 explores AI exploiting structural advantages",
+      "Detector case study reveals multi-agent conflict detection flaws",
+      "AI engineering easy, changing work habits is hard",
+      "Lobste.rs: ARC-AGI at 44% for $0.67 breakthrough"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% with slight balance sheet expansion",
+      "10Y yield at 4.77% remains highly restrictive",
+      "10s2s spread narrow at 41bps signals recession uncertainty",
+      "Inflation above target: CPI 3.5%, core PCE 3.3%, PPI 4.7%",
+      "HY credit spreads tight at 2.65% OAS shows low stress",
+      "WTI crude above $90 adds upside inflation risk"
+    ],
+    "fin-vnmacro": [
+      "VN-Index climbs 1.40% to 1,853.08 extending 20-day gain",
+      "VN30 rises 1.20% with futures basis marginally positive",
+      "USD/VND at 26,255 shows dong stability YTD -0.52%",
+      "US 10Y yield falls 0.42% to 4.77% while DXY edges up",
+      "Gold corrects -1.38% while Brent crude surges 0.80%",
+      "Foreign flow and turnover data unavailable this run"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,267 days since 2023",
+      "Overnight interbank at 6.01% trades 1.51pp above corridor ceiling",
+      "1-week rate at 6.34% trades 1.84pp above ceiling",
+      "Overnight + 1-week segment commands 97.6% of turnover",
+      "Wide policy-market rate gap signals strained liquidity",
+      "1-month rate at 6.49% shows ample supply with +210% turnover"
+    ]
+  }
+}

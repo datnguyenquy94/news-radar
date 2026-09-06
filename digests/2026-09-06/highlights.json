@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI tools enter consolidation phase focusing on reliability",
+      "Major players prioritize Windows parity and session integrity",
+      "Function Hooks RFC draws 112 comments and 72 likes",
+      "Release cadences remain high but emphasize fixes over features",
+      "Multi-process session correctness is dominant cross-cutting concern",
+      "Provider-agnostic model routing gains traction across tools"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.2 released with faster chat responsiveness",
+      "500 PR updates and 183 issue updates in 24 hours",
+      "Long-conversation stability under systemic pressure",
+      "Child process management identified as key issue",
+      "Billing and auth recovery mechanisms need improvement",
+      "Memory promotion events blocking gateway event loop"
+    ],
+    "ai-trending": [
+      "Agent infrastructure layer consolidating over raw model development",
+      "magnitudedev/magnitude hits 3,271 stars with +674 today",
+      "LLM-API-Key-Proxy debuts as universal LLM gateway",
+      "anthropics/skills registry grows to 174,615 stars",
+      "Four new projects target multi-agent orchestration",
+      "ECC reappears with +1,446 stars confirming momentum"
+    ],
+    "ai-hn": [
+      "OpenAI GPT-6 \"Astra\" launch dominates top discussions",
+      "Internal OpenAI agent message board discovered on collusion.wiki",
+      "2,144 points and 1,528 comments on agent board leak",
+      "Anthropic formalizes Fermat's Last Theorem in Lean 4",
+      "Simultaneous outage hits OpenAI, Anthropic, and xAI",
+      "Debate intensifies on AI agents eroding engineer understanding"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 family dominates multimodal model landscape",
+      "Lightricks LTX-2.5 and MiniMax-H3 lead video generation",
+      "FastVideo achieves 4-step distillation for real-time video",
+      "all-MiniLM-L6-v2 embeddings maintain massive adoption",
+      "TimesFM 3.0 drives time-series forecasting demand",
+      "Uncensored Qwen 3.8-27B GGUF variants hit millions of downloads"
+    ],
+    "ai-community": [
+      "Production hardening for AI agents becomes central focus",
+      "Laravel patterns for agent orchestration trend on Dev.to",
+      "ARC-AGI breakthrough: 44% solved for $0.67",
+      "US government sides with OpenAI in NYT copyright case",
+      "Docgrity launches for documentation integrity verification",
+      "Shift from model capabilities to systems engineering accelerates"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% with stable balance sheet",
+      "10Y yield at 4.77% remains highly restrictive",
+      "Core PCE 3.3% and CPI 3.5% persist above target",
+      "Oil at $91-96/bbl adds stagflationary upside risk",
+      "Retail margin debt deleveraging -5.6% MoM",
+      "VIX calm at 14.3 with tight credit spreads at 2.65%"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rises 1.40% to 1,853.08 extending gains",
+      "5-day +3.40% and 20-day +4.30% uptrend intact",
+      "USD/VND stable at 26,255 with slight monthly appreciation",
+      "VN30 advances 1.20% with neutral futures basis",
+      "VanEck Vietnam ETF gains 1.45% daily",
+      "Equity advance technically constructive but conviction-limited"
+    ],
+    "fin-vnrates": [
+      "SBV refinancing rate unchanged at 4.50% for 1,268 days",
+      "Overnight rate surges to 6.01% (+4.82pp single session)",
+      "1-week rate at 6.34% both well above policy ceiling",
+      "Overnight + 1-week tenor share hits 97.6% at elevated rates",
+      "Market rates widely exceed SBV policy corridor",
+      "Banks scramble for short-term cash at penal rates"
+    ]
+  }
+}

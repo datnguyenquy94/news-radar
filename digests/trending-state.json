@@ -16,6 +16,10 @@
       "stars": 75677,
       "lastReported": "2026-08-29"
     },
+    "acon96/home-llm": {
+      "stars": 1429,
+      "lastReported": "2026-09-06"
+    },
     "actions/checkout": {
       "stars": 8772,
       "lastReported": "2026-08-28"
@@ -25,8 +29,8 @@
       "lastReported": "2026-09-04"
     },
     "affaan-m/ECC": {
-      "stars": 248623,
-      "lastReported": "2026-09-05"
+      "stars": 250069,
+      "lastReported": "2026-09-06"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34467,
@@ -49,8 +53,8 @@
       "lastReported": "2026-08-27"
     },
     "anomalyco/opencode": {
-      "stars": 204204,
-      "lastReported": "2026-09-05"
+      "stars": 204742,
+      "lastReported": "2026-09-06"
     },
     "anseryuer/Local_LLM_Deployment_Guide_Chinese": {
       "stars": 50,
@@ -65,8 +69,8 @@
       "lastReported": "2026-08-30"
     },
     "anthropics/skills": {
-      "stars": 173730,
-      "lastReported": "2026-09-04"
+      "stars": 174615,
+      "lastReported": "2026-09-06"
     },
     "apache/airflow": {
       "stars": 46615,
@@ -113,12 +117,16 @@
       "lastReported": "2026-08-30"
     },
     "blader/humanizer": {
-      "stars": 42825,
-      "lastReported": "2026-09-05"
+      "stars": 43571,
+      "lastReported": "2026-09-06"
     },
     "bojieli/ai-agent-book": {
       "stars": 44587,
       "lastReported": "2026-09-04"
+    },
+    "BraveOPotato/FckSignups": {
+      "stars": 2941,
+      "lastReported": "2026-09-06"
     },
     "browser-use/browser-use": {
       "stars": 112203,
@@ -141,8 +149,8 @@
       "lastReported": "2026-09-02"
     },
     "cathrynlavery/diagram-design": {
-      "stars": 31049,
-      "lastReported": "2026-09-05"
+      "stars": 31785,
+      "lastReported": "2026-09-06"
     },
     "checkstyle/checkstyle": {
       "stars": 9445,
@@ -205,8 +213,8 @@
       "lastReported": "2026-09-01"
     },
     "DietrichGebert/ponytail": {
-      "stars": 126342,
-      "lastReported": "2026-09-05"
+      "stars": 128119,
+      "lastReported": "2026-09-06"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -312,6 +320,10 @@
       "stars": 52041,
       "lastReported": "2026-09-05"
     },
+    "humanlayer/skills": {
+      "stars": 2778,
+      "lastReported": "2026-09-06"
+    },
     "Imbad0202/academic-research-skills": {
       "stars": 45642,
       "lastReported": "2026-09-03"
@@ -393,8 +405,8 @@
       "lastReported": "2026-08-26"
     },
     "langgenius/dify": {
-      "stars": 154046,
-      "lastReported": "2026-09-01"
+      "stars": 154551,
+      "lastReported": "2026-09-06"
     },
     "LiberCoders/FeatureBench": {
       "stars": 90,
@@ -413,8 +425,8 @@
       "lastReported": "2026-08-27"
     },
     "magnitudedev/magnitude": {
-      "stars": 2578,
-      "lastReported": "2026-09-05"
+      "stars": 3271,
+      "lastReported": "2026-09-06"
     },
     "majd/ipatool": {
       "stars": 10610,
@@ -429,8 +441,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 250628,
-      "lastReported": "2026-09-05"
+      "stars": 252888,
+      "lastReported": "2026-09-06"
     },
     "meilisearch/meilisearch": {
       "stars": 59093,
@@ -452,13 +464,21 @@
       "stars": 600,
       "lastReported": "2026-08-26"
     },
+    "microsoft/qlib": {
+      "stars": 48331,
+      "lastReported": "2026-09-06"
+    },
     "milvus-io/milvus": {
       "stars": 45788,
       "lastReported": "2026-08-26"
     },
     "Mintplex-Labs/anything-llm": {
-      "stars": 65155,
-      "lastReported": "2026-08-25"
+      "stars": 65667,
+      "lastReported": "2026-09-06"
+    },
+    "Mirrowel/LLM-API-Key-Proxy": {
+      "stars": 545,
+      "lastReported": "2026-09-06"
     },
     "multica-ai/andrej-karpathy-skills": {
       "stars": 207236,
@@ -481,8 +501,12 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 241565,
-      "lastReported": "2026-09-05"
+      "stars": 242076,
+      "lastReported": "2026-09-06"
+    },
+    "nvm-sh/nvm": {
+      "stars": 94938,
+      "lastReported": "2026-09-06"
     },
     "obra/superpowers": {
       "stars": 281418,
@@ -587,6 +611,10 @@
     "run-llama/llama_index": {
       "stars": 51852,
       "lastReported": "2026-08-25"
+    },
+    "ruvnet/ruflo": {
+      "stars": 70727,
+      "lastReported": "2026-09-06"
     },
     "samchon/nestia": {
       "stars": 2172,
@@ -735,6 +763,10 @@
     "workweave/router": {
       "stars": 2835,
       "lastReported": "2026-08-30"
+    },
+    "WorldFlowAI/everything-claude-code": {
+      "stars": 2393,
+      "lastReported": "2026-09-06"
     },
     "zedeus/nitter": {
       "stars": 14041,

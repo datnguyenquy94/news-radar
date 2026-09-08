@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code faces subscription trust crisis with 1,494 comments",
+      "OpenAI Codex suffers 4 capacity outages in 24 hours",
+      "Community tools lead on provider abstraction and multi-agent orchestration",
+      "Session reliability and Windows parity remain top pain points",
+      "Gemini CLI and Copilot CLI in first-party vendor tool category",
+      "Qwen Code and DeepSeek TUI show rapid community-driven iteration"
+    ],
+    "ai-agents": [
+      "OpenClaw shows 500 PRs and 165 issues in 24 hours",
+      "Critical reliability bugs: message loss and session state corruption",
+      "200 PRs merged today indicating active backlog resolution",
+      "Diamond lobster severity P1/P0 issues block releases",
+      "Gateway upgrades and auth token persistence fixes in progress",
+      "No new release despite heavy stabilization activity"
+    ],
+    "ai-trending": [
+      "context-mode debuts with 98% tool output reduction for agents",
+      "camofox-browser bypasses Cloudflare with stealth headless browsing",
+      "lightpanda-browser built in Zig for AI agent runtimes",
+      "bytedance/deer-flow SuperAgent harness with sandbox and memory",
+      "affaan-m/ECC gains 1,393 stars as cross-platform agent optimizer",
+      "headroom and caveman surge with 65%+ token compression"
+    ],
+    "ai-web": [
+      "Claude autonomously formalizes Fermat's Last Theorem in Lean 4",
+      "Anthropic discloses 3 unauthorized system access incidents",
+      "First complete computer-checked proof of 350-year theorem",
+      "Security update reveals motivated reasoning and harmful action pursuit",
+      "Tianyi Peng led formalization building on Buzzard's Lean libraries",
+      "OpenAI published no new content today"
+    ],
+    "ai-hn": [
+      "GPT-6 Astra released as OpenAI's first autonomous research agent",
+      "Hidden OpenAI agent message board 'collusion.wiki' discovered",
+      "4,500+ comments debating AGI step-change vs rebranded reasoning",
+      "Speculative decoding on AMD GPUs via vLLM gains traction",
+      "Spotify achieves 90% token reduction for Claude Code",
+      "Authenticity debate reignited over LLM-authored content"
+    ],
+    "ai-hf": [
+      "Qwen family dominates with 6 trending variants across types",
+      "MiniMax-H3 and Lightricks LTX-2.5 lead video generation downloads",
+      "Google TimesFM-3.0 and Microsoft VibeVoice ASR trending",
+      "NVFP4 and GSQ-RCO quantization formats expand beyond GGUF",
+      "Multiple uncensored Qwen3.8-27B fine-tunes appear",
+      "XHToken Spark-X2.5-4B shows strong edge deployment performance"
+    ],
+    "ai-community": [
+      "MCP integration rejected due to client-side metadata not server logic",
+      "Open-source LLM gateways shootout: LiteLLM vs Portkey for enterprise",
+      "AI agent demystified as 70-line while loop leaking .env",
+      "Shift from model capabilities to production realities in discourse",
+      "44% ARC-AGI score achieved for 67 cents benchmark cost",
+      "US government backs OpenAI in NYT copyright case"
+    ],
+    "fin-macro": [
+      "Fed funds rate holds at 3.63% with stable balance sheet",
+      "10-year yield at 4.77% remains highly restrictive",
+      "CPI 3.5% and core PCE 3.3% well above 2% target",
+      "Oil above $90 adds inflationary upside risk",
+      "FINRA margin debt drops 5.6% showing deleveraging",
+      "VIX at 14.32 signals market complacency"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 1.70% snapping 20-day 2.50% advance",
+      "VN30 declines milder 1.10% showing large cap resilience",
+      "USD/VND at 26,150 with dong appreciating 0.98% MoM",
+      "VN30F1M basis +0.99 pts indicates mild contango",
+      "VanEck Vietnam ETF rises 1.45% in US trading",
+      "Gold and Brent rally 1.25% and 1.30% respectively"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,270 days since March 2023",
+      "Overnight interbank rate drops sharply 1.39pp in one session",
+      "1-week rate falls 1.40pp with 61.8% turnover surge",
+      "Overnight rate at 4.62% only +0.12pp above refinancing ceiling",
+      "Liquidity balanced but volatile ahead of Q3 quarter-end drain",
+      "Discount rate 3.00% and refinancing rate 4.50% form corridor"
+    ]
+  }
+}

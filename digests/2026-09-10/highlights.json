@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.267 released with Windows fixes",
+      "OpenCode adds multi-provider orchestration features",
+      "Qwen Code invests in session durability architecture",
+      "DeepSeek V4 Pro sunset in 4 days creates provider risk",
+      "Windows always-on-top bug gets 225 upvotes on Claude Code",
+      "Cross-tool convergence on agent reliability observability"
+    ],
+    "ai-agents": [
+      "OpenClaw shows 500 PRs and 153 issues in 24h",
+      "Zombie process leaks and session corruption being fixed",
+      "Windows gateway restart failures addressed in PRs",
+      "Codex binding regressions reported in latest version",
+      "No new release yet but patch may be imminent",
+      "Deepgram voice support added with Flux model"
+    ],
+    "ai-trending": [
+      "Tencent teamai-cli debuts with 3,182 stars day one",
+      "PI-Desktop launches local-first AI coding agent desktop",
+      "ECC agent-harness optimizer surges in trending",
+      "Domain-specific agents (CAD, trading, video) attract stars",
+      "Vector search becoming default prerequisite for agents",
+      "Shift from agent frameworks to production runtimes"
+    ],
+    "ai-web": [
+      "Anthropic adds 162 articles spanning 2023-2026",
+      "Claude Opus 4.6 and 4.8 show step-change capabilities",
+      "Anthropic raises $95B+ across Series G and H rounds",
+      "Claude Partner Network reaches 1,000+ enterprise customers",
+      "Government partnerships expand to UK, Rwanda, Alberta",
+      "OpenAI update limited to two metadata-only index entries"
+    ],
+    "ai-hn": [
+      "Meta Muse personal agent and Claude UI coding demo lead",
+      "Mistral €3B sovereign funding round dominates discussion",
+      "DeepMind AlphaGenome Atlas maps human regulatory DNA",
+      "Terence Tao warns AI strip-mining open math problems",
+      "AI-engineered supervirus risks thread sparks safety debate",
+      "Anthropic fourth undisclosed hacking incident raises concerns"
+    ],
+    "ai-arxiv": [
+      "IBIB evaluates served systems not just model checkpoints",
+      "ConvMem enables fixed-size models for arbitrary long context",
+      "Layer-selective unlearning removes content preserving capabilities",
+      "Maverick and GANDR advance private verifiable inference",
+      "Gap-entropy conjecture resolved for best-arm identification",
+      "Shift from static benchmarks to deployment-aware assessment"
+    ],
+    "ai-hf": [
+      "MiniCPM5-2B and Spark-X2.5-4B lead LLM trending",
+      "Qwen3.8-27B and GLM-5.3 models dominate multimodal",
+      "MiniMax-H3 and LTX-2.5 lead video generation models",
+      "Breeze-TTS-2 and VibeVoice-ASR advance speech models",
+      "GGUF quantized variants popular for local deployment",
+      "Specialized cybersecurity and code models gaining traction"
+    ],
+    "ai-community": [
+      "AI writes code faster than humans can review bottleneck",
+      "RAG systems fail silently at retrieval not generation",
+      "30-day AI-only coding experiment reveals hallucination issues",
+      "Verification bottleneck shifts CI/CD to property-based testing",
+      "CLAUDE.md rule enforcement exposes AI config reading gaps",
+      "OpenAI Navier-Stokes claim sparks immediate skepticism"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% with stable balance sheet",
+      "10-year yield at 4.80% well above restrictive threshold",
+      "Core PCE 3.3% and Core CPI 2.8% above 2% target",
+      "Retail margin debt contracts 5.6% MoM deleveraging",
+      "VIX at 15.7 signals calm despite restrictive policy",
+      "Oil near $95-96/bbl adds upside price pressure"
+    ],
+    "fin-vnmacro": [
+      "VN-Index edges down 0.20% to 1,827.12",
+      "VN30 flat at 1,967.64 both up 3% on 20-day view",
+      "Dong appreciates 0.84% monthly 1.10% YTD at 26,100",
+      "DXY weakens 1.28% over 20 days US 10Y rises 1.69%",
+      "VN30F1M basis slips to -1.64 points mild hedging",
+      "Turnover and foreign flow data unavailable this run"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,272 days",
+      "Overnight interbank at 2.49% well below policy floor",
+      "Negative VND-USD overnight spread at -1.14pp",
+      "1-week rate at 3.55% signals cheap weekly funding",
+      "High liquidity pushes money-market rates beneath SBV floor",
+      "SBV neutral stance but constrained by negative spread"
+    ]
+  }
+}

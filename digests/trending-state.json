@@ -29,8 +29,8 @@
       "lastReported": "2026-09-04"
     },
     "affaan-m/ECC": {
-      "stars": 255975,
-      "lastReported": "2026-09-11"
+      "stars": 256601,
+      "lastReported": "2026-09-12"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -64,9 +64,13 @@
       "stars": 50521,
       "lastReported": "2026-08-27"
     },
+    "alphaXiv/OpenResearch": {
+      "stars": 1349,
+      "lastReported": "2026-09-12"
+    },
     "alsk1992/CloddsBot": {
-      "stars": 1759,
-      "lastReported": "2026-09-11"
+      "stars": 2204,
+      "lastReported": "2026-09-12"
     },
     "anomalyco/opencode": {
       "stars": 205349,
@@ -117,8 +121,8 @@
       "lastReported": "2026-09-04"
     },
     "ayghri/i-have-adhd": {
-      "stars": 38817,
-      "lastReported": "2026-09-11"
+      "stars": 42154,
+      "lastReported": "2026-09-12"
     },
     "bannedbook/fanqiang": {
       "stars": 52348,
@@ -137,8 +141,8 @@
       "lastReported": "2026-09-05"
     },
     "bilawalsidhu/gods-eye-view": {
-      "stars": 24749,
-      "lastReported": "2026-09-11"
+      "stars": 27341,
+      "lastReported": "2026-09-12"
     },
     "blader/humanizer": {
       "stars": 44445,
@@ -153,8 +157,8 @@
       "lastReported": "2026-09-08"
     },
     "browser-use/browser-use": {
-      "stars": 113643,
-      "lastReported": "2026-09-09"
+      "stars": 114273,
+      "lastReported": "2026-09-12"
     },
     "browser-use/video-use": {
       "stars": 23083,
@@ -249,8 +253,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 134945,
-      "lastReported": "2026-09-11"
+      "stars": 135926,
+      "lastReported": "2026-09-12"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -300,6 +304,10 @@
       "stars": 2609,
       "lastReported": "2026-08-26"
     },
+    "github/spec-kit": {
+      "stars": 135818,
+      "lastReported": "2026-09-12"
+    },
     "Gitlawb/openclaude": {
       "stars": 33131,
       "lastReported": "2026-09-11"
@@ -321,8 +329,8 @@
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 122034,
-      "lastReported": "2026-09-10"
+      "stars": 122558,
+      "lastReported": "2026-09-12"
     },
     "headroomlabs-ai/headroom": {
       "stars": 71405,
@@ -396,6 +404,10 @@
       "stars": 2907,
       "lastReported": "2026-08-30"
     },
+    "jihe520/MathModelAgent": {
+      "stars": 4897,
+      "lastReported": "2026-09-12"
+    },
     "jingyaogong/minimind": {
       "stars": 60583,
       "lastReported": "2026-09-11"
@@ -403,6 +415,10 @@
     "jo-inc/camofox-browser": {
       "stars": 10614,
       "lastReported": "2026-09-09"
+    },
+    "jordan-gibbs/hyperresearch": {
+      "stars": 2698,
+      "lastReported": "2026-09-12"
     },
     "JuliaLang/julia": {
       "stars": 49029,
@@ -453,8 +469,8 @@
       "lastReported": "2026-09-09"
     },
     "langchain-ai/langgraph": {
-      "stars": 40957,
-      "lastReported": "2026-09-03"
+      "stars": 41491,
+      "lastReported": "2026-09-12"
     },
     "langchain4j/langchain4j": {
       "stars": 12952,
@@ -516,6 +532,10 @@
       "stars": 59093,
       "lastReported": "2026-08-26"
     },
+    "melgarafael/DeskcommCRM": {
+      "stars": 1415,
+      "lastReported": "2026-09-12"
+    },
     "mem0ai/mem0": {
       "stars": 65089,
       "lastReported": "2026-09-11"
@@ -564,9 +584,13 @@
       "stars": 211560,
       "lastReported": "2026-09-09"
     },
+    "nab138/iloader": {
+      "stars": 2936,
+      "lastReported": "2026-09-12"
+    },
     "nashsu/llm_wiki": {
-      "stars": 18215,
-      "lastReported": "2026-09-11"
+      "stars": 18807,
+      "lastReported": "2026-09-12"
     },
     "NationalSecurityAgency/ghidra": {
       "stars": 73411,
@@ -593,8 +617,8 @@
       "lastReported": "2026-09-06"
     },
     "obra/superpowers": {
-      "stars": 284807,
-      "lastReported": "2026-09-11"
+      "stars": 285434,
+      "lastReported": "2026-09-12"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -624,6 +648,10 @@
       "stars": 26591,
       "lastReported": "2026-09-09"
     },
+    "OpenBB-finance/OpenBB": {
+      "stars": 72897,
+      "lastReported": "2026-09-12"
+    },
     "openclaw/openclaw": {
       "stars": 387440,
       "lastReported": "2026-08-25"
@@ -648,6 +676,10 @@
       "stars": 29741,
       "lastReported": "2026-09-01"
     },
+    "p1neappleXpress/OpenFlux": {
+      "stars": 1183,
+      "lastReported": "2026-09-12"
+    },
     "pacifio/atlas": {
       "stars": 2976,
       "lastReported": "2026-09-03"
@@ -661,8 +693,8 @@
       "lastReported": "2026-09-01"
     },
     "pascalorg/editor": {
-      "stars": 23033,
-      "lastReported": "2026-09-10"
+      "stars": 23669,
+      "lastReported": "2026-09-12"
     },
     "Picovoice/picollm": {
       "stars": 317,
@@ -697,8 +729,8 @@
       "lastReported": "2026-09-05"
     },
     "rasbt/LLMs-from-scratch": {
-      "stars": 104231,
-      "lastReported": "2026-09-03"
+      "stars": 104794,
+      "lastReported": "2026-09-12"
     },
     "RiccardoBiosas/awesome-MLSecOps": {
       "stars": 460,
@@ -745,8 +777,8 @@
       "lastReported": "2026-09-01"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 136561,
-      "lastReported": "2026-09-08"
+      "stars": 137261,
+      "lastReported": "2026-09-12"
     },
     "Significant-Gravitas/AutoGPT": {
       "stars": 186853,
@@ -763,6 +795,10 @@
     "sngyai/Sequoia-X": {
       "stars": 6229,
       "lastReported": "2026-09-03"
+    },
+    "Sonarr/Sonarr": {
+      "stars": 15760,
+      "lastReported": "2026-09-12"
     },
     "StarTrail-org/LEANN": {
       "stars": 12834,

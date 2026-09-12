@@ -1,0 +1,73 @@
+# Macro Market Dashboard 2026-09-12
+
+> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | 16 indicators | Generated: 2026-09-12 04:14 UTC
+>
+> ⚠️ Informational only, not financial advice.
+
+---
+
+### 1. Macro Snapshot
+The Fed holds rates at 3.63% with a stable balance sheet, yet the 10‑year yield at 4.95% signals highly restrictive financial conditions. Inflation remains sticky: headline CPI at 3.7%, core PCE at 3.3%, and PPI at 5.4% all run well above the 2% target, while Brent crude above $109 adds upside pressure. The labor market stays tight (4.1% unemployment, 206k claims) but payroll growth is only moderate (+162k). Credit markets are calm — VIX at 17.8, HY spreads at 2.70% — and retail margin debt is contracting (−5.6% MoM), clearing speculative froth. Mixed signals: restrictive rates and elevated oil weigh on risk assets, but benign credit conditions and deleveraging provide a floor.
+
+---
+
+### 2. Indicator Tables
+
+#### Central Bank & Liquidity
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Fed Funds Rate (DFF) | 3.63 % | 3.63 % | 0.00 % | Moderately restrictive stance |
+| Fed Balance Sheet (WALCL) | 6.74 $T | 6.74 $T | 0.00 $T | Stable balance sheet |
+| VIX Volatility Index (VIXCLS) | 17.84 | 16.46 | 1.38 | Calm market conditions |
+| FINRA Margin Debt (retail leverage) | Jul-26 $1,417.2B | $1,502.1B | MoM -5.6% | Deleveraging underway |
+
+#### Yields & Credit
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| 10Y Treasury Yield (DGS10) | 4.95 % | 4.83 % | 0.12 % | Highly restrictive yield level |
+| 10Y-2Y Spread (T10Y2Y) | 0.33 % | 0.39 % | -0.06 % | Positive but narrowing spread |
+| High-Yield Credit Spread (OAS) (BAMLH0A0HYM2) | 2.70 % | 2.71 % | -0.01 % | Low credit stress |
+| WTI Crude Oil (DCOILWTICO) | 97.26 $/bbl | 94.21 $/bbl | 3.05 $/bbl | Near $100 inflation risk |
+| Brent Crude Oil (DCOILBRENTEU) | 109.51 $/bbl | 106.12 $/bbl | 3.39 $/bbl | Above $100 pressures inflation |
+
+#### Economy & Inflation
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Unemployment Rate (UNRATE) | 4.1 % | 4.1 % | 0.0 % | Full employment level |
+| Initial Jobless Claims (ICSA) | 206,000 | 207,000 | -1,000 | Tight labor market |
+| Nonfarm Payrolls (MoM chg) (PAYEMS) | +162 K | +21 K | +141 K | Moderate job growth |
+| CPI (CPIAUCSL) | +3.7 % YoY | N/A | N/A | Well above 2% target |
+| Core CPI (CPILFESL) | +2.8 % YoY | N/A | N/A | Above 2% target |
+| Core PCE (PCEPILFE) | +3.3 % YoY | +3.3 % YoY | 0.0 % YoY | Above 2% target |
+| PPI (Final Demand) (PPIFIS) | +5.4 % YoY | +4.8 % YoY | +0.6 % YoY | Hot pipeline inflation |
+| UMich Consumer Sentiment (proxy) (UMCSENT) | 55.2 | 49.5 | 5.7 | Very weak sentiment |
+
+---
+
+### 3. Regime Read
+The macro picture points to a **restrictive-but-stable regime with sticky inflation and tightening liquidity at the long end**. The Fed’s policy rate is on hold, yet the 10‑year yield near 5% and a flattening curve (10Y‑2Y at 0.33%) reflect market pricing of higher-for-longer rates and term premium. Oil above $109 (Brent) and PPI at 5.4% YoY signal persistent cost-push pressures that could keep core inflation above target, limiting the Fed’s easing scope. Credit markets, however, show no stress: HY spreads at 2.7% and VIX sub‑18 indicate ample risk appetite and easy financial conditions at the front end. Retail deleveraging (−5.6% margin debt) removes a speculative tailwind but also reduces forced-selling risk. Labor markets remain tight but not overheating; consumer sentiment is deeply depressed (55.2), hinting at a demand slowdown ahead. Overall, the regime is **“tight money, calm credit, sticky inflation”** — a backdrop that favors quality, cash‑flow‑positive assets over high‑beta growth, and keeps the bias toward range‑bound, volatile trading rather than a sustained directional trend.
+
+---
+
+### 4. Playbook Checkpoint
+
+#### 5‑Condition Buy Signal
+| Condition | Status | Assessment |
+| :--- | :---: | :--- |
+| VIX > 30 (extreme fear) | ❌ not met | VIX at 17.84 (calm) |
+| Fed not on a hiking path | ✅ met | Fed Funds unchanged, balance sheet stable |
+| FINRA margin deleveraging | ✅ met | Margin debt −5.6% MoM |
+| Clear high‑growth thematic engine | ❔ insufficient data | No thematic/sector data in this dashboard |
+| Leaders beating on fundamentals | ❔ insufficient data | No company‑level fundamentals in this dashboard |
+
+#### 3‑Condition Sell Signal
+| Condition | Status | Assessment |
+| :--- | :---: | :--- |
+| Fundamentals plateauing | ❔ insufficient data | No earnings/revenue data in this dashboard |
+| Hawkish Fed pivot | ❌ not met | Policy rate flat; no new hikes signaled |
+| Valuations far above historical bands | ❔ insufficient data | No valuation metrics in this dashboard |
+
+*Informational only — not financial advice.*
+
+---
+*This digest is auto-generated by [agents-radar](https://github.com/datnguyenquy94/news-radar).*

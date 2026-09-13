@@ -29,8 +29,8 @@
       "lastReported": "2026-09-04"
     },
     "affaan-m/ECC": {
-      "stars": 256601,
-      "lastReported": "2026-09-12"
+      "stars": 257191,
+      "lastReported": "2026-09-13"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -116,6 +116,10 @@
       "stars": 2795,
       "lastReported": "2026-08-26"
     },
+    "asgeirtj/system_prompts_leaks": {
+      "stars": 65514,
+      "lastReported": "2026-09-13"
+    },
     "averygan/reclip": {
       "stars": 8468,
       "lastReported": "2026-09-04"
@@ -141,8 +145,8 @@
       "lastReported": "2026-09-05"
     },
     "bilawalsidhu/gods-eye-view": {
-      "stars": 27341,
-      "lastReported": "2026-09-12"
+      "stars": 30221,
+      "lastReported": "2026-09-13"
     },
     "blader/humanizer": {
       "stars": 44445,
@@ -253,8 +257,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 135926,
-      "lastReported": "2026-09-12"
+      "stars": 136731,
+      "lastReported": "2026-09-13"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -276,21 +280,29 @@
       "stars": 35164,
       "lastReported": "2026-08-26"
     },
+    "Event-AHU/Medical_Image_Analysis": {
+      "stars": 240,
+      "lastReported": "2026-09-13"
+    },
     "every-app/open-seo": {
       "stars": 15837,
       "lastReported": "2026-09-01"
     },
     "f/prompts.chat": {
-      "stars": 169601,
-      "lastReported": "2026-09-08"
+      "stars": 170165,
+      "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 178884,
-      "lastReported": "2026-09-11"
+      "stars": 179627,
+      "lastReported": "2026-09-13"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
       "lastReported": "2026-09-03"
+    },
+    "Flowseal/zapret-discord-youtube": {
+      "stars": 33219,
+      "lastReported": "2026-09-13"
     },
     "fmtlib/fmt": {
       "stars": 25180,
@@ -373,8 +385,8 @@
       "lastReported": "2026-09-07"
     },
     "hugohe3/ppt-master": {
-      "stars": 53385,
-      "lastReported": "2026-09-10"
+      "stars": 53926,
+      "lastReported": "2026-09-13"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -528,13 +540,17 @@
       "stars": 254931,
       "lastReported": "2026-09-07"
     },
+    "max-sixty/worktrunk": {
+      "stars": 7294,
+      "lastReported": "2026-09-13"
+    },
     "meilisearch/meilisearch": {
       "stars": 59093,
       "lastReported": "2026-08-26"
     },
     "melgarafael/DeskcommCRM": {
-      "stars": 1415,
-      "lastReported": "2026-09-12"
+      "stars": 1863,
+      "lastReported": "2026-09-13"
     },
     "mem0ai/mem0": {
       "stars": 65089,
@@ -584,6 +600,10 @@
       "stars": 211560,
       "lastReported": "2026-09-09"
     },
+    "multimodal-art-projection/YuE": {
+      "stars": 7358,
+      "lastReported": "2026-09-13"
+    },
     "nab138/iloader": {
       "stars": 2936,
       "lastReported": "2026-09-12"
@@ -609,8 +629,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 244268,
-      "lastReported": "2026-09-11"
+      "stars": 244933,
+      "lastReported": "2026-09-13"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -677,8 +697,8 @@
       "lastReported": "2026-09-01"
     },
     "p1neappleXpress/OpenFlux": {
-      "stars": 1183,
-      "lastReported": "2026-09-12"
+      "stars": 1421,
+      "lastReported": "2026-09-13"
     },
     "pacifio/atlas": {
       "stars": 2976,
@@ -745,8 +765,8 @@
       "lastReported": "2026-08-25"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 53806,
-      "lastReported": "2026-09-10"
+      "stars": 54376,
+      "lastReported": "2026-09-13"
     },
     "run-llama/llama_index": {
       "stars": 51852,
@@ -791,6 +811,10 @@
     "skyzh/tiny-llm": {
       "stars": 4519,
       "lastReported": "2026-08-26"
+    },
+    "SnailSploit/Claude-Red": {
+      "stars": 3671,
+      "lastReported": "2026-09-13"
     },
     "sngyai/Sequoia-X": {
       "stars": 6229,
@@ -924,6 +948,10 @@
       "stars": 112988,
       "lastReported": "2026-09-02"
     },
+    "vxcontrol/pentagi": {
+      "stars": 23524,
+      "lastReported": "2026-09-13"
+    },
     "weaviate/weaviate": {
       "stars": 16754,
       "lastReported": "2026-08-26"
@@ -935,6 +963,10 @@
     "WorldFlowAI/everything-claude-code": {
       "stars": 2393,
       "lastReported": "2026-09-06"
+    },
+    "yuliskov/SmartTube": {
+      "stars": 33241,
+      "lastReported": "2026-09-13"
     },
     "zchoi/Awesome-Embodied-Robotics-and-Agent": {
       "stars": 1875,

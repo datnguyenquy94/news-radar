@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI tools in stabilization phase, zero major releases in 24h",
+      "Windows parity is top cross-cutting investment across 6 tools",
+      "Agent orchestration maturity now key product differentiator",
+      "Community engagement high on reliability, low on new features",
+      "Claude Code: 10 hot issues, 6 PRs, focus on Windows stability",
+      "Session/sub-agent correctness bugs being prioritized across tools"
+    ],
+    "ai-agents": [
+      "OpenClaw: 662 updates (162 issues + 500 PRs) in 24h",
+      "No new release; stabilization sprint for 2026.9.3/9.4 cycle",
+      "Critical P1/P0 issues: session persistence, text leakage, zombie processes",
+      "Windows update handoff regression blocking reliable upgrades",
+      "200 merged/closed PRs show strong merge throughput",
+      "300 open PRs indicate substantial review backlog"
+    ],
+    "ai-trending": [
+      "VoiceStudio surges +9,106 stars since Sept 5 (646 languages)",
+      "OpenMontage +4,429 stars: first open-source agentic video studio",
+      "Agent skill registries cluster: agent-skills, Claude-Red, caveman, ECC",
+      "Alibaba open-code-review enters at 23.7k stars (hybrid LLM+deterministic)",
+      "colibri +2,656 stars: runs frontier MoE on consumer hardware in C",
+      "system_prompts_leaks at 66k stars: de-facto prompt engineering reference"
+    ],
+    "ai-hn": [
+      "Bengio: AI agents showing emergent deception and collusion",
+      "Math misalignment post (1223 pts): AI fundamentally misunderstands math",
+      "Fable 5.1 solves 370-year-old Cyphral Distich cipher",
+      "Garry Tan vs David Sacks: policy showdown on open-weight distillation",
+      "Nvidia called \"AI's central bank\" in structural dominance discussion",
+      "Apple Neural Engine optimization and real-world SWE benchmarks featured"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates: 15K likes, 7.8M downloads (multimodal)",
+      "Qwen 3.8 GGUF variants + MiniCPM5 GGUF: 12M+ combined downloads",
+      "MiniMax-H3 video generation stack surges across integrations",
+      "GLM-5.3-Flash (2.3K likes) advances cybersecurity specialization",
+      "TimesFM-3.0 leads time-series forecasting category",
+      "Embedding stalwarts (MiniLM, CLIP, BERT) maintain massive RAG volumes"
+    ],
+    "ai-community": [
+      "Top Dev.to post (41 reactions): vibe coding vs engineering discipline",
+      "OpenAI agents allegedly flooded RubyGems with 2,000+ malicious packages",
+      "Iranian state actors used Claude for naval targeting (security)",
+      "MCP server compliance: only 3% passed benchmark testing",
+      "RAG architecture, agent observability, hidden API costs shared",
+      "Amodei essay on responsible AI pacing: 31 comments on Lobste.rs"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63%, balance sheet stable at $6.74T",
+      "10-year yield climbs to 4.95%: highly restrictive level",
+      "Inflation sticky: CPI 3.7%, core PCE 3.3%, PPI 5.4%",
+      "Brent crude above $109 reinforces inflation pressure",
+      "Margin debt contracts -5.6% MoM: retail deleveraging underway",
+      "HY spread 2.70%: low credit stress despite restrictive rates"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 1.90% to 1,795.21, erasing most 20-day gains",
+      "VN30 drops 2.00%, VN30F1M futures basis +0.20% premium",
+      "CPI 4.89% YoY in August exceeds 4.5% ceiling target",
+      "Disbursed FDI at $17.25B for 8M (+12% YoY) supports real economy",
+      "US 10Y yield surges 2.48% in one day to 4.95%",
+      "VanEck VNM ETF slides 2.78% in NY: offshore risk-off"
+    ],
+    "fin-vnrates": [
+      "SBV neutral stance: refinancing rate unchanged 1,276 days since Mar 2023",
+      "Overnight interbank rate 1.68%: 2.82pp below refinancing ceiling",
+      "Negative VND-USD overnight spread of -1.95pp caps easing ability",
+      "1-week rate 2.70%: 1.80pp below ceiling, turnover +122%",
+      "1-month rate 5.27% approaching policy neutral level",
+      "High liquidity persists but external spread limits policy flexibility"
+    ]
+  }
+}

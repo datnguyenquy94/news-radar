@@ -29,12 +29,12 @@
       "lastReported": "2026-08-28"
     },
     "addyosmani/agent-skills": {
-      "stars": 92077,
-      "lastReported": "2026-09-04"
+      "stars": 94908,
+      "lastReported": "2026-09-16"
     },
     "affaan-m/ECC": {
-      "stars": 258485,
-      "lastReported": "2026-09-15"
+      "stars": 259448,
+      "lastReported": "2026-09-16"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -61,8 +61,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 26197,
-      "lastReported": "2026-09-15"
+      "stars": 29093,
+      "lastReported": "2026-09-16"
     },
     "alibaba/zvec": {
       "stars": 15514,
@@ -73,8 +73,8 @@
       "lastReported": "2026-08-27"
     },
     "alphaXiv/OpenResearch": {
-      "stars": 2184,
-      "lastReported": "2026-09-14"
+      "stars": 3519,
+      "lastReported": "2026-09-16"
     },
     "alsk1992/CloddsBot": {
       "stars": 2204,
@@ -165,8 +165,8 @@
       "lastReported": "2026-09-07"
     },
     "bojieli/ai-agent-book": {
-      "stars": 47182,
-      "lastReported": "2026-09-15"
+      "stars": 47760,
+      "lastReported": "2026-09-16"
     },
     "BraveOPotato/FckSignups": {
       "stars": 3893,
@@ -193,8 +193,8 @@
       "lastReported": "2026-09-14"
     },
     "career-ops-hq/career-ops": {
-      "stars": 71166,
-      "lastReported": "2026-09-11"
+      "stars": 71751,
+      "lastReported": "2026-09-16"
     },
     "cathrynlavery/diagram-design": {
       "stars": 37931,
@@ -248,6 +248,10 @@
       "stars": 67582,
       "lastReported": "2026-09-15"
     },
+    "danny-avila/LibreChat": {
+      "stars": 43927,
+      "lastReported": "2026-09-16"
+    },
     "databendlabs/databend": {
       "stars": 9423,
       "lastReported": "2026-08-26"
@@ -257,8 +261,8 @@
       "lastReported": "2026-09-08"
     },
     "debpalash/VoiceStudio": {
-      "stars": 29576,
-      "lastReported": "2026-09-15"
+      "stars": 31220,
+      "lastReported": "2026-09-16"
     },
     "Developer-Y/cs-video-courses": {
       "stars": 83174,
@@ -273,12 +277,16 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 138611,
-      "lastReported": "2026-09-15"
+      "stars": 139535,
+      "lastReported": "2026-09-16"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
       "lastReported": "2026-09-03"
+    },
+    "earendil-works/pi": {
+      "stars": 105868,
+      "lastReported": "2026-09-16"
     },
     "earthtojake/text-to-cad": {
       "stars": 15129,
@@ -301,8 +309,8 @@
       "lastReported": "2026-09-13"
     },
     "ever-co/ever-gauzy": {
-      "stars": 6090,
-      "lastReported": "2026-09-15"
+      "stars": 6774,
+      "lastReported": "2026-09-16"
     },
     "every-app/open-seo": {
       "stars": 15837,
@@ -353,16 +361,16 @@
       "lastReported": "2026-08-28"
     },
     "Graphify-Labs/graphify": {
-      "stars": 116786,
-      "lastReported": "2026-09-11"
+      "stars": 118094,
+      "lastReported": "2026-09-16"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 123317,
-      "lastReported": "2026-09-14"
+      "stars": 124056,
+      "lastReported": "2026-09-16"
     },
     "headroomlabs-ai/headroom": {
       "stars": 71944,
@@ -400,13 +408,17 @@
       "stars": 40852,
       "lastReported": "2026-08-26"
     },
+    "Homebrew/BrewUI": {
+      "stars": 1507,
+      "lastReported": "2026-09-16"
+    },
     "huggingface/transformers": {
-      "stars": 165617,
-      "lastReported": "2026-09-14"
+      "stars": 166220,
+      "lastReported": "2026-09-16"
     },
     "hugohe3/ppt-master": {
-      "stars": 53926,
-      "lastReported": "2026-09-13"
+      "stars": 54636,
+      "lastReported": "2026-09-16"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -465,8 +477,8 @@
       "lastReported": "2026-09-14"
     },
     "JustVugg/colibri": {
-      "stars": 32367,
-      "lastReported": "2026-09-15"
+      "stars": 34061,
+      "lastReported": "2026-09-16"
     },
     "K-Dense-AI/scientific-agent-skills": {
       "stars": 41662,
@@ -577,12 +589,16 @@
       "lastReported": "2026-08-26"
     },
     "melgarafael/DeskcommCRM": {
-      "stars": 2286,
-      "lastReported": "2026-09-14"
+      "stars": 2920,
+      "lastReported": "2026-09-16"
     },
     "mem0ai/mem0": {
       "stars": 65089,
       "lastReported": "2026-09-11"
+    },
+    "MG1937/ASC": {
+      "stars": 1265,
+      "lastReported": "2026-09-16"
     },
     "microsoft/AI-For-Beginners": {
       "stars": 68076,
@@ -641,8 +657,8 @@
       "lastReported": "2026-09-12"
     },
     "NationalSecurityAgency/ghidra": {
-      "stars": 73411,
-      "lastReported": "2026-08-29"
+      "stars": 76863,
+      "lastReported": "2026-09-16"
     },
     "netdata/netdata": {
       "stars": 80281,
@@ -733,12 +749,16 @@
       "lastReported": "2026-09-13"
     },
     "pacifio/atlas": {
-      "stars": 2976,
-      "lastReported": "2026-09-03"
+      "stars": 4696,
+      "lastReported": "2026-09-16"
+    },
+    "PaddlePaddle/PaddleOCR": {
+      "stars": 89610,
+      "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 81508,
-      "lastReported": "2026-09-15"
+      "stars": 82129,
+      "lastReported": "2026-09-16"
     },
     "paperless-ngx/paperless-ngx": {
       "stars": 44763,
@@ -805,8 +825,8 @@
       "lastReported": "2026-09-15"
     },
     "roboflow/supervision": {
-      "stars": 49709,
-      "lastReported": "2026-08-25"
+      "stars": 50357,
+      "lastReported": "2026-09-16"
     },
     "rohitg00/ai-engineering-from-scratch": {
       "stars": 54376,
@@ -853,8 +873,8 @@
       "lastReported": "2026-09-14"
     },
     "Significant-Gravitas/AutoGPT": {
-      "stars": 186853,
-      "lastReported": "2026-08-25"
+      "stars": 187373,
+      "lastReported": "2026-09-16"
     },
     "siyuan-note/siyuan": {
       "stars": 45981,
@@ -965,8 +985,8 @@
       "lastReported": "2026-08-27"
     },
     "tonhowtf/omniget": {
-      "stars": 11872,
-      "lastReported": "2026-09-14"
+      "stars": 13093,
+      "lastReported": "2026-09-16"
     },
     "topoteretes/cognee": {
       "stars": 30263,

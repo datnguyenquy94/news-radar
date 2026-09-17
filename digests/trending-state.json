@@ -20,6 +20,10 @@
       "stars": 75677,
       "lastReported": "2026-08-29"
     },
+    "abue-ammar/tinycast": {
+      "stars": 5713,
+      "lastReported": "2026-09-17"
+    },
     "acon96/home-llm": {
       "stars": 1429,
       "lastReported": "2026-09-06"
@@ -29,12 +33,12 @@
       "lastReported": "2026-08-28"
     },
     "addyosmani/agent-skills": {
-      "stars": 94908,
-      "lastReported": "2026-09-16"
+      "stars": 95571,
+      "lastReported": "2026-09-17"
     },
     "affaan-m/ECC": {
-      "stars": 259448,
-      "lastReported": "2026-09-16"
+      "stars": 260453,
+      "lastReported": "2026-09-17"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -61,8 +65,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 29093,
-      "lastReported": "2026-09-16"
+      "stars": 32451,
+      "lastReported": "2026-09-17"
     },
     "alibaba/zvec": {
       "stars": 15514,
@@ -73,12 +77,16 @@
       "lastReported": "2026-08-27"
     },
     "alphaXiv/OpenResearch": {
-      "stars": 3519,
-      "lastReported": "2026-09-16"
+      "stars": 4540,
+      "lastReported": "2026-09-17"
     },
     "alsk1992/CloddsBot": {
       "stars": 2204,
       "lastReported": "2026-09-12"
+    },
+    "ankitects/anki": {
+      "stars": 30936,
+      "lastReported": "2026-09-17"
     },
     "anomalyco/opencode": {
       "stars": 205349,
@@ -88,6 +96,10 @@
       "stars": 50,
       "lastReported": "2026-09-01"
     },
+    "anthropics/claude-code": {
+      "stars": 145612,
+      "lastReported": "2026-09-17"
+    },
     "anthropics/claude-plugins-community": {
       "stars": 2260,
       "lastReported": "2026-08-27"
@@ -95,6 +107,10 @@
     "anthropics/claude-plugins-official": {
       "stars": 35475,
       "lastReported": "2026-08-30"
+    },
+    "anthropics/knowledge-work-plugins": {
+      "stars": 24341,
+      "lastReported": "2026-09-17"
     },
     "anthropics/skills": {
       "stars": 174615,
@@ -173,8 +189,8 @@
       "lastReported": "2026-09-08"
     },
     "browser-use/browser-use": {
-      "stars": 114273,
-      "lastReported": "2026-09-12"
+      "stars": 114860,
+      "lastReported": "2026-09-17"
     },
     "browser-use/video-use": {
       "stars": 23083,
@@ -211,6 +227,14 @@
     "ChromeDevTools/chrome-devtools-mcp": {
       "stars": 50700,
       "lastReported": "2026-09-03"
+    },
+    "cline/cline": {
+      "stars": 68428,
+      "lastReported": "2026-09-17"
+    },
+    "cloudflare/security-audit-skill": {
+      "stars": 7702,
+      "lastReported": "2026-09-17"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -277,8 +301,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 139535,
-      "lastReported": "2026-09-16"
+      "stars": 140540,
+      "lastReported": "2026-09-17"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -309,8 +333,8 @@
       "lastReported": "2026-09-13"
     },
     "ever-co/ever-gauzy": {
-      "stars": 6774,
-      "lastReported": "2026-09-16"
+      "stars": 7388,
+      "lastReported": "2026-09-17"
     },
     "every-app/open-seo": {
       "stars": 15837,
@@ -321,8 +345,8 @@
       "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 180499,
-      "lastReported": "2026-09-15"
+      "stars": 181357,
+      "lastReported": "2026-09-17"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -373,8 +397,8 @@
       "lastReported": "2026-09-16"
     },
     "headroomlabs-ai/headroom": {
-      "stars": 71944,
-      "lastReported": "2026-09-14"
+      "stars": 72527,
+      "lastReported": "2026-09-17"
     },
     "heygen-com/hyperframes": {
       "stars": 47919,
@@ -429,8 +453,8 @@
       "lastReported": "2026-09-03"
     },
     "infiniflow/ragflow": {
-      "stars": 90337,
-      "lastReported": "2026-09-09"
+      "stars": 90845,
+      "lastReported": "2026-09-17"
     },
     "iOfficeAI/AionUi": {
       "stars": 32470,
@@ -439,6 +463,10 @@
     "iv-org/invidious": {
       "stars": 23819,
       "lastReported": "2026-09-02"
+    },
+    "jamiepine/voicebox": {
+      "stars": 54493,
+      "lastReported": "2026-09-17"
     },
     "jeecgboot/JeecgBoot": {
       "stars": 47457,
@@ -473,12 +501,12 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 105410,
-      "lastReported": "2026-09-14"
+      "stars": 106092,
+      "lastReported": "2026-09-17"
     },
     "JustVugg/colibri": {
-      "stars": 34061,
-      "lastReported": "2026-09-16"
+      "stars": 35148,
+      "lastReported": "2026-09-17"
     },
     "K-Dense-AI/scientific-agent-skills": {
       "stars": 41662,
@@ -500,6 +528,10 @@
       "stars": 64249,
       "lastReported": "2026-08-25"
     },
+    "Lakr233/vphone-cli": {
+      "stars": 13422,
+      "lastReported": "2026-09-17"
+    },
     "LAMDA-CL/Prism": {
       "stars": 40,
       "lastReported": "2026-09-01"
@@ -513,8 +545,8 @@
       "lastReported": "2026-09-01"
     },
     "langchain-ai/langchain": {
-      "stars": 145978,
-      "lastReported": "2026-09-09"
+      "stars": 146478,
+      "lastReported": "2026-09-17"
     },
     "langchain-ai/langgraph": {
       "stars": 41491,
@@ -601,8 +633,8 @@
       "lastReported": "2026-09-16"
     },
     "microsoft/AI-For-Beginners": {
-      "stars": 68076,
-      "lastReported": "2026-09-05"
+      "stars": 68605,
+      "lastReported": "2026-09-17"
     },
     "microsoft/markitdown": {
       "stars": 181825,
@@ -625,8 +657,8 @@
       "lastReported": "2026-08-26"
     },
     "Mintplex-Labs/anything-llm": {
-      "stars": 65667,
-      "lastReported": "2026-09-06"
+      "stars": 66209,
+      "lastReported": "2026-09-17"
     },
     "Mirrowel/LLM-API-Key-Proxy": {
       "stars": 545,
@@ -645,8 +677,8 @@
       "lastReported": "2026-09-09"
     },
     "multimodal-art-projection/YuE": {
-      "stars": 8527,
-      "lastReported": "2026-09-15"
+      "stars": 9443,
+      "lastReported": "2026-09-17"
     },
     "nab138/iloader": {
       "stars": 2936,
@@ -657,8 +689,8 @@
       "lastReported": "2026-09-12"
     },
     "NationalSecurityAgency/ghidra": {
-      "stars": 76863,
-      "lastReported": "2026-09-16"
+      "stars": 77960,
+      "lastReported": "2026-09-17"
     },
     "netdata/netdata": {
       "stars": 80281,
@@ -673,8 +705,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 245566,
-      "lastReported": "2026-09-15"
+      "stars": 246256,
+      "lastReported": "2026-09-17"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -821,8 +853,8 @@
       "lastReported": "2026-09-07"
     },
     "rlaope/oh-my-hermes": {
-      "stars": 2162,
-      "lastReported": "2026-09-15"
+      "stars": 2602,
+      "lastReported": "2026-09-17"
     },
     "roboflow/supervision": {
       "stars": 50357,
@@ -869,8 +901,8 @@
       "lastReported": "2026-09-01"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 137996,
-      "lastReported": "2026-09-14"
+      "stars": 138545,
+      "lastReported": "2026-09-17"
     },
     "Significant-Gravitas/AutoGPT": {
       "stars": 187373,
@@ -885,8 +917,8 @@
       "lastReported": "2026-08-26"
     },
     "SnailSploit/Claude-Red": {
-      "stars": 4864,
-      "lastReported": "2026-09-15"
+      "stars": 5841,
+      "lastReported": "2026-09-17"
     },
     "sngyai/Sequoia-X": {
       "stars": 6229,
@@ -907,6 +939,10 @@
     "Stremio/stremio-web": {
       "stars": 13534,
       "lastReported": "2026-09-07"
+    },
+    "supabase/supabase": {
+      "stars": 109817,
+      "lastReported": "2026-09-17"
     },
     "superlinked/sie": {
       "stars": 3104,
@@ -929,8 +965,8 @@
       "lastReported": "2026-08-29"
     },
     "TauricResearch/TradingAgents": {
-      "stars": 106281,
-      "lastReported": "2026-09-15"
+      "stars": 107084,
+      "lastReported": "2026-09-17"
     },
     "tech-leads-club/agent-skills": {
       "stars": 5752,
@@ -939,6 +975,10 @@
     "Tencent/teamai-cli": {
       "stars": 3910,
       "lastReported": "2026-09-11"
+    },
+    "Tencent/WeKnora": {
+      "stars": 25553,
+      "lastReported": "2026-09-17"
     },
     "tensorflow/tensorflow": {
       "stars": 200064,

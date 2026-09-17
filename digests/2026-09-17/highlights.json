@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "MCP becomes universal tooling layer across all CLI tools",
+      "Claude Code v2.1.274 stable with diff pane polish",
+      "Codex and Qwen CLI on daily alpha release cadences",
+      "Windows reliability remains systemic gap across ecosystem",
+      "OpenCode and Pi in rapid refactor cycles addressing debt",
+      "Subagent orchestration primitives converging across all tools"
+    ],
+    "ai-agents": [
+      "OpenClaw shows very high velocity with 500 PRs updated",
+      "208 issues touched in last 24 hours active maintenance",
+      "Doctor command fixes P1 malformed legacy archives bug",
+      "Plugin system PR ready for maintainer review",
+      "Gateway scalability focus for large fleet deployments",
+      "Release candidate imminent after stability PR merges"
+    ],
+    "ai-trending": [
+      "Agent orchestration layers consolidating over raw model serving",
+      "ECC, agent-skills, WeKnora top fastest-growing repos",
+      "Token-optimization middleware cuts 60-95% context costs",
+      "Colibri streams MoE experts from disk in pure C",
+      "Voicebox brings studio-grade voice cloning to browser",
+      "Security-skills for agents signal red-teaming maturation"
+    ],
+    "ai-web": [
+      "OpenAI publishes 57 new articles in threat intelligence series",
+      "Disrupting Malicious Uses of AI details actor groups",
+      "STORM-2035, CyberAv3ngers, SweetSpecter attacks documented",
+      "Model Misalignment Reporting Framework released twice",
+      "Reimagining advertising with AI strategic piece published",
+      "Anthropic publishes zero new articles in quiet period"
+    ],
+    "ai-hn": [
+      "Gemini 3.8 Live release sparks 482pt 322 comment debate",
+      "Mustafa Suleyman model welfare warning ignites 542 comments",
+      "Navier-Stokes bearish critique resonates with 463pts 610 comments",
+      "System One Models Jev signals interest in agent architectures",
+      "Security exposé links firm to OpenAI Anthropic Meta breaches",
+      "Sentiment oscillates between breakthrough excitement and hype fatigue"
+    ],
+    "ai-arxiv": [
+      "Infinite-parameter LLMs generate weights from live data",
+      "Fisher-Rao perspective prevents model collapse in synthetic training",
+      "Formal safety frameworks address compositional policy violations",
+      "Statistical mechanics explains double descent learning dynamics",
+      "PANORAMA advances multimodal grounding capabilities",
+      "Domain-specific benchmarks mature beyond generic LLM leaderboards"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 family dominates with 7.6M downloads base model",
+      "LTX-2.5 and MiniMax-H3 video gen clear 1.6M 4.7M downloads",
+      "DeepSeek-V4.1-Flash enters multimodal with 370K first week",
+      "Edge0-35B-A3B MoE shows extreme sparse efficiency",
+      "Community fine-tunes and quantization exceed third of top-30",
+      "GGUF FP8 quantization reflects maturing local inference ecosystem"
+    ],
+    "ai-community": [
+      "Claude Code vs Cursor task breakdown shows different strengths",
+      "Gemini 3.8 Live enables real-time voice applications",
+      "Code review velocity emerges as AI agent bottleneck",
+      "Vibe coding demos vs production architecture tension debated",
+      "Dario Amodei calls to pace frontier model releases",
+      "Lobste.rs reflects on human experience of ML engineering"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% with stable balance sheet",
+      "10-year yield at 5% signals highly restrictive conditions",
+      "Inflation sticky: CPI 3.7% core PCE 3.3% PPI 5.4%",
+      "Yield curve barely positive at 0.27% 10Y-2Y spread",
+      "Margin debt expands to $1.45T not deleveraging",
+      "Consumer sentiment very weak at 55.2 amid tight labor"
+    ],
+    "fin-vnmacro": [
+      "VN-Index slips 0.1% to 1810.11 VN30 up 0.2%",
+      "VN30F1M basis negative -1.29pts shows mild hedging",
+      "Dong strengthens USD/VND sell 26180 down 0.76% monthly",
+      "US 10Y yield jumps to 5% widening external pressure",
+      "Gold down 4.7% 20d Brent up 15.5% diverging risk",
+      "No turnover foreign flow data limits liquidity assessment"
+    ],
+    "fin-vnrates": [
+      "SBV policy corridor unchanged for 1279 days neutral stance",
+      "Overnight interbank 4.37% trades 0.13pp below refinancing",
+      "1-week rate 4.63% sits 0.13pp above refinancing ceiling",
+      "Short-end volatility overnight rates swing >4pp intra-month",
+      "VND strengthened 0.76% narrowing SBV easing space",
+      "Liquidity balanced to slightly ample despite volatile short-end"
+    ]
+  }
+}

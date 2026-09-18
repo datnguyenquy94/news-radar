@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI tools converging on three architectural pillars",
+      "Windows parity remains universal Achilles' heel for all tools",
+      "Claude Code hotfix v2.1.276 addresses session accounting bug",
+      "Safety guardrails now table stakes after Codex data-loss incident",
+      "Release cadences cluster around weekly stable + nightly channels",
+      "Cross-tool comparison covers 10 major AI CLI tools"
+    ],
+    "ai-agents": [
+      "OpenClaw shows extremely high velocity with 500 PRs in 24h",
+      "Only 16 PRs merged despite 500 updated — large backlog",
+      "P0/P1 regressions dominate: process leaks, SQLite corruption",
+      "No new releases today; beta cycle 2026.8.x/2026.9.x ongoing",
+      "Multi-platform clients in active development: iOS, Android, macOS",
+      "Channel integrations expanding: Telegram, Feishu, Slack, WhatsApp, Discord"
+    ],
+    "ai-trending": [
+      "Agent-centric infrastructure dominates trending: browser control, security, memory",
+      "Alibaba open-code-review hits 35K stars (+3,286 today)",
+      "Colibri runs frontier MoE models in pure C with zero dependencies",
+      "Chinese tech giants open-sourcing production-grade agent platforms at scale",
+      "affaan-m/ECC agent harness optimization reaches 261K stars",
+      "Graphify builds knowledge graphs over codebases for agent context"
+    ],
+    "ai-web": [
+      "Claude autonomously optimizes 30+ biomolecular models, 4x speedups",
+      "Anthropic publishes alignment audit of 481M transcripts for 4 incidents",
+      "Life Sciences Verification Program beta grants relaxed biology safeguards",
+      "$1M protein-design competition launched with Adaptyv Bio",
+      "OpenAI releases 4 business assets but no article text available",
+      "Anthropic's Claude Science environment enables low-memory >10K token systems"
+    ],
+    "ai-hn": [
+      "System One Models and Jev browser agent unveiled by Typesafe",
+      "Breaking 1.58-bit barrier for ternary LLMs via new quantization",
+      "OpenAI self-discloses misalignment incidents sparking governance debate",
+      "NYT/OpenAI safety disclosure thread generates heated discussion",
+      "Bend's proof-based language and formal verification approach excites community",
+      "Martin Fowler's 'I Don't Like LLMs' essay drives critical debate"
+    ],
+    "ai-arxiv": [
+      "Agent reliability and safety emerge as central research frontier",
+      "On-Demand Attention: LLMs predict when full attention needed",
+      "dQwen3.5: Hybrid-Attention Diffusion Language Models from pretrained AR",
+      "JEPA-Anything: world modeling goes domain-agnostic",
+      "Harm laundering: gender discrimination transformed not reduced in GPT",
+      "Sim-to-real robotics advances via adaptive action chunking"
+    ],
+    "ai-hf": [
+      "Qwen 3.8/3.5 family dominates with 8 of top 30 models",
+      "Qwen3.8-27B hits 7.4M downloads, 15.5K likes — open standard",
+      "Video generation surges: 3 models surpass 6M combined downloads",
+      "ISTA-DASLab GSQ-RCO mixed-precision quantization pushes compression",
+      "Edge0-35B-A3B MoE optimized for edge inference via MLX",
+      "DeepSeek-V4.1-Flash multimodal flagship hits 390K weekly downloads"
+    ],
+    "ai-community": [
+      "AI agent reliability dominates: can it prove fixes, avoid bugs, operate safely?",
+      "Dev.to: 170 AI-planned changes repeat same 3 mistakes every time",
+      "Models mirror codebase they see — migrate first, then prompt",
+      "Local inference on 8GB VRAM and $1.99/hr MI300X shape model selection",
+      "System One models output typed decisions instead of text",
+      "MCP toolchain security blind spots concern practitioners"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.63% while balance sheet ticks up marginally",
+      "10-year yield at 5.01% remains highly restrictive",
+      "Core PCE 3.3%, Core CPI 2.8% stay well above 2% target",
+      "FINRA margin debt rises 2.6% MoM to $1.45T — not deleveraging",
+      "VIX at 17.7 reflects calm but HY spreads tight at 2.70%",
+      "Oil above $100/bbl adds upward inflation pressure"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rises 0.70% to 1,822.77, extends 20-day gain of 5.50%",
+      "VN30 leads with 1.10% daily advance",
+      "Dong appreciates 0.64% over month, 0.72% YTD on Vietcombank board",
+      "VanEck Vietnam ETF (VNM) gains 1.04% to $17.55",
+      "US 10Y yield at 5.01% (+6.37% over 20 days) pressures EM",
+      "Dollar Index firm at 100.20 despite VN market strength"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,280 days since March 2023",
+      "Interbank rates trade well below refinancing ceiling — highly liquid",
+      "VND-USD overnight spread razor-thin at +0.06pp binds SBV easing",
+      "Overnight interbank at 3.69% (-0.68pp), 930T VND turnover",
+      "1-week rate at 4.20% with 57.9% turnover surge",
+      "Yield curve steepening: 1-month +0.06pp, 6-month -1.00pp"
+    ]
+  }
+}

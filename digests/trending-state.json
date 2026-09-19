@@ -33,12 +33,12 @@
       "lastReported": "2026-08-28"
     },
     "addyosmani/agent-skills": {
-      "stars": 95571,
-      "lastReported": "2026-09-17"
+      "stars": 96479,
+      "lastReported": "2026-09-19"
     },
     "affaan-m/ECC": {
-      "stars": 261288,
-      "lastReported": "2026-09-18"
+      "stars": 262167,
+      "lastReported": "2026-09-19"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -47,6 +47,10 @@
     "AgriciDaniel/claude-obsidian": {
       "stars": 14257,
       "lastReported": "2026-08-28"
+    },
+    "ahmedkhaleel2004/gitdiagram": {
+      "stars": 16499,
+      "lastReported": "2026-09-19"
     },
     "AIDASLab/Awesome-Diffusion-LLM": {
       "stars": 98,
@@ -65,8 +69,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 35267,
-      "lastReported": "2026-09-18"
+      "stars": 36818,
+      "lastReported": "2026-09-19"
     },
     "alibaba/zvec": {
       "stars": 15514,
@@ -97,8 +101,8 @@
       "lastReported": "2026-09-01"
     },
     "anthropics/claude-code": {
-      "stars": 145612,
-      "lastReported": "2026-09-17"
+      "stars": 146362,
+      "lastReported": "2026-09-19"
     },
     "anthropics/claude-plugins-community": {
       "stars": 2260,
@@ -109,8 +113,8 @@
       "lastReported": "2026-08-30"
     },
     "anthropics/knowledge-work-plugins": {
-      "stars": 24341,
-      "lastReported": "2026-09-17"
+      "stars": 24919,
+      "lastReported": "2026-09-19"
     },
     "anthropics/skills": {
       "stars": 174615,
@@ -137,8 +141,8 @@
       "lastReported": "2026-09-11"
     },
     "asciimoo/hister": {
-      "stars": 2795,
-      "lastReported": "2026-08-26"
+      "stars": 4996,
+      "lastReported": "2026-09-19"
     },
     "asgeirtj/system_prompts_leaks": {
       "stars": 66913,
@@ -237,8 +241,8 @@
       "lastReported": "2026-09-17"
     },
     "cloudflare/security-audit-skill": {
-      "stars": 10983,
-      "lastReported": "2026-09-18"
+      "stars": 14042,
+      "lastReported": "2026-09-19"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -309,8 +313,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 141458,
-      "lastReported": "2026-09-18"
+      "stars": 142093,
+      "lastReported": "2026-09-19"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -353,12 +357,16 @@
       "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 181357,
-      "lastReported": "2026-09-17"
+      "stars": 182049,
+      "lastReported": "2026-09-19"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
       "lastReported": "2026-09-03"
+    },
+    "Fission-AI/OpenSpec": {
+      "stars": 69417,
+      "lastReported": "2026-09-19"
     },
     "Flowseal/zapret-discord-youtube": {
       "stars": 33219,
@@ -401,8 +409,8 @@
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 124056,
-      "lastReported": "2026-09-16"
+      "stars": 124612,
+      "lastReported": "2026-09-19"
     },
     "headroomlabs-ai/headroom": {
       "stars": 72527,
@@ -449,8 +457,8 @@
       "lastReported": "2026-09-16"
     },
     "hugohe3/ppt-master": {
-      "stars": 54636,
-      "lastReported": "2026-09-16"
+      "stars": 55213,
+      "lastReported": "2026-09-19"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -493,8 +501,8 @@
       "lastReported": "2026-09-14"
     },
     "jingyaogong/minimind": {
-      "stars": 61109,
-      "lastReported": "2026-09-15"
+      "stars": 61618,
+      "lastReported": "2026-09-19"
     },
     "jo-inc/camofox-browser": {
       "stars": 10614,
@@ -509,8 +517,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 106092,
-      "lastReported": "2026-09-17"
+      "stars": 106627,
+      "lastReported": "2026-09-19"
     },
     "JustVugg/colibri": {
       "stars": 35825,
@@ -633,8 +641,8 @@
       "lastReported": "2026-09-16"
     },
     "mem0ai/mem0": {
-      "stars": 65089,
-      "lastReported": "2026-09-11"
+      "stars": 65616,
+      "lastReported": "2026-09-19"
     },
     "MG1937/ASC": {
       "stars": 1265,
@@ -717,8 +725,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 246256,
-      "lastReported": "2026-09-17"
+      "stars": 246954,
+      "lastReported": "2026-09-19"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -833,8 +841,8 @@
       "lastReported": "2026-09-03"
     },
     "pytorch/pytorch": {
-      "stars": 102578,
-      "lastReported": "2026-08-25"
+      "stars": 103094,
+      "lastReported": "2026-09-19"
     },
     "qdrant/qdrant": {
       "stars": 34192,
@@ -869,8 +877,8 @@
       "lastReported": "2026-09-17"
     },
     "roboflow/supervision": {
-      "stars": 50357,
-      "lastReported": "2026-09-16"
+      "stars": 50926,
+      "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
       "stars": 54376,
@@ -879,6 +887,10 @@
     "run-llama/llama_index": {
       "stars": 51852,
       "lastReported": "2026-08-25"
+    },
+    "rustfs/rustfs": {
+      "stars": 33215,
+      "lastReported": "2026-09-19"
     },
     "ruvnet/ruflo": {
       "stars": 71450,
@@ -960,6 +972,10 @@
       "stars": 3104,
       "lastReported": "2026-09-03"
     },
+    "supermemoryai/supermemory": {
+      "stars": 30351,
+      "lastReported": "2026-09-19"
+    },
     "swoole/typephp": {
       "stars": 846,
       "lastReported": "2026-08-29"
@@ -985,8 +1001,8 @@
       "lastReported": "2026-09-14"
     },
     "Tencent/BrowserSkill": {
-      "stars": 4413,
-      "lastReported": "2026-09-18"
+      "stars": 5399,
+      "lastReported": "2026-09-19"
     },
     "Tencent/teamai-cli": {
       "stars": 3910,
@@ -1051,6 +1067,10 @@
     "topoteretes/cognee": {
       "stars": 30794,
       "lastReported": "2026-09-18"
+    },
+    "tradesdontlie/tradingview-mcp": {
+      "stars": 6501,
+      "lastReported": "2026-09-19"
     },
     "tt-a1i/archify": {
       "stars": 39508,

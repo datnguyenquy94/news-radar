@@ -33,12 +33,12 @@
       "lastReported": "2026-08-28"
     },
     "addyosmani/agent-skills": {
-      "stars": 97151,
-      "lastReported": "2026-09-20"
+      "stars": 97794,
+      "lastReported": "2026-09-21"
     },
     "affaan-m/ECC": {
-      "stars": 263042,
-      "lastReported": "2026-09-20"
+      "stars": 263918,
+      "lastReported": "2026-09-21"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -101,8 +101,8 @@
       "lastReported": "2026-09-01"
     },
     "anthropics/claude-code": {
-      "stars": 146362,
-      "lastReported": "2026-09-19"
+      "stars": 147221,
+      "lastReported": "2026-09-21"
     },
     "anthropics/claude-plugins-community": {
       "stars": 2260,
@@ -111,6 +111,10 @@
     "anthropics/claude-plugins-official": {
       "stars": 35475,
       "lastReported": "2026-08-30"
+    },
+    "anthropics/financial-services": {
+      "stars": 35458,
+      "lastReported": "2026-09-21"
     },
     "anthropics/knowledge-work-plugins": {
       "stars": 24919,
@@ -185,8 +189,8 @@
       "lastReported": "2026-09-07"
     },
     "bojieli/ai-agent-book": {
-      "stars": 48363,
-      "lastReported": "2026-09-18"
+      "stars": 49262,
+      "lastReported": "2026-09-21"
     },
     "BraveOPotato/FckSignups": {
       "stars": 3893,
@@ -199,6 +203,10 @@
     "browser-use/video-use": {
       "stars": 23083,
       "lastReported": "2026-09-02"
+    },
+    "BuilderIO/agent-native": {
+      "stars": 5353,
+      "lastReported": "2026-09-21"
     },
     "ByteByteGoHq/system-design-101": {
       "stars": 88443,
@@ -217,8 +225,8 @@
       "lastReported": "2026-09-14"
     },
     "career-ops-hq/career-ops": {
-      "stars": 71751,
-      "lastReported": "2026-09-16"
+      "stars": 72276,
+      "lastReported": "2026-09-21"
     },
     "cathrynlavery/diagram-design": {
       "stars": 37931,
@@ -229,8 +237,8 @@
       "lastReported": "2026-09-01"
     },
     "CherryHQ/cherry-studio": {
-      "stars": 51530,
-      "lastReported": "2026-09-07"
+      "stars": 52036,
+      "lastReported": "2026-09-21"
     },
     "ChromeDevTools/chrome-devtools-mcp": {
       "stars": 50700,
@@ -249,8 +257,8 @@
       "lastReported": "2026-09-20"
     },
     "cloudflare/security-audit-skill": {
-      "stars": 16674,
-      "lastReported": "2026-09-20"
+      "stars": 18215,
+      "lastReported": "2026-09-21"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -369,8 +377,8 @@
       "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 182049,
-      "lastReported": "2026-09-19"
+      "stars": 182643,
+      "lastReported": "2026-09-21"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -449,8 +457,8 @@
       "lastReported": "2026-08-26"
     },
     "HKUDS/nanobot": {
-      "stars": 47905,
-      "lastReported": "2026-09-09"
+      "stars": 48431,
+      "lastReported": "2026-09-21"
     },
     "HKUDS/Vibe-Trading": {
       "stars": 33384,
@@ -673,8 +681,8 @@
       "lastReported": "2026-09-09"
     },
     "microsoft/ML-For-Beginners": {
-      "stars": 90279,
-      "lastReported": "2026-09-09"
+      "stars": 90782,
+      "lastReported": "2026-09-21"
     },
     "microsoft/multilspy": {
       "stars": 600,
@@ -683,6 +691,10 @@
     "microsoft/qlib": {
       "stars": 48331,
       "lastReported": "2026-09-06"
+    },
+    "mihail911/modern-software-dev-assignments": {
+      "stars": 4622,
+      "lastReported": "2026-09-21"
     },
     "milvus-io/milvus": {
       "stars": 45788,
@@ -741,8 +753,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 246954,
-      "lastReported": "2026-09-19"
+      "stars": 247527,
+      "lastReported": "2026-09-21"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -765,8 +777,8 @@
       "lastReported": "2026-08-26"
     },
     "Open-Dev-Society/OpenStock": {
-      "stars": 16193,
-      "lastReported": "2026-09-20"
+      "stars": 16970,
+      "lastReported": "2026-09-21"
     },
     "open-webui/open-webui": {
       "stars": 152585,
@@ -833,8 +845,8 @@
       "lastReported": "2026-09-20"
     },
     "paperless-ngx/paperless-ngx": {
-      "stars": 44763,
-      "lastReported": "2026-09-01"
+      "stars": 45641,
+      "lastReported": "2026-09-21"
     },
     "pascalorg/editor": {
       "stars": 23669,
@@ -881,8 +893,8 @@
       "lastReported": "2026-09-05"
     },
     "rasbt/LLMs-from-scratch": {
-      "stars": 104794,
-      "lastReported": "2026-09-12"
+      "stars": 105311,
+      "lastReported": "2026-09-21"
     },
     "reconurge/flowsint": {
       "stars": 8419,
@@ -953,8 +965,8 @@
       "lastReported": "2026-09-01"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 138545,
-      "lastReported": "2026-09-17"
+      "stars": 139197,
+      "lastReported": "2026-09-21"
     },
     "Significant-Gravitas/AutoGPT": {
       "stars": 187373,
@@ -1101,8 +1113,8 @@
       "lastReported": "2026-09-19"
     },
     "trycua/cua": {
-      "stars": 24589,
-      "lastReported": "2026-09-20"
+      "stars": 25270,
+      "lastReported": "2026-09-21"
     },
     "tt-a1i/archify": {
       "stars": 39508,
@@ -1123,6 +1135,10 @@
     "VectifyAI/PageIndex": {
       "stars": 35324,
       "lastReported": "2026-08-26"
+    },
+    "vercel-labs/json-render": {
+      "stars": 17473,
+      "lastReported": "2026-09-21"
     },
     "vercel-labs/portless": {
       "stars": 11847,

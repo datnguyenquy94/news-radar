@@ -1,0 +1,93 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.280 released with Windows crisis dominating issues",
+      "OpenAI Codex shipped 2 releases in 24 hours",
+      "Gemini CLI and Grok Build updated with new model versions",
+      "Kimi CLI and DeepSeek TUI completed major runtime rebrands",
+      "Qwen Code leads with 5 releases in 24 hours",
+      "Ecosystem converging on multi-agent workflows and persistent memory"
+    ],
+    "ai-agents": [
+      "OpenClaw shows exceptional velocity: 500 PRs, 263 issues in 24h",
+      "No new release but 148 PRs merged — major integration work",
+      "P0/P1 bugs cluster in session-state corruption and message loss",
+      "Memory-core indexing subsystem and transport layers affected",
+      "Version 2026.9.5 has update-blocking regression",
+      "2026.9.6 candidate under validation for next patch"
+    ],
+    "ai-trending": [
+      "Google's agentic runtime 'ax' gains +2,305 stars in one day",
+      "Three new agent substrates debut: substrate, ax, treg",
+      "Anthropic releases financial-services SDK for vertical agents",
+      "browser-use/video-use enables video editing as agent domain",
+      "minimind trains 64M-parameter LLM in two hours",
+      "Ollama, firecrawl, langgraph continue compounding growth"
+    ],
+    "ai-web": [
+      "OpenAI publishes 5 new articles — all GPT-6 related",
+      "GPT-6 Sol and Luna dual-model launch signaled",
+      "Better Prompt Caching for GPT-6 announced",
+      "Third-party assessments governance framework published",
+      "Anthropic has zero new publications this window",
+      "Coordinated product milestone with multi-variant release"
+    ],
+    "ai-hn": [
+      "GPT-6 Sol/Luna and Claude Opus 5.5 launch same day",
+      "GPT-6 Astra cracks 2005 Enigma message — historic cryptanalysis",
+      "Pentagon admits AI overreliance caused fatal missile strike",
+      "Claude Opus 5.5 features 200k context and tool improvements",
+      "Community debates split architecture: advance vs marketing",
+      "AI eroding human wisdom philosophical piece gains traction"
+    ],
+    "ai-arxiv": [
+      "Flash-dLLM enables practical diffusion LLM inference with KV caching",
+      "On-policy distillation restores reasoning at sub-3-bit precision",
+      "Greedy decoding shows cross-precision output divergence",
+      "Agensh and MAGIC break 1K-agent orchestration bottlenecks",
+      "SWE-Serve introduces serving-stack-aware evaluation benchmarks",
+      "Agent hijacking via MCP metadata exposes supply-chain risks"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 16K likes dominating language models",
+      "Qwen-Image-2.1 anchors image generation category",
+      "MiniMax-H3 (5.6K likes) and LTX-2.5 lead video generation",
+      "Chinese labs occupy 10 of top 15 trending model spots",
+      "prism-ml pushes ternary 2-bit weight quantization",
+      "ISTA-DASLab debuts GSQ-RCO mixed-precision GGUFs"
+    ],
+    "ai-community": [
+      "15-year QA veteran navigates AI-era role transition (53 comments)",
+      "Developers debate 'serious work' vs 'just vibing' dual AI workflow",
+      "Cheap RAG in Go with Gemini File Search — no vector DB",
+      "Cutting agent test runs by 90% practical engineering post",
+      "Preventing LLM secret leakage gains attention",
+      "ChatGPT cross-site tracking via ad collectors (60 upvotes)",
+      "Frontier lab rebrands year-old models as breakthrough"
+    ],
+    "fin-macro": [
+      "Fed Funds Rate holds at 3.88% with stable balance sheet",
+      "10-year yield at 4.96% remains highly restrictive",
+      "10Y-2Y spread widens to 0.25% — no recession signal",
+      "Credit spreads tight at 2.66%, VIX at 14.9 signals calm",
+      "WTI crude at $107, Brent at $131 — inflation pressure",
+      "Margin debt rises 2.6% MoM to $1.45T — speculative leverage"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rises 1.00% to 1,816.93, 20-day gain 4.80%",
+      "VN30 lags at +0.60%, futures at -2.46pt discount",
+      "Dong strengthens: USD/VND sell 26,180, down 0.68% monthly",
+      "DXY up 1.72% in 20 days, US 10Y at 4.96%",
+      "VanEck Vietnam ETF falls 1.25%, diverging from local index",
+      "Equity advance driven by local liquidity amid currency support"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,285 days (since 2023-03-18)",
+      "Overnight interbank at 6.84% — 2.34pp above refinancing ceiling",
+      "1-week rate at 6.43% — 1.93pp above policy corridor",
+      "2-week rate hits 7.42% — highest tenor, elevated stress",
+      "Overnight turnover 902,923bn VND, 1-week volume -71.8%",
+      "Wide persistent gap between static policy and strained money market"
+    ]
+  }
+}

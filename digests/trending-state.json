@@ -37,8 +37,12 @@
       "lastReported": "2026-09-21"
     },
     "affaan-m/ECC": {
-      "stars": 264829,
-      "lastReported": "2026-09-22"
+      "stars": 265549,
+      "lastReported": "2026-09-23"
+    },
+    "agent-substrate/substrate": {
+      "stars": 3063,
+      "lastReported": "2026-09-23"
     },
     "agentscope-ai/QwenPaw": {
       "stars": 34977,
@@ -117,8 +121,8 @@
       "lastReported": "2026-08-30"
     },
     "anthropics/financial-services": {
-      "stars": 35458,
-      "lastReported": "2026-09-21"
+      "stars": 36478,
+      "lastReported": "2026-09-23"
     },
     "anthropics/knowledge-work-plugins": {
       "stars": 24919,
@@ -201,12 +205,12 @@
       "lastReported": "2026-09-08"
     },
     "browser-use/browser-use": {
-      "stars": 115377,
-      "lastReported": "2026-09-20"
+      "stars": 115975,
+      "lastReported": "2026-09-23"
     },
     "browser-use/video-use": {
-      "stars": 23083,
-      "lastReported": "2026-09-02"
+      "stars": 25984,
+      "lastReported": "2026-09-23"
     },
     "BuilderIO/agent-native": {
       "stars": 6043,
@@ -316,6 +320,10 @@
       "stars": 80339,
       "lastReported": "2026-09-22"
     },
+    "davila7/claude-code-templates": {
+      "stars": 31191,
+      "lastReported": "2026-09-23"
+    },
     "debpalash/VoiceStudio": {
       "stars": 31220,
       "lastReported": "2026-09-16"
@@ -343,6 +351,10 @@
     "docling-project/docling": {
       "stars": 67173,
       "lastReported": "2026-09-20"
+    },
+    "dream-num/univer": {
+      "stars": 15668,
+      "lastReported": "2026-09-23"
     },
     "earendil-works/pi": {
       "stars": 105868,
@@ -381,8 +393,8 @@
       "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 182643,
-      "lastReported": "2026-09-21"
+      "stars": 183489,
+      "lastReported": "2026-09-23"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -420,6 +432,10 @@
       "stars": 30758,
       "lastReported": "2026-09-04"
     },
+    "google/ax": {
+      "stars": 7867,
+      "lastReported": "2026-09-23"
+    },
     "google/googletest": {
       "stars": 39108,
       "lastReported": "2026-08-28"
@@ -433,8 +449,8 @@
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 124612,
-      "lastReported": "2026-09-19"
+      "stars": 125209,
+      "lastReported": "2026-09-23"
     },
     "headroomlabs-ai/headroom": {
       "stars": 73129,
@@ -529,8 +545,8 @@
       "lastReported": "2026-09-14"
     },
     "jingyaogong/minimind": {
-      "stars": 61618,
-      "lastReported": "2026-09-19"
+      "stars": 62223,
+      "lastReported": "2026-09-23"
     },
     "jo-inc/camofox-browser": {
       "stars": 10614,
@@ -593,8 +609,8 @@
       "lastReported": "2026-09-17"
     },
     "langchain-ai/langgraph": {
-      "stars": 41491,
-      "lastReported": "2026-09-12"
+      "stars": 42156,
+      "lastReported": "2026-09-23"
     },
     "langchain4j/langchain4j": {
       "stars": 12952,
@@ -729,8 +745,8 @@
       "lastReported": "2026-09-17"
     },
     "mvt-project/mvt": {
-      "stars": 13670,
-      "lastReported": "2026-09-22"
+      "stars": 14192,
+      "lastReported": "2026-09-23"
     },
     "n8n-io/n8n": {
       "stars": 205079,
@@ -761,8 +777,8 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 247527,
-      "lastReported": "2026-09-21"
+      "stars": 248153,
+      "lastReported": "2026-09-23"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -777,8 +793,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 180985,
-      "lastReported": "2026-09-15"
+      "stars": 181497,
+      "lastReported": "2026-09-23"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -1016,6 +1032,10 @@
       "stars": 109817,
       "lastReported": "2026-09-17"
     },
+    "superdesigndev/treg": {
+      "stars": 2303,
+      "lastReported": "2026-09-23"
+    },
     "superlinked/sie": {
       "stars": 3104,
       "lastReported": "2026-09-03"
@@ -1041,8 +1061,8 @@
       "lastReported": "2026-08-29"
     },
     "TauricResearch/TradingAgents": {
-      "stars": 107643,
-      "lastReported": "2026-09-20"
+      "stars": 108184,
+      "lastReported": "2026-09-23"
     },
     "tech-leads-club/agent-skills": {
       "stars": 5752,

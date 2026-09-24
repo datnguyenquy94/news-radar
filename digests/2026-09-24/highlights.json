@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Codex shipped 6 alpha releases in 24 hours",
+      "Claude Code v2.1.281 adds gateway policies",
+      "Gemini CLI v0.61.0 promoted to stable",
+      "OpenCode temp-file leaks block production use",
+      "Windows sandbox still missing for Codex",
+      "Kimi Code CLI joins vendor-first category"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.6 withdrawn: macOS crash regression",
+      "Hotfix v2026.9.7 in progress for OpenClaw",
+      "235 issues and 500 PRs in 24 hours",
+      "176 active issues show maintainer strain",
+      "Memory deadlocks and gateway CPU spikes persist",
+      "Reinstall v2026.9.5 as macOS workaround"
+    ],
+    "ai-trending": [
+      "Google ax runtime surges +1,425 stars overnight",
+      "Strands Harness SDK debuts for production agents",
+      "CLI-Anything launches: make all software agent-native",
+      "Graphify hits 120k stars for code-graph indexing",
+      "DeusData codebase-memory-mcp new at 44k stars",
+      "AttnRL: first open process-supervised RL impl"
+    ],
+    "ai-web": [
+      "Claude discovers novel CRISPR-like enzyme system",
+      "Anthropic launches wet-lab life sciences group",
+      "OpenAI announces ChatGPT ads in Southeast Asia",
+      "Sam Altman speaks at UN Security Council",
+      "Airbnb partners with OpenAI on GPT-6 Astra",
+      "OpenAI releases MentalHealthBench safety benchmark"
+    ],
+    "ai-hn": [
+      "GPT-6 Sol and Luna release: 1,739 upvotes",
+      "Claude Opus 5.5 launch: 1,771 upvotes",
+      "Pentagon admits AI overreliance caused fatal strike",
+      "Claude discovers novel CRISPR-like enzyme",
+      "OpenAI agents allegedly breach Australian gov systems",
+      "Community debates GPT-6 vs Opus 5.5 reasoning"
+    ],
+    "ai-arxiv": [
+      "Log-depth recurrent LM breaks Transformer depth trade-off",
+      "Meaning identity computed not shipped in embeddings",
+      "Shutdown sabotage evaluation for agent safety",
+      "Mixed-precision quantization predictors for deployment",
+      "Hyperbolic learning libraries gain traction",
+      "Training-free tabular inference breakthrough"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 16K likes, 6.9M downloads",
+      "Qwen3.8-Flash-Next preview: 5.6K likes",
+      "MiniMax-H3 video gen: 5.6K likes, 3.6M downloads",
+      "Prism-ml Ternary-Bonsai pushes 2-bit quantization",
+      "ISTA-DASLab GSQ-RCO mixed-precision for Qwen3.8",
+      "Lightricks LTX-2.5: 4.9K likes for video gen"
+    ],
+    "ai-community": [
+      "Per-agent cost tracking catches 1.4x token inflation",
+      "Multi-agent observability replaces supervisor LLMs",
+      "ChatGPT cross-site tracking draws privacy criticism",
+      "Claude Opus 5.5 evaluated on effort knobs",
+      "AI writes code faster than humans can review",
+      "Green builds hide silent token cost inflation"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88% with stable balance sheet",
+      "10-year yield at 4.96% signals restrictive conditions",
+      "Core PCE at 3.3% and PPI at 5.4% above target",
+      "VIX at 14.2 reflects market complacency",
+      "FINRA margin debt up 2.6% MoM to $1.45T",
+      "Brent crude above $114 adds inflation risk"
+    ],
+    "fin-vnmacro": [
+      "VN-Index slips 0.80% to 1,801.65",
+      "VN30 down 0.50% to 1,954.91",
+      "USD/VND stable at 26,200 with dong appreciation",
+      "US 10-year yield at 4.96% rising 5.53% in 20 days",
+      "DXY up 2.23% over 20 days pressures VN",
+      "VN30F1M basis negative at -4.91 pts"
+    ],
+    "fin-vnrates": [
+      "SBV refinancing rate unchanged at 4.5% for 1,286 days",
+      "Overnight rate drops -2.41pp to 4.43% in one session",
+      "1-week rate at 4.91% trades above refinancing ceiling",
+      "2-week rate surges to 5.72% with volume spike 26x",
+      "6-month rate at 8.37% up 1.34pp over 30 sessions",
+      "Liquidity volatile: fragile intraday distribution"
+    ]
+  }
+}

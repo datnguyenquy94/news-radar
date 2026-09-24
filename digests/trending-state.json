@@ -37,8 +37,8 @@
       "lastReported": "2026-09-21"
     },
     "affaan-m/ECC": {
-      "stars": 265549,
-      "lastReported": "2026-09-23"
+      "stars": 266262,
+      "lastReported": "2026-09-24"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -121,8 +121,8 @@
       "lastReported": "2026-08-30"
     },
     "anthropics/financial-services": {
-      "stars": 36478,
-      "lastReported": "2026-09-23"
+      "stars": 37036,
+      "lastReported": "2026-09-24"
     },
     "anthropics/knowledge-work-plugins": {
       "stars": 24919,
@@ -197,8 +197,8 @@
       "lastReported": "2026-09-07"
     },
     "bojieli/ai-agent-book": {
-      "stars": 49801,
-      "lastReported": "2026-09-22"
+      "stars": 50557,
+      "lastReported": "2026-09-24"
     },
     "BraveOPotato/FckSignups": {
       "stars": 3893,
@@ -209,12 +209,12 @@
       "lastReported": "2026-09-23"
     },
     "browser-use/video-use": {
-      "stars": 25984,
-      "lastReported": "2026-09-23"
+      "stars": 26584,
+      "lastReported": "2026-09-24"
     },
     "BuilderIO/agent-native": {
-      "stars": 6043,
-      "lastReported": "2026-09-22"
+      "stars": 6618,
+      "lastReported": "2026-09-24"
     },
     "ByteByteGoHq/system-design-101": {
       "stars": 88443,
@@ -328,6 +328,10 @@
       "stars": 31220,
       "lastReported": "2026-09-16"
     },
+    "DeusData/codebase-memory-mcp": {
+      "stars": 44650,
+      "lastReported": "2026-09-24"
+    },
     "Developer-Y/cs-video-courses": {
       "stars": 83174,
       "lastReported": "2026-08-26"
@@ -353,8 +357,8 @@
       "lastReported": "2026-09-20"
     },
     "dream-num/univer": {
-      "stars": 15668,
-      "lastReported": "2026-09-23"
+      "stars": 16462,
+      "lastReported": "2026-09-24"
     },
     "earendil-works/pi": {
       "stars": 105868,
@@ -433,16 +437,16 @@
       "lastReported": "2026-09-04"
     },
     "google/ax": {
-      "stars": 7867,
-      "lastReported": "2026-09-23"
+      "stars": 9292,
+      "lastReported": "2026-09-24"
     },
     "google/googletest": {
       "stars": 39108,
       "lastReported": "2026-08-28"
     },
     "Graphify-Labs/graphify": {
-      "stars": 120256,
-      "lastReported": "2026-09-22"
+      "stars": 120969,
+      "lastReported": "2026-09-24"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -452,9 +456,13 @@
       "stars": 125209,
       "lastReported": "2026-09-23"
     },
+    "harry7557558/spirula-studio": {
+      "stars": 781,
+      "lastReported": "2026-09-24"
+    },
     "headroomlabs-ai/headroom": {
-      "stars": 73129,
-      "lastReported": "2026-09-20"
+      "stars": 73661,
+      "lastReported": "2026-09-24"
     },
     "heygen-com/hyperframes": {
       "stars": 47919,
@@ -467,6 +475,10 @@
     "HKBU-LAGAS/Awesome-Item-ID-Gen-RecSys": {
       "stars": 117,
       "lastReported": "2026-08-26"
+    },
+    "HKUDS/CLI-Anything": {
+      "stars": 50009,
+      "lastReported": "2026-09-24"
     },
     "HKUDS/DeepTutor": {
       "stars": 37803,
@@ -481,8 +493,8 @@
       "lastReported": "2026-09-21"
     },
     "HKUDS/Vibe-Trading": {
-      "stars": 33384,
-      "lastReported": "2026-09-14"
+      "stars": 33911,
+      "lastReported": "2026-09-24"
     },
     "Hmbown/Codewhale": {
       "stars": 40906,
@@ -529,8 +541,8 @@
       "lastReported": "2026-09-17"
     },
     "jeecgboot/JeecgBoot": {
-      "stars": 47457,
-      "lastReported": "2026-08-25"
+      "stars": 47964,
+      "lastReported": "2026-09-24"
     },
     "JetBrains/go-modern-guidelines": {
       "stars": 2907,
@@ -785,8 +797,8 @@
       "lastReported": "2026-09-06"
     },
     "obra/superpowers": {
-      "stars": 285434,
-      "lastReported": "2026-09-12"
+      "stars": 290781,
+      "lastReported": "2026-09-24"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -801,8 +813,8 @@
       "lastReported": "2026-08-26"
     },
     "Open-Dev-Society/OpenStock": {
-      "stars": 17933,
-      "lastReported": "2026-09-22"
+      "stars": 18919,
+      "lastReported": "2026-09-24"
     },
     "open-webui/open-webui": {
       "stars": 152585,
@@ -821,8 +833,8 @@
       "lastReported": "2026-09-09"
     },
     "OpenBB-finance/OpenBB": {
-      "stars": 72897,
-      "lastReported": "2026-09-12"
+      "stars": 73420,
+      "lastReported": "2026-09-24"
     },
     "OpenBMB/VoxCPM": {
       "stars": 37447,
@@ -875,6 +887,10 @@
     "pascalorg/editor": {
       "stars": 23669,
       "lastReported": "2026-09-12"
+    },
+    "pbakaus/impeccable": {
+      "stars": 70436,
+      "lastReported": "2026-09-24"
     },
     "peetzweg/opendisplay": {
       "stars": 3670,
@@ -941,8 +957,8 @@
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 54376,
-      "lastReported": "2026-09-13"
+      "stars": 55797,
+      "lastReported": "2026-09-24"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -963,6 +979,10 @@
     "ruvnet/RuView": {
       "stars": 93937,
       "lastReported": "2026-09-15"
+    },
+    "RyanLiu112/AttnRL": {
+      "stars": 14,
+      "lastReported": "2026-09-24"
     },
     "RyanLiu112/Awesome-Process-Reward-Models": {
       "stars": 180,
@@ -997,8 +1017,8 @@
       "lastReported": "2026-09-16"
     },
     "siyuan-note/siyuan": {
-      "stars": 45981,
-      "lastReported": "2026-08-26"
+      "stars": 46488,
+      "lastReported": "2026-09-24"
     },
     "skyzh/tiny-llm": {
       "stars": 4519,
@@ -1020,6 +1040,10 @@
       "stars": 12834,
       "lastReported": "2026-08-26"
     },
+    "strands-agents/harness-sdk": {
+      "stars": 7927,
+      "lastReported": "2026-09-24"
+    },
     "streamlit/streamlit": {
       "stars": 45654,
       "lastReported": "2026-09-01"
@@ -1033,8 +1057,8 @@
       "lastReported": "2026-09-17"
     },
     "superdesigndev/treg": {
-      "stars": 2303,
-      "lastReported": "2026-09-23"
+      "stars": 2792,
+      "lastReported": "2026-09-24"
     },
     "superlinked/sie": {
       "stars": 3104,
@@ -1128,6 +1152,10 @@
       "stars": 38312,
       "lastReported": "2026-08-27"
     },
+    "TNT-Likely/PanWatch": {
+      "stars": 1602,
+      "lastReported": "2026-09-24"
+    },
     "tonhowtf/omniget": {
       "stars": 13093,
       "lastReported": "2026-09-16"
@@ -1149,8 +1177,8 @@
       "lastReported": "2026-09-01"
     },
     "ultralytics/ultralytics": {
-      "stars": 61460,
-      "lastReported": "2026-09-10"
+      "stars": 61965,
+      "lastReported": "2026-09-24"
     },
     "unclecode/crawl4ai": {
       "stars": 80920,
@@ -1161,8 +1189,8 @@
       "lastReported": "2026-09-11"
     },
     "VectifyAI/PageIndex": {
-      "stars": 35324,
-      "lastReported": "2026-08-26"
+      "stars": 35833,
+      "lastReported": "2026-09-24"
     },
     "vercel-labs/json-render": {
       "stars": 17473,

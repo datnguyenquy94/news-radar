@@ -37,8 +37,8 @@
       "lastReported": "2026-09-21"
     },
     "affaan-m/ECC": {
-      "stars": 266262,
-      "lastReported": "2026-09-24"
+      "stars": 267013,
+      "lastReported": "2026-09-25"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -147,6 +147,10 @@
     "AprilNEA/OpenLogi": {
       "stars": 15895,
       "lastReported": "2026-08-25"
+    },
+    "aramisfacchinetti/streaming-json-parser": {
+      "stars": 13,
+      "lastReported": "2026-09-25"
     },
     "armory3d/armorpaint": {
       "stars": 4479,
@@ -289,8 +293,8 @@
       "lastReported": "2026-08-27"
     },
     "CopilotKit/CopilotKit": {
-      "stars": 37039,
-      "lastReported": "2026-08-26"
+      "stars": 37543,
+      "lastReported": "2026-09-25"
     },
     "coreyhaines31/marketingskills": {
       "stars": 48932,
@@ -357,8 +361,8 @@
       "lastReported": "2026-09-20"
     },
     "dream-num/univer": {
-      "stars": 16462,
-      "lastReported": "2026-09-24"
+      "stars": 17909,
+      "lastReported": "2026-09-25"
     },
     "earendil-works/pi": {
       "stars": 105868,
@@ -397,8 +401,8 @@
       "lastReported": "2026-09-13"
     },
     "firecrawl/firecrawl": {
-      "stars": 183489,
-      "lastReported": "2026-09-23"
+      "stars": 184374,
+      "lastReported": "2026-09-25"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -420,6 +424,10 @@
       "stars": 30996,
       "lastReported": "2026-09-11"
     },
+    "FxEmbed/FxEmbed": {
+      "stars": 5391,
+      "lastReported": "2026-09-25"
+    },
     "genieincodebottle/generative-ai": {
       "stars": 2609,
       "lastReported": "2026-08-26"
@@ -437,8 +445,8 @@
       "lastReported": "2026-09-04"
     },
     "google/ax": {
-      "stars": 9292,
-      "lastReported": "2026-09-24"
+      "stars": 10642,
+      "lastReported": "2026-09-25"
     },
     "google/googletest": {
       "stars": 39108,
@@ -573,8 +581,12 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 107207,
-      "lastReported": "2026-09-22"
+      "stars": 107734,
+      "lastReported": "2026-09-25"
+    },
+    "julyx10/lap": {
+      "stars": 2916,
+      "lastReported": "2026-09-25"
     },
     "JustVugg/colibri": {
       "stars": 35825,
@@ -617,8 +629,8 @@
       "lastReported": "2026-09-22"
     },
     "langchain-ai/langchain": {
-      "stars": 146478,
-      "lastReported": "2026-09-17"
+      "stars": 147021,
+      "lastReported": "2026-09-25"
     },
     "langchain-ai/langgraph": {
       "stars": 42156,
@@ -631,6 +643,10 @@
     "langgenius/dify": {
       "stars": 156792,
       "lastReported": "2026-09-22"
+    },
+    "leejet/stable-diffusion.cpp": {
+      "stars": 7279,
+      "lastReported": "2026-09-25"
     },
     "LiberCoders/FeatureBench": {
       "stars": 90,
@@ -721,12 +737,16 @@
       "lastReported": "2026-08-26"
     },
     "microsoft/qlib": {
-      "stars": 48331,
-      "lastReported": "2026-09-06"
+      "stars": 48832,
+      "lastReported": "2026-09-25"
     },
     "mihail911/modern-software-dev-assignments": {
       "stars": 4622,
       "lastReported": "2026-09-21"
+    },
+    "mikahama/uralicNLP": {
+      "stars": 100,
+      "lastReported": "2026-09-25"
     },
     "milvus-io/milvus": {
       "stars": 45788,
@@ -757,8 +777,8 @@
       "lastReported": "2026-09-17"
     },
     "mvt-project/mvt": {
-      "stars": 14192,
-      "lastReported": "2026-09-23"
+      "stars": 14750,
+      "lastReported": "2026-09-25"
     },
     "n8n-io/n8n": {
       "stars": 205079,
@@ -789,16 +809,20 @@
       "lastReported": "2026-08-27"
     },
     "NousResearch/hermes-agent": {
-      "stars": 248153,
-      "lastReported": "2026-09-23"
+      "stars": 248768,
+      "lastReported": "2026-09-25"
+    },
+    "NVIDIA/Model-Optimizer": {
+      "stars": 4133,
+      "lastReported": "2026-09-25"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
       "lastReported": "2026-09-06"
     },
     "obra/superpowers": {
-      "stars": 290781,
-      "lastReported": "2026-09-24"
+      "stars": 291285,
+      "lastReported": "2026-09-25"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -817,8 +841,8 @@
       "lastReported": "2026-09-24"
     },
     "open-webui/open-webui": {
-      "stars": 152585,
-      "lastReported": "2026-09-20"
+      "stars": 153096,
+      "lastReported": "2026-09-25"
     },
     "openai/codex": {
       "stars": 118150,
@@ -957,8 +981,8 @@
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 55797,
-      "lastReported": "2026-09-24"
+      "stars": 56726,
+      "lastReported": "2026-09-25"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1191,6 +1215,10 @@
     "VectifyAI/PageIndex": {
       "stars": 35833,
       "lastReported": "2026-09-24"
+    },
+    "vectorize-io/hindsight": {
+      "stars": 28023,
+      "lastReported": "2026-09-25"
     },
     "vercel-labs/json-render": {
       "stars": 17473,

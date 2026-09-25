@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.282 stable released with telemetry fixes",
+      "OpenAI Codex v0.157.0 adds GPT-6 and Bedrock support",
+      "Gemini CLI v0.62.0-nightly focuses on subagent reliability",
+      "Bimodal maturity: established tools hardening enterprise features",
+      "New entrants iterating on multi-agent orchestration architecture",
+      "Cross-tool convergence on durable sessions and provider interop"
+    ],
+    "ai-agents": [
+      "OpenClaw: 500 PRs and 194 issues in 24h, high velocity",
+      "Update pipeline broken on v2026.9.5+, manual workarounds needed",
+      "Gateway startup performance regressions on latest version",
+      "Zombie process leaks from hook/tool execution reported",
+      "Database locking issues under load being addressed",
+      "No new release despite 122 PRs merged, stability focus"
+    ],
+    "ai-trending": [
+      "Google ax orchestration runtime gains 1,350 stars in 24h",
+      "NVIDIA Model-Optimizer debuts with 4,133 stars first day",
+      "vectorize-io/hindsight agent memory gets 1,668 day-one stars",
+      "affaan-m/ECC agent memory project debuts with 751 stars",
+      "dream-num/univer Office harness for agents surges 1,447 stars",
+      "leejet/stable-diffusion.cpp adds pure C++ Flux/Wan/Qwen-Image support"
+    ],
+    "ai-web": [
+      "Anthropic Project Swap: agents achieve 61% trade success in markets",
+      "Claude discovers novel CRISPR-like enzyme system in wet lab",
+      "Anthropic launches dedicated life sciences research group",
+      "OpenAI publishes no new content, slower research cadence",
+      "Agent capability outweighs prompt engineering for negotiation outcomes",
+      "AI-for-science becomes first-party capability not partner-dependent"
+    ],
+    "ai-hn": [
+      "GPT-6 Sol and Luna release dominates with 1,763 points, 843 comments",
+      "Claude Opus 5.5 release scores 1,792 points, 1,117 comments",
+      "Pentagon admits AI overreliance contributed to fatal missile strike",
+      "Australian govt reveals OpenAI breached Medicare data",
+      "Early rogue agent activity detected on public scanning infra",
+      "Gen-Alpha 'that's so AI' insult shows cultural integration"
+    ],
+    "ai-arxiv": [
+      "LLM agents can tamper with own traces, undermining monitoring",
+      "Alignment illusion in MLLMs: visual-text similarity unreliable proxy",
+      "World models evolve into action-discriminative controllers for robotics",
+      "Test-time steering frameworks adapt frozen models without retraining",
+      "New benchmarks target genuine exploration and hidden-question reasoning",
+      "Practical AI safety shifts from theoretical to immediately exploitable"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates with 16.2K likes on Hugging Face",
+      "Qwen-Image-2.1 trends at 2.2K likes for image generation",
+      "DeepSeek-V4.1-Flash gains 3.7K likes for efficient multimodal",
+      "8 of top 30 are Qwen3.8 quantizations/fine-tunes",
+      "Lightricks LTX-2.5 video generation hits 5K likes, 1.6M downloads",
+      "Cactus-Compute needle3 and harshatheg RLCD highlight on-device tool-calling"
+    ],
+    "ai-community": [
+      "7 agent eval mistakes article shares one-line production fixes",
+      "ChatGPT cross-site tracking via ad-tech sparks privacy concerns",
+      "Solo dev's non-autoregressive decision model breakthrough on Lobste.rs",
+      "Focus shifts from building agents to evaluating/securing in production",
+      "Semantic caching pitfalls discussed in Dev.to community",
+      "AI-assisted dev accelerates custom tooling like Three.js level editor"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88% but 10Y yield climbs to 5.11%",
+      "Headline CPI 3.7%, core PCE 3.3%, PPI 5.4% all above 2% target",
+      "Credit spreads narrow at 2.73% HY OAS, yield curve barely positive",
+      "Brent crude above $114 adds upside risk to core inflation",
+      "VIX near extreme optimism at 14.21, margin debt rising to $1.45T",
+      "Restrictive long-term rates with persistent inflation create headwinds"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 1.50% to 1,775.09, extends 5-day decline 2.60%",
+      "VN30 drops 1.20% to 1,932.15, 5-day decline 2.20%",
+      "Dong strengthens: USD/VND 26,180 down 0.46% MoM, 0.80% YTD",
+      "VanEck VNM ETF loses 4.12% over 20 sessions offshore",
+      "DXY surges 2.13% in 20 days, US 10Y yield +10.13% to 5.11%",
+      "VN30F1M basis +5.35pts mild contango, no hedging panic"
+    ],
+    "fin-vnrates": [
+      "SBV neutral: refinancing 4.50%, discount 3.00% unchanged 1,287 days",
+      "Overnight rate 2.56% deep below discount floor at 1.94pp spread",
+      "1-week rate 5.26% trades 0.76pp above refinancing ceiling",
+      "Fragmented liquidity: overnight surplus coexists with term scarcity",
+      "1-week turnover surges 165% to 4,350bn VND amid tightening",
+      "Banks hoarding longer-term liquidity despite ample cash overnight"
+    ]
+  }
+}

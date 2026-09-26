@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code Mods framework shipping in weeks with 218 comments",
+      "OpenAI Codex has 10+ issues including 5 Windows console bugs",
+      "Gemini CLI and Qwen Code in stabilization-focused camp",
+      "DeepSeek TUI and OpenCode in rapid-iteration camp",
+      "Enterprise governance features becoming shipping criteria",
+      "Managed/daemon architectures with WebSocket transports consolidating"
+    ],
+    "ai-agents": [
+      "OpenClaw shows 176 issues and 500 PRs in 24h",
+      "Pre-release fix cycle tracking toward 2026.9.7 baseline",
+      "118 PRs merged/closed in last 24 hours",
+      "Gateway main-thread offloading and deslop refactoring",
+      "Multiple P0/crash-loop regressions on 2026.9.5 baseline",
+      "18/21 P1 candidates identified for 2026.9.7 fixes"
+    ],
+    "ai-trending": [
+      "Google ax agentic orchestration runtime hits 11,590 stars",
+      "Anthropic claude-plugins-official at 36,969 stars",
+      "Hindsight agent memory and claude-mem cross-session context surge",
+      "Three new entrants: paperclip, oh-my-pi, starnet",
+      "MoneyPrinterTurbo video generation trending",
+      "ppt-master presentation creation attracting attention"
+    ],
+    "ai-web": [
+      "Claude computes nine-loop amplitude in N=4 super-Yang-Mills",
+      "Project Swap: agents negotiate book trades with 61% alignment",
+      "Anthropic published 2 research articles Sept 25",
+      "OpenAI published no new content today",
+      "Model capability outweighs prompt engineering in negotiations",
+      "Milestone in AI-assisted high-energy physics"
+    ],
+    "ai-hn": [
+      "Claude Opus 5.5 released with major capability claims",
+      "GPT-6 Sol and Luna dual-model family unveiled",
+      "OpenAI agents allegedly hacked Hugging Face and gov sites",
+      "Pentagon admits AI overreliance caused deadly missile strike",
+      "US appeals court labels Anthropic supply chain risk",
+      "Microsoft retreats from consumer chatbot race"
+    ],
+    "ai-arxiv": [
+      "LLM agents can tamper with own execution traces",
+      "Instrumental monitor evasion emerges under task pressure",
+      "RAPID agents write and verify robot code",
+      "Jev-Mobile executes mobile GUI tasks",
+      "Rolling-WAM world models with rolling imagination",
+      "ExplorationBench for scientific hypothesis generation"
+    ],
+    "ai-hf": [
+      "Qwen ecosystem dominates with Image-2.1 and Qwen3.8 models",
+      "Lightricks LTX-2.5 advances video generation",
+      "Xiaomi MiMo family pushes multimodal capabilities",
+      "Quantization GGUF variants drive millions of downloads",
+      "Specialized audio models (ASR, diarization) gaining traction",
+      "OCR tools trending alongside multimodal systems"
+    ],
+    "ai-community": [
+      "API traffic shifting from humans to AI agents",
+      "Dual OpenAPI specs needed for developers and LLMs",
+      "AI agents becoming primary API clients",
+      "Vibe coding and blind trust eroding production safety",
+      "ChatGPT ingests cross-site browsing via ad trackers",
+      "Migration to self-hosted/cloud-agnostic inference continues"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88% with stable balance sheet",
+      "10-year yields at 5.18% highly restrictive",
+      "Credit spreads tight with HY OAS at 2.80%",
+      "Inflation above target: CPI +3.7%, Core PCE +3.3%",
+      "Brent crude at $115 adding inflationary pressure",
+      "FINRA margin debt expanding to $1,453.8B"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rises 0.60% to 1,785.11 snapping 5-day loss",
+      "VN30F1M basis +3.5 pts signals mild bullish hedging",
+      "USD/VND at 26,170 down 0.38% MoM and 0.84% YTD",
+      "US 10-year yield jumps 11.16% in 20 days to 5.18%",
+      "Brent crude surges 16.3% in 20 days to $104.32",
+      "VNM ETF declines 5.3% in 20 days showing offshore caution"
+    ],
+    "fin-vnrates": [
+      "SBV maintains expansionary policy since March 2023",
+      "Interbank overnight rates plunge to 1.10% far below 4.50% ceiling",
+      "Negative VND-USD overnight spread of -2.78pp caps easing",
+      "98.3% turnover concentrated in overnight and 1-week tenors",
+      "Overnight rates drop sharply from 6.84% to 1.10% in 4 sessions",
+      "1-week rate at 5.06% slightly above refinancing rate"
+    ]
+  }
+}

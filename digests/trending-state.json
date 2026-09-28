@@ -41,8 +41,8 @@
       "lastReported": "2026-09-21"
     },
     "affaan-m/ECC": {
-      "stars": 267571,
-      "lastReported": "2026-09-26"
+      "stars": 268510,
+      "lastReported": "2026-09-28"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -85,8 +85,8 @@
       "lastReported": "2026-09-19"
     },
     "alibaba/zvec": {
-      "stars": 15514,
-      "lastReported": "2026-08-26"
+      "stars": 16015,
+      "lastReported": "2026-09-28"
     },
     "Alishahryar1/free-claude-code": {
       "stars": 50521,
@@ -225,8 +225,8 @@
       "lastReported": "2026-09-08"
     },
     "browser-use/browser-use": {
-      "stars": 115975,
-      "lastReported": "2026-09-23"
+      "stars": 116536,
+      "lastReported": "2026-09-28"
     },
     "browser-use/video-use": {
       "stars": 26584,
@@ -349,8 +349,8 @@
       "lastReported": "2026-09-23"
     },
     "debpalash/VoiceStudio": {
-      "stars": 31220,
-      "lastReported": "2026-09-16"
+      "stars": 40653,
+      "lastReported": "2026-09-28"
     },
     "derv82/wifit3": {
       "stars": 988,
@@ -385,8 +385,8 @@
       "lastReported": "2026-09-20"
     },
     "dream-num/univer": {
-      "stars": 19658,
-      "lastReported": "2026-09-27"
+      "stars": 20726,
+      "lastReported": "2026-09-28"
     },
     "earendil-works/pi": {
       "stars": 105868,
@@ -545,8 +545,8 @@
       "lastReported": "2026-09-16"
     },
     "huggingface/transformers": {
-      "stars": 166220,
-      "lastReported": "2026-09-16"
+      "stars": 166737,
+      "lastReported": "2026-09-28"
     },
     "hugohe3/ppt-master": {
       "stars": 56408,
@@ -561,8 +561,12 @@
       "lastReported": "2026-09-03"
     },
     "infiniflow/ragflow": {
-      "stars": 90845,
-      "lastReported": "2026-09-17"
+      "stars": 91392,
+      "lastReported": "2026-09-28"
+    },
+    "InfinityLoop1308/PipePipe": {
+      "stars": 6656,
+      "lastReported": "2026-09-28"
     },
     "iOfficeAI/AionUi": {
       "stars": 32470,
@@ -593,8 +597,8 @@
       "lastReported": "2026-09-14"
     },
     "jingyaogong/minimind": {
-      "stars": 62223,
-      "lastReported": "2026-09-23"
+      "stars": 62782,
+      "lastReported": "2026-09-28"
     },
     "jo-inc/camofox-browser": {
       "stars": 10614,
@@ -745,8 +749,8 @@
       "lastReported": "2026-09-16"
     },
     "mem0ai/mem0": {
-      "stars": 65616,
-      "lastReported": "2026-09-19"
+      "stars": 66137,
+      "lastReported": "2026-09-28"
     },
     "MG1937/ASC": {
       "stars": 1265,
@@ -815,6 +819,10 @@
     "multimodal-art-projection/YuE": {
       "stars": 9443,
       "lastReported": "2026-09-17"
+    },
+    "mvschwarz/openrig": {
+      "stars": 1123,
+      "lastReported": "2026-09-28"
     },
     "mvt-project/mvt": {
       "stars": 14750,
@@ -949,8 +957,8 @@
       "lastReported": "2026-09-20"
     },
     "paperclipai/paperclip": {
-      "stars": 87718,
-      "lastReported": "2026-09-27"
+      "stars": 90486,
+      "lastReported": "2026-09-28"
     },
     "paperless-ngx/paperless-ngx": {
       "stars": 45641,
@@ -1029,8 +1037,8 @@
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 58485,
-      "lastReported": "2026-09-27"
+      "stars": 59573,
+      "lastReported": "2026-09-28"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1189,8 +1197,8 @@
       "lastReported": "2026-09-18"
     },
     "tensorflow/tensorflow": {
-      "stars": 200064,
-      "lastReported": "2026-09-14"
+      "stars": 200572,
+      "lastReported": "2026-09-28"
     },
     "tesseract-ocr/tesseract": {
       "stars": 76164,
@@ -1273,8 +1281,8 @@
       "lastReported": "2026-09-24"
     },
     "vectorize-io/hindsight": {
-      "stars": 32970,
-      "lastReported": "2026-09-27"
+      "stars": 37968,
+      "lastReported": "2026-09-28"
     },
     "vercel-labs/json-render": {
       "stars": 17473,
@@ -1283,6 +1291,10 @@
     "vercel-labs/portless": {
       "stars": 11847,
       "lastReported": "2026-09-03"
+    },
+    "vercel-labs/scriptc": {
+      "stars": 5469,
+      "lastReported": "2026-09-28"
     },
     "vercel-labs/skills": {
       "stars": 31234,
@@ -1311,6 +1323,10 @@
     "weaviate/weaviate": {
       "stars": 16754,
       "lastReported": "2026-08-26"
+    },
+    "willfaust/Madeira": {
+      "stars": 863,
+      "lastReported": "2026-09-28"
     },
     "workweave/router": {
       "stars": 2835,

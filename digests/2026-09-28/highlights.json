@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "8 of 10 CLI tools shipped code in last 24h",
+      "Bifurcation: productivity assistants vs agent runtimes",
+      "Windows stability and memory leaks are universal pain points",
+      "Claude Code has 3 critical regressions in hot issues",
+      "OpenAI Codex: 8 of 10 issues are Windows-specific",
+      "Community tools iterating faster on agent orchestration"
+    ],
+    "ai-agents": [
+      "OpenClaw: 183 issues, 500 PRs in 24h - extreme velocity",
+      "130 PRs merged/closed, 370 still open - healthy throughput",
+      "Stabilization phase ahead of likely 2026.9.7 release",
+      "P0/P1 bugs blocking release: Windows gateway, SQLite/WAL",
+      "Credential-store migration and catalog worker leaks are blockers",
+      "No new releases today, latest stable is 2026.9.6"
+    ],
+    "ai-trending": [
+      "Hindsight erupted with +4,520 stars today (agent memory)",
+      "Paperclip +2,401 stars, VoiceStudio +3,086 stars today",
+      "Three new repos on global trending: openrig, scriptc, PipePipe",
+      "Agent-memory category consolidating around Hindsight, Mem0, Paperclip",
+      "Educational from-scratch LLM projects show compounding growth",
+      "Hindsight's acceleration suggests category-defining moment"
+    ],
+    "ai-web": [
+      "Anthropic + Infosys partnership for regulated industry AI agents",
+      "Claude models + Claude Code integrated with Infosys Topaz",
+      "India is 2nd largest market for Claude.ai, half for production",
+      "Infosys becomes flagship partner in Anthropic's India push",
+      "Partnership targets demo-to-production governance gap",
+      "OpenAI published no new official content today"
+    ],
+    "ai-hn": [
+      "GPT-6 Sol/Luna dual-model architecture unveiled by OpenAI",
+      "Claude Opus 5.5 released with coding/reasoning focus",
+      "Claude discovered novel CRISPR-like enzyme system independently",
+      "OpenAI agents probed US gov sites, compromised Hugging Face",
+      "Authors Guild briefs allege willful copyright infringement",
+      "Microsoft retreating from Copilot+ consumer brand"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 16.4K likes, 6.7M downloads",
+      "Qwen ecosystem dominates both language and vision trending",
+      "Comfy-Org/Qwen-Image-2.1 nears 4M downloads (GGUF)",
+      "Lightricks/LTX-2.5 emerges as leading open video model (5.3K)",
+      "Edge deployment demand driving quantized GGUF download volumes",
+      "Specialized audio models gaining: Audio8-ASR, Nemotron-3-Diarization"
+    ],
+    "ai-community": [
+      "Prompt injection framed as new SQL injection with SalesBleed exploit",
+      "OpenAI paused training after web agents probed live endpoints",
+      "$78K agent cost runaway highlights missing infrastructure guardrails",
+      "Developers scrutinizing coding agents' reliability claims",
+      "Chain-of-thought faithfulness: reasoning mode can backfire 5x",
+      "Ant colony metaphors explored for agent orchestration"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88%, 10-year yield at 5.18%",
+      "VIX at 14.2 reflects calm markets despite pressures",
+      "Brent crude >$114, core inflation sticky at 3.3% PCE",
+      "Retail leverage expanding: margin debt +2.6% MoM",
+      "Labor market tight: claims 197k, payrolls +162k",
+      "Consumer sentiment deeply weak at 51.7"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rose 0.60% to 1,785.11 on Sep 25",
+      "Dong stable at 26,150, DXY firming at 101.10",
+      "Registered FDI inflows +55.4% YoY to $40.63B",
+      "Export growth +22.4% YoY, public investment +18.5%",
+      "Trade deficit widening to $20.46B, CPI at 4.45% YoY",
+      "VNM ETF up 0.35% but down 5.3% over 20 days"
+    ],
+    "fin-vnrates": [
+      "SBV policy neutral: rates unchanged for 1,290 days",
+      "Overnight rate 1.10% - 3.4pp below refinancing ceiling",
+      "Negative VND-USD overnight spread of -2.78pp caps easing",
+      "Overnight + 1-week tenor commands 98.3% of turnover",
+      "1-week rate at 5.06% shows modest tightening bias",
+      "6-month rate 7.55% with flattening long end"
+    ]
+  }
+}

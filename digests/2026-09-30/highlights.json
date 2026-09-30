@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.285 released with stability fixes",
+      "OpenAI Codex adds remote execution and cost controls",
+      "Gemini CLI gains MCP server support for tools",
+      "GitHub Copilot CLI integrates with Codespaces",
+      "Qwen Code launches with 100K context window",
+      "Windows/WSL parity gaps persist across 7 of 10 tools"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.7 released with update safety overhaul",
+      "500 PRs in 24h shows very high velocity",
+      "Memory sawtooth in Gateway remains critical P1 issue",
+      "Zombie process leaks persist (#97616)",
+      "Embedded prompt cache breakage (#102175)",
+      "321 PRs still open indicating growing backlog"
+    ],
+    "ai-trending": [
+      "VoiceStudio surges +4,758 stars in 24h",
+      "NVIDIA OpenShell debuts as secure agent runtime",
+      "Hindsight agent memory layer gains +2,575 stars",
+      "OpenRig multi-agent harness posts triple-digit gains",
+      "Firecrawl reaches 186K stars as data ingestion layer",
+      "ECC hits 269K stars for agent harness optimization"
+    ],
+    "ai-web": [
+      "Anthropic analyzes GLM-5.3 cyber exploit capabilities",
+      "GLM-5.3 safeguards bypassed 64-100% in tests",
+      "Anthropic launches public participation study",
+      "OpenAI announces GPT-6.1-Sol model",
+      "OpenAI releases DevDay 2026 recap",
+      "OpenAI publishes safety cases framework paper"
+    ],
+    "ai-hn": [
+      "GPT 6.1 Sol release sparks 847 pts, 772 comments",
+      "Sonnet 5.5 release gets 874 pts, 604 comments",
+      "OpenAI Dots always-on agents discussed (515 pts)",
+      "Cal Newport calls to investigate AI labs (600 pts)",
+      "DraftKings uses AI to target problem gamblers",
+      "Nvidia watchdog chips for AI agents (223 pts)"
+    ],
+    "ai-arxiv": [
+      "STEPQuant enables 4-bit recurrent state quantization",
+      "LeapQuant achieves near-lossless 4-bit linear attention",
+      "Thinking Before Thinking treats control flow as policy",
+      "Alpha Diffusion challenges autoregressive orthodoxy",
+      "ReCIRC introduces conformal risk control for safety",
+      "Imagine3D-LLM advances multimodal 3D scene reasoning"
+    ],
+    "ai-hf": [
+      "Qwen-Image-2.1 leads with 2,667 likes, 64K downloads",
+      "Qwen3.8-27B multimodal spawns GGUF quantizations",
+      "Lightricks LTX-2.5 leads downloads at 1.59M",
+      "DeepSeek-V4.1-Flash enters as open multimodal contender",
+      "Ternary-Bonsai-2-27B shows 2-bit ternary quantization",
+      "Audio8-ASR-Infinite advances streaming ASR"
+    ],
+    "ai-community": [
+      "AWS Bedrock agent governance blocks runaway agents",
+      "Real AI agent data leak incident analyzed",
+      "Developer fears skill atrophy from AI coding",
+      "Google engineer departure sparks Big Tech debate",
+      "Agent memory architectures gain practical focus",
+      "Prompt injection defenses remain poorly understood"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88% with stable balance sheet",
+      "10Y Treasury yield climbs to 5.24% restrictive",
+      "Core PCE inflation at 3.3% well above 2% target",
+      "Brent crude at $114 adds upside inflation pressure",
+      "Consumer sentiment deeply weak at 51.7",
+      "FINRA margin debt expands +2.6% MoM to $1.45T"
+    ],
+    "fin-vnmacro": [
+      "VN-Index falls 0.20% to 1,777.73",
+      "VN-Index down 2.9% over past 20 sessions",
+      "VND stable at 26,160, appreciating 0.88% YTD",
+      "US 10Y yield surges to 5.24%, up 10.8% in 20d",
+      "Vietnam trade deficit widens to USD 20.46bn",
+      "VanEck Vietnam ETF down 5.1% over 20 days"
+    ],
+    "fin-vnrates": [
+      "SBV policy rates unchanged for 1,292 days",
+      "Overnight interbank at 0.48% shows deep surplus",
+      "1-week rate at 6.20% above refinancing at 4.50%",
+      "Term funding premium blocks policy transmission",
+      "-3.40 pp VND-USD carry gap caps easing",
+      "3-month rate at 6.99% steepens yield curve"
+    ]
+  }
+}

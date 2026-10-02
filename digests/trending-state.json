@@ -337,8 +337,8 @@
       "lastReported": "2026-09-30"
     },
     "cursor/plugins": {
-      "stars": 6020,
-      "lastReported": "2026-08-29"
+      "stars": 9345,
+      "lastReported": "2026-10-02"
     },
     "dani-garcia/vaultwarden": {
       "stars": 67582,
@@ -385,8 +385,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 149389,
-      "lastReported": "2026-10-01"
+      "stars": 150760,
+      "lastReported": "2026-10-02"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -401,8 +401,8 @@
       "lastReported": "2026-09-30"
     },
     "earendil-works/pi": {
-      "stars": 105868,
-      "lastReported": "2026-09-16"
+      "stars": 111352,
+      "lastReported": "2026-10-02"
     },
     "earthtojake/text-to-cad": {
       "stars": 15129,
@@ -433,8 +433,8 @@
       "lastReported": "2026-09-01"
     },
     "f/prompts.chat": {
-      "stars": 170165,
-      "lastReported": "2026-09-13"
+      "stars": 171839,
+      "lastReported": "2026-10-02"
     },
     "firebase/firebase-ios-sdk": {
       "stars": 6781,
@@ -463,6 +463,10 @@
     "freestylefly/awesome-gpt-image-2": {
       "stars": 30996,
       "lastReported": "2026-09-11"
+    },
+    "Friedrich-M/UniMate": {
+      "stars": 1120,
+      "lastReported": "2026-10-02"
     },
     "FxEmbed/FxEmbed": {
       "stars": 5391,
@@ -517,8 +521,8 @@
       "lastReported": "2026-10-01"
     },
     "heygen-com/hyperframes": {
-      "stars": 54848,
-      "lastReported": "2026-10-01"
+      "stars": 55443,
+      "lastReported": "2026-10-02"
     },
     "higgsfield-ai/higgsfield": {
       "stars": 5020,
@@ -533,8 +537,8 @@
       "lastReported": "2026-09-24"
     },
     "HKUDS/DeepTutor": {
-      "stars": 37803,
-      "lastReported": "2026-08-29"
+      "stars": 40628,
+      "lastReported": "2026-10-02"
     },
     "HKUDS/LightRAG": {
       "stars": 39175,
@@ -571,6 +575,10 @@
     "humanlayer/skills": {
       "stars": 2778,
       "lastReported": "2026-09-06"
+    },
+    "HunxByts/GhostTrack": {
+      "stars": 16493,
+      "lastReported": "2026-10-02"
     },
     "Imbad0202/academic-research-skills": {
       "stars": 45642,
@@ -629,8 +637,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 108239,
-      "lastReported": "2026-09-29"
+      "stars": 108766,
+      "lastReported": "2026-10-02"
     },
     "julyx10/lap": {
       "stars": 2916,
@@ -749,8 +757,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 273158,
-      "lastReported": "2026-10-01"
+      "stars": 274067,
+      "lastReported": "2026-10-02"
     },
     "max-sixty/worktrunk": {
       "stars": 7294,
@@ -841,8 +849,8 @@
       "lastReported": "2026-09-17"
     },
     "mvschwarz/openrig": {
-      "stars": 3146,
-      "lastReported": "2026-10-01"
+      "stars": 3831,
+      "lastReported": "2026-10-02"
     },
     "mvt-project/mvt": {
       "stars": 14750,
@@ -889,8 +897,8 @@
       "lastReported": "2026-09-27"
     },
     "NVIDIA/OpenShell": {
-      "stars": 13050,
-      "lastReported": "2026-10-01"
+      "stars": 14106,
+      "lastReported": "2026-10-02"
     },
     "nvm-sh/nvm": {
       "stars": 94938,
@@ -901,16 +909,16 @@
       "lastReported": "2026-09-30"
     },
     "obra/superpowers": {
-      "stars": 291285,
-      "lastReported": "2026-09-25"
+      "stars": 294057,
+      "lastReported": "2026-10-02"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 181497,
-      "lastReported": "2026-09-23"
+      "stars": 182031,
+      "lastReported": "2026-10-02"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -980,6 +988,10 @@
       "stars": 1421,
       "lastReported": "2026-09-13"
     },
+    "pablostanley/yoinks": {
+      "stars": 3037,
+      "lastReported": "2026-10-02"
+    },
     "pacifio/atlas": {
       "stars": 4696,
       "lastReported": "2026-09-16"
@@ -1005,8 +1017,8 @@
       "lastReported": "2026-09-12"
     },
     "pbakaus/impeccable": {
-      "stars": 71261,
-      "lastReported": "2026-09-26"
+      "stars": 73802,
+      "lastReported": "2026-10-02"
     },
     "peetzweg/opendisplay": {
       "stars": 3670,
@@ -1033,8 +1045,8 @@
       "lastReported": "2026-09-03"
     },
     "pytorch/pytorch": {
-      "stars": 103094,
-      "lastReported": "2026-09-19"
+      "stars": 103608,
+      "lastReported": "2026-10-02"
     },
     "qdrant/qdrant": {
       "stars": 34693,
@@ -1288,6 +1300,10 @@
       "stars": 35466,
       "lastReported": "2026-09-11"
     },
+    "tile-ai/tilelang": {
+      "stars": 8155,
+      "lastReported": "2026-10-02"
+    },
     "tinyhumansai/openhuman": {
       "stars": 38312,
       "lastReported": "2026-08-27"
@@ -1301,8 +1317,8 @@
       "lastReported": "2026-09-16"
     },
     "topoteretes/cognee": {
-      "stars": 30794,
-      "lastReported": "2026-09-18"
+      "stars": 31296,
+      "lastReported": "2026-10-02"
     },
     "tradesdontlie/tradingview-mcp": {
       "stars": 6501,
@@ -1425,8 +1441,8 @@
       "lastReported": "2026-09-22"
     },
     "ZhuLinsen/daily_stock_analysis": {
-      "stars": 65334,
-      "lastReported": "2026-09-20"
+      "stars": 65840,
+      "lastReported": "2026-10-02"
     },
     "zi-yue-1129/DATAGEN": {
       "stars": 1799,

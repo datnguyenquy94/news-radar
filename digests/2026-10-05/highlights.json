@@ -1,0 +1,52 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI CLI tools split into production-grade and emerging tiers",
+      "Session durability and provider interoperability dominant themes",
+      "Windows/macOS platform fidelity remains persistent friction point",
+      "OpenAI Codex shipped 3 alpha releases in 24 hours",
+      "Gemini CLI released 1 nightly build",
+      "10 tools covered: Claude Code, Codex, Gemini CLI, Copilot CLI, more"
+    ],
+    "ai-agents": [
+      "OpenClaw processed 683 updates in 24h (183 issues, 500 PRs)",
+      "Near-even split: 91 open vs 92 closed issues",
+      "Active stabilization mode with test hardening and bug fixes",
+      "Update-path regressions block reliable upgrades to 2026.9.4+",
+      "Decision bottlenecks on plugin trust and cost enforcement",
+      "12 projects covered: NanoBot, Hermes Agent, PicoClaw, more"
+    ],
+    "ai-hn": [
+      "Gemini 4 Argon dominates HN with 1697 points, 1185 comments",
+      "FLUX 3 open-weight image model released by Black Forest Labs",
+      "OpenAI safety researcher resignation exposé sparks debate",
+      "Yann LeCun dismisses AI extinction risk concerns",
+      "AI beats top Stratego player on budget hardware",
+      "GPT-Synopsys mentioned among frontier model releases"
+    ],
+    "ai-community": [
+      "Local-first privacy-preserving AI trending on Dev.to",
+      "Offline hypoglycemia prediction agent uses TabPFN model",
+      "Bengali scam reader built with Gemma for accessibility",
+      "AI agent reliability: security, eval gaps, cost arbitrage debated",
+      "Vector database obsolescence discussed on Lobste.rs",
+      "Text-to-meowdio demo and type-theory debates emerge"
+    ],
+    "fin-macro": [
+      "Fed funds rate 3.88%, balance sheet $6.74T contracting",
+      "10-year yield 5.24% signals highly restrictive conditions",
+      "VIX at 16.39 indicates calm volatility environment",
+      "Margin debt rising to $1,453.8B (+2.6%)",
+      "Brent crude above $100 at $113.96/bbl inflationary",
+      "Unemployment near full employment but job growth weakening"
+    ],
+    "fin-vnmacro": [
+      "VN-Index at 1,737.71, down 6.20% over 20 sessions",
+      "VN30 down 5.50% in same correction window",
+      "VN30F1M basis positive +9.01 pts (+0.50%) futures premium",
+      "Dong stable at 26,170 (YTD -0.84%) vs strengthening dollar",
+      "DXY at 102.41 up 3.27% over 20 days",
+      "VNM ETF fallen 6.59% in 20 days offshore sentiment"
+    ]
+  }
+}

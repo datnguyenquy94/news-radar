@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code ships v2.1.294 patch (2 releases today)",
+      "OpenAI Codex drops 4 releases, including rust‑v0.162.0‑alpha.20",
+      "Pi and DeepSeek TUI debut lightweight terminal AI CLIs",
+      "All CLIs see ≥2 hot issues and multiple PR merges today",
+      "Agentic orchestration and sandbox safety dominate updates",
+      "Gemini CLI adds new model catalog and policy controls"
+    ],
+    "ai-agents": [
+      "OpenClaw issues spike to 213 in 24h",
+      "500 PRs touched; 71% still open",
+      "New beta v2026.10.1‑beta.2 hot‑fix released",
+      "Release bundles 40 commits, no breaking changes",
+      "Operators advised to rerun `openclaw onboard` post‑upgrade",
+      "Backlog includes high‑priority bugs blocking workflows"
+    ],
+    "ai-trending": [
+      "rea repo gains 4,655 stars in a single day",
+      "i‑have‑adhd skill adds 13,198 stars since Sep",
+      "claude‑mem & mem0 pull 3,300 stars weekly",
+      "langchain climbs 530 stars, stays top AI infra",
+      "cmux (Swift) appears, 27,935 stars on day 1",
+      "cua (Rust) jumps 28,870 stars, 3,086 since Sep 22"
+    ],
+    "ai-web": [
+      "Anthropic’s Claude identifies new CRISPR‑like enzyme",
+      "Claude life‑sciences team launches dedicated research group",
+      "Anthropic opens CVP tiered access for Opus 5.5, Sonnet 5.5",
+      "OpenAI adds 13 new index pages hinting at GPT‑6 launch",
+      "Index titles: “Builders Guide to GPT‑5 6”, “GPT‑6 for All”",
+      "OpenAI’s GPT‑6 aims at compliance and provenance"
+    ],
+    "ai-hn": [
+      "Claude Haiku 5.5 launches, touted as cheap inference",
+      "GPT‑6 “Intelligent UI for everyone” announced on HN",
+      "Mistral Large 4 debut with 4‑B parameters and high scores",
+      "OpenAI math‑paper platform sparks Fields‑medalist rebuttal",
+      "Bloomberg study warns AI‑induced market price discrimination",
+      "Meta & Microsoft restrict Claude usage amid safety concerns"
+    ],
+    "ai-arxiv": [
+      "EngramEdit adds conditional memory for cheap LLM updates",
+      "RECAST adds adaptive evidence routing to cut context cost",
+      "New benchmarks formalize embodied agent evaluation",
+      "Decentralized training methods handle heavy‑tailed noise",
+      "KV‑cache compression techniques boost inference efficiency",
+      "Modular LLM designs enable targeted knowledge edits"
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B leads hub with 17 k likes",
+      "GGUF quantized packs surge, many Qwen‑3.8 variants",
+      "Lightricks LTX‑2.5 adds image‑to‑video generation",
+      "Qwen‑Image‑2.1‑Uncensored‑GGUF tops text‑to‑image models",
+      "GEV‑26B‑Decide safety classifier gets 1,454 likes",
+      "Kolibri‑1 MoE 1‑trillion model praised for chain‑of‑thought"
+    ],
+    "ai-community": [
+      "Front‑end devs waste tokens; 5 ways to cut AI costs",
+      "Tutorial: OpenAI Decisions API with Strands Agents",
+      "Python coding system validates its own output before trust",
+      "Debate on AI tools' mental‑health impact",
+      "Security focus: prompt‑injection hygiene best practices shared",
+      "Guides on affordable LLM‑powered tools get strong reactions"
+    ],
+    "fin-macro": [
+      "Fed Funds steady at 3.88% on Oct 8",
+      "Fed balance sheet drops to $6.74 T",
+      "VIX calm at 15.01",
+      "Treasury 10‑yr yield at 5.27%",
+      "Retail margin debt climbs 2.6% MoM to $1.45T",
+      "Oil stays under $100/bbl, supporting risk assets"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.30% to 1,753.39",
+      "VN30 loses 0.20% to 1,894.2",
+      "Dong flat at 26,160 VND per USD",
+      "US Dollar Index rises to 102.33 (+0.09%)",
+      "Brent crude climbs 2.61% to $102.82/bbl",
+      "VNM ETF falls 0.35% to $16.87"
+    ],
+    "fin-vnrates": [
+      "Policy rates unchanged since June 2023 (3.0%–4.5%)",
+      "Overnight interbank rate plunges to 1.18%",
+      "Large policy gap of –3.32 pp squeezes transmission",
+      "1‑week funding at 2.62% down 0.60 pp",
+      "3‑month rate rises to 6.75% (+0.44 pp)",
+      "Turnover spikes 287% for 3‑month tenor"
+    ]
+  }
+}

@@ -137,16 +137,16 @@
       "lastReported": "2026-09-24"
     },
     "anthropics/knowledge-work-plugins": {
-      "stars": 24919,
-      "lastReported": "2026-09-19"
+      "stars": 27797,
+      "lastReported": "2026-10-09"
     },
     "anthropics/skills": {
       "stars": 178381,
       "lastReported": "2026-09-26"
     },
     "apache/airflow": {
-      "stars": 46615,
-      "lastReported": "2026-08-27"
+      "stars": 47128,
+      "lastReported": "2026-10-09"
     },
     "apache/casbin-gateway": {
       "stars": 570,
@@ -221,8 +221,8 @@
       "lastReported": "2026-10-08"
     },
     "boykopovar/AnyPS5": {
-      "stars": 11483,
-      "lastReported": "2026-10-08"
+      "stars": 16722,
+      "lastReported": "2026-10-09"
     },
     "BraveOPotato/FckSignups": {
       "stars": 3893,
@@ -265,12 +265,12 @@
       "lastReported": "2026-09-26"
     },
     "career-ops-hq/career-ops": {
-      "stars": 73329,
-      "lastReported": "2026-10-03"
+      "stars": 73851,
+      "lastReported": "2026-10-09"
     },
     "cathrynlavery/diagram-design": {
-      "stars": 45259,
-      "lastReported": "2026-10-08"
+      "stars": 46749,
+      "lastReported": "2026-10-09"
     },
     "checkstyle/checkstyle": {
       "stars": 9445,
@@ -369,8 +369,8 @@
       "lastReported": "2026-08-26"
     },
     "datawhalechina/hello-agents": {
-      "stars": 81348,
-      "lastReported": "2026-09-30"
+      "stars": 82106,
+      "lastReported": "2026-10-09"
     },
     "davila7/claude-code-templates": {
       "stars": 31191,
@@ -401,8 +401,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 157824,
-      "lastReported": "2026-10-08"
+      "stars": 158769,
+      "lastReported": "2026-10-09"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -553,8 +553,8 @@
       "lastReported": "2026-09-24"
     },
     "headroomlabs-ai/headroom": {
-      "stars": 74200,
-      "lastReported": "2026-10-01"
+      "stars": 74778,
+      "lastReported": "2026-10-09"
     },
     "heygen-com/hyperframes": {
       "stars": 55973,
@@ -757,8 +757,8 @@
       "lastReported": "2026-09-08"
     },
     "liquidslr/system-design-notes": {
-      "stars": 18924,
-      "lastReported": "2026-09-11"
+      "stars": 24866,
+      "lastReported": "2026-10-09"
     },
     "livekit/agents": {
       "stars": 13405,
@@ -805,8 +805,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 280019,
-      "lastReported": "2026-10-08"
+      "stars": 281432,
+      "lastReported": "2026-10-09"
     },
     "max-sixty/worktrunk": {
       "stars": 7294,
@@ -893,8 +893,8 @@
       "lastReported": "2026-09-08"
     },
     "morluto/rea": {
-      "stars": 17117,
-      "lastReported": "2026-10-08"
+      "stars": 30106,
+      "lastReported": "2026-10-09"
     },
     "multica-ai/andrej-karpathy-skills": {
       "stars": 211560,
@@ -1057,8 +1057,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 93553,
-      "lastReported": "2026-10-08"
+      "stars": 94312,
+      "lastReported": "2026-10-09"
     },
     "paperclipai/paperclip": {
       "stars": 94690,
@@ -1252,6 +1252,10 @@
       "stars": 12834,
       "lastReported": "2026-08-26"
     },
+    "storytold/artcraft": {
+      "stars": 8688,
+      "lastReported": "2026-10-09"
+    },
     "strands-agents/harness-sdk": {
       "stars": 7927,
       "lastReported": "2026-09-24"
@@ -1357,8 +1361,8 @@
       "lastReported": "2026-10-01"
     },
     "thedotmack/claude-mem": {
-      "stars": 97898,
-      "lastReported": "2026-10-08"
+      "stars": 98658,
+      "lastReported": "2026-10-09"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -1389,8 +1393,8 @@
       "lastReported": "2026-09-16"
     },
     "topoteretes/cognee": {
-      "stars": 31296,
-      "lastReported": "2026-10-02"
+      "stars": 31798,
+      "lastReported": "2026-10-09"
     },
     "tradesdontlie/tradingview-mcp": {
       "stars": 6501,

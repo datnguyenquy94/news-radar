@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.295 released with safety hooks",
+      "OpenAI Codex faces Windows sandbox failures",
+      "AI-CLI ecosystem emphasizes security hardening",
+      "Multi‑tenant authentication gains focus",
+      "State‑ful AI agents moving toward enterprise grade",
+      "Qwen Code and Copilot CLI see PR surge"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.9 released with 185 commits",
+      "185 issues touched, 118 still open",
+      "500 PRs updated, 140 merged/closed",
+      "Runtime stability problems dominate community",
+      "UI/UX regressions cause widespread concern",
+      "Hook subprocess model altered, needs explicit cleanup"
+    ],
+    "ai-trending": [
+      "Agent tools gain +30k stars in a day",
+      "Headroom cuts JSON token usage up to 95%",
+      "ArtCraft engine hits 2.1k stars on launch",
+      "diagram‑design adds 1.5k stars, total 46.7k",
+      "knowledge‑work‑plugins up 392 stars today",
+      "RAG utilities headroom & cognee see double‑digit growth"
+    ],
+    "ai-web": [
+      "Anthropic pledges $150M Genesis Mission to US agencies",
+      "Anthropic launches Cyber Mission with free OSS Scanner",
+      "Claude Science creates first full‑sky UV map",
+      "OpenAI adds pages on malicious AI influence",
+      "Anthropic expands AI‑for‑cyber‑security offerings",
+      "Seven new Anthropic/OpenAI articles published today"
+    ],
+    "ai-hn": [
+      "OpenAI retracts three claimed math results, sparks debate",
+      "OpenAI blog on AI progress in math goes viral",
+      "Community proves optimal packing for 11 squares with AI",
+      "Mistral Large 4 tops HN with 2028 score",
+      "Claude Haiku 5.5 draws mixed reviews on HN",
+      "OpenAI revenue forecast $20B below expectations"
+    ],
+    "ai-arxiv": [
+      "New benchmark tests epistemic humility in LLM agents",
+      "Audit reveals gaps in harmful‑refusal detection",
+      "Study links value‑rep geometry to alignment generalization",
+      "Agent‑level monitoring tools gain real‑time traceability",
+      "4‑bit optimizer‑state quantization boosts efficiency",
+      "Recurrent‑depth transformers enable scaling with less compute"
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B leads with 17k likes, 1M downloads",
+      "Flash‑Next Qwen variant also crosses 1M downloads",
+      "GGUF ternary quantizations surge in popularity",
+      "autotrust GEV‑26B‑Decide gets 1.9k likes, 900k downloads",
+      "laya model praised for risk‑aware classification",
+      "Kolibri‑1 MoE 1B excels in chain‑of‑thought reasoning"
+    ],
+    "ai-community": [
+      "Dev.to tutorials tune retry policies for AI pipelines",
+      "‘Meat Proxies’ case study shows LLMs in code reviews",
+      "‘TouchGrass’ hack builds outdoor‑reminder AI agent",
+      "Articles stress token‑budget cuts improve reliability",
+      "Community warns against hype of ‘faster‑with‑AI’",
+      "On‑device vision and RAG pipelines gain traction"
+    ],
+    "fin-macro": [
+      "Fed balance sheet steady at $6.75 T",
+      "Policy rate unchanged at 3.88% (moderately restrictive)",
+      "10‑yr Treasury yield at 5.28%, highly restrictive",
+      "Retail margin debt up 2.6% month‑over‑month",
+      "Core inflation remains above 2% target",
+      "10‑yr‑2‑yr spread narrows to 0.47%"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls 0.8% amid broad sell‑off",
+      "VN30 drops 0.9% same day",
+      "FDI up 12% YoY to $17.25 bn in first 8 months",
+      "Dong weakens 0.27% month‑on‑month",
+      "Gold climbs 1.75% in one day",
+      "Brent crude slips 1.42% to $102.80"
+    ],
+    "fin-vnrates": [
+      "SBV refinancing ceiling stays at 4.5%",
+      "Overnight interbank rate plunges to 0.72%",
+      "1‑week rate falls to 2.23% with high turnover",
+      "1‑month rate drops to 4.80% amid easing",
+      "Market rates far below policy ceiling",
+      "Liquidity surge pushes ultra‑low funding costs"
+    ]
+  }
+}

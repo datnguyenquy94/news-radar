@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.296 adds plug‑in support.",
+      "OpenAI Codex 0.162.1 & 0.163.0‑alpha released.",
+      "Gemini CLI nightly v0.65.0 now available.",
+      "GitHub Copilot CLI reaches v1.0.96‑2.",
+      "Focus on extensibility and Windows stability.",
+      "Kimi Code and Grok Build show minimal activity."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 166 new issues in 24h.",
+      "500 PRs touched; no new release today.",
+      "Bug surge on isolated‑cron and session state.",
+      "PR #168052 adds detailed CLI validation errors.",
+      "Cross‑channel messaging bugs dominate discussions.",
+      "OpenClaw stable version remains 2026.9.6 (eb377ac)."
+    ],
+    "ai-trending": [
+      "Agent tooling stars +30k in two days.",
+      "litellm launches Rust‑backed LLM gateway.",
+      "ollama runtime gains 8.6k new stars.",
+      "ragflow‑go adds 546 stars this month.",
+      "alibaba/open-code-review up 326 stars today.",
+      "anthropics/knowledge-work-plugins +709 stars."
+    ],
+    "ai-web": [
+      "Anthropic posts four new safety‑focused articles.",
+      "First stand‑alone “Unintended Model Actions” report.",
+      "Claude Science case study highlights scientific use.",
+      "OpenAI publishes four enterprise‑focused guides.",
+      "OpenAI content targets AI‑native workflow adoption.",
+      "Anthropic’s community‑impact program announced."
+    ],
+    "ai-hn": [
+      "Mistral Large 4 open‑weight release sparks hype.",
+      "OpenAI debuts math theorem‑proving suite.",
+      "Debate over OpenAI firing safety researchers.",
+      "Typesafe AI raises $870 M Series B.",
+      "OpenAI “Partition Principle” blog sparks talk.",
+      "Community critiques model‑card fatigue for Mistral."
+    ],
+    "ai-arxiv": [
+      "Value‑rep probe predicts alignment generalization.",
+      "Audit uncovers hidden variance in harmful refusal scores.",
+      "Study evaluates epistemic humility in LLM agents.",
+      "Multimodal control advances with scarce human data.",
+      "Low‑bit optimizer quantization toolkit released.",
+      "Bifurcation‑aware generative modeling paper appears."
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B tops likes with 17,362.",
+      "Qwen Flash‑Next adds low‑latency inference.",
+      "DeepSeek V4.1‑Flash reaches 4,300 likes.",
+      "Aleph‑Alpha Kolibri‑1 gains 847 likes.",
+      "GGUF 2‑bit quantized models surge in downloads.",
+      "Lightricks LTX‑2.5 video diffusion hits 7k likes."
+    ],
+    "ai-community": [
+      "Dev.to warns AI “yes‑men” ignore truth.",
+      "Essay contrasts AI gains vs stagnant legacy code.",
+      "Voice‑only RPG “Zero‑Screen Dungeon Master” featured.",
+      "Docker releases new agent wall for sandboxing.",
+      "Burn 0.22.0 reduces compute bills significantly.",
+      "Guides share low‑cost offline AI deployment tricks."
+    ],
+    "fin-macro": [
+      "Fed balance sheet rises to $6.75 T.",
+      "Policy rate holds steady at 3.88 %.",
+      "CPI at 3.7 % YoY; core CPI 2.8 %.",
+      "Brent crude at $125.44 per barrel.",
+      "Retail margin debt climbs to $1.45 T.",
+      "High‑yield spread sits at 3.15 %."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index at 1,735.09, down 0.2%.",
+      "VN30 slips to 1,873.43, –0.2%.",
+      "VND trades at 26,070 per USD (‑0.15%).",
+      "USD index up to 102.21.",
+      "Brent crude at $104.72 per barrel.",
+      "Gold climbs to $4,216.3/oz."
+    ],
+    "fin-vnrates": [
+      "SBV floor 3.0%, ceiling 4.5%.",
+      "Overnight rate 0.99%, far below floor.",
+      "1‑week rate 2.37% still cheap.",
+      "3‑month rate 6.64% near ceiling.",
+      "Interbank market shows excess liquidity.",
+      "Rate curve steepens sharply at longer tenors."
+    ]
+  }
+}

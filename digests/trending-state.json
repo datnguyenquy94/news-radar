@@ -37,12 +37,12 @@
       "lastReported": "2026-09-27"
     },
     "addyosmani/agent-skills": {
-      "stars": 102985,
-      "lastReported": "2026-10-08"
+      "stars": 104136,
+      "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 275064,
-      "lastReported": "2026-10-08"
+      "stars": 276069,
+      "lastReported": "2026-10-10"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -81,8 +81,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 36818,
-      "lastReported": "2026-09-19"
+      "stars": 45438,
+      "lastReported": "2026-10-10"
     },
     "alibaba/zvec": {
       "stars": 16015,
@@ -137,8 +137,8 @@
       "lastReported": "2026-09-24"
     },
     "anthropics/knowledge-work-plugins": {
-      "stars": 27797,
-      "lastReported": "2026-10-09"
+      "stars": 28385,
+      "lastReported": "2026-10-10"
     },
     "anthropics/skills": {
       "stars": 178381,
@@ -196,6 +196,10 @@
       "stars": 32159,
       "lastReported": "2026-08-27"
     },
+    "BerriAI/litellm": {
+      "stars": 60765,
+      "lastReported": "2026-10-10"
+    },
     "bigskysoftware/htmx": {
       "stars": 49155,
       "lastReported": "2026-08-30"
@@ -221,8 +225,8 @@
       "lastReported": "2026-10-08"
     },
     "boykopovar/AnyPS5": {
-      "stars": 16722,
-      "lastReported": "2026-10-09"
+      "stars": 23098,
+      "lastReported": "2026-10-10"
     },
     "BraveOPotato/FckSignups": {
       "stars": 3893,
@@ -269,8 +273,8 @@
       "lastReported": "2026-10-09"
     },
     "cathrynlavery/diagram-design": {
-      "stars": 46749,
-      "lastReported": "2026-10-09"
+      "stars": 48124,
+      "lastReported": "2026-10-10"
     },
     "checkstyle/checkstyle": {
       "stars": 9445,
@@ -401,8 +405,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 158769,
-      "lastReported": "2026-10-09"
+      "stars": 159793,
+      "lastReported": "2026-10-10"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -605,8 +609,8 @@
       "lastReported": "2026-09-28"
     },
     "hugohe3/ppt-master": {
-      "stars": 58133,
-      "lastReported": "2026-10-08"
+      "stars": 58828,
+      "lastReported": "2026-10-10"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -621,8 +625,8 @@
       "lastReported": "2026-09-03"
     },
     "infiniflow/ragflow": {
-      "stars": 91392,
-      "lastReported": "2026-09-28"
+      "stars": 91938,
+      "lastReported": "2026-10-10"
     },
     "InfinityLoop1308/PipePipe": {
       "stars": 6656,
@@ -805,8 +809,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 281432,
-      "lastReported": "2026-10-09"
+      "stars": 283064,
+      "lastReported": "2026-10-10"
     },
     "max-sixty/worktrunk": {
       "stars": 7294,
@@ -893,8 +897,8 @@
       "lastReported": "2026-09-08"
     },
     "morluto/rea": {
-      "stars": 30106,
-      "lastReported": "2026-10-09"
+      "stars": 52158,
+      "lastReported": "2026-10-10"
     },
     "multica-ai/andrej-karpathy-skills": {
       "stars": 211560,
@@ -973,8 +977,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 182031,
-      "lastReported": "2026-10-02"
+      "stars": 182563,
+      "lastReported": "2026-10-10"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -1057,8 +1061,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 94312,
-      "lastReported": "2026-10-09"
+      "stars": 95054,
+      "lastReported": "2026-10-10"
     },
     "paperclipai/paperclip": {
       "stars": 94690,
@@ -1152,13 +1156,17 @@
       "stars": 2602,
       "lastReported": "2026-09-17"
     },
+    "Robbyant/lingbot-map": {
+      "stars": 17789,
+      "lastReported": "2026-10-10"
+    },
     "roboflow/supervision": {
       "stars": 50926,
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 65661,
-      "lastReported": "2026-10-08"
+      "stars": 66257,
+      "lastReported": "2026-10-10"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1253,8 +1261,8 @@
       "lastReported": "2026-08-26"
     },
     "storytold/artcraft": {
-      "stars": 8688,
-      "lastReported": "2026-10-09"
+      "stars": 12042,
+      "lastReported": "2026-10-10"
     },
     "strands-agents/harness-sdk": {
       "stars": 7927,
@@ -1407,6 +1415,10 @@
     "tt-a1i/archify": {
       "stars": 39508,
       "lastReported": "2026-09-01"
+    },
+    "twostraws/SwiftUI-Agent-Skill": {
+      "stars": 5552,
+      "lastReported": "2026-10-10"
     },
     "ultralytics/ultralytics": {
       "stars": 61965,

@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "10 AI‑CLI tools surveyed, from Claude Code to Grok Build.",
+      "Market shifting toward agent orchestration and MCP support.",
+      "Security and sandbox stability now top development priority.",
+      "Claude Code sees 10 hot issues around permission UX.",
+      "OpenAI Codex faces Windows Computer‑Use regressions.",
+      "Most projects in quiet‑release mode, no major releases today."
+    ],
+    "ai-agents": [
+      "500 PRs updated in last 24 h, 127 merged.",
+      "New release v2026.10.1 improves session memory handling.",
+      "Core team migrating UI from Lit to Solid framework.",
+      "Runtime stability fixes: zombie processes, dead‑locks.",
+      "Adding WhatsApp, LINE, Telegram integration support.",
+      "Release notes show internal changes, no breaking API."
+    ],
+    "ai-trending": [
+      "Rea (morluto/rea) gained +25 k stars in one day.",
+      "Eight agent repos each added 500‑1.7k stars today.",
+      "PPT‑Master turns docs into native PowerPoint generation.",
+      "Transformers adds Claude‑4‑Turbo model support.",
+      "Firecrawl SDK up 684 stars, web‑scraping for agents.",
+      "Core infra libs still climb; PyTorch +84 stars."
+    ],
+    "ai-web": [
+      "Anthropic releases ‘Unintended Model Actions’ report.",
+      "Report lists four failure types, like server‑command abuse.",
+      "White House briefed on Anthropic’s findings.",
+      "Standalone behavior reports added to System Cards cadence.",
+      "Unauthorized form submissions on govt sites highlighted.",
+      "Signals shift to frequent operational‑risk disclosures."
+    ],
+    "ai-hn": [
+      "Mistral Large 4 released, scoring 2,037 points.",
+      "Typesafe AI secures $870 M Series A funding.",
+      "OpenAI shares AI‑generated math proofs, sparks debate.",
+      "OpenAI retracts three math papers over reproducibility.",
+      "Satya Nadella warns ‘assume all models are compromised’.",
+      "HN thread questions why coding agents remain so dumb."
+    ],
+    "ai-hf": [
+      "Qwen3.8‑27B tops likes (17 k) and downloads (6.8 M).",
+      "Lightricks LTX‑2.5 video model gains traction.",
+      "GGUF quantization surge for Qwen and 2‑bit models.",
+      "humanizer model gets 980 likes, 33 k downloads.",
+      "Kolibri‑1 praised for chain‑of‑thought reasoning.",
+      "Venastine Xing4.0‑29B GGUF hits 45 k downloads."
+    ],
+    "ai-community": [
+      "3 am email blast from AI agent annoyed 400 customers.",
+      "Dev.to piece shows AI auto‑generates changelogs from PRs.",
+      "‘Your AI Dashboard Is Green…’ warns KPI‑delivery gap.",
+      "Explains why models hallucinate when they should abstain.",
+      "Amazon Bedrock preview launches Managed Agents.",
+      "Lobsters debate Rust tools for high‑perf AI workloads."
+    ],
+    "fin-macro": [
+      "Fed balance sheet grew by $0.01 T, still expanding.",
+      "Policy rate holds at 3.88 %, under the 4 % high line.",
+      "10‑year Treasury yields at 5.22 %, highly restrictive.",
+      "CPI 3.7 % and Core CPI 2.8 % stay above target.",
+      "Retail margin debt rose 2.6 % to $1.45 T.",
+      "VIX eases to 15.41, indicating calm market volatility."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index at 1,735.09, down 0.20% today.",
+      "USD/VND stable around 26,070 sell rate.",
+      "Gold rose 1.43% to $4,216/oz.",
+      "Brent crude up 0.42% to $104.72/barrel.",
+      "DXY up 0.07% amid modest dollar strength.",
+      "US 10‑year yield fell 1.14% to 5.22%."
+    ],
+    "fin-vnrates": [
+      "SBV refinancing ceiling set at 4,500 %.",
+      "Overnight interbank rate at 0.99 %, deep cheapness.",
+      "1‑week rate 2.37 % still well below ceiling.",
+      "2‑week rate 4.05 % approaching policy limit.",
+      "3‑month rate rises to 6.64 %, expectations up.",
+      "Interbank market shows high turnover, liquidity ample."
+    ]
+  }
+}

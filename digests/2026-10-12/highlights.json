@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Gemini CLI releases nightly v0.65.0‑nightly build",
+      "Claude Code adds new skill framework for agents",
+      "OpenAI Codex pushes 10 PRs fixing desktop/TUI bugs",
+      "GitHub Copilot CLI ships a fresh update today",
+      "Hybrid UI + CLI becomes standard developer workflow",
+      "Community demands performance‑aware session management"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.10.2 stable released with safe upgrades",
+      "OpenClaw 2026.10.5‑beta.1 adds thread‑offload refactor",
+      "198 issues and 500 PRs opened in the last 24 h",
+      "Session‑lifecycle moved off main thread for stability",
+      "Memory‑pressure crashes still being reported",
+      "Community sentiment mixed on current stability"
+    ],
+    "ai-trending": [
+      "morluto/rea gains +38,125 stars in a single day",
+      "airllm runs a 70 B LLM on a 4 GB GPU",
+      "Agent‑Reach CLI offers free web‑wide agent browsing",
+      "Cherry Studio bundles 300+ AI assistants in one suite",
+      "Ponytail cuts token waste with lazy code generation",
+      "Agent‑centric tools dominate today’s trending list"
+    ],
+    "ai-hn": [
+      "Mistral Large 4 143B model released, sparks excitement",
+      "OpenAI safety‑team shake‑up fuels community debate",
+      "OpenAI shares AI breakthroughs in mathematics",
+      "Self‑hosted agents like Plimsoll and Talorys trend fast",
+      "Debate on perception vs real LLM capabilities heats up",
+      "Recursive self‑improvement pre‑print raises safety concerns"
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B leads hub with 17k likes, 6.8M downloads",
+      "GGUF quantizations surge, many community releases appear",
+      "Lightricks/LTX‑2.5 tops video‑centric model likes",
+      "humanizer GGUF adds human‑like filter to outputs",
+      "Kolibri‑1 MoE model gains traction for reasoning tasks",
+      "Xing4.0‑29B‑GGUF offers strong Chinese performance"
+    ],
+    "ai-community": [
+      "Developers share 'Touch Grass' offline AI trail companion",
+      "Georgian benchmark shows GPT‑6 vs Gemini‑4 gaps",
+      "Voice‑activated greeting bot highlights sensor noise issues",
+      "Prompt‑injection safety posts rise in popularity",
+      "Cost‑efficiency tricks for model quantization trend",
+      "Creator‑centric tools for AI‑agent guardrails discussed"
+    ],
+    "fin-macro": [
+      "Fed funds rate stays steady at 3.88%",
+      "10‑year Treasury yield at 5.22% remains high",
+      "CPI inflation still 3.7% YoY, above 2% goal",
+      "Retail margin debt rises 2.6% to $1.45 T",
+      "VIX calm at 15.4, showing low market volatility",
+      "Credit spreads stay low, indicating minimal stress"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index slips 0.20% on thin trading day",
+      "VND stable near 26,070 per USD",
+      "US 10Y Treasury yield up 5.45% YTD",
+      "Dollar index up 2.80% over past 20 days",
+      "Gold retreats 3.24% over 20‑day window",
+      "VanEck Vietnam ETF (VNM) up 0.66% today"
+    ],
+    "fin-vnrates": [
+      "Vietnam discount rate sits at 3.0%",
+      "Refinancing ceiling set at 4.5%",
+      "Overnight rate 0.99% near floor pricing",
+      "1‑Week rate 2.37% shows liquidity easing",
+      "3‑Month rate 6.64% indicates steepening curve",
+      "Interbank turnover dominated by overnight‑plus‑1‑week"
+    ]
+  }
+}

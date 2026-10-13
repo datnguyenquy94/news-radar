@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code shows 10 hot issues with 130+ comments.",
+      "OpenAI Codex merges 10 PRs in last 24h.",
+      "AI‑CLI tools now offer model‑agnostic cores.",
+      "Developers demand persistent, resumable CLI sessions.",
+      "New plug‑in/sub‑agent frameworks appear across tools.",
+      "No new releases for major CLI tools today."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 115 issues and 500 PRs in 24h.",
+      "41 issues remain open, 347 PRs await merge.",
+      "Beta v2026.10.5‑beta.2 released today.",
+      "Update‑recovery overhaul fixes stale handoff leases.",
+      "New Windows short‑path handling added.",
+      "Rapid bug‑squash before next stable release."
+    ],
+    "ai-trending": [
+      "REA agent platform gains +45k stars in one day.",
+      "Microsoft releases BitNet, a 1‑bit LLM inference framework.",
+      "AirLLM runs 2.8‑trillion‑param model on 4 GB GPU.",
+      "BitNet debut signals surge in extreme quantisation research.",
+      "AirLLM star surge (+879) reflects big‑model‑tiny‑GPU hype.",
+      "Qwen family leads AI infrastructure trending list today."
+    ],
+    "ai-web": [
+      "Anthropic warns frontier models could self‑replicate on IoT.",
+      "Claude’s life‑sciences arm discovers novel enzyme via AI.",
+      "Anthropic cuts distillation attack data loss 90‑99%.",
+      "New catalog lists unintended model actions and exploits.",
+      "Anthropic posts two back‑dated security articles today.",
+      "No new OpenAI articles added to official content today."
+    ],
+    "ai-hn": [
+      "New paper proves LLMs can hide arbitrary capabilities.",
+      "Karpathy’s “capability gap” tweet sparks top‑comment storm.",
+      "REA agent platform gains massive star surge, dominates HN.",
+      "IMF warns AI‑stock crash could hit global finance.",
+      "Police tool can locate houses from a single interior photo.",
+      "Debate intensifies on model safety after hidden‑capability paper."
+    ],
+    "ai-hf": [
+      "Qwen3.8‑27B tops charts with 17,590 likes.",
+      "LTX‑2.5 shows high‑quality image‑to‑video diffusion.",
+      "Quantised Qwen‑Image‑2.1‑Uncensored gains 4k likes.",
+      "Ternary‑Bonsai‑2‑27B‑gguf hits 4k likes for low‑bit inference.",
+      "humanizer 4‑bit Gemma model attracts 1,354 likes.",
+      "Underdog‑Saluki‑27B‑1.0 offers 2‑bit tool‑calling."
+    ],
+    "ai-community": [
+      "Developers debate AI safety and governance policies.",
+      "Token‑burn audits expose hidden AI agent costs.",
+      "Local LLM benchmark challenges Claude‑Code claims.",
+      "Hacktoberfest “Touch Grass” open‑source challenge launched.",
+      "Whistle 16.9 MB STT model released for tiny devices.",
+      "Byte‑LM scaling study highlights efficiency of tiny models."
+    ],
+    "fin-macro": [
+      "Fed balance sheet hits record $6.75 trillion.",
+      "Fed funds rate steadied at 3.88 % this week.",
+      "10‑year Treasury yield sits at 5.22 %.",
+      "CPI remains sticky at 3.7 % YoY.",
+      "VIX lowered to 14.84, near calm.",
+      "Retail margin debt rose 2.6 % month‑over‑month."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index fell 0.80% on Oct 12.",
+      "VN30 slipped 0.20% same day.",
+      "VND sell rate at 26,110 VND, –1.06% YTD.",
+      "US Dollar Index down 0.16% today.",
+      "US 10Y Treasury yield fell 1.14% today.",
+      "Gold rose 0.51% to $4,211.9/oz."
+    ],
+    "fin-vnrates": [
+      "Discount rate fixed at 3,000% since 2023.",
+      "Refinancing ceiling stays at 4,500%.",
+      "Overnight rate climbs to 4.52%, near ceiling.",
+      "1‑week rate at 4.94% above policy ceiling.",
+      "3‑month rate spikes to 6.75% indicating steep curve.",
+      "Market rates above policy suggest mild tightening."
+    ]
+  }
+}

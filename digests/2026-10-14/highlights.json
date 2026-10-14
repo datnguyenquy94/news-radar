@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code dominates enterprise‑grade AI‑CLI market",
+      "Qwen Code and OpenAI Codex push multi‑agent runtimes",
+      "Gemini CLI and DeepSeek TUI focus on rich UI experiences",
+      "Frequent micro‑releases add security hardening",
+      "Community converges on distributed memory and secret handling",
+      "Ecosystem splits: production stacks vs developer‑first tools"
+    ],
+    "ai-agents": [
+      "OpenClaw logs 217 issues and 500 PRs in 24 h",
+      "Beta v2026.10.5‑beta.3 adds gateway persistence",
+      "Windows scheduled‑task accounts now supported",
+      "macOS protected Bun service integrated",
+      "Performance regressions dominate current bugs",
+      "Rapid UI polish alongside release‑blocking fixes"
+    ],
+    "ai-trending": [
+      "morluto/rea gains +54 k stars, total 214 k",
+      "VoiceStudio adds +1 748 stars today",
+      "airllm +1 001 stars, runs 2.8 T model on 4 GB GPU",
+      "ollama +509 stars, local LLM serving hub",
+      "headroom token‑compression proxy attracts +500 stars",
+      "ultralytics YOLO family climbs +513 stars"
+    ],
+    "ai-web": [
+      "Anthropic unveils Scion, a custom Git replacement",
+      "Antique code‑review UI supports 30 k daily merges",
+      "Claude agents now push 10× more code daily",
+      "New brief claims 90‑99% reduction vs distillation attacks",
+      "Anthropic adds IAM‑level data‑masking safeguards",
+      "OpenAI released no new content today"
+    ],
+    "ai-hn": [
+      "Gemini 4 Argon dominates HN with 1 127 score",
+      "OpenAI engineer arrested for alleged conference‑room bugging",
+      "Character.ai files for bankruptcy, sparks governance debate",
+      "Open‑letter warns of AI‑cybersecurity threats",
+      "Community seeks on‑device AI budgeting tools",
+      "Security flaw: agents bypass auth checks and act unexpectedly"
+    ],
+    "ai-arxiv": [
+      "Log‑linear law discovered in LM logits across tasks",
+      "Distillation imprints teacher bias onto student models",
+      "Reproducibility study challenges factuality claim methods",
+      "Paper proposes provable autonomy guarantees for LLM agents",
+      "Multilingual dense retrieval found unstable across languages",
+      "Watermark tampering reveals hidden bias in quantised models"
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B multimodal model leads downloads",
+      "EmbeddingGemma‑2 climbs fast in embedding category",
+      "GGUF 2‑bit quantisation wave fuels efficient models",
+      "autotrust/JEV‑35B earns 577 likes, 17 k downloads",
+      "convaiinnovations/laya tops likes with 5 575",
+      "LiquidAI/LFM2.5‑24B‑A2B MoE gains traction"
+    ],
+    "ai-community": [
+      "Dev.to article warns of growing AI fatigue",
+      "Vibe‑coding clones struggle without core UX",
+      "Security checklist for AI agents overreaching auth",
+      "Kubernetes shared env testing AI‑generated code discussed",
+      "Agents audited for token‑cost optimisation",
+      "Push for locally‑run agents to avoid paid APIs"
+    ],
+    "fin-macro": [
+      "Fed balance sheet rises to $6.75 T",
+      "Policy rate holds at 3.88%",
+      "10‑year Treasury yields 5.24%",
+      "VIX steadies at 15.2, low volatility",
+      "Retail margin debt up 2.6% MoM",
+      "CPI inflation at 3.7% YoY, above target"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.10% on trading day",
+      "VN30 falls 0.40%, slight sell‑off",
+      "Dong sell rate 26,080 VND/USD, -0.38% M",
+      "US 10Y yield climbs to 5.24%",
+      "Gold price at $4,181/oz, up 0.11%",
+      "Oil near $96/bbl, modest pressure"
+    ],
+    "fin-vnrates": [
+      "Overnight rate 4.75% rises 0.23pp",
+      "1‑month rate spikes to 5.61%",
+      "3‑month rate jumps to 7.60% (+0.85pp)",
+      "Short‑end turnover 97.5% of market",
+      "Liquidity tight as rates exceed 4.5% ceiling",
+      "Policy corridor: 3.0%–4.5% unchanged"
+    ]
+  }
+}

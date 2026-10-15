@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.300 adds virtual‑text and cache metrics",
+      "OpenAI Codex rust‑v0.163.0‑alpha.10.1 pre‑release released",
+      "Gemini CLI suffers sub‑agent hangs and ignored config bugs",
+      "GitHub Copilot CLI merged 10 PRs in the past day",
+      "AI‑CLI tools now ship daily or weekly production releases",
+      "Community issue trackers drive roadmap for AI‑CLI plugins"
+    ],
+    "ai-agents": [
+      "OpenClaw logs 223 issues and 500 PRs in last 24h",
+      "53% of OpenClaw issues remain open, 70% PRs open",
+      "No new OpenClaw release; latest tag 2026.9.6",
+      "PR #168917 adds question custody to session storage",
+      "Team focusing on bug‑investigation and UI refactors",
+      "Stability fixes target production agents (Telegram, Discord)"
+    ],
+    "ai-trending": [
+      "Agent‑centric tool `morluto/rea` gains +33k stars",
+      "Privacy‑first apps iFixAi and openclaude debut",
+      "RAG libraries firecrawl and graphify add 600+ stars each",
+      "context‑mode reaches 29.3k stars, +947 today",
+      "CLI‑Anything hits 52.6k stars, +103 today",
+      "Trending shows surge in AI infrastructure projects"
+    ],
+    "ai-web": [
+      "Anthropic upgrades election‑safeguard for 2026 US midterms",
+      "Claude sees 5.75% political queries in US traffic",
+      "Only 0.01% of Claude US queries ask for voting advice",
+      "Anthropic opens new Singapore office with government MOU",
+      "Singapore becomes Anthropic's fifth APAC hub",
+      "Dual focus on political safety and regional expansion"
+    ],
+    "ai-hn": [
+      "CSO‑Online AI‑agent containment spikes to 854 points",
+      "Liquid AI releases LFM2.5‑24B‑A2B for fast on‑device agents",
+      "Anthropic's Scion mirrors internal Mononoke architecture",
+      "DeepMind Gemini 4 Argon adds multimodal reasoning",
+      "OpenAI engineer arrested, sparking security debate on HN",
+      "Community debates AI‑enabled hacking and startup experiments"
+    ],
+    "ai-arxiv": [
+      "Paper shows elastic transformers enable on‑the‑fly scaling",
+      "Continuum Attention cuts quadratic cost, keeps relevance",
+      "RSI papers let agents self‑refine policies, no retraining",
+      "Forensic analysis finds privilege‑escalation attacks",
+      "ActiveEvidence offers provable security audits for LLMs",
+      "Continuous‑Attention Transformers top Oct‑15 arXiv"
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑Flash‑Next models hit 14 K likes, 9 M downloads",
+      "Lightricks/LTX‑2.5 leads multimodal video generation trend",
+      "gguf‑quantized Qwen‑Image‑2.1 breaks download records",
+      "humanizer GGUF Gemma‑4 gets 1.6k likes, 65k downloads",
+      "JEV‑35B 35B multilingual classifier tops enterprise pipelines",
+      "LiquidAI LFM2.5‑24B‑A2B trending for speed‑quality balance"
+    ],
+    "ai-community": [
+      "Dev.to shows 5 production AI features running in browser",
+      "Article proposes reproducible end‑to‑end evals for agents",
+      "Humorous post: AI apologizes for calling course 'AI Slop'",
+      "Debate on open‑source model formats and OpenFatigue rises",
+      "Lobsters debate costs of edge deployment for large models",
+      "Community worries about sustainability of open AI projects"
+    ],
+    "fin-macro": [
+      "Fed balance sheet climbs to $6.75 T, policy rate 3.88%",
+      "US CPI at 4.0% YoY, core inflation in high‑2‑3% range",
+      "VIX steadies at 15.27, indicating calm market volatility",
+      "Retail margin debt up 2.6% to $1.45 T, leverage rise",
+      "10‑year Treasury yield falls to 5.21%, slight dip",
+      "Liquidity ample but inflation remains above Fed target"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls to 1,704.87, down 0.80% today",
+      "USD/VND sell rate at 26,080, modest VND depreciation",
+      "US Dollar Index up 1.76% over 20 days, pressuring dong",
+      "US 10Y Treasury yield at 5.21%, rising 20‑day trend",
+      "Gold price jumps to $4,165/oz, +1.39% today",
+      "Brent crude slides to $104.30/bbl, -1.66% today"
+    ],
+    "fin-vnrates": [
+      "SBV refinancing ceiling 4.5% sits below market 4.8‑4.9% rates",
+      "Overnight rate ticks up 0.05pp to 4.80% amid mild tightening",
+      "1‑week rate up 0.11pp to 4.87%, higher pressure",
+      "1‑month funding cost climbs to 5.85% after 0.24pp gain",
+      "3‑month yield jumps 0.10pp to 7.70%, steepening curve",
+      "Liquidity tightens as turnover shares hit 99% at high rates"
+    ]
+  }
+}

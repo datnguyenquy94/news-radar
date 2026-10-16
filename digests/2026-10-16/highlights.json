@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.301 released with retry‑watchdog",
+      "Daily or weekly releases become norm across AI‑CLI tools",
+      "Ecosystem pivots to agent reliability, sandbox policies, UI",
+      "Claude Code fixes plugin path‑quoting issue in latest PR",
+      "DeepSeek TUI adds full‑screen terminal UI layer",
+      "Grok Build adds build‑time agent orchestration"
+    ],
+    "ai-agents": [
+      "OpenClaw logs 230 issues and 500 PRs in last 24 h",
+      "Gateway subsystem dominates performance and memory‑leak talks",
+      "v2026.10.10‑beta.1 releases SQLite worker thread off‑load",
+      "Release improves latency for large fleet chat sessions",
+      "High‑severity regressions: memory leak, startup slowdown, OAuth timeout",
+      "Four beta/extended‑stable builds shipped in past month"
+    ],
+    "ai-trending": [
+      "obra/superpowers gains +5 k stars, agentic harness boom",
+      "affaan-m/ECC adds +970 stars, secure multi‑agent frameworks",
+      "lightseekorg/tokenspeed new “speed‑of‑light” inference engine",
+      "xerj-org/xerj launches token‑cheap data‑indexing tool",
+      "VoiceStudio hits +2 k stars, local voice cloning app",
+      "MoneyPrinterTurbo crosses +2 k stars, AI video generator"
+    ],
+    "ai-web": [
+      "Anthropic gives METR employee‑like access for model audits",
+      "U.S. federal agencies get unlimited Claude for $1 per month",
+      "Anthropic migrates monorepo to Scion VCS, >30 k merges/day",
+      "OpenAI only adds metadata pages for Rosalind Academic Plan",
+      "Anthropic’s moves signal institutional safety oversight push",
+      "No substantive technical updates from OpenAI today"
+    ],
+    "ai-hn": [
+      "Meta unveils Muse Spark multimodal model, open‑access API",
+      "DeepMind releases Gemini 4, next‑gen foundation model",
+      "Liquid AI launches LFM 2.5, on‑device 24‑B LLM",
+      "AI hacking reports thread sparks security concerns",
+      "Claude Code desktop vulnerability disclosed on HN",
+      "Denmark Supreme Court rules AI‑generated CSAM illegal"
+    ],
+    "ai-arxiv": [
+      "Rethinking Routing Exploration in MoE improves expert usage",
+      "Designing Transformers for Continuous Diffusion boosts speed",
+      "CAT‑alyzing Honesty introduces continual adversarial training",
+      "Scaling agents paper shows long‑horizon tool‑use planning",
+      "New benchmark suite targets personalized multimodal tasks",
+      "LLM‑driven quantum circuit design paper released"
+    ],
+    "ai-hf": [
+      "Qwen3.8‑27B vision‑language LLM tops downloads at 7.3 M",
+      "DeepSeek‑V4.1‑Flash 40‑B model runs under 10 GB on GPU",
+      "Qwen3.8‑Flash‑Next offers higher token throughput",
+      "Underdog‑Saluki 27B 2‑bit GGUF showcases extreme quant",
+      "LFM2.5‑GGUF brings fast on‑device inference for 24‑B LLM",
+      "MiniCPM‑V gains traction for efficient multimodal generation"
+    ],
+    "ai-community": [
+      "Vibecoding speeds Angular upgrades from weeks to hours",
+      "Developer builds lie detector for AI coding agents",
+      "Scope‑Creep Guard Gemma AI flags out‑of‑scope client requests",
+      "Local Gemma models replace costly cloud inference APIs",
+      "Telemetry tools monitor cheap inference engine performance",
+      "OpenAI flagship models face imminent deprecation concerns"
+    ],
+    "fin-macro": [
+      "Fed balance sheet at $6.76 T, policy rate 3.88 %",
+      "10‑yr Treasury yield 5.19%, flattening curve signs",
+      "CPI 4.0% YoY, core CPI 2.8% above target",
+      "FINRA margin debt rises 2.6% MoM to $1.45 T",
+      "VIX at 16.87, market volatility modest",
+      "Oil prices above $100, adding pressure to core inflation"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index 1,698.35 down 0.40% on the day",
+      "US dollar index slips 0.13%, dong slightly appreciates",
+      "10‑yr US Treasury yield 5.19% down 0.38%",
+      "Gold climbs 0.8% to $4,203.6/oz",
+      "Brent crude up 0.66% at $105.22/bbl",
+      "VanEck Vietnam ETF (VNM) price at $16.48"
+    ],
+    "fin-vnrates": [
+      "SBV discount rate 3.0% unchanged since 2023",
+      "Refinancing ceiling 4.5% unchanged for 1308 days",
+      "Overnight interbank rate 3.58% down 1.22 pp",
+      "1‑week rate 4.34% declines, mixed pressure",
+      "Liquidity high: overnight+1‑week turnover 99.2%",
+      "VND‑USD spread negative, limits further rate cuts"
+    ]
+  }
+}

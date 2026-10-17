@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code releases v2.1.302 with auto-mode selector.",
+      "OpenAI Codex rolls out rust‑v0.164.0‑alpha.2 SDK preview.",
+      "Gemini CLI ships v0.66.0‑nightly (banner‑only release).",
+      "GitHub Copilot CLI updates to v1.0.100‑1.",
+      "AI‑CLI market hardening: bug‑triage, cost‑control priority.",
+      "New productivity wave adds BYOK model switching."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 215 issues and 500 PRs in past 24 h.",
+      "No new release; latest tag 2026.9.7 remains current.",
+      "Developers target runtime stability: SQLite contention fixes.",
+      "~280 PRs merged/closed today, rapid triage cycle.",
+      "UX friction reported across desktop, mobile, channel plugins.",
+      "Sub‑agent race conditions getting priority patches."
+    ],
+    "ai-trending": [
+      "VoiceStudio jumps +2,301★, total 71,470 stars.",
+      "Agent‑centric ECC toolkit climbs +1,080★ today.",
+      "xerj Rust indexer logs +1,208★, 40× token saving.",
+      "Superpowers framework gains +696★ in a day.",
+      "Scientific‑agent‑skills library adds +950★ daily.",
+      "CLI‑first token‑saving data indexing tools rise fast."
+    ],
+    "ai-web": [
+      "Anthropic posts six new articles, daily record.",
+      "New quantum‑circuit design paper among Anthropic releases.",
+      "ECDSA curve origins paper resolves long‑standing mystery.",
+      "Independent evaluator gets deep employee‑level audit access.",
+      "AI‑agent hours now outpace human work 6 : 1 at Anthropic.",
+      "Staff AI expectations far exceed public, widening gap."
+    ],
+    "ai-hn": [
+      "Claude’s ECDSA reveal triggers transparency vs security debate.",
+      "Gemini 4 Argon’s StarCraft II demo excites HN users.",
+      "Meta opens Muse‑Spark weights, sparking ethics discussion.",
+      "Real‑world work‑task benchmarks spark lengthy HN debate.",
+      "Open‑source code‑review pipelines and PCB assistants mature.",
+      "“Junk‑credit” rating raises AI risk management concerns."
+    ],
+    "ai-arxiv": [
+      "Papers spotlight self‑orchestrating agents (MLExpert, Mosaic).",
+      "Study shows LLMs change behavior in Indic language tests.",
+      "OmniVerifier‑C1 adds confidence scores to rule‑based output.",
+      "Continuous adversarial training boosts model honesty.",
+      "Bias diagnostics become a safety‑critical research focus.",
+      "Graded verifier paradigm moves beyond binary truth checks."
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B reaches 7.5 M downloads on HF.",
+      "Qwen Flash‑Next delivers low‑latency multimodal chat.",
+      "LiquidAI LFM2.5‑24B‑A2B praised for instruction tasks.",
+      "Lightricks/LTX‑2.5 video models surge in popularity.",
+      "GGUF‑quantized uncensored Qwen‑Image‑2.1 variants explode.",
+      "MiniMax‑H3 LoRA leads video‑generation model hype."
+    ],
+    "ai-community": [
+      "Developers share hardening tips for agentic AI memory leaks.",
+      "Gemma 4 thermal throttling case study sparks performance talks.",
+      "Qwen hits 381 tok/s on RTX 3090, benchmark highlighted.",
+      "In‑browser RAG becomes hot topic among devs.",
+      "AI‑only side‑hustles using local models gain traction.",
+      "Ethics and mental‑health impacts of AI content spark debate."
+    ],
+    "fin-macro": [
+      "Fed balance sheet rises to $6.76 T, rate 3.88 %.",
+      "10Y Treasury yield at 5.10%, still highly restrictive.",
+      "CPI remains 4.0% YoY, core above 2% target.",
+      "Retail margin debt climbs 1.8% to $1.48 T.",
+      "VIX steadies at 16.46, indicating calm markets.",
+      "Oil at $101.91/bbl sustains inflation pressure."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index climbs 0.40% to 1,705.91 amid 6% 20‑day slide.",
+      "VND slips 0.48% month, 1.18% YTD versus USD.",
+      "Dollar Index rises 1.62% over past 20 days.",
+      "US 10Y Treasury yield drops to 5.10% today.",
+      "Gold rises 0.26% day, down 5.51% 20‑day.",
+      "Brent crude up 3.72% day, 5.77% 20‑day."
+    ],
+    "fin-vnrates": [
+      "Policy corridor steady: 3.0% discount, 4.5% refinancing.",
+      "Overnight rate 3.58% shows ample liquidity.",
+      "1‑week rate 4.34% with turnover down 68.6%.",
+      "3‑month rate 6.82% falling, turnover down 62.7%.",
+      "Rates under ceiling, indicating expansionary stance.",
+      "Tight VND‑USD spread limits further rate cuts."
+    ]
+  }
+}

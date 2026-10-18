@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "AI‑CLI tools now aim for full‑stack orchestration platforms.",
+      "Developers demand stable, scriptable CLI experiences for CI/CD.",
+      "Claude Code faces 10 top‑voted issues, no release today.",
+      "OpenAI Codex reports major deadlocks and sandbox crashes.",
+      "Gemini CLI shows rising issue count but no new release.",
+      "Community cites token‑cost predictability as key friction."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 500 PR updates and 249 issue updates today.",
+      "No new release; latest tag remains 2026.9.5 from September.",
+      "Current work focuses on bug fixes, not major new features.",
+      "OpenClaw’s gateway memory core PR #176048 now closed.",
+      "OpenClaw ecosystem includes 12 related agent projects.",
+      "Maintainers polish 2026.9.x line before next version bump."
+    ],
+    "ai-trending": [
+      "Claude Code +2.6k stars; Claude Plugins +1.2k today.",
+      "ECC harness hits 282k stars, staying top AI infra.",
+      "Ruflo swarm engine climbs to 76k stars, multi‑agent hot.",
+      "Orca launches with 95k stars, new fleet platform.",
+      "XERJ gains 1.1k stars, focused on token‑efficient runtime.",
+      "Claude Code now 151.9k stars, +179 stars today."
+    ],
+    "ai-web": [
+      "Anthropic publishes five research posts on AI‑augmented work.",
+      "Study shows AI agents logged 6× more hours than humans.",
+      "'Expectations gap' paper reveals staff vs US public optimism.",
+      "Claude engineers quantum‑hardware‑efficient circuits, new demo.",
+      "Employment posts detail internal labor‑market dynamics at Anthropic.",
+      "Anthropic’s new research highlights AI’s impact on organization."
+    ],
+    "ai-hn": [
+      "DeepSeek‑v4.1‑Flash‑1017 sparks local‑LLM speed race.",
+      "Claude reveals ECDSA curve origins, sparks security debate.",
+      "Analysis shows US workers 90% of AI benchmark hours.",
+      "OpenAI rogue‑incident disclosure fuels governance concerns.",
+      "Show HN tools Llmspeed, Pay‑per‑Crawl, JetBrains Junie gain traction.",
+      "Community debates relevance of traditional work‑hour metrics."
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B vision‑language model tops likes on HF.",
+      "DeepSeek Flash‑1017 praised for low‑latency GPU inference.",
+      "Lightricks LTX‑2.5 video generator breaks 8k likes.",
+      "google/embeddinggemma‑2 sees 2.6k likes, 158k downloads.",
+      "humanizer 7B model gains 1.9k likes, 96k downloads.",
+      "LiquidAI LFM2.5‑24B‑A2B trends for creative writing."
+    ],
+    "ai-community": [
+      "Dev.to post shares 10 practical prompting techniques.",
+      "LLM scraper finds 45 recalled products on eBay listings.",
+      "Article argues automating easy work makes humans more valuable.",
+      "Hacktoberfest side‑hustles ship AI SaaS tools in a weekend.",
+      "Posts discuss prompt‑injection defenses and audit trails.",
+      "Graph‑backed memory pipelines highlighted for production agents."
+    ],
+    "fin-macro": [
+      "Fed balance sheet climbs to $6.76 T, still expanding.",
+      "Policy rate steadies at 3.88 %, modestly restrictive.",
+      "10‑year Treasury yield at 5.10 %, highly restrictive level.",
+      "VIX drops to 16.5, indicating calm market volatility.",
+      "Retail margin debt up 1.8 % month‑over‑month.",
+      "Overall tone: risk‑off, tightening regime favors defensives."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index rises 0.40% to 1,705.91 after 20‑day slide.",
+      "VN30 gains 0.60% to 1,855.41, modest buyer interest.",
+      "USD/VND weakens 0.5% month‑to‑month, 1.18% YTD.",
+      "US 10‑year Treasury yield up 1.80% over 20 days.",
+      "Brent crude jumps 5.77% in the past 20 days.",
+      "VanEck Vietnam ETF (VNM) slips to $16.45."
+    ],
+    "fin-vnrates": [
+      "SBV keeps refinancing ceiling at 4.50 % and discount at 3.00 %.",
+      "Overnight interbank rate falls to 3.58 %.",
+      "1‑week rate drops to 4.34 %, 0.53 pp below prior.",
+      "Liquidity remains high; turnover dominates overnight market.",
+      "Narrow VND‑USD spread limits further easing.",
+      "Policy stance stays neutral despite excess liquidity."
+    ]
+  }
+}

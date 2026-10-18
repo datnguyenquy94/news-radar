@@ -1,8 +1,8 @@
 {
   "repos": {
     "0xPlaygrounds/rig": {
-      "stars": 8403,
-      "lastReported": "2026-08-26"
+      "stars": 8906,
+      "lastReported": "2026-10-18"
     },
     "3b1b/manim": {
       "stars": 92638,
@@ -41,8 +41,8 @@
       "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 281622,
-      "lastReported": "2026-10-17"
+      "stars": 282628,
+      "lastReported": "2026-10-18"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -73,8 +73,8 @@
       "lastReported": "2026-09-07"
     },
     "akitaonrails/ai-memory": {
-      "stars": 7794,
-      "lastReported": "2026-09-22"
+      "stars": 10000,
+      "lastReported": "2026-10-18"
     },
     "AlexsJones/llmfit": {
       "stars": 35812,
@@ -113,16 +113,16 @@
       "lastReported": "2026-09-17"
     },
     "anomalyco/opencode": {
-      "stars": 205349,
-      "lastReported": "2026-09-07"
+      "stars": 215529,
+      "lastReported": "2026-10-18"
     },
     "anseryuer/Local_LLM_Deployment_Guide_Chinese": {
       "stars": 50,
       "lastReported": "2026-09-01"
     },
     "anthropics/claude-code": {
-      "stars": 149273,
-      "lastReported": "2026-10-04"
+      "stars": 151855,
+      "lastReported": "2026-10-18"
     },
     "anthropics/claude-code-action": {
       "stars": 9129,
@@ -133,8 +133,8 @@
       "lastReported": "2026-08-27"
     },
     "anthropics/claude-plugins-official": {
-      "stars": 40732,
-      "lastReported": "2026-10-17"
+      "stars": 41905,
+      "lastReported": "2026-10-18"
     },
     "anthropics/financial-services": {
       "stars": 37036,
@@ -389,8 +389,8 @@
       "lastReported": "2026-09-23"
     },
     "debpalash/VoiceStudio": {
-      "stars": 71470,
-      "lastReported": "2026-10-17"
+      "stars": 73625,
+      "lastReported": "2026-10-18"
     },
     "derv82/wifit3": {
       "stars": 988,
@@ -413,8 +413,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 165287,
-      "lastReported": "2026-10-17"
+      "stars": 166323,
+      "lastReported": "2026-10-18"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -553,16 +553,16 @@
       "lastReported": "2026-10-03"
     },
     "Graphify-Labs/graphify": {
-      "stars": 127287,
-      "lastReported": "2026-10-17"
+      "stars": 127855,
+      "lastReported": "2026-10-18"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 131741,
-      "lastReported": "2026-10-16"
+      "stars": 132437,
+      "lastReported": "2026-10-18"
     },
     "harry7557558/spirula-studio": {
       "stars": 781,
@@ -585,8 +585,8 @@
       "lastReported": "2026-08-26"
     },
     "HKUDS/CLI-Anything": {
-      "stars": 53582,
-      "lastReported": "2026-10-17"
+      "stars": 54133,
+      "lastReported": "2026-10-18"
     },
     "HKUDS/DeepTutor": {
       "stars": 40628,
@@ -713,8 +713,8 @@
       "lastReported": "2026-09-18"
     },
     "K-Dense-AI/scientific-agent-skills": {
-      "stars": 51617,
-      "lastReported": "2026-10-17"
+      "stars": 52335,
+      "lastReported": "2026-10-18"
     },
     "k1tbyte/Wand-Enhancer": {
       "stars": 23458,
@@ -813,8 +813,8 @@
       "lastReported": "2026-10-14"
     },
     "MadsLorentzen/ai-job-search": {
-      "stars": 48701,
-      "lastReported": "2026-10-17"
+      "stars": 50670,
+      "lastReported": "2026-10-18"
     },
     "magnitudedev/magnitude": {
       "stars": 3271,
@@ -933,8 +933,8 @@
       "lastReported": "2026-09-08"
     },
     "morluto/rea": {
-      "stars": 293052,
-      "lastReported": "2026-10-17"
+      "stars": 309624,
+      "lastReported": "2026-10-18"
     },
     "multica-ai/andrej-karpathy-skills": {
       "stars": 218419,
@@ -1017,8 +1017,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 183072,
-      "lastReported": "2026-10-14"
+      "stars": 183657,
+      "lastReported": "2026-10-18"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -1101,8 +1101,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 97824,
-      "lastReported": "2026-10-16"
+      "stars": 98790,
+      "lastReported": "2026-10-18"
     },
     "paperclipai/paperclip": {
       "stars": 94690,
@@ -1209,8 +1209,8 @@
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 69858,
-      "lastReported": "2026-10-16"
+      "stars": 70717,
+      "lastReported": "2026-10-18"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1233,8 +1233,8 @@
       "lastReported": "2026-09-19"
     },
     "ruvnet/ruflo": {
-      "stars": 75227,
-      "lastReported": "2026-10-16"
+      "stars": 76131,
+      "lastReported": "2026-10-18"
     },
     "ruvnet/RuView": {
       "stars": 93937,
@@ -1273,8 +1273,8 @@
       "lastReported": "2026-09-29"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 141626,
-      "lastReported": "2026-10-14"
+      "stars": 142149,
+      "lastReported": "2026-10-18"
     },
     "shy3130/tick-stock-panel": {
       "stars": 5170,
@@ -1303,6 +1303,10 @@
     "Sonarr/Sonarr": {
       "stars": 15760,
       "lastReported": "2026-09-12"
+    },
+    "stablyai/orca": {
+      "stars": 95565,
+      "lastReported": "2026-10-18"
     },
     "StarTrail-org/LEANN": {
       "stars": 12834,
@@ -1385,8 +1389,8 @@
       "lastReported": "2026-09-18"
     },
     "tensorflow/tensorflow": {
-      "stars": 200572,
-      "lastReported": "2026-09-28"
+      "stars": 201078,
+      "lastReported": "2026-10-18"
     },
     "tesseract-ocr/tesseract": {
       "stars": 76741,
@@ -1417,8 +1421,8 @@
       "lastReported": "2026-10-01"
     },
     "thedotmack/claude-mem": {
-      "stars": 100807,
-      "lastReported": "2026-10-15"
+      "stars": 101442,
+      "lastReported": "2026-10-18"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -1557,8 +1561,8 @@
       "lastReported": "2026-09-06"
     },
     "xerj-org/xerj": {
-      "stars": 7054,
-      "lastReported": "2026-10-17"
+      "stars": 7907,
+      "lastReported": "2026-10-18"
     },
     "xtool-org/xtool": {
       "stars": 11035,

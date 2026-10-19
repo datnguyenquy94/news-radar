@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.303 bug‑fix release today",
+      "OpenAI Codex sees Windows dead‑lock issues",
+      "Gemini CLI adds sub‑agent management beta",
+      "Cross‑platform stability still biggest friction",
+      "New entrants Pi and Qwen Code experiment AST tooling",
+      "Tool‑chain token‑economy controls gaining attention"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.10.5 self‑repairing update launch",
+      "228 issues, 500 PRs updated in last 24h",
+      "Stability talks: OOM crashes, Windows service hangs",
+      "Large refactor PRs target UI, CLI, plugin cleanup",
+      "Signal‑to‑noise high; maintainers actively triaging",
+      "Patch focuses on platform‑specific edge‑case fixes"
+    ],
+    "ai-trending": [
+      "opencode +1,253 stars, top‑growing agent repo",
+      "ruflo adds 506 stars, autonomous workflow surge",
+      "rea spikes +15,176 stars, reverse‑engineer trend",
+      "VoiceStudio gains 2,183 stars, vertical AI rise",
+      "Claude‑plugins official dir +910 stars today",
+      "CLI‑Anything hub climbs 580 stars, SDK demand"
+    ],
+    "ai-web": [
+      "Anthropic launches Public Benefit Fund with 5% equity",
+      "Fund adds 2% more equity for each 50% valuation rise",
+      "APBF set as LLC for flexible mission funding",
+      "Fund targets AI safety, interpretability, biotech",
+      "Announces hybrid for‑profit / public‑benefit model",
+      "Public Benefit Fund signals larger charitable allocations"
+    ],
+    "ai-hn": [
+      "Claude discloses ECDSA curve, rare transparency move",
+      "DeepSeek‑v4.1‑Flash‑1017 benchmarks spark GPU tests",
+      "Muse Spark open release draws open‑research attention",
+      "Anthropic proposes AI‑Safety‑Bill, heated debate",
+      "Terry Tao warns of an emerging math crisis",
+      "Show‑HN tools Sphinx, Llmspeed, OpenFlow trend up"
+    ],
+    "ai-hf": [
+      "Qwen3.8‑27B dominant LLM, 17,969 likes",
+      "Qwen3.8‑Flash‑Next cuts latency, 6,331 likes",
+      "Underdog‑Saluki 27B GGUF 2‑bit inference on laptops",
+      "LiquidAI LFM2.5‑24B‑A2B gains 475 likes",
+      "Flux‑3 leads generative‑art model buzz",
+      "LTX‑2.5 pushes text‑to‑video synthesis"
+    ],
+    "ai-community": [
+      "Fine‑tuning Qwen3 on budget: $100 cap tips",
+      "Privacy‑first local LLM copilots gain traction",
+      "RAG in-browser faces performance limits discussion",
+      "Verification trap slows senior engineers, warns devs",
+      "Evaluate models by data‑usage policy, not price",
+      "StoreScribe generates App Store listings with open LLM"
+    ],
+    "fin-macro": [
+      "Fed balance sheet steady at $6.75 trillion",
+      "Policy rate holds at 3.88 %",
+      "Treasury yields 5.10 %, above restrictive level",
+      "Core CPI 2.8 % YoY, still above target",
+      "VIX calm at 16.46",
+      "Retail margin debt up 1.8% to $1.48 trillion"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index up 0.40% to 1,705.91",
+      "USD/VND sell rate 26,100, slight depreciation",
+      "US 10Y yield down 1.73% to 5.10%",
+      "Gold climbs 0.46% to $4,200.5/oz",
+      "DXY down 0.01%",
+      "Market liquidity thin, foreign block‑trades modest"
+    ],
+    "fin-vnrates": [
+      "SBV policy corridor unchanged 3.0‑4.5%",
+      "Overnight rate 3.14%, down 0.44pp",
+      "1‑week rate 3.35%, down 0.99pp, high turnover",
+      "3‑month rate 7.23%, up 0.41pp",
+      "Liquidity abundant, interbank rates below ceiling",
+      "Long‑term rates elevated, 6‑month 7.59%"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.304 released today.",
+      "OpenAI Codex Rust SDK v0.164.0-alpha.6 launched.",
+      "Gemini CLI nightly v0.66.0‑nightly now available.",
+      "GitHub Copilot CLI v1.0.101‑0 updated.",
+      "Security‑policy mod PR merged for Claude Code.",
+      "Daily releases now standard across AI‑CLI tools."
+    ],
+    "ai-agents": [
+      "OpenClaw beta v2026.10.10‑beta.2 released today.",
+      "362 issues and 500 PRs touched in 24 h.",
+      "Workspace safety guard aborts on missing files.",
+      "Session‑state bugs dominate current tickets.",
+      "Refactoring and safety fixes prioritized over features.",
+      "OpenClaw activity signals need for better testing."
+    ],
+    "ai-trending": [
+      "morluto/rea gains +13,902 stars in one day.",
+      "anomalyco/opencode adds +1,200 stars today.",
+      "anthropic/claude-code +872 stars in 24 h.",
+      "ComfyUI +1,011 stars, diffusion UI trend.",
+      "ai-job-search +3,989 stars, job‑search tool surge.",
+      "affaan-m/ECC +834 stars, agent infrastructure boost."
+    ],
+    "ai-web": [
+      "Anthropic releases \"AI expectations gap\" briefing.",
+      "91% Anthropic staff predict Nobel‑level AI by 2030.",
+      "Anthropic adds deep‑access eval partners (METR, SecureBio).",
+      "OpenAI crawl only shows placeholder job‑search pages.",
+      "Study shows public vs staff AI capability forecast gap.",
+      "Operational update cites Accenture partnership."
+    ],
+    "ai-hn": [
+      "DeepSeek‑v4.1‑Flash‑1017 offers 101‑token flash context.",
+      "DeepSeek faces U.S. federal civilian systems ban.",
+      "Mistral launches Timestral for time‑series forecasting.",
+      "Hybrid Reasoning Agents paper sparks latent‑space debate.",
+      "Ask HN debate on shipping unexplained AI‑generated code.",
+      "CERN partners with Mistral for AI‑for‑science projects."
+    ],
+    "ai-arxiv": [
+      "KronLSTM linear‑attention cuts GPU memory >5×.",
+      "TokenGate learns token pruning for long‑context speedups.",
+      "Safety‑by‑design loop baked into LLM training.",
+      "Halcyon achieves multimodal generation without huge LLM.",
+      "MemT‑1.0 introduces memory‑native foundation model.",
+      "Agim and WildAWM enable synthetic‑environment planning."
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash‑1017 tops LLM leaderboard.",
+      "MiniCPM‑V‑4.7‑35B‑A3B totals 76k downloads, multimodal.",
+      "humanizer GGUF model reaches 110k downloads, laptop speed.",
+      "Muse‑Spark‑Open‑816B 816‑B multimodal model released.",
+      "GGUF/FP4 quantization pushes 30B+ models to consumer hardware.",
+      "Vision‑language models dominate Hugging Face trends."
+    ],
+    "ai-community": [
+      "Dev.to post blames retry bugs on distributed systems, not AI.",
+      "AWS agent scores GitHub repos for security before cloning.",
+      "Gemini 4 Argon builds 3D Flutter game in 15 prompts.",
+      "Community debates hidden token‑drain on “MCP” servers.",
+      "Proxy‑log leaks highlight AI privacy concerns.",
+      "New frontier models like Gemini 4 Argon tested widely."
+    ],
+    "fin-macro": [
+      "Fed funds rate steady at 3.88% as of Oct 20.",
+      "10‑yr Treasury yield at 5.09%, restrictive territory.",
+      "CPI 4.0% YoY, core CPI 2.8% above target.",
+      "Retail margin debt up 1.8% to $1.48 T.",
+      "VIX rises to 19.99, modest volatility increase.",
+      "Unemployment 4.2%, labor market remains tight."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.90% to 1,689.84.",
+      "VN30 futures basis +0.10%, slight bullish tilt.",
+      "VND sell rate 26,060, 0.57% weaker month‑to‑month.",
+      "US 10Y yield fell 0.20% to 5.09%.",
+      "Dollar Index down 0.17% to 101.81.",
+      "Market bearish but futures show hedge bias."
+    ],
+    "fin-vnrates": [
+      "SBV discount rate remains at 3.0% since 2023.",
+      "Refinancing rate unchanged at 4.5% for 3+ years.",
+      "Overnight rate 4.45%, liquidity excess persists.",
+      "1‑week rate 4.61% shows slight tightening.",
+      "1‑month rate 5.83% indicates higher‑rate bias.",
+      "Turnover concentrated in short‑tenor interbank markets."
+    ]
+  }
+}

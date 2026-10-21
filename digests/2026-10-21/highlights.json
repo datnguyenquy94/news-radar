@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code releases v2.1.306 & v2.1.305 today.",
+      "OpenAI Codex ships v0.164.0-alpha.8.",
+      "Gemini CLI updates to v0.67.0‑ni.",
+      "AI‑developer‑CLI market now focuses on sandbox security.",
+      "Daily patches show post‑beta maturity across tools.",
+      "Enterprise worries: multi‑account & cost transparency."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 439 issues & 500 PRs in 24 h.",
+      "No new release; team focuses on bug triage.",
+      "Critical SQLite‑WAL growth flagged (P0).",
+      "Windows memory‑pressure crashes observed (P0).",
+      "PR #178983 refactors core, cuts bundle size.",
+      "PR #178956 fixes false maintenance failures."
+    ],
+    "ai-trending": [
+      "Agent‑centric tools surge; re‑a harness hits 10k stars.",
+      "OpenCode climbs +1k stars, gaining momentum.",
+      "New agents like agency‑agents debut today.",
+      "vllm adds 1.6k stars, high‑throughput LLM serving.",
+      "ComfyUI stays top diffusion UI with steady stars.",
+      "RAG utils headroom & graphify cut token costs."
+    ],
+    "ai-hn": [
+      "DeepSeek banned from US federal agencies sparks debate.",
+      "AI‑written code safety dominates HN discussion.",
+      "DeepInfer open‑source inference tool gains traction.",
+      "Mistral releases Voxtral 3 multimodal model.",
+      "Mistral unveils Timestral time‑series foundation model.",
+      "Gemini 4 Argon now publicly available."
+    ],
+    "ai-arxiv": [
+      "Adaptive Multi‑Token Prediction shows 3× speed‑up.",
+      "World‑action‑language model boosts agentic reasoning.",
+      "Large Flow Language Models enable parallel token generation.",
+      "Study quantifies energy cost per generated token.",
+      "MindView benchmark tests spatial‑intelligence tasks.",
+      "New pipeline co‑generates 3D motion and video."
+    ],
+    "ai-hf": [
+      "Qwen‑3.8‑27B tops likes (18k) & 7.6M downloads.",
+      "Qwen‑Image‑2.1‑Uncensored‑Quantized hits 4.7k likes.",
+      "Flux‑3 family leads image‑to‑image model space.",
+      "EmbeddingGemma‑2 breaks into top‑10 embedding models.",
+      "DeepSeek‑V4.1‑Flash‑1017 gains 2k likes, 27k downloads.",
+      "Humanizer 7B GGUF praised for low‑resource chat."
+    ],
+    "ai-community": [
+      "CopilotKit memory layer turns docs into assistants.",
+      "Dev.to article warns of AI‑induced coding burnout.",
+      "Robotics AI challenges lie in integration, not models.",
+      "Open‑source local‑first LLMs spark privacy excitement.",
+      "Production agents face latency and routing bottlenecks.",
+      "Qwen 3.8‑Flash‑Next vs Claude Opus 5.5 benchmark heats up."
+    ],
+    "fin-macro": [
+      "Fed Funds Rate holds steady at 3.88%.",
+      "10‑yr Treasury yield climbs to 5.15%.",
+      "VIX eases to 18.44, market calm.",
+      "Retail margin debt up 1.8% to $1.48T.",
+      "Core CPI remains at 2.8% YoY.",
+      "Oil prices top $101 per barrel."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index edges up 0.10% today.",
+      "VN30 gains 0.30% in session.",
+      "VN30F1M basis rises 0.20% (contango).",
+      "USD/VND slips 0.5% over 1 month.",
+      "US 10Y Treasury yield up to 5.15%.",
+      "Brent crude climbs to $126.55 per barrel."
+    ],
+    "fin-vnrates": [
+      "Vietnam policy corridor stays 3.00‑4.50%.",
+      "Overnight rate at 4.42% marginally lower.",
+      "1‑week rate holds at 4.55% with slight dip.",
+      "2‑week rate rises to 5.04%, adding pressure.",
+      "Overnight turnover 868.5 bn VND, modest dip.",
+      "2‑week turnover spikes 248% to 10.27 bn VND."
+    ]
+  }
+}

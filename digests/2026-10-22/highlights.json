@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.307 adds API‑version cmd & OTEL hook",
+      "Gemini CLI releases nightly builds with new features",
+      "GitHub Copilot CLI continues stable quarterly updates",
+      "Kimi Code CLI gains multi‑account quota handling",
+      "DeepSeek TUI ranks in top‑10 active CLI tools",
+      "Grok Build introduces sandboxed execution safety"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.10.10‑beta.3 released for Windows reliability",
+      "373 issues updated, 252 still open in last 24h",
+      "500 PRs touched, 157 open, 343 merged",
+      "Critical memory‑leak regression dominates chatter",
+      "New timestamp‑settling hides SQLite helper windows",
+      "Community in stabilisation, not feature expansion"
+    ],
+    "ai-trending": [
+      "Orca and Rea each crossed 100k stars this week",
+      "Headroom gains 502 stars, token‑efficiency focus",
+      "Graphify + Crawl4AI add 1.9k stars to RAG tools",
+      "Multi‑agent orchestration surge on GitHub trending",
+      "Code‑first retrieval pipelines dominate RAG space",
+      "Star spikes signal plug‑and‑play agent fleet demand"
+    ],
+    "ai-web": [
+      "Anthropic launches Enterprise Frontier Safeguards (EFS)",
+      "Anthropic releases three new frontier red‑team reports",
+      "Anthropic stakes 5% in Public Benefit Fund",
+      "Nobel physicist Christopher Stubbs joins Anthropic trust",
+      "OpenAI pages hint at ChatGPT Ads on Google Cloud",
+      "No substantive new OpenAI blog posts, only index entries"
+    ],
+    "ai-hn": [
+      "Mistral’s Voxtral‑3 model sparks multimodal debate",
+      "Claude designs protein binders against scorpion toxins",
+      "OpenAI uses thousands of agents for biology data mining",
+      "OpenAI models now run on Google Cloud, generating buzz",
+      "Coordinated vulnerability disclosure gets 160+ comments",
+      "Community debates LLM confidence scores & fake citations"
+    ],
+    "ai-arxiv": [
+      "LongZero enables long‑context reasoning without data",
+      "Loopholing All the Way shows self‑conditioning diffusion LM",
+      "TIDE introduces tree‑induced diagnostic for LLM evaluation",
+      "Environment Duels models creator‑solver co‑evolution",
+      "New RL curriculum generates synthetic long‑text tasks",
+      "Self‑conditioning model matches SOTA perplexity"
+    ],
+    "ai-hf": [
+      "Qwen3.8‑27B LLM: 18k likes, 7.7M downloads",
+      "Humanizer 4B model climbs to 2k likes for chat style",
+      "LiquidAI LFM2.5‑24B‑A2B praised for code reasoning",
+      "Flint 500M model trends for edge low‑latency chat",
+      "Quantized Qwen‑Image‑2.1‑FP8 sees massive adoption",
+      "Flux‑3 variants dominate diffusion likes this week"
+    ],
+    "ai-community": [
+      "Dev.to article on idempotency keys for AI agents trends",
+      "Hashing arguments vs intent debate for deterministic replay",
+      "WebGPU Linux fix highlights GPU AI tooling reproducibility",
+      "AI makes coding cheaper, but software still costly",
+      "Lobsters discuss OCaml unikernels and time‑series model",
+      "Multi‑agent swarm patterns spark architecture debates"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index jumps 2.8% to 1,738.67 on rally day",
+      "VN30 rises 1.9% indicating broad large‑cap gain",
+      "USD/VND sell rate at 26,030, slight depreciation",
+      "US 10Y yield up 0.57% to 5.15%, market pressure",
+      "Brent crude climbs 1.67% to $110.64/bbl",
+      "Gold falls 1.05% to $4,106.6/oz"
+    ],
+    "fin-vnrates": [
+      "Discount rate 3,000% and refinancing 4,500% unchanged",
+      "Overnight interbank rate 3.71% – very cheap funding",
+      "1‑week rate 3.91% below ceiling, ample liquidity",
+      "3‑month rate jumps to 7.50%, steep upward slope",
+      "Turnover concentrated 97.1% in short tenors",
+      "Liquidity excess despite mid‑term tightening pressure"
+    ]
+  }
+}

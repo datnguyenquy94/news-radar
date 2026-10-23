@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.309 released with sandbox & macOS fixes",
+      "OpenAI Codex Rust client 0.164.0-alpha.12 launched",
+      "Gemini CLI nightly v0.67.0‑nightly.20261023 out",
+      "GitHub Copilot CLI adds daily releases, plugin upgrades",
+      "Qwen Code updates add multi‑tenant credential handling",
+      "Grok Build introduces plugin hooks for sub‑agents"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.10.6 patch requires Node 24.22.1+",
+      "305 issues and 500 PRs updated in last 24h",
+      "New TLS‑chain vulnerability fix in OpenClaw",
+      "Crash‑loop bugs dominate community discussions",
+      "Cost‑control features added for large‑scale deployments",
+      "226 PRs merged, 274 still open in OpenClaw"
+    ],
+    "ai-trending": [
+      "Claude knowledge‑work‑plugins gained ~300 stars today",
+      "Ponytail lazy‑dev agent surged 2k stars in a day",
+      "Graphify knowledge‑graph earned ~1.9k new stars this week",
+      "ppt‑master PowerPoint tool crossed 500‑star threshold",
+      "VectifyAI PageIndex added 1.9k stars this week",
+      "Finance agents daily‑stock‑analysis & Vibe‑Trading reach 500★"
+    ],
+    "ai-web": [
+      "Anthropic releases formal verification research post",
+      "Anthropic hands Agent Skills to AAIF foundation",
+      "Anthropic launches life‑sciences guest‑investigator program",
+      "OpenAI adds “Decisions API” index page",
+      "OpenAI adds “Uber ChatGPT Work Rollout” index page",
+      "Claude generates proofs for 100+ libs down to RISC‑V"
+    ],
+    "ai-hn": [
+      "Anthropic formal verification thread scores 199 points",
+      "Mistral Voxtral 3 model sparks 767‑point discussion",
+      "Claude attack‑surface reduction paper gets 134 points",
+      "Debate over LLM confidence “93% confident” statements",
+      "DeepInfer inference framework tops Hacker News votes",
+      "OpenAI CLI tool receives massive up‑votes on HN"
+    ],
+    "ai-arxiv": [
+      "Pass@$k$ thought‑pruning paper proposes differentiable metric",
+      "Low‑Bit N‑Gram Embeddings cut memory >80% for LLMs",
+      "Direct Pass@$k$ Optimization improves inference cost",
+      "Papers focus on cost‑aware evaluation & safety in agents",
+      "Context‑isolated chain‑of‑thought architectures introduced",
+      "Meta‑RL adaptation benchmark studies released"
+    ],
+    "ai-hf": [
+      "Qwen 3.8 27B model hits 18k likes, 7.7M downloads",
+      "DeepSeek V4.1‑Flash‑1017 shines with flash‑attention",
+      "Lightricks LTX‑2.5 diffusion video model gets 9k likes",
+      "Community GGUF/FP8 quantizations surge on HF Hub",
+      "RecursiveSI/flint 7B chat model trends for compact use",
+      "humanizer 7B GGUF model tops edge‑device deployments"
+    ],
+    "ai-community": [
+      "Dev.to article warns against being AI proxy",
+      "Duplicate API request bugs cause hidden write errors",
+      "“93% confident” strings aren't real probabilities",
+      "Agent orchestration & cost‑aware inference dominate talks",
+      "Prompt‑injection defenses highlighted across posts",
+      "Lobste.rs buzzes about Mistral Timestral & ConcurrentML"
+    ],
+    "fin-macro": [
+      "Fed funds rate steady at 3.88%, unchanged",
+      "10Y Treasury yield at 5.13%, highly restrictive",
+      "Margin debt rose 1.8% MoM to $1.48T",
+      "CPI 4.0% YoY, core 2.8% still above target",
+      "Oil price fell to $107.89/barrel, still >$100",
+      "VIX down to 16.68, market volatility calm"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index up 1.30% to 1,760.63, 5‑day gain 3.70%",
+      "VN30 futures in slight contango (+0.10%)",
+      "USD/VND stable at 26,040, down 0.57% MoM",
+      "US 10Y yield rise pressures VND (5.13%)",
+      "Brent crude up 0.37% to $113.59",
+      "Gold retreats to $4,024/oz, down 0.89%"
+    ],
+    "fin-vnrates": [
+      "Policy rates unchanged: 3.0% floor, 4.5% ceiling",
+      "Overnight interbank rate 3.39% – cheap funding",
+      "6‑month rate spikes to 8.07% with huge turnover",
+      "1‑week rate 3.66% shows market easing",
+      "Interbank turnover up 43% for 1‑week tenor",
+      "9‑month rate stable at 8.55%"
+    ]
+  }
+}

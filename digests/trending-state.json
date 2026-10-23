@@ -41,8 +41,8 @@
       "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 285837,
-      "lastReported": "2026-10-22"
+      "stars": 286643,
+      "lastReported": "2026-10-23"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -141,8 +141,8 @@
       "lastReported": "2026-09-24"
     },
     "anthropics/knowledge-work-plugins": {
-      "stars": 30865,
-      "lastReported": "2026-10-21"
+      "stars": 31722,
+      "lastReported": "2026-10-23"
     },
     "anthropics/skills": {
       "stars": 178381,
@@ -317,8 +317,8 @@
       "lastReported": "2026-09-20"
     },
     "cloudflare/security-audit-skill": {
-      "stars": 36977,
-      "lastReported": "2026-10-22"
+      "stars": 39883,
+      "lastReported": "2026-10-23"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -421,8 +421,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 171952,
-      "lastReported": "2026-10-22"
+      "stars": 173767,
+      "lastReported": "2026-10-23"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -481,16 +481,20 @@
       "lastReported": "2026-09-01"
     },
     "f/prompts.chat": {
-      "stars": 173445,
-      "lastReported": "2026-10-19"
+      "stars": 174056,
+      "lastReported": "2026-10-23"
+    },
+    "fastapi/fastapi": {
+      "stars": 103865,
+      "lastReported": "2026-10-23"
     },
     "firebase/firebase-ios-sdk": {
       "stars": 6781,
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 193529,
-      "lastReported": "2026-10-21"
+      "stars": 194360,
+      "lastReported": "2026-10-23"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -561,8 +565,8 @@
       "lastReported": "2026-10-03"
     },
     "Graphify-Labs/graphify": {
-      "stars": 131856,
-      "lastReported": "2026-10-22"
+      "stars": 133157,
+      "lastReported": "2026-10-23"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -609,8 +613,8 @@
       "lastReported": "2026-10-11"
     },
     "HKUDS/Vibe-Trading": {
-      "stars": 35848,
-      "lastReported": "2026-10-19"
+      "stars": 36351,
+      "lastReported": "2026-10-23"
     },
     "Hmbown/Codewhale": {
       "stars": 40906,
@@ -633,8 +637,8 @@
       "lastReported": "2026-10-20"
     },
     "hugohe3/ppt-master": {
-      "stars": 65347,
-      "lastReported": "2026-10-22"
+      "stars": 66155,
+      "lastReported": "2026-10-23"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -820,6 +824,10 @@
       "stars": 91425,
       "lastReported": "2026-09-15"
     },
+    "luongnv89/claude-howto": {
+      "stars": 43401,
+      "lastReported": "2026-10-23"
+    },
     "lyogavin/airllm": {
       "stars": 38433,
       "lastReported": "2026-10-14"
@@ -871,6 +879,10 @@
     "melgarafael/DeskcommCRM": {
       "stars": 2920,
       "lastReported": "2026-09-16"
+    },
+    "Meloong-Git/PCL": {
+      "stars": 8756,
+      "lastReported": "2026-10-23"
     },
     "mem0ai/mem0": {
       "stars": 67322,
@@ -949,8 +961,8 @@
       "lastReported": "2026-09-08"
     },
     "morluto/rea": {
-      "stars": 359157,
-      "lastReported": "2026-10-22"
+      "stars": 367406,
+      "lastReported": "2026-10-23"
     },
     "msitarzewski/agency-agents": {
       "stars": 162495,
@@ -1005,8 +1017,8 @@
       "lastReported": "2026-10-12"
     },
     "NousResearch/hermes-agent": {
-      "stars": 255639,
-      "lastReported": "2026-10-21"
+      "stars": 256295,
+      "lastReported": "2026-10-23"
     },
     "ntdevlabs/tiny11builder": {
       "stars": 20312,
@@ -1121,8 +1133,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 100357,
-      "lastReported": "2026-10-21"
+      "stars": 101079,
+      "lastReported": "2026-10-23"
     },
     "paperclipai/paperclip": {
       "stars": 94690,
@@ -1160,6 +1172,10 @@
       "stars": 109,
       "lastReported": "2026-09-20"
     },
+    "php/php-src": {
+      "stars": 41253,
+      "lastReported": "2026-10-23"
+    },
     "Picovoice/picollm": {
       "stars": 317,
       "lastReported": "2026-09-04"
@@ -1185,8 +1201,8 @@
       "lastReported": "2026-10-13"
     },
     "qdrant/qdrant": {
-      "stars": 34693,
-      "lastReported": "2026-09-20"
+      "stars": 35196,
+      "lastReported": "2026-10-23"
     },
     "R-D-BioTech-Alaska/Qelm": {
       "stars": 27,
@@ -1297,8 +1313,8 @@
       "lastReported": "2026-10-21"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 142149,
-      "lastReported": "2026-10-18"
+      "stars": 142748,
+      "lastReported": "2026-10-23"
     },
     "shy3130/tick-stock-panel": {
       "stars": 5170,
@@ -1521,8 +1537,8 @@
       "lastReported": "2026-09-11"
     },
     "VectifyAI/PageIndex": {
-      "stars": 38945,
-      "lastReported": "2026-10-08"
+      "stars": 39505,
+      "lastReported": "2026-10-23"
     },
     "vectorize-io/hindsight": {
       "stars": 43103,
@@ -1645,8 +1661,8 @@
       "lastReported": "2026-09-22"
     },
     "ZhuLinsen/daily_stock_analysis": {
-      "stars": 66366,
-      "lastReported": "2026-10-15"
+      "stars": 66903,
+      "lastReported": "2026-10-23"
     },
     "zi-yue-1129/DATAGEN": {
       "stars": 1799,

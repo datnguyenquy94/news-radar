@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.310 adds monitor tool, sleep fix.",
+      "OpenAI Codex rust‑v0.164.0 launches presets.",
+      "Gemini CLI nightly v0.67.0 fixes stream cancel.",
+      "80+ issues and 69 PRs opened across CLI tools today.",
+      "Tool‑as‑agent niche shifting to production integrations.",
+      "GitHub Copilot CLI sees new PR activity."
+    ],
+    "ai-agents": [
+      "OpenClaw registers 328 issues in 24 h.",
+      "500 PRs updated, 291 merged, 209 still open.",
+      "No new release, but critical bug fixes rolling out.",
+      "Gateway stalls fix in OpenAI plugin highlighted.",
+      "Memory‑leak regressions under active review.",
+      "PR #182194 open: gateway stalls on model reload."
+    ],
+    "ai-trending": [
+      "Rea repo gains +6,479 stars in one day.",
+      "NVIDIA OpenShell jumps +4,794 stars since Oct 2.",
+      "Cloudflare security‑audit‑skill adds 2,716 stars.",
+      "SnailSploit Claude‑Red climbs +2,746 stars.",
+      "VoxCPM tokenizer‑free TTS draws 3 k stars.",
+      "MoneyPrinterTurbo video generator hits 3 k stars."
+    ],
+    "ai-web": [
+      "Anthropic releases security‑focused LLM research.",
+      "Claude Opus 4.6/4.7 excels at vulnerability detection.",
+      "OSS Scanner service now powered by Claude Opus.",
+      "Project Glasswing leverages Claude for defense.",
+      "Economic Index adds Canada, Australia, India data.",
+      "OpenAI posts on scaling storage and training security."
+    ],
+    "ai-hn": [
+      "Kimi K3.1 Pro accelerator sparks hardware debate.",
+      "Mistral releases Voxtral 3 with multilingual boost.",
+      "Blog claims every LLM shares same controversial view.",
+      "LLMs enable large‑scale formal software verification.",
+      "DeepInfer tops HN discussion scores.",
+      "Ask HN thread questions 100 OpenAI startups."
+    ],
+    "ai-arxiv": [
+      "Offline‑proxy methods aim to cut agent rollout costs.",
+      "Thought‑pruning paper improves Pass@k by 15%.",
+      "Causal Chain of Thought blocks attention leakage.",
+      "Softmax & Cross‑Entropy fix addresses numerical bugs.",
+      "Test‑time reasoning gains focus across benchmarks.",
+      "Safety audits use evidence‑aware benchmarks."
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash‑1017 tops weekly likes.",
+      "Lightricks LTX‑2.5 hits 2 M downloads fast.",
+      "Qwen‑Image‑2.1‑Quantized GGUF draws edge interest.",
+      "Flint 4B model gains 692 likes, 1.9k downloads.",
+      "Spark‑X2.6‑4B popular Chinese chat model.",
+      "Humanizer GGUF 4B model reaches 2,118 likes."
+    ],
+    "ai-community": [
+      "NVIDIA OpenShell sandbox prevents agents storing keys.",
+      "Agent cost & determinism debates dominate forums.",
+      "RAG pipelines focus on evidence‑linked answers.",
+      "EU digital expropriation proposals spark policy talks.",
+      "Token‑budget bottlenecks limit agent scalability.",
+      "LangChain pipelines adapt to OpenShell policy checks."
+    ],
+    "fin-macro": [
+      "Fed Funds steady at 3.88% with no change.",
+      "Margin debt rises 1.8% month‑over‑month.",
+      "VIX at 19.03 indicates calm volatility.",
+      "CPI stays above target at 4.0% YoY.",
+      "10‑year Treasury yield 4.96% (restrictive).",
+      "Unemployment holds at 4.2% suggesting solid demand."
+    ],
+    "fin-vnmacro": [
+      "VN30 basis up 2.91 pts, modest positive signal.",
+      "Brent crude rises 3.14% on oil rally.",
+      "Dong slips 0.61% month‑to‑month.",
+      "VN‑Index climbs 0.80% today.",
+      "US 10Y yield falls 3.31% easing VND pressure.",
+      "Gold price drops 1.29% as safe‑haven wanes."
+    ],
+    "fin-vnrates": [
+      "Overnight rate 4.31% jumps 0.92 pp.",
+      "Policy corridor unchanged (3.0%‑4.5%).",
+      "1‑week rate rises 0.69 pp, mixed shift.",
+      "2‑week rate stable at 5.01% with slight drift.",
+      "3‑month rate falls to 6.93%, steepening curve.",
+      "Interbank turnover 96.8% in overnight & 1‑week."
+    ]
+  }
+}

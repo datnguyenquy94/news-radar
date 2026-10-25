@@ -41,8 +41,8 @@
       "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 287425,
-      "lastReported": "2026-10-24"
+      "stars": 288186,
+      "lastReported": "2026-10-25"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -188,6 +188,10 @@
       "stars": 10281,
       "lastReported": "2026-09-30"
     },
+    "aws/agent-toolkit-for-aws": {
+      "stars": 3172,
+      "lastReported": "2026-10-25"
+    },
     "ayghri/i-have-adhd": {
       "stars": 55352,
       "lastReported": "2026-10-08"
@@ -269,12 +273,12 @@
       "lastReported": "2026-09-14"
     },
     "can1357/oh-my-pi": {
-      "stars": 35980,
-      "lastReported": "2026-10-20"
+      "stars": 36489,
+      "lastReported": "2026-10-25"
     },
     "career-ops-hq/career-ops": {
-      "stars": 76437,
-      "lastReported": "2026-10-22"
+      "stars": 77049,
+      "lastReported": "2026-10-25"
     },
     "cathrynlavery/diagram-design": {
       "stars": 54456,
@@ -317,8 +321,8 @@
       "lastReported": "2026-09-20"
     },
     "cloudflare/security-audit-skill": {
-      "stars": 42396,
-      "lastReported": "2026-10-24"
+      "stars": 44915,
+      "lastReported": "2026-10-25"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -493,8 +497,8 @@
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 194360,
-      "lastReported": "2026-10-23"
+      "stars": 195060,
+      "lastReported": "2026-10-25"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -548,6 +552,10 @@
       "stars": 33131,
       "lastReported": "2026-09-11"
     },
+    "google-gemini/gemini-cli": {
+      "stars": 108149,
+      "lastReported": "2026-10-25"
+    },
     "google-research/timesfm": {
       "stars": 30758,
       "lastReported": "2026-09-04"
@@ -565,8 +573,8 @@
       "lastReported": "2026-10-03"
     },
     "Graphify-Labs/graphify": {
-      "stars": 133966,
-      "lastReported": "2026-10-24"
+      "stars": 134542,
+      "lastReported": "2026-10-25"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -601,8 +609,8 @@
       "lastReported": "2026-10-20"
     },
     "HKUDS/DeepTutor": {
-      "stars": 41931,
-      "lastReported": "2026-10-21"
+      "stars": 42566,
+      "lastReported": "2026-10-25"
     },
     "HKUDS/LightRAG": {
       "stars": 39962,
@@ -637,8 +645,8 @@
       "lastReported": "2026-10-20"
     },
     "hugohe3/ppt-master": {
-      "stars": 66866,
-      "lastReported": "2026-10-24"
+      "stars": 67544,
+      "lastReported": "2026-10-25"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -647,6 +655,10 @@
     "HunxByts/GhostTrack": {
       "stars": 16493,
       "lastReported": "2026-10-02"
+    },
+    "IAAR-Shanghai/ICSFSurvey": {
+      "stars": 172,
+      "lastReported": "2026-10-25"
     },
     "ifixai-ai/iFixAi": {
       "stars": 27633,
@@ -679,6 +691,10 @@
     "jamwithai/production-agentic-rag-course": {
       "stars": 9434,
       "lastReported": "2026-10-04"
+    },
+    "jbiaojerry/ebook-treasure-chest": {
+      "stars": 22758,
+      "lastReported": "2026-10-25"
     },
     "jeecgboot/JeecgBoot": {
       "stars": 47964,
@@ -713,8 +729,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 112693,
-      "lastReported": "2026-10-16"
+      "stars": 114845,
+      "lastReported": "2026-10-25"
     },
     "julyx10/lap": {
       "stars": 2916,
@@ -751,6 +767,10 @@
     "Kruk2/jasna": {
       "stars": 2520,
       "lastReported": "2026-10-19"
+    },
+    "labmlai/annotated_deep_learning_paper_implementations": {
+      "stars": 67598,
+      "lastReported": "2026-10-25"
     },
     "Lakr233/vphone-cli": {
       "stars": 13422,
@@ -825,8 +845,8 @@
       "lastReported": "2026-09-15"
     },
     "luongnv89/claude-howto": {
-      "stars": 43401,
-      "lastReported": "2026-10-23"
+      "stars": 44657,
+      "lastReported": "2026-10-25"
     },
     "lyogavin/airllm": {
       "stars": 38433,
@@ -843,6 +863,10 @@
     "majd/ipatool": {
       "stars": 10610,
       "lastReported": "2026-09-01"
+    },
+    "makecindy/cindy": {
+      "stars": 4183,
+      "lastReported": "2026-10-25"
     },
     "makeplane/plane": {
       "stars": 57948,
@@ -961,8 +985,8 @@
       "lastReported": "2026-09-08"
     },
     "morluto/rea": {
-      "stars": 373885,
-      "lastReported": "2026-10-24"
+      "stars": 379437,
+      "lastReported": "2026-10-25"
     },
     "msitarzewski/agency-agents": {
       "stars": 162495,
@@ -1021,20 +1045,24 @@
       "lastReported": "2026-10-24"
     },
     "NousResearch/hermes-agent": {
-      "stars": 256295,
-      "lastReported": "2026-10-23"
+      "stars": 256855,
+      "lastReported": "2026-10-25"
     },
     "ntdevlabs/tiny11builder": {
       "stars": 20312,
       "lastReported": "2026-10-15"
+    },
+    "Nutlope/hallmark": {
+      "stars": 32302,
+      "lastReported": "2026-10-25"
     },
     "NVIDIA/Model-Optimizer": {
       "stars": 4801,
       "lastReported": "2026-09-27"
     },
     "NVIDIA/OpenShell": {
-      "stars": 18900,
-      "lastReported": "2026-10-24"
+      "stars": 19561,
+      "lastReported": "2026-10-25"
     },
     "nvm-sh/nvm": {
       "stars": 95485,
@@ -1137,8 +1165,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 101079,
-      "lastReported": "2026-10-23"
+      "stars": 101864,
+      "lastReported": "2026-10-25"
     },
     "paperclipai/paperclip": {
       "stars": 94690,
@@ -1165,8 +1193,8 @@
       "lastReported": "2026-10-04"
     },
     "pbakaus/impeccable": {
-      "stars": 75476,
-      "lastReported": "2026-10-04"
+      "stars": 86555,
+      "lastReported": "2026-10-25"
     },
     "peetzweg/opendisplay": {
       "stars": 3670,
@@ -1187,6 +1215,10 @@
     "pingdotgg/t3code": {
       "stars": 24774,
       "lastReported": "2026-10-04"
+    },
+    "pollen-robotics/microduck": {
+      "stars": 11074,
+      "lastReported": "2026-10-25"
     },
     "pollen-robotics/microduck_rl": {
       "stars": 1223,
@@ -1253,8 +1285,8 @@
       "lastReported": "2026-09-19"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 72847,
-      "lastReported": "2026-10-24"
+      "stars": 73365,
+      "lastReported": "2026-10-25"
     },
     "ruanyf/weekly": {
       "stars": 104148,

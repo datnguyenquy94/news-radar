@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Gemini CLI pushes nightly build with Unicode fix",
+      "Claude Code sees 10 hot issues on cost inflation",
+      "OpenAI Codex still faces Windows desktop blocker",
+      "AI‑CLI ecosystem grapples with Windows/macOS regressions",
+      "Sub‑agent orchestration and credential handoff added",
+      "Cloud‑hosted LLM endpoints expanding model coverage"
+    ],
+    "ai-agents": [
+      "OpenClaw logs 133 issues and 500 PRs in 24h",
+      "v2026.10.7 adds Replay‑Safe session recovery",
+      "Two releases this week: v2026.10.7 and v2026.9.34",
+      "Critical data‑integrity bugs block Windows deployments",
+      "298 PRs merged/closed in latest activity burst",
+      "Extended‑stable v2026.9.34 brings major stability fixes"
+    ],
+    "ai-trending": [
+      "Agent‑centric ecosystem explodes, 4 new repos debut",
+      "NVIDIA OpenShell jumps to 19.5k stars (+896 today)",
+      "Gemini‑CLI launches with 108k stars on day one",
+      "Firecrawl gains 700 stars, tops data‑ingestion tools",
+      "Cloudflare audit skill boosts runtime safety focus",
+      "Graphify climbs 576 stars, RAG graph tooling spikes"
+    ],
+    "ai-hn": [
+      "Cerebras deploys trillion‑parameter models, sparks debate",
+      "Mistral Voxtral‑3 highlighted among new agent models",
+      "OpenShell and Corgi terminal drive agent engineering talks",
+      "Community split on AI’s economic impact and job losses",
+      "Grok vs OpenAI experiment ignites political bias discussion",
+      "Hallucination, fake citations dominate HN comments"
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B tops likes (18k) with 7.8M downloads",
+      "Lightricks LTX‑2.5 leads image‑gen with 9k likes",
+      "Flux‑3 family nears 2M downloads, image generation surge",
+      "GGUF fine‑tunes of DeepSeek‑V4.1 surge in community",
+      "Quantized models drive edge‑ready inference trend",
+      "Meta Muse‑Spark 816B draws attention for extreme scaling"
+    ],
+    "ai-community": [
+      "Agents risk overspending and bypassing guardrails",
+      "Local‑first open‑source LLMs gaining traction on laptops",
+      "AI security testing cuts months to hours, teams lag",
+      "LLM‑powered linter beats peers on 12 writing tasks",
+      "New model families Timestral, Next‑Concept discussed",
+      "ConcurrentML concurrency ideas spark excitement"
+    ],
+    "fin-macro": [
+      "Fed Funds steady at 3.88%; balance sheet $6.75T",
+      "10‑yr Treasury yield 4.96% in highly restrictive zone",
+      "VIX calm at 19.0 despite market volatility",
+      "Core CPI eases to 2.8% while headline 4.0%",
+      "Oil above $100 keeps core inflation pressure up",
+      "Retail margin debt up 1.8% to $1.48 T"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index up 0.80% to 1,774.15; VN30 +0.70%",
+      "Dong sell rate 26,020 VND/USD down 1.41% YTD",
+      "Brent crude rises, up 7% on longer trend",
+      "Gold retreats 7% over past 20 days",
+      "VanEck Vietnam ETF gains 0.53% today",
+      "Hot‑Rolled Coil futures jump 4.5% to $1.344/t"
+    ],
+    "fin-vnrates": [
+      "SBV policy corridor unchanged: 3.0%‑4.5%",
+      "Overnight interbank rate 4.31% near policy floor",
+      "1‑week rate 4.35% rises, short‑end volatile",
+      "2‑week rate climbs to 5.01%, mid‑term up",
+      "3‑month rate falls to 6.93% after earlier rise",
+      "6‑9 month rates falling, indicating easing liquidity"
+    ]
+  }
+}

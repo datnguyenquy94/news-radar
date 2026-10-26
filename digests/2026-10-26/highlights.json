@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code reports 10 critical auth tickets.",
+      "OpenAI Codex has 10 open bugs, no PRs today.",
+      "AI‑CLI projects focus on configurability and stability.",
+      "Enterprise users seek cost predictability and security.",
+      "No new releases for AI‑CLI tools on Oct 26.",
+      "Fragmented AI‑CLI ecosystem; maintenance‑first trend."
+    ],
+    "ai-agents": [
+      "OpenClaw had 500 PR updates in last 24 h.",
+      "OpenClaw latest tag is 2026.9.9; no new release.",
+      "PR #184176 improves avatar encoding reuse.",
+      "SQLite‑WAL growth and sub‑agent dead‑locks flagged.",
+      "30+ stale issues with >30 comments block production.",
+      "High PR churn shows fast performance and UI work."
+    ],
+    "ai-trending": [
+      "Agent toolkit morluto/rea gains 6.2 k stars today.",
+      "TauricResearch/TradingAgents adds 5.4 k stars.",
+      "VoiceStudio climbs 11 k stars in one week.",
+      "Ollama hub gains 550 stars on Oct 26.",
+      "Claude skill Hallmark jumps 1.3 k stars to 34 k.",
+      "Rust project Impeccable hits 87.9 k stars (+1.1 k)."
+    ],
+    "ai-hn": [
+      "LLM provider price collapse sparks major HN debate.",
+      "10‑year‑old CNN outperforms LLMs in skin cancer test.",
+      "Cerebras demonstrates trillion‑parameter model deployment.",
+      "Kimi K3.1 Pro AI hardware draws record HN scores.",
+      "OpenShell agent‑runtime framework gets high interest.",
+      "Economic fallout leads to job loss warnings on HN."
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash‑1017 tops LLM likes today.",
+      "Qwen‑3.8‑27B leads downloads with 7.7 M pulls.",
+      "Lightricks/LTX‑2.5 reaches 2 M video‑gen downloads.",
+      "GGUF quantized variants of DeepSeek and Qwen surge.",
+      "Flint 7 B model hits 863 likes, 6.4 k downloads.",
+      "Sage‑A1.5 MoE model gains 3 k likes, 3.9 k dl."
+    ],
+    "ai-community": [
+      "NEXI Windows companion built with AdaL gains buzz.",
+      "Pixel‑art office cats demo data analysis with LLMs.",
+      "Lazy Email Agent combines TabPFN, Gemma, Temporal.",
+      "KV‑cache memory tricks discussed for high‑scale serving.",
+      "Lobsters highlight new Timestral foundation model.",
+      "Security‑oriented model experiments push backward pass."
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88 %.",
+      "VIX calm at 19.0, indicating low market volatility.",
+      "10‑year Treasury yield down to 4.96 %.",
+      "Oil prices stay above $100, adding inflation pressure.",
+      "Unemployment at 4.2 % while payroll growth stalls.",
+      "Retail margin debt climbs to $1.48 T in Sep‑26."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index rises 0.8 % to 1,774.15.",
+      "VN30 climbs 0.7 % to 1,907.09.",
+      "Dong sell rate slips 0.46 % month‑on‑month.",
+      "US 10‑yr Treasury yields fall 3.31 % today.",
+      "Gold at $4,021 /oz, up 0.34 %.",
+      "Brent crude down 6.14 % in 1 day."
+    ],
+    "fin-vnrates": [
+      "SBV keeps discount at 3 % and refinancing at 4.5 %.",
+      "Overnight interbank rate at 4.31 %, below ceiling.",
+      "1‑week rate 4.35 % sits near ceiling.",
+      "2‑week rate 5.01 % exceeds policy ceiling.",
+      "9‑month rate 8.70 % sees 182% turnover rise.",
+      "Liquidity ample; market rates below refinancing cap."
+    ]
+  }
+}

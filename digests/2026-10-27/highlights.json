@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.311 released today",
+      "Multi‑account auth issues surface in Claude Code",
+      "Enterprise‑ready features dominate CLI updates",
+      "OpenAI Codex sees Windows UI crash reports",
+      "New security‑guidance PRs across CLI tools",
+      "Focus shifts to workflow predictability over model size"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.35 gateway‑only LTS release",
+      "277 issues updated, heavy bug triage today",
+      "Upgrade path flagged as fragile by community",
+      "500 PRs processed, many runtime‑stability fixes",
+      "Agents UI refinements merged amid maintenance phase",
+      "Gateway‑only release separates OpenClaw components"
+    ],
+    "ai-trending": [
+      "Agent frameworks TradingAgents, cindy, ECC each +1k stars",
+      "NVIDIA SkillSpector launches, +214 stars today",
+      "Token‑reduction proxy caveman gains +511 stars",
+      "VoiceStudio adds 2,492 stars since yesterday",
+      "postiz‑app rises as agentic social media scheduler",
+      "Security tooling dominates trending list"
+    ],
+    "ai-web": [
+      "Anthropic files S‑1 for Nasdaq IPO (ticker ANT)",
+      "OpenAI announces GPT‑6 “1 Terra” initiative",
+      "OpenAI posts three index‑only product URLs",
+      "Anthropic IPO filing marks shift to public markets",
+      "OpenAI’s “ChatGPT Expanding World of Work” unveiled",
+      "Competitive cadence accelerates between Anthropic and OpenAI"
+    ],
+    "ai-hn": [
+      "Anthropic S‑1 filing sparks 1,529‑score discussion",
+      "OpenAI GPT‑6.1 Terra launch draws 549 score",
+      "Both firms cut LLM fees up to 80%",
+      "Cloudflare reveals cross‑request KV‑cache leak",
+      "Breakthrough paper disproves Exponential‑Time Hypothesis",
+      "10‑year‑old CNN beats models on skin‑cancer diagnosis"
+    ],
+    "ai-arxiv": [
+      "DecisionRAG introduces retrieval‑free generation",
+      "Schedule distillation cuts diffusion decoding steps 30%",
+      "Generalisation bounds show long strings beat short ones",
+      "Real‑time code‑vulnerability probing research released",
+      "Multi‑agent evaluation platforms Euro‑game arena, EBench",
+      "Retriever‑free models aim to close generator gap"
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B tops likes as multimodal powerhouse",
+      "DeepSeek‑V4.1‑Flash leads multimodal conversation",
+      "Lightricks LTX‑2.5 video model hits 2M downloads",
+      "GGUF quantization drives lightweight checkpoints surge",
+      "Timestral gains attention for time‑series modeling",
+      "Carbon‑X draws interest for DNA‑level text generation"
+    ],
+    "ai-community": [
+      "Dev.to post on antivirus for AI agents goes viral",
+      "Cost‑aware prompting threads expose hidden token leaks",
+      "JetBrains “Thinkrail” IDE demoed with Claude code gen",
+      "AdaL game “MAYHEM” built using Claude assistance",
+      "EU digital expropriation news sparks legal debate",
+      "Community dissects Mixture‑of‑Experts routing tricks"
+    ],
+    "fin-macro": [
+      "Fed balance sheet at $6.75 T, policy rate steady 3.88%",
+      "10‑yr Treasury yield climbs to 5.00%",
+      "CPI at 4% YoY, core near 3%",
+      "Margin debt up 1.8% month‑over‑month",
+      "VIX holds near 19, low volatility",
+      "Oil prices above $100, inflation pressure persists"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.60% to 1,763.55",
+      "VN30 slides 0.90% to 1,889.53",
+      "USD/VND eases 0.5% month‑to‑date",
+      "US 10Y yield rises to 5.00%",
+      "Gold slips to $4,032.6/oz",
+      "VanEck Vietnam ETF falls 0.93%"
+    ],
+    "fin-vnrates": [
+      "SBV policy ceiling 4.50%, floor 3.00% unchanged",
+      "Overnight rate 3.95% below ceiling, excess liquidity",
+      "1‑week rate 4.08% under policy, slight dip",
+      "2‑week rate 5.06% above ceiling, tight patch",
+      "3‑month rate 6.90% steady, steep curve",
+      "Market rates below ceiling limit tightening ability"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code launches v2.1.312 with plugin fixes.",
+      "OpenAI Codex ships rust‑v0.166.0‑alpha.5 release.",
+      "AI‑CLI tools shift to multi‑agent, event‑driven workflows.",
+      "Gemini, Qwen, DeepSeek see rapid daily releases.",
+      "GitHub Copilot CLI enters maintenance‑only mode.",
+      "Top issues include Claude Code #18435 and Codex token waste."
+    ],
+    "ai-agents": [
+      "OpenClaw logs 162 issues and 500 PR updates today.",
+      "v2026.10.8 adds gateway auto‑restart on failures.",
+      "Orphaned workers no longer block CLI commands.",
+      "Beta 2026.10.10‑beta.4 fixes ACL filesystem updates.",
+      "Core gateway faces P0/P1 crash loops.",
+      "UI team polishes Control UI and documentation."
+    ],
+    "ai-trending": [
+      "Agent frameworks dominate trends, 7 of top 11 repos.",
+      "RAG projects graphify & ragflow add 500‑800 stars.",
+      "DeepTutor spikes +1,600 stars in a single day.",
+      "MoneyPrinterTurbo climbs +748 stars today.",
+      "morluto/rea hits 398k stars, +5,645 today.",
+      "Graphify jumps to 137k stars, +829 today."
+    ],
+    "ai-web": [
+      "Anthropic reveals a CRISPR‑like enzyme system.",
+      "Claude agents can subtly sway expert judgments.",
+      "GSA discount program now covers all US governments.",
+      "Anthropic files S‑1 for Nasdaq IPO under ticker ANT.",
+      "Claude Code boosts productivity for quantitative social scientists.",
+      "OpenAI adds only a metadata entry for Oracle Apps in ChatGPT."
+    ],
+    "ai-hn": [
+      "HN debates Anthropic's pirated Stanford book data.",
+      "GPT‑6.1 Terra unveiled, promising terra‑scale reasoning.",
+      "Liquid's LFM3 model sparks heated community discussion.",
+      "OpenAI claims to refute the Exponential Time Hypothesis.",
+      "Ethical worries rise over AI‑driven police stops.",
+      "Wikipedia AI content cleanup fuels policy debate."
+    ],
+    "ai-arxiv": [
+      "MuonGS proposes relaxed weight‑norm control for LLMs.",
+      "MSLA‑2 offers linear‑time attention with second‑order routing.",
+      "GTFormer replaces transformers with graph networks for long sequences.",
+      "New attention‑gate defenses aim to make LLMs safer.",
+      "Synthetic tool‑use curricula enhance agent reasoning.",
+      "Research targets cheaper, safer LLM training methods."
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B leads with 18 k likes on HF.",
+      "Vision models DeepSeek‑V4.1‑Flash‑1017 surge in downloads.",
+      "GGUF quantization releases tally ≈1.9 M downloads.",
+      "Lightricks LTX‑2.5 pushes image‑to‑video diffusion.",
+      "Flux‑3‑image‑klein‑comfy gains >750 k downloads.",
+      "RecursiveSI/flint 7‑B model praised for low‑latency chat."
+    ],
+    "ai-community": [
+      "VS Code plugin blocks AI “fixed” until tests pass.",
+      "AI‑generated code leaked a real private key, raising alarms.",
+      "Dev.to article debates AI trust and audit‑trail needs.",
+      "Lobsters covers AI fuzzing and malicious back‑propagation.",
+      "Discussions shift from capabilities to safe production integration.",
+      "Community highlights token‑cost accounting and prompt‑injection risks."
+    ],
+    "fin-macro": [
+      "Fed Funds rate steady at 3.88 %.",
+      "10‑yr Treasury yield holds at 5.00 %, restrictive.",
+      "FINRA margin debt rises 1.8 % to $1.48 T.",
+      "Oil prices stay above $100, adding inflation pressure.",
+      "VIX falls to 18.39, indicating calm volatility.",
+      "High‑yield credit spread tightens to 3.30 %."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.10 % to 1,761.87, flat market.",
+      "Dong weakens 0.54 % month, 1.41 % YTD.",
+      "US Dollar Index up 0.09 % today.",
+      "Brent crude up 7.13 % over 20 days.",
+      "VanEck Vietnam ETF falls 0.06 % today.",
+      "VN30F1M basis rises 0.20 %."
+    ],
+    "fin-vnrates": [
+      "Vietnam refinancing rate stays at 4.5 % for 3 years.",
+      "Overnight interbank rate edges up to 4.27 %.",
+      "1‑week rate jumps to 5.00%, sharp rise.",
+      "3‑month rate climbs to 7.12%, steep curve.",
+      "6‑month rate dips slightly to 7.59%.",
+      "Turnover spikes 339% for 1‑week rate."
+    ]
+  }
+}

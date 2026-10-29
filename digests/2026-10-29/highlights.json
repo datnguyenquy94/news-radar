@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenCode v2.2.1 released on Oct 29.",
+      "Kimi CLI shows zero hot issues today.",
+      "All major AI‑CLI tools report ~10 hot issues.",
+      "New focus on plug‑in extensibility across tools.",
+      "Transparency in cost/usage accounting emphasized.",
+      "Cross‑platform reliability remains a top concern."
+    ],
+    "ai-agents": [
+      "OpenClaw sees 500 PRs in last 24 h.",
+      "180 issues updated, mostly bug‑fixes.",
+      "No new release; latest tag 2026.9.6.",
+      "Regressions: gateway block‑loops, SQLite dead‑locks.",
+      "Community triage tags (ClawSweeper) heavily used.",
+      "Significant backlog of stale issues remains."
+    ],
+    "ai-trending": [
+      "Agent frameworks add ~1k–1.5k stars each today.",
+      "Hallmark linter gains +2.1k stars today.",
+      "Impeccable sees +2.1k stars in a day.",
+      "Thinkrail jumps +1,068 stars on Oct 29.",
+      "AI‑design‑skills up +2,139 stars today.",
+      "LangChain and LangGraph keep steady growth."
+    ],
+    "ai-web": [
+      "Anthropic expands AI for Science to 20 new institutions.",
+      "Anthropic releases drug‑development results with BMS.",
+      "Claude demo discovers remote‑code‑execution bugs.",
+      "OpenAI logs ServiceNow partnership expansion entry.",
+      "Claude credits offered free to new scientific foundations.",
+      "Vulnerability research disclosed responsibly."
+    ],
+    "ai-hn": [
+      "Gemini 4 Carbon tops Hacker News front page.",
+      "GPT‑6.1 Terra sparks high‑volume discussion.",
+      "OpenAI “Three new discoveries” scores +1k points.",
+      "Anthropic accused of using pirated Stanford books.",
+      "Amazon abruptly shuts down its AI division.",
+      "Debate intensifies over Claude’s token‑overhead."
+    ],
+    "ai-arxiv": [
+      "Attention‑gate defenses cut prompt‑injection success.",
+      "New papers formalize multi‑turn agentic reasoning.",
+      "Linear‑time attention boosts edge inference speed.",
+      "‘Heads of Security’ adds gated attention heads.",
+      "‘MuonGS’ proposes relaxed weight‑norm training schedule.",
+      "Multi‑State Linear Attention improves routing efficiency."
+    ],
+    "ai-hf": [
+      "DeepSeek Flash‑1017 tops Hugging Face trending chart.",
+      "Qwen 27‑B multimodal model draws massive attention.",
+      "Lightricks LTX‑2.5 launches image‑to‑video generation.",
+      "Flux‑3 and MOSS‑Image lead diffusion‑video surge.",
+      "Quantized 30‑B models now run on consumer GPUs.",
+      "Uns​loth and NVIDIA push community quantization forward."
+    ],
+    "ai-community": [
+      "Token‑bloat hacks can burn tens of thousands of tokens.",
+      "KV‑cache compaction cuts inference spend by up to 70%.",
+      "Agent‑harness posts expose capture‑hook bugs.",
+      "Local vs API LLM deployment debate heats up.",
+      "Rust rewrites improve portable LLM runtimes.",
+      "Git workflows re‑engineered for AI‑generated commits."
+    ],
+    "fin-macro": [
+      "Fed Funds Rate holds steady at 3.88%.",
+      "Fed balance sheet dips by $0.01 T.",
+      "VIX drops to 17.52, indicating calm markets.",
+      "Retail margin debt rises 1.8% month‑over‑month.",
+      "10‑year Treasury yield sits at 4.99%.",
+      "Oil price steadies around $103 per barrel."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index climbs to 1,766.65 (+0.30%).",
+      "VN30 up 0.10% on the day.",
+      "Futures‑spot contango at +2.78 points.",
+      "VND sells at 26,040 per USD, slightly stronger.",
+      "DXY steadies at 102.20.",
+      "Equity market shows modest upward trend."
+    ],
+    "fin-vnrates": [
+      "Overnight rate 4.90%, up 0.63 pp.",
+      "1‑week rate 5.57%, up 0.57 pp.",
+      "3‑month rate 7.43%, up 0.31 pp.",
+      "6‑month rate 6.13%, down 1.46 pp.",
+      "Rates exceed SBV’s 4.5% ceiling.",
+      "Market shows tight liquidity conditions."
+    ]
+  }
+}

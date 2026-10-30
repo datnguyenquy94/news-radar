@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.314 launches security‑guard flags.",
+      "Gemini CLI v0.67.0‑nightly released today.",
+      "OpenAI Codex sees 11 PRs, “agent command centre” updates.",
+      "AI‑CLI market consolidates around security & reliability.",
+      "Enterprise credential‑store features become differentiators.",
+      "Cross‑platform support (WSL, macOS, Linux) dominates talks."
+    ],
+    "ai-agents": [
+      "OpenClaw processes 231 PRs merged today.",
+      "269 PRs remain open on OpenClaw this week.",
+      "Beta v2026.10.10‑beta.5 restores Node ≥24.16 support.",
+      "v2026.10.9 patches fast‑uri and nodemailer CVEs.",
+      "Community flags dozens of P1/P2 stability bugs.",
+      "Three beta releases focus on Node, deps, gateway LTS."
+    ],
+    "ai-trending": [
+      "Superpowers, impeccable, CopilotKit each gain 1k+ stars.",
+      "Ollama gains 505 stars after latest model releases.",
+      "JetBrains thinkrail spikes 1,117 stars, now 6.1k total.",
+      "Graphify climbs, boosting self‑hosted code‑graph pipelines.",
+      "New OpenMausBot and Claude‑Code‑Game‑Studios debut.",
+      "Infra tools dominate trend, signaling self‑hosted push."
+    ],
+    "ai-web": [
+      "Anthropic launches “Managed Agents” service.",
+      "Claude Code best‑practice guide published.",
+      "40% government discount on all Claude products.",
+      "AI‑for‑Science adds 20 new research institutions.",
+      "OpenAI posts safety‑focused “How We Detect Misalignment”.",
+      "Claude’s offerings target long‑running autonomous workflows."
+    ],
+    "ai-hn": [
+      "Mistral releases open‑weight Large 4 (30B) model.",
+      "Google unveils Gemini 4 Carbon multimodal model.",
+      "New Linux TCP use‑after‑free bug sparks security talk.",
+      "Defense AI agent gets Pentagon access, stirs controversy.",
+      "Show HN: DOOM‑former demo of AI‑generated game levels.",
+      "Sleep framework paper proposes continual‑learning for LLMs."
+    ],
+    "ai-arxiv": [
+      "Single‑algorithm training cuts LLM pipeline 40%.",
+      "Template safety aligns 100+ languages, cuts toxicity 12%.",
+      "New DP filter boosts privacy in inference.",
+      "Energy‑aware speculative decoding improves efficiency.",
+      "Neural operators applied to plasma simulations.",
+      "RL control of PDEs advances trustworthy AI."
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash tops image‑text‑to‑text charts.",
+      "Qwen 3.8‑27B gathers ~19k likes on HF.",
+      "Lightricks LTX‑2.5 reaches 800k downloads.",
+      "Flux‑3‑Klein hits 800k download milestone.",
+      "GGUF‑packed DeepSeek variants surge in popularity.",
+      "Nemotron 4‑bit model fits in 4 GB GPU."
+    ],
+    "ai-community": [
+      "Dev.to article exposes log‑file prompt‑injection risk.",
+      "Prompt‑caching tricks cut LLM inference costs.",
+      "Model‑upgrade migration guide helps budget AI ops.",
+      "Claude Code and voice assistants dominate agent talks.",
+      "Hacktoberfest “Ghost in the Machine” showcases AI demos.",
+      "Debate on LLM code generation vs human design persists."
+    ],
+    "fin-macro": [
+      "Fed Funds steady at 3.88% as markets pause.",
+      "10‑year Treasury yield climbs to 5.05%.",
+      "CPI at 4.0% YoY, still above 2% target.",
+      "Oil prices sit above $100, pressuring core inflation.",
+      "Margin debt rises 1.8% to $1.48T.",
+      "Unemployment holds at 4.2% with slowing payrolls."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index slides 0.60% to 1,755.61.",
+      "VN30 drops 0.70% to 1,877.18.",
+      "USD/VND steady at 25,980 (‑1.56% YTD).",
+      "US 10‑year yield jumps 1.20% today.",
+      "Brent crude at $111.88 per barrel.",
+      "HRC futures rise to $1,342/t (+0.15%)."
+    ],
+    "fin-vnrates": [
+      "SBV keeps discount rate at 3.0% unchanged.",
+      "Refinancing rate stays at 4.5% for 3 years.",
+      "Overnight interbank rate falls to 4.10%.",
+      "1‑week rate at 5.25% sits above ceiling.",
+      "3‑month rate climbs to 7.70% trend upward.",
+      "Mixed liquidity: cheap overnight, tight week‑term."
+    ]
+  }
+}

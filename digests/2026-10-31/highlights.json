@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.316 adds budget & ultrathink flag",
+      "Gemini CLI nightly 0.67.0 released",
+      "OpenCode v2.2.5 adds work‑tree shortcuts",
+      "AI‑CLI tools now production‑grade, post‑beta",
+      "Focus shifts to cost control and security",
+      "Stable agent APIs enable scripted automation"
+    ],
+    "ai-agents": [
+      "OpenClaw logs 94 open issues and 500 PRs today",
+      "No new binary release; latest tag 2026.10.8",
+      "Stability regressions dominate discussions",
+      "PR #189036 fixes voice‑agent steering bug",
+      "PR #189025 adds safety abort for doctor tool",
+      "Feature push: Skill Workshop and automation safety"
+    ],
+    "ai-trending": [
+      "Claude‑Mem gains 1,553 stars in one day",
+      "OpenMausBot adds 1,218 stars today",
+      "Superpowers & Anthropic Skills hit 30k new stars",
+      "LightPanda Browser, Firecrawl, ReA each +3k stars",
+      "ReA tops with 4,139 stars gained today",
+      "Impeccable Rust project climbs 2,300 stars"
+    ],
+    "ai-web": [
+      "Anthropic releases 'Scaling Managed Agents' paper",
+      "Anthropic discloses software vulnerabilities via Claude",
+      "OpenAI adds three policy index pages on safety",
+      "OpenAI's new pages focus on teen protections",
+      "Anthropic pushes production‑grade managed agents",
+      "OpenAI emphasizes regulatory compliance this week"
+    ],
+    "ai-hn": [
+      "Claude VS Code back‑door tops HN with 849 points",
+      "'Black October' AI platform breaches spark debate",
+      "Mistral Large 4 open‑source weights draw 1,688 points",
+      "Google Gemini 4 Carbon garners 1,011 points",
+      "Investors worry about AI cash‑burn on HN",
+      "Policymakers argue against an AI bailout"
+    ],
+    "ai-arxiv": [
+      "New LM Data Attribution benchmark isolates failures",
+      "ShallowDefend reduces jailbreaks with early‑layer module",
+      "TextSeal2 introduces distortion‑free watermark",
+      "ArXiv shows convergence of training, safety, agents",
+      "Continual unlearning highlighted in recent safety work",
+      "Agentic systems now aim for scientific discovery"
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash‑1017 tops likes with 4k+",
+      "Lightricks LTX‑2.5 video diffusion hits 10k likes",
+      "DeepSeek GGUF quantized variant downloaded 1.7 M times",
+      "Nanbeige4.3‑33B gains traction for code tasks",
+      "Flint LLM praised for empathy, low hallucinations",
+      "Spark‑X2.6‑4B blends Spark style instructions"
+    ],
+    "ai-community": [
+      "Dev.to debates AI IDE extension back‑door risks",
+      "Supply‑chain attacks in coding agents under scrutiny",
+      "Cost‑optimisation strategies dominate community talks",
+      "Hacktoberfest drives contributions to AI OSS projects",
+      "Guides on offline self‑hosting AI tools gain traction",
+      "Resilient agents discussion sparks 'Undead Agent' posts"
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88%",
+      "10‑year Treasury yield at 4.98%, highly restrictive",
+      "Core CPI remains above target at 2.8% YoY",
+      "Oil prices stay above $100, pressuring inflation",
+      "Retail margin debt rises 1.8% to $1.48 T",
+      "VIX hovers at 17.2, indicating calm volatility"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index slips 0.8% to 1,741.62",
+      "VN30 falls 1.2% to 1,855.04",
+      "Dong trades at 25,990 VND/USD, moderate depreciation",
+      "US 10‑year yield down 1.39% in one day",
+      "Brent crude rallies 15% over 20 days",
+      "USD index stable at 101.88, slight dip"
+    ],
+    "fin-vnrates": [
+      "SBV refinancing ceiling stays at 4.5%",
+      "Overnight rate drops to 3.74%, below ceiling",
+      "Liquidity appears slightly excess in interbank market",
+      "Overnight turnover totals 809,175 bn VND",
+      "1‑week rate at 5.19% near policy ceiling",
+      "1‑month rate falls to 5.06% with strong inflow"
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code shows 10 hot issues, no new release.",
+      "OpenAI Codex has 10 open issues, zero PRs merged.",
+      "Gemini CLI resolves 10 PRs despite 10 open issues.",
+      "AI‑CLI tools moving toward production‑grade assistants.",
+      "Community pushes for transparent token budgeting.",
+      "Multi‑agent orchestration emerging across CLI utilities."
+    ],
+    "ai-agents": [
+      "OpenClaw handled 118 issues in 24h, 101 still open.",
+      "500 PRs updated, 221 merged or closed in the last day.",
+      "No new release; team targeting next stable 2026.10.x.",
+      "Fix #190019 restores model visibility after credential save.",
+      "Fix #180854 stops Slack replies persisting after deletion.",
+      "PR #185851 cuts CI static‑analysis time by ~40%."
+    ],
+    "ai-trending": [
+      "Claude‑Mem gains 1,723 stars, surpasses 108k total.",
+      "Superpowers jumps 600+ stars, hitting 310k total.",
+      "Claude‑Code‑Game‑Studios adds 600+ stars in one day.",
+      "New project Orkas launches with over 1k stars instantly.",
+      "Rust project Impeccable climbs 1,338 stars, 98k total.",
+      "Zig browser library Lightpanda‑io/browser up 929 stars."
+    ],
+    "ai-web": [
+      "Anthropic releases “Anthropic Insights” for data access.",
+      "Pilot gave three external teams read‑only Claude logs.",
+      "Data aggregated with differential‑privacy to protect users.",
+      "Anthropic seeks partners through an interest form.",
+      "First public move to open real‑world Claude data.",
+      "OpenAI released no new articles; only placeholders today."
+    ],
+    "ai-hn": [
+      "Mistral Large 4 OSS release triggers massive vote (1707).",
+      "Gemini 4 Carbon announced, debate on carbon‑efficient AI.",
+      "Back‑door found in Anthropic Claude‑Code VS Code.",
+      "Anthropic blocks video‑game‑style reverse‑engineering.",
+      "ChatGPT account “take‑over” scandal fuels abuse worries.",
+      "Community split: excitement over models vs security fears."
+    ],
+    "ai-hf": [
+      "Lightricks LTX‑2.5 video model tops 2 M downloads.",
+      "Qwen 3.8‑27B garners almost 19 K likes on HF.",
+      "DeepSeek‑V4.1‑Flash‑1017 GGUF quantized variants surge.",
+      "Nanbeige 4.3‑33B hits 13 k downloads, 911 stars.",
+      "RecursiveSI/flint gains 1,277 likes, 23 k downloads.",
+      "XHToken/Spark‑X2.6‑4B dominates Chinese LLM rankings."
+    ],
+    "ai-community": [
+      "AI necromancer summons “ghost notes” from legacy code.",
+      "Aoandon uses LLMs to rewrite ghost tales across JLPT levels.",
+      "ESA study: TabPFN outperforms SOTA, saves $0.83 per run.",
+      "Researchers expose AI‑enabled account takeover chains.",
+      "Hacktoberfest “hack‑the‑ghost” challenge revives dead code.",
+      "Developers debate reproducibility of agentic‑era benchmarks."
+    ],
+    "fin-macro": [
+      "Fed balance sheet steady at $6.75 trillion, unchanged today.",
+      "Policy rate holds at 3.88% amid persistent inflation.",
+      "10‑year Treasury yield fell to 4.98%, still restrictive.",
+      "CPI at 4.0% YoY, core CPI 2.8% stays above target.",
+      "VIX low at 17.20, indicating calm market volatility.",
+      "Retail margin debt rose 1.8% MoM to $1.48 trillion."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index slipped 0.80% to 1,741.62.",
+      "VN30 fell 1.20% to 1,855.04.",
+      "VND sell price 25,990, down 0.69% month‑to‑date.",
+      "Dong stays within 3‑4% depreciation band.",
+      "US 10‑yr Treasury yield dropped 1.39% today.",
+      "Gold fell 3.29% in a day, now $3,898.9/oz."
+    ],
+    "fin-vnrates": [
+      "Overnight rate at 3.74%, down 0.36 pp in one session.",
+      "1‑week rate sits at 5.19%, showing funding strain.",
+      "30‑session trend: 1‑week rate up 1.30 pp, indicating stress.",
+      "Policy ceiling 4.50% and floor 3.00% remain unchanged.",
+      "Liquidity excess overnight while longer short‑end tightens.",
+      "1‑month rate fell 0.79 pp, softening demand."
+    ]
+  }
+}

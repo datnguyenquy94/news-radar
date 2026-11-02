@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code, OpenAI Codex, Gemini CLI among 10 AI‑CLI tools",
+      "Core platforms active, niche tools dormant",
+      "OpenAI Codex released Rust SDK v0.167.0‑alpha.3",
+      "Gemini CLI nightly v0.67.0‑nightly.20261102 released",
+      "Community focuses on cost‑visibility and multi‑model routing",
+      "Claude Code had no new release today"
+    ],
+    "ai-agents": [
+      "OpenClaw logged 136 issues and 500 PRs in 24 h",
+      "57 issues and 302 PRs remain open",
+      "No new release, community prepping bug‑fix batch",
+      "Doctor command hangs and gateway crash‑loop bugs urgent",
+      "PR #190882 fixed flaky UI catalog test",
+      "PR #188055 resolved transcript read concurrency error"
+    ],
+    "ai-trending": [
+      "Claude‑Mem +1,562 stars, surge for persistent memory",
+      "Firecrawl tops AI infrastructure list, +567 stars today",
+      "Lightpanda‑browser climbs 1,040 stars, AI headless browser",
+      "Handy offers offline speech‑to‑text, new vertical app",
+      "AiSOC provides self‑hosted AI security operations",
+      "Trend shift to infrastructure‑first tools before agents"
+    ],
+    "ai-hn": [
+      "Claude Code backdoor sparks heated security debate",
+      "Anthropic blocking policy draws community criticism",
+      "LLM‑driven malware discussion dominates threads",
+      "Mistral Large 4 weights released, open‑source 7B model",
+      "Gemini 4 Carbon unveiled, energy‑efficient edge model",
+      "Nolan Lawson cost analysis of JS frameworks tops upvotes"
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash‑1017 hits 4 k likes, 170 k downloads",
+      "Lightricks/LTX‑2.5 leads video‑gen chart with 10 k likes",
+      "Quantized DeepSeek‑Flash GGUF models see rapid uptake",
+      "Numbat 8‑bit model gains niche popularity",
+      "LiquidAI LFM3‑1.7B praised for low‑latency inference",
+      "Nanbeige4.3‑33B lauded for strong zero‑shot performance"
+    ],
+    "ai-community": [
+      "Security exploits show AI agents can be easily hijacked",
+      "Benchmarks reveal LLMs run on GPU‑less laptops",
+      "Tool‑centric guides on prompt‑engineering surge",
+      "Dev.to field guide to hijacking Claude, GPT, Gemini, Copilot",
+      "Strict TypeScript linting article gains 57 reactions",
+      "Cost‑analysis of JavaScript frameworks draws top upvotes"
+    ],
+    "fin-macro": [
+      "Fed Funds rate steady at 3.88 %",
+      "10‑year Treasury yield at 4.98 % restrictive zone",
+      "Margin debt rose 1.8 % month‑over‑month",
+      "Headline CPI 4.0 % YoY, core CPI 2.8 % above target",
+      "Oil prices stay above $100/bbl, inflation pressure",
+      "VIX at 17.2, indicating calm market volatility"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index down 0.8% to 1,741.62",
+      "VN30 falls 1.2% to 1,855.04",
+      "FDI up 55.4% YoY, strong foreign inflows",
+      "USD/VND sell rate 25,990, dong modestly stronger",
+      "Gold up 0.44% day, 5.8% down 20‑day trend",
+      "Brent crude down 6.7% day, up 9.4% 20‑day"
+    ],
+    "fin-vnrates": [
+      "SBV discount rate unchanged at 3.00 %",
+      "Refinancing rate unchanged at 4.50 %",
+      "Overnight interbank rate 3.74% shows excess liquidity",
+      "VND‑USD spread tight at -0.14 pp",
+      "1‑Month rate fell 0.79 pp",
+      "3‑Month rate steepens to 7.56 %"
+    ]
+  }
+}

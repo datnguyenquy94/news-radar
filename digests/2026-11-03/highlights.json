@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code ships v2.1.317 adding safety hooks.",
+      "OpenAI Codex releases rust‑v0.167.0‑alpha.4.",
+      "Gemini CLI updates to v0.67.0‑nightly.",
+      "GitHub Copilot CLI upgrades to v1.0.106‑6.",
+      "Kimi Code shows zero activity today.",
+      "All 10 AI‑CLI tools averaged ≥1 PR merged in 24 h."
+    ],
+    "ai-agents": [
+      "OpenClaw logged 96 issues and 500 PR updates today.",
+      "Only release this month: v2026.10.10 “Backup safety”.",
+      "Backup safety now redacts credentials and adds PG dumps.",
+      "Backlog dominated by session‑state and crash‑loop bugs.",
+      "New features like Markdown preview await triage.",
+      "68 issues remain open, many flagged P0‑P2."
+    ],
+    "ai-trending": [
+      "Agent‑centric tools gain >9 k stars in 24 h.",
+      "FreeToken adds 653 stars, boosts local model serving.",
+      "colibri climbs 675 stars, MoE engine for consumer HW.",
+      "nanochat bot hits +600 stars on launch.",
+      "Vibe‑Trading agent bursts +1 k stars.",
+      "Infrastructure trends outpace pure model releases."
+    ],
+    "ai-web": [
+      "Anthropic’s “Vibe Physics” writes a paper in 2 weeks.",
+      "Claude‑Opus 4.5 uses 36 M tokens, 40 h CPU time.",
+      "Claude‑shaped science adds model‑driven problem scoping.",
+      "Claude‑Opus 4.8/5 hits >30 % success in protein design.",
+      "New workflow claims end‑to‑end drug discovery automation.",
+      "Anthropic pitches Claude as a scientific collaborator."
+    ],
+    "ai-hn": [
+      "Mistral releases Large‑4, scores 1 725 points.",
+      "Claude Code backdoor thread hits 1 008 points.",
+      "SEC blocks Anthropic IPO, draws 287‑point debate.",
+      "OpenAI ‘Scaling Git’ post gets 153 points.",
+      "‘AI cost of JavaScript frameworks’ scores 468 points.",
+      "LongCat‑2.5 multimodal agent gains 82 points."
+    ],
+    "ai-arxiv": [
+      "Paper: Controlling Sharpening in LLM Post‑Training.",
+      "Study links preprocessing to bias in LLM recommenders.",
+      "VERS edits activation explanations to steer reasoning.",
+      "Autonomous agents achieve recursive self‑improvement.",
+      "New benchmark proposes attention‑head fusion theory.",
+      "Cross‑modal SSL alignment targets video editing tasks."
+    ],
+    "ai-hf": [
+      "Lightricks/LTX‑2.5 video diffusion hits >10 k likes.",
+      "DeepSeek Flash‑1017 tops image‑to‑text popularity.",
+      "Qwen‑3.8‑27B leads multimodal model likes.",
+      "GGUF‑converted models surge in downloads.",
+      "LiquidAI/LFM3‑1.7B earns 1 229 likes.",
+      "Nanbeige4.3‑33B attracts 1 012 likes."
+    ],
+    "ai-community": [
+      "Agent self‑corrects then claims it was wrong.",
+      "AI code reviewer risks becoming sole opinion.",
+      "Non‑dev builds 3D game using AI asset generation.",
+      "Demo shows AI posting to Instagram automatically.",
+      "Prompt‑injection attacks spark security debate.",
+      "Community debates hidden costs of AI productivity."
+    ],
+    "fin-macro": [
+      "Fed balance sheet steady at $6.75 T.",
+      "Fed Funds rate holds at 3.88 %.",
+      "10‑yr Treasury yield slides to 4.94 %.",
+      "CPI remains at 4 % YoY, above target.",
+      "Retail margin debt rises 1.8 % MoM.",
+      "Markets stay cautious‑risk‑on despite liquidity."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls 1.80% to 1,710.72.",
+      "VN30 slides 2.20% to 1,813.41.",
+      "USD/VND at 25,940, down 0.88% MoM.",
+      "DXY slips to 101.74, a 0.01% dip.",
+      "US 10‑yr yield drops 0.8% to 4.94%.",
+      "Brent crude rises 1.06% to $105.88."
+    ],
+    "fin-vnrates": [
+      "SBV policy corridor unchanged: 3%–4.5%.",
+      "Overnight rate hits 5.79%, above ceiling.",
+      "1‑week rate rises to 5.36% with low turnover.",
+      "3‑month rate at 7.47% shows high term rates.",
+      "Market rates diverge from central bank stance.",
+      "Interbank turnover drops sharply across tenors."
+    ]
+  }
+}

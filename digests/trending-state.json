@@ -41,8 +41,8 @@
       "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 295850,
-      "lastReported": "2026-11-03"
+      "stars": 296680,
+      "lastReported": "2026-11-04"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -121,8 +121,8 @@
       "lastReported": "2026-09-17"
     },
     "anomalyco/hex": {
-      "stars": 3517,
-      "lastReported": "2026-11-02"
+      "stars": 4727,
+      "lastReported": "2026-11-04"
     },
     "anomalyco/opencode": {
       "stars": 219098,
@@ -409,8 +409,8 @@
       "lastReported": "2026-10-19"
     },
     "D4Vinci/Scrapling": {
-      "stars": 93301,
-      "lastReported": "2026-11-03"
+      "stars": 95230,
+      "lastReported": "2026-11-04"
     },
     "dani-garcia/vaultwarden": {
       "stars": 67582,
@@ -461,8 +461,8 @@
       "lastReported": "2026-09-11"
     },
     "DietrichGebert/ponytail": {
-      "stars": 183072,
-      "lastReported": "2026-11-03"
+      "stars": 183911,
+      "lastReported": "2026-11-04"
     },
     "DLS5-Omics/GEMGen": {
       "stars": 11,
@@ -473,8 +473,8 @@
       "lastReported": "2026-09-20"
     },
     "Donchitos/Claude-Code-Game-Studios": {
-      "stars": 33860,
-      "lastReported": "2026-11-03"
+      "stars": 34854,
+      "lastReported": "2026-11-04"
     },
     "dream-num/univer": {
       "stars": 21955,
@@ -549,8 +549,8 @@
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 197734,
-      "lastReported": "2026-11-02"
+      "stars": 198389,
+      "lastReported": "2026-11-04"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -563,6 +563,10 @@
     "FlashML-org/FreeToken": {
       "stars": 16255,
       "lastReported": "2026-11-03"
+    },
+    "floci-io/floci": {
+      "stars": 29005,
+      "lastReported": "2026-11-04"
     },
     "Flowseal/zapret-discord-youtube": {
       "stars": 33219,
@@ -633,16 +637,16 @@
       "lastReported": "2026-10-03"
     },
     "Graphify-Labs/graphify": {
-      "stars": 141359,
-      "lastReported": "2026-11-03"
+      "stars": 141965,
+      "lastReported": "2026-11-04"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 137227,
-      "lastReported": "2026-11-02"
+      "stars": 138404,
+      "lastReported": "2026-11-04"
     },
     "harry7557558/spirula-studio": {
       "stars": 781,
@@ -805,8 +809,8 @@
       "lastReported": "2026-09-25"
     },
     "JustVugg/colibri": {
-      "stars": 46745,
-      "lastReported": "2026-11-03"
+      "stars": 47375,
+      "lastReported": "2026-11-04"
     },
     "K-Dense-AI/scientific-agent-skills": {
       "stars": 52335,
@@ -965,8 +969,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 310492,
-      "lastReported": "2026-11-03"
+      "stars": 311723,
+      "lastReported": "2026-11-04"
     },
     "max-sixty/worktrunk": {
       "stars": 10142,
@@ -1133,8 +1137,8 @@
       "lastReported": "2026-10-24"
     },
     "NousResearch/hermes-agent": {
-      "stars": 259578,
-      "lastReported": "2026-11-02"
+      "stars": 260305,
+      "lastReported": "2026-11-04"
     },
     "ntdevlabs/tiny11builder": {
       "stars": 20312,
@@ -1173,8 +1177,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 185282,
-      "lastReported": "2026-10-30"
+      "stars": 185844,
+      "lastReported": "2026-11-04"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -1241,8 +1245,8 @@
       "lastReported": "2026-09-01"
     },
     "p-e-w/heretic": {
-      "stars": 38255,
-      "lastReported": "2026-11-03"
+      "stars": 38957,
+      "lastReported": "2026-11-04"
     },
     "p1neappleXpress/OpenFlux": {
       "stars": 1421,
@@ -1389,8 +1393,8 @@
       "lastReported": "2026-10-30"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 76125,
-      "lastReported": "2026-11-01"
+      "stars": 76729,
+      "lastReported": "2026-11-04"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1453,8 +1457,8 @@
       "lastReported": "2026-10-27"
     },
     "shiyu-coder/Kronos": {
-      "stars": 46103,
-      "lastReported": "2026-11-03"
+      "stars": 46606,
+      "lastReported": "2026-11-04"
     },
     "Shubhamsaboo/awesome-llm-apps": {
       "stars": 143264,
@@ -1491,6 +1495,10 @@
     "Sonarr/Sonarr": {
       "stars": 15760,
       "lastReported": "2026-09-12"
+    },
+    "spotify/portal-ai-plugins": {
+      "stars": 3090,
+      "lastReported": "2026-11-04"
     },
     "stablyai/orca": {
       "stars": 101594,
@@ -1609,8 +1617,8 @@
       "lastReported": "2026-10-01"
     },
     "thedotmack/claude-mem": {
-      "stars": 111026,
-      "lastReported": "2026-11-03"
+      "stars": 112148,
+      "lastReported": "2026-11-04"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -1680,6 +1688,10 @@
       "stars": 86563,
       "lastReported": "2026-10-30"
     },
+    "Usagi-org/ai-goofish-monitor": {
+      "stars": 16721,
+      "lastReported": "2026-11-04"
+    },
     "vastsa/PI-Desktop": {
       "stars": 2398,
       "lastReported": "2026-09-11"
@@ -1693,8 +1705,8 @@
       "lastReported": "2026-09-30"
     },
     "vercel-labs/agent-desktop": {
-      "stars": 10694,
-      "lastReported": "2026-11-03"
+      "stars": 13296,
+      "lastReported": "2026-11-04"
     },
     "vercel-labs/json-render": {
       "stars": 17473,

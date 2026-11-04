@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code ships v2.1.318 with new user‑visible features.",
+      "OpenAI Codex faces sandbox breach and throttling issues.",
+      "Gemini CLI adds sub‑agent composition hooks.",
+      "OpenCode expands open‑source collaborative UI platform.",
+      "Qwen Code and Pi introduce agent‑oriented toolkits.",
+      "All tools wrestle with cost predictability and sandbox safety."
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.5‑beta.1 released today.",
+      "New Knowledge Scribes capture reusable facts.",
+      "PostgreSQL state store option added.",
+      "85 issues addressed, 69 remain open.",
+      "500 PRs updated, 190 merged/closed.",
+      "Community flags state‑integrity and UI bugs."
+    ],
+    "ai-trending": [
+      "Agent‑desktop (Rust) gains +3,791 stars today.",
+      "Multi‑agent repos each see +800+ star jumps.",
+      "Rust projects dominate top‑10 star surges.",
+      "colibri inference engine adds 800+ stars.",
+      "RAG tools claude‑mem +1,122 stars surge.",
+      "graphify knowledge‑graph tool +606 stars today."
+    ],
+    "ai-web": [
+      "Anthropic releases FlashProve provable inference paper.",
+      "FlashProve adds cryptographic proofs to LLM outputs.",
+      "OpenAI posts new corporate affairs leadership page.",
+      "OpenAI adds ‘Accelerating Engineering for Physical World’ index.",
+      "FlashProve co‑authored with EPFL, StarkWare, MIT.",
+      "OpenAI’s new pages hint at hardware‑focused strategy."
+    ],
+    "ai-hn": [
+      "Postman AI plugin auto‑install sparks firestorm.",
+      "Google to cut Search for schools that ban AI.",
+      "Fujifilm scales magnetic‑tape for AI data storage.",
+      "OpenAI resumes training on Codex chat logs.",
+      "Little Book of Generative AI Foundations tops HN.",
+      "LongCat‑2.5 released with native multimodal agents."
+    ],
+    "ai-arxiv": [
+      "Direct Nash Optimization offers new alignment method.",
+      "Misaligned behavior suppression techniques introduced.",
+      "Agentic reasoning uses speculative decoding for planning.",
+      "1‑bit KV‑cache quantization cuts memory use dramatically.",
+      "Hierarchical web‑task RL boosts long‑horizon agents.",
+      "Guided data collection enhances imitation learning efficiency."
+    ],
+    "ai-hf": [
+      "DeepSeek‑V4.1‑Flash leads multimodal model surge.",
+      "Mistral‑Large‑4‑1T tops vision‑language charts.",
+      "Lightricks LTX‑2.5 shatters video‑gen download records.",
+      "Qwen3.8‑Flash‑Next GGUF runs 30B on laptops.",
+      "Nvidia releases 30B speech‑to‑text model on HF.",
+      "Open‑weight Qwen‑3.8‑27B fuels new fine‑tunes."
+    ],
+    "ai-community": [
+      "Developers debate exploding AI‑agent operational costs.",
+      "New tutorials teach building and version‑controlling agents.",
+      "RAG safety and model determinism dominate forums.",
+      "Cost‑accounting deep‑dive warns of hidden inference bills.",
+      "Legal analysis of data sources for RAG emerges.",
+      "On‑call AI‑ops fatigue sparks calls for rotation."
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88%.",
+      "10‑year Treasury yields sit near 5%.",
+      "CPI remains above the 2% Fed target.",
+      "Oil prices stay above $100 per barrel.",
+      "Retail margin debt climbs 1.8% MoM.",
+      "VIX rises to 21.15, indicating slight volatility."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls to 1,699.62, down 0.60%.",
+      "Vietnamese dong weakens to 25,930 VND/USD.",
+      "US 10Y Treasury yield drops to 4.91%.",
+      "Gold price climbs to $3,993.5/oz.",
+      "Brent crude rises to $103.74/bbl.",
+      "VN30F1M basis up 3.8 pts, mild bullish sign."
+    ],
+    "fin-vnrates": [
+      "SBV discount rate 3.0%, refinancing 4.5% unchanged.",
+      "Overnight interbank rate at 4.74% after recent dip.",
+      "1‑month rate climbs to 5.74%, peak pressure.",
+      "3‑month rate holds at 6.83% despite slight dip.",
+      "Short‑end turnover dominates at 98.8% market share.",
+      "Market shows moderate liquidity but tightening signs."
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Gemini CLI v0.68.0-preview.0 released today.",
+      "Qwen Code ships nightly build.",
+      "Claude Code sees 10 open issues, no new release.",
+      "Kimi Code CLI shows zero activity.",
+      "OpenAI Codex merges 10 PRs, no release.",
+      "AI‑CLI split: desktop vs terminal tools."
+    ],
+    "ai-agents": [
+      "OpenClaw: 136 issues touched, 61 still open.",
+      "500 PRs updated; 167 merged today.",
+      "No new release; maintenance PRs landed.",
+      "Session‑state bugs cause data loss alerts.",
+      "PR #193220 adds durable‑question validators.",
+      "Feature talks on agent hand‑offs and UI ergonomics."
+    ],
+    "ai-trending": [
+      "Claude‑mem & agent‑desktop gain ~3k stars in 2 days.",
+      "MoneyPrinterTurbo adds 840 stars.",
+      "DeepTutor climbs 708 stars.",
+      "Graphify, mem0, RAGFlow each +500 stars.",
+      "NVIDIA auto‑ontology new, +2,050 stars.",
+      "worktrunk Rust CLI hits 11k stars, +531 today."
+    ],
+    "ai-web": [
+      "Anthropic: Claude aided 3‑D vault particle discovery.",
+      "OpenAI adds 5 index entries, no article bodies.",
+      "Anthropic’s research is data‑rich; OpenAI’s is opaque.",
+      "Vault particle study showcases Claude in life‑science.",
+      "OpenAI’s “Images 2 6” appears among index updates.",
+      "Anthropic highlights AI‑driven scientific breakthrough."
+    ],
+    "ai-hn": [
+      "OpenAI Images 2.6 sparks top HN discussion.",
+      "“A thousand fewer paths to root” gets record upvotes.",
+      "Google throttles school search, sparking debate.",
+      "Postman adds AI‑plugin quietly, raising privacy concerns.",
+      "Fujifilm ramps tape production for AI data demand.",
+      "Qualcomm unveils new AI‑accelerator card."
+    ],
+    "ai-arxiv": [
+      "FrontierPhysics benchmark tests long‑context science.",
+      "SpecCompact cuts LLM context compaction latency >40%.",
+      "Context enrichment reduces drift in social agents.",
+      "Alignment Myopia paper warns short‑horizon feedback loops.",
+      "Visual Token Routing advances inference efficiency.",
+      "Papers tie robustness, efficiency, and agentic reasoning."
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B tops HF likes (19k) as vision model.",
+      "NVIDIA Nemotron‑3.5‑Transcribe‑30B‑A4B tops ASR downloads.",
+      "DeepSeek‑V4.1‑Flash‑1017 GGUF quantizations surge.",
+      "Edge‑centric inference models proliferate on HF.",
+      "LiquidAI LFM3‑1.7B gains 1.5k likes, strong zero‑shot.",
+      "Nanbeige 4.3‑33B popular for multilingual chat."
+    ],
+    "ai-community": [
+      "Dev debate on auditability of AI agent actions.",
+      "KV‑cache off‑loading tops performance‑hack list.",
+      "Weight‑space edits enable deterministic RISC‑V CPUs.",
+      "Article questions the hype of ‘10× solo AI dev’.",
+      "Teams need patterns for reliable AI‑augmented workflow.",
+      "30‑sec checks catch LLM code hallucination patterns."
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88%.",
+      "10‑yr Treasury climbs to 4.95% (restrictive).",
+      "VIX eases to 20.8, indicating modest calm.",
+      "CPI stays above target at 4.0% YoY.",
+      "Margin debt rises 1.8% to $1.48 T.",
+      "Risk‑off bias emerging for equities."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index jumps 2.0% to 1,733.02.",
+      "VN30 gains 2.6% to 1,862.07.",
+      "VND slides to 25,870 per USD.",
+      "DXY down 0.25% at 101.25.",
+      "Gold up 1.29% to $4,125.6/oz.",
+      "Brent crude steadies near $94.2/bbl."
+    ],
+    "fin-vnrates": [
+      "Policy rates unchanged for 1,328 days.",
+      "Overnight rate 3.81% below 4.5% ceiling.",
+      "1‑week rate 4.26% stays cheap funding.",
+      "3‑month rate at 7.54% far above ceiling.",
+      "Excess short‑term liquidity evident in market.",
+      "Interbank turnover up 6.4% overnight."
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex released rust-v0.167.0 today.",
+      "Claude Code faces 10 hot privacy issues.",
+      "Kimi Code and DeepSeek TUI are emerging CLI entrants.",
+      "Multi‑account remote‑control is top engineering focus.",
+      "Headless/CI support expanding across AI‑CLI tools.",
+      "Qwen Code and OpenAI Codex ship stable binaries."
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.1 released with safer macOS handling.",
+      "83 issues and 500 PRs active in last 24 h.",
+      "Critical gateway lock‑up regressions still open.",
+      "Model‑pin inheritance added as new feature.",
+      "Telegram, Discord, webhook replies now more reliable.",
+      "Maintainers face high‑priority bug backlog."
+    ],
+    "ai-trending": [
+      "Agent‑skill repos each added ~2k stars today.",
+      "RAG engines like graphify gain over 2k stars.",
+      "Vercel‑labs/agent-browser hits 150k stars on debut.",
+      "Microsoft VibeVoice reaches 56k stars new.",
+      "NVIDIA auto-ontology jumps 2,679 stars today.",
+      "firecrawl library gains 638 stars for web data."
+    ],
+    "ai-web": [
+      "Anthropic released vault particle structural study.",
+      "Anthropic announced drug‑development acceleration report.",
+      "Anthropic published 'How scientists use Claude' study.",
+      "New Guest‑Investigator programme opened for life‑science.",
+      "OpenAI adds index pages for GPT‑6 model family.",
+      "OpenAI hints at GPT‑6 AI‑native graduate program."
+    ],
+    "ai-hn": [
+      "Claude Code privacy leak sparks outrage on HN.",
+      "Gemini training on private chats raises security concerns.",
+      "$2.5T market dip blamed on AI‑risk fears.",
+      "OpenAI Images 2.6 launched with higher resolution.",
+      "$20K diffusion model released under Apache 2.0.",
+      "Kaggle benchmark winners announced, new LLM leaderboard."
+    ],
+    "ai-arxiv": [
+      "MAEMs enable probing any residual stream direction.",
+      "SpecCTMC enables exact diffusion LLM with 1 eval/token.",
+      "Measured Coupling speeds parallel decoding of diffusion LMs.",
+      "New papers on self‑improving AI‑Scientists released.",
+      "Benchmark‑as‑software initiatives modernize evaluation.",
+      "Tools bridge PyTorch ↔ JAX for cross‑framework migration."
+    ],
+    "ai-hf": [
+      "LTX‑2.5 hits 10k likes, video diffusion in one file.",
+      "Qwen 3.8‑27B garners 19,224 likes, 8M downloads.",
+      "DeepSeek V4.1‑Flash‑1017 earns 5,335 likes.",
+      "Mistral‑Large‑4‑1T‑A52B reaches 1,617 likes.",
+      "LiquidAI LFM3‑1.7B attracts 1,514 likes.",
+      "3‑D model idol (speridlabs/idol) gains HF traction."
+    ],
+    "ai-community": [
+      "AI agents vulnerable to malicious markdown hijacks.",
+      "Sandbox‑break attacks exposed on web‑standard agents.",
+      "Kaggle benchmark reveals new LLM speed‑cost leaderboard.",
+      "Weight‑editing tricks halve LLM thinking loops.",
+      "Guides released for cost‑aware API usage.",
+      "Deterministic deployment pipelines for AI agents discussed."
+    ],
+    "fin-macro": [
+      "Fed Funds rate steady at 3.88%.",
+      "VIX falls to 16.61, market calm.",
+      "10‑yr Treasury yield at 4.90% (restrictive).",
+      "Margin debt rises 1.8% MoM.",
+      "Core inflation remains above 2% goal.",
+      "Labor market shows tight claims, weak payrolls."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index climbs 0.40% to 1,740.73.",
+      "VN30 rises 0.20% to 1,865.23.",
+      "USD/VND sell rate hits 25,780 VND.",
+      "Dong down 1.49% month, 2.32% YTD.",
+      "Brent crude rebounds 1.68% today.",
+      "Gold price drops 1.52% in 1 day."
+    ],
+    "fin-vnrates": [
+      "SBV refinancing ceiling set at 4.50%.",
+      "Overnight interbank rate jumps to 5.02%.",
+      "1‑week interbank rate reaches 5.79%.",
+      "1‑month rate falls to 4.46%, below policy.",
+      "Market rates sit above SBV policy ceiling.",
+      "Liquidity appears strained with high turnover."
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+# Macro Market Dashboard 2026-11-07
+
+> Sources: [FRED](https://fred.stlouisfed.org/) + [FINRA](https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics) | 16 indicators | Generated: 2026-11-07 05:39 UTC
+>
+> ⚠️ Informational only, not financial advice.
+
+---
+
+## 1. Macro Snapshot  
+Liquidity remains ample – the Fed Funds rate sits unchanged at **3.88 %** and the balance sheet is still a massive **$6.75 T**.  Bond yields are high, with the 10‑year Treasury at **4.84 %** and the steepness curve flattening (10Y‑2Y spread = 0.35 %).  Inflation is still above the Fed’s 2 % goal (CPI 4.0 % YoY, Core CPI 2.8 %), while the labor market is tight (unemployment 4.1 %, jobless claims 189 k).  Market risk appetite is muted; the VIX is **28.2**, indicating elevated volatility, and retail margin debt is rising, suggesting no immediate deleveraging.  Together these cues point to a **cautiously risk‑off, tightening‑biased** backdrop for equities and high‑yield credit.  
+
+---
+
+## 2. Indicator Tables  
+
+### Central Bank & Liquidity  
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Fed Funds Rate (DFF) | 3.88 % | 3.88 % | 0.00 % | near neutral stance |
+| Fed Balance Sheet (WALCL) | 6.75 $T | 6.75 $T | 0.00 $T | large balance sheet |
+| VIX Volatility Index (VIXCLS) | 28.18 | 16.61 | 11.57 | elevated volatility level |
+| FINRA Margin Debt (retail leverage) | Sep‑26 $1,480.1B | $1,453.8B | MoM +1.8% | margin debt rising |
+
+### Yields & Credit  
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| 10Y Treasury Yield (DGS10) | 4.84 % | 4.90 % | -0.06 % | highly restrictive level |
+| 10Y‑2Y Spread (T10Y2Y) | 0.35 % | 0.38 % | -0.03 % | moderately flattening spread |
+| High‑Yield Credit Spread (BAMLH0A0HYM2) | 3.48 % | 3.32 % | 0.16 % | stable credit spread |
+| WTI Crude Oil (DCOILWTICO) | 99.64 $/bbl | 100.06 $/bbl | -0.42 $/bbl | near inflation pressure |
+| Brent Crude Oil (DCOILBRENTEU) | 107.03 $/bbl | 107.39 $/bbl | -0.36 $/bbl | inflationary pressure high |
+
+### Economy & Inflation  
+
+| Indicator | Latest | Prior | Change | Reading |
+| :--- | ---: | ---: | ---: | :--- |
+| Unemployment Rate (UNRATE) | 4.1 % | 4.2 % | -0.1 % | balanced labor market |
+| Initial Jobless Claims (ICSA) | 189,000 | 195,000 | -6,000 | tight labor market |
+| Nonfarm Payrolls (MoM chg) (PAYEMS) | +165 K | +60 K | +105 K | moderate payroll growth |
+| CPI (CPIAUCSL) | +4.0 % YoY | N/A | N/A | inflation above target |
+| Core CPI (CPILFESL) | +2.8 % YoY | N/A | N/A | core inflation elevated |
+| Core PCE (PCEPILFE) | +3.1 % YoY | +3.0 % YoY | +0.1 % YoY | core PCE high |
+| PPI (Final Demand) (PPIFIS) | +6.3 % YoY | +5.6 % YoY | +0.7 % YoY | producer inflation high |
+| UMich Consumer Sentiment (UMCSENT) | 48.1 | 51.7 | -3.6 | consumer sentiment weak |
+
+---
+
+## 3. Regime Read  
+The U.S. macro environment is dominated by **ample policy liquidity** (steady funds rate, massive balance sheet) but **prices are already reflecting that support**: Treasury yields are perched above 4.5 %, signaling a highly restrictive stance for borrowing costs, while the steepness curve is flattening, hinting at reduced expectations for future rate cuts.  Credit markets are relatively calm; high‑yield spreads sit under 4 %, far from stress levels, and corporate financing remains inexpensive.  Inflation, however, remains stubbornly above the Fed’s 2 % goal, with headline CPI at 4 % and core measures still near 3 %.  The labor market is tight, as unemployment hovers at 4.1 % and weekly jobless claims are well below the normal range, cushioning demand but also limiting wage‑driven inflationary slack.  Risk appetite is muted—VIX is elevated at 28, and retail margin debt is expanding, implying no near‑term deleveraging that could spark a clean risk‑on bounce.  Taken together, the picture points to a **cautious, slightly risk‑off regime** where the Fed’s policy stance is effectively restrictive, credit is stable, and inflation pressures keep the market vigilant.  Investors are likely to favor quality and defensive positioning, with selective play in sectors that can out‑pace the modest growth backdrop.
+
+---
+
+## 4. Playbook Checkpoint  
+
+| Buy‑Signal Condition | Met? |
+| :--- | :--- |
+| VIX > 30 | ❌ not met (VIX = 28.18) |
+| Fed not on a hiking path | ✅ met (Fed Funds unchanged) |
+| FINRA margin deleveraging | ❌ not met (margin debt rising) |
+| Clear high‑growth thematic engine | ❔ insufficient data |
+| Leaders still beating fundamentals | ❔ insufficient data |
+
+| Sell‑Signal Condition | Met? |
+| :--- | :--- |
+| Fundamentals plateauing | ❔ insufficient data |
+| Hawkish Fed pivot | ❌ not met (no hike, no pivot) |
+| Valuations far above historical bands | ❔ insufficient data |
+
+*All assessments are based solely on the quantitative data provided; qualitative judgments (thematic engine, leader fundamentals, valuations) are marked as insufficient data.*
+
+---
+*This digest is auto-generated by [agents-radar](https://github.com/datnguyenquy94/news-radar).*

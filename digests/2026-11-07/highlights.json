@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.319 released 24h ago.",
+      "OpenAI Codex updated to rust‑v0.169.0‑alpha.2.",
+      "OpenAI Codex saw 10 PRs merged today.",
+      "Gemini CLI lacks stable tag; next release end of month.",
+      "GitHub Copilot CLI v1.0.108‑1 adds sandbox policy, PDF fallback.",
+      "OpenCode v2.2.6 released today with shared MCP and GUI theming."
+    ],
+    "ai-agents": [
+      "OpenClaw logged 143 issues and 500 PRs in 24 h.",
+      "120 issues and 368 PRs remain open for review.",
+      "No new release; team stays in pre‑release churn.",
+      "Runtime stability bugs dominate today's chatter.",
+      "Control UI and skill packaging cause UX friction.",
+      "About 73 % of PRs still unmerged, indicating backlog."
+    ],
+    "ai-trending": [
+      "NVIDIA/auto-ontology gains 2,015 stars today.",
+      "Cloudflare/security-audit-skill jumps 2,548 stars.",
+      "ECC agent harness hits 298 k stars, +688 today.",
+      "CopilotKit tops AI infra with 38,549 stars.",
+      "Graphify‑Labs/graphify reaches 143,631 stars.",
+      "Auto‑ontology surge shows demand for graph reasoning."
+    ],
+    "ai-web": [
+      "Anthropic unveils sleep‑time memory architecture for agents.",
+      "New Claude research examines AI in MMORPG economies.",
+      "Anthropic launches guest‑investigator program for life‑science.",
+      "OpenAI adds index on AI agents handling wet‑lab science.",
+      "Anthropic’s posts map near‑term agenda across disciplines.",
+      "OpenAI’s wet‑lab index currently contains no content."
+    ],
+    "ai-hn": [
+      "Claude Code leaks users’ email via User‑Agent header.",
+      "ChatGPT connector routing bug sparks security concerns.",
+      "Google Gemini Omni 1.2 Flash claims sub‑second inference.",
+      "Memorilla paper proposes plug‑in memory layer for LLMs.",
+      "HN threads liken AI sell‑off to historic market crashes.",
+      "Anthropic IPO valuation fuels heated investor debate."
+    ],
+    "ai-arxiv": [
+      "First‑Token Attraction reveals early token dominance in Mamba.",
+      "Measured Coupling enables parallel decoding for diffusion LLMs.",
+      "Activation inversion scales to decode residual‑stream direction.",
+      "Swarm‑based evolutionary search boosts AI agent optimization.",
+      "Step‑level error resampling enhances chain‑of‑thought reasoning.",
+      "Vision‑grounded reward machines tighten language‑action loop."
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B multimodal LLM leads likes & downloads.",
+      "DeepSeek V4.1 Flash gains 5,365 likes, 259k downloads.",
+      "Ripple‑65B preview sparks community buzz.",
+      "Graphify‑Labs graphify hits 143,631 stars.",
+      "Community GGUF quantizations shrink models <3 GB.",
+      "Lightricks LTX‑2.5 drives image‑to‑video diffusion interest."
+    ],
+    "ai-community": [
+      "Dev posts expose hidden token‑bill explosion in agents.",
+      "Claude Code user‑agent leak raises privacy alarms.",
+      "Weight‑space programming emerges as new AI paradigm.",
+      "Ollama vs vLLM showdown dominates infrastructure talks.",
+      "Licensing alone won’t fix broken platform engineering.",
+      "Articles detail total cost of self‑hosting open‑source LLMs."
+    ],
+    "fin-macro": [
+      "Fed Funds rate steady at 3.88%.",
+      "Fed balance sheet holds $6.75 trillion.",
+      "VIX spikes to 28.2, indicating high volatility.",
+      "Retail margin debt rises to $1.48 trillion.",
+      "10‑year Treasury yields 4.84%.",
+      "High‑yield credit spread at 3.48%."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls 0.9% to 1,725.36.",
+      "VN30 drops 1% to 1,846.39.",
+      "USD/VND sell rate 25,780, down 1.23% month.",
+      "Foreign capital inflow up 55.4% YoY.",
+      "VN30‑F1M basis modest +0.10%.",
+      "Gold retreats to $4,074.9/oz."
+    ],
+    "fin-vnrates": [
+      "Policy corridor stays neutral (3‑4.5%).",
+      "Overnight rate 4.51% sits above ceiling.",
+      "1‑month rate climbs to 5.27%.",
+      "Liquidity tight: 99% turnover in overnight market.",
+      "3‑month rate 6.60% shows flattening curve.",
+      "Funding crunch persists despite neutral policy."
+    ]
+  }
+}

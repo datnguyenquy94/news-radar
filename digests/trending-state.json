@@ -41,8 +41,8 @@
       "lastReported": "2026-10-10"
     },
     "affaan-m/ECC": {
-      "stars": 297994,
-      "lastReported": "2026-11-06"
+      "stars": 298682,
+      "lastReported": "2026-11-07"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -115,6 +115,10 @@
     "androoAGI/starnet": {
       "stars": 525,
       "lastReported": "2026-09-26"
+    },
+    "angular/angular": {
+      "stars": 101413,
+      "lastReported": "2026-11-07"
     },
     "ankitects/anki": {
       "stars": 30936,
@@ -191,6 +195,10 @@
     "asgeirtj/system_prompts_leaks": {
       "stars": 66913,
       "lastReported": "2026-09-15"
+    },
+    "astral-sh/ruff": {
+      "stars": 50741,
+      "lastReported": "2026-11-07"
     },
     "asukaminato0721/telegram-summary-bot": {
       "stars": 197,
@@ -345,8 +353,8 @@
       "lastReported": "2026-09-20"
     },
     "cloudflare/security-audit-skill": {
-      "stars": 47203,
-      "lastReported": "2026-10-26"
+      "stars": 64363,
+      "lastReported": "2026-11-07"
     },
     "clshortfuse/renodx": {
       "stars": 3553,
@@ -385,8 +393,8 @@
       "lastReported": "2026-10-26"
     },
     "CopilotKit/CopilotKit": {
-      "stars": 38046,
-      "lastReported": "2026-10-16"
+      "stars": 38549,
+      "lastReported": "2026-11-07"
     },
     "CopilotKit/OpenBot": {
       "stars": 9662,
@@ -520,6 +528,10 @@
       "stars": 35668,
       "lastReported": "2026-09-22"
     },
+    "etcd-io/etcd": {
+      "stars": 52636,
+      "lastReported": "2026-11-07"
+    },
     "Event-AHU/Medical_Image_Analysis": {
       "stars": 240,
       "lastReported": "2026-09-13"
@@ -584,6 +596,10 @@
       "stars": 25180,
       "lastReported": "2026-09-04"
     },
+    "FonaTech/Project_Chronos": {
+      "stars": 207,
+      "lastReported": "2026-11-07"
+    },
     "freestylefly/awesome-gpt-image-2": {
       "stars": 30996,
       "lastReported": "2026-09-11"
@@ -645,8 +661,8 @@
       "lastReported": "2026-11-06"
     },
     "Graphify-Labs/graphify": {
-      "stars": 143106,
-      "lastReported": "2026-11-06"
+      "stars": 143631,
+      "lastReported": "2026-11-07"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -661,8 +677,8 @@
       "lastReported": "2026-09-24"
     },
     "headroomlabs-ai/headroom": {
-      "stars": 78485,
-      "lastReported": "2026-11-01"
+      "stars": 79041,
+      "lastReported": "2026-11-07"
     },
     "heygen-com/hyperframes": {
       "stars": 55973,
@@ -681,8 +697,8 @@
       "lastReported": "2026-10-20"
     },
     "HKUDS/DeepTutor": {
-      "stars": 55131,
-      "lastReported": "2026-11-05"
+      "stars": 56048,
+      "lastReported": "2026-11-07"
     },
     "HKUDS/LightRAG": {
       "stars": 40474,
@@ -717,8 +733,8 @@
       "lastReported": "2026-10-31"
     },
     "hugohe3/ppt-master": {
-      "stars": 73635,
-      "lastReported": "2026-11-05"
+      "stars": 74322,
+      "lastReported": "2026-11-07"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -985,8 +1001,8 @@
       "lastReported": "2026-08-27"
     },
     "mattpocock/skills": {
-      "stars": 315638,
-      "lastReported": "2026-11-06"
+      "stars": 316898,
+      "lastReported": "2026-11-07"
     },
     "max-sixty/worktrunk": {
       "stars": 11176,
@@ -1049,8 +1065,8 @@
       "lastReported": "2026-11-06"
     },
     "microsoft/vscode": {
-      "stars": 193095,
-      "lastReported": "2026-09-27"
+      "stars": 195070,
+      "lastReported": "2026-11-07"
     },
     "mihail911/modern-software-dev-assignments": {
       "stars": 4622,
@@ -1099,6 +1115,10 @@
     "morluto/rea": {
       "stars": 412883,
       "lastReported": "2026-10-31"
+    },
+    "mpv-player/mpv": {
+      "stars": 37923,
+      "lastReported": "2026-11-07"
     },
     "msitarzewski/agency-agents": {
       "stars": 162495,
@@ -1168,13 +1188,17 @@
       "stars": 20312,
       "lastReported": "2026-10-15"
     },
+    "nushell/nushell": {
+      "stars": 41014,
+      "lastReported": "2026-11-07"
+    },
     "Nutlope/hallmark": {
       "stars": 40977,
       "lastReported": "2026-10-29"
     },
     "NVIDIA/auto-ontology": {
-      "stars": 7788,
-      "lastReported": "2026-11-06"
+      "stars": 9278,
+      "lastReported": "2026-11-07"
     },
     "NVIDIA/Model-Optimizer": {
       "stars": 4801,
@@ -1256,6 +1280,10 @@
       "stars": 91693,
       "lastReported": "2026-10-04"
     },
+    "openssl/openssl": {
+      "stars": 31326,
+      "lastReported": "2026-11-07"
+    },
     "OpenWhispr/openwhispr": {
       "stars": 7484,
       "lastReported": "2026-09-07"
@@ -1293,8 +1321,8 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 108912,
-      "lastReported": "2026-11-05"
+      "stars": 109749,
+      "lastReported": "2026-11-07"
     },
     "paperclipai/paperclip": {
       "stars": 110554,
@@ -1360,6 +1388,10 @@
       "stars": 39007,
       "lastReported": "2026-08-25"
     },
+    "prometheus/prometheus": {
+      "stars": 67230,
+      "lastReported": "2026-11-07"
+    },
     "protocolbuffers/protobuf": {
       "stars": 71950,
       "lastReported": "2026-09-03"
@@ -1384,6 +1416,10 @@
       "stars": 2581,
       "lastReported": "2026-09-05"
     },
+    "rails/rails": {
+      "stars": 59050,
+      "lastReported": "2026-11-07"
+    },
     "rakyll/hey": {
       "stars": 20531,
       "lastReported": "2026-09-30"
@@ -1391,6 +1427,10 @@
     "rasbt/LLMs-from-scratch": {
       "stars": 107530,
       "lastReported": "2026-10-30"
+    },
+    "react/react": {
+      "stars": 252301,
+      "lastReported": "2026-11-07"
     },
     "reconurge/flowsint": {
       "stars": 8419,
@@ -1437,8 +1477,8 @@
       "lastReported": "2026-09-30"
     },
     "rust-lang/rust": {
-      "stars": 120111,
-      "lastReported": "2026-10-15"
+      "stars": 121512,
+      "lastReported": "2026-11-07"
     },
     "rustfs/rustfs": {
       "stars": 33215,
@@ -1473,8 +1513,8 @@
       "lastReported": "2026-11-06"
     },
     "scikit-learn/scikit-learn": {
-      "stars": 67569,
-      "lastReported": "2026-10-13"
+      "stars": 68074,
+      "lastReported": "2026-11-07"
     },
     "ScrapeGraphAI/Scrapegraph-ai": {
       "stars": 31310,
@@ -1579,6 +1619,10 @@
     "Swordfish90/cool-retro-term": {
       "stars": 26269,
       "lastReported": "2026-09-14"
+    },
+    "symfony/symfony": {
+      "stars": 31471,
+      "lastReported": "2026-11-07"
     },
     "t8y2/dbx": {
       "stars": 23370,
@@ -1859,6 +1903,10 @@
     "zchoi/Awesome-Embodied-Robotics-and-Agent": {
       "stars": 1875,
       "lastReported": "2026-09-11"
+    },
+    "zed-industries/zed": {
+      "stars": 93785,
+      "lastReported": "2026-11-07"
     },
     "zedeus/nitter": {
       "stars": 14041,

@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex releases rust v0.169.0‑alpha.3 today",
+      "Claude Code logs 10 new bugs and feature requests",
+      "Gemini CLI reports sub‑agent hangs and AST issues",
+      "Community prioritizes secure auth: passkeys & OAuth",
+      "Multi‑agent orchestration now core to CLI tools",
+      "AI‑developer‑CLI ecosystem moves to production grade"
+    ],
+    "ai-agents": [
+      "OpenClaw sees 142 issues and 500 PRs in one day",
+      "No new release, but heavy maintenance PR flow",
+      "130+ open issues remain unanswered",
+      "323 open PRs pending review for OpenClaw",
+      "Stability P0/P1 bugs dominate community concerns",
+      "PR #194847 fixes exa search‑freshness bug on Feb 29"
+    ],
+    "ai-trending": [
+      "Four AI‑agent skill repos each gain ~1k stars today",
+      "New ‘billion‑context’ plugin promises 5× token savings",
+      "OpenMausBot climbs +6.5k stars since Nov 2",
+      "vercel‑labs/agent-browser hits 46,979 stars (+190)",
+      "cloudflare/security‑audit‑skill adds 2,085 stars today",
+      "anthropics/skills reaches 188,915 stars (+390)"
+    ],
+    "ai-web": [
+      "Anthropic releases ‘Teaching AI to build scientific models’",
+      "Paper authored by Jakob Macke, Daniel Gedon, Stefan Wahl",
+      "Post outlines three‑step framework for model building",
+      "Shows partnership with ELLIS Institute Tübingen",
+      "No new OpenAI articles today, slower release cadence",
+      "Guest post published Nov 6, updated Nov 7"
+    ],
+    "ai-hn": [
+      "HN debates Anthropic bugs leaking emails and passwords",
+      "Gemini Omni 1.2 Flash announced with ultra‑low latency",
+      "MaxxBench benchmark validity sparks heated discussion",
+      "Anthropic ‘Components of Agent Memory’ draws attention",
+      "Market worries over Anthropic IPO valuation surge",
+      "Sell‑off narrative fuels broader AI‑stock anxiety"
+    ],
+    "ai-hf": [
+      "Qwen 3.8‑27B series gets 19k likes, 7.8M downloads",
+      "LTX‑2.5 image‑to‑video model tops 11k likes",
+      "Audio8‑TTS‑Realistic‑Air praised for high‑fidelity speech",
+      "UnsLoth’s Qwen 3.8‑Flash‑Next‑GGUF gains quick traction",
+      "Ripple-65B-Preview reaches 3.8k downloads, 377 likes",
+      "burner22/numbat 8‑bit LLM logs 9.2k downloads"
+    ],
+    "ai-community": [
+      "Dev post: AI agent falsely claimed deployment success",
+      "LiveReview adds blast‑radius metrics to code reviews",
+      "Author logs every rule broken by AI agent, finds patterns",
+      "Comparisons of custom inference engines vs vLLM/SGLang",
+      "Research uncovers hidden PDF prompt‑injection vectors",
+      "Calls for verifiable state checks and audit logs grow"
+    ],
+    "fin-macro": [
+      "Fed funds rate steady at 3.88%; balance sheet flat",
+      "10‑yr Treasury yield at 4.84%, highly restrictive level",
+      "VIX jumps 11.57 points to 28.18, indicating high volatility",
+      "FINRA margin debt up 1.8% MoM to $1.48 T",
+      "Core CPI remains near 3%, above Fed’s 2% target",
+      "Market shows risk‑off tilt toward defensive assets"
+    ],
+    "fin-vnmacro": [
+      "VN‑Index falls 0.90% to 1,725.36",
+      "VN30 drops 1.00% amid broader bearish pressure",
+      "Dong weakens to 25,780 VND/USD (-1.11% M‑1)",
+      "Futures‑spot basis +0.10% suggests limited hedging demand",
+      "US 10Y Treasury yield slips 1.22% to 4.84%",
+      "Gold retreats 0.94% to $4,074.9/oz"
+    ],
+    "fin-vnrates": [
+      "Overnight interbank rate 4.51%; liquidity tightening",
+      "1‑week rate 5.00% with turnover down 65%",
+      "1‑month rate climbs to 5.27%; turnover up 212%",
+      "3‑month rate 6.60% shows steep curve",
+      "Short‑end accounts for ~99% of market turnover",
+      "SBV corridor: floor 3.00%, ceiling 4.50%"
+    ]
+  }
+}

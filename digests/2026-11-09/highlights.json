@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Multi‑vendor AI‑CLI market now dominates tooling.",
+      "Privacy‑first defaults standard across major CLIs.",
+      "Deterministic session management improves reliability.",
+      "Plug‑in driven workflows launch on Windows, macOS, Linux.",
+      "Claude Code faces 10 hot privacy and safety issues.",
+      "OpenAI Codex merged 10 PRs, addressing timeout bugs."
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.2 released today.",
+      "163 issues logged; 145 still open.",
+      "500 PRs updated; 383 remain open.",
+      "Performance boost: side‑car UI assets optimized.",
+      "Startup latency remains top hot ticket.",
+      "Issue‑to‑PR ratio hits 1 : 3, indicating fast pace."
+    ],
+    "ai-trending": [
+      "Agent tools spike +1k stars: OpenMausBot, Vercel‑Agent.",
+      "Anthropic Skills surge, driving AI‑agent‑as‑code trend.",
+      "Claude‑quickstarts launch, 19.5k stars instantly.",
+      "DeepMind releases GPU‑enabled MuJoCo simulator.",
+      "RAG innovations push billion‑context windows forward.",
+      "Graphify and LangGraph boost token‑efficiency."
+    ],
+    "ai-hn": [
+      "Claude Code privacy leaks trigger bank pull‑back.",
+      "Gemini Omni 1.2 Flash announced, sparks debate.",
+      "Anthropic memory‑research post fuels agent memory talks.",
+      "Community split: hype vs caution on AI market bubble.",
+      "Top HN thread: security concerns dominate discussions.",
+      "New model releases intensify competition among LLMs."
+    ],
+    "ai-hf": [
+      "Lightricks LTX‑2.5 video diffusion hits 11k likes.",
+      "Qwen‑3.8‑27B tops with 19k likes, 7.7M downloads.",
+      "GGUF quantized models surge, enabling lightweight deploys.",
+      "DeepSeek‑V4‑Pro‑9B uncensored variant hits 906 likes.",
+      "3‑D generation model idol draws niche attention.",
+      "Uns​loth Flash‑Next GGUF among fastest‑growing releases."
+    ],
+    "ai-community": [
+      "Seedance dual‑layer review sparks security debate.",
+      "Cost‑optimisation tips for LLM‑driven apps surface.",
+      "Weight‑space programming breakthrough gains traction.",
+      "Local AI on Mac mini shows viable edge deployment.",
+      "Dev.to lists 10 trending “Skills” to replace prompts.",
+      "Seedance 2.5 controls cut job time to 30 seconds."
+    ],
+    "fin-macro": [
+      "Fed Funds steady at 3.88%; no policy shift.",
+      "Margin debt rises 1.8% MoM, boosting retail leverage.",
+      "VIX spikes to 28.2, signaling elevated volatility.",
+      "CPI stays sticky at 4.0% YoY, above target.",
+      "10‑yr Treasury yield 4.84% – highly restrictive.",
+      "Risk‑off stance urged for equities amid tight credit."
+    ],
+    "fin-vnmacro": [
+      "VN‑Index drops 0.9% to 1,725.36.",
+      "USD/VND weakens to 25,730, dong under pressure.",
+      "US 10‑yr yield falls 1.22% in a day.",
+      "Gold rises 1.31% to $4,128/oz.",
+      "VanEck VNM ETF up 1.84% outperforms market.",
+      "VN30 futures show slight contango (+0.10%)."
+    ],
+    "fin-vnrates": [
+      "SBV discount rate holds at 3.0% unchanged.",
+      "Refinancing ceiling steady at 4.5% since 2023.",
+      "Overnight rate 4.51% down 0.51pp today.",
+      "1‑week rate slides sharply, signaling tightening.",
+      "3‑month rate slips, reflecting liquidity strain.",
+      "Interbank turnover share at 98.7%, indicating stress."
+    ]
+  }
+}

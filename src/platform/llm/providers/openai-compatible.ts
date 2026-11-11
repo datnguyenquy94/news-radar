@@ -25,12 +25,15 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
   }
 
   async call(prompt: string, maxTokens: number): Promise<string> {
-    const response = await this.client.chat.completions.create({
+    const request = {
       model: this.model,
       max_completion_tokens: maxTokens,
-      ...(THINKING_ENABLED ? { reasoning_effort: "medium" as const } : {}),
+      ...(this.name === "openrouter"
+        ? { reasoning: THINKING_ENABLED ? { effort: "medium" } : { max_tokens: 0 } }
+        : { reasoning_effort: THINKING_ENABLED ? "medium" : "none" }),
       messages: [{ role: "user", content: prompt }],
-    });
+    } as Parameters<typeof this.client.chat.completions.create>[0];
+    const response = await this.client.chat.completions.create(request);
     const text = response.choices[0]?.message?.content;
     if (!text) throw new Error(`Unexpected empty response from ${this.name}`);
     return text;

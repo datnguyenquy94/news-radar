@@ -47,6 +47,9 @@ export DIGEST_REPO=owner/repo   # omit to skip GitHub issue creation
 # Languages to generate (default: both). "en" = English only, "vi" = Vietnamese only.
 export DIGEST_LANGS=vi,en       # vi,en | en | vi
 
+# Enable model thinking/reasoning where supported (default: false)
+export LLM_THINKING=false
+
 # Max concurrent in-flight LLM requests (positive integer; default: 5)
 export LLM_CONCURRENCY=5
 
@@ -340,6 +343,7 @@ Tracked repos are configured in `config.yml` (loaded by `src/core/config.ts`, wh
 - Data-source listing reports (Trending, HN, PH, ArXiv, HF, Community) render item lists as **Markdown tables** (not bullet lists). Numeric columns are copied verbatim from the fetched data; the summary column is 2 sentences. Tables have CSS in `index.html` and render natively in GitHub Issues.
 - On transient errors — 429 rate limits (`is429`), request timeouts / dropped connections (`isTimeout`), and server-side overload (`isOverloaded`: 502/503/529 plus `ResourceExhausted` / "request limit reached" / "overloaded" wording, since gateways often report saturation as a 5xx rather than a 429) — `callLlm` retries up to `MAX_RETRIES` = 3 times. Every wait is floored at `RETRY_MIN_MS` = 60 s and grows exponentially from it (60 s / 120 s / 240 s), honours a longer `Retry-After` header, and is capped at 5 min. The concurrency slot is released during the wait. Sub-minute backoffs just burn an attempt on a per-minute quota that has not refilled.
 - The SDK clients are built with `maxRetries: 0` and an explicit `timeout` (`CLIENT_OPTIONS` in `src/platform/llm/providers/client-options.ts`, `LLM_TIMEOUT_MS` env var, default 10 min). The SDKs' own sub-10 s retry loops are disabled on purpose so `callLlm` is the single retry policy — do not re-enable them per provider.
+- `LLM_THINKING=true` enables provider-specific thinking/reasoning request options (Anthropic extended thinking; OpenAI-compatible `reasoning_effort: medium`); it defaults to false and requires model/API support.
 - The concurrency limiter (`LLM_CONCURRENCY`, default 5) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
 - LLM provider is selected via `LLM_PROVIDER` (code default: `anthropic`; the production workflows pass it through from the `LLM_PROVIDER` repo secret). Add providers only in the `PROVIDERS` registry in `src/platform/llm/providers/index.ts`; `ProviderName` and `VALID_PROVIDER_NAMES` are derived from it. The factory logs only the provider *name* — never API keys or endpoint URLs.
 - LLM JSON output (e.g. `highlights.json`) must be parsed with `parseLlmJson` from `src/platform/llm/client.ts` — it strips code fences, replaces raw control chars, and repairs trailing commas / prose wrappers.

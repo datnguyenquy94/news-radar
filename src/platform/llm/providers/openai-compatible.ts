@@ -8,6 +8,8 @@ import OpenAI from "openai";
 import type { LlmProvider } from "./types.ts";
 import { CLIENT_OPTIONS } from "./client-options.ts";
 
+const THINKING_ENABLED = process.env["LLM_THINKING"]?.toLowerCase() === "true";
+
 export abstract class OpenAICompatibleProvider implements LlmProvider {
   abstract readonly name: string;
   protected readonly client: OpenAI;
@@ -26,6 +28,7 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
     const response = await this.client.chat.completions.create({
       model: this.model,
       max_completion_tokens: maxTokens,
+      ...(THINKING_ENABLED ? { reasoning_effort: "medium" as const } : {}),
       messages: [{ role: "user", content: prompt }],
     });
     const text = response.choices[0]?.message?.content;

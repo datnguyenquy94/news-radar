@@ -11,6 +11,9 @@ import Anthropic from "@anthropic-ai/sdk";
 import type { LlmProvider } from "./types.ts";
 import { CLIENT_OPTIONS } from "./client-options.ts";
 
+const THINKING_ENABLED = process.env["LLM_THINKING"]?.toLowerCase() === "true";
+const THINKING_BUDGET_TOKENS = 1024;
+
 export class AnthropicProvider implements LlmProvider {
   readonly name = "anthropic";
   private readonly client: Anthropic;
@@ -24,7 +27,10 @@ export class AnthropicProvider implements LlmProvider {
   async call(prompt: string, maxTokens: number): Promise<string> {
     const message = await this.client.messages.create({
       model: this.model,
-      max_tokens: maxTokens,
+      max_tokens: THINKING_ENABLED ? Math.max(maxTokens, THINKING_BUDGET_TOKENS + 1) : maxTokens,
+      ...(THINKING_ENABLED
+        ? { thinking: { type: "enabled" as const, budget_tokens: THINKING_BUDGET_TOKENS } }
+        : {}),
       messages: [{ role: "user", content: prompt }],
     });
     const block = message.content.find((b) => b.type === "text");

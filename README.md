@@ -251,6 +251,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `DIGEST_LANGS` | optional | Languages to generate: `vi,en` (default, bilingual), `en` (English only), or `vi` (Vietnamese only) |
 | `LLM_PROVIDER` | optional | `anthropic` (default), `openai`, `github-copilot`, or `openrouter` |
 | `LLM_CONCURRENCY` | optional | Max in-flight LLM requests (default `5`) |
+| `LLM_THINKING` | optional | Enable model thinking/reasoning where supported (`true` or `false`; default `false`). Anthropic uses extended thinking; OpenAI-compatible providers request medium reasoning effort, which depends on model/API support |
 | `LLM_TIMEOUT_MS` | optional | Per-request LLM timeout in ms (default `600000` = 10 min). Timeouts and 429s are retried up to 3 times, waiting at least 60 s between attempts |
 | `LOG_LEVEL` | optional | pino log level: `trace`, `debug`, `info` (default), `warn`, `error`, `fatal`, `silent` |
 | `LOG_PRETTY` | optional | `1` for human-readable logs, `0` for JSON. Unset = pretty on a TTY, JSON in CI. Logs always go to stderr |

@@ -32,8 +32,11 @@ export abstract class OpenAICompatibleProvider implements LlmProvider {
         ? { reasoning: THINKING_ENABLED ? { effort: "medium" } : { max_tokens: 0 } }
         : { reasoning_effort: THINKING_ENABLED ? "medium" : "none" }),
       messages: [{ role: "user", content: prompt }],
-    } as Parameters<typeof this.client.chat.completions.create>[0];
-    const response = await this.client.chat.completions.create(request);
+      stream: false,
+    };
+    const response = await this.client.chat.completions.create(
+      request as OpenAI.Chat.Completions.ChatCompletionCreateParamsNonStreaming,
+    );
     const text = response.choices[0]?.message?.content;
     if (!text) throw new Error(`Unexpected empty response from ${this.name}`);
     return text;

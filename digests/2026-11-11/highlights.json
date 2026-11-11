@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code leads with 10 issues today as top hot topic",
+      "OpenAI Codex shows 10 PRs today and 3 recent releases",
+      "Gemini CLI activity tracked in November 2026 digest",
+      "GitHub Copilot CLI featured in cross-tool comparison",
+      "Kimi Code CLI part of mature CLI tools landscape",
+      "Qwen Code included in 10-tool activity comparison"
+    ],
+    "ai-agents": [
+      "OpenClaw hit 500 PRs and 153 issues in last 24 hours",
+      "v2026.11.3 released with private task results focus",
+      "v2026.9.37 gateway release includes security updates",
+      "Project preparing for stable release cycle ahead",
+      "Merged PRs focus on compaction and gateway port management",
+      "Agent prompt optimization among today's top merged changes"
+    ],
+    "ai-trending": [
+      "Qwen3.8-27B leads Hugging Face with 19,592 likes",
+      "Lightricks/LTX-2.5 tops image-to-video models",
+      "Sperid Labs/idol growing in 3D generation category",
+      "Viggle/Viggle-Remake rising in video editing",
+      "Firecrawl featured in AI infrastructure category",
+      "Claude-context added to code search MCP projects"
+    ],
+    "ai-web": [
+      "Anthropic launches IPO roadshow alongside research push",
+      "Progress on provable inference paper published by Anthropic",
+      "Claude electronics design demo addresses developer pain points",
+      "OpenAI publishes 11 business-oriented articles today",
+      "Introducing Businesses ChatGPT remains inaccessible in data",
+      "OpenAI focusing on education and professional services push"
+    ],
+    "ai-hn": [
+      "Amazon saves millions switching from Sonnet 4.6 to Strands Decider",
+      "Gemini 4 Carbon released as efficient cost-optimized variant",
+      "Claude Fable 5.2 and Mythos 5.2 score highly on Artificial Analysis",
+      "HN community split between productivity caution and model releases",
+      "Amazon migration highlights enterprise focus on agent efficiency",
+      "Google's Gemini 4 Carbon signals tier differentiation race"
+    ],
+    "ai-arxiv": [
+      "Theory of Policy Optimization identifies coverage collapse failure mode",
+      "Paper proposes reference resets for stable LLM post-training",
+      "AI Isn't Getting Dumber challenges narrative of declining performance",
+      "Human evaluation standards rising as models improve",
+      "Focus on specialized efficiency over pure scaling observed",
+      "Convergence of mechanistic interpretability and formal logic noted"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 19,592 likes and 7.2M downloads",
+      "Unsloth Qwen3.8-Flash-Next-GGUF optimized for low VRAM",
+      "Autotrust Qwen3.8-Flash-Next-E384-FP4-V2 specialized quant",
+      "Qwen3.8 family dominates top five model spots",
+      "Lightricks/LTX-2.5 solidifies top image-to-video position",
+      "Niche categories like 3D generation growing rapidly"
+    ],
+    "ai-community": [
+      "AI shifting from magic coder to constrained utility in production",
+      "Agents turning to AI to detect flaky test root causes",
+      "Agents routed directly to AI for bug fixing at Sharkly",
+      "Many agent failures stem from poorly defined system rules",
+      "Teaching agents to output I don't know critical for reliability",
+      "Focus on debugging, securing and operating AI agents real-world"
+    ],
+    "fin-macro": [
+      "Fed holds steady at 3.88% with balance sheet flat at $6.75T",
+      "Core PCE at 3.1% and CPI at 4.1% well above 2.0% target",
+      "Disconnect between restrictive rates and sticky inflation noted",
+      "Higher for longer interest rate environment expected",
+      "VIX at 19.92 signaling calm market conditions",
+      "FinRA margin debt rising 1.8% MoM to $1.48T"
+    ],
+    "fin-vnmacro": [
+      "VN-Index rises 0.20% intraday to 1,746.9 extending five-day advance",
+      "HOSE liquidity driven by financial and real-estate names",
+      "VN30 futures basis at -5.27 points indicating modest hedging pressure",
+      "USD/VND drifts to 25,840 down 1.07% over one month",
+      "Stable macro backdrop limits downside risk for equity inflows",
+      "Gold rally supports VND hedge demand at 4,061.3/oz"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy stance at 4.50% refinancing rate",
+      "Interbank market balanced with overnight rate at 4.40%",
+      "Overnight rate -0.10pp below refinancing ceiling indicates liquidity",
+      "System liquidity oversupplied limiting further easing capability",
+      "Risk of excessive VND depreciation if policy eased further",
+      "30-session tenor at 6.41% showing steady monthly trend"
+    ]
+  }
+}

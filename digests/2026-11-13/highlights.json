@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex v0.171.0-alpha.1 released with key PR progress",
+      "Claude Code v2.1.323 released with immediate regressions noted",
+      "Gemini CLI shows no new versions in last 24 hours",
+      "Qwen Code and Pi focus on incremental stability fixes",
+      "GitHub Copilot CLI status cut off in excerpt",
+      "OpenCode maintains steady PR updates"
+    ],
+    "ai-agents": [
+      "OpenClaw processed 500 PRs in last 24 hours with 191 merges",
+      "No new stable releases published despite high activity volume",
+      "Project prioritizing stabilization over major version bumps",
+      "ZeroClaw and IronClaw among 12 projects in ecosystem",
+      "Merge rate significantly outpaces issue triage rate",
+      "Sandbox & Gateway stability improvements in progress"
+    ],
+    "ai-trending": [
+      "QwenLM/qwen-code leading AI coding assistant momentum",
+      "ggml-org/llama.cpp and ashhart/TensorFold driving local LLM inference",
+      "addyosmani/agent-skills trending in skill-based agent development",
+      "Google Chrome's modern-web-guidance-src focuses on agent updates",
+      "Qwen3.8-Flash-Next trending for improved reasoning efficiency",
+      "CopilotKit/OpenBot featured as AI coworkers with computers"
+    ],
+    "ai-web": [
+      "Anthropic released Claude 4 (Opus 4 and Sonnet 4) models",
+      "Extended Thinking with Tool Use (beta) introduced in Claude 4",
+      "Anthropic filed S-1 with SEC signaling public listing ambitions",
+      "OpenAI's update was limited to metadata only",
+      "Claude Sonnet 4 positioned as best for coding tasks",
+      "Both Claude 4 models show improved local file memory"
+    ],
+    "ai-hn": [
+      "Edge0-145B brings frontier AI capabilities to local consumer hardware",
+      "Chinese AI models forensic analysis reveals export-controlled GPU usage",
+      "Google Search upgrade with Gemini 4 H highlights discussed",
+      "Community skepticism regarding AI safety and corporate roadmaps",
+      "Tension between excitement for agentic tools and usability concerns",
+      "Debate on international tech sanctions and model development"
+    ],
+    "ai-arxiv": [
+      "50 papers focus on agentic systems and credibility mechanisms",
+      "Confidence and safety in LLMs investigated through disagreement handling",
+      "Embodied AI frameworks for multimodal depression detection developed",
+      "Graph neural networks combined with time series for scientific modeling",
+      "Photonic hardware acceleration featured for efficient computing",
+      "Push toward structured modeling for engineering applications"
+    ],
+    "ai-hf": [
+      "Qwen3.8-Flash-Next trending for improved reasoning and efficiency",
+      "unsloth Qwen3.8-27B-GGUF driving massive consumer hardware downloads",
+      "Qwen/Qwen3.8-27B leads leaderboards with strong multimodal capabilities",
+      "Specialized 3D generation and text-to-speech models show niche growth",
+      "Diffusion models for image and video generation surge in trends",
+      "Raw capability increasingly paired with efficiency and modality support"
+    ],
+    "ai-community": [
+      "Developer warnings about tool integration degrading LLM reasoning",
+      "MCP (Model Context Protocol) criticized for easy adoption without thought",
+      "Context window bloat identified as cost of tool-heavy agent setups",
+      "Strategies to stop runaway AI agent loops before cost spikes",
+      "Focus on practical patterns for grounding and securing AI pipelines",
+      "Maturation from AI hype to AI operations across platforms"
+    ],
+    "fin-macro": [
+      "10-year Treasury yield hovering just below 5.0% indicating tight conditions",
+      "VIX in low-17 range suggesting adequate but tempered liquidity",
+      "Elevated CPI and PPI prints keeping rate cuts on back burner",
+      "Resilient labor market creating persistent Fed mandate risks",
+      "High-yield credit spreads stable at 3.30% amid market conditions",
+      "WTI crude oil at $89.62/bbl above $80 safe line threshold"
+    ],
+    "fin-vnmacro": [
+      "VN-Index retreated 0.70% to 1,734.75 on blue-chip drag",
+      "USD/VND spot rate edged higher to 25,860 with mild depreciation",
+      "VN30F1M basis narrowed to +2.87 points suggesting local hedging",
+      "DXY stable at 103.16 mitigating external pressure on dong",
+      "US 10Y yield at 4.98% with slight uptick observed",
+      "Gold range-bound at $3,905.9/oz amid moderate oil price action"
+    ]
+  }
+}

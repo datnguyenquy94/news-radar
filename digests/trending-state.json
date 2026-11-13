@@ -37,20 +37,20 @@
       "lastReported": "2026-09-27"
     },
     "addyosmani/agent-skills": {
-      "stars": 116151,
-      "lastReported": "2026-11-12"
+      "stars": 116824,
+      "lastReported": "2026-11-13"
     },
     "affaan-m/ECC": {
-      "stars": 301536,
-      "lastReported": "2026-11-12"
+      "stars": 302113,
+      "lastReported": "2026-11-13"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
       "lastReported": "2026-09-23"
     },
     "agentscope-ai/QwenPaw": {
-      "stars": 37164,
-      "lastReported": "2026-11-02"
+      "stars": 37675,
+      "lastReported": "2026-11-13"
     },
     "AgriciDaniel/claude-obsidian": {
       "stars": 14257,
@@ -97,8 +97,8 @@
       "lastReported": "2026-09-28"
     },
     "Alishahryar1/free-claude-code": {
-      "stars": 59485,
-      "lastReported": "2026-10-13"
+      "stars": 69503,
+      "lastReported": "2026-11-13"
     },
     "alphaXiv/OpenResearch": {
       "stars": 5057,
@@ -199,6 +199,10 @@
     "asgeirtj/system_prompts_leaks": {
       "stars": 66913,
       "lastReported": "2026-09-15"
+    },
+    "ashhart/TensorFold": {
+      "stars": 2007,
+      "lastReported": "2026-11-13"
     },
     "astral-sh/ruff": {
       "stars": 50741,
@@ -401,8 +405,8 @@
       "lastReported": "2026-11-07"
     },
     "CopilotKit/OpenBot": {
-      "stars": 9662,
-      "lastReported": "2026-11-02"
+      "stars": 11804,
+      "lastReported": "2026-11-13"
     },
     "coreyhaines31/marketingskills": {
       "stars": 52468,
@@ -573,8 +577,8 @@
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 200720,
-      "lastReported": "2026-11-11"
+      "stars": 201342,
+      "lastReported": "2026-11-13"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -636,6 +640,10 @@
       "stars": 45060,
       "lastReported": "2026-10-03"
     },
+    "ggml-org/llama.cpp": {
+      "stars": 134688,
+      "lastReported": "2026-11-13"
+    },
     "github/spec-kit": {
       "stars": 147470,
       "lastReported": "2026-11-05"
@@ -673,20 +681,20 @@
       "lastReported": "2026-11-08"
     },
     "GoogleChrome/modern-web-guidance-src": {
-      "stars": 1994,
-      "lastReported": "2026-11-12"
+      "stars": 3528,
+      "lastReported": "2026-11-13"
     },
     "Graphify-Labs/graphify": {
-      "stars": 145888,
-      "lastReported": "2026-11-11"
+      "stars": 146857,
+      "lastReported": "2026-11-13"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 142224,
-      "lastReported": "2026-11-11"
+      "stars": 143030,
+      "lastReported": "2026-11-13"
     },
     "harry7557558/spirula-studio": {
       "stars": 781,
@@ -713,16 +721,16 @@
       "lastReported": "2026-10-20"
     },
     "HKUDS/DeepTutor": {
-      "stars": 58154,
-      "lastReported": "2026-11-11"
+      "stars": 58732,
+      "lastReported": "2026-11-13"
     },
     "HKUDS/LightRAG": {
       "stars": 40474,
       "lastReported": "2026-11-02"
     },
     "HKUDS/nanobot": {
-      "stars": 49534,
-      "lastReported": "2026-10-28"
+      "stars": 50054,
+      "lastReported": "2026-11-13"
     },
     "HKUDS/Vibe-Trading": {
       "stars": 38030,
@@ -753,8 +761,8 @@
       "lastReported": "2026-11-12"
     },
     "hugohe3/ppt-master": {
-      "stars": 75851,
-      "lastReported": "2026-11-11"
+      "stars": 76402,
+      "lastReported": "2026-11-13"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -849,8 +857,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 119003,
-      "lastReported": "2026-11-11"
+      "stars": 119504,
+      "lastReported": "2026-11-13"
     },
     "julyx10/lap": {
       "stars": 2916,
@@ -1053,8 +1061,8 @@
       "lastReported": "2026-11-05"
     },
     "meta/astryx": {
-      "stars": 25506,
-      "lastReported": "2026-11-12"
+      "stars": 26841,
+      "lastReported": "2026-11-13"
     },
     "MG1937/ASC": {
       "stars": 1265,
@@ -1205,8 +1213,8 @@
       "lastReported": "2026-10-12"
     },
     "nodejs/node": {
-      "stars": 122924,
-      "lastReported": "2026-10-24"
+      "stars": 123641,
+      "lastReported": "2026-11-13"
     },
     "NousResearch/hermes-agent": {
       "stars": 262596,
@@ -1241,8 +1249,8 @@
       "lastReported": "2026-10-27"
     },
     "nvm-sh/nvm": {
-      "stars": 95485,
-      "lastReported": "2026-10-15"
+      "stars": 96052,
+      "lastReported": "2026-11-13"
     },
     "oblien/openship": {
       "stars": 13963,
@@ -1277,8 +1285,8 @@
       "lastReported": "2026-08-26"
     },
     "openai/codex-security": {
-      "stars": 11932,
-      "lastReported": "2026-11-12"
+      "stars": 12626,
+      "lastReported": "2026-11-13"
     },
     "openai/plugins": {
       "stars": 5883,
@@ -1420,6 +1428,10 @@
       "stars": 1223,
       "lastReported": "2026-09-01"
     },
+    "pookjw/HermesEnabler": {
+      "stars": 1630,
+      "lastReported": "2026-11-13"
+    },
     "PostHog/posthog": {
       "stars": 39007,
       "lastReported": "2026-08-25"
@@ -1443,6 +1455,10 @@
     "qdrant/qdrant": {
       "stars": 35196,
       "lastReported": "2026-10-23"
+    },
+    "QwenLM/qwen-code": {
+      "stars": 29959,
+      "lastReported": "2026-11-13"
     },
     "R-D-BioTech-Alaska/Qelm": {
       "stars": 27,
@@ -1581,8 +1597,8 @@
       "lastReported": "2026-11-04"
     },
     "Shubhamsaboo/awesome-llm-apps": {
-      "stars": 143988,
-      "lastReported": "2026-11-06"
+      "stars": 144531,
+      "lastReported": "2026-11-13"
     },
     "shy3130/tick-stock-panel": {
       "stars": 5170,
@@ -1713,8 +1729,8 @@
       "lastReported": "2026-09-18"
     },
     "tensorflow/tensorflow": {
-      "stars": 201078,
-      "lastReported": "2026-10-18"
+      "stars": 201585,
+      "lastReported": "2026-11-13"
     },
     "tesseract-ocr/tesseract": {
       "stars": 77260,
@@ -1753,8 +1769,8 @@
       "lastReported": "2026-10-01"
     },
     "thedotmack/claude-mem": {
-      "stars": 116027,
-      "lastReported": "2026-11-11"
+      "stars": 116636,
+      "lastReported": "2026-11-13"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -1905,8 +1921,8 @@
       "lastReported": "2026-10-15"
     },
     "we-promise/sure": {
-      "stars": 13196,
-      "lastReported": "2026-11-12"
+      "stars": 14143,
+      "lastReported": "2026-11-13"
     },
     "weaviate/weaviate": {
       "stars": 16754,

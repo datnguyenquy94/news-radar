@@ -89,8 +89,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 45438,
-      "lastReported": "2026-10-10"
+      "stars": 50809,
+      "lastReported": "2026-11-14"
     },
     "alibaba/zvec": {
       "stars": 16015,
@@ -224,6 +224,10 @@
       "stars": 55352,
       "lastReported": "2026-10-08"
     },
+    "backnotprop/plannotator": {
+      "stars": 10554,
+      "lastReported": "2026-11-14"
+    },
     "bannedbook/fanqiang": {
       "stars": 52348,
       "lastReported": "2026-09-04"
@@ -257,8 +261,8 @@
       "lastReported": "2026-09-07"
     },
     "block/buzz": {
-      "stars": 34865,
-      "lastReported": "2026-09-27"
+      "stars": 37349,
+      "lastReported": "2026-11-14"
     },
     "bojieli/ai-agent-book": {
       "stars": 54083,
@@ -277,8 +281,8 @@
       "lastReported": "2026-11-01"
     },
     "browser-use/browser-use": {
-      "stars": 120374,
-      "lastReported": "2026-11-09"
+      "stars": 120969,
+      "lastReported": "2026-11-14"
     },
     "browser-use/video-use": {
       "stars": 26584,
@@ -313,8 +317,8 @@
       "lastReported": "2026-11-12"
     },
     "career-ops-hq/career-ops": {
-      "stars": 81849,
-      "lastReported": "2026-11-11"
+      "stars": 82436,
+      "lastReported": "2026-11-14"
     },
     "cathrynlavery/diagram-design": {
       "stars": 54456,
@@ -337,8 +341,8 @@
       "lastReported": "2026-10-08"
     },
     "ChromeDevTools/chrome-devtools-mcp": {
-      "stars": 50700,
-      "lastReported": "2026-09-03"
+      "stars": 55640,
+      "lastReported": "2026-11-14"
     },
     "cilium/cilium": {
       "stars": 25294,
@@ -681,12 +685,12 @@
       "lastReported": "2026-11-08"
     },
     "GoogleChrome/modern-web-guidance-src": {
-      "stars": 3528,
-      "lastReported": "2026-11-13"
+      "stars": 5048,
+      "lastReported": "2026-11-14"
     },
     "Graphify-Labs/graphify": {
-      "stars": 146857,
-      "lastReported": "2026-11-13"
+      "stars": 147369,
+      "lastReported": "2026-11-14"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -701,8 +705,8 @@
       "lastReported": "2026-09-24"
     },
     "headroomlabs-ai/headroom": {
-      "stars": 79041,
-      "lastReported": "2026-11-07"
+      "stars": 79615,
+      "lastReported": "2026-11-14"
     },
     "heygen-com/hyperframes": {
       "stars": 55973,
@@ -817,8 +821,8 @@
       "lastReported": "2026-10-25"
     },
     "jeecgboot/JeecgBoot": {
-      "stars": 47964,
-      "lastReported": "2026-09-24"
+      "stars": 48469,
+      "lastReported": "2026-11-14"
     },
     "JetBrains/go-modern-guidelines": {
       "stars": 2907,
@@ -960,6 +964,10 @@
       "stars": 2540,
       "lastReported": "2026-10-16"
     },
+    "Likely7/Veyra-NRVideo": {
+      "stars": 1707,
+      "lastReported": "2026-11-14"
+    },
     "liquidslr/system-design-notes": {
       "stars": 24866,
       "lastReported": "2026-10-09"
@@ -979,6 +987,10 @@
     "localsend/localsend": {
       "stars": 91425,
       "lastReported": "2026-09-15"
+    },
+    "louislam/uptime-kuma": {
+      "stars": 93949,
+      "lastReported": "2026-11-14"
     },
     "luongnv89/claude-howto": {
       "stars": 44657,
@@ -1217,8 +1229,8 @@
       "lastReported": "2026-11-13"
     },
     "NousResearch/hermes-agent": {
-      "stars": 262596,
-      "lastReported": "2026-11-11"
+      "stars": 263256,
+      "lastReported": "2026-11-14"
     },
     "ntdevlabs/tiny11builder": {
       "stars": 20312,
@@ -1265,8 +1277,8 @@
       "lastReported": "2026-08-26"
     },
     "ollama/ollama": {
-      "stars": 186403,
-      "lastReported": "2026-11-09"
+      "stars": 186909,
+      "lastReported": "2026-11-14"
     },
     "open-compass/opencompass": {
       "stars": 7349,
@@ -1277,16 +1289,16 @@
       "lastReported": "2026-09-24"
     },
     "open-webui/open-webui": {
-      "stars": 158061,
-      "lastReported": "2026-11-08"
+      "stars": 158600,
+      "lastReported": "2026-11-14"
     },
     "openai/codex": {
       "stars": 118150,
       "lastReported": "2026-08-26"
     },
     "openai/codex-security": {
-      "stars": 12626,
-      "lastReported": "2026-11-13"
+      "stars": 13246,
+      "lastReported": "2026-11-14"
     },
     "openai/plugins": {
       "stars": 5883,
@@ -1361,12 +1373,12 @@
       "lastReported": "2026-09-16"
     },
     "Panniantong/Agent-Reach": {
-      "stars": 111011,
-      "lastReported": "2026-11-11"
+      "stars": 111619,
+      "lastReported": "2026-11-14"
     },
     "paperclipai/paperclip": {
-      "stars": 113056,
-      "lastReported": "2026-11-11"
+      "stars": 113742,
+      "lastReported": "2026-11-14"
     },
     "paperless-ngx/paperless-ngx": {
       "stars": 46173,
@@ -1693,8 +1705,8 @@
       "lastReported": "2026-10-01"
     },
     "tailscale/tailcat": {
-      "stars": 3656,
-      "lastReported": "2026-08-30"
+      "stars": 9561,
+      "lastReported": "2026-11-14"
     },
     "tailwindlabs/tailwindcss": {
       "stars": 98550,
@@ -1812,6 +1824,10 @@
       "stars": 32832,
       "lastReported": "2026-10-28"
     },
+    "tradermonty/claude-trading-skills": {
+      "stars": 4285,
+      "lastReported": "2026-11-14"
+    },
     "tradesdontlie/tradingview-mcp": {
       "stars": 6501,
       "lastReported": "2026-09-19"
@@ -1897,8 +1913,8 @@
       "lastReported": "2026-10-21"
     },
     "volcengine/OpenViking": {
-      "stars": 41654,
-      "lastReported": "2026-11-06"
+      "stars": 42215,
+      "lastReported": "2026-11-14"
     },
     "VoltAgent/awesome-agent-skills": {
       "stars": 32740,
@@ -1921,8 +1937,8 @@
       "lastReported": "2026-10-15"
     },
     "we-promise/sure": {
-      "stars": 14143,
-      "lastReported": "2026-11-13"
+      "stars": 14872,
+      "lastReported": "2026-11-14"
     },
     "weaviate/weaviate": {
       "stars": 16754,
@@ -2001,8 +2017,8 @@
       "lastReported": "2026-09-22"
     },
     "ZhuLinsen/daily_stock_analysis": {
-      "stars": 70678,
-      "lastReported": "2026-11-12"
+      "stars": 71833,
+      "lastReported": "2026-11-14"
     },
     "zi-yue-1129/DATAGEN": {
       "stars": 1799,

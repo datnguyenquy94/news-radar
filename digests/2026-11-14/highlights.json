@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.325 released today with security fix and Jupyter polish",
+      "OpenAI Codex leads with 10+ High issues today including critical regressions",
+      "GitHub Copilot CLI active with multiple merges despite IP duplicate PR",
+      "Qwen Code and DeepSeek TUI focus on dependency hygiene and CI reliability",
+      "Pi and OpenCode represent niche stability in general-purpose code assistants",
+      "Cross-tool comparison shows market bifurcation between general and specialized interfaces"
+    ],
+    "ai-agents": [
+      "OpenClaw processes 500 PRs today with 236 merges, 264 new opens",
+      "No new releases published, team focused on stabilizing 2026.10.10 codebase",
+      "Notable merge #198694: Publication of openclaw/faint-krill after workspace reconciliation",
+      "#198690: CI optimization to skip scheduled runs",
+      "Project health robust with active processing of bug fixes across subsystems",
+      "Merge rate healthy at 236 closed PRs despite 133 issues updated"
+    ],
+    "ai-trending": [
+      "AI open-source ecosystem dominated by agent tooling and infrastructure projects",
+      "ollama/ollama and open-webui/open-webui lead trending infrastructure categories",
+      "Qwen3.8 variants dominate model leaderboard with 27B base model trending",
+      "Uncensored fine-tunes like xtools-at/DeepSeek-V4-Pro gaining substantial traction",
+      "Lightricks' LTX-2.5 image-to-video model shows strong multimodal activity",
+      "GGUF distributions for large Qwen models enable consumer hardware deployment"
+    ],
+    "ai-web": [
+      "Anthropic publishes 92 new articles spanning research, safety, and economic impact studies",
+      "Major product milestone: Release of Claude Sonnet 5 positions mid-tier model against OpenAI",
+      "Alignment Assessment of UK AISI cybertesting incident provides transparent model behavior analysis",
+      "Project Vend case study explores autonomous AI economic activity",
+      "OpenAI releases only metadata-only entry 'Introducing ChatGPT Wallet' with no textual content",
+      "Anthropic's volume contrasted with OpenAI's paucity suggests intensive research disclosure phase"
+    ],
+    "ai-hn": [
+      "Nvidia alleged market manipulation claims spark community debate on GPU scarcity",
+      "Unsloth Qwen3.8-27B quantization update enables 4-bit training and inference lowering hardware barriers",
+      "Gemini 4 Hydrogen and Orchestrator blog post generates significant technical discussion",
+      "Community shift toward practical engineering challenges like parallel AI workers in Claude Code",
+      "FAA AI integration discussions continue alongside societal impact concerns",
+      "Skepticism regarding industry practices balanced against technical breakthroughs in quantization"
+    ],
+    "ai-arxiv": [
+      "ArchSPACE paper addresses need for systematic evaluation and referencing of LLM architectures",
+      "Goal Encoding in LLMs reveals flexible neural representations that can guide diverse execution paths",
+      "CoReMem: Cost-Internalizing Memory for successive coding tasks shows efficiency gains",
+      "Research focus on architectural innovations reducing computational overhead while improving reasoning",
+      "Safety and reliability frameworks for autonomous systems with new policy optimization methods",
+      "Domain-specific AI applications in quantum computing, fluid dynamics, and jurisprudence expanding frontiers"
+    ],
+    "ai-hf": [
+      "Qwen/Qwen3.8-27B base model amasses nearly 20,000 likes leading the trending leaderboard",
+      "Unsloth Qwen3.8-27B-GGUF highly downloaded quantized version for consumer hardware access",
+      "xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic gains traction for heretic alignment",
+      "Lightricks' LTX-2.5 image-to-video model continues strong multimodal activity",
+      "MiniMax-H3 models rise for both image and video generation capabilities",
+      "Robust ecosystem activity in quantization and GGUF distributions for local deployment"
+    ],
+    "ai-community": [
+      "Dev.to highlights Hacktoberfest AI Challenge Week 4 winners 'Ghost in the Machine'",
+      "remove.bg shutting down Dec 1, 2026, with free no-upload WebAssembly alternative offered",
+      "Post-mortem on hackathon project failure details verifier catches in 4-service app",
+      "Move away from opaque black box APIs toward local, auditable, and controllable AI systems",
+      "Lobste.rs discussions gravitate toward security, privacy, and raw mathematics of models",
+      "Strong thread connecting both communities on auditable AI system development"
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88% with balance sheet stable at $6.76T",
+      "10Y Treasury yield rises to 5.10% reflecting elevated term premiums in moderate tightening environment",
+      "CPI and Core PCE remain above Fed 2.0% target at +4.1% and +3.1% respectively",
+      "VIX Volatility Index at 18.70 indicating calm market conditions (15-20 range)",
+      "High-Yield Credit Spread improves to 3.20% from 3.30% showing improving credit",
+      "WTI Crude Oil at $89.62/bbl pressuring core inflation levels"
+    ],
+    "fin-vnmacro": [
+      "VN-Index closed flat on Nov 13, modestly higher +0.05% weekly, VN30 lagged -0.10% weekly decline",
+      "Turnover on HOSE moderate with foreign net flow remaining key monitor without aggregate margin debt data",
+      "USD/VND spot at 25,910 VND depreciating -0.58% month-on-month and -1.82% YTD tracking firm DXY",
+      "Gold (COMEX) at $3,886.3/oz with moderate correction after +0.03% daily move",
+      "Brent Crude at $95.84/bbl showing softening oil trend after -12.76% 20-day move",
+      "VNM (Viet ETF) at $16.93 with mild pullback -0.53% daily but +2.92% 20-day gain"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy stance with refinancing ceiling 4.50% and discount floor 3.00%",
+      "Interbank market exhibits balanced liquidity with overnight rate 17bps below policy ceiling",
+      "Qua đêm rate at 4.33% shows slight softening with 897,716 VND turnover",
+      "1 Tuần rate at 4.66% with moderate demand despite -42.7% turnover decline",
+      "2 Tuần rate at 6.05% evident risk premium with 166.5% turnover surge",
+      "6 Tháng rate at 7.90% shows high co-volatility with 588.5% turnover increase"
+    ]
+  }
+}

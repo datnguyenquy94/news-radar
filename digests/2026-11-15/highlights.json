@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex maintains 10-day release pause with 10 new issues and 10 merged PRs",
+      "OpenCode v2.3.0 released with 23 new issues and 50 merged PRs",
+      "Gemini CLI shows 10 new issues but no new releases",
+      "Qwen Code nightly v0.27.2 active with 10 new issues and 20 merged PRs",
+      "DeepSeek TUI has 4 new issues with merge activity ongoing",
+      "Claude Code shows 10 new issues and 10 merged PRs with no new versions"
+    ],
+    "ai-agents": [
+      "OpenClaw merged 139 PRs in last 24 hours toward stabilizing beta 3",
+      "OpenClaw 2026.11.5-beta.3 released focusing on large-session reliability",
+      "OpenClaw issue queue remains heavy with diamond-rated session stability bugs",
+      "OpenClaw project shows high velocity with bot-assisted rapid merging",
+      "CoPaw and ZeptoClaw among 12 projects in the OpenClaw ecosystem",
+      "OpenClaw merge activity driven by bug fixes, infrastructure updates, and UI polish"
+    ],
+    "ai-trending": [
+      "ChromeDevTools/chrome-devtools-mcp leads with 56,438 stars and 664 daily gain",
+      "alibaba/open-code-review gains 893 stars today with battle-tested hybrid architecture",
+      "univer reaches 25,067 stars with 3,112 gained since September",
+      "ag-ui-protocol/ag-ui emerges as first-time trending entry for agent protocols",
+      "ECC shows +1,172 star surge since November 13",
+      "firecrawl gains 520 stars highlighting web data integration trend"
+    ],
+    "ai-hn": [
+      "Chinese frontier AI models carry fingerprint of export-controlled GPUs",
+      "AI unlocks Gödel's notebooks with hundreds of proved theorems discovered",
+      "Edge0-145B brings frontier AI capabilities to personal computers",
+      "Community divided on whether Gödel discoveries are breakthroughs or pattern matching",
+      "Frustration expressed regarding energy costs of non-English AI processing",
+      "Enthusiasm for practical tooling like local-first agent governance noted"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads leaderboard with 20,029 likes and 6.7M downloads",
+      "unsloth/Qwen3.8-27B-GGUF most downloaded model enabling consumer hardware deployment",
+      "DeepSeek-V4-Pro Qwen3.5 uncensored heretic variant trends for unrestricted output",
+      "Qwen3.8-Flash-Next shows strong weekly like growth in language models",
+      "MiniMax-H3 family making waves in text-to-image and video generation",
+      "Surge in community fine-tunes and quantized variants driven by unsloth ecosystem"
+    ],
+    "ai-community": [
+      "Coding agents face limitations with context drift and budget management",
+      "Developers focus on infrastructure optimization and KV cache management",
+      "Strong caution regarding agent autonomy and consent mechanisms noted",
+      "Need for better observability when delegating critical tasks to AI emphasized",
+      "Dev.to article discusses 10 lines to give coding agents before repo access",
+      "Vanishing apprenticeship model highlighted as AI handles more production code"
+    ],
+    "fin-macro": [
+      "Federal Reserve maintains steady policy stance at 3.88% with steady policy",
+      "Core PCE at 3.1% and Core CPI at 2.9% with inflation above target",
+      "Unemployment rate dipped to 4.1% indicating full employment",
+      "VIX Volatility Index at 18.70 with calm readings",
+      "10Y Treasury Yield at 5.10% with restrictive level",
+      "High-Yield Credit Spread narrowing to 3.20% from 3.30%"
+    ],
+    "fin-vnmacro": [
+      "VN-Index opened flat at 1,734.93 with zero daily change but 0.60% weekly advance",
+      "VN30 lagged with 0.30% daily gain while VN-Index showed modest weekly advance",
+      "USD/VND rate held steady at sell 25,910 reflecting minimal YTD depreciation of -1.82%",
+      "US Dollar Index at 103.41 with rising dollar pressures on dong",
+      "US 10Y Treasury Yield at 5.10% widening spreads with dong",
+      "Market breadth limited with VN30 20-day momentum at -0.60%"
+    ],
+    "fin-vnrates": [
+      "State Bank of Vietnam maintains neutral policy stance with refinancing rate at 4.50%",
+      "Overnight interbank rate of 4.33% sits below refinancing ceiling indicating high liquidity",
+      "Coexistence of neutral policy rate and ample limits SBV's ability to ease further",
+      "6-month interbank rate at 7.90% showing rising trend with +588.5% turnover",
+      "9-month interbank rate at 6.96% with -1.59pp change over 20 sessions",
+      "Banking system remains highly liquid with abundant funds sitting idle"
+    ]
+  }
+}

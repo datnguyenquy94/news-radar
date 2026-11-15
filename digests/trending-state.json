@@ -41,8 +41,12 @@
       "lastReported": "2026-11-13"
     },
     "affaan-m/ECC": {
-      "stars": 302113,
-      "lastReported": "2026-11-13"
+      "stars": 303285,
+      "lastReported": "2026-11-15"
+    },
+    "ag-ui-protocol/ag-ui": {
+      "stars": 17445,
+      "lastReported": "2026-11-15"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -89,8 +93,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 50809,
-      "lastReported": "2026-11-14"
+      "stars": 51547,
+      "lastReported": "2026-11-15"
     },
     "alibaba/zvec": {
       "stars": 16015,
@@ -225,8 +229,8 @@
       "lastReported": "2026-10-08"
     },
     "backnotprop/plannotator": {
-      "stars": 10554,
-      "lastReported": "2026-11-14"
+      "stars": 11315,
+      "lastReported": "2026-11-15"
     },
     "bannedbook/fanqiang": {
       "stars": 52348,
@@ -341,8 +345,8 @@
       "lastReported": "2026-10-08"
     },
     "ChromeDevTools/chrome-devtools-mcp": {
-      "stars": 55640,
-      "lastReported": "2026-11-14"
+      "stars": 56438,
+      "lastReported": "2026-11-15"
     },
     "cilium/cilium": {
       "stars": 25294,
@@ -497,8 +501,8 @@
       "lastReported": "2026-11-04"
     },
     "dream-num/univer": {
-      "stars": 21955,
-      "lastReported": "2026-09-30"
+      "stars": 25067,
+      "lastReported": "2026-11-15"
     },
     "dsx-ai-factory/nvke": {
       "stars": 927,
@@ -565,8 +569,8 @@
       "lastReported": "2026-10-29"
     },
     "f/prompts.chat": {
-      "stars": 176887,
-      "lastReported": "2026-11-11"
+      "stars": 177421,
+      "lastReported": "2026-11-15"
     },
     "FareedKhan-dev/kimi-k3-in-c": {
       "stars": 10480,
@@ -581,8 +585,8 @@
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 201342,
-      "lastReported": "2026-11-13"
+      "stars": 201862,
+      "lastReported": "2026-11-15"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -685,20 +689,20 @@
       "lastReported": "2026-11-08"
     },
     "GoogleChrome/modern-web-guidance-src": {
-      "stars": 5048,
-      "lastReported": "2026-11-14"
+      "stars": 6263,
+      "lastReported": "2026-11-15"
     },
     "Graphify-Labs/graphify": {
-      "stars": 147369,
-      "lastReported": "2026-11-14"
+      "stars": 147898,
+      "lastReported": "2026-11-15"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
       "lastReported": "2026-09-01"
     },
     "harry0703/MoneyPrinterTurbo": {
-      "stars": 143030,
-      "lastReported": "2026-11-13"
+      "stars": 143634,
+      "lastReported": "2026-11-15"
     },
     "harry7557558/spirula-studio": {
       "stars": 781,
@@ -765,8 +769,8 @@
       "lastReported": "2026-11-12"
     },
     "hugohe3/ppt-master": {
-      "stars": 76402,
-      "lastReported": "2026-11-13"
+      "stars": 76904,
+      "lastReported": "2026-11-15"
     },
     "humanlayer/skills": {
       "stars": 2778,
@@ -861,8 +865,8 @@
       "lastReported": "2026-08-25"
     },
     "JuliusBrussee/caveman": {
-      "stars": 119504,
-      "lastReported": "2026-11-13"
+      "stars": 120166,
+      "lastReported": "2026-11-15"
     },
     "julyx10/lap": {
       "stars": 2916,
@@ -965,8 +969,8 @@
       "lastReported": "2026-10-16"
     },
     "Likely7/Veyra-NRVideo": {
-      "stars": 1707,
-      "lastReported": "2026-11-14"
+      "stars": 2390,
+      "lastReported": "2026-11-15"
     },
     "liquidslr/system-design-notes": {
       "stars": 24866,
@@ -1039,6 +1043,10 @@
     "marin-community/marin": {
       "stars": 2558,
       "lastReported": "2026-08-27"
+    },
+    "martin-olivier/airgorah": {
+      "stars": 6005,
+      "lastReported": "2026-11-15"
     },
     "mattpocock/skills": {
       "stars": 317895,
@@ -1529,8 +1537,8 @@
       "lastReported": "2026-10-30"
     },
     "rohitg00/ai-engineering-from-scratch": {
-      "stars": 78424,
-      "lastReported": "2026-11-11"
+      "stars": 78962,
+      "lastReported": "2026-11-15"
     },
     "ruanyf/weekly": {
       "stars": 104148,
@@ -1597,8 +1605,8 @@
       "lastReported": "2026-11-12"
     },
     "shareAI-lab/learn-claude-code": {
-      "stars": 79296,
-      "lastReported": "2026-10-27"
+      "stars": 80414,
+      "lastReported": "2026-11-15"
     },
     "sherlock-project/sherlock": {
       "stars": 104582,
@@ -1728,6 +1736,10 @@
       "stars": 5399,
       "lastReported": "2026-09-19"
     },
+    "Tencent/LoopForge": {
+      "stars": 996,
+      "lastReported": "2026-11-15"
+    },
     "Tencent/teamai-cli": {
       "stars": 3910,
       "lastReported": "2026-09-11"
@@ -1781,8 +1793,8 @@
       "lastReported": "2026-10-01"
     },
     "thedotmack/claude-mem": {
-      "stars": 116636,
-      "lastReported": "2026-11-13"
+      "stars": 117165,
+      "lastReported": "2026-11-15"
     },
     "thinkwee/AgentsMeetRL": {
       "stars": 1799,
@@ -1825,8 +1837,8 @@
       "lastReported": "2026-10-28"
     },
     "tradermonty/claude-trading-skills": {
-      "stars": 4285,
-      "lastReported": "2026-11-14"
+      "stars": 4963,
+      "lastReported": "2026-11-15"
     },
     "tradesdontlie/tradingview-mcp": {
       "stars": 6501,
@@ -1937,8 +1949,8 @@
       "lastReported": "2026-10-15"
     },
     "we-promise/sure": {
-      "stars": 14872,
-      "lastReported": "2026-11-14"
+      "stars": 15416,
+      "lastReported": "2026-11-15"
     },
     "weaviate/weaviate": {
       "stars": 16754,

@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex merges 20 PRs in one day pushing pre-releases alpha.6/.7",
+      "Gemini CLI logs 10 issues and 10 PRs with no new release",
+      "Claude Code fixes 10 issues with 0 merges in stable v5.11492.5",
+      "Qwen Code hits v0.27.4 nightly with 9 PRs merged today",
+      "OpenCode reports 11 new issues and 10 PR merges with no release",
+      "Pi CLI logs 5 open/5 closed issues and 9 PR merges today"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.4 focuses on large conversation stability with paged memory exports",
+      "OpenClaw v2026.11.5-beta.4 adds interactive Telegram widgets and race condition fixes",
+      "OpenClaw community merged 283 PRs and addressed 94 issues in 24 hours",
+      "IronClaw and NullClaw listed in OpenClaw ecosystem digest of 12 projects",
+      "OpenClaw stable release targets worker memory exhaustion with plugin improvements",
+      "OpenClaw beta bridges gap between stable v2026.11.4 and upcoming mainline features"
+    ],
+    "ai-trending": [
+      "stitch-skills leads AI agent orchestration trends on GitHub today",
+      "LoopForge from Tencent provides standardized skill libraries for coding agents",
+      "Claude-BugHunter offers specialized skill bundles for code red-teaming",
+      "ggml makes first appearance signaling reliance on low-level tensor libraries",
+      "Elementalsouls/Claude-BugHunter provides code review and red-teaming tools",
+      "backnotprop/plannotator offers specialized skill bundles for code review"
+    ],
+    "ai-hn": [
+      "Chinese frontier AI models fingerprint validated export-controlled GPU usage",
+      "Gemini 4 Hydrogen promises significant reasoning and multimodality improvements",
+      "Community debates long-term viability of export control strategies",
+      "HN discusses practical tooling for agents and LLM operational costs",
+      "Concern over AI accessibility, energy consumption, and societal impact",
+      "Mixed reactions to Google's most capable model yet with praise for capabilities"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads language models with 20K likes and 6.5M downloads",
+      "unsloth Qwen3.8-27B-GGUF enables local inference with minimal quality loss",
+      "DeepSeek-V4.1-Flash-1017 balances reasoning with accelerated text generation",
+      "Qwen3.8-Flash-Next highlights Qwen4 experimental improvements in token handling",
+      "Arete-27B continues active community focus on model customization",
+      "Novel uncensored and heretic variants highlight boundary-pushing capabilities"
+    ],
+    "ai-community": [
+      "Community shifts from vibe coding toward production-grade AI engineering",
+      "Strong discussion around agent reliability with loops, timeouts, and guardrails",
+      "Security concerns focus on prompt injection and AI-assisted infrastructure safety",
+      "Jira plugin built to validate completion criteria before ticket closing",
+      "Framework for building AI-Native products as a one-person software factory",
+      "Guide demonstrates Claude agent for mainline Linux kernel development"
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds steady at 3.88% with balance sheet expanding to $6.76T",
+      "Core PCE at 3.1% YoY and CPI at 4.1% YoY still above Fed 2.0% target",
+      "10Y-2Y spread remains positive at +0.27% suggesting residual liquidity supports risk assets",
+      "WTI Crude near $100 threshold at $89.62 per barrel",
+      "High-yield credit spreads narrow to 3.20% indicating improved market sentiment",
+      "VIX volatility index at calm 18.70 readings"
+    ],
+    "fin-vnmacro": [
+      "VN-Index closes flat at 1,734.93 with 0.60% gain over past five sessions",
+      "VN30 declines 0.10% over same period reflecting blue-chip profit-taking",
+      "USD/VND rate holds steady at 25,930/25,550 providing stable macro backdrop",
+      "Gold edges lower to $3,857.40 and Brent crude softens to $95.73",
+      "Index displays resilience near key support but lacks directional momentum",
+      "Sustained foreign buying needed to confirm trend change in current session"
+    ]
+  }
+}

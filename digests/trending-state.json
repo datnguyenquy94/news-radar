@@ -41,12 +41,12 @@
       "lastReported": "2026-11-13"
     },
     "affaan-m/ECC": {
-      "stars": 303285,
-      "lastReported": "2026-11-15"
+      "stars": 303960,
+      "lastReported": "2026-11-16"
     },
     "ag-ui-protocol/ag-ui": {
-      "stars": 17445,
-      "lastReported": "2026-11-15"
+      "stars": 18113,
+      "lastReported": "2026-11-16"
     },
     "agent-substrate/substrate": {
       "stars": 3063,
@@ -93,8 +93,8 @@
       "lastReported": "2026-09-11"
     },
     "alibaba/open-code-review": {
-      "stars": 51547,
-      "lastReported": "2026-11-15"
+      "stars": 52345,
+      "lastReported": "2026-11-16"
     },
     "alibaba/zvec": {
       "stars": 16015,
@@ -229,8 +229,8 @@
       "lastReported": "2026-10-08"
     },
     "backnotprop/plannotator": {
-      "stars": 11315,
-      "lastReported": "2026-11-15"
+      "stars": 12026,
+      "lastReported": "2026-11-16"
     },
     "bannedbook/fanqiang": {
       "stars": 52348,
@@ -345,8 +345,8 @@
       "lastReported": "2026-10-08"
     },
     "ChromeDevTools/chrome-devtools-mcp": {
-      "stars": 56438,
-      "lastReported": "2026-11-15"
+      "stars": 57171,
+      "lastReported": "2026-11-16"
     },
     "cilium/cilium": {
       "stars": 25294,
@@ -501,8 +501,8 @@
       "lastReported": "2026-11-04"
     },
     "dream-num/univer": {
-      "stars": 25067,
-      "lastReported": "2026-11-15"
+      "stars": 26530,
+      "lastReported": "2026-11-16"
     },
     "dsx-ai-factory/nvke": {
       "stars": 927,
@@ -539,6 +539,10 @@
     "elayadesign/ai-design-skills": {
       "stars": 12388,
       "lastReported": "2026-10-30"
+    },
+    "elementalsouls/Claude-BugHunter": {
+      "stars": 6694,
+      "lastReported": "2026-11-16"
     },
     "EpicGames/raddebugger": {
       "stars": 7932,
@@ -648,6 +652,10 @@
       "stars": 45060,
       "lastReported": "2026-10-03"
     },
+    "ggml-org/ggml": {
+      "stars": 15989,
+      "lastReported": "2026-11-16"
+    },
     "ggml-org/llama.cpp": {
       "stars": 134688,
       "lastReported": "2026-11-13"
@@ -672,6 +680,10 @@
       "stars": 108149,
       "lastReported": "2026-10-25"
     },
+    "google-labs-code/stitch-skills": {
+      "stars": 9442,
+      "lastReported": "2026-11-16"
+    },
     "google-research/timesfm": {
       "stars": 30758,
       "lastReported": "2026-09-04"
@@ -689,12 +701,12 @@
       "lastReported": "2026-11-08"
     },
     "GoogleChrome/modern-web-guidance-src": {
-      "stars": 6263,
-      "lastReported": "2026-11-15"
+      "stars": 7417,
+      "lastReported": "2026-11-16"
     },
     "Graphify-Labs/graphify": {
-      "stars": 147898,
-      "lastReported": "2026-11-15"
+      "stars": 148554,
+      "lastReported": "2026-11-16"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -729,8 +741,8 @@
       "lastReported": "2026-10-20"
     },
     "HKUDS/DeepTutor": {
-      "stars": 58732,
-      "lastReported": "2026-11-13"
+      "stars": 59553,
+      "lastReported": "2026-11-16"
     },
     "HKUDS/LightRAG": {
       "stars": 40474,
@@ -1221,8 +1233,8 @@
       "lastReported": "2026-11-06"
     },
     "neuml/txtai": {
-      "stars": 12907,
-      "lastReported": "2026-08-26"
+      "stars": 13407,
+      "lastReported": "2026-11-16"
     },
     "nightly-labs/openbot": {
       "stars": 3990,
@@ -1263,6 +1275,10 @@
     "NVIDIA/OpenShell": {
       "stars": 19561,
       "lastReported": "2026-10-25"
+    },
+    "NVIDIA/SkillEvaluator": {
+      "stars": 1916,
+      "lastReported": "2026-11-16"
     },
     "NVIDIA/SkillSpector": {
       "stars": 22367,
@@ -1737,8 +1753,8 @@
       "lastReported": "2026-09-19"
     },
     "Tencent/LoopForge": {
-      "stars": 996,
-      "lastReported": "2026-11-15"
+      "stars": 1788,
+      "lastReported": "2026-11-16"
     },
     "Tencent/teamai-cli": {
       "stars": 3910,
@@ -1833,12 +1849,12 @@
       "lastReported": "2026-09-16"
     },
     "topoteretes/cognee": {
-      "stars": 32832,
-      "lastReported": "2026-10-28"
+      "stars": 33341,
+      "lastReported": "2026-11-16"
     },
     "tradermonty/claude-trading-skills": {
-      "stars": 4963,
-      "lastReported": "2026-11-15"
+      "stars": 5763,
+      "lastReported": "2026-11-16"
     },
     "tradesdontlie/tradingview-mcp": {
       "stars": 6501,
@@ -2029,8 +2045,8 @@
       "lastReported": "2026-09-22"
     },
     "ZhuLinsen/daily_stock_analysis": {
-      "stars": 71833,
-      "lastReported": "2026-11-14"
+      "stars": 72589,
+      "lastReported": "2026-11-16"
     },
     "zi-yue-1129/DATAGEN": {
       "stars": 1799,

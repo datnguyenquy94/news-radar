@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex fixes 10 hot issues with statusline and quota updates in alpha v0.171.0 release",
+      "Claude Code releases v2.1.326 with 1 policy fix addressing chronic stability problems",
+      "Gemini CLI stability and security fixes released with 10 merged PRs but no new version tag",
+      "Qwen Code leads architectural unification with significant issue activity and merged PRs today",
+      "GitHub Copilot CLI continues infrastructure fixes with 10 active issues resolved today",
+      "Pi prioritizes infrastructure fixes as top activity across the CLI ecosystem"
+    ],
+    "ai-agents": [
+      "OpenClaw processes 500 PRs in 24 hours with 285 merged closures stabilizing the 2026.11.x branch",
+      "Notable PR #200435 fixes Gateway memory retention after restart with platinum hermit rating",
+      "PR #200460 ensures openclaw remains runnable when npm updates are interrupted during publishing",
+      "PR #200433 enforces queued input custody contract for improved session reliability",
+      "OpenClaw issue queue dominated by stability bugs affecting memory indexing and multi-agent coordination",
+      "No new releases published today but beta stabilization and internal tooling improvements active"
+    ],
+    "ai-trending": [
+      "ag-ui-protocol/ag-ui gains 791 stars today, reaching 19,499 total as agent-frontend protocol trends",
+      "alibaba/open-code-review shows explosive growth with substantial daily star gains and enterprise focus",
+      "NVIDIA/SkillEvaluator exemplifies shift toward standardizing AI agent interactions with frontend apps",
+      "Day's trending data reveals dual momentum of agent-centric tooling and established platform reinforcements",
+      "Top AI infrastructure projects show significant community interest in standardized agent UX",
+      "Projects like ag-ui and open-code-review lead trending categories with massive star surges"
+    ],
+    "ai-web": [
+      "Anthropic launches $100 million Claude Frontier Academy to train 10,000 Frontier Deployed Engineers by 2027",
+      "OpenAI publishes 8 metadata-indexed articles with no body text, focusing on ChatGPT for academics",
+      "Anthropic content heavily weighted toward ecosystem building, safety policy, and global expansion",
+      "OpenAI's recurring theme of expanding ChatGPT for academic researchers signals education sector push",
+      "Anthropic's $10 million commitment to Canadian AI research signals global talent strategy",
+      "OpenAI metadata updates indicate high volume of index changes potentially for healthcare deployments"
+    ],
+    "ai-hn": [
+      "Qwen4-Max launch dominates Hacker News with nearly 500 comments debating benchmark claims",
+      "Chinese frontier AI models bear fingerprint of export-controlled GPUs sparking heated provenance debate",
+      "Claude Mythos slashed software pricing, creating significant market disruption discussion",
+      "Community tension exists between agentic enthusiasm and skepticism about real problem solving",
+      "Windows 11 telemetry and export control forensics reveal unease about AI data collection",
+      "Qwen4-Max reported significant improvements in reasoning and coding tasks vs previous generations"
+    ],
+    "ai-arxiv": [
+      "Latent Lattice Language Models propose active computational states as paradigm shift in language modeling",
+      "Paper quantifies added value of human forecaster discussions for tropical cyclone intensity prediction",
+      "Research pushes toward efficient architectures like weight factorization and latent lattice models",
+      "Domain-specific benchmarks emerge for historical consistency in VLMs and cultural reasoning in Spanish discourse",
+      "Strong focus on addressing LLM limitations including hallucination and recourse validity in explanations",
+      "Emergence of domain-specific benchmarks indicates maturation toward reliable specialized AI deployment"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads LLM landscape with 6.7M downloads and strong image-text task performance",
+      "unsloth Qwen3.8-27B-GGUF enables local inference with 6.6M downloads highlighting efficient inference demand",
+      "DavidAU Qwen3.8-27B-TURBO variant trends for extreme customization with uncensored configurations",
+      "HauhauCS Qwen3.8-27B-Uncensored trends for niche users seeking constraint removal",
+      "Qwen3.8 family continues dominance with heavy quantization and fine-tuning activity",
+      "Lightricks LTX-2.5 pushes boundaries of real-time video generation on Hugging Face"
+    ],
+    "ai-community": [
+      "Developers building safety boundaries around AI coding agents to prevent costly main branch pushes",
+      "Analysis shows higher reasoning settings cost 2.6x to 4.8x more with no significant math score improvement",
+      "Growing interest in local self-hosted models and efficient distillation techniques for smaller models",
+      "Recurring theme of 'control layer' how to build safety boundaries around AI agents",
+      "Significant focus on efficiency and cost of 'thinking' models without always improving results",
+      "Research interest in efficient distillation allowing smaller models to punch above their weight class"
+    ],
+    "fin-macro": [
+      "Federal Reserve maintains restrictive stance with Fed Funds Rate at 3.88% while balance sheet expands to $6.76T",
+      "Core PCE at 3.1% YoY and CPI at 4.1% YoY significantly above 2.0% target, indicating sticky inflation",
+      "10Y-2Y spread narrows to 0.29% suggesting caution regarding credit event risks despite positive reading",
+      "VIX Volatility Index at 19.30 indicating calm market conditions despite restrictive Fed policy",
+      "High-yield credit spreads elevate to 3.23% OAS suggesting elevated credit event risks",
+      "FINRA Margin Debt decreases 2.1% MoM indicating retail deleveraging in current economic environment"
+    ],
+    "fin-vnmacro": [
+      "VN-Index edges up 0.10% on November 16 supported by modest liquidity recovery to $928M turnover",
+      "USD/VND holds near 25,930 per dollar with slight daily dip but year-to-date depreciation of 1.75%",
+      "Foreign flows act as primary catalyst for market direction with cautious resilience in near term",
+      "VN30 blue-chips flat with 0.00% daily change despite index gain, indicating selective buying",
+      "Turnover moderate at $928M with small net foreign inflow stabilizing after recent outflows",
+      "US 10Y Treasury Yield rises 0.98% 20d suggesting rising US bond yields impacting local market"
+    ]
+  }
+}

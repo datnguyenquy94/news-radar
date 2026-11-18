@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "GitHub Copilot CLI v1.0.114 released with stability fixes and SDK rename resolution",
+      "Claude Code v2.1.327 patch addressing Auth and MCP privacy regressions",
+      "OpenAI Codex rust-v0.170.0 released with WebRTC and sandbox capabilities",
+      "Gemini CLI shows no new versions but maintains 10 active open issues",
+      "OpenCode v2.3.2 released featuring prompt caching and shelving enhancements",
+      "Qwen Code and DeepSeek TUI among open-source tools with active community PRs"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.5 released with restart-safe conversations and safer update rollbacks",
+      "OpenClaw v2026.10.33 LTS release containing critical security and reliability fixes",
+      "Two new OpenClaw releases published today indicating fast-paced stability focus",
+      "OpenClaw maintains 138 issues and 500 PRs in last 24 hours with high velocity",
+      "Restart-safe conversations feature retains queued messages across Gateway restarts",
+      "Safer updates mechanism now rolls back failed Doctor or Gateway startups"
+    ],
+    "ai-trending": [
+      "elementalsouls/Claude-BugHunter leads trending AI agents with substantial daily star gains",
+      "mvanhorn/last30days-skill follows closely as top trending agentic framework",
+      "ollama/ollama maintains massive community interest as top AI infrastructure project",
+      "alibaba/open-code-review continues strong adoption in AI code review space",
+      "Tencent/LoopForge highlights growing trend toward self-hosted coding assistant orchestration",
+      "datawhalechina/hello-agents shows momentum in practical agent deployment"
+    ],
+    "ai-web": [
+      "Anthropic launches Claude for Excel and new Agent Skills tailored for financial services",
+      "Anthropic releases two major research papers on LLM software proofs and safety evaluations",
+      "OpenAI metadata-only index entries released including ChatGPT For Sales and GPT 6/2 Astra Sol",
+      "Anthropic's dual focus on enterprise productization and technical AI safety foundations",
+      "OpenAI's update characterized by lack of descriptive content suggesting backend categorization",
+      "Anthropic's enterprise offerings signal push into high-value sector workflows"
+    ],
+    "ai-hn": [
+      "GPT-6 family announcement generates community excitement over scale and agentic capabilities",
+      "Google AI Overviews spark concern over 40% search traffic reduction for open web",
+      "Hacker News discussion highlights AI coding agents shifting bottleneck to code review",
+      "Community skepticism regarding GPT-6 practical leap over GPT-4.5 performance",
+      "Investigative piece reveals Chinese AI models built on restricted NVIDIA export-controlled GPUs",
+      "Hacker News anxiety over supply chain security exemplified by compromised Microsoft PyPI package"
+    ],
+    "ai-arxiv": [
+      "Ambient LLMs introduces data-efficient fine-tuning via temperature matching for small datasets",
+      "Do LLM Agents Still Need to Be Told How to Self-Improve? finds need for human guidance diminishes",
+      "Bias attribution audit in language models investigates non-identifiability at head level",
+      "Spool develops latency reduction for streaming multimodal models with improved robustness",
+      "StringQFT applies AI to theoretical physics resources expanding domain-specific discovery",
+      "Colombo applies AI to engineering optimization for domain-specific discovery"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B dominates trending models with 27B parameters leading language modeling leaderboard",
+      "unsloth/Qwen3.8-27B-GGUF enables efficient local inference with massive download counts",
+      "harness-hub/Qwen3.8-27B-pi-adapted fine-tuned adaptation using innovative async-grpo methods",
+      "Qwen model uncensored and heretic tag variants generate significant community engagement",
+      "Lightricks/LTX-2.5 leads multimodal trending in video generation space",
+      "MiniMaxAI/MiniMax-H3-Image represents cutting edge in image generation trends"
+    ],
+    "ai-community": [
+      "Developers shifting focus from job displacement concerns to AI control and reliability",
+      "Deterministic gates and tool contracts emerging to tame unpredictable model behavior",
+      "AI agents generating 17 million pull requests monthly with new rejection gates implemented",
+      "Cautionary tale of agent force-pushing main to fix leaked API key exacerbating security breach",
+      "Prompt regression testing for LLM apps offered as free CI gate tested on 3 real models",
+      "Growing concern over hidden costs and observability challenges in AI integration"
+    ],
+    "fin-macro": [
+      "Federal Reserve maintains restrictive posture with 3.88% Fed Funds rate and $6.76T balance sheet",
+      "10Y Treasury yield at 5.12% reflecting elevated term premiums despite labor market resilience",
+      "High-Yield credit spreads widened to 3.34% indicating elevated credit risk",
+      "CPI at +4.1% YoY and Core PCE at +3.1% keeping real yields positive as risk asset headwind",
+      "VIX at 22.91 reflecting elevated fear while margin debt deleveraging at -2.1% MoM",
+      "10Y-2Y spread at 0.30% remaining positive amid restrictive financial conditions"
+    ],
+    "fin-vnmacro": [
+      "VN-Index declined 0.60% to 1,726.72 with 5-day and 20-day momentum slightly negative",
+      "VN30 basket underperforming with 1d loss of 0.40% while turnover data remains thin",
+      "USD/VND spot rate edged higher to 25,880 tracking firming US Dollar Index at 103.70",
+      "Substantial year-on-year FDI inflow surge of 74.0% to 54.85bn USD in 10M2026 suggests capital interest",
+      "VN30F1M basis marginally positive at +0.17 pts signaling negligible hedging pressure",
+      "Market breadth thin with equities facing mixed backdrop of index weakness and stable FX"
+    ],
+    "fin-vnrates": [
+      "State Bank of Vietnam maintains neutral policy stance with 4.50% refinancing rate",
+      "Overnight interbank rate at 4.99% situating slightly above policy ceiling signaling strained liquidity",
+      "Coexistence of elevated borrowing costs against policy rate structure creating credit transmission friction",
+      "1-month tenor at 5.39% showing stable rate with +0.08pp effective change",
+      "3-month tenor at 7.57% showing upward curve slope with +0.94pp effective change",
+      "6-month tenor at 8.45% showing illiquid long end with -95.8% turnover decline"
+    ]
+  }
+}

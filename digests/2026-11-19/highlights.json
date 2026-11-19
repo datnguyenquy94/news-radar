@@ -1,0 +1,68 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.328 launched with session persistence fixes",
+      "Gemini CLI v0.70.0-preview.0 released with ACP and SSH fixes",
+      "OpenAI Codex targets GPT-6.2 refinement with 10 closed PRs today",
+      "GitHub Copilot CLI processed 10 open issues on model catalog",
+      "Qwen Code focuses on infrastructure and platform integration",
+      "Pi Mono emphasizes lightweight runtimes for specialized tasks"
+    ],
+    "ai-agents": [
+      "OpenClaw processed 500 PRs and 172 issue updates in 24 hours",
+      "No new releases published; candidate pipeline strained by runtime-verification failures",
+      "Multiple Gateway startup failures on PostgreSQL and Windows threaten admission",
+      "Latest stable candidate remains 2026.11.5-beta.2 pending bug resolution",
+      "High maintainer velocity indicates intense active development phase",
+      "Project push toward stabilization despite operational turbulence"
+    ],
+    "ai-trending": [
+      "NVIDIA/SkillEvaluator stars surged +312, reflecting agent skill evaluation focus",
+      "affaan-m/ECC appears in both trending and topic search for LLM efficiency",
+      "google-research/paper-orchestra demonstrates automated AI research workflows",
+      "AI infrastructure and evaluation frameworks dominate daily star growth",
+      "Shift toward tooling that measures, optimizes, and secures AI agent performance",
+      "Maturation of automated AI research capable of generating full academic papers"
+    ],
+    "ai-web": [
+      "Anthropic IPO priced at $83.00 per share, valuing company at $5.7 billion",
+      "Cyber Verification Program expanded to three access tiers including Claude Opus 5.5",
+      "Claude resolved two open problems in theoretical physics: Hawking-Page transition and modular bootstrap limit for quantum gravity",
+      "Anthropic balances dual-use concerns with conservative safeguards and specialized defender access",
+      "Company preparing for exit liquidity event while hardening safety tooling",
+      "Positioning model as scientific collaborator advancing fundamental science frontiers"
+    ],
+    "ai-hn": [
+      "Google DeepMind unveiled Gemini 4 Neon, competing directly with Opus-class models",
+      "Genie 4 released as versatile multimodal AI model accessible to developers",
+      "Community grapples with AI limitations via 'AI will not make you rich' essay",
+      "Legal issues surrounding false AI identifications create tension between hype and reality",
+      "Google's dual releases dominate conversation on rapid model iteration",
+      "Enterprise adoption acceleration highlighted by AI agents outperforming KPMG auditors"
+    ],
+    "ai-arxiv": [
+      "Researchers investigate how models reason via Jailbreak Detection via Prototypes",
+      "Survival Benchmarks' limitations and model generalization across distributions explored",
+      "Cap-and-Track efficient inference dispatch emerges as practical deployment concern",
+      "Monoculture Robustness framework suggests maturation toward interpretable AI systems",
+      "Counterfactual and contrastive frameworks indicate safety-aware system development",
+      "Domain-specific applications in power electronics and protein prediction featured"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B appears in three distinct forms within top 30 trending models",
+      "MiniMax-H3-Image architecture fractured into three separate entries reflecting community interest",
+      "Haru-4B emerges as full-duplex speech model gaining popularity",
+      "Zyphra's ZONOS3-Mini maintains continued popularity in audio space",
+      "LTX-2.5 maintains extraordinary download-to-like ratio signaling enterprise adoption",
+      "Lightricks' video generation tools show sustained enterprise adoption"
+    ],
+    "ai-community": [
+      "Developers documenting '25 Ways' to break agents, shifting to intentional engineering",
+      "Token costs vs. guardrails debate intensifies among community members",
+      "Semantic caches architectured to tame local models in production deployments",
+      "Excited discussion around new hardware frontiers like Lambda GPUs and Nvidia shake-ups",
+      "Practical patterns for deploying AI in production via Bedrock AgentCore highlighted",
+      "Conversation matured from 'can we?' to 'how do we build this reliably?'"
+    ]
+  }
+}

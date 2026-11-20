@@ -41,8 +41,8 @@
       "lastReported": "2026-11-13"
     },
     "affaan-m/ECC": {
-      "stars": 306752,
-      "lastReported": "2026-11-19"
+      "stars": 307406,
+      "lastReported": "2026-11-20"
     },
     "ag-ui-protocol/ag-ui": {
       "stars": 20156,
@@ -293,8 +293,8 @@
       "lastReported": "2026-11-01"
     },
     "browser-use/browser-use": {
-      "stars": 120969,
-      "lastReported": "2026-11-14"
+      "stars": 121547,
+      "lastReported": "2026-11-20"
     },
     "browser-use/video-use": {
       "stars": 26584,
@@ -329,12 +329,12 @@
       "lastReported": "2026-11-18"
     },
     "career-ops-hq/career-ops": {
-      "stars": 83166,
-      "lastReported": "2026-11-17"
+      "stars": 83837,
+      "lastReported": "2026-11-20"
     },
     "cathrynlavery/diagram-design": {
-      "stars": 54456,
-      "lastReported": "2026-10-14"
+      "stars": 68831,
+      "lastReported": "2026-11-20"
     },
     "checkstyle/checkstyle": {
       "stars": 9445,
@@ -437,8 +437,8 @@
       "lastReported": "2026-09-30"
     },
     "cursor/plugins": {
-      "stars": 16984,
-      "lastReported": "2026-11-18"
+      "stars": 17637,
+      "lastReported": "2026-11-20"
     },
     "D4Vinci/Scrapling": {
       "stars": 98271,
@@ -553,8 +553,8 @@
       "lastReported": "2026-10-30"
     },
     "elementalsouls/Claude-BugHunter": {
-      "stars": 9858,
-      "lastReported": "2026-11-18"
+      "stars": 12945,
+      "lastReported": "2026-11-20"
     },
     "EpicGames/raddebugger": {
       "stars": 7932,
@@ -585,8 +585,8 @@
       "lastReported": "2026-10-29"
     },
     "f/prompts.chat": {
-      "stars": 177421,
-      "lastReported": "2026-11-15"
+      "stars": 177928,
+      "lastReported": "2026-11-20"
     },
     "FareedKhan-dev/kimi-k3-in-c": {
       "stars": 10480,
@@ -601,8 +601,8 @@
       "lastReported": "2026-10-01"
     },
     "firecrawl/firecrawl": {
-      "stars": 203381,
-      "lastReported": "2026-11-19"
+      "stars": 204520,
+      "lastReported": "2026-11-20"
     },
     "firecrawl/pdf-inspector": {
       "stars": 18586,
@@ -697,8 +697,8 @@
       "lastReported": "2026-10-25"
     },
     "google-labs-code/stitch-skills": {
-      "stars": 10202,
-      "lastReported": "2026-11-18"
+      "stars": 10813,
+      "lastReported": "2026-11-20"
     },
     "google-research/paper-orchestra": {
       "stars": 4555,
@@ -725,8 +725,8 @@
       "lastReported": "2026-11-16"
     },
     "Graphify-Labs/graphify": {
-      "stars": 149791,
-      "lastReported": "2026-11-18"
+      "stars": 150771,
+      "lastReported": "2026-11-20"
     },
     "handsomestWei/patent-disclosure-skill": {
       "stars": 6356,
@@ -757,12 +757,12 @@
       "lastReported": "2026-08-26"
     },
     "HKUDS/CLI-Anything": {
-      "stars": 60002,
-      "lastReported": "2026-11-19"
+      "stars": 60767,
+      "lastReported": "2026-11-20"
     },
     "HKUDS/DeepTutor": {
-      "stars": 60191,
-      "lastReported": "2026-11-18"
+      "stars": 60907,
+      "lastReported": "2026-11-20"
     },
     "HKUDS/LightRAG": {
       "stars": 40474,
@@ -773,8 +773,8 @@
       "lastReported": "2026-11-13"
     },
     "HKUDS/Vibe-Trading": {
-      "stars": 38030,
-      "lastReported": "2026-11-11"
+      "stars": 38568,
+      "lastReported": "2026-11-20"
     },
     "Hmbown/Codewhale": {
       "stars": 40906,
@@ -881,8 +881,8 @@
       "lastReported": "2026-09-14"
     },
     "jingyaogong/minimind": {
-      "stars": 66234,
-      "lastReported": "2026-11-18"
+      "stars": 67182,
+      "lastReported": "2026-11-20"
     },
     "jo-inc/camofox-browser": {
       "stars": 10614,
@@ -977,8 +977,8 @@
       "lastReported": "2026-11-17"
     },
     "langchain-ai/langgraph": {
-      "stars": 44673,
-      "lastReported": "2026-11-09"
+      "stars": 45173,
+      "lastReported": "2026-11-20"
     },
     "langchain4j/langchain4j": {
       "stars": 12952,
@@ -1188,6 +1188,10 @@
       "stars": 545,
       "lastReported": "2026-09-06"
     },
+    "mjmirza/app-store-compliance": {
+      "stars": 2111,
+      "lastReported": "2026-11-20"
+    },
     "mksglu/context-mode": {
       "stars": 29870,
       "lastReported": "2026-10-16"
@@ -1229,8 +1233,8 @@
       "lastReported": "2026-09-17"
     },
     "mvanhorn/last30days-skill": {
-      "stars": 70265,
-      "lastReported": "2026-11-19"
+      "stars": 70993,
+      "lastReported": "2026-11-20"
     },
     "mvschwarz/openrig": {
       "stars": 4422,
@@ -1267,6 +1271,10 @@
     "neuml/txtai": {
       "stars": 13407,
       "lastReported": "2026-11-16"
+    },
+    "nginx/nginx": {
+      "stars": 32408,
+      "lastReported": "2026-11-20"
     },
     "nightly-labs/openbot": {
       "stars": 3990,
@@ -1325,8 +1333,8 @@
       "lastReported": "2026-09-30"
     },
     "obra/superpowers": {
-      "stars": 321489,
-      "lastReported": "2026-11-19"
+      "stars": 322291,
+      "lastReported": "2026-11-20"
     },
     "oceanbase/oceanbase": {
       "stars": 10255,
@@ -1345,8 +1353,8 @@
       "lastReported": "2026-09-24"
     },
     "open-webui/open-webui": {
-      "stars": 158600,
-      "lastReported": "2026-11-14"
+      "stars": 159121,
+      "lastReported": "2026-11-20"
     },
     "openai/codex": {
       "stars": 118150,
@@ -1445,8 +1453,8 @@
       "lastReported": "2026-11-14"
     },
     "paperless-ngx/paperless-ngx": {
-      "stars": 46173,
-      "lastReported": "2026-09-30"
+      "stars": 48366,
+      "lastReported": "2026-11-20"
     },
     "paradedb/paradedb": {
       "stars": 9374,
@@ -1892,6 +1900,10 @@
       "stars": 1602,
       "lastReported": "2026-09-24"
     },
+    "toeverything/AFFiNE": {
+      "stars": 75325,
+      "lastReported": "2026-11-20"
+    },
     "togg53192-cmd/jailbreaks": {
       "stars": 13132,
       "lastReported": "2026-11-02"
@@ -1903,6 +1915,10 @@
     "topoteretes/cognee": {
       "stars": 33341,
       "lastReported": "2026-11-16"
+    },
+    "Tracer-Cloud/opensre": {
+      "stars": 13255,
+      "lastReported": "2026-11-20"
     },
     "tradermonty/claude-trading-skills": {
       "stars": 6568,
@@ -1937,8 +1953,8 @@
       "lastReported": "2026-11-17"
     },
     "unclecode/crawl4ai": {
-      "stars": 87071,
-      "lastReported": "2026-11-08"
+      "stars": 87579,
+      "lastReported": "2026-11-20"
     },
     "Usagi-org/ai-goofish-monitor": {
       "stars": 17853,
@@ -2052,6 +2068,10 @@
       "stars": 18645,
       "lastReported": "2026-10-29"
     },
+    "XiaoYouChR/Ghost-Downloader-3": {
+      "stars": 13058,
+      "lastReported": "2026-11-20"
+    },
     "xtool-org/xtool": {
       "stars": 11035,
       "lastReported": "2026-10-15"
@@ -2093,8 +2113,8 @@
       "lastReported": "2026-10-30"
     },
     "zhouxiaoka/autoclip": {
-      "stars": 8389,
-      "lastReported": "2026-09-22"
+      "stars": 11574,
+      "lastReported": "2026-11-20"
     },
     "ZhuLinsen/daily_stock_analysis": {
       "stars": 73173,

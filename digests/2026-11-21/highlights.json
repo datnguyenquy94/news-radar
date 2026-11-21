@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex v0.173.x Alpha releases with infrastructure hardening",
+      "Claude Code v2.1.330 released with 'easel' mod and bug fixes",
+      "Gemini CLI v0.71.0-nightly with Windows path & session fixes",
+      "Qwen Code active maintenance with 9 merged PRs",
+      "Cross-tool trend: battle between 'stealth' auto-updates and user workflow stability",
+      "DeepSeek TUI prioritizes execution security and TUI stability"
+    ],
+    "ai-agents": [
+      "OpenClaw merged/closed 173 PRs today in intense maintenance cycle",
+      "No new releases published; focus on 2026.11.5/11.6 beta stabilization",
+      "Gateway admission PR #202513 refactors requester handling",
+      "Community tracking 327 open PRs awaiting review",
+      "Significant activity on migration bugs and plugin stability",
+      "Project currently at 141 open issues and high PR throughput"
+    ],
+    "ai-trending": [
+      "elementalsouls/Claude-BugHunter surged +1,622 new stars as top trending repo",
+      "jingyaogong/minimind trains 64M parameter LLM from scratch in two hours",
+      "firecrawl continues strong momentum in AI infrastructure sector",
+      "Top frameworks and agents dominating trending landscape",
+      "Strong focus on AI security and external attack matrices",
+      "Infra projects like Claude-BugHunter gaining significant traction"
+    ],
+    "ai-web": [
+      "Anthropic IPO raised ~$93.5B at $965B post-money valuation",
+      "Anthropic research: LLMs produce formal proofs at assembly-code scale",
+      "OpenAI reemerges after month gap with Medchembench benchmark",
+      "Anthropic's largest AI sector financing in history",
+      "Formal verification research reshaping software security",
+      "Strategic pivot toward scientific AI applications"
+    ],
+    "ai-hn": [
+      "Language Models Can Rewrite Their Own Weights sparks safety debate",
+      "Microsoft Ignite showcases seven new models with improved price-performance",
+      "Claude claimed to solve two open problems in black hole physics",
+      "Google Gemini 4 Neon release dominating discussions",
+      "Community sentiment balances excitement with commercialization caution",
+      "Technical discussions cover weight-space programming and physics"
+    ],
+    "ai-arxiv": [
+      "Verify the Verifier and Active Feature Acquisition address LLM trust and cost",
+      "Awaken-HI and Depth Pro 2 advance robotics and vision models",
+      "TideCache and Asuka-FM push efficient serving on constrained hardware",
+      "Strong push toward efficient serving and hybrid architectures",
+      "Papers focus on verification of model outputs and trust",
+      "Maturing field deploying capable models on constrained hardware"
+    ],
+    "ai-hf": [
+      "Qwen/Qwen3.8-27B remains powerhouse with 6.4M+ downloads",
+      "unsloth/Qwen3.8-27B-GGUF showcases demand for efficient quantized inference",
+      "Lightricks/LTX-2.5 leads image-to-video generation space",
+      "Zyphra/ZONOS3-Mini represents evolving text-to-speech landscape",
+      "Surge in 'abliterated' and uncensored model variants observed",
+      "Community-driven modifications of base models trending"
+    ],
+    "ai-community": [
+      "Practical experimentation on integrating autonomous agents into workflows",
+      "Debate on reliability of 'agentic' engineering vs traditional development",
+      "Focus on local models and security, testing vision model limits",
+      "Tools being built to detect AI-generated scams",
+      "Microsoft and Anthropic updates shaping infrastructure layer",
+      "Shift from demos to stable, rate-limited compute resources"
+    ],
+    "fin-macro": [
+      "Fed holds rates at 3.88% with 'higher for longer' stance",
+      "Core PCE decelerated to 3.1% while headline CPI remains 4.1%",
+      "10Y Treasury Yield at 5.04%, 10Y-2Y spread at 0.29%",
+      "VIX at 28.44 indicating elevated market fear",
+      "FINRA Margin Debt down 2.1% MoM showing deleveraging",
+      "WTI Crude at $89.53/bbl indicating inflation pressure"
+    ],
+    "fin-vnmacro": [
+      "VN-Index edged lower extending five-session decline to -2.70%",
+      "Turnover HOSE+HNX at ~22.6 trillion VND with foreign net selling",
+      "USD/VND at 25,980 depreciating 1.56% YTD",
+      "US 10Y Treasury Yield at 5.04% offering mild relief",
+      "Gold retreated sharply -4.62% daily, -12.29% 20-day",
+      "Brent Crude at $92.57/bbl with moderate daily gain"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral stance with refinancing rate at 4.50% unchanged 1344 days",
+      "Interbank market highly liquid with overnight rate at 4.68%",
+      "Policy ceiling at 4.50%, floor at 3.00% for 1344 days",
+      "Overnight rate trading consistently below ceiling",
+      "Recent downshift in 1M and 3M tenors observed",
+      "Liquidity surplus allowing rates to drift toward floor"
+    ]
+  }
+}

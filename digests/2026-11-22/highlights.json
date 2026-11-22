@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenCode hit 14 new issues with 9 new PRs, No new releases",
+      "Qwen Code released v0.28.3-nightly with 10 new issues and 10 PRs",
+      "Gemini CLI v0.71.0-nightly.20261122 released with 10 new issues and 9 PRs",
+      "DeepSeek TUI at 0.10.3 RC with 10 new issues and 10 PRs",
+      "GitHub Copilot CLI continues polarizing between stability fixes and feature expansion",
+      "Claude Code dominated with 10 new issues and major PR #41447 activity"
+    ],
+    "ai-agents": [
+      "OpenClaw merged 204 PRs today, indicating robust contribution pipeline",
+      "No new releases published; latest stable is v2026.11.6",
+      "PR #202801 fixes WAL journal mode restoration after database rollback",
+      "PR #201631 resolves gateway spawn broker restart failure",
+      "Issue queue dominated by P1/P2 stability bugs on gateway lifecycle",
+      "Memory leaks and session state corruption are critical current concerns"
+    ],
+    "ai-trending": [
+      "Firecrawl leads with +1,006 stars today, highest single-day surge",
+      "OpenVINO grows +200 stars as go-to C++ toolkit for optimized inference",
+      "Elementalsouls/Claude-BugHunter signals maturing red-teaming ecosystem",
+      "Google Labs/stitch-skills underscores shift to modular agent skill libraries",
+      " Obra's superpowers and CLI-Anything dominate agent frameworks category",
+      "Ghost-Downloader-3 and autoclip lead specialized application trend"
+    ],
+    "ai-hn": [
+      "LLMs can read and write executable bytecode by byte level discovered",
+      "Frostbite CPU architecture designed entirely by AI unveiled",
+      "Gemini 4 Neon introduced by Google showing hardware efficiency progress",
+      "Nasdaq sell-off linked to Anthropic's IPO dominated financial discussions",
+      "Data Processing Incidents on inference providers raised reliability concerns",
+      "Seven new Microsoft models at scalable price-performance showcased"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads with 20k+ likes and 6.3M downloads",
+      "unsloth Qwen3.8-27B-GGUF achieves 7.5M downloads, top GGUF quantization",
+      "Lightricks/LTX-2.5 continues leading multimedia generation with 3M downloads",
+      "Facebook SAM3 maintains strong computer vision momentum at 1.85M downloads",
+      "Inkling-2 series Mini and Small variants crack top 30 trending models",
+      "Community fine-tunes of Qwen3 models show surge in 'uncensored' experiments"
+    ],
+    "ai-community": [
+      "MCP (Model Context Protocol) security and tool selection under heavy scrutiny",
+      "Developers debating costs of long-running sessions and token usage caps",
+      "Community pivot toward practical engineering and reliability concerns",
+      "I Made My RAG Safer. It Got Worse Under Load highlights safety-performance trade-offs",
+      "New VS Code extension turns free chatbot sites into agents directly from editor",
+      "Beyond Aurora: Su... (title truncated in source)"
+    ],
+    "fin-macro": [
+      "Fed Funds rate steadies at 3.88% with 10Y Treasury at 5.04%",
+      "VIX Volatility Index spikes to 28.44, reflecting elevated market fear",
+      "10Y-2Y yield spread slightly positive at 0.29%",
+      "High-Yield Credit Spread stable at 3.52%",
+      "WTI Crude Oil at 89.53 $/bbl, Brent at 92.94 $/bbl",
+      "Nonfarm Payrolls MoM +165K, showing strong job growth"
+    ],
+    "fin-vnmacro": [
+      "VN-Index dipped 0.00%, extending five-session decline to -2.70%",
+      "Total FDI disbursements surged 13.1% YoY to $24.08 billion through October",
+      "USD/VND spot rate edged higher to 25,980, Dong weaker against USD",
+      "VN30 futures basis at -6.64 points, indicating mildly negative carry",
+      "Ten-month trade balance shifted to $12.07 billion deficit",
+      "Macro backdrop remains supportive but not yet trigger-happy for risk-on swing"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy stance with 4.50% refinancing rate",
+      "Overnight interbank rate at 4.68% sits modestly above refinancing ceiling",
+      "Policy-reality gap narrow at +0.18pp, limiting easing effectiveness",
+      "Qua đêm interbank rate +0.21pp change, slightly elevated and balanced",
+      "2 Tuần rate firming trend at 5.33% with +0.02pp change",
+      "6 Month onward rates show steep curve with 3 Month at 7.85%"
+    ]
+  }
+}

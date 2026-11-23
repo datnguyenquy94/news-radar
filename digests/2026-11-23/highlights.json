@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex maintains 10 hot issues with 10 key PRs merged",
+      "Gemini CLI v0.71.0 nightly release adds new capabilities",
+      "Claude Code shows 10 hot issues with 1 key PR pending",
+      "GitHub Copilot CLI v1.0.115-7 released with stability fixes",
+      "Kimi Code CLI shows zero activity in latest digest",
+      "Qwen Code and Grok Build round out 10-tool ecosystem"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.11.7 released with conversation recovery features",
+      "500 PRs merged or closed in last 24 hours across OpenClaw projects",
+      "IronClaw and PicoClaw among 12 projects in rapid development",
+      "Web-ui and plugin-sdk areas seeing highest activity velocity",
+      "98 open issues flagged as needing maintainer review",
+      "Stability regressions addressed across Windows, macOS, and Linux"
+    ],
+    "ai-trending": [
+      "Minimind gains +1,170 stars since Nov 21 for LLM training democratization",
+      "ECC appears in both AI Agents and Infrastructure categories",
+      "Firecrawl featured in both Agents and Infrastructure categories",
+      "Agent-Reach and CLI-Anything highlighted for web search/social scraping",
+      "Ponytail recognized as code generation agent assistant",
+      "RAGflow noted as agent-native RAG database"
+    ],
+    "ai-web": [
+      "OpenAI published two metadata entries on 'Perplexity And Intelligence'",
+      "Anthropic shows no new content, maintaining steady publishing rhythm",
+      "OpenAI metadata suggests potential scheduling cycle or pending migration",
+      "Anthropic historically focuses on model alignment and safety case studies",
+      "No articles indexed from anthropic.com or claude.com today",
+      "OpenAI's consistent slug republishing warrants attention"
+    ],
+    "ai-hn": [
+      "87% of Anthropic's power will come from gas and 11% from coal by 2028",
+      "Inkling 2 Mini released with positive community reaction for edge deployment",
+      "Claude solves two open problems in black hole physics demonstrating advanced reasoning",
+      "Google's Gemini 4 Neon becomes highest-scoring HN post with 775 comments",
+      "Muru for Python integration and Inkling 2 Mini highlight accessibility focus",
+      "Community intense debate about AI's energy footprint"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads trending models with 20,952 likes and 6.3M downloads",
+      "unsloth Qwen3.8-27B-GGUF bridges performance and edge deployability",
+      "Inkling-2 family from thinkingmachines gains traction as multimodal option",
+      "LTX-2.5 remains powerhouse in video generation space",
+      "Specialized uncensored and abliterated variants highlight fine-tuning ecosystem",
+      "Lightricks' LTX-2.5 sustains sustained demand for efficient text-to-video"
+    ],
+    "ai-community": [
+      "Dominant theme tension between automation and human oversight in AI agents",
+      "Articles warn against blindly trusting AI outputs and outputs",
+      "Significant discussion around practical costs and tokenization of running agents",
+      "Technical challenges of deploying LLMs on local devices highlighted",
+      "Lobste.rs users digging into foundational research and new paradigms",
+      "Community moving from hype toward architecture and efficiency"
+    ],
+    "fin-macro": [
+      "Fed Funds rate steady at 3.88% maintaining restrictive bias",
+      "Core PCE at 3.1% YoY and Core CPI at 2.9% YoY above 2.0% target",
+      "VIX at 28.44 and HY OAS at 3.52% suggest elevated volatility",
+      "10Y Treasury Yield at 5.04% highly restrictive level",
+      "HY Credit Spread at 3.52% elevated level indicating risk assets pressure",
+      "WTI Crude at 89.53 $/bbl and Brent at 92.94 $/bbl showing inflation pressure"
+    ],
+    "fin-vnmacro": [
+      "VN-Index at 1,688.79 with no change but -2.70% over five-day horizon",
+      "Turnover on HOSE and HNX remains thin awaiting foreign participation clarity",
+      "USD/VND stable with YTD depreciation below 3-4% threshold",
+      "US Dollar Index at 103.63 adding pressure on dong",
+      "SBV FX reserves at $85.58bn providing backstop but data-dependent outlook",
+      "US 10Y Treasury Yield at 5.04% relieving some FX pressure"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy stance with refinancing rate at 4.50%",
+      "Overnight interbank rate at 4.68% sitting slightly above refinancing ceiling",
+      "Liquidity status balanced with rate near policy ceiling boundary",
+      "Narrow policy-reality gap limits SBV capacity to ease policy",
+      "1 Week rate at 4.80% and 2 Week at 5.33% showing steady rising trend",
+      "3 Month rate at 7.85% with steep curve formation"
+    ]
+  }
+}

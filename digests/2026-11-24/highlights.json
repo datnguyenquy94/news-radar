@@ -1,0 +1,84 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.331 released with critical privacy bug under investigation",
+      "OpenAI Codex v0.174.0-alpha.1 released with thread links and tab-completion",
+      "Gemini CLI shows strong engineering focus on agent reliability and release pipeline integrity",
+      "OpenCode dominates in raw activity and feature breadth targeting power users",
+      "All tools intensely focus on 'state management' as primary barrier to daily driver adoption",
+      "Kimi Code CLI and Qwen Code show engineering focus on release pipelines and agent reliability"
+    ],
+    "ai-agents": [
+      "OpenClaw ships two new beta releases today focusing on recovery reliability and background work preservation",
+      "v2026.11.10-beta.3 highlights 'Update recovery' enhancements keeping interrupted updates recoverable",
+      "v2026.11.10-beta.2 focuses on 'Reliable delegated work' preserving finished background commands after crashes",
+      "Despite 500 PRs and 169 issues updated, critical bugs and session-state regressions dominate open issues",
+      "OpenClaw maintains intense development velocity with high merge volume following recent feature expansions",
+      "Both releases are beta quality with no explicit breaking-change notes, indicating incremental stabilization"
+    ],
+    "ai-trending": [
+      "firecrawl/firecrawl leads AI Infrastructure with +1,025 stars since yesterday for agent knowledge access",
+      "obra/superpowers leads AI Agents/Workflows with +1,056 stars gaining traction as skills framework",
+      "affaan-m/ECC shows +635 stars as agent harness performance optimization system for multiple tools",
+      "headroomlabs-ai/headroom compresses tool outputs with 20% fewer tokens for coding agents",
+      "Tracer-Cloud/opensre shows +885 stars as open-source agent for CI/CD reliability",
+      "cathrynlavery/diagram-design gains +831 stars with 52 diagram types for multiple coding tools"
+    ],
+    "ai-web": [
+      "Anthropic's Alignment, Interpretability, and Working with AI teams all publish new material simultaneously",
+      "Working with AI report synthesizes findings from 66 interviews with 58 enterprise customers on AI adoption",
+      "Anthropic confirms companies deploying AI across 'dizzying range of knowledge work tasks' with coding agents enabling nontechnical roles",
+      "Data reveals very few examples of domestic layoffs driven by AI automation despite AI deployment",
+      "Alignment team publishes on unintended model actions while Interpretability works on natural language autoencoders",
+      "OpenAI presents no new content maintaining incremental update pattern established in tracking cycle"
+    ],
+    "ai-hn": [
+      "Inkling 2 Mini release generates significant buzz showcasing strong performance in efficient language models",
+      "Claude demonstrates advanced reasoning by solving two open problems in black hole physics",
+      "Analysis suggests AI is already accelerating its own research development with low community engagement",
+      "Progress map for Lean formalization of Alessandro Masullo's manuscript shows significant advancement",
+      "Community divided between excitement for research breakthroughs and concern over infrastructure and safety",
+      "Strong undercurrent of skepticism regarding practical limits of current agentic systems"
+    ],
+    "ai-arxiv": [
+      "Precision-Aware Learning Rate Transfer explores transferring learning rates across varying block counts in LLMs",
+      "Attention Temperature Confounds Zero-Shot Context Extension analyzes how temperature impacts model generalization",
+      "Orthogonally Mixed Sign Coding with Progressive Residual Refinement targets Transformer weight compression",
+      "Papers focus on architectural efficiency and verification beyond simple parameter count increases",
+      "Trend moves toward structural optimization to reduce computational costs without sacrificing reasoning",
+      "Significant emphasis on grounding and attribution with works on Co-Graft for RL gains and leaky auditing"
+    ],
+    "ai-hf": [
+      "Qwen/Qwen3.8-27B leads trending models with 6.1M downloads establishing benchmark for conversational AI",
+      "unsloth/Qwen3.8-27B-GGUF shows 7.8M downloads driving quantization trend for local inference",
+      "thinkingmachines/Inkling-2-Mini gains traction as capable image-text-to-text model with efficient architecture",
+      "Apple's DepthPro2 for monocular depth and NVIDIA's Nemotron-3.5-Bolt for text generation push specialized foundations",
+      "Multiple GGUF adaptations of Qwen3.8-27B and Qwen-Image rank highly indicating demand for efficient inference",
+      "Inkling-2-Small variant attracting significant community attention alongside the Mini version"
+    ],
+    "ai-community": [
+      "Dominant theme is evolution of agents from simple task executors to complex orchestrators managing tools and pipelines",
+      "Significant focus on reliability and 'hallucination' risks of large context windows and price-to-performance trade-offs",
+      "Surge in practical tutorials for building local assistants and managing MCP gateways across Dev.to and Lobste.rs",
+      "Developers focused on testing, auditing, and 'locking down' AI behavior rather than just chasing larger models",
+      "8 Best MCP Gateways article highlights scaling challenges beyond connecting single agents",
+      "Parallel tool calling in agents discussed with acknowledgment of dependency management complexity"
+    ],
+    "fin-macro": [
+      "Fed Balance Sheet contracting slightly to $6.74T while Fed Funds Rate holds at 3.88% maintaining neutral stance",
+      "Core PCE at 3.1% YoY and Core CPI at 2.9% YoY well above Fed's 2.0% target indicating sticky inflation",
+      "10Y Treasury yield dips to 4.92% flattening 10Y-2Y spread to 0.29% suggesting neutral credit conditions",
+      "VIX spikes to 35.89 signaling extreme fear and deteriorating risk sentiment in markets",
+      "High-Yield Credit Spread widens to 3.76% indicating elevated credit risk in current environment",
+      "WTI Crude at $89.53 and Brent at $92.94 show inflation pressure keeping commodities elevated"
+    ],
+    "fin-vnmacro": [
+      "VN-Index edges up 0.50% to 1,697.14 extending year-to-date resilience despite recent pullback",
+      "USD/VND rate holds at 25,990/25,610 with modest 1-month depreciation keeping dong within stable band",
+      "SBV's FX reserves of $85.58bn provide credible backstop against external environment pressure",
+      "10-year US Treasury at 4.92% and Brent crude at $86.36 present mixed pressure on external environment",
+      "Implication suggests equities may remain range-bound unless foreign net buying resumes decisively",
+      "SBV signals of policy pivot could determine whether rally sustains or falters"
+    ]
+  }
+}

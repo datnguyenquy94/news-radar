@@ -1,0 +1,76 @@
+{
+  "en": {
+    "ai-cli": [
+      "Claude Code v2.1.332 released with MCP Skills and Hook integration",
+      "OpenAI Codex Alpha series v0.174.x with ~10 new issues daily",
+      "Gemini CLI reports 3 merged PRs with no new release this cycle",
+      "Cross-tool comparison shows industry shift toward MCP modular integration",
+      "Major tools dominate mindshare while specialized TUI tools focus on niche workflows",
+      "Tools targeting stability hardening with focus on macOS TCC and Windows UI"
+    ],
+    "ai-agents": [
+      "OpenClaw processed 500 new PRs with 250 merged and 250 remaining open",
+      "PR #205169 fixes Gateway restart after update rollback stability issue",
+      "v2026.11.10 release is stable candidate following 2026.11.8 and 2026.11.9 lines",
+      "Project maintains rapid iteration cycle with 2026.11.11 development in progress",
+      "High volume of activity indicates active development cycle despite 82 open issues",
+      "Focus on resolving critical rollback failures and session state corruption"
+    ],
+    "ai-trending": [
+      "firecrawl/firecrawl gains 991 stars today, reaching 209,261 total",
+      "openvinotoolkit/openvino shows +185 stars with 555 since Nov 22",
+      "ollama/ollama maintains momentum with +574 stars since Nov 18",
+      "Qwen3.8 variants dominate trending models leaderboard",
+      "Inkling-2 series from thinkingmachines strong in quantized variants",
+      "LTX-2.5 from Lightricks leads image-to-video generation surge"
+    ],
+    "ai-web": [
+      "OpenAI announces GPT-6 demonstrates intrinsic protein design capabilities",
+      "Anthropic publishes retrospective reports on unintended model actions",
+      "GPT-6 marks significant departure from pure language modeling into biotech",
+      "Anthropic focuses on foundational AI safety and alignment research",
+      "OpenAI positions at forefront of AI-accelerated scientific discovery",
+      "Anthropic content organized under 'Alignment' team blog catalog"
+    ],
+    "ai-hn": [
+      "OpenAI researchers claim matrix multiplication exponent is exactly 9/4",
+      "GPT-6 unveiled with surprising protein-design capabilities without fine-tuning",
+      "Community elated by rare theoretical win with LLM training cost implications",
+      "Commenters split between awe at emergent capability and skepticism",
+      "Tension between excitement over GPT-6 protein design and platform restrictions",
+      "Strong undercurrent of discussion about AI safety and corporate transparency"
+    ],
+    "ai-arxiv": [
+      "Draft Calibration for Speculative Decoding accelerates LLM serving efficiency",
+      "Shifter Quantization enables native integer computation in LLM models",
+      "Embodied AI Fails the Mirror Test reveals critical failure modes",
+      "OmniAct addresses policy transfer across different robot embodiments",
+      "CoT-Proxy introduces cross-format transfer for distilling long-horizon policies",
+      "LEGOSpec focuses on designing efficient speculative decoding frameworks"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B leads trending models with 21,742 likes and 6.1M downloads",
+      "Inkling-2-Mini strong in quantized and uncensored variants",
+      "LTX-2.5 from Lightricks leads image-to-video generation trend",
+      "Apple's DepthPro2 makes waves in depth estimation breakthrough",
+      "Specialized PEFT and GRPO adaptation of Qwen3.8 trending for efficiency",
+      "Strong community interest in open-weight alternatives continues"
+    ],
+    "ai-community": [
+      "Developers frustrated by tools changing schemas overnight or hallucinating notes",
+      "Strong practical focus on making AI coding agents productive without breaking CI/CD",
+      "Growing interest in local LLMs and privacy-preserving architectures",
+      "Posts about prompt engineering and observability to improve reliability",
+      "Building 'offline-first' or 'self-hosted' safeguards against schema changes",
+      "Building SyncNote app combining Turso Sync with Claude Code for on-device AI"
+    ],
+    "fin-macro": [
+      "Fed Funds rate holds at 3.88% with 'high rates for longer' dynamics",
+      "VIX volatility collapses 9.27 points to 26.62 indicating market calm",
+      "Core PCE at 3.1% and Core CPI at 2.9% suggesting disinflation stalled",
+      "Yield curve mildly positive at 0.28% preventing immediate recession flag",
+      "Risk assets showing resilience despite sticky inflation and moderate growth",
+      "Combination of sticky inflation and moderate growth implies choppy trajectory"
+    ]
+  }
+}

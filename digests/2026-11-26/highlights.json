@@ -1,0 +1,92 @@
+{
+  "en": {
+    "ai-cli": [
+      "GitHub Copilot CLI reaches v1.0.3 patch releases stabilizing terminal integration",
+      "Qwen Code consolidates recent releases with stateless session management refinements",
+      "OpenAI Codex announces 2 Alpha releases (rust-v0.174) improving provider expansion",
+      "Gemini CLI maintains focus on resolving production readiness bugs for cross-platform reliability",
+      "Claude Code shows 10 active issues reflecting ongoing session management refinements",
+      "Pi Mono consolidates architectural refinements for provider expansion"
+    ],
+    "ai-agents": [
+      "OpenClaw project shows extreme short-term volatility with 673 total updates in 24h",
+      "222 PRs merged or closed in last 24 hours indicating high fix throughput",
+      "v2026.10.34 released as gateway-only LTS-equivalent snapshot for core service stability",
+      "Issue queue dominated by severe memory instability and crash-loop scenarios",
+      "Release focuses on reliability rather than new feature velocity",
+      "Project in stabilization phase with critical issue backlog remaining"
+    ],
+    "ai-trending": [
+      "obra/superpowers emerges as agentic skills framework & software development methodology",
+      "HKUDS/CLI-Anything making ALL Software Agent-Native via a CLI-Hub",
+      "jingyaogong/minimind enables training your own 64M LLM from scratch in 2 hours",
+      "cathrynlavery/diagram-design provides editorial diagram design for major LLMs",
+      "zhouxiaoka/autoclip offers open-source AI video clipping & content repurposing",
+      "toeverything/AFFiNE presents next-gen knowledge base with privacy-first focus"
+    ],
+    "ai-web": [
+      "Anthropic migrates core Messages API to Rust for reliability in live system interactions",
+      "Shift signals industry maturation from rapid deployment toward infrastructure reliability",
+      "OpenAI had quiet day with no new published articles consolidating product suite",
+      "Anthropic's focus on verification and system migration highlights trusted execution",
+      "Migration motivated by 'generator–verifier gap' as Claude becomes more capable",
+      "Move serves as case study in risks/rewards of migrating to memory-safe languages"
+    ],
+    "ai-hn": [
+      "New paper claims matrix multiplication exponent is ω = 9/4 resolving theoretical computer science open problem",
+      "GPT-6 models demonstrate intrinsic protein-design capabilities marking biotech advancement",
+      "Anthropic's leaked IPO pricing sparks economic reality discussions in AI scaling",
+      "OpenAI's API usage caps spark conversation about accessibility and chip geopolitics",
+      "Community buzzes with excitement and skepticism over proof validity",
+      "Discussion debates implications for computing efficiency and safety considerations"
+    ],
+    "ai-arxiv": [
+      "Tokenisation is not in APX proves finding optimal tokenizer is NP-hard unless P=NP",
+      "The Linguistic Knowledge Benchmark addresses critical gap of low-resource languages in LLM training",
+      "Shift from general-purpose scaling to domain-specific optimization in foundation models",
+      "New frameworks for evaluating reasoning traces and detecting distribution shifts",
+      "Loop transformers and mixture-of-loops designs balance expressivity with computational cost",
+      "Applications in embodied AI and multi-modal reasoning grounded in rigorous benchmarks"
+    ],
+    "ai-hf": [
+      "Qwen/Qwen3.8-27B leads language models with 21,809 likes and 6M+ downloads",
+      "Inkling-2-Mini family accounts for three positions in top 30 trending models",
+      "LTX-2.5 leads image-to-video generation in visual domain",
+      "Qwen-Image 2.1 remains powerhouse for text-to-image tasks",
+      "Community highlights healthy mix of region-specific and uncensored adaptations",
+      "Qwen3.8-27B-pi-adapted utilizes async GRPO for parameter-efficient fine-tuning"
+    ],
+    "ai-community": [
+      "Strands Decider 2B tested as tool gate finding systems often 'bluffed' about tool capabilities",
+      "APIC performs AI inference entirely on-device for privacy-focused photo editing",
+      "AI vendors retire and upgrade LLMs on expiration dates changing user output",
+      "Developers demand more control over tooling amid 'silent upgrades'",
+      "Community focuses on safety and reliability in agent memory and tool usage",
+      "Examining structural limitations of current internet infrastructure for agents"
+    ],
+    "fin-macro": [
+      "US economy exhibits mix of sticky inflation and moderate growth with CPI at +4.1% YoY",
+      "Federal Reserve holds rates steady at 3.88% with balance sheet contracting slightly",
+      "Credit spreads widening modestly suggesting gradual policy normalization",
+      "VIX volatility index eased from recent peaks indicating muted risk appetite",
+      "10Y Treasury Yield at 4.91% remaining highly restrictive",
+      "High-yield credit spreads rising to 3.72% indicating market concerns"
+    ],
+    "fin-vnmacro": [
+      "VN-Index declined 0.60% extending five-day losses to -2.30% amid thin turnover",
+      "Foreign net flow data not provided but USD/VND depreciation stabilizes at -1.33% YTD",
+      "VN30F1M basis of -0.50% indicates modest local hedging pressure rather than capitulation",
+      "US Dollar Index at 103.70 with +1.63% 20-day rise suggesting rising pressure",
+      "Gold at $3,599/oz with -10.73% 20-day negative momentum indicating bearish trend",
+      "Brent Crude at $90.71/bbL with -21.04% 20-day decline pressuring core inflation"
+    ],
+    "fin-vnrates": [
+      "SBV maintains neutral policy stance holding refinancing rate at 4.50% since March 2023",
+      "Intermarket pricing indicates balanced liquidity with overnight rates slightly above policy floor",
+      "System flush with funds (95.9% turnover share) but rate transmission gap persists",
+      "Overnight rate consistently trades 15-45 basis points above refinancing rate",
+      "Month-end bias observed in 1-month tenor with +161.3% turnover increase",
+      "Curve steepening in 3-month tenor with +0.89pp shift across tenors"
+    ]
+  }
+}

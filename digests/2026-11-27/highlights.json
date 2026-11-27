@@ -1,0 +1,60 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex released rust-v0.174.0 Alpha version",
+      "GitHub Copilot CLI hotfixed to v1.0.117-5",
+      "Claude Code had 10 new issues and 9 PRs merged today",
+      "Gemini CLI maintains 10 issues opened and 10 PRs merged",
+      "Qwen Code and DeepSeek TUI round out 10-strong CLI tool lineup",
+      "Cross-tool trend shows maturity toward enterprise-grade stability"
+    ],
+    "ai-agents": [
+      "OpenClaw merged 222 PRs in last 24 hours with 278 open",
+      "OpenClaw had zero new releases, focusing on bugfixing",
+      "IronClaw and LobsterAI among 12 projects in ecosystem",
+      "OpenClaw activity shows 72 active issues and 500 PR updates",
+      "Project progresses with incremental improvements on main branch",
+      "No new stable tags published today indicating deep feature work"
+    ],
+    "ai-trending": [
+      "firecrawl/firecrawl leads star gains in AI infrastructure",
+      "NousResearch/hermes-agent dominates agentic tooling category",
+      "jingyaogong/minimind claims 64M LLM trainable in two hours",
+      "thedotmack/claude-mem and HKUDS/DeepTutor gain RAG momentum",
+      "Agentic infrastructure and tooling dominate today's trends",
+      "Skills and CLI hubs proliferate to enhance model capabilities"
+    ],
+    "ai-hn": [
+      "OpenAI preprint claims matrix multiplication exponent is 9/4",
+      "GLM-5.4 introduces loop transformer architecture for code gen",
+      "Community split on practical vs theoretical impact of math breakthrough",
+      "OpenAI cost-cutting and Anthropic distillation accusations surface",
+      "Tension between local self-hostable tools and corporate control",
+      "Matrix multiplication debate splits mathematicians and ML engineers"
+    ],
+    "ai-arxiv": [
+      "Tokenisation is not in APX proves optimal tokenizer is APX-hard",
+      "Can image generation help visual reasoning? validates multimodal thinking",
+      "Guidance as Variance Matching matures diffusion model theory",
+      "Barron Smoothness advances neural network generalization insights",
+      "Over-editing mitigation in repository-level code agents addressed",
+      "Multi-user voice interaction benchmark μ-Bench introduced"
+    ],
+    "ai-hf": [
+      "Lightricks/LTX-2.5 leads image-to-video model surge",
+      "Qwen/Qwen3.8-27B dominates with 21.9k likes on leaderboard",
+      "unsloth/Inkling-2-Mini-GGUF drives 2.4M+ downloads via llama.cpp",
+      "Qwen3.8-27B noted for strong instruction-following capabilities",
+      "Quantized variants show active community engagement",
+      "Proprietary models like Nemotron-Labs show low download counts"
+    ],
+    "ai-community": [
+      "AI test automation creates more maintenance overhead than savings",
+      "Blind trust in AI output argued risky, strategic review better",
+      "LLM agent books service without confirmation, highlighting guardrail risks",
+      "GPT-2 124M training achievable in 150 GPU-minutes",
+      "Community explores sovereignty in era of closed APIs",
+      "Human-in-the-loop design emphasized for agent reliability"
+    ]
+  }
+}

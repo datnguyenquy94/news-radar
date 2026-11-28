@@ -1,0 +1,52 @@
+{
+  "en": {
+    "ai-cli": [
+      "OpenAI Codex launches rust-v0.174.0-alpha.9 dev milestone",
+      "GitHub Copilot CLI v1.0.118 series patches released",
+      "Gemini CLI shows high issue volume but no new releases",
+      "Qwen Code handles 8 new issues with active PRs",
+      "OpenCode reports 13 new issues and 20 PRs activity",
+      "Claude Code maintains 10 hot issues daily"
+    ],
+    "ai-agents": [
+      "OpenClaw releases v2026.12.1-beta.1 as release candidate",
+      "OpenClaw stabilizes update paths and memory corruption bugs",
+      "High PR volume of 500 indicates intense technical debt cleanup",
+      "Project prepares for stable 2026.12.1 release tag",
+      "Git/Launches feature uses prepared releases and resident launcher",
+      "Prompt caching compaction reuses warm cache across routes"
+    ],
+    "ai-trending": [
+      "obra/superpowers and firecrawl/firecrawl surpass 800 new stars",
+      "elementalsouls/Claude-BugHunter uses Claude Code for red-teaming",
+      "Topic Search highlights surge in domain-specific agent optimization",
+      "AI momentum dominated by agentic frameworks and infrastructure tooling",
+      "Community focus on building reusable skill sets for autonomous agents",
+      "Growing intersection of AI security and development workflows"
+    ],
+    "ai-hn": [
+      "OpenAI preprint claims nine fourths exponent for matrix multiplication",
+      "Community debates practical implications for AI training inference",
+      "Hacker News divides between scientific breakthroughs and industry anxiety",
+      "Rumors of factoring breakthroughs spark security implications debate",
+      "Kimi AI announces science program for generating scientific ideas",
+      "Data-driven look at top-cited AI scientists at US companies"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B family dominates trending with 21,900+ likes",
+      "Inkling-2-Mini showcases strong MoE architecture community interest",
+      "LTX-2.5 leads generative space with 13,700 likes for image-to-video",
+      "Healthy mix of open-weight models and quantized distributions noted",
+      "Continued push for local, efficient inference alongside base models",
+      "Qwen3.5 architecture benefits from massive download volume"
+    ],
+    "ai-community": [
+      "Communities discuss deploying large models on constrained hardware like ESP32",
+      "Operational challenges of managing AI agents in production highlighted",
+      "Articles address parsing coding logs into invoices to avoid AI coding bills",
+      "Philosophical debates persist on AI consciousness and autonomy",
+      "Focus on cost management and formally verifiable languages",
+      "Sovereignty and safety in software development discussed"
+    ]
+  }
+}
